@@ -1,0 +1,610 @@
+Below is a **full, copy-paste dev spec** to build the Exercise system for V4 so it preserves the *old V4 “intro → guided → ah-ha → integration” journey* while staying **template-safe, modular, and enforceable**.
+
+---
+
+# DEV SPEC — V4 Exercise System (Canonical, Slot-Compatible, Template-Safe)
+
+## Goal
+
+Rebuild V4 exercise handling as a **first-class structured content subsystem** that:
+
+1. Preserves old V4 exercise structure:
+
+   * **intro → guided_practice → aha_noticing → integration**
+2. Supports persona/topic/location style without hardcoding proper nouns.
+3. Slots exercises into V4 chapter templates deterministically.
+4. Enforces quality via **lint + CI gates** (no resolution, no promises, no “bullet-point therapy”).
+5. Allows human-authored exercises + optional model-assisted repair, with explicit approval.
+
+**Non-goal:** auto-generating entire exercises from atoms without review.
+
+---
+
+# 1) Repo Layout
+
+## 1.1 Canonical locations
+
+```
+SOURCE_OF_TRUTH/
+  exercises_v4/
+    registry.yaml
+    packs/
+      <pack_id>/
+        _pack.yaml
+        exercises/
+          <exercise_id>.yaml
+    approved/
+      <persona>/
+        <topic>/
+          <exercise_id>.yaml
+    candidate/
+      <persona>/
+        <topic>/
+          <exercise_id>.yaml
+    _rejects/
+      <exercise_id>.log
+```
+
+### Notes
+
+* `packs/` = imported “legacy” / content-team collections (read-only-ish)
+* `candidate/` = mined/converted or newly written exercises awaiting approval
+* `approved/` = **ONLY runtime source** (like your approved_atoms pattern)
+* `registry.yaml` = global metadata, tag vocabulary, selection weights, slot rules
+
+---
+
+# 2) Exercise YAML Schema (Canonical)
+
+## 2.1 Exercise file: `SOURCE_OF_TRUTH/exercises_v4/approved/<persona>/<topic>/<exercise_id>.yaml`
+
+```yaml
+id: ex_<slug>
+version: 1
+status: active
+
+metadata:
+  title: "The 90-Second Reset"
+  persona: gen_alpha              # must exist in unified_personas
+  topic: anxiety                  # must exist in topic registry
+  intensity: gentle               # gentle | medium | strong
+  duration_seconds: 120
+  modalities: [breath, body_scan] # controlled vocabulary
+  contraindications: []           # optional free text
+  tags:
+    cadence_role: grounding       # grounding | activation | release | integration
+    chapter_position_ok: [mid, late]
+  language_level: "8th_grade"
+  locale_mode: "location_agnostic"  # location_agnostic | overlay_ready
+  placeholders_required: []         # e.g. ["{{social.hangout_spots}}"] if used
+
+content:
+  intro: |
+    <60–120 words, 2nd person, present tense, no fixing>
+  guided_practice: |
+    <stepwise, slow, embodied; may include counts; no promises>
+  aha_noticing: |
+    <“you might notice…”; insight without outcome>
+  integration: |
+    <soft close; open ending; no “you are healed now”>
+
+quality:
+  banned_phrases_checked: true
+  contains_no_resolution_language: true
+  second_person_present_tense: true
+  min_words_per_section:
+    intro: 60
+    guided_practice: 80
+    aha_noticing: 40
+    integration: 40
+
+approval:
+  status: approved               # candidate | approved | rejected
+  approved_by: "content_lead"
+  approved_at: "2026-02-10T00:00:00Z"
+  notes: ""
+```
+
+---
+
+# 3) Selection & Slotting Rules
+
+## 3.1 V4 template integration
+
+In V4, exercises are “blocks” that fill **exercise slots** (existing slot_07_practice or expanded).
+
+### Required interface
+
+Add an ExerciseResolver that returns an exercise block string (or structured sections) to assembly.
+
+#### Resolver inputs
+
+* `persona_id`
+* `topic_id`
+* `chapter_num`
+* `template_family`
+* `slot_id` (e.g. `slot_07_practice`)
+* `location_context` (optional, for overlay hydration)
+* `seed` (book_id deterministic seed)
+* `constraints` (intensity, duration max, modality include/exclude)
+
+#### Resolver output
+
+* selected `exercise_id`
+* rendered `content` (with placeholders intact OR hydrated depending on stage)
+
+---
+
+## 3.2 Deterministic choice algorithm (must)
+
+**No randomness without seed.** Use book_id + chapter + slot for stable selection.
+
+Pseudo:
+
+1. Filter approved exercises by persona/topic.
+2. Apply template-family filters (e.g. grief disallows auto-promote, but selection still allowed).
+3. Apply constraints (intensity, modalities, duration).
+4. Enforce **no adjacent reuse** across chapters.
+5. Choose deterministically:
+
+   * `hash(book_id + chapter_num + slot_id) % len(pool)`
+
+Add rotation behavior:
+
+* Prefer exercises not used in previous N chapters.
+
+---
+
+## 3.3 Slot policies
+
+Add `docs/EXERCISE_SLOT_POLICY.yaml`:
+
+```yaml
+slot_07_practice:
+  required: true
+  allowed_modalities: [breath, body_scan, grounding, visualization, journaling]
+  allowed_intensity: [gentle, medium]
+  max_duration_seconds: 240
+  cadence_role: [grounding, release, integration]
+```
+
+Templates can override:
+
+```yaml
+template_overrides:
+  bestseller_v2_1:
+    slot_07_practice:
+      allowed_intensity: [gentle]
+      cadence_role: [grounding]
+```
+
+---
+
+# 4) Lint + Quality Gates (Hard)
+
+## 4.1 Lint checks (exercise-level)
+
+Create: `tools/exercise_lint/lint_exercise.py`
+
+Outputs:
+
+```py
+class LintResult:
+  passed: bool
+  errors: list[str]
+  warnings: list[str]
+```
+
+### Required checks
+
+1. **Schema validity**
+
+   * required keys present
+   * correct persona/topic ids exist
+2. **Structure**
+
+   * all 4 sections non-empty
+   * min word counts per section (configurable)
+3. **Voice**
+
+   * second-person dominant (“you”)
+   * present tense heuristic
+4. **No resolution / no cure**
+
+   * classifier/regex for “you will feel better / this will heal / you are cured”
+   * disallow “fixed, cured, healed” in closing claims
+5. **No unsafe therapy claims**
+
+   * no medical guarantees
+6. **Cadence**
+
+   * intro cannot jump immediately to steps without emotional safety line
+   * integration cannot “wrap it up” with a conclusion statement
+7. **Placeholder integrity**
+
+   * if placeholders exist, must be from allowed location overlay schema
+8. **Style blacklist**
+
+   * forbid toxic positivity, shame language, “just…”
+
+### Reject logging
+
+Write:
+
+* `SOURCE_OF_TRUTH/exercises_v4/_rejects/<exercise_id>.log`
+* include errors + offending text snippet
+
+---
+
+## 4.2 CI Gate: only approved used at runtime
+
+Create: `tools/ci/check_approved_exercises_status.py`
+
+Rules:
+
+* Fail if any `SOURCE_OF_TRUTH/exercises_v4/approved/**/*.yaml` has `approval.status != approved`
+* Fail if runtime code loads from `candidate/` or `packs/`
+
+Also add:
+
+* “no direct pack usage” check similar to your “no human_seeds reference” logic.
+
+---
+
+# 5) Importing Old V4 Exercises (Conversion Pipeline)
+
+You said: “I have the exercise files.” Assume they’re legacy JSON/MD.
+
+## 5.1 Import tool
+
+Create:
+`tools/exercise_import/import_legacy_exercises.py`
+
+CLI:
+
+```bash
+PYTHONPATH=. python3 tools/exercise_import/import_legacy_exercises.py \
+  --input /path/to/legacy_exercises \
+  --output SOURCE_OF_TRUTH/exercises_v4/candidate \
+  --persona gen_alpha \
+  --topic anxiety \
+  --pack-id legacy_v4_batch_01
+```
+
+Behavior:
+
+* Detect format (json/md)
+* Map sections into canonical 4-section structure:
+
+  * if legacy had more subparts, collapse safely:
+
+    * “setup” → intro
+    * “steps” → guided_practice
+    * “reflection / noticing” → aha_noticing
+    * “close / next step” → integration
+* Insert `approval.status=candidate`
+* Run lint
+
+  * if pass: write to candidate
+  * if fail: write reject log + still write candidate with `status=candidate`?
+    **No** — better: only write candidate if it passes structural validity; otherwise reject.
+
+---
+
+# 6) Approval CLI (Tiny Tool)
+
+Create: `tools/exercise_approval/exercise_approve.py`
+
+### Commands
+
+```bash
+# approve one
+python3 tools/exercise_approval/exercise_approve.py approve \
+  --id ex_90_second_reset \
+  --by "olya" \
+  --note "Fits gen_alpha anxiety; strong intro"
+
+# reject one (moves to _rejects, sets status)
+python3 tools/exercise_approval/exercise_approve.py reject \
+  --id ex_x \
+  --by "olya" \
+  --note "Too outcome-y in integration"
+
+# auto-promote (batch) with safeguards
+python3 tools/exercise_approval/exercise_approve.py auto-promote \
+  --persona gen_alpha \
+  --topic anxiety \
+  --min-score 0.9 \
+  --max-count 50
+```
+
+### Where does score come from?
+
+If you already have template_eval scoring, add `exercise_eval` OR keep auto-promote purely lint + heuristic:
+
+* “auto-promote only if lint passes + zero warnings + cadence ok”
+* optionally require a “golden exemplar similarity” score later
+
+---
+
+# 7) Rule: Families that must NEVER auto-promote
+
+Add:
+`docs/NO_AUTO_PROMOTE_FAMILIES.yaml`
+
+```yaml
+never_auto_promote:
+  - grief_pack
+  - trauma_sensitive
+  - crisis_support
+```
+
+Enforce in approval CLI:
+
+* `auto-promote` hard fails if target family is in never list
+* manual approve allowed always
+
+Also enforce in CI? Not necessary—this is workflow policy, not runtime.
+
+---
+
+# 8) Runtime Integration in V4 Assembly
+
+## 8.1 Where to plug it
+
+Wherever V4 currently injects exercises (likely slot_07_practice), modify:
+
+* `phoenix_v4/assembler/...` or section loader
+* Add `ExerciseResolver` call when slot is an exercise slot.
+
+### Required contract
+
+* slot returns a single block string OR returns structured sections that assembler concatenates with separators.
+
+Suggested render format (simple):
+
+```
+[EXERCISE_INTRO]
+...
+[EXERCISE_PRACTICE]
+...
+[EXERCISE_AHA]
+...
+[EXERCISE_INTEGRATION]
+...
+```
+
+Or keep invisible markers and strip later.
+
+## 8.2 Location overlays
+
+Exercises should be **overlay-ready**, not hardcoded.
+
+If exercises use location cues, require placeholders like:
+
+* `{{social.hangout_spots}}`
+* `{{transit.commute_style}}`
+
+Hydration stage:
+
+* If your plan has `location_context`, hydrate via existing `location_hydrator_v4`.
+* If no location_context, leave placeholders unresolved (lint should allow unresolved placeholders).
+
+---
+
+# 9) Test Plan (Must)
+
+## 9.1 Unit tests
+
+Create:
+
+* `tests/test_exercise_lint.py`
+
+  * rejects resolution language
+  * rejects missing sections
+  * enforces word counts
+  * placeholder validation
+* `tests/test_exercise_resolver.py`
+
+  * deterministic choice
+  * no adjacent reuse
+  * constraint filtering works
+
+## 9.2 Integration test
+
+Add a test plan like:
+`phoenix_v4/plans/test_exercises.yaml`
+
+* 2 chapters
+* fixed persona/topic
+* uses slot_07_practice
+* asserts assembled output contains all 4 section markers
+
+CI command:
+
+```bash
+PYTHONPATH=. pytest -q
+PYTHONPATH=. python3 tools/ci/check_approved_exercises_status.py
+```
+
+---
+
+# 10) “As good or better than old V4” enforcement
+
+To avoid “therapeutic bullet points” drift:
+
+## 10.1 Add an Exercise Cadence Score (simple)
+
+Add in `tools/template_eval/` (or new eval):
+
+* measure:
+
+  * intro has ≥1 validation phrase pattern (“it makes sense”, “your system”, “of course”)
+  * guided_practice has ≥3 imperatives (“notice, soften, let, feel”)
+  * aha_noticing has ≥1 “you might notice”
+  * integration ends open (no “now you are…”)
+
+Gate in CI for approved exercises:
+
+* must pass lint
+* must pass cadence heuristics
+* no QA violations
+
+---
+
+# 11) Dev Deliverables Checklist
+
+Dev is done when:
+
+1. ✅ Schema + directories exist (`exercises_v4/…`)
+2. ✅ Linter exists and is enforced for candidate → approved workflow
+3. ✅ CI gate blocks non-approved exercises in `approved/`
+4. ✅ Approval CLI works (approve/reject/auto-promote) with never-auto families rule
+5. ✅ Resolver selects deterministic exercises per slot with no adjacent reuse
+6. ✅ Assembler injects exercise into slot_07_practice with 4-section integrity
+7. ✅ Import tool converts legacy exercises into candidate format
+8. ✅ Tests pass and a sample plan assembles cleanly
+
+---
+
+# What you should tell your senior devs (copy-paste)
+
+> Build V4 Exercises as a first-class subsystem.
+> Use canonical YAML exercises with 4 required sections: intro → guided_practice → aha_noticing → integration.
+> Only `SOURCE_OF_TRUTH/exercises_v4/approved/**` is runtime. Candidate and packs are non-runtime.
+> Add lint + CI gates (no resolution language, no promises, section min word counts, second person).
+> Add deterministic ExerciseResolver to fill exercise slots (slot_07_practice) with no adjacent reuse.
+> Add tiny approval CLI (approve/reject/auto-promote) with a config list of families that NEVER auto-promote (e.g., grief).
+> Provide an import tool to convert legacy exercise files into canonical candidate YAML, then human approval promotes to approved.
+
+---
+
+If you upload the actual legacy exercise files you still have (even a small sample), I can also give you:
+
+* the exact import mapping rules for *your* formats
+* a starter `registry.yaml`
+* and a prebuilt “minimum viable approved set” structure for your top personas/topics.
+
+**Yes — give the zip to the devs, *with very specific instructions*.**
+The zip is valuable, but **only if you frame it correctly** so it doesn’t accidentally derail V4.
+
+Here’s exactly how to do it.
+
+---
+
+## What to give the devs
+
+### 1️⃣ Give them **both**:
+
+* ✅ **The zip** (human seeds + manifests)
+* ✅ **The V4 spec** (systems doc + exercise spec you now have)
+
+**Never give the zip alone.**
+
+---
+
+## How to frame the zip (this part matters)
+
+Tell them **verbatim** (you can copy-paste this):
+
+> This zip contains **human-written seed material** from the old system.
+>
+> These files are **read-only truth sources**.
+>
+> They are **NOT runtime inputs** and **must never be slotted directly into templates or books**.
+>
+> The only permitted use is:
+>
+> * semantic mining into role-pure V4 atoms
+> * human approval
+> * runtime assembly from approved atoms only
+>
+> If any code reads `pf_*.json` at runtime, that is a hard failure.
+
+That single paragraph prevents 90% of possible mistakes.
+
+---
+
+## Where devs should put the zip
+
+In the rebuilt repo:
+
+```
+SOURCE_OF_TRUTH/
+  human_seeds/
+    valley_gen_alpha/
+      CONTENT_TEAM_SPEC.md
+      ACADEMIC_PRESSURE_MANIFEST.md
+      seeds/
+        pf_val_sr_001.json
+        pf_val_ap_001.json
+        ...
+```
+
+And **nowhere else**.
+
+---
+
+## What devs should do with the zip (allowed)
+
+✅ Read it to understand:
+
+* tone
+* richness
+* persona depth
+* narrative complexity
+* cultural texture
+
+✅ Run `mine_seed.py` against the pf_*.json files
+✅ Validate that 1 seed → 5 role atoms
+✅ Use it to test cadence, lint, repair loops
+✅ Use it to tune template families + exercise placement
+
+---
+
+## What devs must NOT do with the zip
+
+❌ Do NOT:
+
+* slot pf_*.json into templates
+* treat them as chapters
+* auto-generate exercises from them
+* store them in candidate_atoms or approved_atoms
+* “optimize” or “clean up” the prose
+* make them public-facing output
+
+They are **source truth**, not product.
+
+---
+
+## Why giving the zip is actually a good thing
+
+It gives your devs:
+
+* concrete test data
+* realistic narrative complexity
+* proof the system handles real stakes
+* confidence the system isn’t theoretical
+
+Without it, devs would build against toy examples.
+
+---
+
+## Final recommendation (simple)
+
+✔️ Give the zip
+✔️ Give the spec
+✔️ Give the one-paragraph rule above
+❌ Do not give old chats
+
+That’s the cleanest, safest rebuild path.
+
+---
+
+If you want, I can also:
+
+* write a **one-page README to include inside the zip** so future devs don’t misuse it
+* help you pick **which 3 seeds to mine first** as a gold standard
+* or generate a **dev acceptance test** using one pf_val seed
+
+Just tell me.

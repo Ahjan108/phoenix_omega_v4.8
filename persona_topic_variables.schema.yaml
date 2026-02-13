@@ -1,0 +1,1714 @@
+# PERSONA × TOPIC VARIABLE SCHEMA v1.0
+# Single source of truth for all chapter template hydration
+# This schema ensures deterministic, complete, and safe book generation
+
+version: "1.0"
+schema_type: "persona_topic_variables"
+purpose: "Defines all variables required to hydrate 12-chapter therapeutic audiobook templates"
+
+# ==============================================================================
+# GLOBAL VARIABLES (Required for ALL chapters)
+# ==============================================================================
+
+global:
+  persona:
+    type: object
+    required: true
+    description: "Core persona identification and calibration"
+    properties:
+      id:
+        type: string
+        required: true
+        description: "Unique persona identifier (e.g., 'gen_z_professionals', 'nyc_executives')"
+        validation: "Must exist in unified_personas.yaml"
+      
+      name:
+        type: string
+        required: true
+        description: "Display name for persona"
+        example: "Gen Z Professionals"
+      
+      authority_tolerance:
+        type: enum
+        required: true
+        options: ["low", "medium", "high"]
+        description: "How much explanation/authority this persona tolerates"
+        examples:
+          low: "Gen Z (peer-level only, no lecturing)"
+          medium: "RN (warm colleague, not therapist)"
+          high: "NYC Exec (can handle complexity)"
+      
+      language_register:
+        type: enum
+        required: true
+        options: ["conversational", "professional", "clinical"]
+        description: "Vocabulary and sentence complexity level"
+      
+      attention_span:
+        type: enum
+        required: true
+        options: ["short", "medium", "long"]
+        description: "Practice length tolerance and paragraph length"
+        impact:
+          short: "2-3 line paragraphs, <2min practices"
+          medium: "4-5 line paragraphs, 2-3min practices"
+          long: "6+ line paragraphs, 3-5min practices"
+
+  topic:
+    type: object
+    required: true
+    description: "Core topic/emotional state being addressed"
+    properties:
+      id:
+        type: string
+        required: true
+        description: "Topic identifier"
+        examples: ["anxiety", "grief", "burnout", "depression"]
+        validation: "Must NOT appear verbatim in templates (topic-agnostic rule)"
+      
+      book_title:
+        type: string
+        required: true
+        description: "Full book title"
+        example: "Acting While Anxious"
+      
+      book_subtitle:
+        type: string
+        required: false
+        description: "Optional subtitle"
+
+  core:
+    type: object
+    required: true
+    description: "Core thesis variables that appear across multiple chapters"
+    properties:
+      core_sentence:
+        type: string
+        required: true
+        description: "The waiting statement that runs the person's life"
+        examples:
+          anxiety: "Once I'm not anxious, then I'll do it"
+          grief: "Once I'm done grieving, then I'll live again"
+          burnout: "Once I'm less depleted, then I can care again"
+        validation: "Must be quotable, first-person, future-conditional"
+      
+      current_emotional_state:
+        type: string
+        required: true
+        description: "How they feel now (variable slot, not hardcoded)"
+        examples: ["anxious", "grieving", "depleted", "overwhelmed"]
+      
+      desired_state:
+        type: string
+        required: true
+        description: "What they're waiting to feel"
+        examples: ["calm", "healed", "energized", "confident"]
+      
+      core_action:
+        type: string
+        required: true
+        description: "What they're not allowing themselves to do"
+        examples: ["post", "reach out", "care", "decide"]
+      
+      life_domain:
+        type: string
+        required: true
+        description: "What area of life is affected"
+        examples: ["social life", "relationships", "work", "leadership"]
+
+# ==============================================================================
+# CHAPTER 1: HOOK + RECOGNITION
+# ==============================================================================
+
+chapter_1:
+  function: "Make pattern undeniable in first 3 minutes"
+  emotion_state: "recognition"
+  exercise_permission: false
+  
+  required_variables:
+    time_duration:
+      type: string
+      required: true
+      description: "How long they've been saying the sentence"
+      examples: ["years", "months", "your whole adult life"]
+    
+    sentence_variations:
+      type: list[string]
+      required: true
+      min_count: 3
+      max_count: 3
+      description: "Three alternative phrasings of core_sentence"
+      validation: "Must maintain same meaning, different words"
+    
+    moments:
+      type: list[object]
+      required: true
+      min_count: 3
+      max_count: 5
+      description: "Specific micro-moments where they said the sentence"
+      properties:
+        context:
+          type: string
+          required: true
+          description: "Brief label for the situation"
+          example: "Last week, scrolling Instagram"
+        situation:
+          type: string
+          required: true
+          description: "Full situational description (2-3 sentences)"
+          validation: "Must be specific, recognizable, persona-appropriate"
+    
+    cost_examples:
+      type: list[object]
+      required: true
+      min_count: 4
+      max_count: 4
+      description: "What they're not doing while they wait"
+      properties:
+        label:
+          type: string
+          required: true
+          description: "Category of cost"
+          examples: ["The Text You Didn't Send", "The Decision You Deferred"]
+        detail:
+          type: string
+          required: true
+          description: "Specific description of the cost (2-3 sentences)"
+    
+    life_domain_activity:
+      type: string
+      required: true
+      description: "What continues moving without them"
+      examples: ["life", "work", "the conversation", "the opportunity"]
+    
+    perceived_virtues:
+      type: list[string]
+      required: true
+      min_count: 3
+      max_count: 3
+      description: "What they think the sentence is about (wrong guesses)"
+      examples: ["being thoughtful", "being careful", "being responsible"]
+    
+    reality_statements:
+      type: list[string]
+      required: true
+      min_count: 2
+      max_count: 2
+      description: "What it's actually about (the truth)"
+      validation: "Must reframe from virtue to mechanism"
+
+# ==============================================================================
+# CHAPTER 2: VALIDATION
+# ==============================================================================
+
+chapter_2:
+  function: "Explain why sentence made sense (reduce shame)"
+  emotion_state: "self_forgiveness"
+  exercise_permission: false
+  
+  required_variables:
+    origin_age_range:
+      type: string
+      required: true
+      description: "When this pattern formed"
+      examples: ["12-17", "early career", "nursing school"]
+      persona_specific: true
+    
+    origin_context:
+      type: string
+      required: true
+      description: "Specific situation where waiting = survival"
+      validation: "Must feel true and specific to persona"
+      examples:
+        gen_z: "middle school social dynamics where visibility = vulnerability"
+        nyc_exec: "early career mistakes had real professional consequences"
+        healthcare_rn: "training under high-pressure hierarchies"
+    
+    origin_specific_situation:
+      type: string
+      required: true
+      description: "Detailed narrative of original adaptive moment"
+      validation: "Must show why sentence worked then"
+    
+    origin_outcome:
+      type: string
+      required: true
+      description: "What the sentence did (protection that worked)"
+    
+    origin_threat:
+      type: string
+      required: true
+      description: "What they were protected from then"
+      examples: ["social humiliation", "career damage", "emotional overwhelm"]
+    
+    biological_system:
+      type: string
+      required: true
+      description: "What system recognized danger"
+      options: ["nervous system", "intuition", "survival instinct"]
+    
+    time_buying_example:
+      type: string
+      required: true
+      description: "How sentence bought time (then)"
+    
+    safety_example:
+      type: string
+      required: true
+      description: "How sentence kept them safe (then)"
+    
+    consequence_avoidance_example:
+      type: string
+      required: true
+      description: "What real consequences were avoided (then)"
+    
+    validation_statement:
+      type: string
+      required: true
+      description: "Clear statement that strategy was intelligent"
+      validation: "Must validate without minimizing"
+    
+    context_shift_description:
+      type: string
+      required: true
+      description: "What changed in their circumstances"
+    
+    specific_changes:
+      type: list[string]
+      required: true
+      min_count: 3
+      max_count: 3
+      description: "Three concrete ways conditions shifted"
+    
+    original_danger:
+      type: string
+      required: true
+      description: "What was actually dangerous then"
+    
+    current_threat:
+      type: string
+      required: true
+      description: "What they're 'protecting' themselves from now"
+      validation: "Should reveal shift from danger to discomfort"
+    
+    current_delay_example:
+      type: string
+      required: true
+      description: "How sentence delays them now"
+    
+    current_invisibility_example:
+      type: string
+      required: true
+      description: "How sentence makes them disappear now"
+    
+    later_keeps_moving_example:
+      type: string
+      required: true
+      description: "How 'later' never arrives"
+    
+    current_avoidance_target:
+      type: string
+      required: true
+      description: "What they're avoiding now (not danger)"
+      examples: ["discomfort", "uncertainty", "visibility"]
+    
+    danger_vs_discomfort_distinction:
+      type: string
+      required: true
+      description: "Clear statement of danger vs discomfort"
+      validation: "Critical safety distinction"
+    
+    origin_protection_scenario:
+      type: string
+      required: true
+      description: "Specific past scenario where protection was needed"
+    
+    current_challenge_type:
+      type: string
+      required: true
+      description: "Type of challenge they face now"
+      examples: ["uncertainty", "visibility", "imperfection"]
+    
+    original_danger_type:
+      type: string
+      required: true
+      description: "Type of danger they faced then"
+      examples: ["real social consequences", "career risk", "trauma exposure"]
+    
+    past_danger_description:
+      type: string
+      required: true
+      description: "What 'then' looked like"
+    
+    present_discomfort_description:
+      type: string
+      required: true
+      description: "What 'now' looks like"
+    
+    current_situation_type:
+      type: string
+      required: true
+      description: "Type of situation they're in now"
+    
+    original_situation_type:
+      type: string
+      required: true
+      description: "Type of situation they were in then"
+    
+    desired_emotional_state:
+      type: string
+      required: true
+      description: "Emotional state they're waiting for"
+      examples: ["not anxious", "done grieving", "not depleted"]
+    
+    reality_checks:
+      type: list[string]
+      required: true
+      min_count: 3
+      max_count: 3
+      description: "Three reality statements about why waiting doesn't work"
+
+# ==============================================================================
+# CHAPTER 3: MIRROR
+# ==============================================================================
+
+chapter_3:
+  function: "Show full pattern - make unavoidable"
+  emotion_state: "control_loop_exposure"
+  exercise_permission: false
+  
+  required_variables:
+    current_state_description:
+      type: string
+      required: true
+      description: "Version 1 - how they are now"
+      validation: "Must feel real, not pathologized"
+    
+    future_state_description:
+      type: string
+      required: true
+      description: "Version 2 - the myth they're waiting for"
+    
+    desired_state:
+      type: string
+      required: true
+      description: "What Version 2 supposedly has"
+      examples: ["calm", "confident", "ready"]
+    
+    desired_feeling:
+      type: string
+      required: true
+      description: "Feeling they're waiting for"
+    
+    desired_confidence:
+      type: string
+      required: true
+      description: "Confidence level they're waiting for"
+    
+    current_reality_description:
+      type: string
+      required: true
+      description: "What's actually true about them now"
+    
+    current_uncertainty:
+      type: string
+      required: true
+      description: "Uncertainty they're experiencing"
+    
+    current_imperfection:
+      type: string
+      required: true
+      description: "Imperfection they're carrying"
+    
+    ideal_state_description:
+      type: string
+      required: true
+      description: "Description of the ideal person who 'gets to' act"
+    
+    ideal_description:
+      type: string
+      required: true
+      description: "Who that ideal person is"
+    
+    core_action_plural:
+      type: string
+      required: true
+      description: "Plural form of core_action"
+      examples: ["post", "decide", "reach out"]
+    
+    ideal_feeling:
+      type: string
+      required: true
+      description: "The feeling the ideal person supposedly has"
+    
+    loop_steps:
+      type: list[string]
+      required: true
+      min_count: 8
+      max_count: 8
+      description: "8-step visualization of the waiting loop"
+      validation: "Must show sentence creating the loop, not the emotion"
+    
+    invisible_rule:
+      type: string
+      required: true
+      description: "The automatic rule that's running"
+      examples: ["Anxiety = Stop", "Grief = Pause", "Depletion = Withdraw"]
+    
+    erasure_process_description:
+      type: string
+      required: true
+      description: "How they've been disappearing"
+    
+    self_erasure_examples:
+      type: list[string]
+      required: true
+      min_count: 3
+      max_count: 5
+      description: "Concrete ways they've erased themselves"
+    
+    hardest_realization:
+      type: string
+      required: true
+      description: "The hardest truth about their role in this"
+      validation: "Must be compassionate, not blaming"
+    
+    sentence_protection_claim:
+      type: string
+      required: true
+      description: "What the sentence claimed to protect them from"
+
+# ==============================================================================
+# CHAPTER 4: REFRAME + FIRST PRACTICE
+# ==============================================================================
+
+chapter_4:
+  function: "Deliver reframe + prove you can act while [state]"
+  emotion_state: "resistance_curiosity"
+  exercise_permission: true
+  exercise_count: 1
+  allowed_exercise_types: ["pranayama"]
+  allowed_intensities: ["L1"]
+  
+  required_variables:
+    information_system_description:
+      type: string
+      required: true
+      description: "What nervous system is actually doing"
+      validation: "Must remove pathology"
+    
+    uncertainty_presence_description:
+      type: string
+      required: true
+      description: "How uncertainty is showing up"
+    
+    fixing_paradox_explanation:
+      type: string
+      required: true
+      description: "Why trying to fix makes it worse"
+      validation: "Must be clear and memorable"
+    
+    letting_it_be_description:
+      type: string
+      required: true
+      description: "What 'let it be there' means"
+    
+    acting_alongside_scenario:
+      type: object
+      required: true
+      description: "Detailed before/after example of new pattern"
+      properties:
+        situation:
+          type: string
+          required: true
+          description: "Specific situation"
+        before_pattern:
+          type: string
+          required: true
+          description: "Old pattern (wait for calm)"
+        after_pattern:
+          type: string
+          required: true
+          description: "New pattern (act while state present)"
+    
+    proof_examples:
+      type: list[object]
+      required: true
+      min_count: 3
+      max_count: 3
+      description: "Three situations where they already act while [state]"
+      validation: "Must feel true and undeniable"
+      properties:
+        context:
+          type: string
+          required: true
+        description:
+          type: string
+          required: true
+    
+    relationship_shift_description:
+      type: string
+      required: true
+      description: "What changes (not the state, the relationship)"
+    
+    exercise_1:
+      type: object
+      required: true
+      description: "First practice (must be pranayama L1)"
+      properties:
+        name:
+          type: enum
+          required: true
+          options: ["box_breath", "extended_exhale", "four_seven_eight"]
+        
+        intensity:
+          type: enum
+          required: true
+          options: ["L1"]
+          validation: "Chapter 4 only allows L1"
+        
+        purpose_statement:
+          type: string
+          required: true
+          description: "Why doing this practice (must frame as proof)"
+          validation: "Must NOT say 'to calm down' or 'to fix'"
+          example: "This is proof you can breathe while anxious"
+        
+        integration_bridge:
+          type: string
+          required: true
+          description: "Post-practice integration (30-60 seconds)"
+          validation: "Must pass coexistence test"
+          coexistence_test:
+            required_elements:
+              - "Did [state] disappear?"
+              - "Or did you discover you can [action] while it's still there?"
+              - "That's what this proves: [thesis]"
+          forbidden_language:
+            - "now that you're calm"
+            - "feeling better"
+            - "anxiety is gone"
+            - "fixed"
+            - "cured"
+
+# ==============================================================================
+# CHAPTER 5: COST
+# ==============================================================================
+
+chapter_5:
+  function: "Make stakes visceral without manipulation"
+  emotion_state: "hypervigilance_softening"
+  exercise_permission: false
+  
+  required_variables:
+    life_movement_description:
+      type: string
+      required: true
+      description: "What happens while they wait"
+    
+    moment_specificity:
+      type: string
+      required: true
+      description: "Why 'next time' isn't the same"
+    
+    accumulation_visual:
+      type: string
+      required: true
+      description: "How small moments compound"
+    
+    irretrievability_statement:
+      type: string
+      required: true
+      description: "What can't be gotten back"
+    
+    relationship_scenarios:
+      type: list[object]
+      required: true
+      min_count: 3
+      max_count: 3
+      description: "Three micro-stories of connection lost"
+      properties:
+        context:
+          type: string
+          required: true
+          description: "Type of relationship moment"
+        old_pattern:
+          type: string
+          required: true
+          description: "What they did (waited)"
+        consequence:
+          type: string
+          required: true
+          description: "What happened as a result"
+    
+    taught_unavailability_description:
+      type: string
+      required: true
+      description: "Message they've been sending"
+    
+    version_that_never_shows_statement:
+      type: string
+      required: true
+      description: "Version 2 doesn't exist"
+    
+    sideline_description:
+      type: string
+      required: true
+      description: "Where they've been sitting"
+    
+    visibility_trade_description:
+      type: string
+      required: true
+      description: "What they're trading (now vs later)"
+    
+    life_happening_now_statement:
+      type: string
+      required: true
+      description: "Life is now, not later"
+    
+    permission_never_coming_statement:
+      type: string
+      required: true
+      description: "Permission they're waiting for won't come"
+    
+    temporal_cost_markers:
+      type: list[string]
+      required: true
+      min_count: 3
+      max_count: 3
+      description: "Specific time amounts lost"
+      examples: ["three months", "last year", "five years"]
+      validation: "Must be persona-appropriate (hours for Gen Z, years for Exec)"
+    
+    irretrievability_emphasis:
+      type: string
+      required: true
+      description: "That time can't be gotten back"
+    
+    long_term_trajectory_description:
+      type: string
+      required: true
+      description: "What happens if they keep waiting"
+    
+    nobody_knows_you_statement:
+      type: string
+      required: true
+      description: "The relationship cost (invisibility)"
+    
+    version_people_see_description:
+      type: string
+      required: true
+      description: "The version that's visible (not real you)"
+    
+    how_long_question_framing:
+      type: string
+      required: true
+      description: "Shifts from 'when ready' to 'how long'"
+
+# ==============================================================================
+# CHAPTER 6: CORE THESIS
+# ==============================================================================
+
+chapter_6:
+  function: "Deliver philosophical core - end the war"
+  emotion_state: "permission_make_room"
+  exercise_permission: false
+  
+  required_variables:
+    war_you_expected_description:
+      type: string
+      required: true
+      description: "What they thought they needed to do"
+    
+    war_reframe:
+      type: string
+      required: true
+      description: "You're not at war with [state], you think you are"
+    
+    war_exhaustion_description:
+      type: string
+      required: true
+      description: "The war is what's exhausting, not the state"
+    
+    fighting_yourself_explanation:
+      type: string
+      required: true
+      description: "Why you can't win (fighting self paradox)"
+    
+    uncertainty_is_condition_statement:
+      type: string
+      required: true
+      description: "Uncertainty is part of being alive"
+    
+    weather_metaphor_explanation:
+      type: string
+      required: true
+      description: "Like trying to eliminate weather"
+    
+    stop_fighting_reframe:
+      type: string
+      required: true
+      description: "Stop fighting (not giving up)"
+    
+    nothing_to_fight_statement:
+      type: string
+      required: true
+      description: "There's nothing to fight"
+    
+    energy_back_description:
+      type: string
+      required: true
+      description: "You get all that energy back"
+    
+    acting_alongside_detailed_example:
+      type: object
+      required: true
+      description: "Concrete before/after of acting alongside"
+      properties:
+        situation:
+          type: string
+          required: true
+        before:
+          type: string
+          required: true
+        after:
+          type: string
+          required: true
+    
+    core_shift_before:
+      type: string
+      required: true
+      description: "Before: 'Once I'm not [state], then I'll [action]'"
+    
+    core_shift_after:
+      type: string
+      required: true
+      description: "After: 'I'm [state]. And I'm doing it anyway.'"
+    
+    requirement_ending_description:
+      type: string
+      required: true
+      description: "About stopping the requirement"
+    
+    feels_wrong_validation:
+      type: string
+      required: true
+      description: "Why this feels wrong (validation)"
+    
+    calm_down_first_teaching:
+      type: string
+      required: true
+      description: "What they've been taught their whole life"
+    
+    rule_you_made_statement:
+      type: string
+      required: true
+      description: "That's a rule you made up. It's a choice."
+    
+    safety_caveats:
+      type: object
+      required: true
+      description: "What this doesn't mean (safety distinctions)"
+      properties:
+        not_ignoring_danger:
+          type: string
+          required: true
+        not_being_reckless:
+          type: string
+          required: true
+        danger_vs_discomfort:
+          type: string
+          required: true
+          validation: "Critical safety framework"
+    
+    new_relationship_framework:
+      type: object
+      required: true
+      description: "Notice. Assess. Act."
+      properties:
+        notice:
+          type: string
+          required: true
+        assess:
+          type: string
+          required: true
+        act:
+          type: string
+          required: true
+    
+    what_you_gain_description:
+      type: string
+      required: true
+      description: "Your life back (specific examples)"
+    
+    what_you_gain_examples:
+      type: list[string]
+      required: true
+      min_count: 3
+      max_count: 5
+      description: "Small specific examples of what's possible"
+    
+    sentence_was_never_problem_statement:
+      type: string
+      required: true
+      description: "[State] was never the problem. The waiting was."
+    
+    permission_comes_from_you_statement:
+      type: string
+      required: true
+      description: "Permission comes from you"
+    
+    that_version_is_enough_statement:
+      type: string
+      required: true
+      description: "That version is enough"
+    
+    new_question:
+      type: string
+      required: true
+      description: "What can I do right now, even though I'm [state]?"
+
+# ==============================================================================
+# CHAPTER 7: SMALL MOVES
+# ==============================================================================
+
+chapter_7:
+  function: "First real-world application with multiple practices"
+  emotion_state: "make_room"
+  exercise_permission: true
+  exercise_count: 3
+  allowed_exercise_types: ["cognitive", "pranayama", "grounding"]
+  allowed_intensities: ["L1"]
+  
+  required_variables:
+    theory_to_practice_bridge:
+      type: string
+      required: true
+      description: "You know the theory. Now how do you do it?"
+    
+    small_move_definition:
+      type: string
+      required: true
+      description: "What a small move is"
+    
+    small_move_examples:
+      type: list[object]
+      required: true
+      min_count: 3
+      max_count: 3
+      description: "Three before/after examples"
+      properties:
+        context:
+          type: string
+          required: true
+        before:
+          type: string
+          required: true
+        after:
+          type: string
+          required: true
+    
+    small_moves_matter_explanation:
+      type: string
+      required: true
+      description: "Why small moves build evidence"
+    
+    repetition_learning_description:
+      type: string
+      required: true
+      description: "Your brain learns through repetition"
+    
+    notice_without_fixing_framework:
+      type: object
+      required: true
+      description: "First small move framework"
+      properties:
+        old_pattern:
+          type: list[string]
+          required: true
+          min_count: 3
+          max_count: 3
+        new_pattern:
+          type: list[string]
+          required: true
+          min_count: 3
+          max_count: 3
+    
+    exercise_1_cognitive:
+      type: object
+      required: true
+      description: "3-Second Check-In (cognitive practice)"
+      properties:
+        name:
+          type: enum
+          required: true
+          options: ["3_second_checkin"]
+          validation: "Chapter 7 cognitive is always 3-second check-in"
+        steps:
+          type: list[string]
+          required: true
+          description: "Notice → Acknowledge → Decide"
+        immediate_application:
+          type: string
+          required: true
+          description: "'Do it now' moment with 5-second pause"
+    
+    exercise_2_pranayama:
+      type: object
+      required: true
+      description: "Breath practice (L1)"
+      properties:
+        name:
+          type: enum
+          required: true
+          options: ["box_breath", "extended_exhale"]
+        intensity:
+          type: enum
+          required: true
+          options: ["L1"]
+        framing:
+          type: string
+          required: true
+          description: "Companion practice, not cure"
+        integration_bridge:
+          type: string
+          required: true
+          validation: "Must pass coexistence test"
+    
+    exercise_3_grounding:
+      type: object
+      required: true
+      description: "Sensory grounding practice"
+      properties:
+        name:
+          type: enum
+          required: true
+          options: ["5_4_3_2_1", "feet_ground", "body_scan_brief"]
+        purpose:
+          type: string
+          required: true
+          description: "About being present, not calming"
+        integration_bridge:
+          type: string
+          required: true
+          validation: "Must pass coexistence test"
+    
+    what_youre_building_description:
+      type: string
+      required: true
+      description: "The ability to act while [state]"
+    
+    assignment_prompt:
+      type: string
+      required: true
+      description: "Pick one small move you can do today"
+    
+    what_changes_over_time_description:
+      type: string
+      required: true
+      description: "Relationship changes, not the state"
+    
+    from_wrong_to_normal_description:
+      type: string
+      required: true
+      description: "From feeling wrong to feeling normal"
+
+# ==============================================================================
+# CHAPTER 8: LOUD ANXIETY
+# ==============================================================================
+
+chapter_8:
+  function: "Handle intensity - acting when overwhelming"
+  emotion_state: "being_with"
+  exercise_permission: true
+  exercise_count: 3
+  allowed_exercise_types: ["pranayama"]
+  allowed_intensities: ["L2"]
+  
+  required_variables:
+    loud_description:
+      type: string
+      required: true
+      description: "When [state] gets loud"
+    
+    loud_vs_dangerous_distinction:
+      type: string
+      required: true
+      description: "Loud is not the same as dangerous"
+      validation: "Critical safety distinction"
+    
+    loud_manifestations:
+      type: list[string]
+      required: true
+      min_count: 3
+      max_count: 5
+      description: "How intensity shows up for this persona"
+    
+    what_to_do_when_loud:
+      type: string
+      required: true
+      description: "Same framework, louder volume"
+    
+    exercise_1_extended_exhale:
+      type: object
+      required: true
+      description: "Extended exhale (4-6)"
+      properties:
+        name:
+          type: enum
+          required: true
+          options: ["extended_exhale"]
+        intensity:
+          type: enum
+          required: true
+          options: ["L2"]
+        parasympathetic_explanation:
+          type: string
+          required: true
+        integration_bridge:
+          type: string
+          required: true
+          validation: "Must pass coexistence test"
+    
+    exercise_2_feet_ground:
+      type: object
+      required: true
+      description: "Ground through feet"
+      properties:
+        name:
+          type: enum
+          required: true
+          options: ["feet_ground"]
+        intensity:
+          type: enum
+          required: true
+          options: ["L2"]
+        physical_anchoring_explanation:
+          type: string
+          required: true
+        integration_bridge:
+          type: string
+          required: true
+          validation: "Must pass coexistence test"
+    
+    acting_when_loud_scenario:
+      type: object
+      required: true
+      description: "Detailed scenario of acting at peak intensity"
+      properties:
+        situation:
+          type: string
+          required: true
+        volume_level:
+          type: string
+          required: true
+        what_acting_looks_like:
+          type: string
+          required: true
+    
+    volume_vs_danger_reframe:
+      type: string
+      required: true
+      description: "It's just louder, not more dangerous"
+    
+    exercise_3_four_seven_eight:
+      type: object
+      required: true
+      description: "4-7-8 breath (peak intensity)"
+      properties:
+        name:
+          type: enum
+          required: true
+          options: ["four_seven_eight"]
+        intensity:
+          type: enum
+          required: true
+          options: ["L2"]
+        integration_bridge:
+          type: string
+          required: true
+          validation: "Must pass coexistence test"
+    
+    volume_doesnt_dictate_description:
+      type: string
+      required: true
+      description: "Volume doesn't determine actions"
+    
+    volume_matters_less_description:
+      type: string
+      required: true
+      description: "What happens when you keep acting"
+    
+    make_it_quieter_vs_act_while_loud:
+      type: string
+      required: true
+      description: "Real shift in relationship"
+
+# ==============================================================================
+# CHAPTER 9: AUTOMATIC
+# ==============================================================================
+
+chapter_9:
+  function: "Integration into daily life across contexts"
+  emotion_state: "integration"
+  exercise_permission: false
+  
+  required_variables:
+    something_shifted_description:
+      type: string
+      required: true
+      description: "Something shifted quietly"
+    
+    new_pattern_default_description:
+      type: string
+      required: true
+      description: "When new pattern becomes default"
+    
+    relationship_context:
+      type: object
+      required: true
+      description: "Relationships domain application"
+      properties:
+        before:
+          type: string
+          required: true
+        after:
+          type: string
+          required: true
+        what_changes:
+          type: string
+          required: true
+    
+    social_context:
+      type: object
+      required: true
+      description: "Social situations domain application"
+      properties:
+        before:
+          type: string
+          required: true
+        after:
+          type: string
+          required: true
+        what_you_notice:
+          type: string
+          required: true
+    
+    work_school_context:
+      type: object
+      required: true
+      description: "Work/school domain application"
+      properties:
+        before:
+          type: string
+          required: true
+        after:
+          type: string
+          required: true
+        speaking_up_becomes_normal:
+          type: string
+          required: true
+    
+    moments_of_noticing:
+      type: list[string]
+      required: true
+      min_count: 3
+      max_count: 5
+      description: "Moments where you notice you didn't hesitate"
+    
+    what_youre_not_doing_anymore:
+      type: list[string]
+      required: true
+      min_count: 3
+      max_count: 3
+      description: "Old patterns that stopped"
+    
+    recovery_not_dramatic_statement:
+      type: string
+      required: true
+      description: "Nobody tells you recovery isn't dramatic"
+    
+    what_normal_feels_like:
+      type: string
+      required: true
+      description: "New normal description"
+    
+    new_relationship_summary:
+      type: string
+      required: true
+      description: "[State] = information, not enemy"
+    
+    capability_list:
+      type: list[string]
+      required: true
+      min_count: 6
+      max_count: 8
+      description: "Specific things you can do now"
+    
+    quiet_confidence_description:
+      type: string
+      required: true
+      description: "From acting, not from feeling ready"
+
+# ==============================================================================
+# CHAPTER 10: SLIPPING
+# ==============================================================================
+
+chapter_10:
+  function: "Normalize relapse, reframe as information"
+  emotion_state: "relapse_normal"
+  exercise_permission: false
+  
+  required_variables:
+    youre_going_to_slip_statement:
+      type: string
+      required: true
+      description: "Stated as fact, not possibility"
+    
+    why_slipping_happens:
+      type: string
+      required: true
+      description: "Old pattern still exists, especially under stress"
+    
+    slip_scenario:
+      type: object
+      required: true
+      description: "Detailed scenario of a slip"
+      properties:
+        context:
+          type: string
+          required: true
+        trigger:
+          type: string
+          required: true
+        what_happened:
+          type: string
+          required: true
+    
+    story_after_slip:
+      type: string
+      required: true
+      description: "The story you tell yourself (the real problem)"
+    
+    what_slip_actually_means:
+      type: string
+      required: true
+      description: "Information, not failure"
+    
+    slip_vs_collapse_distinction:
+      type: object
+      required: true
+      description: "Clear distinction"
+      properties:
+        slip:
+          type: string
+          required: true
+        collapse:
+          type: string
+          required: true
+    
+    five_step_recovery_process:
+      type: list[string]
+      required: true
+      min_count: 5
+      max_count: 5
+      description: "What to do when you slip"
+    
+    progress_not_linear_visual:
+      type: string
+      required: true
+      description: "Visual or description of non-linear progress"
+    
+    how_to_recover:
+      type: string
+      required: true
+      description: "Recovery process description"
+    
+    pattern_of_slipping:
+      type: string
+      required: true
+      description: "Weeks of practice → stress → slip → recovery"
+    
+    what_gets_easier:
+      type: list[string]
+      required: true
+      min_count: 3
+      max_count: 3
+      description: "Slipping less, recovering faster, trusting process"
+    
+    one_slip_doesnt_erase_statement:
+      type: string
+      required: true
+      description: "One slip doesn't erase progress"
+    
+    what_to_remember:
+      type: list[string]
+      required: true
+      min_count: 5
+      max_count: 5
+      description: "Five key points to remember"
+
+# ==============================================================================
+# CHAPTER 11: IDENTITY SHIFT
+# ==============================================================================
+
+chapter_11:
+  function: "Redefine self beyond state label"
+  emotion_state: "becoming"
+  exercise_permission: false
+  
+  required_variables:
+    who_youre_becoming_description:
+      type: string
+      required: true
+      description: "Recognition of change"
+    
+    old_story:
+      type: string
+      required: true
+      description: "I'm an [state] person"
+    
+    what_happens_when_story_changes:
+      type: string
+      required: true
+      description: "Behavior changes identity"
+    
+    identity_shift_statement:
+      type: string
+      required: true
+      description: "[State] = who you were → [state] = something you feel"
+    
+    old_identity_statements:
+      type: list[string]
+      required: true
+      min_count: 5
+      max_count: 7
+      description: "'I'm the person who...' statements (old)"
+    
+    new_identity_statements:
+      type: list[string]
+      required: true
+      min_count: 5
+      max_count: 7
+      description: "'I'm someone who...' statements (new)"
+    
+    where_confidence_comes_from:
+      type: string
+      required: true
+      description: "Knowing you can handle discomfort"
+    
+    what_others_notice:
+      type: string
+      required: true
+      description: "You started showing up"
+    
+    other_people_notice_examples:
+      type: list[string]
+      required: true
+      min_count: 3
+      max_count: 5
+      description: "How relationships have shifted"
+    
+    the_paradox_statement:
+      type: string
+      required: true
+      description: "Didn't get rid of [state], became more you anyway"
+    
+    what_you_realize_about_past:
+      type: string
+      required: true
+      description: "[State] was never the problem"
+    
+    what_changes_seeing_others:
+      type: string
+      required: true
+      description: "They're probably [state] too"
+    
+    new_story:
+      type: string
+      required: true
+      description: "I feel [state] and act anyway"
+    
+    capability_expansion_list:
+      type: list[string]
+      required: true
+      min_count: 6
+      max_count: 8
+      description: "Specific things now possible"
+    
+    permission_you_dont_need_anymore:
+      type: string
+      required: true
+      description: "What permission you no longer seek"
+
+# ==============================================================================
+# CHAPTER 12: CONTINUATION
+# ==============================================================================
+
+chapter_12:
+  function: "Close without cure promise, establish continuation"
+  emotion_state: "continuation"
+  exercise_permission: false
+  
+  required_variables:
+    state_isnt_gone_statement:
+      type: string
+      required: true
+      description: "[State] isn't gone (stated clearly upfront)"
+      validation: "CRITICAL - must deny cure"
+    
+    what_youve_actually_learned:
+      type: string
+      required: true
+      description: "Act while [state], not stop being [state]"
+    
+    what_this_isnt:
+      type: list[string]
+      required: true
+      min_count: 4
+      max_count: 4
+      description: "cure, end, guarantee, transformation"
+      validation: "Must explicitly deny each"
+    
+    what_this_is:
+      type: list[string]
+      required: true
+      min_count: 4
+      max_count: 4
+      description: "beginning, framework, permission, evidence"
+    
+    what_happens_from_here:
+      type: string
+      required: true
+      description: "Keep practicing"
+    
+    things_still_hard:
+      type: list[string]
+      required: true
+      min_count: 3
+      max_count: 3
+      description: "Situations that remain challenging"
+    
+    what_gets_easier:
+      type: list[string]
+      required: true
+      min_count: 3
+      max_count: 3
+      description: "Things that become more natural"
+    
+    question_youll_keep_asking:
+      type: string
+      required: true
+      description: "What can I do now"
+    
+    practices_framework_summary:
+      type: string
+      required: true
+      description: "What you can return to"
+    
+    what_you_dont_need_anymore:
+      type: list[string]
+      required: true
+      min_count: 4
+      max_count: 4
+      description: "ready, calm, confident, permission"
+    
+    thing_to_remember:
+      type: string
+      required: true
+      description: "You're not waiting anymore"
+    
+    what_youll_notice_over_time:
+      type: list[string]
+      required: true
+      min_count: 3
+      max_count: 3
+      description: "[State] doesn't control, stop checking if 'better'"
+    
+    the_last_thing:
+      type: string
+      required: true
+      description: "You did this"
+    
+    key_takeaways:
+      type: list[string]
+      required: true
+      min_count: 5
+      max_count: 5
+      description: "Five key takeaways"
+    
+    where_you_go_from_here:
+      type: string
+      required: true
+      description: "You live"
+    
+    final_word:
+      type: string
+      required: true
+      description: "[State] doesn't have to go away for you to live"
+      validation: "CRITICAL - reinforces no-cure thesis"
+
+# ==============================================================================
+# VALIDATION RULES
+# ==============================================================================
+
+validation:
+  global_rules:
+    - "No topic-specific words in templates (only in variables)"
+    - "All {variable} slots must be filled"
+    - "Exercise permissions must be honored"
+    - "Integration bridges required after all exercises"
+    - "Coexistence test must pass for all integration bridges"
+  
+  chapter_specific:
+    chapters_1_3:
+      - "NO exercises allowed"
+      - "NO solutions offered"
+    
+    chapter_4:
+      - "Exactly 1 exercise (pranayama L1)"
+      - "Integration bridge required"
+      - "Reframe must come BEFORE exercise"
+    
+    chapter_7:
+      - "Exactly 3 exercises (cognitive + pranayama + grounding)"
+      - "All L1 intensity"
+      - "Integration bridges required after each"
+    
+    chapter_8:
+      - "Exactly 3 exercises (all pranayama)"
+      - "All L2 intensity"
+      - "Integration bridges required after each"
+    
+    chapters_9_12:
+      - "NO exercises"
+      - "Chapter 12 must deny cure explicitly"
+  
+  safety_rules:
+    - "Danger vs discomfort distinction clear"
+    - "No cure promises anywhere"
+    - "No medical claims"
+    - "Trauma-informed language"
+    - "Permission-based, not prescriptive"
+
+# ==============================================================================
+# INTEGRATION BRIDGE COEXISTENCE TEST
+# ==============================================================================
+
+integration_bridge_test:
+  name: "Coexistence Test"
+  purpose: "Ensure exercises prove thesis, don't promise cure"
+  
+  required_structure:
+    question_1:
+      template: "Did [state] disappear?"
+      examples:
+        - "Did the anxiety disappear?"
+        - "Did the grief go away?"
+        - "Did the depletion vanish?"
+    
+    question_2:
+      template: "Or did you discover you can [action] while it's still there?"
+      examples:
+        - "Or did you discover you can breathe while anxious?"
+        - "Or did you discover you can be present while grieving?"
+    
+    thesis_reinforcement:
+      template: "That's what this proves: [thesis]"
+      examples:
+        - "That's what this proves: you can act while anxious"
+        - "That's what this proves: you don't have to wait"
+  
+  forbidden_language:
+    - "now that you're calm"
+    - "feeling better"
+    - "[state] is gone"
+    - "fixed"
+    - "cured"
+    - "healed"
+    - "overcome"
+  
+  pass_criteria:
+    - "Acknowledges state is still present"
+    - "Reinforces coexistence thesis"
+    - "Under 60 seconds"
+    - "No cure language"
+
+# ==============================================================================
+# PERSONA COMPATIBILITY
+# ==============================================================================
+
+persona_integration:
+  unified_personas_reference:
+    file: "unified_personas.yaml"
+    required_fields:
+      - "id"
+      - "label"
+      - "authority_tolerance" # maps to this schema
+      - "language_register" # maps to this schema
+      - "attention_span" # maps to this schema
+      - "local_environment" # can inform scenario generation
+      - "domain_jargon" # can inform vocabulary
+  
+  no_duplication_rule:
+    description: "Do NOT duplicate persona data from unified_personas.yaml"
+    implementation: "Reference unified_personas.yaml, don't copy"
+    exception: "Only copy authority_tolerance, language_register, attention_span for hydration"
+
+# ==============================================================================
+# DETERMINISM GUARANTEE
+# ==============================================================================
+
+determinism:
+  principle: "Same inputs MUST produce byte-identical outputs"
+  
+  inputs:
+    - "Template file (versioned)"
+    - "Variable values (from this schema)"
+    - "Persona config (from unified_personas.yaml)"
+  
+  non_deterministic_forbidden:
+    - "No randomness"
+    - "No timestamp injection"
+    - "No dynamic content generation"
+    - "No LLM completion calls during hydration"
+  
+  hydration_contract:
+    rule: "Substitution only, no rewriting"
+    enforcement: "If {variable} exists in template, replace with value. Nothing else."
+
+# ==============================================================================
+# FAILURE CONDITIONS
+# ==============================================================================
+
+fail_hard_if:
+  - "Any {variable} remains unresolved after hydration"
+  - "Any forbidden word (from FORBIDDEN_WORDS.md) appears in template"
+  - "Any exercise appears in chapters 1-3"
+  - "Any integration bridge missing after exercise in chapters 4, 7, 8"
+  - "Word count is ±15% outside target range"
+  - "Exercise type not allowed in chapter"
+  - "Exercise intensity not allowed in chapter"
+  - "Integration bridge fails coexistence test"
+  - "Chapter 12 doesn't explicitly deny cure"
+  - "Danger vs discomfort distinction missing or unclear"
+
+# ==============================================================================
+# VERSION CONTROL
+# ==============================================================================
+
+versioning:
+  schema_version: "1.0"
+  template_version_tracking: true
+  book_manifest_must_declare:
+    - "schema_version_used"
+    - "template_version_used"
+  
+  backward_compatibility:
+    - "Schema changes require new version number"
+    - "Old books reference old schema version"
+    - "Validation always uses schema version declared in manifest"
+
+# ==============================================================================
+# END OF SCHEMA
+# ==============================================================================
