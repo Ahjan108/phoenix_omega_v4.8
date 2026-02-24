@@ -100,6 +100,17 @@ def check_book(plan: dict, cfg: dict) -> tuple[bool, list[str], dict]:
     if synthetic > 0 and not plan.get("doctrine_fingerprint"):
         errors.append("synthetic atoms present but doctrine_fingerprint missing (Rule 4)")
 
+    # Gate B: ≥ 3 distinct STORY emotional bands per book
+    band_seq = plan.get("dominant_band_sequence") or []
+    distinct_bands = set(b for b in band_seq if b is not None)
+    if len(distinct_bands) > 0 and len(distinct_bands) < 3:
+        errors.append(f"STORY band diversity: {len(distinct_bands)} distinct bands < 3 (Gate B)")
+
+    # Gate O: atom_id appears ≤ 1 per book (no reuse)
+    content_ids = [a for a in atom_ids if not _is_placeholder_or_silence(a)]
+    if len(content_ids) != len(set(content_ids)):
+        errors.append("Atom reuse: same atom_id appears more than once in book (Gate O)")
+
     return len(errors) == 0, errors, diagnostic
 
 

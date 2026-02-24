@@ -428,6 +428,19 @@ def main() -> int:
                         )
                         return 1
 
+    # Plan §6.1: teacher exercise share ≥ 60% when fallback used
+    if teacher_id and teacher_id != "default_teacher" and getattr(compiled, "atom_sources", None):
+        from phoenix_v4.qa.validate_teacher_exercise_share import validate_teacher_exercise_share
+        ok, msg = validate_teacher_exercise_share(
+            compiled.chapter_slot_sequence,
+            compiled.atom_ids,
+            list(compiled.atom_sources),
+            min_share=0.60,
+        )
+        if not ok:
+            print(f"Teacher exercise share validation failed: {msg}", file=sys.stderr)
+            return 1
+
     out = {
         "plan_hash": compiled.plan_hash,
         "plan_id": compiled.plan_hash,

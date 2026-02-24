@@ -46,6 +46,28 @@ def load_teacher_registry(path: Optional[Path] = None) -> dict:
     return _load_yaml(path)
 
 
+def _teacher_meets_coverage_threshold(
+    teacher_id: str,
+    min_exercise: int = 0,
+    min_story_total: int = 0,
+) -> bool:
+    """Exclude teachers below coverage threshold from wave (plan §9). Uses coverage_gate helpers."""
+    if min_exercise <= 0 and min_story_total <= 0:
+        return True
+    try:
+        from phoenix_v4.teacher.coverage_gate import compute_available_teacher_atoms, compute_story_band_inventory
+        by_slot = compute_available_teacher_atoms(teacher_id)
+        if min_exercise > 0 and by_slot.get("EXERCISE", 0) < min_exercise:
+            return False
+        if min_story_total > 0:
+            bands = compute_story_band_inventory(teacher_id)
+            if sum(bands.values()) < min_story_total:
+                return False
+        return True
+    except Exception:
+        return True  # no coverage_gate: do not exclude
+
+
 def allocate_wave(
     wave_id: str,
     teachers: list[str],
@@ -54,10 +76,13 @@ def allocate_wave(
     brand_matrix_path: Optional[Path] = None,
     teacher_registry_path: Optional[Path] = None,
     seed: str = "default",
+    min_exercise_coverage: int = 0,
+    min_story_coverage: int = 0,
 ) -> list[TeacherAllocation]:
     """
     Produce an ordered list of (teacher_id, topic_id, persona_id, brand_id) for the wave.
     Respects brand matrix (teachers per brand, max per wave) and teacher allowed_topics.
+    Excludes teachers below coverage threshold (min EXERCISE, min STORY total) when set (plan §9).
     Does not back-to-back same teacher when spacing_days > 0 (interleaves by brand/teacher).
     """
     matrix = load_brand_matrix(brand_matrix_path)
@@ -79,6 +104,10 @@ def allocate_wave(
     eligible = [t for t in teachers if t in teachers_reg and teacher_to_brand.get(t)]
     if not eligible:
         eligible = [t for t in teachers if t in teachers_reg]
+
+    # Coverage threshold: exclude teachers below min EXERCISE / min STORY (plan §9)
+    if min_exercise_coverage > 0 or min_story_coverage > 0:
+        eligible = [t for t in eligible if _teacher_meets_coverage_threshold(t, min_exercise_coverage, min_story_coverage)]
 
     # Simple round-robin allocation: cycle (teacher, topic, persona) from allowed sets
     topic_pool = set()
