@@ -1,0 +1,58 @@
+# config/practice/selection_rules.yaml
+# Deterministic practice selection for EXERCISE backstop and slot_07_practice.
+# No distribution/mix percentages here; those come in a later config.
+
+version: 1
+
+defaults:
+  duration_seconds:
+    min: 45
+    max: 900
+  intensity_band_default: 3
+  allowlist_empty_means_all: true
+
+slots:
+  EXERCISE_BACKSTOP:
+    enabled: true
+    allowed_content_types:
+      - sensory_grounding
+      - meditations
+      - reflections
+      - self_inquiry
+      - gratitude_practices
+      - affirmations
+      - body_awareness
+      - thought_experiments
+      - integration_bridges
+    preferred_content_types:
+      - sensory_grounding
+      - body_awareness
+      - meditations
+    avoid_adjacent_same_content_type: true
+
+  SLOT_07_PRACTICE:
+    enabled: false
+    allowed_content_types:
+      - breath_regulation
+      - grounding_orientation
+      - body_awareness_scan
+      - somatic_release_discharge
+      - nervous_system_downregulation
+      - nervous_system_upregulation
+      - vagal_stimulation_sound
+      - self_contact_touch
+      - emotional_processing_completion
+      - embodied_intention_direction
+      - integration_return_to_baseline
+    preferred_content_types:
+      - breath_regulation
+      - grounding_orientation
+      - integration_return_to_baseline
+    avoid_adjacent_same_content_type: true
+
+mix_policies:
+  enabled: false
+
+angle_affinity:
+  enabled: false
+  mapping: {}

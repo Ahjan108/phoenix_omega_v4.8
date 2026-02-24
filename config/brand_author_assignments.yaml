@@ -1,0 +1,16 @@
+# Default pen-name author per brand when run_pipeline does not receive --author.
+# Authority: SYSTEMS_V4.md — "resolve author from brand".
+# First matching row wins (brand_id required; optional topic_ids, persona_ids, series_ids to narrow).
+
+assignments:
+  - brand_id: phoenix
+    default_author: null
+    # No default: use --author explicitly or teacher-only book.
+
+  # Example: assign default author per brand when books are author-bound
+  # - brand_id: brand_zen_daily
+  #   default_author: luna_hart
+  # - brand_id: brand_resilience_path
+  #   default_author: kai_nakamura
+  # - brand_id: brand_depth_work
+  #   default_author: marcus_cole

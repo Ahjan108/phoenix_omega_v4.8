@@ -1,0 +1,184 @@
+# docs/assembly/SOMATIC_BOOK_BLUEPRINT.yaml
+# Canonical somatic self-help assembly blueprint. Structure only; no prose.
+# Authority: V4 slot engine, exercises_v4 registry, Writer Spec (§23), Arc-First.
+# Use: deterministic assembly; emotional curve + entropy + exercise cadence enforcement.
+
+blueprint_id: somatic_book_v1
+version: 1
+
+description: >
+  Canonical somatic self-help assembly blueprint.
+  Defines emotional curve, slot contracts, exercise integration,
+  author injection points, and cadence rules.
+  No prose lives here. Structure only.
+
+# -------------------------------------------------------
+# GLOBAL BOOK RULES
+# -------------------------------------------------------
+
+book_rules:
+
+  min_story_atoms: 8
+  max_story_atoms: 14
+
+  emotional_band_requirements:
+    require_distinct_bands_min: 3
+    require_band_5_min: 1
+    forbid_more_than_consecutive_same_band: 3
+
+  forbid_adjacent_story_reuse: true
+  reuse_cooldown_chapters: 2
+
+  entropy_rules:
+    forbid_same_micro_stake_category_adjacent: true
+    max_identity_phrase_overlap_percent: 65
+
+  author_injection:
+    allow_why_this_book: true
+    location: pre_chapter_1_only
+    max_word_count: 1200
+
+  narrator_injection:
+    allow_audiobook_pre_intro: true
+    location: before_chapter_1
+
+# -------------------------------------------------------
+# CHAPTER STRUCTURE (10-SLOT CONTRACT)
+# -------------------------------------------------------
+
+chapter_structure:
+
+  slot_01_open:
+    allowed_types: [STORY]
+    emotional_band_range: [2, 3]
+    persona_specificity_min: 0.65
+
+  slot_02_scene:
+    allowed_types: [STORY]
+    emotional_band_range: [3, 4]
+    persona_specificity_min: 0.70
+
+  slot_03_context:
+    allowed_types: [CONTEXT, REFRAME]
+    emotional_band_range: [2, 3]
+
+  slot_04_recognition:
+    allowed_types: [STORY]
+    emotional_band_range: [4, 5]
+    persona_specificity_min: 0.75
+
+  slot_05_reframe:
+    allowed_types: [CONTEXT]
+    emotional_band_range: [3]
+
+  slot_06_story:
+    allowed_types: [STORY]
+    emotional_band_range: [3, 4]
+    persona_specificity_min: 0.70
+
+  slot_07_practice:
+    allowed_types: [EXERCISE]
+    source: exercises_v4_registry
+    enforce_registry_rules: true
+
+  slot_08_integration:
+    allowed_types: [REFLECTION]
+    emotional_band_range: [2, 3]
+
+  slot_09_story:
+    allowed_types: [STORY]
+    emotional_band_range: [2, 3]
+
+  slot_10_close:
+    allowed_types: [INTEGRATION]
+    emotional_band_range: [1, 2]
+
+# -------------------------------------------------------
+# EXERCISE CADENCE POLICY
+# -------------------------------------------------------
+
+exercise_policy:
+
+  phase_1:
+    chapters: [1, 2]
+    allowed_intensity: [level_1]
+    max_duration_seconds: 300
+
+  phase_2:
+    chapters: [3, 4, 5]
+    allowed_intensity: [level_1, level_2]
+    max_duration_seconds: 480
+
+  phase_3:
+    chapters: [6, 7]
+    allowed_intensity: [level_2]
+    max_duration_seconds: 600
+
+  phase_4:
+    chapters: [8]
+    allowed_intensity: [level_1]
+    max_duration_seconds: 300
+
+  forbid_strong_intensity: true
+
+  forbid_adjacent_same_exercise_type: true
+
+# -------------------------------------------------------
+# EMOTIONAL ARC TEMPLATE
+# -------------------------------------------------------
+
+emotional_curve_template:
+
+  chapter_1: [2, 3, 3, 4, 3, 3, 2, 2]
+  chapter_2: [2, 3, 4, 4, 3, 3, 2, 2]
+  chapter_3: [3, 4, 4, 5, 4, 3, 2, 2]
+  chapter_4: [3, 4, 4, 4, 3, 3, 2, 2]
+  chapter_5: [3, 3, 4, 4, 3, 3, 2, 2]
+  chapter_6: [3, 4, 5, 4, 3, 2, 2, 1]
+  chapter_7: [3, 4, 4, 4, 3, 2, 2, 1]
+  chapter_8: [2, 3, 3, 3, 2, 2, 1, 1]
+
+  description: >
+    Curve ensures rupture appears mid-book,
+    followed by stabilization and narrowing of intensity.
+
+# -------------------------------------------------------
+# PROMOTION LOGIC
+# -------------------------------------------------------
+
+promotion_rules:
+
+  eligible_for_confirmed:
+    min_persona_specificity: 0.75
+    min_micro_stake_density: 2
+    emotional_band_required: true
+
+  never_auto_promote_exercise_families:
+    - trauma_release
+    - catharsis_discharge
+
+# -------------------------------------------------------
+# DETERMINISTIC SEED FIELDS
+# -------------------------------------------------------
+
+selection_seed_fields:
+  - persona
+  - topic
+  - author_id
+  - brand_id
+  - locale_key
+  - emotional_phase
+
+# -------------------------------------------------------
+# FORMAT OVERRIDES
+# -------------------------------------------------------
+
+format_overrides:
+
+  bestseller_v2_1:
+    increase_story_density: true
+    allow_additional_story_slot: slot_11_optional
+
+  grief_pack:
+    remove_band_5_requirement: true
+    reduce_max_duration_seconds: 420

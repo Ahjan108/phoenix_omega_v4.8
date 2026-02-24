@@ -1,0 +1,19 @@
+# K-table for F006 (Nervous System Ladder). Part 3.1 capability check.
+# k_min per slot type: minimum pool size required for requested chapter count.
+# For no-reuse: required = chapter_count * slots_per_chapter[slot_type].
+
+k_min_per_slot:
+  HOOK:
+    k_min: 12
+  SCENE:
+    k_min: 12
+  STORY:
+    k_min: 12
+  REFLECTION:
+    k_min: 12
+  EXERCISE:
+    k_min: 12
+  INTEGRATION:
+    k_min: 12
+  COMPRESSION:
+    k_min: 12

@@ -1,0 +1,147 @@
+# Series templates for Stage 1 (Catalog Planner).
+# Links domain → series → angles. Authoritative format IDs live in Canonical Spec Part 2.
+# All series have non-empty angles (required for naming engine; see del_intake_planner).
+
+series:
+  # ─── ANXIETY CLUSTER ──────────────────────────────────────────────────────
+
+  social_anxiety_arc:
+    domain: anxiety_cluster
+    description: "Social interaction anxiety patterns"
+    search_keywords:
+      - social anxiety
+      - social phobia
+      - fear of people
+    persona_affinity:
+      high:
+        - nyc_exec
+        - nyc_executives
+        - gen_z_la
+        - healthcare_worker
+      medium:
+        - burned_out_professional
+    target_installments: 8
+    angles:
+      - at_work
+      - on_dates
+      - public_speaking
+      - at_parties
+      - online
+      - with_authority_figures
+      - in_new_groups
+      - after_conflict
+
+  panic_response_arc:
+    domain: anxiety_cluster
+    description: "Acute panic and anticipatory anxiety patterns"
+    search_keywords:
+      - panic attacks
+      - panic disorder
+      - anxiety attacks
+    persona_affinity:
+      high:
+        - acute_anxiety_sufferer
+        - gen_z_la
+      medium:
+        - healthcare_worker
+        - burned_out_professional
+    target_installments: 6
+    angles:
+      - at_night
+      - while_driving
+      - in_public
+      - at_work
+      - physical_symptoms
+      - anticipatory
+
+  # ─── GRIEF CLUSTER ────────────────────────────────────────────────────────
+
+  acute_loss_arc:
+    domain: grief_cluster
+    description: "Loss, mourning, and acute grief patterns"
+    search_keywords:
+      - grief
+      - coping with death
+      - loss and healing
+    persona_affinity:
+      high:
+        - bereaved_adult
+      medium:
+        - burned_out_professional
+        - healthcare_worker
+    target_installments: 6
+    angles:
+      - sudden_loss
+      - long_illness_loss
+      - loss_of_parent
+      - loss_of_partner
+      - loss_of_child
+      - grieving_alone
+
+  ambiguous_loss_arc:
+    domain: grief_cluster
+    description: "Ambiguous loss, disenfranchised grief, living loss"
+    search_keywords:
+      - ambiguous loss
+      - disenfranchised grief
+      - grieving someone still alive
+    persona_affinity:
+      high:
+        - bereaved_adult
+      medium:
+        - relationship_struggler
+        - life_transition_navigator
+    target_installments: 5
+    angles:
+      - estranged_family
+      - dementia_loss
+      - relationship_ending
+      - pregnancy_loss
+      - identity_loss
+
+  # ─── SHAME CLUSTER ────────────────────────────────────────────────────────
+
+  social_shame_arc:
+    domain: shame_cluster
+    description: "Shame in professional and social contexts"
+    search_keywords:
+      - imposter syndrome
+      - shame at work
+      - fear of exposure
+    persona_affinity:
+      high:
+        - nyc_exec
+        - nyc_executives
+        - self_doubting_competent
+      medium:
+        - gen_z_la
+        - burned_out_professional
+    target_installments: 6
+    angles:
+      - imposter_at_work
+      - after_public_mistake
+      - fear_of_promotion
+      - hiding_struggle
+      - comparison_trap
+      - first_generation_shame
+
+  body_shame_arc:
+    domain: shame_cluster
+    description: "Body shame and physical self-consciousness"
+    search_keywords:
+      - body shame
+      - body image
+      - self-consciousness about body
+    persona_affinity:
+      high:
+        - gen_z_la
+        - trauma_aware_healer
+      medium:
+        - anxious_insomniac
+    target_installments: 5
+    angles:
+      - in_professional_settings
+      - in_intimate_relationships
+      - in_health_contexts
+      - on_social_media
+      - after_body_change

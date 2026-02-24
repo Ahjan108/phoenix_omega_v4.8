@@ -1,0 +1,113 @@
+# V4.5 Emotional Temperature Curves — All 14 Formats
+# Temperature tokens: cool (reflective/mechanism) | warm (mild tension) | hot (visible consequence/volatile) | land (grounded embodied containment)
+# Ensures formats cannot stay emotionally even; compulsion engineering.
+
+format_curves:
+
+  # --- Deep Books (6h / 5h / 4h) ---
+  deep_book_6h:
+    sequence: [cool, warm, hot, cool, warm, hot, cool, hot, land]
+    requirements:
+      volatility_spikes_min: 3
+      rupture_mid_book: true
+      action_despite_pattern: true
+      quiet_embodied_landing: true
+    note: "Cannot become educational lectures."
+
+  deep_book_5h:
+    sequence: [cool, warm, hot, cool, hot, land]
+    requirements:
+      volatility_spikes_min: 2
+      volatility_spikes_max: 3
+      action_despite_pattern: true
+      quiet_embodied_landing: true
+    note: "Tighter escalation, less spread."
+
+  deep_book_4h:
+    sequence: [cool, warm, hot, warm, land]
+    requirements:
+      volatility_spikes_min: 1
+      volatility_spikes_max: 2
+      one_major_spike: true
+      one_moderate_spike: true
+      quiet_embodied_landing: true
+    note: "Must feel intentional, not random."
+
+  # --- Extended (3h / 2h) — binge fuel ---
+  extended_book_3h:
+    sequence: [warm, hot, warm, hot, land]
+    requirements:
+      visible_consequences_min: 2
+      act_anyway_scene_min: 1
+      quiet_embodied_landing: true
+
+  extended_book_2h:
+    sequence: [warm, hot, land]
+    requirements:
+      one_real_interruption: true
+      quiet_embodied_landing: true
+    note: "Compact. No filler explanation."
+
+  # --- Standard Book (~90m–120m) ---
+  standard_book:
+    sequence: [warm, hot, land]
+    requirements:
+      spike_required: true
+      quiet_embodied_landing: true
+    note: "If no spike, engagement drops."
+
+  # --- Short (45 / 30) ---
+  short_book_45:
+    sequence: [warm, hot, land]
+    requirements:
+      spike_by_minute: 20
+      quiet_embodied_landing: true
+
+  short_book_30:
+    sequence: [warm, hot, land]
+    requirements:
+      spike_by_minute: 12
+      quiet_embodied_landing: true
+
+  # --- Micro (20 / 15) ---
+  micro_book_20:
+    sequence: [warm, hot, land]
+    requirements:
+      rupture_before_midpoint: true
+      quiet_embodied_landing: true
+
+  micro_book_15:
+    sequence: [hot, land]
+    requirements:
+      no_ramp_time: true
+      immediate_tension: true
+      quiet_embodied_landing: true
+    note: "No ramp time. Immediate tension."
+
+  # --- Capsules (10 / 5) — somatic ---
+  capsule_10:
+    sequence: [warm, hot, land]
+    requirements:
+      emotional_spike_inward: true
+      quiet_embodied_landing: true
+    note: "Spike is inward, not narrative."
+
+  capsule_5:
+    sequence: [warm, land]
+    requirements:
+      no_spike: true
+      controlled_regulation: true
+      quiet_embodied_landing: true
+    note: "No spike. Just controlled regulation."
+
+  # --- Resets (2 / 90s) — nervous system drops ---
+  reset_2:
+    sequence: [warm, land]
+    requirements:
+      somatic_modulation: true
+
+  reset_90s:
+    sequence: [cool, land]
+    requirements:
+      somatic_modulation: true
+    note: "Nervous system drop."

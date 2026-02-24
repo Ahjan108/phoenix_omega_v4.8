@@ -1,0 +1,57 @@
+# nyc_executives × boundaries × shame × F006 (8 chapters). From wave_cycle template.
+arc_id: nyc_exec_boundaries_shame_8
+persona: nyc_executives
+topic: boundaries
+engine: shame
+format: F006
+
+chapter_count: 8
+emotional_curve: [2, 3, 2, 4, 3, 5, 3, 2]
+emotional_temperature_curve:
+  1: cool
+  2: cool
+  3: warm
+  4: warm
+  5: warm
+  6: hot
+  7: warm
+  8: warm
+
+chapter_intent:
+  1: establish_mask
+  2: expose_cost
+  3: destabilize_strategy
+  4: reveal_hidden_belief
+  5: confrontation
+  6: somatic_repair
+  7: relational_shift
+  8: embodied_identity
+
+emotional_role_sequence:
+  - recognition
+  - destabilization
+  - reframe
+  - destabilization
+  - reframe
+  - stabilization
+  - reframe
+  - integration
+
+reflection_strategy_sequence:
+  - didactic
+  - socratic
+  - narrative_embedded
+  - didactic
+  - socratic
+  - narrative_embedded
+  - didactic
+  - socratic
+
+cost_chapter_index: 5
+resolution_type: internal_shift_only
+
+motif:
+  primary_symbol: door
+  recurring_image: threshold_moment
+  recurring_question: "Where do you draw the line?"
+  tonal_signature: quiet_firmness

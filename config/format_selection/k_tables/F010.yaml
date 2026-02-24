@@ -1,0 +1,12 @@
+# K-table for F010 (Energy). Dev Spec §4.2.2. 12-16 chapters.
+format_id: F010
+tier: A
+chapter_count: 16
+
+k_min_per_slot:
+  HOOK: { k_min: 12 }
+  SCENE: { k_min: 12 }
+  STORY: { k_min: 16 }
+  REFLECTION: { k_min: 12 }
+  EXERCISE: { k_min: 6 }
+  INTEGRATION: { k_min: 10 }

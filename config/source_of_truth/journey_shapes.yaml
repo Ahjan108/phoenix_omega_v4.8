@@ -1,0 +1,50 @@
+# Structural Variation V4. Journey (chapter progression) templates.
+# Constrained by arc and structure; persona/topic/arc compatibility.
+
+schema_version: "1.0"
+
+shapes:
+  recognition_to_agency:
+    name: "Recognition to agency"
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+    chapter_count_range: [6, 15]
+    weights:
+      default: 1.2
+    phase_labels: ["awaken", "unpack", "shift", "embody"]
+
+  linear_rise:
+    name: "Linear rise to resolution"
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+    chapter_count_range: [6, 12]
+    weights:
+      default: 1.0
+
+  wave_three_peaks:
+    name: "Three peaks with valleys"
+    persona_tags: ["nyc_executives"]
+    topic_tags: ["boundaries", "self_worth"]
+    arc_tags: []
+    chapter_count_range: [8, 12]
+    weights:
+      default: 0.9
+
+  crisis_landing:
+    name: "Single crisis then landing"
+    persona_tags: ["healthcare_rns", "educators"]
+    topic_tags: ["grief", "compassion_fatigue"]
+    chapter_count_range: [6, 10]
+    weights:
+      default: 0.85
+
+  scaffold_deepen:
+    name: "Scaffold then deepen"
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+    chapter_count_range: [8, 15]
+    weights:
+      default: 0.95

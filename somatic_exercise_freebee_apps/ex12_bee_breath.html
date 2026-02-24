@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhramari — Bee Breath</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Gilda+Display&family=Nunito:wght@300;400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--inhale:#D4B86A;--hum:#C4A040;--bg:#0D0B08;--text:#E0D8C8;--muted:#6A6050}
+  body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;user-select:none}
+  .wrap{z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.3rem}
+  h1{font-family:'Gilda Display',serif;font-size:2rem;letter-spacing:.04em}
+  .sub{font-size:.72rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+  .hive{position:relative;width:260px;height:260px;display:flex;align-items:center;justify-content:center}
+  .hum-circle{width:100px;height:100px;border-radius:50%;background:radial-gradient(circle at 40% 40%,var(--inhale),rgba(212,184,106,.1));box-shadow:0 0 40px rgba(212,184,106,.2);transition:width .3s,height .3s,background .5s}
+  .hum-circle.inhale{width:180px;height:180px}
+  .hum-circle.hum{width:160px;height:160px;background:radial-gradient(circle at 40% 40%,var(--hum),rgba(196,160,64,.2));box-shadow:0 0 60px rgba(196,160,64,.35)}
+  .vibration-ring{position:absolute;border-radius:50%;border:1px solid rgba(212,184,106,.1);opacity:0;animation:none}
+  @keyframes vibrate{0%{transform:scale(1);opacity:.4}100%{transform:scale(2.2);opacity:0}}
+  .vr1{width:160px;height:160px}.vr2{width:160px;height:160px}.vr3{width:160px;height:160px}
+  .vibrating .vibration-ring{animation:vibrate 1.2s ease-out infinite}
+  .vibrating .vr2{animation-delay:.4s}.vibrating .vr3{animation-delay:.8s}
+  .hex-pattern{position:absolute;opacity:.04}
+  .pn{font-family:'Gilda Display',serif;font-size:1.4rem;letter-spacing:.08em;text-align:center}
+  .pc{font-size:2rem;font-weight:300;opacity:.7;text-align:center}
+  .inst{font-size:.72rem;color:var(--muted);letter-spacing:.04em;text-align:center;min-height:1.2rem;font-style:italic}
+  .bar{width:200px;height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
+  .bf{height:100%;width:0;border-radius:2px;background:var(--inhale)}
+  .info-row{display:flex;gap:2rem;font-size:.8rem;color:var(--muted)}
+  .info-row strong{color:var(--text);font-weight:500}
+  .controls{display:flex;gap:1rem}
+  .btn{font-family:'Nunito',sans-serif;padding:.55rem 1.6rem;border:1px solid rgba(255,255,255,.1);border-radius:100px;background:rgba(255,255,255,.03);color:var(--text);font-size:.8rem;cursor:pointer;transition:all .3s}
+  .btn:hover{background:rgba(255,255,255,.08)}
+  .btn.pri{background:rgba(212,184,106,.12);border-color:rgba(212,184,106,.3)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Bhramari</h1>
+  <p class="sub">Bee breath · humming exhale</p>
+  <div class="hive" id="hive">
+    <div class="vibration-ring vr1"></div>
+    <div class="vibration-ring vr2"></div>
+    <div class="vibration-ring vr3"></div>
+    <div class="hum-circle" id="circle"></div>
+  </div>
+  <div class="pn" id="pn">Ready</div>
+  <div class="pc" id="pc"></div>
+  <div class="inst" id="inst">Close eyes, cover ears with thumbs, hum on exhale</div>
+  <div class="bar"><div class="bf" id="bf"></div></div>
+  <div class="info-row">
+    <span>Cycle <strong id="cn">0</strong> / <strong>7</strong></span>
+    <span>Elapsed <strong id="el">0:00</strong></span>
+  </div>
+  <div class="controls">
+    <button class="btn pri" id="sb" onclick="toggle()">Begin</button>
+    <button class="btn" onclick="doReset()">Reset</button>
+  </div>
+</div>
+<script>
+const INH=4,EXH=8,CYCLE=12,CYCLES=7,SESSION=90;
+let running=false,paused=false,t=0,total=0,lastTs=0,cyc=0,lastP='',aCtx=null;
+function audio(){if(!aCtx)aCtx=new(window.AudioContext||window.webkitAudioContext)();return aCtx}
+function tone(f,d=.3){try{const x=audio(),o=x.createOscillator(),g=x.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,x.currentTime);g.gain.linearRampToValueAtTime(.07,x.currentTime+.05);g.gain.exponentialRampToValueAtTime(.001,x.currentTime+d);o.connect(g);g.connect(x.destination);o.start();o.stop(x.currentTime+d)}catch(e){}}
+function fmt(s){return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
+
+function tick(ts){
+  if(!running||paused)return;
+  if(!lastTs)lastTs=ts;
+  const dt=(ts-lastTs)/1000;lastTs=ts;t+=dt;total+=dt;
+  const ct=t%CYCLE;
+  const isIn=ct<INH;
+  const cur=isIn?'in':'hum';
+  if(cur!==lastP){
+    tone(isIn?396:220,.2);lastP=cur;
+  }
+  const circle=document.getElementById('circle');
+  const hive=document.getElementById('hive');
+  if(isIn){
+    circle.className='hum-circle inhale';
+    hive.classList.remove('vibrating');
+    document.getElementById('pn').textContent='Inhale';
+    document.getElementById('inst').textContent='Breathe in deeply through the nose';
+    document.getElementById('pc').textContent=Math.ceil(INH-ct);
+  }else{
+    circle.className='hum-circle hum';
+    hive.classList.add('vibrating');
+    document.getElementById('pn').textContent='Hummm';
+    document.getElementById('inst').textContent='Close lips, hum like a bee — feel vibrations in skull';
+    document.getElementById('pc').textContent=Math.ceil(EXH-(ct-INH));
+  }
+  document.getElementById('el').textContent=fmt(total);
+  document.getElementById('bf').style.width=(total/SESSION*100)+'%';
+
+  if(ct<dt&&t>1){cyc++;document.getElementById('cn').textContent=Math.min(cyc,CYCLES);
+    if(cyc>=CYCLES){end();return}}
+  requestAnimationFrame(tick);
+}
+
+function toggle(){
+  const b=document.getElementById('sb');
+  if(!running){running=true;paused=false;t=0;total=0;lastTs=0;cyc=0;lastP='';
+    document.getElementById('cn').textContent='0';b.textContent='Pause';requestAnimationFrame(tick);
+  }else if(!paused){paused=true;lastTs=0;b.textContent='Resume'}
+  else{paused=false;lastTs=0;b.textContent='Pause';requestAnimationFrame(tick)}
+}
+function doReset(){
+  running=false;paused=false;t=0;total=0;lastTs=0;cyc=0;lastP='';
+  document.getElementById('sb').textContent='Begin';document.getElementById('cn').textContent='0';
+  document.getElementById('el').textContent='0:00';document.getElementById('pn').textContent='Ready';
+  document.getElementById('pc').textContent='';document.getElementById('bf').style.width='0';
+  document.getElementById('circle').className='hum-circle';
+  document.getElementById('hive').classList.remove('vibrating');
+  document.getElementById('inst').textContent='Close eyes, cover ears with thumbs, hum on exhale';
+}
+function end(){running=false;document.getElementById('sb').textContent='Begin';document.getElementById('pn').textContent='Stillness';document.getElementById('pc').textContent='';
+  document.getElementById('hive').classList.remove('vibrating');document.getElementById('circle').className='hum-circle';
+  document.getElementById('inst').textContent='Notice the silence after the vibration';tone(528,.8)}
+</script>
+</body>
+</html>

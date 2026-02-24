@@ -1,0 +1,17 @@
+# Author/teacher assignment: which teacher_id and brand_id to use per book/series/wave.
+# Authority: PLANNING_STATUS.md — config or upstream to assign (teacher_id, brand_id).
+# When run_pipeline does not receive explicit --teacher/--brand, resolver uses this (first matching row).
+
+assignments:
+  - brand_id: phoenix
+    teacher_id: default_teacher
+    # Optional: narrow by topic_ids, persona_ids, series_ids (empty = any)
+    topic_ids: []
+    persona_ids: []
+    series_ids: []
+
+  # Example: assign a specific teacher for a brand when needed
+  # - brand_id: phoenix
+  #   teacher_id: ajahn_x
+  #   topic_ids: [self_worth, shame]
+  #   persona_ids: [nyc_executives]

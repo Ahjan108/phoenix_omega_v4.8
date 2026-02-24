@@ -1,0 +1,100 @@
+"""Tests for Stage 6 prose resolution and book renderer."""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import pytest
+
+from phoenix_v4.rendering.prose_resolver import (
+    PlanContext,
+    RenderResult,
+    resolve_prose_for_plan,
+    _is_placeholder_or_silence,
+    _slot_type_from_placeholder_or_silence,
+)
+from phoenix_v4.rendering.book_renderer import (
+    RenderOptions,
+    TxtWriter,
+    render_book,
+)
+
+
+def test_placeholder_silence_helpers() -> None:
+    assert _is_placeholder_or_silence("placeholder:STORY:ch0:slot2") is True
+    assert _is_placeholder_or_silence("silence:REFLECTION:ch1:slot3") is True
+    assert _is_placeholder_or_silence("nyc_executives_self_worth_shame_EMBODIMENT_v04") is False
+    assert _slot_type_from_placeholder_or_silence("placeholder:HOOK:ch0:slot0") == "HOOK"
+    assert _slot_type_from_placeholder_or_silence("silence:REFLECTION:ch1:slot3") == "REFLECTION"
+
+
+def test_plan_context_from_plan_with_top_level_ids() -> None:
+    plan = {"topic_id": "self_worth", "persona_id": "nyc_executives", "atom_ids": []}
+    ctx = PlanContext.from_plan(plan)
+    assert ctx.persona_id == "nyc_executives"
+    assert ctx.topic_id == "self_worth"
+    assert "shame" in ctx.engines or "comparison" in ctx.engines
+
+
+def test_plan_context_infer_from_story_atom_id() -> None:
+    plan = {
+        "atom_ids": [
+            "placeholder:HOOK:ch0:slot0",
+            "nyc_executives_self_worth_shame_EMBODIMENT_v04",
+        ],
+    }
+    ctx = PlanContext.from_plan(plan)
+    assert ctx.persona_id == "nyc_executives"
+    assert ctx.topic_id == "self_worth"
+    assert "shame" in ctx.engines
+
+
+def test_resolve_prose_returns_result_with_placeholder_tracking() -> None:
+    plan = {
+        "atom_ids": ["placeholder:HOOK:ch0:slot0", "nyc_executives_self_worth_shame_EMBODIMENT_v04"],
+        "chapter_slot_sequence": [["HOOK", "STORY"]],
+    }
+    repo = Path(__file__).resolve().parent.parent
+    result = resolve_prose_for_plan(plan, atoms_root=repo / "atoms")
+    assert isinstance(result, RenderResult)
+    assert len(result.placeholder_or_silence_ids) >= 1
+    # STORY prose should be resolved if atoms exist
+    if result.prose_map:
+        assert "nyc_executives_self_worth_shame_EMBODIMENT_v04" in result.prose_map or "nyc_executives_self_worth_shame_EMBODIMENT_v04" in result.missing_ids
+
+
+def test_render_book_txt_with_placeholders_allowed(tmp_path: Path) -> None:
+    plan = {
+        "plan_hash": "test_hash",
+        "atom_ids": ["placeholder:HOOK:ch0:slot0", "placeholder:STORY:ch0:slot1"],
+        "chapter_slot_sequence": [["HOOK", "STORY"]],
+    }
+    written = render_book(
+        plan,
+        tmp_path,
+        formats=["txt"],
+        allow_placeholders=True,
+        on_missing="placeholder",
+        title_page=False,
+    )
+    assert "txt" in written
+    assert (tmp_path / "book.txt").exists()
+    text = (tmp_path / "book.txt").read_text()
+    assert "CHAPTER 1" in text
+    assert "[Placeholder:" in text
+
+
+def test_txt_writer_emits_missing_when_on_missing_placeholder() -> None:
+    plan = {
+        "atom_ids": ["unknown_atom_id_xyz"],
+        "chapter_slot_sequence": [["STORY"]],
+    }
+    result = resolve_prose_for_plan(plan)
+    result.missing_ids.append("unknown_atom_id_xyz")
+    options = RenderOptions(allow_placeholders=True, on_missing="placeholder")
+    writer = TxtWriter(plan, result.prose_map, result, options)
+    out = Path(__file__).resolve().parent.parent / "artifacts" / "books_qa" / "test_missing.txt"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    writer.write(out)
+    assert "[Missing:" in out.read_text()
+    out.unlink(missing_ok=True)

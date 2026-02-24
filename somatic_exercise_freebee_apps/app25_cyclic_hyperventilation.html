@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyclic Hyperventilation</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#060612;--cy:#06b6d4;--mag:#d946ef;--text:#e2e8f0;--m:#64748b}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(6,182,212,.04),transparent 50%);z-index:0}
+.w{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1rem;padding:1.5rem;width:100%;max-width:460px}
+h1{font-family:'Orbitron',sans-serif;font-size:1.3rem;letter-spacing:.1em;text-transform:uppercase;background:linear-gradient(90deg,var(--cy),var(--mag));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sb{font-size:.65rem;color:var(--m);letter-spacing:.2em;text-transform:uppercase}
+.warn{font-size:.6rem;color:#ef4444;text-align:center;padding:.5rem 1rem;border:1px solid rgba(239,68,68,.25);border-radius:8px;background:rgba(239,68,68,.05);line-height:1.5}
+canvas{width:240px;height:240px;display:block;margin:0 auto}
+.rr{display:flex;gap:.6rem;justify-content:center}
+.rd{width:38px;height:38px;border-radius:50%;border:2px solid rgba(6,182,212,.15);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-size:.7rem;color:var(--m);transition:.3s}
+.rd.ac{border-color:var(--cy);color:var(--cy);background:rgba(6,182,212,.08)}
+.rd.dn{border-color:var(--mag);color:var(--mag);background:rgba(217,70,239,.08)}
+.inf{text-align:center}
+.ph{font-family:'Orbitron',sans-serif;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;transition:color .3s}
+.bg{font-family:'Orbitron',sans-serif;font-size:3.2rem;font-weight:800;transition:color .3s}
+.dt{font-size:.68rem;color:var(--m);letter-spacing:.1em}
+.pr{width:100%;height:4px;background:rgba(255,255,255,.04);border-radius:2px;overflow:hidden}
+.pf{height:100%;width:0;background:linear-gradient(90deg,var(--cy),var(--mag));transition:width .2s}
+.ct{display:flex;gap:1rem}
+.btn{font-family:'Inter',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.6rem;border:1px solid rgba(6,182,212,.2);border-radius:8px;background:rgba(6,182,212,.05);color:var(--text);cursor:pointer;transition:.25s}
+.btn:hover{background:rgba(6,182,212,.12)}.btn.p{border-color:rgba(6,182,212,.4);background:rgba(6,182,212,.1)}
+.bs{padding:.4rem .9rem;font-size:.65rem}
+.dn-s{display:none;flex-direction:column;align-items:center;gap:1rem;text-align:center;animation:fu .8s}
+.dn-s.show{display:flex}
+.dn-s h2{font-family:'Orbitron',sans-serif;font-size:1.1rem;letter-spacing:.08em}
+.dn-s p{color:var(--m);font-size:.82rem;line-height:1.7;max-width:350px}
+.mn{display:flex;flex-direction:column;align-items:center;gap:1rem}.mn.off{display:none}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.sn{position:fixed;top:1rem;right:1rem;z-index:10;width:34px;height:34px;border-radius:50%;border:1px solid rgba(6,182,212,.15);background:rgba(6,182,212,.03);color:var(--m);cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<button class="sn" id="sB">🔔</button>
+<div class="w">
+<h1>Cyclic Hyperventilation</h1>
+<div class="sb">Controlled Sympathetic Activation</div>
+<div class="warn">⚠ Not for epilepsy, pregnancy, cardiac conditions. Perform seated/lying only.</div>
+<div class="mn" id="mV">
+<canvas id="cv" width="480" height="480"></canvas>
+<div class="rr"><div class="rd" id="r1">1</div><div class="rd" id="r2">2</div><div class="rd" id="r3">3</div></div>
+<div class="inf"><div class="ph" id="ph">Ready</div><div class="bg" id="bg">—</div><div class="dt" id="dt">30 breaths → hold → recovery × 3 rounds</div></div>
+<div class="pr"><div class="pf" id="pf"></div></div>
+<div class="ct"><button class="btn p" id="go">Begin Protocol</button><button class="btn bs" id="rs" style="display:none">Reset</button></div>
+</div>
+<div class="dn-s" id="dV">
+<h2>Protocol Complete</h2>
+<p>Three rounds of controlled hyperventilation. You deliberately shifted blood chemistry — increasing adrenaline, alkalizing blood pH, and triggering a controlled stress-recovery cycle that trains autonomic resilience.</p>
+<p style="opacity:.6;font-style:italic">You proved your body can handle intensity — and recover.</p>
+<button class="btn p" id="ag">Again</button>
+</div>
+</div>
+<script>
+const BC=30,BS=2,HD=15,RD=15,RN=3,RE=BC*BS+HD+RD,TE=RN*RE;
+class A{constructor(){this.c=null;this.on=true}init(){if(!this.c)this.c=new(window.AudioContext||window.webkitAudioContext)}t(f,d,v=.06){if(!this.on||!this.c)return;const o=this.c.createOscillator(),g=this.c.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(v,this.c.currentTime);g.gain.linearRampToValueAtTime(0,this.c.currentTime+d);o.connect(g);g.connect(this.c.destination);o.start();o.stop(this.c.currentTime+d)}bp(){this.t(200,.08,.04)}hs(){this.t(340,.5)}he(){this.t(520,.6)}toggle(){this.on=!this.on;return this.on}}
+const au=new A(),cv=document.getElementById('cv'),c=cv.getContext('2d'),W=cv.width,H=cv.height,CX=W/2,CY=H/2;
+const ph$=document.getElementById('ph'),bg$=document.getElementById('bg'),dt$=document.getElementById('dt'),pf$=document.getElementById('pf');
+const go$=document.getElementById('go'),rs$=document.getElementById('rs'),mV=document.getElementById('mV'),dV=document.getElementById('dV');
+let st='idle',rn=0,p='',ps=0,bn=0,lb=-1;
+function srd(){for(let i=1;i<=3;i++){const d=document.getElementById('r'+i);d.classList.remove('ac','dn');if(i-1<rn)d.classList.add('dn');else if(i-1===rn)d.classList.add('ac')}}
+function dB(pr){c.clearRect(0,0,W,H);const s=Math.sin(pr*Math.PI),r=60+s*50;const g=c.createRadialGradient(CX,CY,0,CX,CY,r);g.addColorStop(0,`rgba(6,182,212,${.3+s*.3})`);g.addColorStop(.6,`rgba(217,70,239,${.1+s*.15})`);g.addColorStop(1,'transparent');c.beginPath();c.arc(CX,CY,r,0,Math.PI*2);c.fillStyle=g;c.fill();c.beginPath();c.arc(CX,CY,r+5,0,Math.PI*2);c.strokeStyle=`rgba(6,182,212,${.2+s*.2})`;c.lineWidth=2;c.stroke()}
+function dH(el){c.clearRect(0,0,W,H);const t=Date.now()/1e3,pu=Math.sin(t*2)*.1+.2,r=80+Math.sin(t)*5;const g=c.createRadialGradient(CX,CY,0,CX,CY,r);g.addColorStop(0,`rgba(239,68,68,${pu+.1})`);g.addColorStop(1,'transparent');c.beginPath();c.arc(CX,CY,r,0,Math.PI*2);c.fillStyle=g;c.fill();const pc=Math.min(1,el/HD);c.beginPath();c.arc(CX,CY,100,-Math.PI/2,-Math.PI/2+pc*Math.PI*2);c.strokeStyle='rgba(239,68,68,.4)';c.lineWidth=3;c.stroke()}
+function dR(){c.clearRect(0,0,W,H);const t=Date.now()/1e3,r=70+Math.sin(t)*10;const g=c.createRadialGradient(CX,CY,0,CX,CY,r);g.addColorStop(0,'rgba(16,185,129,.25)');g.addColorStop(1,'transparent');c.beginPath();c.arc(CX,CY,r,0,Math.PI*2);c.fillStyle=g;c.fill()}
+function dI(){c.clearRect(0,0,W,H);const t=Date.now()/2e3,r=50+Math.sin(t)*5;const g=c.createRadialGradient(CX,CY,0,CX,CY,r);g.addColorStop(0,'rgba(6,182,212,.1)');g.addColorStop(1,'transparent');c.beginPath();c.arc(CX,CY,r,0,Math.PI*2);c.fillStyle=g;c.fill()}
+function start(){au.init();st='active';rn=0;go$.textContent='—';go$.style.pointerEvents='none';rs$.style.display='inline-block';dV.classList.remove('show');mV.classList.remove('off');sp('breathing')}
+function sp(x){p=x;ps=performance.now();srd();if(x==='breathing'){bn=0;lb=-1;ph$.textContent=`Round ${rn+1} · Power Breaths`;ph$.style.color='var(--cy)';bg$.style.color='var(--cy)';dt$.textContent='Deep rhythmic breaths'}else if(x==='hold'){ph$.textContent='Retention Hold';ph$.style.color='#ef4444';bg$.style.color='#ef4444';dt$.textContent='Exhale and hold';au.hs()}else if(x==='recovery'){ph$.textContent='Recovery';ph$.style.color='#10b981';bg$.style.color='#10b981';dt$.textContent='Deep breath in, hold, release';au.he()}tk()}
+function tk(){if(st!=='active')return;const el=(performance.now()-ps)/1e3;if(p==='breathing'){bn=Math.min(BC,Math.floor(el/BS)+1);if(bn!==lb){lb=bn;au.bp()}bg$.textContent=bn+'/'+BC;dB((el%BS)/BS);pf$.style.width=((rn*RE+el)/TE*100)+'%';if(bn>=BC&&el>=BC*BS){sp('hold');return}}else if(p==='hold'){bg$.textContent=Math.max(0,Math.ceil(HD-el))+'s';dH(el);pf$.style.width=((rn*RE+BC*BS+el)/TE*100)+'%';if(el>=HD){sp('recovery');return}}else if(p==='recovery'){bg$.textContent=Math.max(0,Math.ceil(RD-el))+'s';dR();pf$.style.width=((rn*RE+BC*BS+HD+el)/TE*100)+'%';if(el>=RD){rn++;if(rn>=RN){fin();return}sp('breathing');return}}requestAnimationFrame(tk)}
+function fin(){st='done';mV.classList.add('off');dV.classList.add('show')}
+function rst(){st='idle';rn=0;go$.textContent='Begin Protocol';go$.style.pointerEvents='auto';go$.classList.add('p');rs$.style.display='none';ph$.textContent='Ready';ph$.style.color='';bg$.textContent='—';bg$.style.color='';dt$.textContent='30 breaths → hold → recovery × 3 rounds';pf$.style.width='0';srd();dV.classList.remove('show');mV.classList.remove('off');il()}
+go$.onclick=()=>{if(st==='idle')start()};rs$.onclick=rst;
+document.getElementById('ag').onclick=()=>{rst();start()};
+document.getElementById('sB').onclick=()=>{au.init();const on=au.toggle();document.getElementById('sB').textContent=on?'🔔':'🔇'};
+function il(){if(st!=='idle')return;dI();requestAnimationFrame(il)}il();
+</script>
+</body>
+</html>

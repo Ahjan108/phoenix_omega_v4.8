@@ -1,0 +1,34 @@
+# Teacher Mode V4 — Teacher registry
+# Authority: specs/TEACHER_MODE_V4_CANONICAL_SPEC.md
+# Add one entry per teacher; teacher_allocator and pipeline read this.
+
+teachers:
+  ahjan:
+    display_name: "Ahjan"
+    kb_id: "ahjan"
+    doctrine_profile: "ahjan_contemplative"
+    allowed_topics: [anxiety, self_worth, shame, grief, compassion_fatigue, boundaries, courage, depression, financial_stress]
+    disallowed_topics: [manifestation, get_rich_quick]
+    allowed_engines: [shame, false_alarm, overwhelm, spiral, watcher, grief, comparison]
+    allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
+    identity_shift_allowed: false
+    preferred_formats: [F006, standard_book]
+    teacher_mode_defaults:
+      require_teacher_story: true
+      require_teacher_exercise: true
+      allow_generic_fallback_for_scene: true
+
+  ajahn_x:
+    display_name: "Ajahn X"
+    kb_id: "ajahn_x"
+    doctrine_profile: "theravada_minimalist"
+    allowed_topics: [anxiety, shame, self_worth]
+    disallowed_topics: [manifestation, get_rich_quick]
+    allowed_engines: [shame, anxiety]
+    allowed_resolution_types: [open_loop, internal_shift_only]
+    identity_shift_allowed: false
+    preferred_formats: [F006, standard_book]
+    teacher_mode_defaults:
+      require_teacher_story: true
+      require_teacher_exercise: true
+      allow_generic_fallback_for_scene: true

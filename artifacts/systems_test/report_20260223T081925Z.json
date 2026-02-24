@@ -1,0 +1,352 @@
+{
+  "timestamp": "20260223T081925Z",
+  "total": 43,
+  "passed": 42,
+  "failed": 1,
+  "results": [
+    {
+      "check_id": "phase1_topic_engine_bindings",
+      "passed": true,
+      "category": "config_schema",
+      "message": "topic_engine_bindings OK",
+      "artifact_path": "/Users/ahjan/phoenix_omega/config/topic_engine_bindings.yaml",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase1_identity_aliases",
+      "passed": true,
+      "category": "config_schema",
+      "message": "identity_aliases OK",
+      "artifact_path": "/Users/ahjan/phoenix_omega/config/identity_aliases.yaml",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase1_format_selection",
+      "passed": true,
+      "category": "config_schema",
+      "message": "format_selection OK",
+      "artifact_path": "/Users/ahjan/phoenix_omega/config/format_selection/format_registry.yaml",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase1_emotional_role_slot",
+      "passed": true,
+      "category": "config_schema",
+      "message": "emotional_role_slot_requirements OK",
+      "artifact_path": "/Users/ahjan/phoenix_omega/config/format_selection/emotional_role_slot_requirements.yaml",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase1_freebie_config",
+      "passed": true,
+      "category": "config_schema",
+      "message": "freebie registry OK",
+      "artifact_path": "/Users/ahjan/phoenix_omega/config/freebies/freebie_registry.yaml",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase1_narrator_config",
+      "passed": true,
+      "category": "config_schema",
+      "message": "narrator config OK",
+      "artifact_path": "/Users/ahjan/phoenix_omega/config/narrators/narrator_registry.yaml",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase1_canonical",
+      "passed": true,
+      "category": "config_schema",
+      "message": "canonical OK",
+      "artifact_path": "/Users/ahjan/phoenix_omega/config/catalog_planning/canonical_topics.yaml",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase1_master_arcs",
+      "passed": true,
+      "category": "config_schema",
+      "message": "2 arc(s) OK",
+      "artifact_path": "/Users/ahjan/phoenix_omega/config/source_of_truth/master_arcs",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase1_engines",
+      "passed": true,
+      "category": "config_schema",
+      "message": "1 engine(s)",
+      "artifact_path": "/Users/ahjan/phoenix_omega/config/source_of_truth/engines",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase1_governance",
+      "passed": true,
+      "category": "config_schema",
+      "message": "governance OK",
+      "artifact_path": "/Users/ahjan/phoenix_omega/phoenix_v4/qa/emotional_governance_rules.yaml",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase1_cta_tier",
+      "passed": true,
+      "category": "config_schema",
+      "message": "cta and tier_bundles OK",
+      "artifact_path": "/Users/ahjan/phoenix_omega/config/freebies/cta_templates.yaml",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase2_teacher_resolver",
+      "passed": true,
+      "category": "resolver_fail",
+      "message": "resolve_teacher_brand OK",
+      "artifact_path": null,
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase2_author_resolver",
+      "passed": true,
+      "category": "resolver_fail",
+      "message": "resolve_author_from_brand OK",
+      "artifact_path": null,
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase2_narrator_resolver",
+      "passed": true,
+      "category": "resolver_fail",
+      "message": "narrator resolve and validate OK",
+      "artifact_path": null,
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase2_resolve_canonical",
+      "passed": true,
+      "category": "resolver_fail",
+      "message": "resolve_to_canonical OK",
+      "artifact_path": null,
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase3_validate_compiled_gen_z_professionals__anxiety__overwhelm__F002",
+      "passed": true,
+      "category": "validator_fail",
+      "message": "validate_compiled_plan OK",
+      "artifact_path": "artifacts/systems_test/plans/gen_z_professionals__anxiety__overwhelm__F002_out.json",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase3_arc_alignment_gen_z_professionals__anxiety__overwhelm__F002",
+      "passed": true,
+      "category": "validator_fail",
+      "message": "validate_arc_alignment OK",
+      "artifact_path": "artifacts/systems_test/plans/gen_z_professionals__anxiety__overwhelm__F002_out.json",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase3_engine_resolution_gen_z_professionals__anxiety__overwhelm__F002",
+      "passed": true,
+      "category": "validator_fail",
+      "message": "no engine def; skip",
+      "artifact_path": "artifacts/systems_test/plans/gen_z_professionals__anxiety__overwhelm__F002_out.json",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase3_validate_compiled_nyc_executives__self_worth__shame__F006",
+      "passed": true,
+      "category": "validator_fail",
+      "message": "validate_compiled_plan OK",
+      "artifact_path": "artifacts/systems_test/plans/nyc_executives__self_worth__shame__F006_out.json",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase3_arc_alignment_nyc_executives__self_worth__shame__F006",
+      "passed": true,
+      "category": "validator_fail",
+      "message": "validate_arc_alignment OK",
+      "artifact_path": "artifacts/systems_test/plans/nyc_executives__self_worth__shame__F006_out.json",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase3_engine_resolution_nyc_executives__self_worth__shame__F006",
+      "passed": true,
+      "category": "validator_fail",
+      "message": "validate_engine_resolution OK",
+      "artifact_path": "artifacts/systems_test/plans/nyc_executives__self_worth__shame__F006_out.json",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase3_pipeline_runs",
+      "passed": true,
+      "category": "pipeline_fail",
+      "message": "Ran pipeline for 2 arc(s)",
+      "artifact_path": "artifacts/systems_test/plans",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase4_plan_freebies",
+      "passed": true,
+      "category": "freebie_planner_fail",
+      "message": "plan_freebies OK (bundle len=2)",
+      "artifact_path": null,
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase4_bundle_with_formats",
+      "passed": true,
+      "category": "freebie_planner_fail",
+      "message": "get_freebie_bundle_with_formats OK",
+      "artifact_path": null,
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase4_generate_freebies",
+      "passed": true,
+      "category": "freebie_render_fail",
+      "message": "generate_freebies_for_book OK (2 files)",
+      "artifact_path": "artifacts/systems_test/freebie_artifacts",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase4_load_template",
+      "passed": true,
+      "category": "missing_template",
+      "message": "load_template(breath_timer_template.html) OK",
+      "artifact_path": null,
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase4_render_cta",
+      "passed": true,
+      "category": "freebie_render_fail",
+      "message": "CTA render OK",
+      "artifact_path": null,
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase5_validate_canonical",
+      "passed": true,
+      "category": "canonical_drift",
+      "message": "validate_canonical_sources OK or warn-only",
+      "artifact_path": "/Users/ahjan/phoenix_omega/scripts/validate_canonical_sources.py",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase5_plan_freebie_assets",
+      "passed": true,
+      "category": "asset_plan_fail",
+      "message": "Manifest has 2 row(s)",
+      "artifact_path": "artifacts/systems_test/manifest.jsonl",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase5_create_freebie_assets",
+      "passed": true,
+      "category": "asset_create_fail",
+      "message": "create_freebie_assets OK (2 html)",
+      "artifact_path": "artifacts/systems_test/store",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase5_validate_asset_store",
+      "passed": true,
+      "category": "asset_validate_fail",
+      "message": "validate_asset_store OK or store empty",
+      "artifact_path": "artifacts/systems_test/store",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase6_structural_entropy",
+      "passed": true,
+      "category": "validator_fail",
+      "message": "Structural entropy: OK\n",
+      "artifact_path": "artifacts/systems_test/plans/nyc_executives__self_worth__shame__F006_out.json",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase6_author_positioning",
+      "passed": true,
+      "category": "validator_fail",
+      "message": "check_author_positioning ran (exit may be 0 or 1)",
+      "artifact_path": "artifacts/systems_test/plans/nyc_executives__self_worth__shame__F006_out.json",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase6_platform_similarity",
+      "passed": true,
+      "category": "validator_fail",
+      "message": "check_platform_similarity ran",
+      "artifact_path": "artifacts/systems_test/plans/nyc_executives__self_worth__shame__F006_out.json",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase6_brand_archetype",
+      "passed": true,
+      "category": "gate_fail",
+      "message": "",
+      "artifact_path": null,
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase6_gate49",
+      "passed": true,
+      "category": "gate_fail",
+      "message": "GATE #49 PASS: locale/territory consistent for distribution\n",
+      "artifact_path": "artifacts/systems_test/plans/nyc_executives__self_worth__shame__F006_out.json",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase6_production_gates",
+      "passed": false,
+      "category": "gate_fail",
+      "message": "run_production_readiness_gates completed",
+      "artifact_path": null,
+      "suggested_fix": "Address failed gates"
+    },
+    {
+      "check_id": "phase6_simulation",
+      "passed": true,
+      "category": "gate_fail",
+      "message": "simulation OK",
+      "artifact_path": null,
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase7_plan_hash",
+      "passed": true,
+      "category": "contract_violation",
+      "message": "plan_hash OK",
+      "artifact_path": "artifacts/systems_test/plans/nyc_executives__self_worth__shame__F006_out.json",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase7_chapter_slot_sequence",
+      "passed": true,
+      "category": "contract_violation",
+      "message": "chapter_slot_sequence OK",
+      "artifact_path": "artifacts/systems_test/plans/nyc_executives__self_worth__shame__F006_out.json",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase7_atom_ids",
+      "passed": true,
+      "category": "contract_violation",
+      "message": "atom_ids OK",
+      "artifact_path": "artifacts/systems_test/plans/nyc_executives__self_worth__shame__F006_out.json",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase7_slot_sequence_shape",
+      "passed": true,
+      "category": "contract_violation",
+      "message": "chapter_slot_sequence shape OK",
+      "artifact_path": "artifacts/systems_test/plans/nyc_executives__self_worth__shame__F006_out.json",
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase7_freebie_bundle_with_formats",
+      "passed": true,
+      "category": "contract_violation",
+      "message": "freebie_bundle_with_formats OK",
+      "artifact_path": "artifacts/systems_test/plans/nyc_executives__self_worth__shame__F006_out.json",
+      "suggested_fix": null
+    }
+  ]
+}

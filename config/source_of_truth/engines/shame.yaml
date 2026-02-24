@@ -1,0 +1,36 @@
+# Engine: shame (Arc-First Canonical Spec v1.1)
+# See ENGINE_DEFINITION_SCHEMA.md.
+
+engine_id: shame
+description: "Value tied to exposure; freeze or shrink under social visibility; self-surveillance; social narrowing."
+
+core_pattern:
+  - "Social exposure"
+  - "Freeze or shrink"
+  - "Self-surveillance"
+  - "Social narrowing"
+
+allowed_resolution_types:
+  - open_loop
+  - internal_shift_only
+
+identity_shift_allowed: false
+open_loop_allowed: true
+
+peak_intensity_limit: 5
+
+tone_constraints:
+  - "No triumphant speeches"
+  - "No public victory moments"
+  - "No empowerment monologues"
+
+prohibited_outcomes:
+  - "You are enough exactly as you are."
+  - "Public confrontation success."
+  - "Apology from antagonist."
+
+motif_preferences:
+  - "glass"
+  - "mirrors"
+  - "silence"
+  - "echo"

@@ -1,0 +1,4 @@
+# Test-only bindings for emotional curve golden. Do not use in production.
+golden_test_topic:
+  allowed_engines:
+    - test_engine

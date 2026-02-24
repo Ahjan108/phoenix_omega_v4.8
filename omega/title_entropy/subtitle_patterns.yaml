@@ -1,0 +1,32 @@
+# Authority: SYSTEMS_DOCUMENTATION §29.2.5
+# Title/subtitle structural templates. Variables: PrimaryKeyword, ScenarioPhrase,
+# PersonaDescription, PromiseClause, DistressVerb, OutcomeVerb, N, FormatUnit.
+
+title_templates:
+  scenario_direct: "{PrimaryKeyword}"
+  scenario_promise: "{PrimaryKeyword}: {PromiseClause}"
+  persona_targeted: "{PrimaryKeyword} for {PersonaDescription}"
+  outcome_focused: "How to {OutcomeVerb} When You {ScenarioPhrase}"
+
+subtitle_templates:
+  three_part: "How to Stop {DistressVerbIng} in {ScenarioPhrase} and {OutcomeVerb} with Confidence"
+  how_to_stack: "How to {Action1}, {Action2}, and {Action3}"
+  micro_promise: "How to Stop {DistressVerbIng} in {ScenarioPhrase} and {OutcomeVerb}"
+
+# Brand preferences (soft — weight higher, not exclusive)
+brand_template_preferences:
+  stabilizer:
+    title: ["scenario_direct", "scenario_promise"]
+    subtitle: ["micro_promise", "three_part"]
+  phoenix:
+    title: ["scenario_direct", "outcome_focused"]
+    subtitle: ["three_part", "how_to_stack"]
+
+# Micro-promise clauses per brand (for {PromiseClause})
+micro_promises:
+  default:
+    - "How to Stop Freezing and Speak Up with Confidence"
+    - "How to Calm Your Mind and Show Up Fully"
+  stabilizer:
+    - "How to Stop Freezing in Meetings and Speak Up with Confidence"
+    - "How to Calm Your Nerves and Show Up with Confidence"

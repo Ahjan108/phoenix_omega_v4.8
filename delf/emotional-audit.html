@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emotional Audit — Phoenix Protocol</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bone: #f5f0e8;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a0;
+    --deep: #0f0c09;
+    --ember: #8b3a2a;
+    --rust: #c4522a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--deep);
+    color: var(--bone);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse 50% 60% at 30% 20%, rgba(139,58,42,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 80% 80%, rgba(201,168,76,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .back {
+    position: fixed;
+    top: 24px; left: 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.3);
+    text-decoration: none;
+    transition: color 0.3s;
+    z-index: 10;
+  }
+  .back:hover { color: var(--gold); }
+
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 80px 32px 120px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+    opacity: 0.7;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    color: var(--bone);
+  }
+
+  h1 em { font-style: italic; color: var(--gold-light); }
+
+  .intro {
+    font-size: 1.1rem;
+    color: rgba(245,240,232,0.5);
+    line-height: 1.7;
+    margin-bottom: 56px;
+    font-weight: 300;
+  }
+
+  /* Progress */
+  .progress-bar {
+    height: 1px;
+    background: rgba(201,168,76,0.15);
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--gold);
+    width: 0%;
+    transition: width 0.5s ease;
+  }
+
+  .progress-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: rgba(245,240,232,0.25);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  /* Question */
+  .question-wrap {
+    animation: rise 0.5s ease forwards;
+  }
+
+  .q-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+    opacity: 0.7;
+  }
+
+  .q-text {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.4;
+    margin-bottom: 36px;
+    color: var(--bone);
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .option {
+    padding: 20px 24px;
+    border: 1px solid rgba(201,168,76,0.15);
+    background: rgba(255,255,255,0.01);
+    cursor: pointer;
+    transition: all 0.25s;
+    text-align: left;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: rgba(245,240,232,0.7);
+    font-weight: 300;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .option::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--gold);
+    transform: scaleY(0);
+    transition: transform 0.25s;
+  }
+
+  .option:hover {
+    border-color: rgba(201,168,76,0.4);
+    background: rgba(201,168,76,0.04);
+    color: var(--bone);
+  }
+
+  .option:hover::before { transform: scaleY(1); }
+
+  /* Result */
+  .result-wrap {
+    display: none;
+    animation: rise 0.7s ease forwards;
+  }
+
+  .result-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    opacity: 0.7;
+  }
+
+  .result-name {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    color: var(--bone);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .result-name em { font-style: italic; color: var(--gold-light); }
+
+  .result-desc {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: rgba(245,240,232,0.65);
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  .result-insight {
+    border-left: 1px solid var(--gold);
+    padding: 20px 24px;
+    margin-bottom: 40px;
+    background: rgba(201,168,76,0.03);
+  }
+
+  .insight-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    opacity: 0.7;
+  }
+
+  .insight-text {
+    font-size: 1.1rem;
+    color: var(--bone);
+    line-height: 1.65;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .cta-block {
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 36px 32px;
+    background: rgba(201,168,76,0.03);
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .cta-block h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 12px;
+  }
+
+  .cta-block p {
+    font-size: 0.95rem;
+    color: rgba(245,240,232,0.5);
+    margin-bottom: 24px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    cursor: pointer;
+    border: 1px solid var(--gold);
+    background: var(--gold);
+    color: var(--deep);
+    text-decoration: none;
+    transition: all 0.3s;
+    margin-right: 12px;
+    margin-bottom: 12px;
+  }
+
+  .btn:hover { background: var(--gold-light); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--gold);
+  }
+
+  .btn-outline:hover {
+    background: rgba(201,168,76,0.08);
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back">← All tools</a>
+
+<div class="wrap">
+  <p class="eyebrow">Phoenix Protocol — 02</p>
+  <h1>What's <em>actually</em><br>hijacking your attention?</h1>
+  <p class="intro">7 questions. 2 minutes. Your personal emotional pattern — revealed and named.</p>
+
+  <!-- Progress -->
+  <div>
+    <p class="progress-label" id="progressLabel">Question 1 of 7</p>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
+  <!-- Questions -->
+  <div id="quizWrap" class="question-wrap"></div>
+
+  <!-- Result -->
+  <div id="resultWrap" class="result-wrap"></div>
+</div>
+
+<script>
+const questions = [
+  {
+    q: "When you wake up in the morning, your first thought is usually about...",
+    opts: [
+      { text: "Everything I didn't finish yesterday", score: { overwhelm: 2 } },
+      { text: "What could go wrong today", score: { fear: 2 } },
+      { text: "Feeling already behind before starting", score: { shame: 2 } },
+      { text: "How tired I still am", score: { depletion: 2 } },
+    ]
+  },
+  {
+    q: "In a difficult conversation, you most often feel...",
+    opts: [
+      { text: "The urge to fix it immediately", score: { overwhelm: 1, fear: 1 } },
+      { text: "Like you said something wrong", score: { shame: 2 } },
+      { text: "Numb or disconnected", score: { depletion: 2 } },
+      { text: "Like the other person will leave or judge you", score: { fear: 2 } },
+    ]
+  },
+  {
+    q: "Your biggest productivity killer is...",
+    opts: [
+      { text: "Switching between too many things", score: { overwhelm: 2 } },
+      { text: "Procrastinating on things that feel risky", score: { fear: 2 } },
+      { text: "Redoing work because it never feels good enough", score: { shame: 2 } },
+      { text: "Just not having the energy to start", score: { depletion: 2 } },
+    ]
+  },
+  {
+    q: "When you say 'yes' to something you didn't want to do, it's usually because...",
+    opts: [
+      { text: "You genuinely forgot you were already overloaded", score: { overwhelm: 2 } },
+      { text: "You were afraid of their reaction", score: { fear: 2 } },
+      { text: "You felt you had no right to say no", score: { shame: 2 } },
+      { text: "It felt like less effort than the conversation", score: { depletion: 2 } },
+    ]
+  },
+  {
+    q: "Your body usually carries stress as...",
+    opts: [
+      { text: "A tight chest or racing mind", score: { overwhelm: 2, fear: 1 } },
+      { text: "Stomach knots or shallow breathing", score: { fear: 2 } },
+      { text: "Heat in the face or a sinking feeling", score: { shame: 2 } },
+      { text: "Heavy limbs or a dull headache", score: { depletion: 2 } },
+    ]
+  },
+  {
+    q: "The inner critic voice you hear most often says...",
+    opts: [
+      { text: "You'll never get on top of it all", score: { overwhelm: 2 } },
+      { text: "Something bad is about to happen", score: { fear: 2 } },
+      { text: "You're not good enough", score: { shame: 2 } },
+      { text: "You have nothing left to give", score: { depletion: 2 } },
+    ]
+  },
+  {
+    q: "When you finally get free time, you most often feel...",
+    opts: [
+      { text: "Too wired to actually rest", score: { overwhelm: 2 } },
+      { text: "Guilty for not doing something productive", score: { shame: 2 } },
+      { text: "Anxious that you're missing something", score: { fear: 2 } },
+      { text: "Too empty to enjoy it", score: { depletion: 2 } },
+    ]
+  }
+];
+
+const results = {
+  overwhelm: {
+    name: 'Cognitive Overwhelm',
+    desc: 'Your nervous system is running on too many open tabs. The problem isn\'t laziness or weakness — it\'s an overloaded system that never gets the signal that it\'s safe to close anything down. Your attention is fractured because your brain is genuinely trying to track everything at once.',
+    insight: 'The path out isn\'t doing less — it\'s teaching your system that not everything needs to be tracked simultaneously. One thing at a time is not a productivity hack. It\'s neurological first aid.',
+    cta: 'The Phoenix Protocol breath reset was built for this pattern.'
+  },
+  fear: {
+    name: 'Fear-Based Scanning',
+    desc: 'Your nervous system is stuck in a low-grade threat detection loop. It\'s not anxiety in the clinical sense — it\'s a survival mechanism that hasn\'t received the all-clear signal. You\'re scanning for danger even when there is none, which exhausts your system before the day even begins.',
+    insight: 'Fear-scanning isn\'t a character flaw. It\'s a learned protection. The work is not to eliminate the fear — it\'s to show your system that safety exists, moment by moment.',
+    cta: 'The Nervous System Reset tool was specifically designed for this pattern.'
+  },
+  shame: {
+    name: 'Shame Loop Pattern',
+    desc: 'Your inner operating system has a recurring error: a belief, usually formed early, that something about you is fundamentally not enough. This creates a loop where no amount of achievement turns off the inner critic — because the critic isn\'t responding to your performance. It\'s responding to your perceived worthiness.',
+    insight: 'Shame is not the truth about you. It\'s a survival adaptation that overstayed its welcome. Naming it — exactly as you just did — is the first act of liberation.',
+    cta: 'The Phoenix Protocol content on shame and self-worth was made for this exact pattern.'
+  },
+  depletion: {
+    name: 'Chronic Depletion',
+    desc: 'Your energy reserves are critically low. This isn\'t laziness — it\'s what happens when a system gives more than it receives for too long. Burnout isn\'t a productivity failure. It\'s a signal that the way you\'ve been living has exceeded what your human body and nervous system can sustain.',
+    insight: 'Rest is not earned. It\'s required. Your depletion isn\'t a sign that you failed — it\'s proof that you pushed through when you shouldn\'t have had to.',
+    cta: 'Begin with the Breath Reset. Then the Nervous System Reset. In that order.'
+  }
+};
+
+let currentQ = 0;
+let scores = { overwhelm: 0, fear: 0, shame: 0, depletion: 0 };
+
+function renderQuestion() {
+  const pct = (currentQ / questions.length) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = `Question ${currentQ + 1} of ${questions.length}`;
+
+  const q = questions[currentQ];
+  const wrap = document.getElementById('quizWrap');
+  wrap.innerHTML = '';
+  wrap.style.animation = 'none';
+  void wrap.offsetWidth;
+  wrap.style.animation = 'rise 0.4s ease forwards';
+
+  const numEl = document.createElement('p');
+  numEl.className = 'q-num';
+  numEl.textContent = `0${currentQ + 1} / 0${questions.length}`;
+  wrap.appendChild(numEl);
+
+  const qEl = document.createElement('p');
+  qEl.className = 'q-text';
+  qEl.textContent = q.q;
+  wrap.appendChild(qEl);
+
+  const optsEl = document.createElement('div');
+  optsEl.className = 'options';
+
+  q.opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option';
+    btn.textContent = opt.text;
+    btn.onclick = () => selectAnswer(opt.score);
+    optsEl.appendChild(btn);
+  });
+
+  wrap.appendChild(optsEl);
+}
+
+function selectAnswer(score) {
+  for (const [key, val] of Object.entries(score)) {
+    scores[key] = (scores[key] || 0) + val;
+  }
+  currentQ++;
+  if (currentQ < questions.length) {
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  document.getElementById('progressFill').style.width = '100%';
+  document.getElementById('progressLabel').textContent = 'Complete';
+  document.getElementById('quizWrap').style.display = 'none';
+
+  const top = Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
+  const r = results[top];
+  const wrap = document.getElementById('resultWrap');
+  wrap.style.display = 'block';
+
+  wrap.innerHTML = `
+    <div class="result-type">Your pattern</div>
+    <h2 class="result-name"><em>${r.name}</em></h2>
+    <p class="result-desc">${r.desc}</p>
+    <div class="result-insight">
+      <p class="insight-label">Your path forward</p>
+      <p class="insight-text">${r.insight}</p>
+    </div>
+    <div class="cta-block">
+      <h3>Your next tool is waiting.</h3>
+      <p>${r.cta}</p>
+      <a href="breath-reset.html" class="btn">Breath Reset →</a>
+      <a href="nervous-system-reset.html" class="btn btn-outline">Nervous System Reset →</a>
+    </div>
+  `;
+}
+
+renderQuestion();
+</script>
+</body>
+</html>

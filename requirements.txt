@@ -1,0 +1,5 @@
+# Core: required for config load, arc load, pipeline, CI, and systems test.
+pyyaml>=5.0
+
+# Tests
+pytest>=7.0

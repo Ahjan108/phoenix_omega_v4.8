@@ -1,0 +1,12 @@
+# K-table for F007 (Shadow Work). Dev Spec §4.2.2. 8-12 chapters.
+format_id: F007
+tier: A
+chapter_count: 12
+
+k_min_per_slot:
+  HOOK: { k_min: 10 }
+  SCENE: { k_min: 10 }
+  STORY: { k_min: 12 }
+  REFLECTION: { k_min: 10 }
+  EXERCISE: { k_min: 4 }
+  INTEGRATION: { k_min: 8 }

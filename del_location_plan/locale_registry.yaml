@@ -1,0 +1,374 @@
+# locale_registry.yaml
+# Canonical locale definitions for all Phoenix markets.
+# Authority: single source of truth for locale codes, script types,
+# TTS providers, and storefront routing.
+#
+# NOTE ON CHINESE SCRIPT:
+# Mainland China uses SIMPLIFIED Chinese (zh-CN).
+# Taiwan, Hong Kong, and Macau use TRADITIONAL Chinese (zh-TW, zh-HK).
+# Singapore uses Simplified Chinese officially (zh-SG) but English dominates commerce.
+# These are separate locales with different scripts — do not mix.
+#
+# ADDING A NEW LOCALE: add entry here first, then brand registry, then BookSpec.
+
+schema_version: 1
+
+locales:
+
+  # ─── ENGLISH ──────────────────────────────────────────────────────────────
+
+  en-US:
+    language: English
+    region: United States
+    script: Latin
+    direction: ltr
+    tts_provider: elevenlabs            # primary
+    tts_fallback: google_neural2
+    tts_locale_code: en-US
+    elevenlabs_model: eleven_multilingual_v2
+    google_voice_default: en-US-Neural2-F
+    catalog_language: English
+    is_baseline: true                   # en-US is the canonical reference locale
+    storefront_ids:
+      google_play: en-US
+      findaway: US
+      apple_books: US
+      kobo: US
+      spotify: US
+
+  # ─── CHINESE (SIMPLIFIED) ─────────────────────────────────────────────────
+
+  zh-CN:
+    language: Chinese (Simplified)
+    region: Mainland China
+    script: Simplified Chinese
+    direction: ltr
+    tts_provider: elevenlabs
+    tts_fallback: google_neural2
+    tts_locale_code: zh-CN
+    elevenlabs_model: eleven_multilingual_v2
+    google_voice_default: cmn-CN-Wavenet-A
+    catalog_language: 普通话 (Simplified)
+    notes: >
+      Mainland China. Simplified script. Mandarin (Putonghua).
+      Google Play not available in mainland China — primary distribution
+      via local platforms (WeChat Read, NetEase Cloud Music, etc.).
+      Findaway does NOT distribute to mainland China; use local aggregators.
+    is_baseline: false
+    storefront_ids:
+      google_play: null                 # not available in mainland China
+      findaway: null                    # not distributed via Findaway
+      apple_books: CN
+      kobo: null                        # limited reach in CN
+      local_platforms:
+        - ximalaya
+        - netease_cloud_music
+        - wechat_read
+        - dedao
+
+  zh-TW:
+    language: Chinese (Traditional)
+    region: Taiwan
+    script: Traditional Chinese
+    direction: ltr
+    tts_provider: elevenlabs
+    tts_fallback: google_neural2
+    tts_locale_code: zh-TW
+    elevenlabs_model: eleven_multilingual_v2
+    google_voice_default: cmn-TW-Wavenet-A
+    catalog_language: 繁體中文 (Traditional)
+    notes: >
+      Taiwan. Traditional script. Mandarin with Taiwanese flavor.
+      Positioning language differs significantly from zh-CN and zh-HK.
+    is_baseline: false
+    storefront_ids:
+      google_play: zh-TW
+      findaway: TW
+      apple_books: TW
+      kobo: TW
+      spotify: TW
+
+  zh-HK:
+    language: Chinese (Traditional / Cantonese)
+    region: Hong Kong
+    script: Traditional Chinese
+    direction: ltr
+    tts_provider: elevenlabs
+    tts_fallback: google_neural2
+    tts_locale_code: zh-HK
+    elevenlabs_model: eleven_multilingual_v2
+    google_voice_default: yue-HK-Standard-A
+    catalog_language: 繁體中文 / 廣東話
+    notes: >
+      Hong Kong. Traditional script. Written Cantonese or formal written Chinese.
+      TTS voice must be Cantonese-capable (yue-HK) not Mandarin.
+      Positioning and invisible scripts differ from zh-TW (different cultural context).
+    is_baseline: false
+    storefront_ids:
+      google_play: zh-HK
+      findaway: HK
+      apple_books: HK
+      kobo: HK
+      spotify: HK
+
+  zh-SG:
+    language: Chinese (Simplified / Singaporean)
+    region: Singapore
+    script: Simplified Chinese
+    direction: ltr
+    tts_provider: elevenlabs
+    tts_fallback: google_neural2
+    tts_locale_code: zh-SG
+    elevenlabs_model: eleven_multilingual_v2
+    google_voice_default: cmn-CN-Wavenet-A   # fallback; no zh-SG specific voice
+    catalog_language: 简体中文 (Singapore)
+    notes: >
+      Singapore Chinese-speaking market. Simplified script.
+      English dominates commerce in Singapore — consider whether zh-SG
+      or en-SG is the higher-opportunity locale for this market.
+      Positioning differs from zh-CN (Singaporean cultural context).
+    is_baseline: false
+    storefront_ids:
+      google_play: zh-SG
+      findaway: SG
+      apple_books: SG
+      kobo: SG
+      spotify: SG
+
+  # ─── JAPANESE ─────────────────────────────────────────────────────────────
+
+  ja-JP:
+    language: Japanese
+    region: Japan
+    script: Japanese (Kanji/Hiragana/Katakana)
+    direction: ltr                      # horizontal modern; vertical in print only
+    tts_provider: elevenlabs
+    tts_fallback: google_neural2
+    tts_locale_code: ja-JP
+    elevenlabs_model: eleven_multilingual_v2
+    google_voice_default: ja-JP-Neural2-B
+    catalog_language: 日本語
+    notes: >
+      Japan. High audiobook growth market. Stigma around mental health
+      means positioning must be secular, practical, nervous-system-framed —
+      not "therapy" or "mental health." Immersion detail matters:
+      Mount Kurama, Kyoto, urban Tokyo contexts already in atom library.
+      Politeness register (丁寧語) required for narration.
+    is_baseline: false
+    storefront_ids:
+      google_play: ja-JP
+      findaway: JP
+      apple_books: JP
+      kobo: JP                          # strong Kobo market in Japan
+      spotify: JP
+      audible_jp: JP                    # Audible Japan separate from Audible US
+
+  # ─── KOREAN ───────────────────────────────────────────────────────────────
+
+  ko-KR:
+    language: Korean
+    region: South Korea
+    script: Hangul
+    direction: ltr
+    tts_provider: elevenlabs
+    tts_fallback: google_neural2
+    tts_locale_code: ko-KR
+    elevenlabs_model: eleven_multilingual_v2
+    google_voice_default: ko-KR-Neural2-A
+    catalog_language: 한국어
+    notes: >
+      South Korea. High podcast/audio consumption. Strong self-help market.
+      Mental health awareness growing rapidly post-pandemic.
+      Achievement culture (학벌) means burnout, perfectionism, social anxiety
+      brands particularly relevant. "빨리빨리" (ppalli-ppalli) culture = 
+      fast-paced content expected — micro sessions may outperform deep dives.
+    is_baseline: false
+    storefront_ids:
+      google_play: ko-KR
+      findaway: KR
+      apple_books: KR
+      kobo: KR
+      spotify: KR
+      local_platforms:
+        - naver_audiobook
+        - kakao_page
+
+  # ─── SPANISH ──────────────────────────────────────────────────────────────
+
+  es-US:
+    language: Spanish (US Hispanic)
+    region: United States (Hispanic market)
+    script: Latin
+    direction: ltr
+    tts_provider: elevenlabs
+    tts_fallback: google_neural2
+    tts_locale_code: es-US
+    elevenlabs_model: eleven_multilingual_v2
+    google_voice_default: es-US-Neural2-A
+    catalog_language: Español (Latinoamérica)
+    notes: >
+      US Spanish-speaking market. Largest non-English US audiobook opportunity.
+      Neutral Latin American Spanish preferred (not Castilian).
+      Distribute to US storefronts only — same territory as en-US but different locale.
+    is_baseline: false
+    storefront_ids:
+      google_play: es-US
+      findaway: US
+      apple_books: US
+      kobo: US
+      spotify: US
+
+  es-ES:
+    language: Spanish (Castilian)
+    region: Spain
+    script: Latin
+    direction: ltr
+    tts_provider: elevenlabs
+    tts_fallback: google_neural2
+    tts_locale_code: es-ES
+    elevenlabs_model: eleven_multilingual_v2
+    google_voice_default: es-ES-Neural2-A
+    catalog_language: Español (España)
+    notes: >
+      Spain market. Castilian Spanish (vosotros, c/z distinction).
+      Separate storefront from es-US — do not mix in same catalog upload.
+    is_baseline: false
+    storefront_ids:
+      google_play: es-ES
+      findaway: ES
+      apple_books: ES
+      kobo: ES
+      spotify: ES
+
+  # ─── FRENCH ───────────────────────────────────────────────────────────────
+
+  fr-FR:
+    language: French
+    region: France
+    script: Latin
+    direction: ltr
+    tts_provider: elevenlabs
+    tts_fallback: google_neural2
+    tts_locale_code: fr-FR
+    elevenlabs_model: eleven_multilingual_v2
+    google_voice_default: fr-FR-Neural2-A
+    catalog_language: Français
+    notes: >
+      France and French-speaking Europe. Strong audiobook market.
+      Mental health discourse differs — more philosophical framing accepted.
+      Stoic, existentialist framing works alongside somatic approaches.
+    is_baseline: false
+    storefront_ids:
+      google_play: fr-FR
+      findaway: FR
+      apple_books: FR
+      kobo: FR
+      spotify: FR
+
+  # ─── GERMAN ───────────────────────────────────────────────────────────────
+
+  de-DE:
+    language: German
+    region: Germany / Austria / Switzerland
+    script: Latin
+    direction: ltr
+    tts_provider: elevenlabs
+    tts_fallback: google_neural2
+    tts_locale_code: de-DE
+    elevenlabs_model: eleven_multilingual_v2
+    google_voice_default: de-DE-Neural2-A
+    catalog_language: Deutsch
+    notes: >
+      Germany, Austria, Switzerland (DACH market). Largest European audiobook market.
+      Evidence-based, science-grounded framing strongly preferred.
+      Avoid overtly spiritual framing — secular nervous system/neuroscience angle works best.
+      "Stressbewältigung" (stress management) and "Burnout" are high-search terms.
+    is_baseline: false
+    storefront_ids:
+      google_play: de-DE
+      findaway: DE
+      apple_books: DE
+      kobo: DE
+      spotify: DE
+      audible_de: DE                    # Audible Germany is a significant market
+
+  # ─── HUNGARIAN ────────────────────────────────────────────────────────────
+
+  hu-HU:
+    language: Hungarian
+    region: Hungary
+    script: Latin
+    direction: ltr
+    tts_provider: elevenlabs
+    tts_fallback: google_neural2
+    tts_locale_code: hu-HU
+    elevenlabs_model: eleven_multilingual_v2
+    google_voice_default: hu-HU-Standard-A
+    catalog_language: Magyar
+    notes: >
+      Hungary. Smaller market but high per-capita audio consumption.
+      ElevenLabs has Hungarian support. Google Neural2 does NOT have hu-HU —
+      Standard voice only. Prioritize ElevenLabs for this locale.
+      Mental health stigma remains higher than Western Europe —
+      wellness/self-development framing preferred over clinical language.
+    is_baseline: false
+    storefront_ids:
+      google_play: hu-HU
+      findaway: HU
+      apple_books: HU
+      kobo: HU
+      spotify: HU
+
+# ─── LOCALE GROUPS (for wave planning) ──────────────────────────────────────
+
+locale_groups:
+  chinese_traditional:
+    - zh-TW
+    - zh-HK
+    chinese_simplified:
+    - zh-CN
+    - zh-SG
+  chinese_all:
+    - zh-CN
+    - zh-TW
+    - zh-HK
+    - zh-SG
+  east_asian:
+    - ja-JP
+    - ko-KR
+    - zh-TW
+    - zh-HK
+    - zh-CN
+    - zh-SG
+  spanish_all:
+    - es-US
+    - es-ES
+  european:
+    - fr-FR
+    - de-DE
+    - hu-HU
+    - es-ES
+  all_locales:
+    - en-US
+    - zh-CN
+    - zh-TW
+    - zh-HK
+    - zh-SG
+    - ja-JP
+    - ko-KR
+    - es-US
+    - es-ES
+    - fr-FR
+    - de-DE
+    - hu-HU
+
+# ─── DISTRIBUTION HARD RULES ────────────────────────────────────────────────
+# Enforced by distribution layer — not just a recommendation.
+
+distribution_rules:
+  zh-CN_not_via_findaway: true          # Findaway does not reach mainland China
+  zh-TW_not_in_US_storefront: true      # Traditional Chinese TW stays in TW
+  zh-HK_not_in_US_storefront: true      # HK stays in HK
+  en-US_not_in_TW_storefront: true      # US English stays in US
+  hu-HU_use_elevenlabs_not_google: true # Google has no hu-HU Neural2 voice
+  locale_mismatch_is_ci_failure: true   # locale mismatch between book and storefront = gate failure

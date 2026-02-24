@@ -1,0 +1,9 @@
+# Authority: SYSTEMS_DOCUMENTATION §29.2.5
+# Pre-approved title roots / stems. Used when building title candidates.
+# Stems can reference {PrimaryKeyword}, {ScenarioPhrase}, etc.
+
+stems:
+  - "{PrimaryKeyword}"
+  - "{PrimaryKeyword}: {PromiseClause}"
+  - "How to {OutcomeVerb} When You {ScenarioPhrase}"
+  - "{PrimaryKeyword} for {PersonaDescription}"

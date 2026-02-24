@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Box Breathing 4-4-4-4</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&family=Nunito+Sans:wght@300;400;600&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--inhale:#4A90B8;--hold1:#7B68AE;--exhale:#3D8B7A;--hold2:#8B7355;--bg:#0A0E18;--text:#E5E0D8;--muted:#6A6560}
+  body{font-family:'Nunito Sans',sans-serif;background:var(--bg);color:var(--text);height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;user-select:none}
+  .grain{position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+  .wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.8rem}
+  h1{font-family:'Playfair Display',serif;font-weight:300;font-size:2rem;letter-spacing:0.06em}
+  .sub{font-size:.8rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:-.6rem}
+  .box-area{position:relative;width:280px;height:280px}
+  .box-border{position:absolute;inset:30px;border:1px solid rgba(255,255,255,.08);border-radius:4px}
+  .box-fill{position:absolute;inset:30px;border-radius:4px;overflow:hidden}
+  .side-fill{position:absolute;background:rgba(255,255,255,.04);transition:opacity .3s}
+  .side-fill.top{top:0;left:0;right:0;height:3px}
+  .side-fill.right{top:0;right:0;bottom:0;width:3px}
+  .side-fill.bottom{bottom:0;left:0;right:0;height:3px}
+  .side-fill.left{top:0;left:0;bottom:0;width:3px}
+  .side-fill.active{opacity:1}
+  .corner-label{position:absolute;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:color .4s}
+  .corner-label.tl{top:8px;left:30px}.corner-label.tr{top:8px;right:30px}
+  .corner-label.br{bottom:8px;right:30px}.corner-label.bl{bottom:8px;left:30px}
+  .corner-label.active{color:var(--text)}
+  .dot{position:absolute;width:14px;height:14px;border-radius:50%;background:#4A90B8;box-shadow:0 0 20px rgba(74,144,184,.6);transition:background .5s,box-shadow .5s;transform:translate(-50%,-50%);z-index:2}
+  .center-info{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem}
+  .phase-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:300;letter-spacing:.1em}
+  .phase-count{font-size:2rem;font-weight:300;opacity:.8}
+  .info-row{display:flex;gap:2.5rem;font-size:.82rem;color:var(--muted)}
+  .info-row strong{color:var(--text);font-weight:600}
+  .controls{display:flex;gap:1rem}
+  .btn{font-family:'Nunito Sans',sans-serif;padding:.6rem 1.8rem;border:1px solid rgba(255,255,255,.12);border-radius:100px;background:rgba(255,255,255,.03);color:var(--text);font-size:.85rem;letter-spacing:.05em;cursor:pointer;transition:all .3s}
+  .btn:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.25)}
+  .btn.pri{background:rgba(74,144,184,.18);border-color:rgba(74,144,184,.35)}
+  .btn.pri:hover{background:rgba(74,144,184,.3)}
+  .done-msg{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:300;opacity:0;transition:opacity .8s;position:absolute;bottom:-2.5rem;white-space:nowrap}
+  .done-msg.show{opacity:.7}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="wrap">
+  <h1>Box Breathing</h1>
+  <p class="sub">4 · 4 · 4 · 4</p>
+  <div class="box-area">
+    <div class="box-border"></div>
+    <div class="box-fill">
+      <div class="side-fill top" id="sTop"></div>
+      <div class="side-fill right" id="sRight"></div>
+      <div class="side-fill bottom" id="sBottom"></div>
+      <div class="side-fill left" id="sLeft"></div>
+    </div>
+    <span class="corner-label tl" id="lTL">Inhale</span>
+    <span class="corner-label tr" id="lTR">Hold</span>
+    <span class="corner-label br" id="lBR">Exhale</span>
+    <span class="corner-label bl" id="lBL">Pause</span>
+    <div class="dot" id="dot"></div>
+    <div class="center-info">
+      <span class="phase-name" id="phaseName">Ready</span>
+      <span class="phase-count" id="phaseCount"></span>
+    </div>
+    <div class="done-msg" id="doneMsg">Session complete.</div>
+  </div>
+  <div class="info-row">
+    <span>Cycle <strong id="cycleNum">0</strong> / <strong>7</strong></span>
+    <span>Elapsed <strong id="elapsed">0:00</strong></span>
+  </div>
+  <div class="controls">
+    <button class="btn pri" id="startBtn" onclick="toggle()">Begin</button>
+    <button class="btn" onclick="reset()">Reset</button>
+  </div>
+</div>
+<script>
+const PHASES=[
+  {name:'Inhale',dur:4,color:'#4A90B8',shadow:'rgba(74,144,184,.6)',side:'top',label:'lTL'},
+  {name:'Hold',dur:4,color:'#7B68AE',shadow:'rgba(123,104,174,.6)',side:'right',label:'lTR'},
+  {name:'Exhale',dur:4,color:'#3D8B7A',shadow:'rgba(61,139,122,.6)',side:'bottom',label:'lBR'},
+  {name:'Pause',dur:4,color:'#8B7355',shadow:'rgba(139,115,85,.6)',side:'left',label:'lBL'}
+];
+const CYCLES=7,BOX_L=30,BOX_R=250,BOX_T=30,BOX_B=250;
+let running=false,paused=false,cycle=0,pi=0,pt=0,total=0,lastT=0,aCtx=null,lastPi=-1;
+
+function corners(){return[
+  [BOX_L,BOX_T],[BOX_R,BOX_T],[BOX_R,BOX_B],[BOX_L,BOX_B]
+]}
+
+function posOnSide(si,frac){
+  const c=corners();
+  const a=c[si],b=c[(si+1)%4];
+  return[a[0]+(b[0]-a[0])*frac, a[1]+(b[1]-a[1])*frac];
+}
+
+function audioCtx(){if(!aCtx)aCtx=new(window.AudioContext||window.webkitAudioContext)();return aCtx}
+function playTone(f,d=.35){try{const c=audioCtx(),o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,c.currentTime);g.gain.linearRampToValueAtTime(.1,c.currentTime+.06);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+d);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+d)}catch(e){}}
+
+function fmt(s){return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
+
+function updateDot(si,frac){
+  const[x,y]=posOnSide(si,frac);
+  const dot=document.getElementById('dot');
+  dot.style.left=x+'px';dot.style.top=y+'px';
+  const p=PHASES[si];
+  dot.style.background=p.color;dot.style.boxShadow='0 0 20px '+p.shadow;
+}
+
+function tick(ts){
+  if(!running||paused)return;
+  if(!lastT)lastT=ts;
+  const dt=(ts-lastT)/1000;lastT=ts;
+  pt+=dt;total+=dt;
+  const p=PHASES[pi];
+  if(pi!==lastPi){
+    playTone([396,320,285,240][pi]);
+    document.querySelectorAll('.corner-label').forEach(l=>l.classList.remove('active'));
+    document.getElementById(p.label).classList.add('active');
+    document.querySelectorAll('.side-fill').forEach(s=>{s.style.background='rgba(255,255,255,.04)';s.classList.remove('active')});
+    document.getElementById('s'+p.side.charAt(0).toUpperCase()+p.side.slice(1)).style.background=p.color;
+    document.getElementById('s'+p.side.charAt(0).toUpperCase()+p.side.slice(1)).classList.add('active');
+    lastPi=pi;
+  }
+  const frac=Math.min(pt/p.dur,1);
+  updateDot(pi,frac);
+  document.getElementById('phaseName').textContent=p.name;
+  document.getElementById('phaseCount').textContent=Math.ceil(p.dur-pt);
+  document.getElementById('elapsed').textContent=fmt(total);
+  if(pt>=p.dur){
+    pt=0;pi++;
+    if(pi>=4){pi=0;cycle++;document.getElementById('cycleNum').textContent=cycle;
+      if(cycle>=CYCLES){endSession();return}
+    }
+  }
+  requestAnimationFrame(tick);
+}
+
+function toggle(){
+  const b=document.getElementById('startBtn');
+  if(!running){running=true;paused=false;cycle=0;pi=0;pt=0;total=0;lastT=0;lastPi=-1;
+    document.getElementById('cycleNum').textContent='0';document.getElementById('doneMsg').classList.remove('show');
+    b.textContent='Pause';requestAnimationFrame(tick);
+  }else if(!paused){paused=true;lastT=0;b.textContent='Resume'}
+  else{paused=false;lastT=0;b.textContent='Pause';requestAnimationFrame(tick)}
+}
+
+function reset(){
+  running=false;paused=false;cycle=0;pi=0;pt=0;total=0;lastT=0;lastPi=-1;
+  document.getElementById('startBtn').textContent='Begin';
+  document.getElementById('cycleNum').textContent='0';
+  document.getElementById('elapsed').textContent='0:00';
+  document.getElementById('phaseName').textContent='Ready';
+  document.getElementById('phaseCount').textContent='';
+  document.getElementById('doneMsg').classList.remove('show');
+  document.querySelectorAll('.corner-label').forEach(l=>l.classList.remove('active'));
+  document.querySelectorAll('.side-fill').forEach(s=>{s.style.background='rgba(255,255,255,.04)';s.classList.remove('active')});
+  updateDot(0,0);
+}
+
+function endSession(){
+  running=false;document.getElementById('startBtn').textContent='Begin';
+  document.getElementById('phaseName').textContent='Done';document.getElementById('phaseCount').textContent='';
+  document.getElementById('doneMsg').classList.add('show');playTone(528,.9);
+}
+
+updateDot(0,0);
+</script>
+</body>
+</html>

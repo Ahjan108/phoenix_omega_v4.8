@@ -1,0 +1,12 @@
+# K-table for F013 (Crisis). Dev Spec §4.2.2. 24 chapters.
+format_id: F013
+tier: A
+chapter_count: 24
+
+k_min_per_slot:
+  HOOK: { k_min: 15 }
+  SCENE: { k_min: 15 }
+  STORY: { k_min: 24 }
+  REFLECTION: { k_min: 15 }
+  EXERCISE: { k_min: 8 }
+  INTEGRATION: { k_min: 10 }

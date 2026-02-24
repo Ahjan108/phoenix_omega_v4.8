@@ -1,0 +1,20 @@
+{
+  "format_structural_id": "F003",
+  "format_runtime_id": "standard_book",
+  "tier": "A",
+  "blueprint_variant": "linear",
+  "chapter_count": 12,
+  "word_target_range": [
+    9000,
+    11000
+  ],
+  "emotional_curve_profile": "cool_warm_hot_land",
+  "rationale": {
+    "rules_fired": [
+      "base_structural=F003 (topic_complexity=high, installment=1)",
+      "runtime=standard_book",
+      "blueprint=linear"
+    ],
+    "inputs_digest": "e80d8bfcd6d33edd"
+  }
+}

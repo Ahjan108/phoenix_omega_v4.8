@@ -1,0 +1,243 @@
+{
+  "book_id": "invisible_correction_v1",
+  "persona": "gen_z_professional",
+  "topic": "self_worth",
+  "engine": "shame",
+  "locale": "nyc",
+  "format_tier": "short_book_6ch",
+  "spec_version": "V4.5_LOCKED",
+  "plan_hash": "IC001-GZP-SW-SHAME-NYC-6CH",
+
+  "slot_definitions": ["STORY", "REFLECTION", "EXERCISE", "INTEGRATION"],
+
+  "dominant_band_sequence": [2, 3, 4, 5, 4, 3],
+
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "THE NOTIFICATION",
+      "beat_map": "ground_first",
+      "emotional_temperature": "cool",
+      "dominant_band": 2,
+      "slots": {
+        "STORY": {
+          "atom_id": "MECHANISM_PROOF_v02",
+          "role": "MECHANISM_PROOF",
+          "band": 2,
+          "exposure_surface": "LinkedIn post — five teammates tagged, Jonah absent",
+          "tags": []
+        },
+        "REFLECTION": {
+          "atom_id": "REFLECTION_v03",
+          "title": "The Installment Plan",
+          "reuse_count": 1
+        },
+        "EXERCISE": {
+          "atom_id": "weight_drop",
+          "duration_seconds": 90,
+          "body_target": "shoulders",
+          "reuse_count": 1
+        },
+        "INTEGRATION": {
+          "mode": "BODY-LANDED",
+          "fmt": true,
+          "fmt_carry_line": "The next post hasn't gone up yet."
+        }
+      }
+    },
+    {
+      "chapter": 2,
+      "title": "THE THREAD",
+      "beat_map": "mechanism_surface",
+      "emotional_temperature": "cool-warm",
+      "dominant_band": 3,
+      "slots": {
+        "STORY": {
+          "atom_id": "RECOGNITION_v01",
+          "role": "RECOGNITION",
+          "band": 3,
+          "exposure_surface": "#client-launch — Brendan correction, dash before name",
+          "tags": ["silence_beat"]
+        },
+        "REFLECTION": {
+          "atom_id": "REFLECTION_v01",
+          "title": "Geometry of Being Seen Wrong",
+          "reuse_count": 1
+        },
+        "EXERCISE": {
+          "atom_id": "weight_drop",
+          "duration_seconds": 90,
+          "body_target": "shoulders",
+          "reuse_count": 2
+        },
+        "INTEGRATION": {
+          "mode": "COST-VISIBLE",
+          "fmt": true,
+          "fmt_carry_line": "That room hasn't opened yet."
+        }
+      }
+    },
+    {
+      "chapter": 3,
+      "title": "THE ALL-HANDS",
+      "beat_map": "mechanism_heavy",
+      "emotional_temperature": "warm",
+      "dominant_band": 4,
+      "slots": {
+        "STORY": {
+          "atom_id": "RECOGNITION_v02",
+          "role": "RECOGNITION",
+          "band": 4,
+          "exposure_surface": "Hudson Yards all-hands — Diane presents Marcus's idea as her own",
+          "tags": ["never_know"]
+        },
+        "REFLECTION": {
+          "atom_id": "REFLECTION_v02",
+          "title": "Why the Silence After Is Louder",
+          "reuse_count": 1
+        },
+        "EXERCISE": {
+          "atom_id": "jaw_release",
+          "duration_seconds": 75,
+          "body_target": "face and throat",
+          "reuse_count": 1
+        },
+        "INTEGRATION": {
+          "mode": "QUESTION-OPEN",
+          "fmt": true,
+          "fmt_carry_line": "The next meeting is on the calendar. You don't know what you'll remember afterward."
+        }
+      }
+    },
+    {
+      "chapter": 4,
+      "title": "THE UNMUTED ROOM",
+      "beat_map": "rupture",
+      "emotional_temperature": "hot",
+      "dominant_band": 5,
+      "slots": {
+        "STORY": {
+          "atom_id": "EMBODIMENT_v01",
+          "role": "EMBODIMENT",
+          "band": 5,
+          "exposure_surface": "Unmuted mic — forty seconds broadcast",
+          "tags": ["misfire_tax", "never_know"]
+        },
+        "REFLECTION": {
+          "atom_id": "REFLECTION_v02",
+          "title": "Why the Silence After Is Louder",
+          "reuse_count": 2,
+          "reuse_note": "Second use. Allowable at peak. Irreversibility framing."
+        },
+        "EXERCISE": {
+          "atom_id": "jaw_release",
+          "duration_seconds": 75,
+          "body_target": "face and throat",
+          "reuse_count": 2
+        },
+        "INTEGRATION": {
+          "mode": "STILL-HERE",
+          "fmt": false,
+          "still_here_note": "One use. Peak chapter only. Compliant.",
+          "carry_line": "Still here. That's the whole thing."
+        }
+      }
+    },
+    {
+      "chapter": 5,
+      "title": "THE ELEVATOR",
+      "beat_map": "descent_begins",
+      "emotional_temperature": "warm",
+      "dominant_band": 4,
+      "slots": {
+        "STORY": {
+          "atom_id": "TURNING_POINT_v01",
+          "role": "TURNING_POINT",
+          "band": 4,
+          "exposure_surface": "Midtown elevator mirror — Devin post-presentation, Preet's crack",
+          "tags": ["never_know"]
+        },
+        "REFLECTION": {
+          "atom_id": "REFLECTION_v01",
+          "title": "Geometry of Being Seen Wrong",
+          "reuse_count": 2,
+          "reuse_note": "Second use. Institutional-witness framing at descent band."
+        },
+        "EXERCISE": {
+          "atom_id": "weight_drop",
+          "duration_seconds": 90,
+          "body_target": "shoulders",
+          "reuse_count": 3,
+          "reuse_flag": "WARN — third appearance. Production gap. Add third unique exercise before scaling."
+        },
+        "INTEGRATION": {
+          "mode": "COST-VISIBLE",
+          "fmt": true,
+          "consecutive_check": "PASS — Ch 3 (QUESTION-OPEN) breaks run from Ch 2",
+          "fmt_carry_line": "The next meeting is on the calendar. You don't know what you'll remember afterward."
+        }
+      }
+    },
+    {
+      "chapter": 6,
+      "title": "THE PATTERN",
+      "beat_map": "integration_arc",
+      "emotional_temperature": "cool",
+      "dominant_band": 3,
+      "slots": {
+        "STORY": {
+          "atom_id": "MECHANISM_PROOF_v01",
+          "role": "MECHANISM_PROOF",
+          "band": 3,
+          "exposure_surface": "Zoe — three collapse events, four months, same body",
+          "tags": []
+        },
+        "REFLECTION": {
+          "atom_id": "REFLECTION_v03",
+          "title": "The Installment Plan",
+          "reuse_count": 2,
+          "reuse_note": "Second use. Ch 6 is the installment plan made visible — match is precise."
+        },
+        "EXERCISE": {
+          "atom_id": "weight_drop",
+          "duration_seconds": 90,
+          "body_target": "shoulders",
+          "reuse_count": 4,
+          "reuse_flag": "FAIL — fourth appearance exceeds contract limit of 3. Replace with third unique exercise before production."
+        },
+        "INTEGRATION": {
+          "mode": "FMT",
+          "fmt": true,
+          "fmt_carry_line": "The fourth room hasn't happened yet. Your shoulders dropped. The account is still running. You don't know the floor yet."
+        }
+      }
+    }
+  ],
+
+  "stranded_atoms": [
+    {
+      "atom_id": "RECOGNITION_v03",
+      "band": 5,
+      "note": "Identity-level shame (performance review, 'to become'). No home in 6-chapter arc. Anchors Book_002."
+    }
+  ],
+
+  "gap_atoms_needed": [
+    {"type": "STORY", "band": 1, "note": "Quiet resolution — shame that fades without witness follow-up"},
+    {"type": "STORY", "band": 2, "note": "Second Band 2 — different exposure surface from Jonah"},
+    {"type": "REFLECTION", "band": "hot", "note": "Irreversibility mechanism — for unmuted/recorded events"},
+    {"type": "REFLECTION", "band": "descent", "note": "Crack-insufficient — why fractional reduction doesn't satisfy"},
+    {"type": "EXERCISE", "band": "warm", "note": "Third unique exercise — voice lengthening or eye-line reset"},
+    {"type": "EXERCISE", "band": "cool", "note": "Fourth unique exercise — ground contact, horizontal reset"}
+  ],
+
+  "qa_flags": [
+    "weight_drop appears 4 times — exceeds contract. Must resolve before production.",
+    "REFLECTION_v02 appears at Ch 3 and Ch 4 — consecutive. Allowable for assembly test. Separate for production.",
+    "No HOOK or SCENE in current format. Correct for short_book tier.",
+    "STILL-HERE used once at peak (Ch 4). Compliant.",
+    "No consecutive integration mode repeats. Compliant."
+  ],
+
+  "assembly_verdict": "PASS for 6-chapter assembly test. Two production flags require resolution before scaling: weight_drop reuse and REFLECTION_v02 consecutive placement."
+}

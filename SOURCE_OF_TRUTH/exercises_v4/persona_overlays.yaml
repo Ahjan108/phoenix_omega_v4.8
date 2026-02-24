@@ -1,0 +1,73 @@
+# Persona lexical overlays for aha_noticing (and optionally integration).
+# Authority: same nervous-system logic; surface calibration only.
+# Assembler applies substitutions to canonical aha_noticing text. Structure never changes.
+#
+# Rules:
+#   - Base AHA = canonical (aha_noticing_phoenix_standard.yaml)
+#   - Overlay = controlled lexical substitution only
+#   - Same word count, same sensation → pattern → capacity structure
+#   - No persona rewrites; no new block types
+#
+# Overlay constraints (see README):
+#   - Substitutions must preserve grammatical role (no semantic distortion).
+#   - No substitution may introduce future-oriented language or increase emotional intensity.
+#   - Overlays may NOT modify the callout sentence. Callout stays universal (must_start_with_one_of).
+
+version: 1
+description: >
+  Deterministic persona overlays for exercise content.
+  Apply after resolving exercise; substitute phrase-by-phrase.
+  Missing persona = use canonical with no overlay.
+
+# -------------------------------------------------------------------
+# LEXICAL SHIFT (phrase → phrase substitution)
+# Assembler replaces exact substring when rendering for that persona.
+# Order can matter: substitute longer phrases before shorter ones to avoid partial hits.
+# -------------------------------------------------------------------
+
+persona_overlays:
+
+  executive:
+    description: "Slightly more system language; meetings, decision load, forward momentum."
+    lexical_shift:
+      "stress pattern": "performance pressure"
+      "stress patterns": "performance pressures"
+      "momentum": "forward momentum"
+      "thought": "performance pressure"
+      "vigilance": "sustained demand"
+      "capacity": "capacity"
+      # keep capacity; executive already uses it
+      "stress": "pressure"
+      "stress often": "pressure often"
+
+  gen_z:
+    description: "Simpler phrasing; notifications, social pace, direct language."
+    lexical_shift:
+      "stress pattern": "pressure"
+      "stress patterns": "pressure"
+      "thought": "constant mental noise"
+      "vigilance": "constant alertness"
+      "momentum": "pace"
+      "stress": "pressure"
+      "stress often": "pressure often"
+
+  healthcare:
+    description: "Calm, steady; shifts, alertness, holding space."
+    lexical_shift:
+      "stress pattern": "sustained vigilance"
+      "stress patterns": "sustained vigilance"
+      "thought": "sustained vigilance"
+      "vigilance": "sustained vigilance"
+      "capacity": "clinical steadiness"
+      "stress": "vigilance"
+      "stress often": "vigilance often"
+
+# -------------------------------------------------------------------
+# APPLICABILITY
+# Overlays apply to: content.aha_noticing (required), content.integration (optional).
+# Do not apply to: intro, guided_practice (keep persona-agnostic or handle elsewhere).
+# -------------------------------------------------------------------
+
+apply_to_sections:
+  - aha_noticing
+  # - integration   # uncomment when integration standard is defined

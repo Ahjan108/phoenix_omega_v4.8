@@ -1,0 +1,16 @@
+# Optional validation rules for validate_asset_store.py.
+# Authority: V4 Freebies + Immersion Ecosystem plan §3.4.
+
+validation_rules:
+  html:
+    - file_exists
+    - file_not_empty
+  pdf:
+    - file_exists
+    - file_not_empty
+    - page_count_min: 1
+  mp3:
+    - file_exists
+    - duration_min_seconds: 60
+    - duration_max_seconds: 1800
+    - file_size_min_mb: 0.5

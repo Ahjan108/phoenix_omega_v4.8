@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bee Breath / Humming — Free Tool</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --bg: #080a0f; --text: #f0ece4; --gold: #c8a84b; --muted: rgba(240,236,228,0.4); --border: rgba(200,168,75,0.2); }
+  body { background: var(--bg); color: var(--text); font-family: 'Georgia', serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+  body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(200,168,75,0.06) 0%, transparent 70%); pointer-events: none; }
+  .card { position: relative; z-index: 2; max-width: 420px; width: 100%; text-align: center; }
+  .label { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); opacity: 0.7; margin-bottom: 40px; }
+  h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); font-weight: normal; line-height: 1.15; color: var(--text); margin-bottom: 12px; }
+  .benefit { font-size: 1.1rem; color: var(--muted); font-style: italic; margin-bottom: 8px; line-height: 1.5; }
+  .duration { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0.6; margin-bottom: 48px; }
+  .rule { width: 40px; height: 1px; background: var(--gold); opacity: 0.3; margin: 0 auto 40px; }
+  .form { display: flex; flex-direction: column; gap: 12px; }
+  input[type="email"] { background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text); font-family: 'Georgia', serif; font-size: 1rem; padding: 16px 20px; text-align: center; outline: none; transition: border-color 0.25s; -webkit-appearance: none; border-radius: 0; }
+  input[type="email"]::placeholder { color: rgba(240,236,228,0.25); }
+  input[type="email"]:focus { border-color: rgba(200,168,75,0.5); }
+  button { background: var(--gold); border: none; color: var(--bg); font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; padding: 18px 24px; cursor: pointer; transition: background 0.25s; border-radius: 0; }
+  button:hover { background: #dfc06a; }
+  .privacy { font-family: 'Courier New', monospace; font-size: 9px; letter-spacing: 0.1em; color: rgba(240,236,228,0.2); margin-top: 8px; }
+  .success { display: none; animation: fade 0.6s ease forwards; }
+  .success h2 { font-size: 1.8rem; font-weight: normal; color: var(--gold); margin-bottom: 16px; }
+  .success p { font-size: 1rem; color: var(--muted); line-height: 1.65; font-style: italic; margin-bottom: 28px; }
+  .go-btn { display: inline-block; font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; padding: 16px 36px; background: var(--gold); color: var(--bg); text-decoration: none; transition: background 0.25s; }
+  .go-btn:hover { background: #dfc06a; }
+  @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+<div class="card">
+  <div id="formView">
+    <p class="label">Phoenix Protocol · Free Tool</p>
+    <h1>Bee Breath<br>/ Humming</h1>
+    <p class="benefit">Hum away anxiety. Literally.</p>
+    <p class="duration">90 seconds · Level 1</p>
+    <div class="rule"></div>
+    <form class="form" onsubmit="handleSubmit(event)">
+      <input type="email" id="email" placeholder="your@email.com" required autocomplete="email">
+      <button type="submit">Get Free Access →</button>
+      <p class="privacy">No spam. Unsubscribe anytime.</p>
+    </form>
+  </div>
+  <div class="success" id="successView">
+    <h2>It's yours.</h2>
+    <p>Check your inbox for a confirmation.<br>Your tool is one click away.</p>
+    <a class="go-btn" href="#" id="toolLink">Open the Tool →</a>
+  </div>
+</div>
+<script>
+const TOOL_URL = 'tools/bee-breath.html';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mwvnroee';
+const EXERCISE_TAG = 'bee_breath';
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const email = document.getElementById('email').value.trim();
+  var body = new URLSearchParams();
+  body.append('email', email);
+  body.append('exercise', EXERCISE_TAG);
+  fetch(FORMSPREE_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: body
+  }).then(function() {
+    document.getElementById('toolLink').href = TOOL_URL;
+    document.getElementById('formView').style.display = 'none';
+    document.getElementById('successView').style.display = 'block';
+  }).catch(function() {
+    document.getElementById('toolLink').href = TOOL_URL;
+    document.getElementById('formView').style.display = 'none';
+    document.getElementById('successView').style.display = 'block';
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tummo — Inner Fire</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400&family=Rubik:wght@300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0d0805;--navel:#ef4444;--solar:#f97316;--heart:#fbbf24;--crown:#fef3c7;--text:#fef3c7;--m:#78716c}
+body{font-family:'Rubik',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 50% 70%,rgba(239,68,68,.05),transparent 50%);z-index:0}
+.w{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1rem;padding:1.5rem;width:100%;max-width:460px}
+h1{font-family:'Philosopher',serif;font-size:2rem;letter-spacing:.06em;font-style:italic}
+.sb{font-size:.65rem;color:var(--m);letter-spacing:.2em;text-transform:uppercase}
+.warn{font-size:.58rem;color:#ef4444;text-align:center;padding:.4rem .8rem;border:1px solid rgba(239,68,68,.2);border-radius:6px;background:rgba(239,68,68,.04);line-height:1.4}
+canvas{width:200px;height:320px;display:block;margin:0 auto}
+.heat-gauge{width:100%;display:flex;align-items:center;gap:.8rem}
+.heat-label{font-size:.6rem;color:var(--m);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.heat-bar{flex:1;height:8px;background:rgba(255,255,255,.04);border-radius:4px;overflow:hidden}
+.heat-fill{height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,var(--navel),var(--solar),var(--heart),var(--crown));transition:width .5s}
+.heat-val{font-family:'Philosopher',serif;font-size:1rem;font-weight:700;color:var(--solar);min-width:40px;text-align:right}
+.inf{text-align:center}
+.ph{font-family:'Philosopher',serif;font-size:1rem;letter-spacing:.08em;transition:color .5s;font-style:italic}
+.tm{font-family:'Philosopher',serif;font-size:2.5rem;font-weight:700;transition:color .5s}
+.cy{font-size:.65rem;color:var(--m);letter-spacing:.12em}
+.pr{width:100%;height:3px;background:rgba(255,255,255,.04);border-radius:2px;overflow:hidden}
+.prf{height:100%;width:0;border-radius:2px;transition:width .3s;background:linear-gradient(90deg,var(--navel),var(--heart))}
+.ct{display:flex;gap:1rem}
+.btn{font-family:'Rubik',sans-serif;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.6rem;border:1px solid rgba(239,68,68,.2);border-radius:8px;background:rgba(239,68,68,.05);color:var(--text);cursor:pointer;transition:.25s}
+.btn:hover{background:rgba(239,68,68,.12)}.btn.p{border-color:rgba(239,68,68,.4);background:rgba(239,68,68,.1)}
+.bs{padding:.4rem .9rem;font-size:.65rem}
+.ds{display:none;flex-direction:column;align-items:center;gap:1rem;text-align:center;animation:fu .8s}
+.ds.show{display:flex}
+.ds h2{font-family:'Philosopher',serif;font-weight:400;font-size:1.6rem;font-style:italic}
+.ds p{color:var(--m);font-size:.82rem;line-height:1.7;max-width:360px}
+.mn{display:flex;flex-direction:column;align-items:center;gap:1rem}.mn.off{display:none}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.sn{position:fixed;top:1rem;right:1rem;z-index:10;width:34px;height:34px;border-radius:50%;border:1px solid rgba(239,68,68,.12);background:rgba(239,68,68,.02);color:var(--m);cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<button class="sn" id="sB">🔔</button>
+<div class="w">
+<h1>Tummo</h1>
+<div class="sb">Inner Fire Meditation · Tibetan Heat Yoga</div>
+<div class="warn">⚠ Advanced practice. Not for cardiac conditions, hypertension, or pregnancy.</div>
+<div class="mn" id="mV">
+<canvas id="cv" width="400" height="640"></canvas>
+<div class="heat-gauge">
+  <div class="heat-label">Inner Heat</div>
+  <div class="heat-bar"><div class="heat-fill" id="hf"></div></div>
+  <div class="heat-val" id="hv">0°</div>
+</div>
+<div class="inf"><div class="ph" id="ph">Ready</div><div class="tm" id="tm">—</div><div class="cy" id="cy"></div></div>
+<div class="pr"><div class="prf" id="prf"></div></div>
+<div class="ct"><button class="btn p" id="go">Ignite</button><button class="btn bs" id="rs" style="display:none">Reset</button></div>
+</div>
+<div class="ds" id="dV">
+<h2>The Inner Fire Burns</h2>
+<p>Six minutes of Tummo practice. Tibetan monks using this technique have demonstrated the ability to raise their core body temperature by several degrees — drying wet sheets placed on their backs in freezing conditions. You've activated the same neural-metabolic pathway: vase breathing compresses prana at the navel, generating genuine physiological heat.</p>
+<p style="opacity:.6;font-style:italic">The fire was always inside you. Now you know how to light it.</p>
+<button class="btn p" id="ag">Reignite</button>
+</div>
+</div>
+<script>
+const INH=5,EXH=5,CYC=18,TOT=CYC*(INH+EXH)*2; // ×2 because each "cycle" includes vase hold phase
+// Actually let's keep it simpler: 5 in + 5 out × 18 = 180... but dur is 360s
+// So 360/18 = 20s per cycle → 5 in + 5 hold(vase) + 5 out + 5 rest = 20s
+const V_HOLD=5,REST=5,CYC_DUR=INH+V_HOLD+EXH+REST;
+const TOTAL=CYC*CYC_DUR; // 360s
+
+class Au{constructor(){this.c=null;this.on=true}init(){if(!this.c)this.c=new(window.AudioContext||window.webkitAudioContext)}t(f,d){if(!this.on||!this.c)return;const o=this.c.createOscillator(),g=this.c.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,this.c.currentTime);g.gain.linearRampToValueAtTime(.05,this.c.currentTime+.15);g.gain.setValueAtTime(.05,this.c.currentTime+d-.2);g.gain.linearRampToValueAtTime(0,this.c.currentTime+d);o.connect(g);g.connect(this.c.destination);o.start();o.stop(this.c.currentTime+d)}toggle(){this.on=!this.on;return this.on}}
+const au=new Au(),cv=document.getElementById('cv'),c=cv.getContext('2d'),W=cv.width,H=cv.height,CX=W/2;
+const ph$=document.getElementById('ph'),tm$=document.getElementById('tm'),cy$=document.getElementById('cy'),prf$=document.getElementById('prf'),hf$=document.getElementById('hf'),hv$=document.getElementById('hv');
+const go$=document.getElementById('go'),rs$=document.getElementById('rs'),mV=document.getElementById('mV'),dV=document.getElementById('dV');
+let st='idle',cyc=0,ss=0,pa=false,pO=0,pT2=0,lastPh='';
+
+// Body outline: navel at ~70% height, crown at ~10%
+const NAVEL_Y=H*.68,SOLAR_Y=H*.55,HEART_Y=H*.42,THROAT_Y=H*.3,CROWN_Y=H*.15;
+
+function getPhaseInCycle(cycEl){
+  if(cycEl<INH) return {ph:'inhale',el:cycEl,dur:INH};
+  if(cycEl<INH+V_HOLD) return {ph:'vase',el:cycEl-INH,dur:V_HOLD};
+  if(cycEl<INH+V_HOLD+EXH) return {ph:'exhale',el:cycEl-INH-V_HOLD,dur:EXH};
+  return {ph:'rest',el:cycEl-INH-V_HOLD-EXH,dur:REST};
+}
+
+function drawBody(phase,bProg,tProg){
+  c.clearRect(0,0,W,H);const t=Date.now()/1000;
+  // Body silhouette
+  c.beginPath();
+  c.moveTo(CX,CROWN_Y);
+  c.quadraticCurveTo(CX+60,THROAT_Y,CX+70,HEART_Y);
+  c.quadraticCurveTo(CX+55,SOLAR_Y,CX+65,NAVEL_Y);
+  c.quadraticCurveTo(CX+60,H*.85,CX+30,H*.95);
+  c.lineTo(CX-30,H*.95);
+  c.quadraticCurveTo(CX-60,H*.85,CX-65,NAVEL_Y);
+  c.quadraticCurveTo(CX-55,SOLAR_Y,CX-70,HEART_Y);
+  c.quadraticCurveTo(CX-60,THROAT_Y,CX,CROWN_Y);
+  c.strokeStyle='rgba(255,255,255,.06)';c.lineWidth=1;c.stroke();
+
+  // Chakra dots
+  const chakras=[{y:NAVEL_Y,c:'#ef4444'},{y:SOLAR_Y,c:'#f97316'},{y:HEART_Y,c:'#fbbf24'},{y:THROAT_Y,c:'#38bdf8'},{y:CROWN_Y,c:'#a855f7'}];
+  chakras.forEach((ch,i)=>{
+    const active=tProg>(i/chakras.length);
+    const alpha=active?.3+Math.sin(t*2+i)*.1:.05;
+    c.beginPath();c.arc(CX,ch.y,4,0,Math.PI*2);c.fillStyle=ch.c.replace(')',`,${alpha})`).replace('#',`rgba(${parseInt(ch.c.slice(1,3),16)},${parseInt(ch.c.slice(3,5),16)},${parseInt(ch.c.slice(5,7),16)},`);
+    const r=parseInt(ch.c.slice(1,3),16),g2=parseInt(ch.c.slice(3,5),16),b=parseInt(ch.c.slice(5,7),16);
+    c.fillStyle=`rgba(${r},${g2},${b},${alpha})`;c.fill();
+  });
+
+  // Fire rising from navel
+  const fireHeight=tProg*(NAVEL_Y-CROWN_Y);
+  const fireTop=NAVEL_Y-fireHeight;
+  if(phase==='inhale'||phase==='vase'){
+    // Fire intensifies
+    const intensity=phase==='vase'?.8+bProg*.2:.3+bProg*.5;
+    const flameW=20+intensity*20;
+    for(let y=NAVEL_Y;y>fireTop;y-=3){
+      const yP=(NAVEL_Y-y)/fireHeight;
+      const xOff=Math.sin(t*3+y*.02)*flameW*(1-yP*.5);
+      const alpha=intensity*(1-yP*.3)*.3;
+      const r=239-yP*80,g2=68+yP*123,b=68-yP*32;
+      c.beginPath();c.arc(CX+xOff,y,flameW*(1-yP*.6),0,Math.PI*2);
+      const gd=c.createRadialGradient(CX+xOff,y,0,CX+xOff,y,flameW*(1-yP*.6));
+      gd.addColorStop(0,`rgba(${Math.floor(r)},${Math.floor(g2)},${Math.floor(b)},${alpha})`);
+      gd.addColorStop(1,'transparent');
+      c.fillStyle=gd;c.fill();
+    }
+  } else if(phase==='exhale'){
+    // Fire dims but holds position
+    const intensity=.6-bProg*.3;
+    const flameW=15+intensity*15;
+    for(let y=NAVEL_Y;y>fireTop;y-=4){
+      const yP=(NAVEL_Y-y)/Math.max(1,fireHeight);
+      const xOff=Math.sin(t*2+y*.02)*flameW*(1-yP*.5);
+      const alpha=intensity*(1-yP*.4)*.2;
+      c.beginPath();
+      const gd=c.createRadialGradient(CX+xOff,y,0,CX+xOff,y,flameW);
+      gd.addColorStop(0,`rgba(239,100,68,${alpha})`);gd.addColorStop(1,'transparent');
+      c.beginPath();c.arc(CX+xOff,y,flameW,0,Math.PI*2);c.fillStyle=gd;c.fill();
+    }
+  }
+  // Navel glow
+  const ng=c.createRadialGradient(CX,NAVEL_Y,0,CX,NAVEL_Y,30);
+  const nA=phase==='vase'?.3+bProg*.15:.15;
+  ng.addColorStop(0,`rgba(239,68,68,${nA})`);ng.addColorStop(1,'transparent');
+  c.beginPath();c.arc(CX,NAVEL_Y,30,0,Math.PI*2);c.fillStyle=ng;c.fill();
+}
+function drawIdle(){c.clearRect(0,0,W,H);const ng=c.createRadialGradient(CX,H*.68,0,CX,H*.68,20);ng.addColorStop(0,'rgba(239,68,68,.08)');ng.addColorStop(1,'transparent');c.beginPath();c.arc(CX,H*.68,20,0,Math.PI*2);c.fillStyle=ng;c.fill()}
+
+function start(){au.init();st='active';cyc=0;ss=performance.now();pa=false;pO=0;lastPh='';go$.textContent='Pause';go$.classList.remove('p');rs$.style.display='inline-block';dV.classList.remove('show');mV.classList.remove('off');tk()}
+function tk(){
+  if(st!=='active'||pa)return;
+  const el=(performance.now()-ss-pO)/1000;
+  if(el>=TOTAL){fin();return}
+  const curCyc=Math.floor(el/CYC_DUR);
+  const cycEl=el%CYC_DUR;
+  const{ph:curPh,el:phEl,dur:phDur}=getPhaseInCycle(cycEl);
+  const bProg=phEl/phDur;const rem=phDur-phEl;
+  const tProg=el/TOTAL;
+  if(curPh!==lastPh){
+    lastPh=curPh;
+    const freqs={inhale:220,vase:174.61,exhale:293.66,rest:165};
+    au.t(freqs[curPh],phDur);
+  }
+  const labels={inhale:'Inhale · Draw Fire Up',vase:'Vase Hold · Compress Heat',exhale:'Exhale · Radiate',rest:'Rest · Feel the Heat'};
+  const colors={inhale:'#f97316',vase:'#ef4444',exhale:'#fbbf24',rest:'#78716c'};
+  ph$.textContent=labels[curPh];ph$.style.color=colors[curPh];
+  tm$.textContent=Math.ceil(rem);tm$.style.color=colors[curPh];
+  cy$.textContent=`Cycle ${curCyc+1} / ${CYC}`;
+  prf$.style.width=(tProg*100)+'%';
+  hf$.style.width=(tProg*100)+'%';
+  hv$.textContent=Math.floor(tProg*100)+'°';
+  drawBody(curPh,bProg,tProg);
+  requestAnimationFrame(tk);
+}
+function fin(){st='done';mV.classList.add('off');dV.classList.add('show')}
+function rst(){st='idle';pa=false;pO=0;lastPh='';go$.textContent='Ignite';go$.classList.add('p');rs$.style.display='none';ph$.textContent='Ready';ph$.style.color='';tm$.textContent='—';tm$.style.color='';cy$.textContent='';prf$.style.width='0';hf$.style.width='0';hv$.textContent='0°';dV.classList.remove('show');mV.classList.remove('off');il()}
+function tp4(){if(!pa){pa=true;pT2=performance.now();go$.textContent='Resume';go$.classList.add('p')}else{pO+=performance.now()-pT2;pa=false;go$.textContent='Pause';go$.classList.remove('p');tk()}}
+go$.onclick=()=>{if(st==='idle')start();else if(st==='active')tp4()};
+rs$.onclick=rst;document.getElementById('ag').onclick=()=>{rst();start()};
+document.getElementById('sB').onclick=()=>{au.init();const on=au.toggle();document.getElementById('sB').textContent=on?'🔔':'🔇'};
+function il(){if(st!=='idle')return;drawIdle();requestAnimationFrame(il)}il();
+</script>
+</body>
+</html>

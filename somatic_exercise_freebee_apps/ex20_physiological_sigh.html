@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physiological Sigh</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@300;400&family=Albert+Sans:wght@300;400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--in1:#7AB8D4;--in2:#5A98C4;--out:#6ABF8F;--bg:#080C14;--text:#D8D4CC;--muted:#585450}
+  body{font-family:'Albert Sans',sans-serif;background:var(--bg);color:var(--text);height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none}
+  .wrap{z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.3rem}
+  h1{font-family:'Newsreader',serif;font-weight:300;font-size:2rem;letter-spacing:.04em}
+  .sub{font-size:.7rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;text-align:center;line-height:1.6}
+  .lung-area{position:relative;width:240px;height:220px;display:flex;align-items:center;justify-content:center}
+  .lung{position:absolute;width:70px;height:100px;border-radius:0 0 35px 35px;border:1.5px solid rgba(255,255,255,.08);transition:height .4s,border-color .4s;bottom:30px}
+  .lung.left{left:35px;border-radius:0 0 20px 35px}.lung.right{right:35px;border-radius:0 0 35px 20px}
+  .lung-fill{position:absolute;bottom:0;left:0;right:0;border-radius:0 0 35px 35px;transition:height .3s,background .3s}
+  .lung.left .lung-fill{border-radius:0 0 20px 35px;background:var(--in1)}
+  .lung.right .lung-fill{border-radius:0 0 35px 20px;background:var(--in1)}
+  .trachea{position:absolute;top:20px;left:50%;width:2px;height:50px;background:rgba(255,255,255,.08);transform:translateX(-50%)}
+  .bronchi-l{position:absolute;top:70px;left:60px;width:40px;height:2px;background:rgba(255,255,255,.06);transform:rotate(30deg)}
+  .bronchi-r{position:absolute;top:70px;right:60px;width:40px;height:2px;background:rgba(255,255,255,.06);transform:rotate(-30deg)}
+  .phase-badge{position:absolute;top:5px;left:50%;transform:translateX(-50%);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .6rem;border-radius:20px;background:rgba(122,184,212,.1);color:var(--in1);transition:all .3s}
+  .phase-badge.sip{background:rgba(90,152,196,.15);color:var(--in2)}
+  .phase-badge.out{background:rgba(106,191,143,.1);color:var(--out)}
+  .pattern{display:flex;gap:.5rem;align-items:center;font-size:.75rem;color:var(--muted)}
+  .pattern .step{padding:.3rem .6rem;border-radius:6px;border:1px solid rgba(255,255,255,.06);transition:all .3s}
+  .pattern .step.active{border-color:rgba(255,255,255,.2);color:var(--text);background:rgba(255,255,255,.04)}
+  .pn{font-family:'Newsreader',serif;font-size:1.4rem;font-weight:300;letter-spacing:.06em;text-align:center}
+  .pc{font-size:2rem;font-weight:300;opacity:.7;text-align:center}
+  .bar{width:200px;height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
+  .bf{height:100%;width:0;border-radius:2px;background:var(--in1)}
+  .info-row{display:flex;gap:2rem;font-size:.78rem;color:var(--muted)}
+  .info-row strong{color:var(--text);font-weight:500}
+  .controls{display:flex;gap:1rem}
+  .btn{font-family:'Albert Sans',sans-serif;padding:.5rem 1.4rem;border:1px solid rgba(255,255,255,.1);border-radius:100px;background:rgba(255,255,255,.03);color:var(--text);font-size:.78rem;cursor:pointer;transition:all .3s}
+  .btn:hover{background:rgba(255,255,255,.08)}
+  .btn.pri{background:rgba(122,184,212,.12);border-color:rgba(122,184,212,.25)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Physiological Sigh</h1>
+  <p class="sub">Double inhale through nose · Long exhale through mouth<br>Fastest known method to calm the nervous system</p>
+  <div class="lung-area">
+    <div class="trachea"></div>
+    <div class="bronchi-l"></div>
+    <div class="bronchi-r"></div>
+    <div class="lung left"><div class="lung-fill" id="fl" style="height:10%"></div></div>
+    <div class="lung right"><div class="lung-fill" id="fr" style="height:10%"></div></div>
+    <div class="phase-badge" id="badge">Ready</div>
+  </div>
+  <div class="pattern">
+    <span class="step" id="s1">Inhale 1</span>
+    <span>→</span>
+    <span class="step" id="s2">Sip 2</span>
+    <span>→</span>
+    <span class="step" id="s3">Long Exhale</span>
+  </div>
+  <div class="pn" id="pn">Ready</div>
+  <div class="pc" id="pc"></div>
+  <div class="bar"><div class="bf" id="bf"></div></div>
+  <div class="info-row">
+    <span>Sighs <strong id="sn">0</strong> / <strong>6</strong></span>
+    <span>Elapsed <strong id="el">0:00</strong></span>
+  </div>
+  <div class="controls">
+    <button class="btn pri" id="sb" onclick="toggle()">Begin</button>
+    <button class="btn" onclick="doReset()">Reset</button>
+  </div>
+</div>
+<script>
+// Double inhale (3s + 2s sip) + Long exhale (6s) = 11s per cycle
+const PHASES=[
+  {name:'Inhale',dur:3,fill:70,color:'var(--in1)',badge:'',step:'s1'},
+  {name:'Sip',dur:2,fill:95,color:'var(--in2)',badge:'sip',step:'s2'},
+  {name:'Exhale',dur:6,fill:10,color:'var(--out)',badge:'out',step:'s3'},
+];
+const CYCLE_DUR=11,SIGHS=6;
+let running=false,paused=false,t=0,total=0,lastTs=0,pi=0,pt=0,sighs=0,lastPi=-1,aCtx=null;
+function audio(){if(!aCtx)aCtx=new(window.AudioContext||window.webkitAudioContext)();return aCtx}
+function tone(f,d=.2){try{const x=audio(),o=x.createOscillator(),g=x.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,x.currentTime);g.gain.linearRampToValueAtTime(.06,x.currentTime+.04);g.gain.exponentialRampToValueAtTime(.001,x.currentTime+d);o.connect(g);g.connect(x.destination);o.start();o.stop(x.currentTime+d)}catch(e){}}
+function fmt(s){return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
+
+function tick(ts){
+  if(!running||paused)return;
+  if(!lastTs)lastTs=ts;const dt=(ts-lastTs)/1000;lastTs=ts;pt+=dt;total+=dt;
+  const p=PHASES[pi];
+  if(pi!==lastPi){
+    tone([396,440,285][pi]);
+    document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
+    document.getElementById(p.step).classList.add('active');
+    document.getElementById('badge').className='phase-badge '+p.badge;
+    document.getElementById('badge').textContent=p.name;
+    lastPi=pi;
+  }
+  const frac=Math.min(pt/p.dur,1);
+  // Lung fill interpolation
+  const prevFill=pi===0?10:PHASES[pi-1].fill;
+  const curFill=prevFill+(p.fill-prevFill)*frac;
+  document.getElementById('fl').style.height=curFill+'%';
+  document.getElementById('fr').style.height=curFill+'%';
+  document.getElementById('fl').style.background=p.color;
+  document.getElementById('fr').style.background=p.color;
+  
+  document.getElementById('pn').textContent=p.name;
+  document.getElementById('pc').textContent=Math.ceil(p.dur-pt);
+  document.getElementById('bf').style.width=(total/(SIGHS*CYCLE_DUR)*100)+'%';
+  document.getElementById('el').textContent=fmt(total);
+  
+  if(pt>=p.dur){
+    pt=0;pi++;
+    if(pi>=3){pi=0;sighs++;document.getElementById('sn').textContent=sighs;
+      if(sighs>=SIGHS){end();return}}
+  }
+  requestAnimationFrame(tick);
+}
+function toggle(){
+  const b=document.getElementById('sb');
+  if(!running){running=true;paused=false;t=0;total=0;pt=0;pi=0;lastTs=0;sighs=0;lastPi=-1;
+    document.getElementById('sn').textContent='0';b.textContent='Pause';requestAnimationFrame(tick);
+  }else if(!paused){paused=true;lastTs=0;b.textContent='Resume'}
+  else{paused=false;lastTs=0;b.textContent='Pause';requestAnimationFrame(tick)}
+}
+function doReset(){
+  running=false;paused=false;t=0;total=0;pt=0;pi=0;lastTs=0;sighs=0;lastPi=-1;
+  document.getElementById('sb').textContent='Begin';document.getElementById('sn').textContent='0';
+  document.getElementById('el').textContent='0:00';document.getElementById('pn').textContent='Ready';
+  document.getElementById('pc').textContent='';document.getElementById('bf').style.width='0';
+  document.getElementById('fl').style.height='10%';document.getElementById('fr').style.height='10%';
+  document.getElementById('badge').className='phase-badge';document.getElementById('badge').textContent='Ready';
+  document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
+}
+function end(){running=false;document.getElementById('sb').textContent='Begin';document.getElementById('pn').textContent='Calm Restored';document.getElementById('pc').textContent='';tone(528,.8)}
+</script>
+</body>
+</html>

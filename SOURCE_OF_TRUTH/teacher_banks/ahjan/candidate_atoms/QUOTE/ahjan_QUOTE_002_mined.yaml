@@ -1,0 +1,11 @@
+atom_id: ahjan_QUOTE_002_mined
+body: I want happiness, but I cannot find it anywhere.
+teacher:
+  teacher_id: ahjan
+  source_refs:
+  - doc_id: raw/BD Blog - Happiness and Purity.rtf
+    span:
+    - 1166
+    - 1762
+    quote_hash: 7c9936f3899ab30d
+  synthesis_method: kb_mine_v1

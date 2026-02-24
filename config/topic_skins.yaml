@@ -1,0 +1,220 @@
+# topic_skins.yaml
+# Phoenix Omega V4 — Topic Skins (Vocabulary Guard)
+# Steers language per topic without changing structure
+# Suffixes: ≤30 words, ≤2 sentences each
+
+---
+
+global_rules:
+  prohibited_terms:
+    - "journey"
+    - "transform"
+    - "heal"
+    - "healing journey"
+    - "self-care"
+    - "wellness"
+    - "mindfulness"
+    - "empower"
+    - "empowering"
+    - "overcome"
+    - "conquer"
+    - "battle"
+    - "fight"
+    - "warrior"
+    - "survivor"
+    - "thrive"
+    - "manifest"
+    - "authentic self"
+    - "best self"
+    - "inner child"
+    - "trigger warning"
+    - "safe space"
+    - "toxic"
+    - "boundaries" # as noun-solution; allowed in boundaries topic only
+    - "self-love"
+    - "you've got this"
+    - "be gentle with yourself"
+  prohibited_patterns:
+    - "(?i)you (can|will) (overcome|conquer|beat)"
+    - "(?i)believe in yourself"
+    - "(?i)everything happens for a reason"
+    - "(?i)it gets better"
+    - "(?i)stay strong"
+    - "(?i)you're not alone"
+    - "(?i)reach out"
+
+---
+
+anxiety:
+  recognition_suffix:
+    text: "The body responds before the mind catches up. The response is real even when the threat isn't."
+    max_words: 30
+  mechanism_proof_suffix:
+    text: "The pattern runs regardless of content. Different inputs, same alarm."
+    max_words: 30
+  turning_point_suffix:
+    text: "The alarm can be wrong. The alarm being wrong is information."
+    max_words: 30
+  embodiment_suffix:
+    text: "Acting while the alarm runs. The alarm doesn't require obedience."
+    max_words: 30
+  additional_prohibited_terms:
+    - "anxiety attack"
+    - "panic attack"
+    - "anxiety disorder"
+    - "mental health"
+    - "coping mechanism"
+    - "grounding technique"
+
+boundaries:
+  recognition_suffix:
+    text: "The limit wants to exist. Something blocks it from being spoken."
+    max_words: 30
+  mechanism_proof_suffix:
+    text: "Every no is gated by the same fear. The fear doesn't distinguish between limits."
+    max_words: 30
+  turning_point_suffix:
+    text: "The no survives. The world continues after the limit is named."
+    max_words: 30
+  embodiment_suffix:
+    text: "Setting limits with the fear still present. The fear doesn't have veto power."
+    max_words: 30
+  additional_prohibited_terms:
+    - "healthy boundaries"
+    - "toxic people"
+    - "protect your energy"
+    - "boundary setting"
+    - "self-protection"
+  allowed_terms_override:
+    - "boundaries"  # allowed in this topic only
+
+financial_stress:
+  recognition_suffix:
+    text: "The numbers sit on the chest. The math doesn't add up to calm."
+    max_words: 30
+  mechanism_proof_suffix:
+    text: "Income changes; the tightness stays. The tightness isn't calibrated to the account balance."
+    max_words: 30
+  turning_point_suffix:
+    text: "The worst case has a shape. Shapes are smaller than fog."
+    max_words: 30
+  embodiment_suffix:
+    text: "One number at a time. The pile breaks into pieces that can be held."
+    max_words: 30
+  additional_prohibited_terms:
+    - "abundance mindset"
+    - "money blocks"
+    - "financial freedom"
+    - "wealth consciousness"
+    - "prosperity"
+    - "manifest money"
+
+courage:
+  recognition_suffix:
+    text: "The action is ready. The body treats it as threat."
+    max_words: 30
+  mechanism_proof_suffix:
+    text: "Every brave thing runs through the same gate. The gate only knows fear."
+    max_words: 30
+  turning_point_suffix:
+    text: "The thing got done. The fear was wrong about the cost."
+    max_words: 30
+  embodiment_suffix:
+    text: "Acting before the all-clear. The all-clear may never come."
+    max_words: 30
+  additional_prohibited_terms:
+    - "brave"
+    - "fearless"
+    - "courageous"
+    - "bold"
+    - "leap of faith"
+    - "comfort zone"
+
+compassion_fatigue:
+  recognition_suffix:
+    text: "The caring went somewhere. The somewhere is empty now."
+    max_words: 30
+  mechanism_proof_suffix:
+    text: "The caring doesn't refill on its own. The vessel has no automatic drain."
+    max_words: 30
+  turning_point_suffix:
+    text: "Less holding means more presence for what remains."
+    max_words: 30
+  embodiment_suffix:
+    text: "Limits on caring are care for the caring. The caring needs maintenance."
+    max_words: 30
+  additional_prohibited_terms:
+    - "burnout"
+    - "self-care"
+    - "caregiver fatigue"
+    - "emotional labor"
+    - "set boundaries"
+    - "compassion satisfaction"
+
+depression:
+  recognition_suffix:
+    text: "The living happens at a distance. The distance wasn't chosen."
+    max_words: 30
+  mechanism_proof_suffix:
+    text: "Good and bad land the same—observed, not felt. The distance is the constant."
+    max_words: 30
+  turning_point_suffix:
+    text: "Something reaches through. The through proves the glass isn't total."
+    max_words: 30
+  embodiment_suffix:
+    text: "Showing up while absent. The structure holds space for when presence returns."
+    max_words: 30
+  additional_prohibited_terms:
+    - "depression"
+    - "depressed"
+    - "mental illness"
+    - "chemical imbalance"
+    - "antidepressant"
+    - "clinical"
+    - "diagnosis"
+
+self_worth:
+  recognition_suffix:
+    text: "The outcome became a verdict. The verdict is about more than the outcome."
+    max_words: 30
+  mechanism_proof_suffix:
+    text: "Every external event translates to internal judgment. The translation is automatic."
+    max_words: 30
+  turning_point_suffix:
+    text: "The outcome was data. The data doesn't have to be identity."
+    max_words: 30
+  embodiment_suffix:
+    text: "Separating what happened from who I am. The separation is practice."
+    max_words: 30
+  additional_prohibited_terms:
+    - "self-esteem"
+    - "self-worth"
+    - "worthy"
+    - "deserve"
+    - "enough"
+    - "imposter syndrome"
+    - "inner critic"
+
+grief:
+  recognition_suffix:
+    text: "The absence is present. The present holds what used to be there."
+    max_words: 30
+  mechanism_proof_suffix:
+    text: "The waves come without pattern. The pattern is that there is no pattern."
+    max_words: 30
+  turning_point_suffix:
+    text: "The connection continues in different form. Form can change without ending."
+    max_words: 30
+  embodiment_suffix:
+    text: "Tending the loss as it is. The loss doesn't need to be fixed to be carried."
+    max_words: 30
+  additional_prohibited_terms:
+    - "closure"
+    - "move on"
+    - "get over it"
+    - "stages of grief"
+    - "grief process"
+    - "healing process"
+    - "they're in a better place"
+    - "everything happens for a reason"
+    - "at least"

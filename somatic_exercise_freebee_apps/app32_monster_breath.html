@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monster Breath — Compassion Transform</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0d0815;--dark:#7c3aed;--warm:#f472b6;--gold:#fbbf24;--text:#ede9fe;--m:#6b7280}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(124,58,237,.05),transparent 50%);z-index:0}
+.w{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.2rem;padding:1.5rem;width:100%;max-width:460px}
+h1{font-family:'Cardo',serif;font-weight:400;font-size:1.9rem;letter-spacing:.04em}
+.sb{font-size:.68rem;color:var(--m);letter-spacing:.18em;text-transform:uppercase;margin-top:-.5rem}
+canvas{width:260px;height:260px;display:block;margin:0 auto}
+.inf{text-align:center;display:flex;flex-direction:column;gap:.15rem}
+.ph{font-family:'Cardo',serif;font-size:1.05rem;letter-spacing:.08em;transition:color .5s}
+.tm{font-family:'Cardo',serif;font-size:2.5rem;font-weight:700;transition:color .5s}
+.cy{font-size:.65rem;color:var(--m);letter-spacing:.12em}
+.tf-bar{width:100%;height:6px;background:rgba(255,255,255,.04);border-radius:3px;overflow:hidden}
+.tf-f{height:100%;width:0;border-radius:3px;transition:width .3s;background:linear-gradient(90deg,var(--dark),var(--warm),var(--gold))}
+.tf-label{display:flex;justify-content:space-between;font-size:.58rem;color:var(--m);letter-spacing:.1em;text-transform:uppercase}
+.ct{display:flex;gap:1rem}
+.btn{font-family:'Nunito',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.6rem;border:1px solid rgba(124,58,237,.2);border-radius:100px;background:rgba(124,58,237,.05);color:var(--text);cursor:pointer;transition:.25s}
+.btn:hover{background:rgba(124,58,237,.12)}.btn.p{border-color:rgba(124,58,237,.4);background:rgba(124,58,237,.1)}
+.bs{padding:.4rem .9rem;font-size:.65rem}
+.ds{display:none;flex-direction:column;align-items:center;gap:1rem;text-align:center;animation:fu .8s}
+.ds.show{display:flex}
+.ds h2{font-family:'Cardo',serif;font-weight:400;font-size:1.6rem}
+.ds p{color:var(--m);font-size:.82rem;line-height:1.7;max-width:350px}
+.mn{display:flex;flex-direction:column;align-items:center;gap:1rem}.mn.off{display:none}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.sn{position:fixed;top:1rem;right:1rem;z-index:10;width:34px;height:34px;border-radius:50%;border:1px solid rgba(124,58,237,.15);background:rgba(124,58,237,.03);color:var(--m);cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<button class="sn" id="sB">🔔</button>
+<div class="w">
+<h1>Monster Breath</h1>
+<div class="sb">Compassion Transforms Fear</div>
+<div class="mn" id="mV">
+<canvas id="cv" width="520" height="520"></canvas>
+<div class="inf"><div class="ph" id="ph">Ready</div><div class="tm" id="tm">—</div><div class="cy" id="cy"></div></div>
+<div style="width:100%"><div class="tf-label"><span>Fear</span><span>Compassion</span></div><div class="tf-bar"><div class="tf-f" id="tf"></div></div></div>
+<div class="ct"><button class="btn p" id="go">Begin</button><button class="btn bs" id="rs" style="display:none">Reset</button></div>
+</div>
+<div class="ds" id="dV">
+<h2>The Monster Has Transformed</h2>
+<p>Eight minutes of breathing compassion into fear. Every difficult emotion, every inner monster, is just a part of you asking for acceptance. You didn't fight it — you breathed warmth into it until it softened. That's real courage.</p>
+<p style="opacity:.6;font-style:italic">What we befriend, we no longer fear.</p>
+<button class="btn p" id="ag">Again</button>
+</div>
+</div>
+<script>
+const INH=12,EXH=12,CYC=20,TOT=CYC*(INH+EXH);
+class Au{constructor(){this.c=null;this.on=true}init(){if(!this.c)this.c=new(window.AudioContext||window.webkitAudioContext)}t(f,d){if(!this.on||!this.c)return;const o=this.c.createOscillator(),g=this.c.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,this.c.currentTime);g.gain.linearRampToValueAtTime(.06,this.c.currentTime+.2);g.gain.setValueAtTime(.06,this.c.currentTime+d-.3);g.gain.linearRampToValueAtTime(0,this.c.currentTime+d);o.connect(g);g.connect(this.c.destination);o.start();o.stop(this.c.currentTime+d)}inh(){this.t(174.61,INH)}exh(){this.t(293.66,EXH)}toggle(){this.on=!this.on;return this.on}}
+const au=new Au(),cv=document.getElementById('cv'),c=cv.getContext('2d'),W=cv.width,H=cv.height,CX=W/2,CY=H/2;
+const ph$=document.getElementById('ph'),tm$=document.getElementById('tm'),cy$=document.getElementById('cy'),tf$=document.getElementById('tf');
+const go$=document.getElementById('go'),rs$=document.getElementById('rs'),mV=document.getElementById('mV'),dV=document.getElementById('dV');
+let st='idle',cy=0,isI=true,ps=0,pa=false,pO=0,pT=0;
+
+function lerp(a,b,t){return a+(b-a)*t}
+// Monster face that transforms from angry/dark to soft/warm based on totalProgress 0→1
+function drawMonster(isInhale,breathProg,totalProg){
+  c.clearRect(0,0,W,H);const t=Date.now()/1000;
+  // Colors transition
+  const darkR=lerp(80,251,totalProg),darkG=lerp(20,191,totalProg),darkB=lerp(120,36,totalProg);
+  const eyeR=lerp(239,255,totalProg),eyeG=lerp(68,200,totalProg),eyeB=lerp(68,150,totalProg);
+  // Size pulsing with breath
+  const breathPulse=isInhale?Math.sin(breathProg*Math.PI)*.15:Math.sin(breathProg*Math.PI)*.1;
+  const scale=1+breathPulse;
+  c.save();c.translate(CX,CY);c.scale(scale,scale);
+  // Head shape: jagged→round
+  const jaggedness=1-totalProg;
+  const headR=80;
+  c.beginPath();
+  for(let i=0;i<=60;i++){
+    const a=(i/60)*Math.PI*2;
+    const jag=jaggedness*Math.sin(a*8+t)*12;
+    const r=headR+jag;
+    if(i===0)c.moveTo(Math.cos(a)*r,Math.sin(a)*r);
+    else c.lineTo(Math.cos(a)*r,Math.sin(a)*r);
+  }
+  c.closePath();
+  const hGrad=c.createRadialGradient(0,0,0,0,0,headR+15);
+  hGrad.addColorStop(0,`rgba(${darkR},${darkG},${darkB},.5)`);
+  hGrad.addColorStop(1,`rgba(${darkR},${darkG},${darkB},.1)`);
+  c.fillStyle=hGrad;c.fill();
+  c.strokeStyle=`rgba(${darkR},${darkG},${darkB},.6)`;c.lineWidth=2;c.stroke();
+  // Eyes: angry slits→soft circles
+  const eyeY=-15;const eyeSpread=25;
+  const eyeH=lerp(6,18,totalProg);const eyeW=lerp(20,18,totalProg);
+  // Left eye
+  c.beginPath();c.ellipse(-eyeSpread,eyeY,eyeW/2,eyeH/2,lerp(-.3,0,totalProg),0,Math.PI*2);
+  c.fillStyle=`rgba(${eyeR},${eyeG},${eyeB},${lerp(.7,.9,totalProg)})`;c.fill();
+  // Right eye
+  c.beginPath();c.ellipse(eyeSpread,eyeY,eyeW/2,eyeH/2,lerp(.3,0,totalProg),0,Math.PI*2);
+  c.fillStyle=`rgba(${eyeR},${eyeG},${eyeB},${lerp(.7,.9,totalProg)})`;c.fill();
+  // Pupils
+  const pupR=lerp(3,5,totalProg);
+  c.beginPath();c.arc(-eyeSpread,eyeY,pupR,0,Math.PI*2);c.fillStyle=`rgba(20,20,30,${lerp(.9,.5,totalProg)})`;c.fill();
+  c.beginPath();c.arc(eyeSpread,eyeY,pupR,0,Math.PI*2);c.fillStyle=`rgba(20,20,30,${lerp(.9,.5,totalProg)})`;c.fill();
+  // Mouth: snarl→smile
+  const mouthY=25;const mouthW=30;
+  c.beginPath();
+  const smileCurve=lerp(-15,15,totalProg);
+  c.moveTo(-mouthW,mouthY);
+  c.quadraticCurveTo(0,mouthY+smileCurve,mouthW,mouthY);
+  c.strokeStyle=`rgba(${eyeR},${eyeG},${eyeB},.6)`;c.lineWidth=2.5;c.stroke();
+  // Fangs (disappear with progress)
+  if(totalProg<.7){
+    const fangAlpha=lerp(.6,0,totalProg/.7);
+    c.fillStyle=`rgba(255,255,255,${fangAlpha})`;
+    c.beginPath();c.moveTo(-12,mouthY-2);c.lineTo(-8,mouthY+10*(1-totalProg));c.lineTo(-4,mouthY-2);c.fill();
+    c.beginPath();c.moveTo(4,mouthY-2);c.lineTo(8,mouthY+10*(1-totalProg));c.lineTo(12,mouthY-2);c.fill();
+  }
+  c.restore();
+  // Aura glow (warm as transforms)
+  const aR=120+totalProg*40;
+  const aGrad=c.createRadialGradient(CX,CY,headR*scale,CX,CY,aR*scale);
+  aGrad.addColorStop(0,`rgba(${darkR},${darkG},${darkB},.15)`);
+  aGrad.addColorStop(1,'transparent');
+  c.beginPath();c.arc(CX,CY,aR*scale,0,Math.PI*2);c.fillStyle=aGrad;c.fill();
+  // Sparkles appear with progress
+  if(totalProg>.3){
+    const sparkCount=Math.floor(totalProg*12);
+    for(let i=0;i<sparkCount;i++){
+      const a=(i/sparkCount)*Math.PI*2+t*.5;
+      const d=100+Math.sin(t+i)*20;
+      const sx=CX+Math.cos(a)*d;const sy=CY+Math.sin(a)*d;
+      const ss=2+totalProg*2;
+      c.beginPath();c.arc(sx,sy,ss,0,Math.PI*2);
+      c.fillStyle=`rgba(251,191,36,${totalProg*.4})`;c.fill();
+    }
+  }
+}
+
+function drawIdle(){c.clearRect(0,0,W,H);drawMonster(false,0,0)}
+
+function start(){au.init();st='active';cy=0;isI=true;pa=false;pO=0;ps=performance.now();go$.textContent='Pause';go$.classList.remove('p');rs$.style.display='inline-block';dV.classList.remove('show');mV.classList.remove('off');setUI();au.inh();tk()}
+function setUI(){ph$.textContent=isI?'Breathe In — Accept':'Breathe Out — Release';ph$.style.color=isI?'#a855f7':'#f472b6';tm$.style.color=isI?'#a855f7':'#f472b6';cy$.textContent=`${cy+1} / ${CYC}`}
+function tk(){
+  if(st!=='active'||pa)return;const now=performance.now();const dur=isI?INH:EXH;
+  const el=(now-ps-pO)/1000;const rem=Math.max(0,dur-el);const prog=Math.min(1,el/dur);
+  tm$.textContent=Math.ceil(rem);
+  const totalProg=Math.min(1,(cy*(INH+EXH)+(isI?el:INH+el))/TOT);
+  tf$.style.width=(totalProg*100)+'%';
+  drawMonster(isI,prog,totalProg);
+  if(el>=dur){if(isI){isI=false;setUI();au.exh()}else{cy++;if(cy>=CYC){fin();return}isI=true;setUI();au.inh()}pO=0;ps=performance.now()}
+  requestAnimationFrame(tk);
+}
+function fin(){st='done';mV.classList.add('off');dV.classList.add('show')}
+function rst(){st='idle';pa=false;pO=0;go$.textContent='Begin';go$.classList.add('p');rs$.style.display='none';ph$.textContent='Ready';ph$.style.color='';tm$.textContent='—';tm$.style.color='';cy$.textContent='';tf$.style.width='0';dV.classList.remove('show');mV.classList.remove('off');il()}
+function tp(){if(!pa){pa=true;pT=performance.now();go$.textContent='Resume';go$.classList.add('p')}else{pO+=performance.now()-pT;pa=false;go$.textContent='Pause';go$.classList.remove('p');tk()}}
+go$.onclick=()=>{if(st==='idle')start();else if(st==='active')tp()};
+rs$.onclick=rst;document.getElementById('ag').onclick=()=>{rst();start()};
+document.getElementById('sB').onclick=()=>{au.init();const on=au.toggle();document.getElementById('sB').textContent=on?'🔔':'🔇'};
+function il(){if(st!=='idle')return;drawIdle();requestAnimationFrame(il)}il();
+</script>
+</body>
+</html>

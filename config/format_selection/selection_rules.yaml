@@ -1,0 +1,52 @@
+# Format selection rules for Stage 2 (Format Selector).
+# Topic complexity, persona constraints, blueprint rotation. Deterministic: same input → same output.
+# Authoritative format IDs and tier logic: Canonical Spec Part 2.
+
+topic_complexity:
+  high:
+    - relationship_anxiety
+    - grief
+    - shame
+    - identity
+  medium:
+    - social_anxiety
+    - comparison
+    - overwhelm
+  low:
+    - false_alarm
+    - spiral_thoughts
+
+installment_strategy:
+  opener:  # installment == 1
+    high_complexity: F003
+    medium_complexity: F001
+    low_complexity: F005
+  deepening:  # installments 2-3
+    high_complexity: F006
+    default: F002
+  rotation:  # installments 4+
+    cycle: [F001, F002, F004, F006]
+
+persona_constraints:
+  nyc_exec:
+    forbidden_formats: [F009, F014]
+    preferred_runtime: standard_book
+    max_chapter_count: 15
+  healthcare_worker:
+    forbidden_formats: [F015]
+    preferred_runtime: deep_book_4h
+    min_chapter_count: 8
+  gen_z:
+    forbidden_formats: [F001, F003]
+    preferred_runtime: short_book_30
+    require_high_volatility: true
+
+blueprint_rotation:
+  cycle_length: 3
+  sequence:
+    - linear
+    - wave
+    - scaffold
+  advanced_variants:
+    gen_z: rupture
+    default: scaffold

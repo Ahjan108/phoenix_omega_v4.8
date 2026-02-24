@@ -1,0 +1,56 @@
+# Structural Variation V4. Section reordering policies.
+# Role-safe swaps only; never alter story/exercise slot allocation.
+
+schema_version: "1.0"
+
+modes:
+  none:
+    name: "No reordering"
+    allowed_swaps: []
+    blocked_swaps: []
+    min_chapter_count: 0
+    max_chapter_count: 99
+    structure_ids: []
+    weights:
+      default: 1.0
+
+  local_reflection_integration:
+    name: "Local REFLECTION/INTEGRATION swap within chapter"
+    allowed_swaps:
+      - [REFLECTION, INTEGRATION]
+    blocked_swaps:
+      - [STORY, REFLECTION]
+      - [STORY, EXERCISE]
+      - [EXERCISE, INTEGRATION]
+    min_chapter_count: 6
+    max_chapter_count: 15
+    structure_ids: ["linear_transformation", "classic_linear", "three_act"]
+    weights:
+      default: 0.7
+    notes: "Only adjacent REFLECTION and INTEGRATION in same chapter."
+
+  hook_scene_swap:
+    name: "HOOK/SCENE order swap (first two slots)"
+    allowed_swaps:
+      - [HOOK, SCENE]
+    blocked_swaps: []
+    min_chapter_count: 6
+    max_chapter_count: 15
+    structure_ids: []
+    weights:
+      default: 0.6
+    notes: "First two slots per chapter only."
+
+  conservative:
+    name: "Conservative (REFLECTION/INTEGRATION + HOOK/SCENE)"
+    allowed_swaps:
+      - [REFLECTION, INTEGRATION]
+      - [HOOK, SCENE]
+    blocked_swaps:
+      - [STORY, REFLECTION]
+      - [STORY, EXERCISE]
+    min_chapter_count: 6
+    max_chapter_count: 15
+    structure_ids: []
+    weights:
+      default: 0.5

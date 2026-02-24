@@ -1,0 +1,28 @@
+# Authority: SYSTEMS_DOCUMENTATION §29.2.1
+# Search intent classification; recognition_boost used in Human Appeal score.
+
+intents:
+  scenario_specific:
+    description: "Specific situation the reader is in"
+    examples: ["at work", "in meetings", "at night", "while driving"]
+    recognition_boost: 0.15
+
+  solution_seeking:
+    description: "Reader wants an outcome"
+    examples: ["how to stop", "tools for", "steps to calm", "overcome"]
+    recognition_boost: 0.10
+
+  identity_based:
+    description: "Reader identifies with a group"
+    examples: ["for introverts", "for new parents", "for students"]
+    recognition_boost: 0.10
+
+  crisis:
+    description: "Reader is in acute distress"
+    examples: ["can't stop worrying", "panic at night", "spiraling"]
+    recognition_boost: 0.05
+
+  informational:
+    description: "Reader wants to understand"
+    examples: ["what is", "understanding", "why you feel"]
+    recognition_boost: 0.0

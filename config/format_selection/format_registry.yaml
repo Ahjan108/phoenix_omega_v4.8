@@ -1,0 +1,121 @@
+# Format registry for Stage 2 (Format Selector).
+# Structural format IDs (F001–F015) and slot semantics are defined in Canonical Spec Part 2.
+# Stage 3 MUST receive slot_definitions from FormatPlan; no internal default. This file is the authority.
+# Allowed slot types: HOOK, SCENE, STORY, REFLECTION, EXERCISE, INTEGRATION, COMPRESSION (slot_08_compression; DEV SPEC 2).
+
+# Default beat (6-type) per chapter. Formats may override via slot_template (e.g. include COMPRESSION).
+default_slot_definitions:
+  - [HOOK, SCENE, STORY, REFLECTION, EXERCISE, INTEGRATION]
+
+# Structural formats (beat map family). Authoritative definitions: Canonical Spec Part 2.
+structural_formats:
+  F001:
+    name: "90-Day Transformation"
+    tier: B
+    chapter_range: [90, 90]
+    typical_runtime: "extended_book_2h"
+  F002:
+    name: "Daily Practice Rituals"
+    tier: B
+    chapter_range: [30, 365]
+    typical_runtime: "standard_book"
+  F003:
+    name: "Challenge Series"
+    tier: A
+    chapter_range: [7, 21]
+    typical_runtime: "short_book_30"
+  F004:
+    name: "Somatic Body Journey"
+    tier: A
+    chapter_range: [12, 15]
+    typical_runtime: "deep_book_4h"
+  F005:
+    name: "Scenario Rescue Kit"
+    tier: C
+    chapter_range: [10, 20]
+    typical_runtime: "micro_book_15"
+  F006:
+    name: "Nervous System Ladder"
+    tier: A
+    chapter_range: [8, 12]
+    typical_runtime: "standard_book"
+    # Optional: slot_template with COMPRESSION (after REFLECTION, before EXERCISE). DEV SPEC 2.
+    slot_template: [HOOK, SCENE, STORY, REFLECTION, COMPRESSION, EXERCISE, INTEGRATION]
+  F007:
+    name: "Shadow Work Series"
+    tier: A
+    chapter_range: [8, 12]
+    typical_runtime: "standard_book"
+  F008:
+    name: "Micro-Habits Stacking"
+    tier: B
+    chapter_range: [52, 52]
+    typical_runtime: "extended_book_2h"
+  F009:
+    name: "Parts Work (IFS)"
+    tier: A
+    chapter_range: [10, 15]
+    typical_runtime: "deep_book_4h"
+  F010:
+    name: "Energy Management"
+    tier: A
+    chapter_range: [12, 16]
+    typical_runtime: "standard_book"
+  F011:
+    name: "Relationship Repair"
+    tier: A
+    chapter_range: [8, 12]
+    typical_runtime: "standard_book"
+  F012:
+    name: "Permission Slip Collection"
+    tier: C
+    chapter_range: [52, 52]
+    typical_runtime: "micro_book_20"
+  F013:
+    name: "Before/During/After Crisis"
+    tier: A
+    chapter_range: [24, 24]
+    typical_runtime: "deep_book_4h"
+  F014:
+    name: "Archetype Transformation"
+    tier: A
+    chapter_range: [10, 15]
+    typical_runtime: "standard_book"
+  F015:
+    name: "Sensory Regulation Library"
+    tier: C
+    chapter_range: [5, 8]
+    typical_runtime: "micro_book_15"
+
+# Runtime formats (V4.5 duration classes). Orthogonal to structural.
+runtime_formats:
+  standard_book:
+    duration_minutes: 55
+    chapter_count_default: 12
+    word_range: [9000, 11000]
+    compatible_tiers: [A, B]
+  deep_book_4h:
+    duration_minutes: 240
+    chapter_count_default: 20
+    word_range: [36000, 44000]
+    compatible_tiers: [A]
+  micro_book_15:
+    duration_minutes: 15
+    chapter_count_default: 3
+    word_range: [2500, 3000]
+    compatible_tiers: [C]
+  short_book_30:
+    duration_minutes: 30
+    chapter_count_default: 6
+    word_range: [4500, 5500]
+    compatible_tiers: [A, B]
+  extended_book_2h:
+    duration_minutes: 120
+    chapter_count_default: 15
+    word_range: [18000, 22000]
+    compatible_tiers: [A, B]
+  micro_book_20:
+    duration_minutes: 20
+    chapter_count_default: 4
+    word_range: [3000, 4000]
+    compatible_tiers: [B, C]

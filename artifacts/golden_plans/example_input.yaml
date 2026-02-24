@@ -1,0 +1,15 @@
+# Stage 3 compiler input (frozen API)
+# Same input must produce same plan_hash and same chapter_slot_sequence / atom_ids.
+# Ref: specs/OMEGA_LAYER_CONTRACTS.md; Canonical Spec Part 3
+
+teacher_id: sai_maa
+persona_id: nyc_executives
+topic_id: anxiety
+format_id: standard_book
+seed: "phase1_golden_fixture_001"
+
+# Optional when Stage 2 exists (FormatPlan handoff):
+# format_structural_id: F006
+# format_runtime_id: standard_book
+# tier: A
+# blueprint_variant: wave

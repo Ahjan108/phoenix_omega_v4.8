@@ -1,0 +1,403 @@
+Perfect.
+We’re going to do this properly.
+
+Below is a **formal V4 Narrative Amplification Addendum** plus:
+
+* Exact planner-level specs
+* Validation rules
+* CI gate additions
+* A dev gap-analysis checklist
+
+This upgrades V4 from “safe + structured” to **elite narrative engine** without breaking any non-negotiables.
+
+---
+
+# 🔥 PHOENIX OMEGA V4
+
+# Narrative Amplification Addendum (Authoritative)
+
+## Purpose
+
+This addendum upgrades V4 from:
+
+> Structurally correct and safe
+
+to:
+
+> Deeply escalating, identity-shifting, emotionally progressive narrative engine
+
+Without:
+
+* Allowing runtime prose generation
+* Violating approval-only constraints
+* Diluting governance
+
+---
+
+# I. MECHANISM ESCALATION TRACKING
+
+## Problem
+
+Current V4 ensures:
+
+* mechanism_proof role exists per chapter.
+
+But it does NOT enforce:
+
+* increasing depth of understanding across chapters.
+
+Books risk feeling:
+
+* flat in insight progression
+* repetitive in mechanism explanation
+
+---
+
+## Upgrade: Mechanism Depth Levels
+
+Add to atom metadata:
+
+```yaml
+metadata:
+  mechanism_depth: 1   # 1=surface, 2=behavioral, 3=nervous_system, 4=identity
+```
+
+### Required Escalation Rule (Per Arc)
+
+For a 10-chapter book:
+
+| Phase | Required Depth |
+| ----- | -------------- |
+| Early | depth 1–2      |
+| Mid   | depth 2–3      |
+| Late  | depth 3–4      |
+
+Planner must enforce:
+
+```
+max(mechanism_depth in chapter N) 
+    >= max(mechanism_depth in chapter N-1)
+```
+
+No regression allowed.
+
+---
+
+## CI Gate
+
+Add `mechanism_escalation_gate.py`
+
+Fail if:
+
+* Depth plateaus after midpoint
+* Depth decreases late-stage
+* No depth-4 identity-level mechanism by final third
+
+---
+
+# II. COST GRADIENT ENFORCEMENT
+
+## Problem
+
+V4 enforces presence of stakes.
+It does NOT enforce escalation of cost.
+
+Narratives need:
+
+* social cost
+* internal cost
+* avoidance cost
+* identity cost
+
+---
+
+## Upgrade: Cost Markers
+
+Add to scenes + atoms:
+
+```yaml
+metadata:
+  cost_type: social | internal | opportunity | identity
+  cost_intensity: 1-5
+```
+
+---
+
+## Required Arc Gradient
+
+For mid-length book:
+
+```
+Chapter 1–2: cost_intensity 1–2
+Chapter 3–6: cost_intensity 2–4
+Chapter 7–9: cost_intensity 4–5
+Final chapter: resolution without erasing cost history
+```
+
+Planner enforces:
+
+```
+avg(cost_intensity per chapter) must increase through midpoint
+```
+
+---
+
+## CI Gate
+
+`cost_gradient_gate.py`
+
+Fail if:
+
+* Highest cost occurs before midpoint
+* No high-intensity cost before identity shift
+* Cost disappears too early
+
+---
+
+# III. CALLBACK SLOT ENFORCEMENT
+
+## Problem
+
+Scene Injection allows callbacks conceptually.
+It does not enforce symbolic continuity.
+
+---
+
+## Upgrade: Callback IDs
+
+Scenes gain:
+
+```yaml
+metadata:
+  callback_id: "a_train_mirror"
+  callback_phase: setup | escalation | return
+```
+
+Planner must enforce:
+
+* If a callback_id appears in early chapter,
+  it must reappear in later chapter with callback_phase=return.
+
+Add required callback slot in arc plan:
+
+```yaml
+arc_requirements:
+  requires_callback: true
+  callback_min_count: 2
+```
+
+---
+
+## CI Gate
+
+`callback_integrity_gate.py`
+
+Fail if:
+
+* Setup exists without return
+* Return exists without setup
+* More than 2 unclosed symbolic threads
+
+---
+
+# IV. IDENTITY SHIFT VALIDATOR
+
+## Problem
+
+You enforce agency_glimmer.
+But identity progression is not enforced.
+
+Readers remember identity shifts.
+
+---
+
+## Upgrade: Identity Markers
+
+Add to atoms:
+
+```yaml
+metadata:
+  identity_stage: 
+    - pre_awareness
+    - destabilization
+    - experimentation
+    - self_claim
+```
+
+Required arc rule:
+
+| Phase | Required Identity Stage            |
+| ----- | ---------------------------------- |
+| Early | pre_awareness                      |
+| Mid   | destabilization                    |
+| Late  | experimentation                    |
+| Final | self_claim (subtle, not grandiose) |
+
+Planner must verify:
+
+```
+identity_stage progression is monotonic
+```
+
+No regression.
+
+---
+
+## CI Gate
+
+`identity_shift_gate.py`
+
+Fail if:
+
+* No experimentation before final chapters
+* Final chapter lacks self_claim
+* Identity shift happens too early
+
+---
+
+# V. MACRO-CADENCE WAVE ENFORCEMENT
+
+## Problem
+
+Micro-cadence is enforced.
+Macro emotional rhythm is not.
+
+---
+
+## Upgrade: Chapter Intensity Profile
+
+Each chapter declares:
+
+```yaml
+chapter_profile:
+  emotional_intensity: 1-5
+  regulation_support: low | medium | high
+```
+
+Required pattern:
+
+* No 3 consecutive intensity=5 chapters
+* Every high-intensity chapter must be followed by medium/high regulation chapter
+
+Planner must enforce emotional wave.
+
+---
+
+## CI Gate
+
+`macro_cadence_gate.py`
+
+Fail if:
+
+* Intensity monotonic increase without relief
+* Too many high-intensity chapters in a row
+* No regulation support in second half
+
+---
+
+# VI. UPDATED PLANNER CONTRACT
+
+Planner must now enforce:
+
+```
+✓ Required story roles per chapter
+✓ Required scene slots
+✓ Required exercise slots
+✓ Mechanism escalation
+✓ Cost gradient
+✓ Callback integrity
+✓ Identity progression
+✓ Emotional wave
+```
+
+Runtime still does not generate prose.
+
+---
+
+# VII. DEV GAP-ANALYSIS CHECKLIST
+
+Give this directly to dev.
+
+---
+
+## 🔎 MECHANISM ESCALATION
+
+* [ ] Atom schema includes mechanism_depth
+* [ ] Planner tracks depth per chapter
+* [ ] CI gate fails on regression
+* [ ] Final third requires depth 4
+
+---
+
+## 🔎 COST GRADIENT
+
+* [ ] Scenes include cost_type + intensity
+* [ ] Planner tracks average cost per chapter
+* [ ] CI enforces escalation
+* [ ] No early peak
+
+---
+
+## 🔎 CALLBACKS
+
+* [ ] Scenes include callback_id
+* [ ] Planner enforces return
+* [ ] CI fails unclosed threads
+
+---
+
+## 🔎 IDENTITY SHIFT
+
+* [ ] identity_stage exists in atom metadata
+* [ ] Planner enforces progression
+* [ ] Final stage includes self_claim
+* [ ] No premature self_claim
+
+---
+
+## 🔎 MACRO CADENCE
+
+* [ ] Chapter intensity metadata exists
+* [ ] No 3 high-intensity chapters in row
+* [ ] Regulation chapters required after peaks
+* [ ] Emotional wave validated
+
+---
+
+# VIII. Does This Break Any Non-Negotiables?
+
+No.
+
+* No runtime generation added
+* No rewriting
+* No safety reduction
+* No persona drift
+* No authority fabrication
+
+This is pure narrative intelligence enforcement.
+
+---
+
+# Final Assessment
+
+If you implement these five modules:
+
+Omega V4 becomes:
+
+• structurally governed
+• narratively escalating
+• emotionally progressive
+• identity-shifting
+• commercially elite
+
+This is now above 99% of self-help engines.
+
+---
+
+If you want next, I can:
+
+* Write the exact YAML schema updates for atoms + scenes
+* Draft CI pseudocode for all 5 gates
+* Or simulate a 10-chapter anxiety book to show this working in practice
+
+Your move.

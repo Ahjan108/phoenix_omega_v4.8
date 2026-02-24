@@ -1,0 +1,507 @@
+## 1) Integration section standard (lock next)
+
+### Spec: `content.integration` (Phoenix exercises v4)
+
+**Purpose:** close the practice with grounded carry-forward behavior *without promises*.
+
+**Required structure (exercise render order unchanged):**
+`intro → guided_practice → aha_noticing → integration`
+
+**Constraints**
+
+* **Second person**, **present tense**
+* **No outcome claims**, no “you will”, no “this will fix”, no “healed”
+* **No identity transformation**
+* **No emotional climax / motivational lift**
+* **No new teaching** (integration is carry-forward + boundary, not a new lesson)
+
+**Word counts**
+
+* `min_words: 40`
+* `preferred_word_range: [60, 120]`
+* `max_words: 150`
+
+**Required opener (callout)**
+Integration must start with one of these (same “structural moment” feel as AHA):
+
+* “Now, before you move on,”
+* “Now, as you return,”
+* “Now, for the next few minutes,”
+* “Now, as you go back to your day,”
+* “Now, keep it simple,”
+
+**Required content pattern**
+
+* **Carry-forward cue:** one micro-action that fits the exercise (e.g., “one longer exhale”, “soften jaw once”, “feel feet at red lights”)
+* **Boundary clause:** “Nothing has to change.” / “No need to force it.” / “If it’s not there today, that’s fine.”
+* **Re-entry:** how to rejoin the environment (screen, hallway, meeting) without “reset fantasy”
+
+### Registry update: `SOURCE_OF_TRUTH/exercises_v4/registry.yaml`
+
+```yaml
+section_requirements:
+  integration:
+    min_words: 40
+    preferred_word_range: [60, 120]
+    max_words: 150
+    must_start_with_one_of:
+      - "Now, before you move on,"
+      - "Now, as you return,"
+      - "Now, for the next few minutes,"
+      - "Now, as you go back to your day,"
+      - "Now, keep it simple,"
+    must_avoid_one_of:
+      - "you will"
+      - "this will"
+      - "guarantee"
+      - "cure"
+      - "heal"
+      - "fix"
+      - "transform"
+      - "forever"
+      - "completely"
+    integration_validation: warn
+```
+
+### README addition: `SOURCE_OF_TRUTH/exercises_v4/README.md`
+
+Add “integration” section rules mirroring the above, explicitly stating: **carry-forward + boundary + re-entry**.
+
+---
+
+## 2) Substitution engine logic (Python)
+
+### File: `phoenix_v4/exercises/overlay_substitution.py`
+
+```python
+from __future__ import annotations
+
+import re
+from dataclasses import dataclass
+from typing import Dict, List, Tuple
+
+
+CALL_OUT_PREFIXES_AHA = (
+    "Now, I want you",
+    "Now, I want to",
+    "Now, pause",
+    "Now, take a moment",
+    "Now, take a second",
+    "Now, let's",
+    "Now, stop",
+    "Now, reflect",
+    "Now, observe",
+    "Now, notice",
+    "Now, consider",
+    "Now, check",
+)
+
+# Integration prefixes (locked standard)
+CALL_OUT_PREFIXES_INTEGRATION = (
+    "Now, before you move on,",
+    "Now, as you return,",
+    "Now, for the next few minutes,",
+    "Now, as you go back to your day,",
+    "Now, keep it simple,",
+)
+
+BODY_REFERENCE_WORDS = (
+    "breath", "chest", "shoulders", "jaw", "neck", "rhythm", "tension",
+    "weight", "pressure", "warmth", "movement", "exhale", "inhale",
+    "body", "system", "nervous system",
+)
+
+# High-risk phrases to never introduce
+BANNED_OUTCOME_PHRASES = (
+    "you will", "this will", "guarantee", "cure", "heal", "fix",
+    "transform", "forever", "completely",
+)
+
+TOKEN_PATTERN = re.compile(r"\{([A-Z0-9_]+)\}")
+
+
+@dataclass(frozen=True)
+class OverlaySpec:
+    """Token-based overlay map: token -> replacement phrase."""
+    tokens: Dict[str, str]
+
+
+def _safe_token_substitute(text: str, token_map: Dict[str, str]) -> str:
+    """Replace {TOKENS} only. No blind string replacement."""
+    def repl(m: re.Match) -> str:
+        key = m.group(1)
+        return token_map.get(key, m.group(0))
+    return TOKEN_PATTERN.sub(repl, text)
+
+
+def _ordered_phrase_substitute(text: str, phrase_map: Dict[str, str]) -> str:
+    """
+    Legacy phrase-based replacement.
+    Substitutes longer phrases first to avoid partial overlaps.
+    Uses word-boundary-ish guards to reduce mid-word replacements.
+    """
+    items: List[Tuple[str, str]] = sorted(phrase_map.items(), key=lambda kv: len(kv[0]), reverse=True)
+    out = text
+    for src, dst in items:
+        # Replace as a phrase (not inside other words). This is conservative.
+        pattern = re.compile(rf"(?<!\w){re.escape(src)}(?!\w)")
+        out = pattern.sub(dst, out)
+    return out
+
+
+def apply_persona_overlay(
+    base_sections: Dict[str, str],
+    persona: str,
+    apply_to_sections: List[str],
+    token_overlays: Dict[str, Dict[str, str]] | None = None,
+    phrase_overlays: Dict[str, Dict[str, str]] | None = None,
+) -> Dict[str, str]:
+    """
+    Applies persona overlays to selected sections only.
+    Priority:
+      1) token-based {TOKENS}
+      2) (optional) legacy phrase substitution
+    """
+    out = dict(base_sections)
+
+    tok_map = (token_overlays or {}).get(persona, {})
+    phr_map = (phrase_overlays or {}).get(persona, {})
+
+    for sec in apply_to_sections:
+        if sec not in out:
+            continue
+        text = out[sec]
+        if tok_map:
+            text = _safe_token_substitute(text, tok_map)
+        if phr_map:
+            text = _ordered_phrase_substitute(text, phr_map)
+        out[sec] = text
+
+    return out
+
+
+def validate_callout_prefix(section_name: str, text: str) -> List[str]:
+    errs: List[str] = []
+    if section_name == "aha_noticing":
+        if not text.startswith(CALL_OUT_PREFIXES_AHA):
+            errs.append("aha_noticing missing required callout prefix")
+    if section_name == "integration":
+        if not text.startswith(CALL_OUT_PREFIXES_INTEGRATION):
+            errs.append("integration missing required callout prefix")
+    return errs
+
+
+def validate_required_terms_for_aha(text: str) -> List[str]:
+    errs: List[str] = []
+    lower = text.lower()
+    if ("notice" not in lower) and ("might notice" not in lower):
+        errs.append("aha_noticing must contain 'notice' or 'might notice'")
+    if not any(w in lower for w in BODY_REFERENCE_WORDS):
+        errs.append("aha_noticing missing body reference word")
+    return errs
+
+
+def validate_banned_outcomes(text: str) -> List[str]:
+    lower = text.lower()
+    hit = [p for p in BANNED_OUTCOME_PHRASES if p in lower]
+    return [f"contains banned outcome phrase: {h}" for h in hit]
+```
+
+---
+
+## 3) CI test to prevent overlay semantic breakage
+
+### File: `tools/ci/validate_exercise_sections.py`
+
+This validates **post-overlay** sections (i.e., what will be rendered).
+
+```python
+from __future__ import annotations
+
+import sys
+import yaml
+from pathlib import Path
+from typing import Dict, List, Tuple
+
+from phoenix_v4.exercises.overlay_substitution import (
+    apply_persona_overlay,
+    validate_callout_prefix,
+    validate_required_terms_for_aha,
+    validate_banned_outcomes,
+)
+
+# Adjust paths as needed
+EXERCISES_DIR = Path("SOURCE_OF_TRUTH/exercises_v4/approved")
+AHA_LIB_PATH = Path("SOURCE_OF_TRUTH/exercises_v4/aha_noticing_phoenix_standard.yaml")
+INTEGRATION_LIB_PATH = Path("SOURCE_OF_TRUTH/exercises_v4/integration_phoenix_standard.yaml")  # if you create it
+OVERLAYS_PATH = Path("SOURCE_OF_TRUTH/exercises_v4/persona_overlays.yaml")
+
+
+def _load_yaml(p: Path) -> Dict:
+    return yaml.safe_load(p.read_text(encoding="utf-8"))
+
+
+def _word_count(s: str) -> int:
+    return len([w for w in s.split() if w.strip()])
+
+
+def _validate_section(
+    section_name: str,
+    text: str,
+    min_words: int,
+    max_words: int | None,
+    require_aha_terms: bool = False,
+) -> List[str]:
+    errs: List[str] = []
+
+    if not text or not text.strip():
+        errs.append(f"{section_name} is empty")
+        return errs
+
+    wc = _word_count(text)
+    if wc < min_words:
+        errs.append(f"{section_name} word_count {wc} < min_words {min_words}")
+    if max_words is not None and wc > max_words:
+        errs.append(f"{section_name} word_count {wc} > max_words {max_words}")
+
+    errs.extend(validate_callout_prefix(section_name, text))
+    errs.extend(validate_banned_outcomes(text))
+
+    if require_aha_terms:
+        errs.extend(validate_required_terms_for_aha(text))
+
+    # Heuristic semantic-break guard: disallow odd “chemical performance pressure” style collisions.
+    # This is intentionally a WARN unless you decide to hard fail.
+    lower = text.lower()
+    if "performance pressure may be chemical" in lower:
+        errs.append("warn: overlay collision phrase detected: 'performance pressure may be chemical'")
+
+    return errs
+
+
+def main() -> int:
+    overlays = _load_yaml(OVERLAYS_PATH)
+
+    # Support both token_overlays and phrase_overlays; you can store either or both.
+    token_overlays = overlays.get("token_overlays", {})
+    phrase_overlays = overlays.get("executive", {})  # if your overlays file is a flat map, adjust accordingly
+
+    # If overlays.yaml is structured as:
+    # persona_overlays:
+    #   executive: { lexical_shift: { ... } }
+    # then parse accordingly:
+    persona_overlays = overlays.get("persona_overlays", {})
+    phrase_overlays_map = {}
+    apply_to_sections = []
+    for persona, cfg in persona_overlays.items():
+        phrase_overlays_map[persona] = cfg.get("lexical_shift", {})
+        apply_to_sections = cfg.get("apply_to_sections", ["aha_noticing"])
+
+    failures: List[Tuple[str, str, str]] = []
+
+    for ex_file in EXERCISES_DIR.rglob("*.yaml"):
+        ex = _load_yaml(ex_file)
+        content = ex.get("content", {})
+
+        # Validate base sections exist
+        for sec in ("intro", "guided_practice", "aha_noticing", "integration"):
+            if sec not in content:
+                failures.append((str(ex_file), sec, "missing section"))
+                continue
+
+        # Validate for each persona overlay (optional)
+        for persona in ("executive", "gen_z", "healthcare"):
+            rendered = apply_persona_overlay(
+                base_sections=dict(content),
+                persona=persona,
+                apply_to_sections=apply_to_sections,
+                token_overlays=token_overlays,
+                phrase_overlays=phrase_overlays_map,
+            )
+
+            # AHA validation
+            for err in _validate_section(
+                "aha_noticing",
+                rendered["aha_noticing"],
+                min_words=40,  # registry min
+                max_words=150,
+                require_aha_terms=True,
+            ):
+                # callout is warn in registry; you can downgrade its severity here if desired
+                if err.startswith("aha_noticing missing required callout prefix"):
+                    failures.append((str(ex_file), f"aha_noticing[{persona}]", "warn: callout missing"))
+                else:
+                    failures.append((str(ex_file), f"aha_noticing[{persona}]", err))
+
+            # Integration validation (if you enforce now)
+            for err in _validate_section(
+                "integration",
+                rendered["integration"],
+                min_words=40,
+                max_words=150,
+                require_aha_terms=False,
+            ):
+                if err.startswith("integration missing required callout prefix"):
+                    failures.append((str(ex_file), f"integration[{persona}]", "warn: callout missing"))
+                else:
+                    failures.append((str(ex_file), f"integration[{persona}]", err))
+
+    if failures:
+        for fpath, sec, msg in failures:
+            print(f"{fpath} :: {sec} :: {msg}")
+        # If you want WARN-only behavior for overlay collisions, filter here.
+        return 1
+
+    print("OK: exercise sections validated (post-overlay)")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+```
+
+**CI wiring suggestion:** run this in your existing CI pipeline *after* hydration/overlay step, so it validates what the listener will hear.
+
+---
+
+## 4) Wave-level AHA diversity guard (avoid repetition across books)
+
+### Rule (warn-first, not fail)
+
+* For each **compile wave** (N books), gather the rendered `aha_noticing` text (after persona overlay).
+* Compute similarity between AHA texts.
+* **Warn** if:
+
+  * any pair similarity ≥ `0.85`, or
+  * more than `X%` of AHA blocks cluster into a single near-duplicate group.
+
+### Implementation: `tools/ci/validate_aha_diversity.py`
+
+```python
+from __future__ import annotations
+
+import re
+import json
+from pathlib import Path
+from typing import List, Tuple, Dict
+from collections import defaultdict
+
+# Input: compiled artifacts that include exercise sections (or a dump file).
+# Adjust to your actual compiled output structure.
+COMPILED_BOOKS_DIR = Path("artifacts/compiled_books")  # example
+SIM_THRESHOLD = 0.85
+CLUSTER_WARN_RATIO = 0.25  # 25% of wave in one near-duplicate cluster triggers warning
+
+
+def _normalize(text: str) -> List[str]:
+    # Normalize for similarity: lowercase, strip punctuation, remove extra whitespace.
+    t = text.lower()
+    t = re.sub(r"[^a-z0-9\s]", " ", t)
+    t = re.sub(r"\s+", " ", t).strip()
+    toks = [w for w in t.split() if w]
+    return toks
+
+
+def _char_ngrams(tokens: List[str], n: int = 4) -> set[str]:
+    s = " ".join(tokens)
+    if len(s) < n:
+        return {s} if s else set()
+    return {s[i:i+n] for i in range(len(s) - n + 1)}
+
+
+def _jaccard(a: set[str], b: set[str]) -> float:
+    if not a and not b:
+        return 1.0
+    if not a or not b:
+        return 0.0
+    return len(a & b) / len(a | b)
+
+
+def _load_wave_aha_texts() -> List[Tuple[str, str]]:
+    """
+    Returns [(book_id, aha_text), ...]
+    You need one canonical place where compiled books expose injected exercise sections.
+    """
+    out: List[Tuple[str, str]] = []
+    for p in COMPILED_BOOKS_DIR.rglob("*.json"):
+        data = json.loads(p.read_text(encoding="utf-8"))
+        book_id = data.get("book_id") or p.stem
+        # Expect compiled structure includes exercise sections; adjust key paths to your real schema
+        aha_blocks = data.get("exercise_aha_blocks", [])
+        for idx, txt in enumerate(aha_blocks):
+            out.append((f"{book_id}#aha{idx:02d}", txt))
+    return out
+
+
+def main() -> int:
+    items = _load_wave_aha_texts()
+    if len(items) < 2:
+        print("OK: not enough AHA blocks to evaluate diversity")
+        return 0
+
+    grams = {k: _char_ngrams(_normalize(txt), 4) for k, txt in items}
+
+    near_dupes: List[Tuple[str, str, float]] = []
+    parent = {k: k for k, _ in items}
+
+    def find(x: str) -> str:
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    def union(a: str, b: str) -> None:
+        ra, rb = find(a), find(b)
+        if ra != rb:
+            parent[rb] = ra
+
+    keys = [k for k, _ in items]
+    for i in range(len(keys)):
+        for j in range(i + 1, len(keys)):
+            a, b = keys[i], keys[j]
+            sim = _jaccard(grams[a], grams[b])
+            if sim >= SIM_THRESHOLD:
+                near_dupes.append((a, b, sim))
+                union(a, b)
+
+    clusters: Dict[str, List[str]] = defaultdict(list)
+    for k in keys:
+        clusters[find(k)].append(k)
+
+    biggest = max((len(v) for v in clusters.values()), default=1)
+    ratio = biggest / max(1, len(keys))
+
+    if near_dupes or ratio >= CLUSTER_WARN_RATIO:
+        print("WARN: AHA diversity guard triggered")
+        if near_dupes:
+            for a, b, sim in near_dupes[:50]:
+                print(f"  near-dup: {a} ~ {b}  sim={sim:.2f}")
+            if len(near_dupes) > 50:
+                print(f"  ... {len(near_dupes)-50} more")
+        print(f"  largest cluster size: {biggest}/{len(keys)} ({ratio:.0%})")
+        return 0  # warn-only by default
+
+    print("OK: AHA diversity looks healthy for this wave")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+```
+
+**How to use it now (minimal integration):**
+
+* Add a compile step that outputs `exercise_aha_blocks` into compiled book artifacts (JSON) for observability.
+* Run this script after a wave compile.
+* Keep it **warn-only** until you’ve shipped enough books to set real thresholds.
+
+---
+
+## What you have now (locked, end-to-end)
+
+* **AHA**: enforced structure + soft callout + canonical blocks + persona overlays + post-overlay CI validation
+* **Integration**: locked standard + registry requirements + CI validation
+* **Overlays**: deterministic token-first engine with safe legacy fallback
+* **Wave guard**: warn-only similarity clustering to prevent AHA repetition across large runs
+
+If you want, I can also output `SOURCE_OF_TRUTH/exercises_v4/integration_phoenix_standard.yaml` in the same “27 YAML-ready blocks” style to match your AHA library.

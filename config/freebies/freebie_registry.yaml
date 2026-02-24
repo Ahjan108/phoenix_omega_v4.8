@@ -1,0 +1,249 @@
+# Freebie registry — source of truth for freebie assets.
+# Authority: specs/PHOENIX_FREEBIE_SYSTEM_SPEC.md (Phase 1: deterministic core only)
+# tool_style: structured (executive preference) | interactive (gen_z preference)
+
+freebies:
+  accountability_partner_v1:
+    freebie_id: accountability_partner_v1
+    type: accountability_partner_pdf
+    topics: [anxiety, boundaries, financial_stress, courage, compassion_fatigue, depression, self_worth, grief]
+    personas: [nyc_executives, healthcare_rns, gen_z_professionals, gen_alpha_students, educators]
+    engines: [shame, overwhelm, spiral, false_alarm, watcher, comparison, grief]
+    book_types: [SHORT, CORE]
+    arc_intensity_max: 5
+    file_template: accountability_partner.md
+    output_formats: [html, pdf]
+    email_required: true
+    cta_style: tool_forward
+    spam_weight: 0.5
+
+  affirmations_audio_v1:
+    freebie_id: affirmations_audio_v1
+    type: affirmations_audio
+    topics: [anxiety, boundaries, financial_stress, courage, compassion_fatigue, depression, self_worth, grief]
+    personas: [nyc_executives, healthcare_rns, gen_z_professionals, gen_alpha_students, educators]
+    engines: [shame, overwhelm, spiral, false_alarm, watcher, comparison, grief]
+    book_types: [SHORT, CORE]
+    arc_intensity_max: 5
+    file_template: None
+    output_formats: [mp3]
+    email_required: true
+    cta_style: tool_forward
+    spam_weight: 0.5
+
+  anxiety_assessment_v1:
+    freebie_id: anxiety_assessment_v1
+    type: assessment_html
+    tool_style: interactive
+    topics: [anxiety, boundaries, self_worth]
+    personas: [gen_z_professionals, gen_alpha_students, nyc_executives, healthcare_rns]
+    engines: [false_alarm, spiral, overwhelm, watcher, comparison]
+    book_types: [MIN, SHORT, CORE]
+    arc_intensity_max: 5
+    file_template: assessment_anxiety.html
+    output_formats: [html]
+    email_required: true
+    cta_style: assessment_forward
+    spam_weight: 0.6
+
+  audio_journal_prompts_v1:
+    freebie_id: audio_journal_prompts_v1
+    type: audio_journal_prompts
+    topics: [anxiety, boundaries, financial_stress, courage, compassion_fatigue, depression, self_worth, grief]
+    personas: [nyc_executives, healthcare_rns, gen_z_professionals, gen_alpha_students, educators]
+    engines: [shame, overwhelm, spiral, false_alarm, watcher, comparison, grief]
+    book_types: [SHORT, CORE]
+    arc_intensity_max: 5
+    file_template: None
+    output_formats: [mp3]
+    email_required: true
+    cta_style: tool_forward
+    spam_weight: 0.5
+
+  breath_reset_structured_v1:
+    freebie_id: breath_reset_structured_v1
+    type: somatic_html_tool
+    tool_style: structured
+    topics: [anxiety, self_worth, compassion_fatigue]
+    personas: [nyc_executives, healthcare_rns, educators]
+    engines: [overwhelm, shame, spiral]
+    book_types: [MIN, SHORT, CORE]
+    arc_intensity_max: 5
+    file_template: breath_reset_structured.html
+    output_formats: [html]
+    email_required: true
+    cta_style: tool_forward
+    spam_weight: 0.6
+
+  breath_timer_v1:
+    freebie_id: breath_timer_v1
+    type: somatic_html_tool
+    tool_style: interactive
+    topics: [anxiety, self_worth, compassion_fatigue, depression]
+    personas: [gen_z_professionals, gen_alpha_students, nyc_executives, healthcare_rns]
+    engines: [overwhelm, shame, spiral, false_alarm, watcher, comparison, grief]
+    book_types: [MIN, SHORT, CORE]
+    arc_intensity_max: 5
+    file_template: breath_timer_template.html
+    output_formats: [html]
+    email_required: true
+    cta_style: tool_forward
+    spam_weight: 0.7
+
+  burnout_checklist_v1:
+    freebie_id: burnout_checklist_v1
+    type: checklist_pdf
+    topics: [compassion_fatigue, depression]
+    personas: [nyc_executives, healthcare_rns, educators]
+    engines: [overwhelm, watcher, grief]
+    book_types: [SHORT, CORE]
+    arc_intensity_max: 4
+    file_template: checklist_burnout.md
+    output_formats: [html, pdf]
+    email_required: true
+    cta_style: tool_forward
+    spam_weight: 0.5
+
+  companion_core_v2:
+    freebie_id: companion_core_v2
+    type: companion_workbook_pdf
+    topics: [anxiety, boundaries, self_worth, depression, grief, compassion_fatigue, financial_stress, courage]
+    personas: [gen_z_professionals, gen_alpha_students, nyc_executives, healthcare_rns, educators]
+    engines: [shame, overwhelm, spiral, false_alarm, watcher, comparison, grief]
+    book_types: [SHORT, CORE]
+    arc_intensity_max: 5
+    file_template: companion_workbook_template.md
+    output_formats: [html, pdf]
+    email_required: true
+    cta_style: workbook_forward
+    spam_weight: 0.5
+
+  conversation_scripts_v1:
+    freebie_id: conversation_scripts_v1
+    type: conversation_scripts_pdf
+    topics: [anxiety, boundaries, financial_stress, courage, compassion_fatigue, depression, self_worth, grief]
+    personas: [nyc_executives, healthcare_rns, gen_z_professionals, gen_alpha_students, educators]
+    engines: [shame, overwhelm, spiral, false_alarm, watcher, comparison, grief]
+    book_types: [SHORT, CORE]
+    arc_intensity_max: 5
+    file_template: conversation_scripts.md
+    output_formats: [html, pdf]
+    email_required: true
+    cta_style: tool_forward
+    spam_weight: 0.5
+
+  emergency_kit_v1:
+    freebie_id: emergency_kit_v1
+    type: emergency_kit_html
+    topics: [anxiety, boundaries, financial_stress, courage, compassion_fatigue, depression, self_worth, grief]
+    personas: [nyc_executives, healthcare_rns, gen_z_professionals, gen_alpha_students, educators]
+    engines: [shame, overwhelm, spiral, false_alarm, watcher, comparison, grief]
+    book_types: [MIN, SHORT, CORE]
+    arc_intensity_max: 5
+    file_template: emergency_kit.html
+    output_formats: [html]
+    email_required: true
+    cta_style: tool_forward
+    spam_weight: 0.6
+
+  environment_guide_v1:
+    freebie_id: environment_guide_v1
+    type: environment_guide_pdf
+    topics: [anxiety, boundaries, financial_stress, courage, compassion_fatigue, depression, self_worth, grief]
+    personas: [nyc_executives, healthcare_rns, gen_z_professionals, gen_alpha_students, educators]
+    engines: [shame, overwhelm, spiral, false_alarm, watcher, comparison, grief]
+    book_types: [SHORT, CORE]
+    arc_intensity_max: 5
+    file_template: environment_guide.md
+    output_formats: [html, pdf, epub]
+    email_required: true
+    cta_style: tool_forward
+    spam_weight: 0.5
+
+  guided_meditation_v1:
+    freebie_id: guided_meditation_v1
+    type: guided_audio
+    topics: [anxiety, boundaries, financial_stress, courage, compassion_fatigue, depression, self_worth, grief]
+    personas: [nyc_executives, healthcare_rns, gen_z_professionals, gen_alpha_students, educators]
+    engines: [shame, overwhelm, spiral, false_alarm, watcher, comparison, grief]
+    book_types: [SHORT, CORE]
+    arc_intensity_max: 5
+    file_template: None
+    output_formats: [mp3]
+    email_required: true
+    cta_style: tool_forward
+    spam_weight: 0.6
+
+  identity_sheet_v1:
+    freebie_id: identity_sheet_v1
+    type: identity_sheet_pdf
+    topics: [anxiety, boundaries, financial_stress, courage, compassion_fatigue, depression, self_worth, grief]
+    personas: [nyc_executives, healthcare_rns, gen_z_professionals, gen_alpha_students, educators]
+    engines: [shame, overwhelm, spiral, false_alarm, watcher, comparison, grief]
+    book_types: [SHORT, CORE]
+    arc_intensity_max: 5
+    file_template: identity_sheet.md
+    output_formats: [html, pdf]
+    email_required: true
+    cta_style: workbook_forward
+    spam_weight: 0.5
+
+  journal_reflection_v1:
+    freebie_id: journal_reflection_v1
+    type: journal_pdf
+    topics: [anxiety, boundaries, financial_stress, courage, compassion_fatigue, depression, self_worth, grief]
+    personas: [nyc_executives, healthcare_rns, gen_z_professionals, gen_alpha_students, educators]
+    engines: [shame, overwhelm, spiral, false_alarm, watcher, comparison, grief]
+    book_types: [SHORT, CORE]
+    arc_intensity_max: 5
+    file_template: journal_reflection.md
+    output_formats: [html, pdf]
+    email_required: true
+    cta_style: workbook_forward
+    spam_weight: 0.5
+
+  resistance_mapping_v1:
+    freebie_id: resistance_mapping_v1
+    type: resistance_mapping_html
+    topics: [anxiety, boundaries, financial_stress, courage, compassion_fatigue, depression, self_worth, grief]
+    personas: [nyc_executives, healthcare_rns, gen_z_professionals, gen_alpha_students, educators]
+    engines: [shame, overwhelm, spiral, false_alarm, watcher, comparison, grief]
+    book_types: [SHORT, CORE]
+    arc_intensity_max: 5
+    file_template: resistance_mapping.html
+    output_formats: [html]
+    email_required: true
+    cta_style: tool_forward
+    spam_weight: 0.5
+
+  shame_assessment_v1:
+    freebie_id: shame_assessment_v1
+    type: assessment_html
+    tool_style: structured
+    topics: [self_worth, anxiety, boundaries]
+    personas: [nyc_executives, healthcare_rns, educators]
+    engines: [shame]
+    book_types: [MIN, SHORT, CORE]
+    arc_intensity_max: 5
+    file_template: assessment_shame.html
+    output_formats: [html]
+    email_required: true
+    cta_style: assessment_forward
+    spam_weight: 0.6
+
+  thirty_day_tracker_v1:
+    freebie_id: thirty_day_tracker_v1
+    type: thirty_day_tracker_pdf
+    topics: [anxiety, boundaries, financial_stress, courage, compassion_fatigue, depression, self_worth, grief]
+    personas: [nyc_executives, healthcare_rns, gen_z_professionals, gen_alpha_students, educators]
+    engines: [shame, overwhelm, spiral, false_alarm, watcher, comparison, grief]
+    book_types: [SHORT, CORE]
+    arc_intensity_max: 5
+    file_template: thirty_day_tracker.md
+    output_formats: [html, pdf, epub]
+    email_required: true
+    cta_style: tool_forward
+    spam_weight: 0.5
+
+# Book type mapping (duration class): MIN < 60 min, SHORT 60–120, CORE 120+
+# Used by freebie_planner to apply Rule 1 (companion for 60+ min).

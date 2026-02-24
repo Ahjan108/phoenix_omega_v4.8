@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wim Hof Method — Basic</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#020e1a;--ice:#22d3ee;--frost:#67e8f9;--white:#ecfeff;--text:#cffafe;--m:#475569;--hold:#3b82f6}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(34,211,238,.03),transparent 50%),radial-gradient(ellipse at 30% 80%,rgba(59,130,246,.03),transparent 40%);z-index:0}
+.w{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1rem;padding:1.5rem;width:100%;max-width:480px}
+h1{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.15em;text-transform:uppercase;background:linear-gradient(180deg,var(--frost),var(--ice));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sb{font-size:.65rem;color:var(--m);letter-spacing:.2em;text-transform:uppercase}
+.warn{font-size:.58rem;color:#ef4444;text-align:center;padding:.4rem .8rem;border:1px solid rgba(239,68,68,.2);border-radius:6px;background:rgba(239,68,68,.04);line-height:1.4}
+canvas{width:260px;height:260px;display:block;margin:0 auto}
+.rr{display:flex;gap:.6rem;justify-content:center}
+.rd{width:44px;height:44px;border-radius:50%;border:2px solid rgba(34,211,238,.12);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.05em;color:var(--m);transition:.3s}
+.rd.ac{border-color:var(--ice);color:var(--ice);background:rgba(34,211,238,.08)}
+.rd.dn{border-color:var(--frost);color:var(--frost);background:rgba(103,232,249,.06)}
+.inf{text-align:center}
+.ph{font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;transition:color .3s}
+.bg{font-family:'Bebas Neue',sans-serif;font-size:4rem;transition:color .3s}
+.dt{font-size:.65rem;color:var(--m);letter-spacing:.1em}
+.pr{width:100%;height:5px;background:rgba(255,255,255,.04);border-radius:3px;overflow:hidden}
+.prf{height:100%;width:0;border-radius:3px;transition:width .2s;background:linear-gradient(90deg,var(--hold),var(--ice),var(--frost))}
+.ct{display:flex;gap:1rem}
+.btn{font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.65rem 1.8rem;border:1px solid rgba(34,211,238,.2);border-radius:8px;background:rgba(34,211,238,.05);color:var(--text);cursor:pointer;transition:.25s}
+.btn:hover{background:rgba(34,211,238,.12)}.btn.p{border-color:rgba(34,211,238,.4);background:rgba(34,211,238,.1)}
+.bs{padding:.4rem .9rem;font-size:.65rem}
+.ds{display:none;flex-direction:column;align-items:center;gap:1rem;text-align:center;animation:fu .8s}
+.ds.show{display:flex}
+.ds h2{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.12em}
+.ds p{color:var(--m);font-size:.82rem;line-height:1.7;max-width:370px}
+.scores{display:flex;gap:1.5rem;justify-content:center}
+.sc{display:flex;flex-direction:column;align-items:center;gap:.1rem}
+.sc-v{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--ice)}
+.sc-l{font-size:.6rem;color:var(--m);letter-spacing:.12em;text-transform:uppercase}
+.mn{display:flex;flex-direction:column;align-items:center;gap:1rem}.mn.off{display:none}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.sn{position:fixed;top:1rem;right:1rem;z-index:10;width:34px;height:34px;border-radius:50%;border:1px solid rgba(34,211,238,.12);background:rgba(34,211,238,.02);color:var(--m);cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<button class="sn" id="sB">🔔</button>
+<div class="w">
+<h1>Wim Hof Method</h1>
+<div class="sb">Basic Protocol · 3 Rounds</div>
+<div class="warn">⚠ Never in water. Not for epilepsy, pregnancy, or cardiac conditions. Perform seated/lying only.</div>
+<div class="mn" id="mV">
+<canvas id="cv" width="520" height="520"></canvas>
+<div class="rr">
+  <div class="rd" id="r1">R1</div>
+  <div class="rd" id="r2">R2</div>
+  <div class="rd" id="r3">R3</div>
+</div>
+<div class="inf"><div class="ph" id="ph">Ready</div><div class="bg" id="bg">—</div><div class="dt" id="dt">30 power breaths → 60s hold → recovery × 3</div></div>
+<div class="pr"><div class="prf" id="prf"></div></div>
+<div class="ct"><button class="btn p" id="go">Start Protocol</button><button class="btn bs" id="rs" style="display:none">Reset</button></div>
+</div>
+<div class="ds" id="dV">
+<h2>Protocol Complete</h2>
+<div class="scores" id="scoresDiv"></div>
+<p>Three rounds of the Wim Hof Method. Each round: 30 deep breaths to saturate your blood with oxygen, then a breath hold that trains your body's CO₂ tolerance and triggers adrenaline release. This is the same protocol that allows practitioners to withstand extreme cold and consciously influence their immune response.</p>
+<p style="opacity:.6;font-style:italic">You are capable of more than you think.</p>
+<button class="btn p" id="ag">Again</button>
+</div>
+</div>
+<script>
+const BREATHS=30,BREATH_DUR=2,HOLD_TARGET=60,RECOVERY=15,ROUNDS=3;
+// Per round: 30×2 + 60 + 15 = 135s. 3 rounds ≈ 405s. But user can tap hold early.
+const ROUND_EST=BREATHS*BREATH_DUR+HOLD_TARGET+RECOVERY;
+const TOTAL_EST=ROUNDS*ROUND_EST;
+
+class Au{constructor(){this.c=null;this.on=true}init(){if(!this.c)this.c=new(window.AudioContext||window.webkitAudioContext)}t(f,d,v=.05){if(!this.on||!this.c)return;const o=this.c.createOscillator(),g=this.c.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(v,this.c.currentTime);g.gain.linearRampToValueAtTime(0,this.c.currentTime+d);o.connect(g);g.connect(this.c.destination);o.start();o.stop(this.c.currentTime+d)}bp(){this.t(220,.06,.04)}hs(){this.t(340,.4)}he(){this.t(528,.5)}toggle(){this.on=!this.on;return this.on}}
+const au=new Au(),cv=document.getElementById('cv'),c=cv.getContext('2d'),W=cv.width,H=cv.height,CX=W/2,CY=H/2;
+const ph$=document.getElementById('ph'),bg$=document.getElementById('bg'),dt$=document.getElementById('dt'),prf$=document.getElementById('prf');
+const go$=document.getElementById('go'),rs$=document.getElementById('rs'),mV=document.getElementById('mV'),dV=document.getElementById('dV');
+let st='idle',rn=0,p='',ps=0,bn=0,lb=-1,holdTimes=[],accTime=0;
+
+function srd(){for(let i=1;i<=3;i++){const d=document.getElementById('r'+i);d.classList.remove('ac','dn');if(i-1<rn)d.classList.add('dn');else if(i-1===rn)d.classList.add('ac')}}
+
+function drawPower(bProg){
+  c.clearRect(0,0,W,H);const t=Date.now()/1000;
+  const pulse=Math.sin(bProg*Math.PI);
+  const r=60+pulse*50;
+  // Ice crystal pattern
+  const rays=6;
+  for(let i=0;i<rays;i++){
+    const a=(i/rays)*Math.PI*2+t*.2;
+    const len=r*1.2;
+    c.beginPath();c.moveTo(CX,CY);
+    c.lineTo(CX+Math.cos(a)*len,CY+Math.sin(a)*len);
+    c.strokeStyle=`rgba(34,211,238,${.1+pulse*.15})`;c.lineWidth=2;c.stroke();
+    // Branches
+    const bLen=len*.4;const bA=a+.5;const bA2=a-.5;
+    const mx=CX+Math.cos(a)*len*.6;const my=CY+Math.sin(a)*len*.6;
+    c.beginPath();c.moveTo(mx,my);c.lineTo(mx+Math.cos(bA)*bLen,my+Math.sin(bA)*bLen);c.strokeStyle=`rgba(103,232,249,${.06+pulse*.08})`;c.lineWidth=1;c.stroke();
+    c.beginPath();c.moveTo(mx,my);c.lineTo(mx+Math.cos(bA2)*bLen,my+Math.sin(bA2)*bLen);c.stroke();
+  }
+  // Center glow
+  const gd=c.createRadialGradient(CX,CY,0,CX,CY,r);
+  gd.addColorStop(0,`rgba(34,211,238,${.2+pulse*.25})`);gd.addColorStop(.6,`rgba(59,130,246,${.1+pulse*.1})`);gd.addColorStop(1,'transparent');
+  c.beginPath();c.arc(CX,CY,r,0,Math.PI*2);c.fillStyle=gd;c.fill();
+}
+
+function drawHold(el){
+  c.clearRect(0,0,W,H);const t=Date.now()/1000;
+  const pct=Math.min(1,el/HOLD_TARGET);
+  // Timer arc
+  c.beginPath();c.arc(CX,CY,110,-Math.PI/2,-Math.PI/2+pct*Math.PI*2);
+  c.strokeStyle=`rgba(59,130,246,.5)`;c.lineWidth=4;c.stroke();
+  // Background arc
+  c.beginPath();c.arc(CX,CY,110,0,Math.PI*2);c.strokeStyle='rgba(255,255,255,.04)';c.lineWidth=4;c.stroke();
+  // Pulsing center
+  const pulse=Math.sin(t*1.5)*.1+.15;
+  const gd=c.createRadialGradient(CX,CY,0,CX,CY,70);
+  gd.addColorStop(0,`rgba(59,130,246,${pulse})`);gd.addColorStop(1,'transparent');
+  c.beginPath();c.arc(CX,CY,70,0,Math.PI*2);c.fillStyle=gd;c.fill();
+  // Ice crystals forming around edge
+  if(pct>.3){
+    const crystals=Math.floor(pct*8);
+    for(let i=0;i<crystals;i++){
+      const a=(i/8)*Math.PI*2-Math.PI/2;
+      const cx2=CX+Math.cos(a)*110;const cy2=CY+Math.sin(a)*110;
+      c.beginPath();c.arc(cx2,cy2,3+pct*2,0,Math.PI*2);
+      c.fillStyle=`rgba(103,232,249,${.3+pct*.2})`;c.fill();
+    }
+  }
+}
+
+function drawRecovery(el){
+  c.clearRect(0,0,W,H);const t=Date.now()/1000;
+  const r=70+Math.sin(t)*12;
+  const gd=c.createRadialGradient(CX,CY,0,CX,CY,r);
+  gd.addColorStop(0,'rgba(16,185,129,.2)');gd.addColorStop(1,'transparent');
+  c.beginPath();c.arc(CX,CY,r,0,Math.PI*2);c.fillStyle=gd;c.fill();
+}
+
+function drawIdle(){c.clearRect(0,0,W,H);const t=Date.now()/2e3;const r=50+Math.sin(t)*5;const gd=c.createRadialGradient(CX,CY,0,CX,CY,r);gd.addColorStop(0,'rgba(34,211,238,.08)');gd.addColorStop(1,'transparent');c.beginPath();c.arc(CX,CY,r,0,Math.PI*2);c.fillStyle=gd;c.fill()}
+
+function start(){au.init();st='active';rn=0;holdTimes=[];accTime=0;go$.textContent='—';go$.style.pointerEvents='none';rs$.style.display='inline-block';dV.classList.remove('show');mV.classList.remove('off');sp('power')}
+function sp(x){p=x;ps=performance.now();srd();if(x==='power'){bn=0;lb=-1;ph$.textContent=`Round ${rn+1} · Power Breaths`;ph$.style.color='var(--ice)';bg$.style.color='var(--ice)';dt$.textContent='Deep rhythmic breaths — fully in, let go'}else if(x==='hold'){ph$.textContent='Retention · Hold';ph$.style.color='var(--hold)';bg$.style.color='var(--hold)';dt$.textContent='Let go and hold — tap anywhere when done';au.hs();document.body.onclick=tapHold}else if(x==='recovery'){ph$.textContent='Recovery Breath';ph$.style.color='#10b981';bg$.style.color='#10b981';dt$.textContent='Deep breath in, hold 15s';au.he();document.body.onclick=null}tk()}
+
+function tapHold(){
+  if(p!=='hold')return;
+  const ht=(performance.now()-ps)/1000;
+  holdTimes.push(ht);
+  document.body.onclick=null;
+  sp('recovery');
+}
+
+function tk(){
+  if(st!=='active')return;
+  const el=(performance.now()-ps)/1000;
+  // Estimate total progress
+  const estRoundTime=BREATHS*BREATH_DUR+(holdTimes[rn]||HOLD_TARGET)+RECOVERY;
+  const roundProgress=p==='power'?el:(p==='hold'?BREATHS*BREATH_DUR+el:BREATHS*BREATH_DUR+(holdTimes[rn]||HOLD_TARGET)+el);
+  const totalEl=accTime+roundProgress;
+  prf$.style.width=Math.min(100,totalEl/TOTAL_EST*100)+'%';
+
+  if(p==='power'){
+    bn=Math.min(BREATHS,Math.floor(el/BREATH_DUR)+1);
+    if(bn!==lb){lb=bn;au.bp()}
+    bg$.textContent=bn+'/'+BREATHS;
+    drawPower((el%BREATH_DUR)/BREATH_DUR);
+    if(bn>=BREATHS&&el>=BREATHS*BREATH_DUR){sp('hold');return}
+  }else if(p==='hold'){
+    bg$.textContent=el.toFixed(1)+'s';
+    drawHold(el);
+    // Auto-end at 90s safety
+    if(el>=90){tapHold();return}
+  }else if(p==='recovery'){
+    const rem=Math.max(0,RECOVERY-el);
+    bg$.textContent=Math.ceil(rem)+'s';
+    drawRecovery(el);
+    if(el>=RECOVERY){
+      accTime+=BREATHS*BREATH_DUR+(holdTimes[rn-1]||holdTimes[holdTimes.length-1]||HOLD_TARGET)+RECOVERY;
+      rn++;
+      if(rn>=ROUNDS){fin();return}
+      sp('power');return;
+    }
+  }
+  requestAnimationFrame(tk);
+}
+
+function fin(){
+  st='done';mV.classList.add('off');dV.classList.add('show');
+  const sd=document.getElementById('scoresDiv');
+  sd.innerHTML=holdTimes.map((h,i)=>`<div class="sc"><div class="sc-v">${h.toFixed(1)}s</div><div class="sc-l">Round ${i+1}</div></div>`).join('');
+}
+function rst(){st='idle';rn=0;holdTimes=[];accTime=0;go$.textContent='Start Protocol';go$.style.pointerEvents='auto';go$.classList.add('p');rs$.style.display='none';ph$.textContent='Ready';ph$.style.color='';bg$.textContent='—';bg$.style.color='';dt$.textContent='30 power breaths → 60s hold → recovery × 3';prf$.style.width='0';srd();document.body.onclick=null;dV.classList.remove('show');mV.classList.remove('off');il()}
+go$.onclick=()=>{if(st==='idle')start()};
+rs$.onclick=rst;document.getElementById('ag').onclick=()=>{rst();start()};
+document.getElementById('sB').onclick=()=>{au.init();const on=au.toggle();document.getElementById('sB').textContent=on?'🔔':'🔇'};
+function il(){if(st!=='idle')return;drawIdle();requestAnimationFrame(il)}il();
+</script>
+</body>
+</html>

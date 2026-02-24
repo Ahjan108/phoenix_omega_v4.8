@@ -1,0 +1,97 @@
+# Authority: SYSTEMS_DOCUMENTATION §29.2.4
+# Human Appeal score: point-based lookup from this registry.
+
+version: 1
+
+scenario_words:
+  - at work
+  - in meetings
+  - at night
+  - on dates
+  - during presentations
+  - during hospital shifts
+  - in the classroom
+  - at family gatherings
+  - while driving
+  - in public
+  - on the phone
+  - during interviews
+  - at networking events
+  - before deadlines
+  - in the morning
+
+distress_verbs:
+  - freeze
+  - spiral
+  - panic
+  - overthink
+  - shut down
+  - dread
+  - avoid
+  - ruminate
+  - dissociate
+  - catastrophize
+  - withdraw
+  - procrastinate
+
+outcome_phrases:
+  - how to stop
+  - how to calm
+  - feel confident
+  - speak up
+  - sleep better
+  - stop worrying
+  - find calm
+  - take control
+  - break free
+  - let go
+  - feel safe
+
+persona_lexemes:
+  gen_z_la:
+    - content creator
+    - social media
+    - comparison trap
+    - hustle culture
+  gen_z_professionals:
+    - networking
+    - startup
+    - performance review
+    - imposter syndrome
+    - first job
+  healthcare_burnout:
+    - shift
+    - patient load
+    - charting
+    - compassion fatigue
+    - on call
+  healthcare_worker:
+    - shift
+    - patient load
+    - charting
+    - on call
+  nyc_executives:
+    - board meeting
+    - quarterly review
+    - leadership
+    - high stakes
+    - stakeholders
+  nyc_exec:
+    - board meeting
+    - quarterly review
+    - meetings
+    - high stakes
+    - stakeholders
+  longevity_optimizers:
+    - biohacking
+    - recovery protocol
+    - cortisol
+    - sleep architecture
+  burned_out_professional:
+    - burnout
+    - overwhelm
+    - deadlines
+  bereaved_adult:
+    - grief
+    - loss
+    - healing

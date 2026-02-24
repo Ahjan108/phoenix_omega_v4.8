@@ -1,0 +1,943 @@
+Here are the exact sections, ready to paste:
+
+---
+
+# **SECTION 16 FOR PHOENIX_V4_5_WRITER_SPEC.md**
+
+```markdown
+---
+
+# Section 16: Emotional QA & Drift Governance
+
+**Writers must understand these rules exist. QA enforces them. CI blocks violations.**
+
+This section prevents:
+- Emotional flatness (books that teach mechanisms but never move the listener)
+- TTS rhythm collapse (robot narration that sounds robotic)
+- Book-level sameness (every chapter feels identical)
+- Catalog-level drift (1,200 books blur into one voice)
+
+---
+
+## 16.1 Phase 3 Emotional Force Validation
+
+**Not all chapters need the same intensity. But intensity must be explicit and enforced.**
+
+### Hot Chapter Requirements
+
+**Every book must contain ≥1 hot chapter** (tagged `emotional_temperature: hot` in compiled plan).
+
+Hot chapters must contain:
+
+**1. Escalation Verbs (≥3 per chapter)**
+- snap, slam, cry, send, delete, confront, lock, leave, say, hit, break, shatter
+
+**Example:**
+- "She sent the text. She told the truth. The door closed."
+- "His chest broke open. The words came anyway."
+
+**2. Sensory Stress Words (≥2 per chapter)**
+- jaw, breath, throat, chest, heat, silence, stare, shaking, tight, frozen, numb
+
+**Example:**
+- "Throat tight. Jaw clenched. Silence stretched."
+- "Her hands shook. She could not make them stop."
+
+**3. Reaction Markers (when action present)**
+
+If chapter contains action verbs (send, say, leave, lock, post, confront, ask, decide), it must also contain reaction markers within same section:
+- looked (away/down/confused)
+- paused
+- didn't reply
+- walked away
+- went quiet
+- door closed
+- silence
+- seen (was seen / wasn't seen)
+
+**Example of violation:**
+- "She sent the text. She told the truth." [STOPS HERE - no reaction]
+
+**Example of compliance:**
+- "She sent the text. She told the truth. Three days passed. No reply. She learned something about silence."
+
+**Why:** Action without visible reaction feels incomplete. The listener needs to see the consequence.
+
+---
+
+### Cognitive/Body Ratio Ceiling
+
+**All chapters (not just hot) must maintain cognitive/body balance.**
+
+**Cognitive verbs:**
+- understand, realize, believe, think, recognize, learn, know, see (metaphorical)
+
+**Body/sensory verbs:**
+- feel, sense, notice, breathe, soften, tighten, move, hold, pulse, contract
+
+**Thresholds:**
+- Ratio >5:1 → Hard fail (too abstract)
+- Ratio >3:1 → Warning (review recommended)
+- Ratio <2:1 → Ideal (embodied teaching)
+
+**Example failure (10 cognitive, 1 body = 10:1):**
+- "You realize your patterns. You understand the mechanism. You recognize the cycle. You learn to see the triggers. You believe you can change. You know you are held. You think about your body. You see the truth. You understand why. You realize what matters. Feel your breath."
+
+**Example pass (6 cognitive, 12 body = 0.5:1):**
+- "You notice your breath. You feel your chest tighten. You sense the fear rising. You realize the pattern. You soften your jaw. You allow the sensation. You recognize the cycle. You breathe anyway. You feel the ground. You stay. You notice it shifting. You understand: the body leads, the mind follows."
+
+---
+
+### CI Gates
+
+**Gate E01:** Scan hot chapters for escalation verbs. Hard fail if <3.
+
+**Gate E02:** Scan hot chapters for sensory stress words. Warn if <2.
+
+**Gate E03:** If action verbs present, verify reaction markers exist. Hard fail if action without reaction.
+
+**Gate E04:** Calculate cognitive/body ratio per chapter. Hard fail if >5:1, warn if >3:1.
+
+---
+
+## 16.2 TTS Rhythm Governance
+
+**Robot narration cannot add emphasis. The text must carry 100% of emotional weight through rhythm variation.**
+
+### Rules
+
+**1. Question Mark Ceiling**
+- Max 2 question marks per chapter
+- TTS reads "?" as flat statement
+- Use stated questions instead: "You want to know why. Here is why."
+
+**Gate T01:** Scan for "?" marks. Warn if >2 per chapter.
+
+---
+
+**2. Long Sentence Ceiling**
+- Max 30% of sentences can exceed 18 words
+- TTS loses listener attention on long clauses
+
+**Gate T02:** Count sentences >18 words. Hard fail if >30% of chapter total.
+
+---
+
+**3. Sentence Distribution Balance**
+
+**Every chapter must contain:**
+- ≥1 sentence of 3 words or fewer (percussion hit)
+- ≥1 sentence of 15-20 words (complexity)
+- Range between shortest and longest sentence ≥12 words
+
+**Example compliance:**
+- Shortest: "Gone." (1 word)
+- Longest: "You wave at someone across the hallway and they look away and you will never know if they saw you or if they're pretending they didn't." (26 words)
+- Range: 25 words ✓
+
+**Gate T03:** Verify sentence distribution. Warn if no 3-word sentence exists. Warn if range <12 words.
+
+---
+
+**4. No Monotone Paragraph Runs**
+
+**Forbidden:**
+- 4+ consecutive paragraphs where every sentence is 10-15 words
+- TTS flattens into white noise
+
+**Required:**
+- Rhythm variation within every 4-paragraph window
+
+**Gate T04:** Flag monotone runs (4+ paragraphs, all sentences within 5-word range). Warn for review.
+
+---
+
+## 16.3 Book-Level Drift Detection
+
+**These rules prevent a book from feeling samey across its own chapters.**
+
+### Temperature Progression Rule
+
+**No 3 consecutive chapters with same temperature.**
+
+**Allowed:**
+- cool → warm → hot → warm (varies)
+- warm → hot → warm → cool (varies)
+
+**Forbidden:**
+- warm → warm → warm → warm (flatlines)
+- hot → hot → hot (exhausting)
+
+**Why:** Emotional range requires contrast. Monotemperature = monotone.
+
+**Gate D01:** Scan chapter temperature sequence. Hard fail if 3 consecutive same.
+
+---
+
+### Reassurance Phrase Frequency Cap
+
+**No single reassurance phrase may appear in >60% of chapters within one book.**
+
+**Monitored phrases:**
+- "You are not broken"
+- "You are enough"
+- "Still here"
+- "The alarm is real"
+- "Your nervous system"
+- "Choose yourself"
+- "You've got this"
+
+**Example violation (8-chapter book):**
+- "Still here" appears in chapters 1, 3, 4, 5, 6, 8 = 6 of 8 = 75% → FAIL
+
+**Allowed:**
+- "Still here" in chapters 1, 8 only = 2 of 8 = 25% → PASS
+
+**Gate D02:** Count reassurance phrase occurrences per book. Hard fail if any phrase >60%.
+
+---
+
+### Carry Line Uniqueness
+
+**The final sentence of each chapter must be unique within the book.**
+
+**No two chapters may end with:**
+- Exact same sentence
+- 6-gram overlap >50%
+
+**Example violation:**
+- Ch3: "Still here. Still breathing. Still going."
+- Ch7: "Still here. Still breathing. Still moving."
+- 6-grams shared: "Still here. Still breathing. Still" → 75% overlap → FAIL
+
+**Gate D03:** Extract final sentence from each chapter. Check for exact duplicates or high n-gram similarity. Hard fail if found.
+
+---
+
+### Metaphor Family Compliance
+
+**Each book owns 3-5 core metaphor terms. These terms should appear in ≥50% of chapters but ≤40% of any single chapter.**
+
+**Example (social anxiety book):**
+- Owned terms: alarm, smoke detector, false signal, radar, watcher
+- Should appear across 5+ of 8 chapters
+- No single chapter should use all 5 (becomes formulaic)
+
+**Gate D04:** Verify owned metaphors appear across ≥50% of chapters. Warn if concentrated in <3 chapters (underused) or if any chapter uses >40% of the family (overused).
+
+---
+
+## 16.4 Catalog-Level Drift Detection
+
+**These rules prevent 1,200 books from blurring into sameness.**
+
+### Structural Similarity Ceiling
+
+**Across any release batch (typically 10-20 books), structural overlap must be ≤20%.**
+
+**Structural fingerprint includes:**
+- Beat map sequence
+- Section type distribution
+- Chapter count and word count distribution
+- Temperature curve shape
+
+**Gate C01:** Generate structural fingerprint for each book. Compare within batch. Hard fail if any two books >20% similar.
+
+---
+
+### Story-Body Overlap Ceiling
+
+**Across batch, story atom text bodies must not overlap >15%.**
+
+**Why:** If 3 books share 8 of the same story atoms, listeners notice the repetition.
+
+**Gate C02:** Compare story atom IDs used across books in batch. Hard fail if overlap >15%.
+
+---
+
+### Emotional Waveform Diversity
+
+**Emotional waveform = sequence of chapter temperatures (cool/warm/hot) across book.**
+
+**Example waveforms:**
+- Book A: [cool, warm, hot, warm, cool, warm, hot, warm]
+- Book B: [warm, hot, warm, cool, warm, hot, warm, cool]
+
+**Requirement:** Within any 10-book window, ≥3 distinct waveform shapes must exist.
+
+**Gate C03:** Compare waveforms within rolling 10-book windows. Warn if <3 distinct shapes (lack of diversity).
+
+---
+
+## 16.5 Authenticity Scoring (Self-Help Cliché Detection)
+
+**Self-help content has high cliché risk. Certain phrases signal "safety" to writers but produce generic, unmemorable books.**
+
+### Monitored Phrases
+
+**Category: Generic Self-Help (High Risk)**
+- "You've got this"
+- "You are enough"
+- "Choose yourself"
+- "Trust the process"
+- "Everything happens for a reason"
+- "You deserve" (without specificity)
+
+**Category: Therapy-Speak Without Grounding**
+- "Hold space" (overused)
+- "Sit with discomfort" (overused without guidance)
+- "Lean into" (overused)
+- "Do the work" (vague)
+- "Set boundaries" (generic without how-to)
+- "Unpack" (overused without follow-through)
+
+**Category: Neuroscience Buzzwords Without Explanation**
+- "Nervous system" (valid but overused — max 4× per chapter)
+- "Dysregulation" (valid but often used vaguely)
+- "Trauma" (valid but must specify what kind)
+
+---
+
+### Cliché Density Threshold
+
+**No chapter may contain >2 monitored phrases.**
+
+**Allowed exceptions:**
+1. **Phrase is immediately grounded:**
+   - "Set boundaries. Not the Instagram version. The version where you say 'I cannot do that' and your body stops apologizing."
+   - "You are enough. Not in the meme sense. In the sense that your nervous system does not require external validation to regulate."
+
+2. **Phrase is part of persona's established vocabulary** (persona-locked):
+   - If healthcare_rn persona uses "hold space" as signature language, allowed in their books but flagged if it appears in gen_alpha books.
+
+---
+
+### Enforcement
+
+**Gate SA01 (Cliché Density):**
+- Scan each chapter for monitored phrases
+- Count instances
+- Hard fail if >2 found in single chapter
+
+**Gate SA02 (Cliché Catalog Frequency):**
+- At catalog level, count how many books contain each phrase
+- Warn if any phrase appears in >30% of books in stack
+
+**Gate SA03 (Grounding Check - Human Review):**
+- If monitored phrase is present, QA reader verifies it's followed by grounding/specificity within 2 sentences
+- Flag for rewrite if phrase stands alone
+
+---
+
+## 16.6 Voice Bleed Prevention
+
+**Each persona must sound distinct. Generic language creates voice bleed.**
+
+### Persona Voice Markers
+
+**Each persona owns signature vocabulary:**
+
+| Persona | Owned Terms | Forbidden in Other Personas |
+|---------|-------------|------------------------------|
+| gen_alpha_students | group chat, DM, story, post, screenshot, meme | Corporate speak, medical terminology |
+| healthcare_rns | shift, chart, code, attending, patient load, moral injury | Teen slang, academic theory |
+| gen_z_professionals | Slack, stand-up, sprint, burnout, scope creep | Medical procedures, classroom references |
+
+**Gate VB01:** Scan for persona cross-contamination. Hard fail if gen_alpha book uses "shift handoff" or healthcare_rn book uses "group chat drama."
+
+---
+
+### Generic Voice Detection (Human Review)
+
+**QA reader flags chapters where vocabulary could belong to any persona.**
+
+**Example of generic (fails):**
+- "You feel overwhelmed. Your body tenses. You want to escape."
+- **Problem:** Could be anyone. No persona markers.
+
+**Example of persona-specific (passes):**
+- "The group chat is blowing up. Forty-three messages. You open it. Your chest locks. You close it. Thirty seconds later you open it again."
+- **Correct:** Clearly gen_alpha_students.
+
+**Gate VB02 (Human Review):** QA reader scans 2 chapters per book. Flags if voice feels generic/interchangeable. Requires persona-specific detail injection.
+
+---
+
+## 16.7 CI Failure Protocol
+
+**When emotional QA gates fail, the system must block progression.**
+
+### Atom-Level Failures
+- Atom → quarantined (moved to `atoms/quarantine/`)
+- Cannot be selected by plan compiler until fixed
+- Writer receives specific gate violation report
+
+### Chapter-Level Failures
+- Chapter assembly → blocked
+- Plan compiler stops before concatenation
+- Dev receives gate ID and violation details
+
+### Book-Level Failures
+- Book export → blocked
+- Cannot generate audio files
+- Cannot move to release queue
+- QA dashboard shows exact failures
+
+### Catalog-Level Failures
+- Stack release → frozen
+- Entire batch held until violations resolved
+- Similarity/drift reports generated
+- Release manager approval required to override (with justification)
+
+---
+
+### Override Authority
+
+**Only release manager can override catalog-level gates.**
+
+**Override requires:**
+1. Written justification
+2. Acknowledgment of risk
+3. Manual QA sign-off
+4. Logged in `releases/overrides.yaml`
+
+**No override allowed for:**
+- Atom-level structure violations
+- Forbidden resolution language
+- TTS rhythm hard fails (>30% long sentences, etc.)
+
+---
+
+## 16.8 Summary: All Emotional QA Gates
+
+| Gate ID | Level | What It Checks | Fail Condition | Blocking? |
+|---------|-------|----------------|----------------|-----------|
+| **E01** | Chapter | Escalation verbs in hot chapters | <3 verbs | Hard fail |
+| **E02** | Chapter | Sensory stress words in hot | <2 words | Warn |
+| **E03** | Chapter | Reaction markers when action present | No reaction | Hard fail |
+| **E04** | Chapter | Cognitive/body ratio | >5:1 fail, >3:1 warn | Hard/Warn |
+| **T01** | Chapter | Question mark count | >2 per chapter | Warn |
+| **T02** | Chapter | Long sentence percentage | >30% >18 words | Hard fail |
+| **T03** | Chapter | Sentence distribution | No 3-word sentence or range <12 | Warn |
+| **T04** | Chapter | Monotone paragraph runs | 4+ paragraphs same rhythm | Warn |
+| **D01** | Book | Temperature progression | 3 consecutive same | Hard fail |
+| **D02** | Book | Reassurance phrase frequency | Any phrase >60% chapters | Hard fail |
+| **D03** | Book | Carry line uniqueness | Duplicate or >50% n-gram overlap | Hard fail |
+| **D04** | Book | Metaphor family compliance | <50% chapter coverage or >40% single chapter | Warn |
+| **C01** | Catalog | Structural similarity | >20% overlap in batch | Hard fail |
+| **C02** | Catalog | Story-body overlap | >15% shared atoms in batch | Hard fail |
+| **C03** | Catalog | Waveform diversity | <3 distinct shapes per 10 books | Warn |
+| **SA01** | Chapter | Cliché phrase density | >2 monitored phrases | Hard fail |
+| **SA02** | Catalog | Cliché catalog frequency | Phrase in >30% of stack | Warn |
+| **SA03** | Chapter | Cliché grounding (human) | Phrase without grounding | Flag |
+| **VB01** | Chapter | Persona cross-contamination | Wrong persona vocabulary | Hard fail |
+| **VB02** | Book | Generic voice (human) | No persona markers | Flag |
+
+**Total: 19 emotional QA gates**
+
+Combined with structural gates (G01-G39), V4.5 has **58 total CI gates** protecting quality at atom, chapter, book, and catalog levels.
+
+---
+
+```
+
+---
+
+# **PART 6 FOR PHOENIX_V4_CANONICAL_SPEC.md**
+
+```markdown
+---
+
+# Part 6: Catalog-Level QA & Drift Control
+
+**Somatic V2 validates teacher completion. V4 validates stack integrity across 1,200+ books.**
+
+---
+
+## 6.1 The Catalog Problem
+
+At scale, you will have:
+- 3 personas (gen_alpha_students, healthcare_rns, gen_z_professionals)
+- 8 topics per persona (anxiety, grief, burnout, boundaries, etc.)
+- 12-50 books per persona × topic combination
+- **1,200+ total books**
+
+Without drift control:
+- Personas will converge on the same metaphors
+- Closing lines will repeat
+- Hooks will feel samey
+- The catalog will homogenize
+- Listeners will notice the formula
+
+This section prevents that.
+
+---
+
+## 6.2 Metaphor Registry (Persona Ownership)
+
+**Each persona owns 3-5 metaphor image terms. No two personas may share terms.**
+
+### Structure
+
+```yaml
+metaphor_registry:
+  gen_alpha_students:
+    owned_terms:
+      - alarm
+      - smoke detector
+      - radar
+      - glass wall
+      - watcher
+    forbidden_terms: [all terms owned by other personas]
+  
+  healthcare_rns:
+    owned_terms:
+      - armor
+      - shield
+      - moral injury
+      - compassion fatigue
+      - breaking point
+    forbidden_terms: [alarm, smoke detector, radar, glass wall, watcher, ...]
+  
+  gen_z_professionals:
+    owned_terms:
+      - treadmill
+      - performance review
+      - inbox zero
+      - scope creep
+      - burnout cycle
+    forbidden_terms: [armor, shield, alarm, ...]
+```
+
+### Enforcement
+
+**Gate M01 (Metaphor Collision):**
+- Scan all chapters for metaphor terms (nouns/verbs used figuratively)
+- Cross-check against registry
+- Hard fail if persona uses another persona's owned term
+
+**Gate M02 (Metaphor Consistency):**
+- Verify persona uses their owned terms in ≥50% of their books
+- Warn if owned metaphors are absent (persona drift)
+
+**Gate M03 (Metaphor Overuse):**
+- Flag if any single metaphor term appears >20 times across one book
+- Risk of formula visibility
+
+---
+
+### How to Assign Metaphor Families
+
+**During persona definition:**
+1. Extract 10 most-used figurative terms from persona's content corpus
+2. Rank by frequency + distinctiveness
+3. Assign top 3-5 as owned terms
+4. Add to registry
+5. Lock for that persona
+
+---
+
+## 6.3 Reassurance Phrase Cap
+
+**Track high-frequency reassurance phrases across catalog. No phrase may appear in >40% of books within a persona × topic stack.**
+
+### Monitored Phrases (Universal)
+
+**Generic Self-Help:**
+- "You are not broken"
+- "You are enough"
+- "Still here"
+- "Choose yourself"
+- "You've got this"
+- "Trust the process"
+
+**Persona Signature Phrases (Auto-Detected):**
+- Any phrase ≥4 words that appears in ≥60% of a persona's books on one topic
+
+### Enforcement
+
+**Gate R01 (Reassurance Frequency - Book Level):**
+- Within single book, no phrase in >60% of chapters
+- Hard fail if exceeded
+
+**Gate R02 (Reassurance Frequency - Catalog Level):**
+- Within persona × topic stack (e.g., all gen_alpha × anxiety books), count phrase instances
+- Hard fail if any phrase appears in >40% of total books
+
+**Gate R03 (Persona Signature Bleed):**
+- If gen_alpha's signature phrase appears in healthcare_rn book, flag for review
+- Likely template contamination
+
+---
+
+## 6.4 Hook Diversity (Opening Collision Prevention)
+
+**No two books in the catalog may open with the same structural pattern.**
+
+### Pattern Detection
+
+**Scan first 2 sentences of Chapter 1 for:**
+- Sentence structure (subject-verb-object order)
+- Sentence length similarity (±3 words)
+- Opening word (You / Your / The / Here / This)
+- Second sentence rhythm
+
+**Example collision:**
+
+Book A: "You are sitting somewhere ordinary. Nothing threatening is happening."  
+Book B: "You are standing somewhere familiar. Nothing dangerous is present."
+
+**Structure match:** [You are] + [location] + [period]. [Nothing] + [state] + [period].
+
+This is a collision. Flag for rewrite.
+
+---
+
+### Enforcement
+
+**Gate H01 (Hook Structural Fingerprint):**
+- Generate structural fingerprint for every book's opening 2 sentences
+- Cross-check against catalog
+- Hard fail if fingerprint similarity >70%
+
+**Gate H02 (Variant Rotation):**
+- If persona × topic's books all use Variant F1 (sensory) for HOOK, flag
+- Require rotation across F1-F5 variants
+
+---
+
+## 6.5 Carry Line Uniqueness
+
+**The final sentence of each book is the carry line. No two books in catalog may share the same carry line.**
+
+### Enforcement
+
+**Gate CL01 (Carry Line Exact Match):**
+- Extract final sentence from every book
+- Cross-check for exact duplicates
+- Hard fail if match found
+
+**Gate CL02 (Carry Line Similarity):**
+- Use 6-gram fingerprinting
+- If two carry lines share ≥50% of their 6-grams, flag for review
+
+**Allowed:** Thematic similarity ("Still here" vs. "You are here") is fine. Exact phrasing is not.
+
+---
+
+## 6.6 Emotional Waveform Entropy
+
+**Each book has an emotional intensity curve across chapters. At catalog scale, curves should vary.**
+
+### Waveform Calculation
+
+**Assign intensity score to each chapter (1-5 scale):**
+- Cool temperature: 1-2
+- Warm temperature: 3
+- Hot temperature: 4-5
+
+**Generate waveform:** [2, 3, 4, 3, 2, 3, 4, 2]
+
+### Enforcement
+
+**Gate W01 (Waveform Diversity):**
+- Within any 10-book window, ≥3 distinct waveform shapes must exist
+- Warn if <3 shapes (lack of diversity)
+
+**Gate W02 (Flat Waveform Detection):**
+- If book's intensity variance is <1.5, warn
+- Book may lack emotional range
+
+---
+
+## 6.7 Structural Similarity Limits
+
+**At catalog scale, books must feel distinct even if using same beat maps.**
+
+### Structural Fingerprint Components
+- Beat map sequence (which maps used in which order)
+- Section type distribution (how many HOOK vs STORY vs REFLECTION)
+- Chapter count and average word count
+- Temperature curve shape
+
+### Enforcement
+
+**Gate S01 (Structural Overlap):**
+- Generate structural fingerprint for each book
+- Compare within release batch (typically 10-20 books)
+- Hard fail if any two books >20% similar
+
+**Gate S02 (Story-Body Overlap):**
+- Compare which story atom IDs are used across books in batch
+- Hard fail if >15% overlap (e.g., 3 books share 8 of same story atoms)
+
+**Why:** If multiple books share too many atoms, listeners notice repetition.
+
+---
+
+## 6.8 Stack QA Summary
+
+**These gates run:**
+- After book completion
+- Before catalog upload
+- On rolling basis (quarterly catalog audits)
+
+### Failure Handling
+
+| Violation Type | Action |
+|----------------|--------|
+| Metaphor collision | Hard fail, blocks upload |
+| Reassurance >40% | Hard fail, blocks batch |
+| Hook collision | Hard fail, requires rewrite |
+| Carry line exact match | Hard fail |
+| Waveform <3 shapes | Warning, review recommended |
+| Structural >20% | Hard fail, requires atom substitution |
+| Story overlap >15% | Hard fail, blocks batch |
+
+**Override:** Only release manager can override catalog-level gates with written justification.
+
+---
+
+## 6.9 Catalog QA Gates Summary
+
+| Gate | Level | What It Checks | Threshold | Blocking? |
+|------|-------|----------------|-----------|-----------|
+| **M01** | Catalog | Metaphor collision | Persona using another's terms | Hard fail |
+| **M02** | Catalog | Metaphor consistency | <50% coverage in persona books | Warn |
+| **M03** | Book | Metaphor overuse | >20 uses in single book | Warn |
+| **R01** | Book | Reassurance phrase (book) | >60% chapters | Hard fail |
+| **R02** | Catalog | Reassurance phrase (stack) | >40% books in stack | Hard fail |
+| **R03** | Catalog | Persona signature bleed | Cross-persona contamination | Flag |
+| **H01** | Catalog | Hook structural fingerprint | >70% similarity | Hard fail |
+| **H02** | Stack | Hook variant rotation | All same variant | Flag |
+| **CL01** | Catalog | Carry line exact match | Duplicate found | Hard fail |
+| **CL02** | Catalog | Carry line n-gram similarity | >50% overlap | Flag |
+| **W01** | Stack | Waveform diversity | <3 shapes per 10 books | Warn |
+| **W02** | Book | Flat waveform | Variance <1.5 | Warn |
+| **S01** | Batch | Structural similarity | >20% overlap | Hard fail |
+| **S02** | Batch | Story-body overlap | >15% shared atoms | Hard fail |
+
+**Total: 14 catalog-level gates**
+
+---
+
+```
+
+---
+
+# **APPENDIX A FOR PHOENIX_V4_CANONICAL_SPEC.md**
+
+```markdown
+---
+
+# Appendix A: Complete Gate Registry
+
+**All 85 CI gates organized by scope.**
+
+This registry provides gate IDs, descriptions, thresholds, and blocking behavior. Machine-readable definitions live in `phoenix_v4/qa/emotional_governance_rules.yaml`.
+
+---
+
+## Atom-Level Gates (G01-G20)
+
+| Gate | What It Checks | Fail Condition | Blocking? |
+|------|----------------|----------------|-----------|
+| **G01** | Atom has required metadata | Missing atom_id, persona, topic, or type | Hard fail |
+| **G02** | Word count within range | Outside type-specific min/max | Hard fail |
+| **G03** | Voice/tense compliance | Wrong person or tense for type | Hard fail |
+| **G04** | No forbidden content | Contains resolution/closure language | Hard fail |
+| **G05** | No emotion labels | Contains "felt anxious," "was sad," etc. | Hard fail |
+| **G06** | Slot safety | Forward/backward references | Hard fail |
+| **G07** | No formatting | Contains markdown, bullets, headers | Hard fail |
+| **G08** | Variant family tagged | HOOK/SCENE missing F1-F5 tag | Hard fail |
+| **G09** | Engine tagged | STORY missing engine assignment | Hard fail |
+| **G10** | Role tagged | STORY missing role assignment | Hard fail |
+| **G11** | Reflection type tagged | REFLECTION missing subtype | Hard fail |
+| **G12** | Exercise tier tagged | EXERCISE missing tier/level | Hard fail |
+| **G13** | Integration mode tagged | INTEGRATION missing mode assignment | Hard fail |
+| **G14** | Reframe type tagged | INTEGRATION missing reframe type | Hard fail |
+| **G15** | No teaching in STORY | STORY contains mechanism explanation | Hard fail |
+| **G16** | No advice in STORY | STORY contains prescriptive language | Hard fail |
+| **G17** | First 10 words unique | Variant collision within family | Hard fail |
+| **G18** | 6-gram uniqueness | >50% overlap with other variant | Hard fail |
+| **G19** | Body anchor present | Abstract language without grounding | Warn |
+| **G20** | Approval status valid | Atom in use but not approved | Hard fail |
+
+---
+
+## Chapter-Level Gates (G21-G45)
+
+| Gate | What It Checks | Fail Condition | Blocking? |
+|------|----------------|----------------|-----------|
+| **G21** | All slots filled | Empty slot in compiled plan | Hard fail |
+| **G22** | No duplicate atoms | Same atom used twice in chapter | Hard fail |
+| **G23** | Beat map valid | Invalid or missing beat map ID | Hard fail |
+| **G24** | Word count target | Outside format-specific range | Warn |
+| **G25** | Temperature tagged | Missing emotional_temperature | Hard fail |
+| **G26** | Engine rotation | Same engine 2× in chapter | Warn |
+| **G27** | Role diversity | All stories same role | Warn |
+| **G28** | Variant rotation | HOOK/SCENE same variant 2× | Warn |
+| **G29** | Exercise cadence | Wrong exercise tier for position | Warn |
+| **G30** | No resolution | Chapter ends with closure promise | Hard fail |
+| **G31** | Section transitions | Missing bridge when needed | Flag |
+| **G32** | Persona vocabulary | Contains wrong persona terms | Hard fail |
+| **G33** | Location overlay | Tokens unresolved | Hard fail |
+| **G34** | Mechanism consistency | Contradictory teachings | Flag |
+| **G35** | Interrupt presence | Interrupt chapters missing action | Hard fail |
+| **E01** | Escalation verbs (hot) | <3 in hot chapter | Hard fail |
+| **E02** | Sensory stress words (hot) | <2 in hot chapter | Warn |
+| **E03** | Action/reaction pairing | Action without reaction | Hard fail |
+| **E04** | Cognitive/body ratio | >5:1 fail, >3:1 warn | Hard/Warn |
+| **T01** | Question marks | >2 per chapter | Warn |
+| **T02** | Long sentences | >30% >18 words | Hard fail |
+| **T03** | Sentence distribution | No 3-word sentence or range <12 | Warn |
+| **T04** | Monotone paragraphs | 4+ paragraphs same rhythm | Warn |
+| **SA01** | Cliché density | >2 monitored phrases | Hard fail |
+| **VB01** | Persona cross-contamination | Wrong persona vocabulary | Hard fail |
+
+---
+
+## Book-Level Gates (G46-G65)
+
+| Gate | What It Checks | Fail Condition | Blocking? |
+|------|----------------|----------------|-----------|
+| **G46** | Chapter count | Outside format range | Hard fail |
+| **G47** | Total word count | Outside format range | Warn |
+| **G48** | Volatile chapter presence | No hot chapters in book | Hard fail |
+| **G49** | Interrupt present | Missing interrupt in applicable formats | Hard fail |
+| **G50** | FMT present | Full books missing Forward Momentum Trigger | Hard fail |
+| **D01** | Temperature progression | 3 consecutive same temp | Hard fail |
+| **D02** | Reassurance phrase (book) | Any phrase >60% chapters | Hard fail |
+| **D03** | Carry line uniqueness (book) | Duplicate carry lines in book | Hard fail |
+| **D04** | Metaphor family compliance | <50% coverage or >40% single chapter | Warn |
+| **G51** | Beat map diversity | <3 distinct maps in 8+ chapter book | Warn |
+| **G52** | Engine coverage | Missing required engines for topic | Hard fail |
+| **G53** | Integration mode diversity | <3 modes used | Warn |
+| **G54** | Reframe type diversity | <3 types used | Warn |
+| **G55** | Story character diversity | <3 named characters in standard book | Warn |
+| **G56** | Exercise tier progression | No progressive tiers | Warn |
+| **G57** | No duplicate sections | Same section body used 2× | Hard fail |
+| **G58** | Structural fingerprint V3 | Collision with existing book | Hard fail |
+| **G59** | Opening hook intensity | Wrong intensity for format tier | Warn |
+| **G60** | Stack momentum present | Adjacent opening missing | Warn |
+| **VB02** | Generic voice (human) | No persona markers | Flag |
+| **SA03** | Cliché grounding (human) | Phrase without grounding | Flag |
+| **G61** | Format policy compliance | Violates format-specific rules | Hard fail |
+| **G62** | K-table coverage | Insufficient pool depth | Hard fail |
+| **G63** | Duplication simulation | >15% overlap with catalog | Hard fail |
+| **G64** | Plan compiler determinism | Same seed produces different output | Hard fail |
+| **G65** | Audio duration target | Outside format duration range | Warn |
+
+---
+
+## Catalog-Level Gates (G66-G85)
+
+| Gate | What It Checks | Fail Condition | Blocking? |
+|------|----------------|----------------|-----------|
+| **M01** | Metaphor collision | Persona using another's terms | Hard fail |
+| **M02** | Metaphor consistency | <50% coverage in persona books | Warn |
+| **M03** | Metaphor overuse | >20 uses in single book | Warn |
+| **R02** | Reassurance frequency (stack) | Phrase in >40% of stack | Hard fail |
+| **R03** | Persona signature bleed | Cross-persona contamination | Flag |
+| **H01** | Hook structural fingerprint | >70% similarity | Hard fail |
+| **H02** | Hook variant rotation | All same variant in stack | Flag |
+| **CL01** | Carry line exact match | Duplicate in catalog | Hard fail |
+| **CL02** | Carry line similarity | >50% n-gram overlap | Flag |
+| **W01** | Waveform diversity | <3 shapes per 10 books | Warn |
+| **W02** | Flat waveform | Variance <1.5 | Warn |
+| **S01** | Structural similarity | >20% overlap in batch | Hard fail |
+| **S02** | Story-body overlap | >15% shared atoms in batch | Hard fail |
+| **SA02** | Cliché catalog frequency | Phrase in >30% of catalog | Warn |
+| **G66** | Release batch size | Outside 10-20 book range | Warn |
+| **G67** | Catalog entropy tracking | Declining diversity metrics | Flag |
+| **G68** | Topic coverage balance | Uneven topic distribution | Flag |
+| **G69** | Persona distribution | Uneven persona representation | Flag |
+| **G70** | Format distribution | Stack too heavily one format | Flag |
+| **G71** | Audio duration distribution | All books same length | Warn |
+| **G72** | Beat map entropy | <5 maps used across 20 books | Warn |
+| **G73** | Engine distribution | Underused engines | Flag |
+| **G74** | Voice consistency audit | Persona voice drift detected | Flag |
+| **G75** | Cultural diversity | Lacking diverse character pool | Flag |
+| **G76** | Location overlay coverage | Missing location-specific books | Flag |
+| **G77** | Age range coverage | Missing age-appropriate content | Flag |
+| **G78** | Trauma-informed audit | Unsafe language detected | Hard fail |
+| **G79** | Accessibility compliance | TTS-unfriendly prose | Warn |
+| **G80** | Copyright collision | Text similarity to published works | Hard fail |
+| **G81** | Brand consistency | Wrong brand voice in book | Hard fail |
+| **G82** | Pricing tier validation | Price doesn't match content tier | Flag |
+| **G83** | Release wave timing | Batch violates similarity protection | Hard fail |
+| **G84** | Platform export validation | Metadata incomplete for upload | Hard fail |
+| **G85** | QA campaign pass rate | <95% pass rate in batch | Hard fail |
+
+---
+
+## Summary by Blocking Severity
+
+| Severity | Count | When They Block |
+|----------|-------|-----------------|
+| **Hard Fail** | 58 | Immediately blocks atom/chapter/book/batch |
+| **Warn** | 19 | Flags for review, doesn't block unless stacked |
+| **Flag** | 8 | Human review required, blocking optional |
+
+**Total Gates: 85**
+
+---
+
+## Gate Failure Protocol
+
+**Atom fails → quarantine → cannot be selected**  
+**Chapter fails → assembly blocked → book cannot compile**  
+**Book fails → export blocked → cannot generate audio**  
+**Catalog fails → release frozen → batch cannot ship**
+
+**Override authority:** Release manager only, with written justification.
+
+**No override allowed for:** Forbidden content (G04), resolution language (G30), trauma-unsafe language (G78), copyright collision (G80).
+
+---
+
+```
+
+---
+
+# **UPDATE TO README.md**
+
+Add these lines to the existing README:
+
+```markdown
+## Recent Additions (Section 16 & Part 6)
+
+**Section 16** (Writer Spec) — Emotional QA & Drift Governance  
+- Phase 3 emotional force validation (escalation verbs, sensory stress, cognitive/body ratio)
+- TTS rhythm governance (question marks, sentence length, distribution)
+- Book-level drift detection (temperature progression, reassurance caps)
+- Catalog-level drift protection (structural similarity, waveform diversity)
+- Self-help cliché detection and authenticity scoring
+- Voice bleed prevention across personas
+
+**Part 6** (Canonical Spec) — Catalog-Level QA & Drift Control  
+- Metaphor registry (persona ownership, collision detection)
+- Reassurance phrase frequency caps (book and catalog level)
+- Hook diversity enforcement (structural fingerprinting)
+- Carry line uniqueness (exact match and n-gram similarity)
+- Emotional waveform entropy (curve diversity across catalog)
+- Structural similarity limits (batch-level overlap detection)
+
+**Appendix A** (Canonical Spec) — Complete Gate Registry  
+- All 85 CI gates documented with thresholds and blocking behavior
+- Organized by scope: atom (G01-G20), chapter (G21-G45), book (G46-G65), catalog (G66-G85)
+- Includes emotional QA gates (E01-E04), TTS rhythm gates (T01-T04), drift gates (D01-D04), authenticity gates (SA01-SA03), voice gates (VB01-VB02), and catalog gates (M01-M03, R02-R03, H01-H02, CL01-CL02, W01-W02, S01-S02)
+
+Machine-readable rules: `phoenix_v4/qa/emotional_governance_rules.yaml`
+```
+
+---
+
+## **All 4 sections are ready to paste**
+
+1. **Section 16** → paste at end of PHOENIX_V4_5_WRITER_SPEC.md
+2. **Part 6** → paste at end of PHOENIX_V4_CANONICAL_SPEC.md (before appendices)
+3. **Appendix A** → paste at end of PHOENIX_V4_CANONICAL_SPEC.md (after Part 6)
+4. **README updates** → paste into existing README.md under "Recent Additions"
+
+Your V4.5 specs are now **complete and production-ready**.

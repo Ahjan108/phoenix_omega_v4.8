@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Liberation Laughter</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Rubik',sans-serif;background:#12001a;color:#f5d0fe;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.1rem;padding:1.5rem;width:100%;max-width:440px}
+h1{font-size:2rem;font-weight:700;background:linear-gradient(135deg,#e879f9,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sub{font-size:.68rem;color:#a21caf;letter-spacing:.2em;text-transform:uppercase;margin-top:-.4rem}
+canvas{display:block;width:220px;height:220px}
+.energy{width:100%;display:flex;align-items:center;gap:.5rem}
+.el{font-size:.6rem;color:#a21caf;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.eb{flex:1;height:10px;background:rgba(255,255,255,.04);border-radius:5px;overflow:hidden}
+.ef{height:100%;width:5%;background:linear-gradient(90deg,#d946ef,#f97316);border-radius:5px;transition:width .4s}
+.ph{font-size:1.1rem;font-weight:700;letter-spacing:.08em;transition:color .2s}
+.ct{font-size:2.5rem;font-weight:300}
+.cy{font-size:.68rem;color:#a21caf;letter-spacing:.12em}
+.ctrls{display:flex;gap:1rem}
+.btn{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.6rem;border:1px solid rgba(217,70,239,.25);border-radius:100px;background:rgba(217,70,239,.06);color:#f5d0fe;cursor:pointer;transition:all .25s}
+.btn:hover{background:rgba(217,70,239,.12)}
+.btn.pri{border-color:rgba(217,70,239,.45);background:rgba(217,70,239,.1)}
+.btn-s{padding:.4rem .9rem;font-size:.68rem}
+.done{display:none;flex-direction:column;align-items:center;gap:1.2rem;text-align:center;animation:fu .8s}
+.done.show{display:flex}.main.off{display:none}
+.done h2{font-size:1.5rem;font-weight:700;background:linear-gradient(135deg,#e879f9,#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.done p{color:#a21caf;font-size:.82rem;line-height:1.7;max-width:340px}
+@keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.snd{position:fixed;top:1rem;right:1rem;z-index:10;width:34px;height:34px;border-radius:50%;border:1px solid rgba(217,70,239,.2);background:rgba(217,70,239,.05);color:#a21caf;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+</style></head><body>
+<button class="snd" id="sndBtn">🔔</button>
+<div class="wrap">
+<h1>Liberation Laughter</h1>
+<div class="sub">Joyful Release · 2.5 Minutes</div>
+<div class="main" id="mainV">
+<canvas id="cv" width="440" height="440"></canvas>
+<div class="energy"><div class="el">Energy</div><div class="eb"><div class="ef" id="ef"></div></div><div class="el">🎉</div></div>
+<div style="text-align:center"><div class="ph" id="ph">Ready</div><div class="ct" id="ct">2:30</div><div class="cy" id="cy"></div></div>
+<div class="ctrls"><button class="btn pri" id="goBtn">Let Go!</button><button class="btn btn-s" id="rstBtn" style="display:none">Reset</button></div>
+</div>
+<div class="done" id="doneV">
+<h2>Liberation Complete!</h2>
+<p>2.5 minutes of rapid laughter breathing. Fast 1:1 rhythm paired with vocal release breaks through emotional holding patterns. Your body just flushed stress hormones and replaced them with endorphins.</p>
+<p style="opacity:.6;font-style:italic">Freedom feels like this.</p>
+<button class="btn pri" id="agBtn">Again!</button>
+</div></div>
+<script>
+const DUR=150;let bpm=120;
+class Aud{constructor(){this.c=null;this.on=true}init(){if(!this.c)this.c=new(window.AudioContext||window.webkitAudioContext)()}p(){if(!this.on||!this.c)return;const o=this.c.createOscillator(),g=this.c.createGain();o.type='square';o.frequency.value=280+Math.random()*40;g.gain.setValueAtTime(.04,this.c.currentTime);g.gain.linearRampToValueAtTime(0,this.c.currentTime+.05);o.connect(g);g.connect(this.c.destination);o.start();o.stop(this.c.currentTime+.06)}toggle(){this.on=!this.on;return this.on}}
+const au=new Aud();const cv=document.getElementById('cv'),c=cv.getContext('2d'),W=cv.width,H=cv.height,CX=W/2,CY=H/2;
+const emojis=['😂','🤣','😆','😁','🎉','✨','💫','🌟'];
+let particles=[];
+function spawnP(){particles.push({x:CX+Math.random()*100-50,y:CY,vx:Math.random()*4-2,vy:-2-Math.random()*3,life:1,emoji:emojis[Math.floor(Math.random()*emojis.length)]})}
+function drawScene(int){c.clearRect(0,0,W,H);const t=Date.now()/1e3;
+const r=50+int*40+Math.sin(t*6)*10;const gr=c.createRadialGradient(CX,CY,0,CX,CY,r);gr.addColorStop(0,`rgba(217,70,239,${.2+int*.2})`);gr.addColorStop(.5,`rgba(249,115,22,${.1+int*.1})`);gr.addColorStop(1,'transparent');c.beginPath();c.arc(CX,CY,r,0,Math.PI*2);c.fillStyle=gr;c.fill();
+particles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.03;p.life-=.012;c.font=`${16+int*8}px sans-serif`;c.globalAlpha=Math.max(0,p.life);c.fillText(p.emoji,p.x,p.y);c.globalAlpha=1});
+particles=particles.filter(p=>p.life>0)}
+let state='idle',sS=0,pa=false,pO=0,pT2=0,tb=0;
+const ph=document.getElementById('ph'),ct2=document.getElementById('ct'),cy=document.getElementById('cy'),ef=document.getElementById('ef');
+const goBtn=document.getElementById('goBtn'),rstBtn=document.getElementById('rstBtn'),mainV=document.getElementById('mainV'),doneV=document.getElementById('doneV');
+function fmt(s){const m=Math.floor(s/60),sec=Math.floor(s%60);return m+':'+(sec<10?'0':'')+sec}
+function start(){au.init();state='active';sS=performance.now();pa=false;pO=0;tb=0;particles=[];goBtn.textContent='Pause';goBtn.classList.remove('pri');rstBtn.style.display='inline-block';doneV.classList.remove('show');mainV.classList.remove('off');tick()}
+function tick(){if(state!=='active'||pa)return;const now=performance.now(),el=(now-sS-pO)/1e3,rem=Math.max(0,DUR-el),int=Math.min(1,el/DUR);
+const bi=60/bpm,cb=Math.floor(el/bi);if(cb>tb){tb=cb;au.p();if(Math.random()>.5)spawnP()}
+bpm=120+el/DUR*60;// Accelerate
+ph.textContent=el%bi<bi*.4?'HA!':'  ';ph.style.color=el%bi<bi*.4?'#e879f9':'#a21caf';
+ct2.textContent=fmt(rem);cy.textContent=Math.floor(int*100)+'% release';ef.style.width=int*100+'%';
+drawScene(int);if(el>=DUR){finish();return}requestAnimationFrame(tick)}
+function finish(){state='done';ef.style.width='100%';mainV.classList.add('off');doneV.classList.add('show')}
+function reset(){state='idle';pa=false;pO=0;tb=0;particles=[];bpm=120;goBtn.textContent='Let Go!';goBtn.classList.add('pri');rstBtn.style.display='none';ph.textContent='Ready';ct2.textContent='2:30';cy.textContent='';ef.style.width='5%';c.clearRect(0,0,W,H);doneV.classList.remove('show');mainV.classList.remove('off')}
+function toggleP(){if(!pa){pa=true;pT2=performance.now();goBtn.textContent='Resume';goBtn.classList.add('pri')}else{pO+=performance.now()-pT2;pa=false;goBtn.textContent='Pause';goBtn.classList.remove('pri');tick()}}
+goBtn.onclick=()=>{if(state==='idle')start();else if(state==='active')toggleP()};rstBtn.onclick=reset;document.getElementById('agBtn').onclick=()=>{reset();start()};
+document.getElementById('sndBtn').onclick=()=>{au.init();document.getElementById('sndBtn').textContent=au.toggle()?'🔔':'🔇'};
+</script></body></html>

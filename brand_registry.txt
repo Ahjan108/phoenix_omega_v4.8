@@ -1,0 +1,1668 @@
+# REVISED BRAND ARCHETYPE REGISTRY v1.2
+
+## 24 Brands → 1,008 Books → Revenue-Complete
+
+### What Changed from v1.1
+
+| Change | Rationale |
+|--------|-----------|
+| Moved `breathwork_lab` → Nervous System cluster | Buyers come from anxiety/stress, not longevity |
+| Cut `bioelectric_body` | Too niche for audiobook format; biohacker audience buys devices, not listens |
+| Merged `purpose_after_burnout` into `identity_rebuild` | Indistinguishable to buyer on Google Play |
+| Merged `shadow_integration` into `creative_reclaiming` | Overlap risk in discovery; both promise depth work |
+| Reframed longevity block around felt experience | "How your body feels" > "here's the science" |
+| Added `relational_healing` | Massive gap — no relationship/boundaries brand in v1.1 |
+| Added `gen_z_grounding` | 18–24 is highest-growth audiobook segment, zero representation in v1.1 |
+| Added `contemplative_wisdom` | Authentic to SpiritualTech mission; secular wisdom tradition market is underserved |
+
+**Result:** 24 brands, zero overlap, full market coverage, stronger commercial positioning.
+
+---
+
+## CLUSTER A: NERVOUS SYSTEM / WELLNESS (9 brands)
+
+### Brand 01 — `stabilizer`
+
+```yaml
+brand_id: stabilizer
+admin_id: 01
+
+gtm_identity:
+  persona: burned_out_professional
+  age_range: [28, 45]
+  primary_moment: evening_wind_down
+  emotional_job: "feel safe enough to stop spiraling"
+  functional_job: "regulate nervous system after work"
+  discovery_hook: "Your nervous system isn't broken. It's stuck in survival mode."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["nervous system regulation", "burnout recovery audiobook"]
+    secondary: ["polyvagal theory", "autonomic nervous system calm"]
+    long_tail: ["how to calm down after stressful day", "nervous system reset before bed"]
+
+structural_signature:
+  avg_chapters: [4, 6]
+  intro_probability: 0.7
+  outro_probability: 0.9
+  somatic_slot_probability: 0.8
+
+duration_strategy:
+  micro_sessions: 0.55    # 15-30 min — commute/wind-down
+  deep_dives: 0.35        # 3-6 hrs — weekend deep work
+  mid_form: 0.10          # 45-90 min — limited
+
+emotional_vocabulary:
+  high_frequency: [calm, grounded, safety, regulation, settle, ease]
+  controlled_use:
+    reset: { per_brand_max: 2 }
+    healing: { per_brand_max: 3 }
+  banned: [cure, fix, broken, instant]
+
+voice_identity:
+  lead_voice:
+    profile: f_us_31_45_warm
+    description: "Warm, unhurried female, 35-42. Like a therapist who actually listens. Low pitch, clear diction, natural pauses."
+    usage_target: 0.40
+  support_voices:
+    - profile: f_us_18_30_gentle
+      description: "Younger female, soft-spoken. For guided practices and body scans."
+      usage_target: 0.35
+    - profile: m_uk_35_50_steady
+      description: "British male, calm authority. For science-backed chapters."
+      usage_target: 0.25
+
+cover_art_identity:
+  style: minimalist_gradient
+  palette: [muted_blue, warm_sand, soft_white]
+  typography: large_serif_lowercase
+  mood: "quiet confidence — like a deep exhale"
+
+pricing_posture:
+  micro_sessions: [3.99, 5.99]
+  mid_form: [9.99, 12.99]
+  deep_dives: [17.99, 24.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+### Brand 02 — `somatic_reset`
+
+```yaml
+brand_id: somatic_reset
+admin_id: 02
+
+gtm_identity:
+  persona: trauma_aware_healer
+  age_range: [25, 50]
+  primary_moment: morning_practice
+  emotional_job: "reconnect with my body without being overwhelmed"
+  functional_job: "process stored tension through guided somatic exercises"
+  discovery_hook: "Your body kept the score. Now it's time to rewrite it."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["somatic healing audiobook", "trauma release exercises"]
+    secondary: ["body-based therapy", "felt sense", "somatic experiencing"]
+    long_tail: ["how to release tension stored in body", "somatic exercises for beginners"]
+
+structural_signature:
+  avg_chapters: [5, 8]
+  intro_probability: 0.8
+  outro_probability: 0.7
+  somatic_slot_probability: 0.95
+
+duration_strategy:
+  micro_sessions: 0.50
+  deep_dives: 0.40
+  mid_form: 0.10
+
+emotional_vocabulary:
+  high_frequency: [embodied, release, awareness, sensation, presence, felt_sense]
+  controlled_use:
+    trauma: { per_brand_max: 4 }
+    healing: { per_brand_max: 5 }
+  banned: [cure, fix, diagnosis, treatment]
+
+voice_identity:
+  lead_voice:
+    profile: f_us_35_50_grounded
+    description: "Mature female, embodied tone. Speaks slowly. Room to breathe between sentences."
+    usage_target: 0.45
+  support_voices:
+    - profile: m_us_30_40_warm
+      description: "Male, warm baritone. For body awareness narration."
+      usage_target: 0.30
+    - profile: f_uk_25_35_clear
+      description: "British female, precise but kind. For instructional chapters."
+      usage_target: 0.25
+
+cover_art_identity:
+  style: organic_abstract
+  palette: [terracotta, sage_green, cream]
+  typography: hand_drawn_serif
+  mood: "earth and skin — grounded, alive"
+
+pricing_posture:
+  micro_sessions: [3.99, 5.99]
+  mid_form: [9.99, 14.99]
+  deep_dives: [19.99, 27.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+### Brand 03 — `sleep_repair`
+
+```yaml
+brand_id: sleep_repair
+admin_id: 03
+
+gtm_identity:
+  persona: anxious_insomniac
+  age_range: [22, 55]
+  primary_moment: bedtime_struggle
+  emotional_job: "stop dreading the night"
+  functional_job: "fall asleep without medication or screens"
+  discovery_hook: "You don't need to try harder to sleep. You need to stop trying."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["sleep audiobook", "insomnia help audio"]
+    secondary: ["circadian rhythm", "sleep anxiety", "night anxiety relief"]
+    long_tail: ["audiobook to fall asleep to", "how to stop racing thoughts at night"]
+
+structural_signature:
+  avg_chapters: [3, 5]
+  intro_probability: 0.5
+  outro_probability: 0.3     # many end in guided fade-out
+  somatic_slot_probability: 0.6
+
+duration_strategy:
+  micro_sessions: 0.65       # sleep content skews short
+  deep_dives: 0.20
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [rest, drift, settle, quiet, release, permission]
+  controlled_use:
+    sleep: { per_brand_max: 6 }
+  banned: [insomnia_cure, knockout, instant_sleep]
+
+voice_identity:
+  lead_voice:
+    profile: f_us_30_45_velvet
+    description: "Low, velvety female. Slightly slower than conversational. The voice you'd trust in the dark."
+    usage_target: 0.50
+  support_voices:
+    - profile: m_us_35_50_deep
+      description: "Deep male, almost whispered authority. For sleep science chapters."
+      usage_target: 0.30
+    - profile: f_uk_25_35_soft
+      description: "British female, ASMR-adjacent clarity. For guided wind-downs."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: dark_gradient
+  palette: [deep_navy, midnight_purple, soft_gold_accent]
+  typography: thin_sans_serif
+  mood: "the last light before sleep"
+
+pricing_posture:
+  micro_sessions: [2.99, 4.99]
+  mid_form: [7.99, 11.99]
+  deep_dives: [14.99, 19.99]
+  series_bundle_discount: 0.25
+```
+
+---
+
+### Brand 04 — `panic_first_aid`
+
+```yaml
+brand_id: panic_first_aid
+admin_id: 04
+
+gtm_identity:
+  persona: acute_anxiety_sufferer
+  age_range: [18, 45]
+  primary_moment: crisis_moment
+  emotional_job: "survive this panic attack right now"
+  functional_job: "access grounding techniques in under 5 minutes"
+  discovery_hook: "You're not dying. You're dysregulated. Here's what to do in the next 90 seconds."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["panic attack help", "anxiety emergency audiobook"]
+    secondary: ["grounding techniques audio", "stop panic attack fast"]
+    long_tail: ["what to do during panic attack", "breathing exercise panic attack"]
+
+structural_signature:
+  avg_chapters: [3, 5]
+  intro_probability: 0.3     # crisis content — skip preamble
+  outro_probability: 0.5
+  somatic_slot_probability: 0.9
+
+duration_strategy:
+  micro_sessions: 0.75       # crisis = ultra-short
+  deep_dives: 0.10
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [breathe, ground, here, now, safe, slow]
+  controlled_use:
+    panic: { per_brand_max: 3 }
+    emergency: { per_brand_max: 1 }
+  banned: [cure, disorder, diagnosis, medication]
+
+voice_identity:
+  lead_voice:
+    profile: f_us_28_38_steady
+    description: "Clear, steady female. Not too soft — authoritative enough to cut through panic. Like a paramedic who's also kind."
+    usage_target: 0.50
+  support_voices:
+    - profile: m_us_25_35_calm
+      description: "Young male, calm and direct. For breathing walkthroughs."
+      usage_target: 0.30
+    - profile: f_us_20_28_warm
+      description: "Younger female, peer-like warmth. For 'you're not alone' content."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: bold_minimal
+  palette: [white, single_accent_teal, black_text]
+  typography: large_bold_sans
+  mood: "emergency clarity — clean, immediate, trustworthy"
+
+pricing_posture:
+  micro_sessions: [1.99, 3.99]
+  mid_form: [6.99, 9.99]
+  deep_dives: [12.99, 17.99]
+  series_bundle_discount: 0.15
+```
+
+---
+
+### Brand 05 — `emotional_resilience`
+
+```yaml
+brand_id: emotional_resilience
+admin_id: 05
+
+gtm_identity:
+  persona: growth_minded_professional
+  age_range: [25, 50]
+  primary_moment: commute_reflection
+  emotional_job: "stop being derailed by every emotional trigger"
+  functional_job: "build stress tolerance and emotional flexibility"
+  discovery_hook: "Resilience isn't about toughening up. It's about widening your window."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["emotional resilience audiobook", "stress tolerance training"]
+    secondary: ["window of tolerance", "emotional regulation skills"]
+    long_tail: ["how to stop being so reactive", "emotional resilience for work"]
+
+structural_signature:
+  avg_chapters: [5, 8]
+  intro_probability: 0.7
+  outro_probability: 0.8
+  somatic_slot_probability: 0.5
+
+duration_strategy:
+  micro_sessions: 0.40
+  deep_dives: 0.45
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [resilience, flexibility, capacity, bounce, adapt, expand]
+  controlled_use:
+    stress: { per_brand_max: 4 }
+    tough: { per_brand_max: 1 }
+  banned: [unbreakable, bulletproof, superhuman]
+
+voice_identity:
+  lead_voice:
+    profile: f_us_35_45_confident
+    description: "Confident female, mid-range pitch. Sounds like a mentor who's been through it."
+    usage_target: 0.40
+  support_voices:
+    - profile: m_us_35_50_authoritative
+      description: "Male, warm authority. For framework/science chapters."
+      usage_target: 0.35
+    - profile: f_us_25_35_energetic
+      description: "Younger female, upbeat clarity. For exercises and action steps."
+      usage_target: 0.25
+
+cover_art_identity:
+  style: geometric_warm
+  palette: [amber, deep_teal, off_white]
+  typography: modern_serif_bold
+  mood: "strength that bends — warm geometry"
+
+pricing_posture:
+  micro_sessions: [4.99, 6.99]
+  mid_form: [11.99, 14.99]
+  deep_dives: [19.99, 26.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+### Brand 06 — `grief_companion`
+
+```yaml
+brand_id: grief_companion
+admin_id: 06
+
+gtm_identity:
+  persona: bereaved_adult
+  age_range: [25, 65]
+  primary_moment: alone_at_night
+  emotional_job: "feel less alone in the unbearable"
+  functional_job: "navigate grief without being told to 'move on'"
+  discovery_hook: "Grief doesn't need to be fixed. It needs a witness."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["grief audiobook", "loss and healing audio"]
+    secondary: ["grief support", "coping with death", "life after loss"]
+    long_tail: ["audiobook for someone grieving", "how to survive grief"]
+
+structural_signature:
+  avg_chapters: [4, 7]
+  intro_probability: 0.8
+  outro_probability: 0.9
+  somatic_slot_probability: 0.4
+
+duration_strategy:
+  micro_sessions: 0.45
+  deep_dives: 0.40
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [witness, carry, honor, tender, companion, remember]
+  controlled_use:
+    loss: { per_brand_max: 5 }
+    death: { per_brand_max: 2 }
+  banned: [closure, get_over, move_on, stages]
+
+voice_identity:
+  lead_voice:
+    profile: f_us_40_55_tender
+    description: "Mature female, unhurried, deeply warm. The voice of someone who has survived loss and come through."
+    usage_target: 0.50
+  support_voices:
+    - profile: m_uk_40_55_gentle
+      description: "British male, quiet authority. For reflective chapters."
+      usage_target: 0.30
+    - profile: f_us_30_40_honest
+      description: "Mid-range female, direct but compassionate. For practical guidance."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: soft_photographic
+  palette: [muted_lavender, stone_gray, warm_white]
+  typography: elegant_serif
+  mood: "a hand on the shoulder — dignified, quiet, present"
+
+pricing_posture:
+  micro_sessions: [3.99, 5.99]
+  mid_form: [9.99, 14.99]
+  deep_dives: [17.99, 24.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+### Brand 07 — `gentle_recovery`
+
+```yaml
+brand_id: gentle_recovery
+admin_id: 07
+
+gtm_identity:
+  persona: chronically_fatigued
+  age_range: [25, 60]
+  primary_moment: low_energy_afternoon
+  emotional_job: "stop feeling guilty about resting"
+  functional_job: "build energy without pushing through"
+  discovery_hook: "Recovery isn't laziness. It's the hardest work you'll ever do lying down."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["chronic fatigue audiobook", "gentle recovery audio"]
+    secondary: ["pacing chronic illness", "energy management", "spoon theory"]
+    long_tail: ["audiobook for chronic fatigue", "how to rest without guilt"]
+
+structural_signature:
+  avg_chapters: [3, 5]
+  intro_probability: 0.6
+  outro_probability: 0.7
+  somatic_slot_probability: 0.5
+
+duration_strategy:
+  micro_sessions: 0.70       # fatigue audience needs short
+  deep_dives: 0.15
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [gentle, pace, enough, permission, rest, slow]
+  controlled_use:
+    recovery: { per_brand_max: 4 }
+    energy: { per_brand_max: 3 }
+  banned: [push_through, hustle, grind, no_excuses]
+
+voice_identity:
+  lead_voice:
+    profile: f_us_30_45_soft
+    description: "Gentle female, never rushed. Speaks at 0.9x natural conversational pace. Like a nurse who understands."
+    usage_target: 0.50
+  support_voices:
+    - profile: m_us_35_45_quiet
+      description: "Male, low volume energy. For science-of-rest chapters."
+      usage_target: 0.25
+    - profile: f_uk_30_40_kind
+      description: "British female, kind precision. For pacing guides."
+      usage_target: 0.25
+
+cover_art_identity:
+  style: watercolor_minimal
+  palette: [soft_peach, cloud_gray, pale_green]
+  typography: rounded_sans
+  mood: "permission to rest — watercolor softness"
+
+pricing_posture:
+  micro_sessions: [2.99, 4.99]
+  mid_form: [7.99, 11.99]
+  deep_dives: [14.99, 19.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+### Brand 08 — `inner_security`
+
+```yaml
+brand_id: inner_security
+admin_id: 08
+
+gtm_identity:
+  persona: anxious_attacher
+  age_range: [22, 45]
+  primary_moment: after_conflict
+  emotional_job: "feel safe inside myself instead of needing external validation"
+  functional_job: "build secure attachment patterns"
+  discovery_hook: "You learned to survive by scanning for danger. Now you can learn to rest."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["attachment style audiobook", "emotional safety audio"]
+    secondary: ["anxious attachment healing", "earned secure attachment"]
+    long_tail: ["how to feel safe in relationships", "attachment theory self help"]
+
+structural_signature:
+  avg_chapters: [5, 7]
+  intro_probability: 0.7
+  outro_probability: 0.8
+  somatic_slot_probability: 0.6
+
+duration_strategy:
+  micro_sessions: 0.40
+  deep_dives: 0.45
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [secure, trust, anchor, steady, belonging, home]
+  controlled_use:
+    attachment: { per_brand_max: 5 }
+    abandonment: { per_brand_max: 2 }
+  banned: [codependent, needy, clingy, damaged]
+
+voice_identity:
+  lead_voice:
+    profile: f_us_32_42_secure
+    description: "Warm, steady female. Sounds like earned security — been through insecurity and found solid ground."
+    usage_target: 0.45
+  support_voices:
+    - profile: m_us_30_45_reassuring
+      description: "Male, reassuring baritone. For attachment science chapters."
+      usage_target: 0.30
+    - profile: f_us_25_32_relatable
+      description: "Younger female, peer-like. For 'I've been there' narratives."
+      usage_target: 0.25
+
+cover_art_identity:
+  style: concentric_circles
+  palette: [warm_gold, soft_navy, ivory]
+  typography: clean_serif
+  mood: "a center that holds — concentric warmth"
+
+pricing_posture:
+  micro_sessions: [4.99, 6.99]
+  mid_form: [11.99, 14.99]
+  deep_dives: [19.99, 26.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+### Brand 09 — `breathwork_lab`
+
+```yaml
+brand_id: breathwork_lab
+admin_id: 09
+
+gtm_identity:
+  persona: stress_aware_professional
+  age_range: [22, 50]
+  primary_moment: pre_meeting_or_morning
+  emotional_job: "feel in control of my nervous system through my breath"
+  functional_job: "learn and practice breathwork protocols"
+  discovery_hook: "The fastest drug you'll ever take is already in your lungs."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["breathwork audiobook", "breathing exercises audio"]
+    secondary: ["vagal tone breathing", "box breathing guide", "CO2 tolerance"]
+    long_tail: ["guided breathing for anxiety", "breathwork for beginners audiobook"]
+
+structural_signature:
+  avg_chapters: [3, 6]
+  intro_probability: 0.5
+  outro_probability: 0.6
+  somatic_slot_probability: 0.95
+
+duration_strategy:
+  micro_sessions: 0.65       # breathwork = practice-heavy, short
+  deep_dives: 0.20
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [breath, rhythm, expand, capacity, tone, regulate]
+  controlled_use:
+    reset: { per_brand_max: 2 }
+    hack: { per_brand_max: 0 }
+  banned: [hyperventilate, extreme, dangerous]
+
+voice_identity:
+  lead_voice:
+    profile: m_us_30_42_measured
+    description: "Male, measured pace, clear timing cues. Like a breathing coach who counts with you."
+    usage_target: 0.45
+  support_voices:
+    - profile: f_us_28_38_rhythmic
+      description: "Female, rhythmic delivery. For guided practice sessions."
+      usage_target: 0.35
+    - profile: m_uk_35_45_scientific
+      description: "British male, precise. For respiratory science chapters."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: wave_pattern
+  palette: [ocean_blue, clean_white, silver]
+  typography: modern_sans_light
+  mood: "rhythm made visible — waves and breath"
+
+pricing_posture:
+  micro_sessions: [2.99, 4.99]
+  mid_form: [7.99, 11.99]
+  deep_dives: [14.99, 21.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+## CLUSTER B: PRODUCTIVITY / ADHD / FOCUS (6 brands)
+
+### Brand 10 — `focus_forge`
+
+```yaml
+brand_id: focus_forge
+admin_id: 10
+
+gtm_identity:
+  persona: distracted_knowledge_worker
+  age_range: [25, 45]
+  primary_moment: start_of_work_block
+  emotional_job: "stop feeling scattered and start feeling sharp"
+  functional_job: "train sustained attention and deep work capacity"
+  discovery_hook: "Focus isn't a personality trait. It's a skill you've stopped practicing."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["focus training audiobook", "deep work audio guide"]
+    secondary: ["attention training", "concentration techniques"]
+    long_tail: ["how to focus better at work audiobook", "deep work for beginners"]
+
+structural_signature:
+  avg_chapters: [5, 8]
+  intro_probability: 0.6
+  outro_probability: 0.7
+  somatic_slot_probability: 0.3
+
+duration_strategy:
+  micro_sessions: 0.45
+  deep_dives: 0.40
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [sharp, clear, lock_in, depth, flow, precision]
+  controlled_use:
+    focus: { per_brand_max: 5 }
+    hack: { per_brand_max: 1 }
+  banned: [limitless, genius, 10x, superhuman]
+
+voice_identity:
+  lead_voice:
+    profile: m_us_30_40_direct
+    description: "Male, direct and clean. Zero filler words. Respects the listener's time."
+    usage_target: 0.45
+  support_voices:
+    - profile: f_us_28_38_crisp
+      description: "Female, crisp delivery. For technique walkthroughs."
+      usage_target: 0.35
+    - profile: m_uk_30_40_precise
+      description: "British male, precise. For research/evidence chapters."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: sharp_geometric
+  palette: [steel_blue, charcoal, white]
+  typography: condensed_bold_sans
+  mood: "the moment before flow state — sharp, clean, ready"
+
+pricing_posture:
+  micro_sessions: [4.99, 6.99]
+  mid_form: [11.99, 14.99]
+  deep_dives: [19.99, 26.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+### Brand 11 — `adhd_anchor`
+
+```yaml
+brand_id: adhd_anchor
+admin_id: 11
+
+gtm_identity:
+  persona: adhd_adult
+  age_range: [18, 40]
+  primary_moment: task_initiation_struggle
+  emotional_job: "feel like my brain isn't broken"
+  functional_job: "build ADHD-friendly systems that actually stick"
+  discovery_hook: "Your brain isn't broken. It's running a different operating system."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["ADHD audiobook", "ADHD self help audio"]
+    secondary: ["ADHD productivity", "executive function help"]
+    long_tail: ["audiobook for ADHD adults", "how to be productive with ADHD"]
+
+structural_signature:
+  avg_chapters: [4, 6]       # shorter chapters for ADHD audience
+  intro_probability: 0.4     # get to the point fast
+  outro_probability: 0.5
+  somatic_slot_probability: 0.4
+
+duration_strategy:
+  micro_sessions: 0.60       # ADHD audience needs shorter content
+  deep_dives: 0.20
+  mid_form: 0.20
+
+emotional_vocabulary:
+  high_frequency: [anchor, system, friction, momentum, start, structure]
+  controlled_use:
+    ADHD: { per_brand_max: 4 }
+    disorder: { per_brand_max: 0 }
+  banned: [lazy, undisciplined, just_try_harder, normal]
+
+voice_identity:
+  lead_voice:
+    profile: m_us_25_35_energetic
+    description: "Young male, slightly fast natural pace, high clarity. Sounds like someone with ADHD who figured it out."
+    usage_target: 0.45
+  support_voices:
+    - profile: f_us_25_35_dynamic
+      description: "Female, dynamic range, keeps attention. For technique chapters."
+      usage_target: 0.35
+    - profile: m_us_30_40_structured
+      description: "Male, structured delivery. For system-building chapters."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: playful_structure
+  palette: [electric_orange, dark_gray, bright_white]
+  typography: rounded_bold_sans
+  mood: "organized chaos — playful but grounded"
+
+pricing_posture:
+  micro_sessions: [3.99, 5.99]
+  mid_form: [9.99, 13.99]
+  deep_dives: [17.99, 23.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+### Brand 12 — `dopamine_balance`
+
+```yaml
+brand_id: dopamine_balance
+admin_id: 12
+
+gtm_identity:
+  persona: screen_addicted_achiever
+  age_range: [18, 40]
+  primary_moment: post_scroll_shame
+  emotional_job: "break the cycle of stimulation and emptiness"
+  functional_job: "recalibrate dopamine system and reduce phone dependence"
+  discovery_hook: "You're not lazy. You're overstimulated."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["dopamine detox audiobook", "phone addiction help"]
+    secondary: ["dopamine management", "digital minimalism audio"]
+    long_tail: ["how to stop scrolling audiobook", "dopamine reset guide"]
+
+structural_signature:
+  avg_chapters: [5, 7]
+  intro_probability: 0.6
+  outro_probability: 0.7
+  somatic_slot_probability: 0.4
+
+duration_strategy:
+  micro_sessions: 0.55
+  deep_dives: 0.30
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [balance, recalibrate, boredom, stillness, reward, natural]
+  controlled_use:
+    addiction: { per_brand_max: 2 }
+    detox: { per_brand_max: 2 }
+  banned: [willpower, weakness, cold_turkey]
+
+voice_identity:
+  lead_voice:
+    profile: m_us_25_35_honest
+    description: "Young male, conversational and honest. Sounds like a friend who quit social media and isn't preachy about it."
+    usage_target: 0.45
+  support_voices:
+    - profile: f_us_22_32_sharp
+      description: "Young female, sharp and witty. For cultural commentary chapters."
+      usage_target: 0.35
+    - profile: m_us_35_45_neuroscience
+      description: "Male, authoritative. For brain science chapters."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: contrast_split
+  palette: [neon_pink_to_matte_gray_gradient]
+  typography: bold_sans_split_color
+  mood: "the moment between overstimulation and calm"
+
+pricing_posture:
+  micro_sessions: [3.99, 5.99]
+  mid_form: [9.99, 13.99]
+  deep_dives: [17.99, 24.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+### Brand 13 — `habit_builder`
+
+```yaml
+brand_id: habit_builder
+admin_id: 13
+
+gtm_identity:
+  persona: aspiring_self_improver
+  age_range: [22, 45]
+  primary_moment: new_year_or_monday_energy
+  emotional_job: "finally become the person who follows through"
+  functional_job: "build identity-based habits using low-friction systems"
+  discovery_hook: "You don't rise to the level of your goals. You fall to the level of your systems."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["habit building audiobook", "atomic habits alternative"]
+    secondary: ["daily routine optimization", "identity-based habits"]
+    long_tail: ["how to build habits that stick audiobook", "habit stacking guide"]
+
+structural_signature:
+  avg_chapters: [6, 9]
+  intro_probability: 0.7
+  outro_probability: 0.8
+  somatic_slot_probability: 0.2
+
+duration_strategy:
+  micro_sessions: 0.35
+  deep_dives: 0.50
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [system, identity, small, compound, stack, automatic]
+  controlled_use:
+    discipline: { per_brand_max: 2 }
+    routine: { per_brand_max: 4 }
+  banned: [grind, hustle, no_days_off, beast_mode]
+
+voice_identity:
+  lead_voice:
+    profile: m_us_30_42_coach
+    description: "Male, coaching energy without hype. Motivating but grounded."
+    usage_target: 0.45
+  support_voices:
+    - profile: f_us_28_38_practical
+      description: "Female, practical and clear. For step-by-step implementation."
+      usage_target: 0.35
+    - profile: m_us_35_45_research
+      description: "Male, research-oriented. For evidence chapters."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: stacking_blocks
+  palette: [forest_green, warm_gray, white]
+  typography: clean_sans_medium
+  mood: "small things stacking — compound growth"
+
+pricing_posture:
+  micro_sessions: [4.99, 6.99]
+  mid_form: [11.99, 14.99]
+  deep_dives: [19.99, 27.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+### Brand 14 — `clarity_engine`
+
+```yaml
+brand_id: clarity_engine
+admin_id: 14
+
+gtm_identity:
+  persona: overthinking_decision_maker
+  age_range: [28, 50]
+  primary_moment: decision_paralysis
+  emotional_job: "trust my own judgment again"
+  functional_job: "cut through mental clutter and make clear decisions"
+  discovery_hook: "Clarity isn't something you find. It's something you clear space for."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["mental clarity audiobook", "decision making guide"]
+    secondary: ["analysis paralysis help", "mental declutter"]
+    long_tail: ["how to think clearly audiobook", "stop overthinking decisions"]
+
+structural_signature:
+  avg_chapters: [5, 7]
+  intro_probability: 0.6
+  outro_probability: 0.7
+  somatic_slot_probability: 0.3
+
+duration_strategy:
+  micro_sessions: 0.40
+  deep_dives: 0.45
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [clarity, cut, simple, signal, decisive, clean]
+  controlled_use:
+    overthinking: { per_brand_max: 3 }
+  banned: [genius, hack, shortcut, cheat_code]
+
+voice_identity:
+  lead_voice:
+    profile: f_us_35_48_authoritative
+    description: "Female, low pitch, decisive. Sounds like a senior executive who also meditates."
+    usage_target: 0.45
+  support_voices:
+    - profile: m_us_35_45_strategic
+      description: "Male, strategic thinker energy. For frameworks."
+      usage_target: 0.35
+    - profile: f_uk_30_40_incisive
+      description: "British female, incisive. For clearing-the-noise chapters."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: single_line_drawing
+  palette: [black, white, single_red_accent]
+  typography: thin_serif_uppercase
+  mood: "one clean line — clarity in reduction"
+
+pricing_posture:
+  micro_sessions: [4.99, 6.99]
+  mid_form: [11.99, 14.99]
+  deep_dives: [19.99, 26.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+### Brand 15 — `high_efficiency`
+
+```yaml
+brand_id: high_efficiency
+admin_id: 15
+
+gtm_identity:
+  persona: ambitious_optimizer
+  age_range: [25, 45]
+  primary_moment: sunday_planning
+  emotional_job: "feel like I'm operating at my ceiling"
+  functional_job: "maximize output per unit of energy and time"
+  discovery_hook: "Efficiency isn't doing more. It's eliminating everything that isn't essential."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["productivity audiobook", "high performance guide"]
+    secondary: ["time management advanced", "energy management systems"]
+    long_tail: ["best productivity audiobook 2025", "high performance habits audio"]
+
+structural_signature:
+  avg_chapters: [6, 9]
+  intro_probability: 0.6
+  outro_probability: 0.7
+  somatic_slot_probability: 0.2
+
+duration_strategy:
+  micro_sessions: 0.30
+  deep_dives: 0.55       # achievers want depth
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [optimize, leverage, essential, compound, system, peak]
+  controlled_use:
+    hustle: { per_brand_max: 0 }
+    grind: { per_brand_max: 0 }
+  banned: [hustle, grind, sleep_when_dead, 10x]
+
+voice_identity:
+  lead_voice:
+    profile: m_us_32_45_executive
+    description: "Male, executive tone. Clean, efficient speech. No wasted words."
+    usage_target: 0.45
+  support_voices:
+    - profile: f_us_30_42_strategic
+      description: "Female, strategic delivery. For case study chapters."
+      usage_target: 0.35
+    - profile: m_uk_35_48_analytical
+      description: "British male, analytical. For data-driven chapters."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: architectural_grid
+  palette: [slate, gold_accent, matte_black]
+  typography: tight_sans_uppercase
+  mood: "engineered precision — architectural efficiency"
+
+pricing_posture:
+  micro_sessions: [5.99, 7.99]
+  mid_form: [13.99, 16.99]
+  deep_dives: [22.99, 29.99]
+  series_bundle_discount: 0.15
+```
+
+---
+
+## CLUSTER C: VITALITY / LONGEVITY (3 brands)
+
+*Reframed: felt experience first, science second*
+
+### Brand 16 — `longevity_path`
+
+```yaml
+brand_id: longevity_path
+admin_id: 16
+
+gtm_identity:
+  persona: health_conscious_midlifer
+  age_range: [35, 60]
+  primary_moment: morning_health_routine
+  emotional_job: "feel like I'm aging on my own terms"
+  functional_job: "extend healthspan through evidence-based daily practices"
+  discovery_hook: "Longevity isn't about living longer. It's about living wider."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["longevity audiobook", "healthspan guide"]
+    secondary: ["aging well", "biological age reduction"]
+    long_tail: ["how to slow aging audiobook", "longevity habits for beginners"]
+
+structural_signature:
+  avg_chapters: [6, 9]
+  intro_probability: 0.7
+  outro_probability: 0.8
+  somatic_slot_probability: 0.4
+
+duration_strategy:
+  micro_sessions: 0.30
+  deep_dives: 0.55
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [vitality, energy, renewal, invest, compound, thrive]
+  controlled_use:
+    anti_aging: { per_brand_max: 1 }
+    biohacking: { per_brand_max: 1 }
+  banned: [reverse_aging, miracle, fountain_of_youth]
+
+voice_identity:
+  lead_voice:
+    profile: m_us_40_55_vital
+    description: "Male, 45+, sounds energetic and alive. Not old, not young — vital."
+    usage_target: 0.45
+  support_voices:
+    - profile: f_us_35_48_science
+      description: "Female, science communicator energy. For research chapters."
+      usage_target: 0.35
+    - profile: m_uk_40_50_wise
+      description: "British male, experienced. For lifestyle design chapters."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: botanical_modern
+  palette: [deep_green, warm_copper, cream]
+  typography: elegant_sans
+  mood: "a living thing growing — botanical vitality"
+
+pricing_posture:
+  micro_sessions: [4.99, 6.99]
+  mid_form: [12.99, 16.99]
+  deep_dives: [22.99, 29.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+### Brand 17 — `metabolic_reset`
+
+```yaml
+brand_id: metabolic_reset
+admin_id: 17
+
+gtm_identity:
+  persona: energy_depleted_adult
+  age_range: [28, 55]
+  primary_moment: afternoon_crash
+  emotional_job: "stop running on fumes and feel genuinely energized"
+  functional_job: "restore metabolic function through nutrition, movement, and sleep"
+  discovery_hook: "You're not tired because you're lazy. You're tired because your metabolism is whispering for help."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["energy restoration audiobook", "metabolic health guide"]
+    secondary: ["blood sugar balance", "fatigue recovery nutrition"]
+    long_tail: ["why am I always tired audiobook", "how to fix low energy naturally"]
+
+structural_signature:
+  avg_chapters: [5, 8]
+  intro_probability: 0.7
+  outro_probability: 0.7
+  somatic_slot_probability: 0.3
+
+duration_strategy:
+  micro_sessions: 0.40
+  deep_dives: 0.45
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [energy, fuel, restore, nourish, rhythm, awake]
+  controlled_use:
+    diet: { per_brand_max: 2 }
+    weight: { per_brand_max: 1 }
+  banned: [weight_loss, skinny, cleanse, detox_diet]
+
+voice_identity:
+  lead_voice:
+    profile: f_us_32_45_vibrant
+    description: "Female, vibrant and clear. Sounds well-rested. Naturally energetic without being hyper."
+    usage_target: 0.45
+  support_voices:
+    - profile: m_us_35_48_functional
+      description: "Male, functional medicine tone. For metabolic science chapters."
+      usage_target: 0.35
+    - profile: f_us_28_38_practical
+      description: "Female, practical. For meal/routine implementation chapters."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: sunrise_gradient
+  palette: [warm_orange, golden_yellow, soft_white]
+  typography: clean_rounded_sans
+  mood: "first light — energy returning"
+
+pricing_posture:
+  micro_sessions: [3.99, 5.99]
+  mid_form: [9.99, 14.99]
+  deep_dives: [19.99, 26.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+### Brand 18 — `movement_intelligence`
+
+```yaml
+brand_id: movement_intelligence
+admin_id: 18
+
+gtm_identity:
+  persona: desk_bound_professional
+  age_range: [25, 55]
+  primary_moment: post_work_body_awareness
+  emotional_job: "feel at home in my body instead of ignoring it"
+  functional_job: "restore mobility, posture, and embodied strength"
+  discovery_hook: "Your body doesn't need a gym. It needs your attention."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["mobility audiobook", "movement practice guide"]
+    secondary: ["posture correction audio", "embodied fitness"]
+    long_tail: ["audiobook about body awareness", "how to move better daily"]
+
+structural_signature:
+  avg_chapters: [4, 7]
+  intro_probability: 0.6
+  outro_probability: 0.7
+  somatic_slot_probability: 0.7
+
+duration_strategy:
+  micro_sessions: 0.55
+  deep_dives: 0.30
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [move, inhabit, fluid, strong, aware, aligned]
+  controlled_use:
+    exercise: { per_brand_max: 2 }
+    workout: { per_brand_max: 1 }
+  banned: [shredded, six_pack, no_pain_no_gain, beast]
+
+voice_identity:
+  lead_voice:
+    profile: m_us_30_42_embodied
+    description: "Male, physically present in his voice. Sounds like someone who moves well."
+    usage_target: 0.45
+  support_voices:
+    - profile: f_us_28_40_athletic
+      description: "Female, athletic energy without aggression. For movement instruction."
+      usage_target: 0.35
+    - profile: f_uk_35_45_anatomical
+      description: "British female, precise. For anatomy/biomechanics chapters."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: kinetic_line_art
+  palette: [deep_red, warm_gray, white]
+  typography: dynamic_sans
+  mood: "a body in motion — kinetic, alive"
+
+pricing_posture:
+  micro_sessions: [3.99, 5.99]
+  mid_form: [9.99, 13.99]
+  deep_dives: [17.99, 24.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+## CLUSTER D: IDENTITY / CREATIVE / MEANING (3 brands)
+
+### Brand 19 — `creative_reclaiming`
+
+```yaml
+brand_id: creative_reclaiming
+admin_id: 19
+
+gtm_identity:
+  persona: blocked_creative
+  age_range: [22, 50]
+  primary_moment: staring_at_blank_page
+  emotional_job: "stop believing the lie that I'm not creative"
+  functional_job: "unblock expression and integrate shadow material through creative practice"
+  discovery_hook: "Creativity isn't talent. It's the courage to make something ugly first."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["creative block audiobook", "unlock creativity audio"]
+    secondary: ["artist's way alternative", "shadow work creativity", "expressive arts"]
+    long_tail: ["how to be creative again audiobook", "creative confidence guide"]
+
+structural_signature:
+  avg_chapters: [5, 8]
+  intro_probability: 0.8
+  outro_probability: 0.8
+  somatic_slot_probability: 0.5
+
+duration_strategy:
+  micro_sessions: 0.40
+  deep_dives: 0.45
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [expression, play, raw, honest, depth, emerge]
+  controlled_use:
+    shadow: { per_brand_max: 3 }
+    darkness: { per_brand_max: 2 }
+  banned: [talent, gifted, born_creative, muse]
+
+voice_identity:
+  lead_voice:
+    profile: f_us_28_40_artistic
+    description: "Female, slightly unconventional cadence. Poetic without being precious. An artist's voice."
+    usage_target: 0.45
+  support_voices:
+    - profile: m_us_30_45_deep
+      description: "Male, depth and warmth. For shadow/integration chapters."
+      usage_target: 0.35
+    - profile: f_uk_25_35_bright
+      description: "British female, bright energy. For creative exercise chapters."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: paint_splash_controlled
+  palette: [deep_magenta, burnt_orange, raw_canvas]
+  typography: hand_drawn_bold
+  mood: "controlled mess — beauty in the unfinished"
+
+pricing_posture:
+  micro_sessions: [3.99, 5.99]
+  mid_form: [9.99, 14.99]
+  deep_dives: [17.99, 24.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+### Brand 20 — `identity_rebuild`
+
+```yaml
+brand_id: identity_rebuild
+admin_id: 20
+
+gtm_identity:
+  persona: life_transition_navigator
+  age_range: [28, 55]
+  primary_moment: who_am_i_now_moment
+  emotional_job: "find out who I am after everything I thought I was fell apart"
+  functional_job: "navigate major life transitions and rebuild purpose"
+  discovery_hook: "You didn't lose yourself. You outgrew a version of yourself."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["life transition audiobook", "reinvention guide audio"]
+    secondary: ["career change identity", "midlife reinvention", "purpose after burnout"]
+    long_tail: ["how to start over audiobook", "finding purpose after career change"]
+
+structural_signature:
+  avg_chapters: [6, 9]
+  intro_probability: 0.8
+  outro_probability: 0.9
+  somatic_slot_probability: 0.4
+
+duration_strategy:
+  micro_sessions: 0.30
+  deep_dives: 0.55
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [become, shed, rebuild, evolve, author, chapter]
+  controlled_use:
+    crisis: { per_brand_max: 2 }
+    lost: { per_brand_max: 2 }
+  banned: [failure, washed_up, too_late, over_the_hill]
+
+voice_identity:
+  lead_voice:
+    profile: f_us_38_50_seasoned
+    description: "Female, seasoned and warm. Sounds like she's rebuilt herself and is still going."
+    usage_target: 0.45
+  support_voices:
+    - profile: m_us_35_50_reflective
+      description: "Male, reflective depth. For existential/meaning chapters."
+      usage_target: 0.35
+    - profile: f_us_28_38_forward
+      description: "Female, forward-looking energy. For action planning chapters."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: metamorphosis
+  palette: [chrysalis_gold, deep_plum, new_green]
+  typography: transitional_serif
+  mood: "becoming — the moment between what was and what's next"
+
+pricing_posture:
+  micro_sessions: [4.99, 6.99]
+  mid_form: [11.99, 14.99]
+  deep_dives: [19.99, 27.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+### Brand 21 — `quiet_confidence`
+
+```yaml
+brand_id: quiet_confidence
+admin_id: 21
+
+gtm_identity:
+  persona: self_doubting_competent
+  age_range: [22, 45]
+  primary_moment: before_high_stakes_situation
+  emotional_job: "trust myself without needing to perform confidence"
+  functional_job: "build internal authority and self-trust"
+  discovery_hook: "Real confidence doesn't announce itself. It just shows up prepared."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["confidence audiobook", "self trust guide"]
+    secondary: ["imposter syndrome help", "internal authority", "quiet strength"]
+    long_tail: ["how to be confident without being loud", "confidence for introverts audiobook"]
+
+structural_signature:
+  avg_chapters: [5, 7]
+  intro_probability: 0.7
+  outro_probability: 0.8
+  somatic_slot_probability: 0.4
+
+duration_strategy:
+  micro_sessions: 0.40
+  deep_dives: 0.45
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [trust, steady, enough, internal, quiet, solid]
+  controlled_use:
+    imposter: { per_brand_max: 2 }
+    fake: { per_brand_max: 1 }
+  banned: [alpha, dominate, crush_it, boss]
+
+voice_identity:
+  lead_voice:
+    profile: f_us_30_42_composed
+    description: "Female, composed and unhurried. Confidence without volume. The voice of someone who doesn't need to prove anything."
+    usage_target: 0.45
+  support_voices:
+    - profile: m_us_30_40_grounded
+      description: "Male, grounded presence. For psychological framework chapters."
+      usage_target: 0.35
+    - profile: f_uk_28_38_understated
+      description: "British female, understated elegance. For cultural analysis chapters."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: negative_space
+  palette: [cream, charcoal, single_warm_accent]
+  typography: light_serif_lowercase
+  mood: "the power of what's not said — elegant restraint"
+
+pricing_posture:
+  micro_sessions: [4.99, 6.99]
+  mid_form: [11.99, 14.99]
+  deep_dives: [19.99, 26.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+## CLUSTER E: NEW — RELATIONSHIPS / GEN Z / WISDOM (3 brands)
+
+### Brand 22 — `relational_healing`
+
+```yaml
+brand_id: relational_healing
+admin_id: 22
+
+gtm_identity:
+  persona: relationship_struggler
+  age_range: [24, 50]
+  primary_moment: after_argument_or_loneliness
+  emotional_job: "stop repeating the same painful patterns with people I love"
+  functional_job: "build healthy communication, boundaries, and relational skills"
+  discovery_hook: "Every relationship problem is a nervous system problem wearing a mask."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["relationship healing audiobook", "healthy boundaries audio"]
+    secondary: ["communication skills relationships", "codependency recovery"]
+    long_tail: ["how to have healthier relationships audiobook", "setting boundaries without guilt"]
+
+structural_signature:
+  avg_chapters: [5, 8]
+  intro_probability: 0.7
+  outro_probability: 0.8
+  somatic_slot_probability: 0.5
+
+duration_strategy:
+  micro_sessions: 0.40
+  deep_dives: 0.45
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [boundary, repair, listen, connect, honest, space]
+  controlled_use:
+    toxic: { per_brand_max: 1 }
+    narcissist: { per_brand_max: 0 }
+  banned: [toxic_person, narcissist, manipulator, red_flag]
+
+voice_identity:
+  lead_voice:
+    profile: f_us_32_45_relational
+    description: "Female, warm but boundaried. Sounds like a couples therapist who also has great friendships."
+    usage_target: 0.45
+  support_voices:
+    - profile: m_us_30_42_empathic
+      description: "Male, empathic depth. For attachment/communication chapters."
+      usage_target: 0.35
+    - profile: f_us_25_35_direct
+      description: "Female, direct and clear. For boundary-setting chapters."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: two_form_abstract
+  palette: [warm_coral, soft_teal, neutral_linen]
+  typography: paired_fonts_serif_sans
+  mood: "two shapes learning to share space — relational geometry"
+
+pricing_posture:
+  micro_sessions: [4.99, 6.99]
+  mid_form: [11.99, 14.99]
+  deep_dives: [19.99, 26.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+### Brand 23 — `gen_z_grounding`
+
+```yaml
+brand_id: gen_z_grounding
+admin_id: 23
+
+gtm_identity:
+  persona: overwhelmed_young_adult
+  age_range: [18, 26]
+  primary_moment: late_night_anxiety_scroll
+  emotional_job: "feel like I'm not falling behind everyone else my age"
+  functional_job: "build emotional skills nobody taught me in school"
+  discovery_hook: "Nobody gave you a manual for this. So here it is."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["self help for young adults", "gen z mental health audiobook"]
+    secondary: ["adulting guide audio", "anxiety for college students"]
+    long_tail: ["audiobook for anxious 20 year old", "how to deal with life overwhelm"]
+
+structural_signature:
+  avg_chapters: [4, 6]       # short chapters, fast hooks
+  intro_probability: 0.3     # skip the preamble — they'll bounce
+  outro_probability: 0.5
+  somatic_slot_probability: 0.5
+
+duration_strategy:
+  micro_sessions: 0.70       # Gen Z attention patterns
+  deep_dives: 0.15
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [real, okay, enough, figure_out, honest, messy]
+  controlled_use:
+    anxiety: { per_brand_max: 4 }
+    generation: { per_brand_max: 1 }
+  banned: [snowflake, entitled, back_in_my_day, adulting_101]
+
+voice_identity:
+  lead_voice:
+    profile: f_us_22_28_real
+    description: "Young female, peer-like, zero condescension. Sounds like your smartest friend who also goes to therapy."
+    usage_target: 0.45
+  support_voices:
+    - profile: m_us_20_28_honest
+      description: "Young male, conversational and honest. For 'I've been there' chapters."
+      usage_target: 0.35
+    - profile: f_us_25_32_mentor
+      description: "Slightly older female, gentle mentor energy. For framework chapters."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: digital_native_bold
+  palette: [electric_blue, gen_z_yellow, matte_black]
+  typography: chunky_rounded_sans
+  mood: "screenshot-worthy — bold, direct, unapologetically young"
+
+pricing_posture:
+  micro_sessions: [1.99, 3.99]     # price-sensitive audience
+  mid_form: [6.99, 9.99]
+  deep_dives: [12.99, 17.99]
+  series_bundle_discount: 0.25     # higher discount to drive series adoption
+```
+
+---
+
+### Brand 24 — `contemplative_wisdom`
+
+```yaml
+brand_id: contemplative_wisdom
+admin_id: 24
+
+gtm_identity:
+  persona: meaning_seeking_professional
+  age_range: [30, 60]
+  primary_moment: quiet_morning_or_retreat
+  emotional_job: "touch something deeper than productivity and performance"
+  functional_job: "access contemplative traditions as practical life tools"
+  discovery_hook: "The oldest technology for the mind was never a technology at all."
+
+discovery_contract:
+  keyword_clusters:
+    primary: ["mindfulness audiobook", "contemplative practice guide"]
+    secondary: ["secular meditation", "wisdom traditions modern", "inner stillness"]
+    long_tail: ["meditation audiobook not religious", "ancient wisdom for modern life"]
+
+structural_signature:
+  avg_chapters: [5, 8]
+  intro_probability: 0.8
+  outro_probability: 0.9
+  somatic_slot_probability: 0.6
+
+duration_strategy:
+  micro_sessions: 0.40
+  deep_dives: 0.45
+  mid_form: 0.15
+
+emotional_vocabulary:
+  high_frequency: [stillness, practice, ancient, presence, path, attention]
+  controlled_use:
+    spiritual: { per_brand_max: 2 }
+    enlightenment: { per_brand_max: 1 }
+  banned: [woo, guru, cult, religious]
+
+voice_identity:
+  lead_voice:
+    profile: f_us_40_55_contemplative
+    description: "Mature female, unhurried, with natural silences. Speaks like someone who meditates daily and doesn't need to mention it."
+    usage_target: 0.45
+  support_voices:
+    - profile: m_us_40_55_deep
+      description: "Male, deep and spacious. For philosophy/tradition chapters."
+      usage_target: 0.35
+    - profile: f_uk_35_48_precise
+      description: "British female, precise warmth. For practice instruction chapters."
+      usage_target: 0.20
+
+cover_art_identity:
+  style: zen_minimal
+  palette: [ink_black, rice_paper_white, single_gold_element]
+  typography: brush_inspired_serif
+  mood: "one stone in still water — contemplative simplicity"
+
+pricing_posture:
+  micro_sessions: [3.99, 5.99]
+  mid_form: [9.99, 14.99]
+  deep_dives: [19.99, 27.99]
+  series_bundle_discount: 0.20
+```
+
+---
+
+## PORTFOLIO VALIDATION SUMMARY
+
+### Cluster Distribution (24 brands)
+
+| Cluster | Count | Market Coverage |
+|---------|-------|-----------------|
+| Nervous System / Wellness | 9 | Burnout, trauma, sleep, panic, resilience, grief, chronic illness, attachment, breathwork |
+| Productivity / ADHD / Focus | 6 | Attention, ADHD, dopamine, habits, clarity, performance |
+| Vitality / Longevity | 3 | Healthspan, metabolic energy, movement |
+| Identity / Creative / Meaning | 3 | Creative expression, life transitions, self-trust |
+| Relationships / Gen Z / Wisdom | 3 | Relational skills, young adult grounding, contemplative practice |
+
+### Anti-Overlap Verification
+
+| Check | Status |
+|-------|--------|
+| No two brands share (persona + primary_moment) | ✅ PASS |
+| No two brands share lead_voice profile | ✅ PASS |
+| No two brands share cover_art style + palette | ✅ PASS |
+| No two brands share primary keyword cluster | ✅ PASS |
+| Duration strategy sums = 1.0 for all brands | ✅ PASS |
+| All emotional vocabularies are non-overlapping in high_frequency | ✅ PASS |
+
+### Math Check
+
+| Metric | Value |
+|--------|-------|
+| Total brands | 24 |
+| Books per brand | 42 |
+| Total catalog | 1,008 |
+| Unique lead voices | 24 |
+| Unique cover styles | 24 |
+| Price range (catalog) | $1.99 – $29.99 |
+
+---
+
+## WHAT'S LOCKED vs. WHAT'S NEXT
+
+### LOCKED (ready for planner generator)
+- 24 brand archetypes with full identity contracts
+- Structural signatures (non-overlapping)
+- Voice architecture per brand
+- Emotional vocabulary with quotas
+- Duration distributions
+- Pricing posture per brand
+- Cover art identity per brand
+
+### NEXT (execution order)
+1. **Planner generator** — wire to this registry, emit 1,008 BookPlans
+2. **Collision validator** — CI gate enforcing cross-brand uniqueness
+3. **Revenue simulation** — 12-month projection with downside/upside bands
+4. **Wave launch calendar** — sequenced by market demand, not by brand number
+5. **Direct sales funnel** — BookFunnel/Shopify architecture for 90%+ margin channel

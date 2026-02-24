@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapalabhati · Skull Shining</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;600&family=Poppins:wght@300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:#0f0a00;color:#fef9c3;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.1rem;padding:1.5rem;width:100%;max-width:440px}
+h1{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:1.8rem;letter-spacing:.1em;text-transform:uppercase;color:#eab308}
+.sub{font-size:.68rem;color:#a16207;letter-spacing:.2em;text-transform:uppercase;margin-top:-.4rem}
+.warn{font-size:.56rem;color:#ef4444;letter-spacing:.08em;text-align:center;padding:.3rem .6rem;border:1px solid rgba(239,68,68,.2);border-radius:6px;background:rgba(239,68,68,.05)}
+canvas{display:block;width:200px;height:200px}
+.bpm{display:flex;align-items:center;gap:.6rem}
+.bl{font-size:.6rem;color:#a16207;letter-spacing:.12em;text-transform:uppercase}
+.bv{font-family:'Rajdhani',sans-serif;font-size:1.3rem;font-weight:600;color:#eab308;min-width:40px;text-align:center}
+.bb{width:28px;height:28px;border-radius:50%;border:1px solid rgba(234,179,8,.3);background:rgba(234,179,8,.08);color:#eab308;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+.stats{display:flex;gap:1.5rem}
+.stat{text-align:center}.sv{font-family:'Rajdhani',sans-serif;font-size:1.3rem;font-weight:600;color:#eab308}.sl{font-size:.6rem;color:#a16207;letter-spacing:.1em;text-transform:uppercase}
+.ph{font-family:'Rajdhani',sans-serif;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;transition:color .2s}
+.bar{width:100%;height:4px;background:rgba(255,255,255,.04);border-radius:2px;overflow:hidden}
+.brf{height:100%;width:0%;background:linear-gradient(90deg,#fbbf24,#eab308);border-radius:2px;transition:width .2s}
+.ctrls{display:flex;gap:1rem}
+.btn{font-family:'Poppins',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.6rem;border:1px solid rgba(234,179,8,.25);border-radius:8px;background:rgba(234,179,8,.06);color:#fef9c3;cursor:pointer;transition:all .25s}
+.btn:hover{background:rgba(234,179,8,.12)}
+.btn.pri{border-color:rgba(234,179,8,.45);background:rgba(234,179,8,.1)}
+.btn-s{padding:.4rem .9rem;font-size:.68rem}
+.done{display:none;flex-direction:column;align-items:center;gap:1.2rem;text-align:center;animation:fu .8s}
+.done.show{display:flex}.main.off{display:none}
+.done h2{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:1.5rem;text-transform:uppercase;color:#eab308}
+.done p{color:#a16207;font-size:.82rem;line-height:1.7;max-width:340px}
+@keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.snd{position:fixed;top:1rem;right:1rem;z-index:10;width:34px;height:34px;border-radius:50%;border:1px solid rgba(234,179,8,.2);background:rgba(234,179,8,.05);color:#a16207;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<button class="snd" id="sndBtn">🔔</button>
+<div class="wrap">
+<h1>Kapalabhati</h1>
+<div class="sub">Skull Shining Breath · 3 minutes</div>
+<div class="main" id="mainV">
+<div class="warn">⚠ Not for pregnancy, heart disease, high blood pressure, or hernia</div>
+<canvas id="cv" width="400" height="400"></canvas>
+<div class="bpm"><div class="bl">Tempo</div><button class="bb" id="bd">−</button><div class="bv" id="bv">80</div><button class="bb" id="bu">+</button><div class="bl">BPM</div></div>
+<div class="stats">
+<div class="stat"><div class="sv" id="bn">0</div><div class="sl">Pumps</div></div>
+<div class="stat"><div class="sv" id="tl">3:00</div><div class="sl">Remaining</div></div>
+<div class="stat"><div class="sv" id="rn">1/3</div><div class="sl">Round</div></div>
+</div>
+<div class="ph" id="ph" style="text-align:center">Ready</div>
+<div class="bar"><div class="brf" id="brf"></div></div>
+<div class="ctrls"><button class="btn pri" id="goBtn">Begin</button><button class="btn btn-s" id="rstBtn" style="display:none">Reset</button></div>
+</div>
+<div class="done" id="doneV">
+<h2>Skull Shining Complete</h2>
+<p>Three minutes of sharp exhale pumps with passive inhales. Kapalabhati literally means "skull illuminating" — it clears the sinuses, energizes the brain, and builds abdominal strength through diaphragmatic pumping.</p>
+<p style="opacity:.6;font-style:italic">Your skull is shining.</p>
+<button class="btn pri" id="agBtn">Again</button>
+</div>
+</div>
+<script>
+const DUR=180;let bpm=80;
+class Aud{constructor(){this.c=null;this.on=true}init(){if(!this.c)this.c=new(window.AudioContext||window.webkitAudioContext)()}p(){if(!this.on||!this.c)return;const o=this.c.createOscillator(),g=this.c.createGain();o.type='triangle';o.frequency.value=220;g.gain.setValueAtTime(0,this.c.currentTime);g.gain.linearRampToValueAtTime(.06,this.c.currentTime+.01);g.gain.linearRampToValueAtTime(0,this.c.currentTime+.06);o.connect(g);g.connect(this.c.destination);o.start();o.stop(this.c.currentTime+.08)}toggle(){this.on=!this.on;return this.on}}
+const au=new Aud();const cv=document.getElementById('cv'),c=cv.getContext('2d'),W=cv.width,H=cv.height,CX=W/2,CY=H/2;
+function drawBelly(bp,int){c.clearRect(0,0,W,H);const t=Date.now()/1e3;const isEx=bp<.3;const sz=isEx?80-bp/.3*30:50+(bp-.3)/.7*30;
+const gr=c.createRadialGradient(CX,CY+30,0,CX,CY+30,sz);gr.addColorStop(0,`rgba(234,179,8,${isEx?.35:.15})`);gr.addColorStop(1,'transparent');c.beginPath();c.arc(CX,CY+30,sz,0,Math.PI*2);c.fillStyle=gr;c.fill();
+// Skull glow
+const sg=c.createRadialGradient(CX,CY-60,0,CX,CY-60,30+int*20);sg.addColorStop(0,`rgba(254,249,195,${.1+int*.15})`);sg.addColorStop(1,'transparent');c.beginPath();c.arc(CX,CY-60,50,0,Math.PI*2);c.fillStyle=sg;c.fill();
+// Arrow indicator
+if(isEx){c.beginPath();c.moveTo(CX,CY+70);c.lineTo(CX-8,CY+55);c.lineTo(CX+8,CY+55);c.fillStyle='rgba(234,179,8,.4)';c.fill()}
+}
+let state='idle',sS=0,pa=false,pO=0,pT2=0,tb=0;
+const bn=document.getElementById('bn'),tl=document.getElementById('tl'),rn=document.getElementById('rn'),brf=document.getElementById('brf'),bv=document.getElementById('bv'),ph=document.getElementById('ph');
+const goBtn=document.getElementById('goBtn'),rstBtn=document.getElementById('rstBtn'),mainV=document.getElementById('mainV'),doneV=document.getElementById('doneV');
+function fmt(s){const m=Math.floor(s/60),sec=Math.floor(s%60);return m+':'+(sec<10?'0':'')+sec}
+function start(){au.init();state='active';sS=performance.now();pa=false;pO=0;tb=0;goBtn.textContent='Pause';goBtn.classList.remove('pri');rstBtn.style.display='inline-block';doneV.classList.remove('show');mainV.classList.remove('off');tick()}
+function tick(){if(state!=='active'||pa)return;const now=performance.now(),el=(now-sS-pO)/1e3,rem=Math.max(0,DUR-el),bi=60/bpm,bp=(el%bi)/bi,cb=Math.floor(el/bi),rd=Math.min(3,Math.floor(el/60)+1),int=Math.min(1,el/DUR);
+if(cb>tb){tb=cb;au.p()}
+ph.textContent=bp<.3?'PUMP OUT':'Passive In';ph.style.color=bp<.3?'#eab308':'#a16207';
+bn.textContent=tb;tl.textContent=fmt(rem);rn.textContent=rd+'/3';brf.style.width=int*100+'%';
+drawBelly(bp,int);if(el>=DUR){finish();return}requestAnimationFrame(tick)}
+function finish(){state='done';mainV.classList.add('off');doneV.classList.add('show')}
+function reset(){state='idle';pa=false;pO=0;tb=0;goBtn.textContent='Begin';goBtn.classList.add('pri');rstBtn.style.display='none';bn.textContent='0';tl.textContent='3:00';rn.textContent='1/3';brf.style.width='0%';ph.textContent='Ready';ph.style.color='';doneV.classList.remove('show');mainV.classList.remove('off')}
+function toggleP(){if(!pa){pa=true;pT2=performance.now();goBtn.textContent='Resume';goBtn.classList.add('pri')}else{pO+=performance.now()-pT2;pa=false;goBtn.textContent='Pause';goBtn.classList.remove('pri');tick()}}
+goBtn.onclick=()=>{if(state==='idle')start();else if(state==='active')toggleP()};rstBtn.onclick=reset;document.getElementById('agBtn').onclick=()=>{reset();start()};
+document.getElementById('sndBtn').onclick=()=>{au.init();document.getElementById('sndBtn').textContent=au.toggle()?'🔔':'🔇'};
+document.getElementById('bu').onclick=()=>{bpm=Math.min(160,bpm+10);bv.textContent=bpm};
+document.getElementById('bd').onclick=()=>{bpm=Math.max(40,bpm-10);bv.textContent=bpm};
+</script>
+</body>
+</html>

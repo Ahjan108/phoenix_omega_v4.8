@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rebirth Breathwork</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#08060e;--deep:#7c3aed;--rose:#ec4899;--light:#f0abfc;--text:#ede9fe;--m:#6b7280}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(124,58,237,.04),transparent 50%);z-index:0}
+.w{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1rem;padding:1.5rem;width:100%;max-width:500px}
+h1{font-family:'Bodoni Moda',serif;font-size:2rem;letter-spacing:.05em;font-style:italic}
+.sb{font-size:.65rem;color:var(--m);letter-spacing:.18em;text-transform:uppercase}
+.warn{font-size:.58rem;color:#ef4444;text-align:center;padding:.5rem 1rem;border:1px solid rgba(239,68,68,.2);border-radius:8px;background:rgba(239,68,68,.04);line-height:1.5}
+canvas{width:260px;height:260px;display:block;margin:0 auto}
+.phases{display:flex;gap:.3rem;justify-content:center;flex-wrap:wrap}
+.phs{padding:.3rem .6rem;border-radius:100px;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(255,255,255,.05);color:var(--m);transition:.4s}
+.phs.ac{color:var(--light);border-color:rgba(240,171,252,.3);background:rgba(240,171,252,.06)}
+.inf{text-align:center}
+.ph{font-family:'Bodoni Moda',serif;font-size:1rem;letter-spacing:.08em;transition:color .5s;font-style:italic}
+.tm{font-family:'Bodoni Moda',serif;font-size:2.8rem;font-weight:600;transition:color .5s}
+.dt{font-size:.65rem;color:var(--m);letter-spacing:.1em}
+.pr{width:100%;height:3px;background:rgba(255,255,255,.04);border-radius:2px;overflow:hidden}
+.pf{height:100%;width:0;border-radius:2px;transition:width .5s;background:linear-gradient(90deg,var(--deep),var(--rose),var(--light))}
+.ct{display:flex;gap:1rem}
+.btn{font-family:'DM Sans',sans-serif;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.6rem;border:1px solid rgba(124,58,237,.2);border-radius:100px;background:rgba(124,58,237,.05);color:var(--text);cursor:pointer;transition:.25s}
+.btn:hover{background:rgba(124,58,237,.12)}.btn.p{border-color:rgba(124,58,237,.4);background:rgba(124,58,237,.1)}
+.bs{padding:.4rem .9rem;font-size:.65rem}
+.ds{display:none;flex-direction:column;align-items:center;gap:1rem;text-align:center;animation:fu .8s}
+.ds.show{display:flex}
+.ds h2{font-family:'Bodoni Moda',serif;font-weight:400;font-size:1.6rem;font-style:italic}
+.ds p{color:var(--m);font-size:.82rem;line-height:1.7;max-width:380px}
+.ds textarea{width:100%;max-width:360px;height:100px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:8px;color:var(--text);padding:.8rem;font-family:'DM Sans',sans-serif;font-size:.8rem;resize:vertical}
+.ds textarea::placeholder{color:var(--m)}
+.mn{display:flex;flex-direction:column;align-items:center;gap:1rem}.mn.off{display:none}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.sn{position:fixed;top:1rem;right:1rem;z-index:10;width:34px;height:34px;border-radius:50%;border:1px solid rgba(124,58,237,.12);background:rgba(124,58,237,.02);color:var(--m);cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<button class="sn" id="sB">🔔</button>
+<div class="w">
+<h1>Rebirth Breathwork</h1>
+<div class="sb">Connected Conscious Breathing · 30 Minutes</div>
+<div class="warn">⚠ Advanced practice. Not for pregnancy, cardiovascular conditions, epilepsy, psychosis history, or unprocessed trauma without professional support. Have water nearby. Stop if dizzy or distressed.</div>
+<div class="mn" id="mV">
+<canvas id="cv" width="520" height="520"></canvas>
+<div class="phases">
+  <div class="phs ac" id="p1">Warmup (5m)</div>
+  <div class="phs" id="p2">Build (5m)</div>
+  <div class="phs" id="p3">Peak (10m)</div>
+  <div class="phs" id="p4">Descent (5m)</div>
+  <div class="phs" id="p5">Integration (5m)</div>
+</div>
+<div class="inf"><div class="ph" id="ph">Ready</div><div class="tm" id="tm">30:00</div><div class="dt" id="dt">Continuous circular breathing — no pause between in and out</div></div>
+<div class="pr"><div class="pf" id="pf"></div></div>
+<div class="ct"><button class="btn p" id="go">Begin Journey</button><button class="btn bs" id="rs" style="display:none">Reset</button></div>
+</div>
+<div class="ds" id="dV">
+<h2>Welcome Back</h2>
+<p>Thirty minutes of connected breathing. Whatever arose — tingling, emotion, visions, release — was your nervous system processing and integrating. There's nothing to fix or analyze right now. Just notice how you feel.</p>
+<textarea placeholder="Integration notes — what came up for you? (optional, just for yourself)"></textarea>
+<p style="opacity:.6;font-style:italic">You are already whole. You always were.</p>
+<button class="btn p" id="ag">Again</button>
+</div>
+</div>
+<script>
+// 5 phases: Warmup (300s, slow 5/5), Build (300s, medium 4/4), Peak (600s, fast 3/3), Descent (300s, medium 4/5), Integration (300s, slow 6/6)
+const PHASES=[
+  {name:'Warmup',dur:300,inh:5,exh:5,color:'#7c3aed'},
+  {name:'Building',dur:300,inh:4,exh:4,color:'#a855f7'},
+  {name:'Peak',dur:600,inh:3,exh:3,color:'#ec4899'},
+  {name:'Descending',dur:300,inh:4,exh:5,color:'#a855f7'},
+  {name:'Integration',dur:300,inh:6,exh:6,color:'#f0abfc'}
+];
+const TOTAL=PHASES.reduce((s,p)=>s+p.dur,0); // 1800s
+
+class Au{constructor(){this.c=null;this.on=true}init(){if(!this.c)this.c=new(window.AudioContext||window.webkitAudioContext)}t(f,d){if(!this.on||!this.c)return;const o=this.c.createOscillator(),g=this.c.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,this.c.currentTime);g.gain.linearRampToValueAtTime(.04,this.c.currentTime+.15);g.gain.setValueAtTime(.04,this.c.currentTime+d-.2);g.gain.linearRampToValueAtTime(0,this.c.currentTime+d);o.connect(g);g.connect(this.c.destination);o.start();o.stop(this.c.currentTime+d)}toggle(){this.on=!this.on;return this.on}}
+const au=new Au(),cv=document.getElementById('cv'),c=cv.getContext('2d'),W=cv.width,H=cv.height,CX=W/2,CY=H/2;
+const ph$=document.getElementById('ph'),tm$=document.getElementById('tm'),dt$=document.getElementById('dt'),pf$=document.getElementById('pf');
+const go$=document.getElementById('go'),rs$=document.getElementById('rs'),mV=document.getElementById('mV'),dV=document.getElementById('dV');
+let st='idle',ss=0,pa=false,pO=0,pT2=0,lastPi=-1,lastIsI=null;
+
+function fmt(s){const m=Math.floor(s/60);return m+':'+String(Math.floor(s%60)).padStart(2,'0')}
+function getPhase(el){let acc=0;for(let i=0;i<PHASES.length;i++){if(el<acc+PHASES[i].dur)return{pi:i,pe:el-acc,pp:(el-acc)/PHASES[i].dur};acc+=PHASES[i].dur}return{pi:4,pe:PHASES[4].dur,pp:1}}
+
+function draw(isInhale,bProg,totalProg,pi){
+  c.clearRect(0,0,W,H);const t=Date.now()/1000;
+  // Continuous circular motion — no sharp transitions
+  const angle=t*.8;const breath=Math.sin(bProg*Math.PI);
+  const intensity=[.4,.6,1,.6,.3][pi];
+  // Central vortex
+  const layers=8+Math.floor(intensity*8);
+  for(let i=0;i<layers;i++){
+    const la=(i/layers)*Math.PI*2+angle;
+    const lr=40+i*8+breath*15*intensity;
+    const lx=CX+Math.cos(la)*lr*.3;const ly=CY+Math.sin(la)*lr*.3;
+    const gd=c.createRadialGradient(lx,ly,0,lx,ly,lr*.6);
+    const alpha=(.1+intensity*.15-i*.005);
+    const col=PHASES[pi].color;
+    gd.addColorStop(0,col.replace(')',`,${alpha})`).replace('rgb','rgba'));
+    gd.addColorStop(1,'transparent');
+    // Parse hex to rgba
+    const r2=parseInt(col.slice(1,3),16),g2=parseInt(col.slice(3,5),16),b2=parseInt(col.slice(5,7),16);
+    const gd2=c.createRadialGradient(lx,ly,0,lx,ly,lr*.6);
+    gd2.addColorStop(0,`rgba(${r2},${g2},${b2},${Math.max(0,alpha)})`);
+    gd2.addColorStop(1,'transparent');
+    c.beginPath();c.arc(lx,ly,lr*.6,0,Math.PI*2);c.fillStyle=gd2;c.fill();
+  }
+  // Central orb
+  const oR=25+breath*15*intensity;
+  const oG=c.createRadialGradient(CX,CY,0,CX,CY,oR);
+  const cc=PHASES[pi].color;const r3=parseInt(cc.slice(1,3),16),g3=parseInt(cc.slice(3,5),16),b3=parseInt(cc.slice(5,7),16);
+  oG.addColorStop(0,`rgba(${r3},${g3},${b3},${.3+breath*.2})`);oG.addColorStop(1,'transparent');
+  c.beginPath();c.arc(CX,CY,oR,0,Math.PI*2);c.fillStyle=oG;c.fill();
+  // Outer ring
+  c.beginPath();c.arc(CX,CY,120,0,Math.PI*2);c.strokeStyle=`rgba(${r3},${g3},${b3},${.06+breath*.04})`;c.lineWidth=1;c.stroke();
+}
+function drawIdle(){c.clearRect(0,0,W,H);const t=Date.now()/2e3;const r=40+Math.sin(t)*5;const g=c.createRadialGradient(CX,CY,0,CX,CY,r);g.addColorStop(0,'rgba(124,58,237,.1)');g.addColorStop(1,'transparent');c.beginPath();c.arc(CX,CY,r,0,Math.PI*2);c.fillStyle=g;c.fill()}
+
+function start(){au.init();st='active';ss=performance.now();pa=false;pO=0;lastPi=-1;lastIsI=null;go$.textContent='Pause';go$.classList.remove('p');rs$.style.display='inline-block';dV.classList.remove('show');mV.classList.remove('off');tk()}
+function tk(){
+  if(st!=='active'||pa)return;
+  const el=(performance.now()-ss-pO)/1000;
+  if(el>=TOTAL){fin();return}
+  const{pi,pe,pp}=getPhase(el);const ph=PHASES[pi];
+  const cycDur=ph.inh+ph.exh;const cycEl=pe%cycDur;
+  const isI=cycEl<ph.inh;const dur=isI?ph.inh:ph.exh;
+  const bEl=isI?cycEl:cycEl-ph.inh;const bProg=bEl/dur;
+  if(pi!==lastPi){lastPi=pi;document.querySelectorAll('.phs').forEach((e,i)=>{e.classList.toggle('ac',i===pi)})}
+  if(isI!==lastIsI){lastIsI=isI;au.t(isI?[220,262,330,262,196][pi]:[165,196,262,196,165][pi],dur)}
+  ph$.textContent=`${ph.name} · ${isI?'In':'Out'}`;ph$.style.color=ph.color;
+  tm$.textContent=fmt(TOTAL-el);tm$.style.color=ph.color;
+  dt$.textContent=`${ph.inh}s in / ${ph.exh}s out · Continuous connected breath`;
+  pf$.style.width=(el/TOTAL*100)+'%';
+  draw(isI,bProg,el/TOTAL,pi);
+  requestAnimationFrame(tk);
+}
+function fin(){st='done';mV.classList.add('off');dV.classList.add('show')}
+function rst(){st='idle';pa=false;pO=0;lastPi=-1;lastIsI=null;go$.textContent='Begin Journey';go$.classList.add('p');rs$.style.display='none';ph$.textContent='Ready';ph$.style.color='';tm$.textContent='30:00';tm$.style.color='';dt$.textContent='Continuous circular breathing — no pause between in and out';pf$.style.width='0';document.querySelectorAll('.phs').forEach((e,i)=>{e.classList.toggle('ac',i===0)});dV.classList.remove('show');mV.classList.remove('off');il()}
+function tp3(){if(!pa){pa=true;pT2=performance.now();go$.textContent='Resume';go$.classList.add('p')}else{pO+=performance.now()-pT2;pa=false;go$.textContent='Pause';go$.classList.remove('p');tk()}}
+go$.onclick=()=>{if(st==='idle')start();else if(st==='active')tp3()};
+rs$.onclick=rst;document.getElementById('ag').onclick=()=>{rst();start()};
+document.getElementById('sB').onclick=()=>{au.init();const on=au.toggle();document.getElementById('sB').textContent=on?'🔔':'🔇'};
+function il(){if(st!=='idle')return;drawIdle();requestAnimationFrame(il)}il();
+</script>
+</body>
+</html>

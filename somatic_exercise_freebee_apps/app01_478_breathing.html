@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4-7-8 Breathing</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0a0e1a;
+    --surface: #111827;
+    --inhale: #6dd5ed;
+    --hold: #c084fc;
+    --exhale: #f9a8d4;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --glow-inhale: rgba(109, 213, 237, 0.3);
+    --glow-hold: rgba(192, 132, 252, 0.3);
+    --glow-exhale: rgba(249, 168, 212, 0.3);
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Ambient background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 30% 20%, rgba(109, 213, 237, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(192, 132, 252, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(249, 168, 212, 0.02) 0%, transparent 60%);
+    animation: ambientDrift 30s ease-in-out infinite;
+    z-index: 0;
+  }
+
+  @keyframes ambientDrift {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(2%, -1%) rotate(1deg); }
+    66% { transform: translate(-1%, 2%) rotate(-1deg); }
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 2.2rem;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    opacity: 0.9;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: -1rem;
+  }
+
+  /* Main circle visualization */
+  .breath-ring-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .breath-ring-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  canvas#breathCanvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .breath-center {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .phase-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    transition: color 0.6s ease;
+    min-height: 2rem;
+  }
+
+  .phase-counter {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    transition: color 0.6s ease;
+  }
+
+  .cycle-indicator {
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* Phase color classes */
+  .phase-inhale .phase-label,
+  .phase-inhale .phase-counter { color: var(--inhale); }
+  .phase-hold .phase-label,
+  .phase-hold .phase-counter { color: var(--hold); }
+  .phase-exhale .phase-label,
+  .phase-exhale .phase-counter { color: var(--exhale); }
+
+  /* Glow effect behind circle */
+  .glow-orb {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0;
+    transition: opacity 1s ease, background 1s ease;
+    pointer-events: none;
+  }
+
+  .glow-orb.active { opacity: 1; }
+  .glow-orb.inhale { background: var(--glow-inhale); }
+  .glow-orb.hold { background: var(--glow-hold); }
+  .glow-orb.exhale { background: var(--glow-exhale); }
+
+  /* Controls */
+  .controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 2rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    background: rgba(255,255,255,0.03);
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .btn:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.25);
+    transform: translateY(-1px);
+  }
+
+  .btn:active { transform: translateY(0); }
+
+  .btn.primary {
+    background: rgba(109, 213, 237, 0.1);
+    border-color: rgba(109, 213, 237, 0.3);
+  }
+
+  .btn.primary:hover {
+    background: rgba(109, 213, 237, 0.18);
+    border-color: rgba(109, 213, 237, 0.5);
+  }
+
+  .btn-small {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.75rem;
+  }
+
+  /* Info strip */
+  .info-strip {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .info-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+
+  .info-label {
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* Completion screen */
+  .completion {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+    animation: fadeIn 1s ease;
+  }
+
+  .completion.show { display: flex; }
+
+  .completion h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 2rem;
+    letter-spacing: 0.08em;
+  }
+
+  .completion p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    max-width: 320px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .main-view { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+  .main-view.hidden { display: none; }
+
+  /* Tone legend */
+  .tone-legend {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: -0.5rem;
+  }
+
+  .tone-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .tone-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .tone-dot.inhale { background: var(--inhale); }
+  .tone-dot.hold { background: var(--hold); }
+  .tone-dot.exhale { background: var(--exhale); }
+
+  /* Sound toggle */
+  .sound-toggle {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.03);
+    color: var(--muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+  }
+
+  .sound-toggle:hover {
+    background: rgba(255,255,255,0.08);
+    color: var(--text);
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    h1 { font-size: 1.8rem; }
+    .breath-ring-container { width: 240px; height: 240px; }
+    .phase-counter { font-size: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<button class="sound-toggle" id="soundToggle" title="Toggle sound">🔔</button>
+
+<div class="container">
+  <h1>4 · 7 · 8</h1>
+  <div class="subtitle">Breathing Technique</div>
+
+  <div class="main-view" id="mainView">
+    <div class="info-strip">
+      <div class="info-item">
+        <span class="info-value" style="color:var(--inhale)">4s</span>
+        <span class="info-label">Inhale</span>
+      </div>
+      <div class="info-item">
+        <span class="info-value" style="color:var(--hold)">7s</span>
+        <span class="info-label">Hold</span>
+      </div>
+      <div class="info-item">
+        <span class="info-value" style="color:var(--exhale)">8s</span>
+        <span class="info-label">Exhale</span>
+      </div>
+      <div class="info-item">
+        <span class="info-value">6</span>
+        <span class="info-label">Cycles</span>
+      </div>
+    </div>
+
+    <div class="breath-ring-container" id="breathRing">
+      <div class="glow-orb" id="glowOrb"></div>
+      <div class="breath-ring-bg"></div>
+      <canvas id="breathCanvas" width="560" height="560"></canvas>
+      <div class="breath-center" id="breathCenter">
+        <div class="phase-label" id="phaseLabel">Ready</div>
+        <div class="phase-counter" id="phaseCounter">—</div>
+        <div class="cycle-indicator" id="cycleIndicator"></div>
+      </div>
+    </div>
+
+    <div class="tone-legend">
+      <div class="tone-item"><div class="tone-dot inhale"></div>High tone · Inhale</div>
+      <div class="tone-item"><div class="tone-dot hold"></div>Mid tone · Hold</div>
+      <div class="tone-item"><div class="tone-dot exhale"></div>Low tone · Exhale</div>
+    </div>
+
+    <div class="controls">
+      <button class="btn primary" id="startBtn">Begin</button>
+      <button class="btn btn-small" id="resetBtn" style="display:none">Reset</button>
+    </div>
+  </div>
+
+  <div class="completion" id="completionView">
+    <h2>Practice Complete</h2>
+    <p>Six cycles of 4-7-8 breathing. Your parasympathetic nervous system has been activated — the vagus nerve is now signaling your body to rest and restore.</p>
+    <p style="font-style:italic; opacity:0.7;">Notice how your jaw, shoulders, and belly feel right now.</p>
+    <button class="btn primary" id="restartBtn">Begin Again</button>
+  </div>
+</div>
+
+<script>
+// ─── Configuration ───
+const INHALE = 4, HOLD = 7, EXHALE = 8, TOTAL_CYCLES = 6;
+const CYCLE_DURATION = INHALE + HOLD + EXHALE;
+
+// ─── Audio Engine (Pure Fifth frequency set) ───
+class ToneEngine {
+  constructor() {
+    this.ctx = null;
+    this.enabled = true;
+    this.activeOsc = null;
+    this.activeGain = null;
+  }
+
+  init() {
+    if (this.ctx) return;
+    this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+
+  playTone(freq, duration) {
+    if (!this.enabled || !this.ctx) return;
+    // Fade out any existing tone
+    this.stopTone();
+
+    const osc = this.ctx.createOscillator();
+    const gain = this.ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0, this.ctx.currentTime);
+    gain.gain.linearRampToValueAtTime(0.12, this.ctx.currentTime + 0.15);
+    gain.gain.setValueAtTime(0.12, this.ctx.currentTime + duration - 0.3);
+    gain.gain.linearRampToValueAtTime(0, this.ctx.currentTime + duration);
+    osc.connect(gain);
+    gain.connect(this.ctx.destination);
+    osc.start(this.ctx.currentTime);
+    osc.stop(this.ctx.currentTime + duration);
+    this.activeOsc = osc;
+    this.activeGain = gain;
+  }
+
+  stopTone() {
+    if (this.activeGain && this.ctx) {
+      try {
+        this.activeGain.gain.cancelScheduledValues(this.ctx.currentTime);
+        this.activeGain.gain.linearRampToValueAtTime(0, this.ctx.currentTime + 0.05);
+      } catch(e) {}
+    }
+  }
+
+  // Pure fifth intervals: C4, G4, C3
+  inhale()  { this.playTone(261.63, INHALE); }   // C4
+  hold()    { this.playTone(392.00, HOLD); }      // G4
+  exhale()  { this.playTone(130.81, EXHALE); }    // C3
+
+  toggle() {
+    this.enabled = !this.enabled;
+    if (!this.enabled) this.stopTone();
+    return this.enabled;
+  }
+}
+
+// ─── Canvas Renderer ───
+class BreathVisualizer {
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext('2d');
+    this.w = canvas.width;
+    this.h = canvas.height;
+    this.cx = this.w / 2;
+    this.cy = this.h / 2;
+    this.baseRadius = 90;
+    this.maxRadius = 130;
+  }
+
+  clear() {
+    this.ctx.clearRect(0, 0, this.w, this.h);
+  }
+
+  draw(phase, phaseProgress, overallProgress) {
+    this.clear();
+    const ctx = this.ctx;
+
+    let radius, color, glowColor;
+
+    if (phase === 'inhale') {
+      radius = this.baseRadius + (this.maxRadius - this.baseRadius) * this.easeInOutCubic(phaseProgress);
+      color = 'rgba(109, 213, 237, ##A##)';
+      glowColor = 'rgba(109, 213, 237, 0.15)';
+    } else if (phase === 'hold') {
+      radius = this.maxRadius;
+      // Gentle pulse during hold
+      const pulse = Math.sin(phaseProgress * Math.PI * 2) * 3;
+      radius += pulse;
+      color = 'rgba(192, 132, 252, ##A##)';
+      glowColor = 'rgba(192, 132, 252, 0.15)';
+    } else {
+      radius = this.maxRadius - (this.maxRadius - this.baseRadius) * this.easeInOutCubic(phaseProgress);
+      color = 'rgba(249, 168, 212, ##A##)';
+      glowColor = 'rgba(249, 168, 212, 0.15)';
+    }
+
+    // Outer glow
+    const gradient = ctx.createRadialGradient(this.cx, this.cy, radius * 0.5, this.cx, this.cy, radius * 2);
+    gradient.addColorStop(0, glowColor);
+    gradient.addColorStop(1, 'transparent');
+    ctx.beginPath();
+    ctx.arc(this.cx, this.cy, radius * 2, 0, Math.PI * 2);
+    ctx.fillStyle = gradient;
+    ctx.fill();
+
+    // Main ring
+    const ringWidth = 3;
+    ctx.beginPath();
+    ctx.arc(this.cx, this.cy, radius, 0, Math.PI * 2);
+    ctx.strokeStyle = color.replace('##A##', '0.6');
+    ctx.lineWidth = ringWidth;
+    ctx.stroke();
+
+    // Inner fill
+    const inner = ctx.createRadialGradient(this.cx, this.cy, 0, this.cx, this.cy, radius);
+    inner.addColorStop(0, color.replace('##A##', '0.08'));
+    inner.addColorStop(0.7, color.replace('##A##', '0.03'));
+    inner.addColorStop(1, 'transparent');
+    ctx.beginPath();
+    ctx.arc(this.cx, this.cy, radius, 0, Math.PI * 2);
+    ctx.fillStyle = inner;
+    ctx.fill();
+
+    // Progress arc (overall session)
+    if (overallProgress > 0) {
+      ctx.beginPath();
+      ctx.arc(this.cx, this.cy, radius + 12, -Math.PI / 2, -Math.PI / 2 + overallProgress * Math.PI * 2);
+      ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+    }
+
+    // Particle dots around ring
+    const particleCount = 12;
+    const time = Date.now() / 3000;
+    for (let i = 0; i < particleCount; i++) {
+      const angle = (i / particleCount) * Math.PI * 2 + time;
+      const dist = radius + 6 + Math.sin(time * 2 + i) * 4;
+      const px = this.cx + Math.cos(angle) * dist;
+      const py = this.cy + Math.sin(angle) * dist;
+      const alpha = 0.15 + Math.sin(time * 3 + i * 0.7) * 0.1;
+      ctx.beginPath();
+      ctx.arc(px, py, 1.5, 0, Math.PI * 2);
+      ctx.fillStyle = color.replace('##A##', String(alpha));
+      ctx.fill();
+    }
+  }
+
+  drawIdle() {
+    this.clear();
+    const ctx = this.ctx;
+    const time = Date.now() / 2000;
+    const radius = this.baseRadius + Math.sin(time) * 3;
+
+    ctx.beginPath();
+    ctx.arc(this.cx, this.cy, radius, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    const inner = ctx.createRadialGradient(this.cx, this.cy, 0, this.cx, this.cy, radius);
+    inner.addColorStop(0, 'rgba(255,255,255,0.03)');
+    inner.addColorStop(1, 'transparent');
+    ctx.beginPath();
+    ctx.arc(this.cx, this.cy, radius, 0, Math.PI * 2);
+    ctx.fillStyle = inner;
+    ctx.fill();
+  }
+
+  easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+}
+
+// ─── State Machine ───
+const STATE = { IDLE: 'idle', ACTIVE: 'active', COMPLETE: 'complete' };
+const PHASES = [
+  { name: 'Inhale', duration: INHALE },
+  { name: 'Hold',   duration: HOLD },
+  { name: 'Exhale', duration: EXHALE }
+];
+
+let state = STATE.IDLE;
+let currentCycle = 0;
+let currentPhaseIndex = 0;
+let phaseStartTime = 0;
+let sessionStartTime = 0;
+let animFrameId = null;
+let isPaused = false;
+let pauseOffset = 0;
+
+// ─── DOM ───
+const phaseLabel = document.getElementById('phaseLabel');
+const phaseCounter = document.getElementById('phaseCounter');
+const cycleIndicator = document.getElementById('cycleIndicator');
+const breathCenter = document.getElementById('breathCenter');
+const glowOrb = document.getElementById('glowOrb');
+const startBtn = document.getElementById('startBtn');
+const resetBtn = document.getElementById('resetBtn');
+const restartBtn = document.getElementById('restartBtn');
+const mainView = document.getElementById('mainView');
+const completionView = document.getElementById('completionView');
+const soundToggle = document.getElementById('soundToggle');
+
+const tone = new ToneEngine();
+const canvas = document.getElementById('breathCanvas');
+const viz = new BreathVisualizer(canvas);
+
+// ─── Idle animation ───
+function idleLoop() {
+  if (state !== STATE.IDLE) return;
+  viz.drawIdle();
+  animFrameId = requestAnimationFrame(idleLoop);
+}
+
+// ─── Start Session ───
+function startSession() {
+  tone.init();
+  state = STATE.ACTIVE;
+  currentCycle = 0;
+  currentPhaseIndex = 0;
+  pauseOffset = 0;
+  isPaused = false;
+  sessionStartTime = performance.now();
+  phaseStartTime = performance.now();
+
+  startBtn.textContent = 'Pause';
+  startBtn.classList.remove('primary');
+  resetBtn.style.display = 'inline-block';
+  completionView.classList.remove('show');
+  mainView.classList.remove('hidden');
+
+  triggerPhase();
+  activeLoop();
+}
+
+function triggerPhase() {
+  const phase = PHASES[currentPhaseIndex];
+  setPhaseUI(phase.name);
+
+  if (phase.name === 'Inhale') tone.inhale();
+  else if (phase.name === 'Hold') tone.hold();
+  else tone.exhale();
+}
+
+function setPhaseUI(name) {
+  const key = name.toLowerCase();
+  breathCenter.className = 'breath-center phase-' + key;
+  phaseLabel.textContent = name;
+  cycleIndicator.textContent = `Cycle ${currentCycle + 1} / ${TOTAL_CYCLES}`;
+
+  glowOrb.className = 'glow-orb active ' + key;
+}
+
+// ─── Active Loop ───
+function activeLoop() {
+  if (state !== STATE.ACTIVE || isPaused) return;
+
+  const now = performance.now();
+  const phase = PHASES[currentPhaseIndex];
+  const elapsed = (now - phaseStartTime - pauseOffset) / 1000;
+  const remaining = Math.max(0, phase.duration - elapsed);
+  const phaseProgress = Math.min(1, elapsed / phase.duration);
+
+  // Overall progress
+  const totalSeconds = TOTAL_CYCLES * CYCLE_DURATION;
+  const completedSeconds = currentCycle * CYCLE_DURATION
+    + PHASES.slice(0, currentPhaseIndex).reduce((s, p) => s + p.duration, 0)
+    + elapsed;
+  const overallProgress = Math.min(1, completedSeconds / totalSeconds);
+
+  // Update counter
+  phaseCounter.textContent = Math.ceil(remaining);
+
+  // Draw
+  viz.draw(phase.name.toLowerCase(), phaseProgress, overallProgress);
+
+  // Phase transition
+  if (elapsed >= phase.duration) {
+    currentPhaseIndex++;
+    if (currentPhaseIndex >= PHASES.length) {
+      currentPhaseIndex = 0;
+      currentCycle++;
+      if (currentCycle >= TOTAL_CYCLES) {
+        completeSession();
+        return;
+      }
+    }
+    pauseOffset = 0;
+    phaseStartTime = performance.now();
+    triggerPhase();
+  }
+
+  animFrameId = requestAnimationFrame(activeLoop);
+}
+
+function completeSession() {
+  state = STATE.COMPLETE;
+  tone.stopTone();
+  mainView.classList.add('hidden');
+  completionView.classList.add('show');
+  glowOrb.className = 'glow-orb';
+}
+
+// ─── Pause / Resume ───
+let pauseStart = 0;
+
+function togglePause() {
+  if (state !== STATE.ACTIVE) return;
+  if (!isPaused) {
+    isPaused = true;
+    pauseStart = performance.now();
+    startBtn.textContent = 'Resume';
+    startBtn.classList.add('primary');
+    tone.stopTone();
+  } else {
+    pauseOffset += performance.now() - pauseStart;
+    isPaused = false;
+    startBtn.textContent = 'Pause';
+    startBtn.classList.remove('primary');
+    triggerPhase();
+    activeLoop();
+  }
+}
+
+// ─── Reset ───
+function resetSession() {
+  state = STATE.IDLE;
+  isPaused = false;
+  pauseOffset = 0;
+  tone.stopTone();
+  cancelAnimationFrame(animFrameId);
+
+  startBtn.textContent = 'Begin';
+  startBtn.classList.add('primary');
+  resetBtn.style.display = 'none';
+  phaseLabel.textContent = 'Ready';
+  phaseCounter.textContent = '—';
+  cycleIndicator.textContent = '';
+  breathCenter.className = 'breath-center';
+  glowOrb.className = 'glow-orb';
+  completionView.classList.remove('show');
+  mainView.classList.remove('hidden');
+
+  idleLoop();
+}
+
+// ─── Events ───
+startBtn.addEventListener('click', () => {
+  if (state === STATE.IDLE) startSession();
+  else if (state === STATE.ACTIVE) togglePause();
+});
+
+resetBtn.addEventListener('click', resetSession);
+restartBtn.addEventListener('click', () => { resetSession(); startSession(); });
+
+soundToggle.addEventListener('click', () => {
+  tone.init();
+  const on = tone.toggle();
+  soundToggle.textContent = on ? '🔔' : '🔇';
+});
+
+// ─── Init ───
+idleLoop();
+</script>
+</body>
+</html>

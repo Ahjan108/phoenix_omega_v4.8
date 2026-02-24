@@ -1,0 +1,12 @@
+# K-table for F015 (Sensory). Dev Spec §4.2.2. 5-8 chapters.
+format_id: F015
+tier: C
+chapter_count: 8
+
+k_min_per_slot:
+  HOOK: { k_min: 6 }
+  SCENE: { k_min: 6 }
+  STORY: { k_min: 8 }
+  REFLECTION: { k_min: 6 }
+  EXERCISE: { k_min: 3 }
+  INTEGRATION: { k_min: 6 }

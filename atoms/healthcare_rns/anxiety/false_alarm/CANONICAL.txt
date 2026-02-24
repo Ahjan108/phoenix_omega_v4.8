@@ -1,0 +1,266 @@
+# healthcare_rns × anxiety × false_alarm
+# 20 atoms: 5 recognition, 5 mechanism_proof, 5 turning_point, 5 embodiment
+
+---
+
+## RECOGNITION v01
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/recognition/micro/v01.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Nora's pager goes off at 2am. Her body is already moving before her eyes focus on the screen. Heart rate spiked, hands reaching for shoes, adrenaline flooding her system in the time it takes to read: non-urgent lab callback. Non-urgent. Her body prepared for a code. Her body doesn't distinguish between a lab callback and a cardiac arrest when the pager sounds. She calls the lab. Adjusts the order. Returns to the break room. Her heart rate doesn't return to baseline for twenty minutes. The pager trained her body to treat every sound as an emergency. Every sound obliges.
+
+---
+
+## RECOGNITION v02
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/recognition/micro/v02.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: social
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+Tomás hears the ventilator alarm from across the ICU. His chest seizes. He's moving toward the room before the alarm has registered in his conscious mind. The alarm is a self-correcting pressure fluctuation—the machine resolved it before he arrives. His body doesn't know this. His body ran a full emergency response for a machine hiccup. He stands at the bedside with his patient sleeping peacefully and his own cortisol at critical levels. Eight hours left in the shift. The ventilator alarms will sound approximately forty more times. His body will respond to each one as though it's the last.
+
+---
+
+## RECOGNITION v03
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/recognition/micro/v03.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Aisha checks her patient's vitals. Everything is stable. The numbers are good. She checks again twenty minutes later. Still stable. She checks again in fifteen. The checking isn't protocol—protocol is hourly. The checking is the alarm running underneath the stable numbers, insisting that stable can change to critical without warning. The alarm is correct—it can. But the alarm can't distinguish between "it can" and "it will." The distinction would save her twelve extra checks per shift. The alarm doesn't do distinctions. The alarm does vigilance.
+
+---
+
+## RECOGNITION v04
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/recognition/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: social
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+Claire's patient's heart rate dips to 58 during delivery. Within normal range for labor. Claire's hands grip the bedrail. Her training says: monitor. Her alarm says: intervene. The gap between training and alarm is a twenty-beat margin that her body can't tolerate. She watches the monitor. The heart rate returns to 68. Normal. Her grip loosens but doesn't release. The alarm stays elevated for the duration of the delivery—two more hours of vigilance at crisis-level intensity for a birth that proceeds without complication.
+
+---
+
+## RECOGNITION v05
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/recognition/micro/v05.txt
+BAND: 4
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 4
+IDENTITY_STAGE: pre_awareness
+---
+Derek wakes at home. Day off. His phone buzzes—a text from his partner about groceries. His body responds as though it's a hospital alert: stomach drops, chest tightens, the full activation sequence. He stares at the text: "We need milk." The alarm doesn't differentiate between work alerts and grocery lists. The sound is the trigger. Any sound from any device activates the emergency protocol. He types back "ok" while his hands shake from adrenaline meant for a different kind of message entirely.
+
+---
+
+## MECHANISM_PROOF v01
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/mechanism_proof/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+Nora tracks her alarm responses over a shift. Forty-seven alarm activations. Three were actual emergencies. Forty-four were false positives: self-correcting equipment, routine adjustments, non-urgent pages. Her body ran a full emergency protocol forty-seven times. Three were warranted. The accuracy rate is 6.4%. If any medical test had a 6.4% accuracy rate, it would be discontinued. Her nervous system's test runs at 6.4% and she can't discontinue it. The three real emergencies keep the alarm funded. The forty-four false positives are the tax.
+
+---
+
+## MECHANISM_PROOF v02
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/mechanism_proof/micro/v02.txt
+BAND: 2
+MECHANISM_DEPTH: 2
+COST_TYPE: opportunity
+COST_INTENSITY: 2
+IDENTITY_STAGE: destabilization
+---
+Tomás calculates the energy budget. Each false alarm costs approximately ten minutes of elevated cortisol. Forty false alarms per shift: four hundred minutes—nearly seven hours of biochemical emergency state during a twelve-hour shift. The remaining five hours of non-emergency are spent recovering from the previous alarm or waiting for the next one. He has no baseline hours. His shift is either alarm or recovery from alarm. The patient care that happens between alarms is delivered by a body that is never at rest. The care is competent. The body is exhausted.
+
+---
+
+## MECHANISM_PROOF v03
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/mechanism_proof/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+Aisha discovers the checking has a paradox. Each extra check that confirms stability should reduce the alarm. Instead, each check that confirms stability feeds the alarm: see, you needed to check—what if you hadn't? The checking becomes its own evidence. If she checks and finds stability, the alarm says: good thing you checked. If she checks and finds a change, the alarm says: see, you need to check more. Both outcomes reinforce the checking. The system has no input that reduces its own activity. It's a self-sustaining loop that consumes hours of her shift.
+
+---
+
+## MECHANISM_PROOF v04
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/mechanism_proof/micro/v04.txt
+BAND: 4
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 4
+IDENTITY_STAGE: destabilization
+---
+Claire realizes the alarm has erased the distinction between work and not-work in her nervous system. At the hospital, the alarm is at maximum—appropriate for the stakes. At home, the alarm should be at minimum. Her body doesn't have a minimum setting. The alarm that protects patients is now firing on her children's fevers, her partner's headaches, every siren she hears through the window. She's running triage in her own kitchen. Her daughter bumps her head and Claire's response is clinical and immediate and wildly disproportionate. Her daughter is fine. Claire's adrenal system is not.
+
+---
+
+## MECHANISM_PROOF v05
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/mechanism_proof/micro/v05.txt
+BAND: 2
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Derek notices the alarm has gotten louder over three years. Year one: a pager sound produced appropriate alertness. Year two: the pager sound produced adrenaline. Year three: a phone buzz at home produces the same adrenaline as a code blue page. The alarm hasn't been recalibrated since orientation. It only knows one volume: maximum. The volume escalated without his permission, without his awareness, without any mechanism for turning it down. He has a volume knob for his phone. He has no volume knob for his nervous system.
+
+---
+
+## TURNING_POINT v01
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/turning_point/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Nora starts a practice. When the pager sounds, before she moves, she reads the display. Two seconds. The alarm screams: move now. She reads first. Non-urgent lab callback. She walks instead of running. The walk is excruciating to the alarm—every step at walking pace feels like negligence. She arrives at the phone. Makes the call. The patient outcome is identical to if she'd run. The two-second read and the walk saved her one unnecessary adrenaline spike. One. Multiplied across a shift, the savings compound. The alarm hates the two seconds. The two seconds are her only lever.
+
+---
+
+## TURNING_POINT v02
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/turning_point/micro/v02.txt
+BAND: 2
+MECHANISM_DEPTH: 3
+COST_TYPE: social
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Tomás tells another ICU nurse: "I spike on every vent alarm. Even the self-correcting ones." The nurse looks at him. "Same. I thought it was just me." Two ICU nurses, same alarm pattern, same exhaustion, same silence about it. The sharing doesn't fix the alarm. The sharing normalizes the alarm as a system feature, not a personal failure. The alarm feels like Tomás's weakness. The alarm is the unit's exposure. Every nurse in the ICU is running the same 6.4% accuracy rate. The recognition is collective. The solution might be too.
+
+---
+
+## TURNING_POINT v03
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/turning_point/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+CALLBACK_ID: extra_checks
+CALLBACK_PHASE: setup
+---
+Aisha follows the protocol. Hourly checks. Not fifteen-minute checks. The alarm screams between hours: what if something changed, what if you missed it, what if. She lets it scream. Sits at the nurses' station with the alarm running and the protocol holding. The hour passes. She checks. Patient stable. The hour was the same whether she checked four times or once. The outcome was identical. The alarm's urgency was unfounded forty-five minutes out of sixty. She doesn't override the alarm. She outwaits it. The outwaiting is harder than a code blue. The outwaiting is the turning point.
+
+---
+
+## TURNING_POINT v04
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/turning_point/micro/v04.txt
+BAND: 4
+MECHANISM_DEPTH: 3
+COST_TYPE: social
+COST_INTENSITY: 4
+IDENTITY_STAGE: experimentation
+---
+Claire's daughter bumps her head at the playground. The alarm fires: assess, triage, scan for concussion signs. Claire pauses. Counts to three. Looks at the bump. Small. No dizziness, no nausea, no altered consciousness. She puts ice on it. Kisses the forehead. The alarm says: you're not doing enough. She's doing exactly enough. The clinical response to a bump is an ice pack and observation. The alarm's response to a bump is a CT scan and a neurological consult. She holds the ice pack against the alarm's demands. Her daughter is fine. Claire is practicing the difference between nursing and mothering. The alarm doesn't know the difference.
+
+---
+
+## TURNING_POINT v05
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/turning_point/micro/v05.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Derek puts his phone on silent at home. The alarm says: what if the hospital calls. The hospital has the landline. The alarm says: what if you miss the landline. The landline is three feet away. The alarm runs out of specific objections and switches to general dread. He sits with the general dread. The dread has no content—just activation without target. He watches TV with the dread humming. By the second episode, the hum has reduced to a murmur. By the third, he's almost relaxed. The almost is a breakthrough for a nervous system that hasn't been below maximum in months.
+
+---
+
+## EMBODIMENT v01
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/embodiment/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Nora's pager sounds. She reads the display: two seconds. Non-urgent. She walks. The alarm fires and she walks through it. Arrives. Handles the call. Returns. The alarm fades. Next page: reads, assesses, responds at appropriate speed. The two-second practice is becoming less excruciating. Not comfortable—less excruciating. The alarm still fires at maximum on every page. The two-second buffer gives her enough time to sort the maximum into categories: run-worthy or walk-worthy. The sorting doesn't reduce the alarm. The sorting directs the response. Directed response is less expensive than blanket response.
+
+---
+
+## EMBODIMENT v02
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/embodiment/micro/v02.txt
+BAND: 2
+MECHANISM_DEPTH: 3
+COST_TYPE: social
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Tomás hears the vent alarm. His chest seizes. He checks the monitor from where he is—three feet away. Self-correcting. He stays at the station. The alarm says: go to the bedside. The monitor says: resolved. He trusts the monitor. The alarm runs for another two minutes on the resolved event. He lets it run. Charts while the alarm fades. The charting is productive work happening inside the alarm's aftershock. He used to wait for the aftershock to pass before working. Now he works through it. The aftershock still happens. The work doesn't wait for it.
+
+---
+
+## EMBODIMENT v03
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/embodiment/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+CALLBACK_ID: extra_checks
+CALLBACK_PHASE: return
+---
+Aisha holds the hourly protocol for the third shift in a row. The alarm still screams between checks. The screaming is the same volume. Her response to it is different. She hears the scream and stays at the station. The station is where her other patients' charts need attention. The charts get better care when she's not running between rooms on unnecessary checks. The hourly patient is stable. The other patients benefit from the time she reclaimed. The alarm costs one patient nothing and gives five patients better attention. The math supports the protocol. The alarm doesn't do math.
+
+---
+
+## EMBODIMENT v04
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/embodiment/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: social
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Claire's son gets a fever. 100.2. The alarm says: assess for sepsis. Her nursing brain says: it's 100.2. Likely viral. Fluids, rest, monitor. She gives ibuprofen. The alarm runs its worst-case scenarios while she reads him a book. The book and the scenarios coexist in the same thirty minutes. The fever breaks by morning. The alarm predicted septic shock. The reality was a twenty-four-hour virus. She adds it to the growing file of alarm predictions versus actual outcomes. The file is heavy on overreaction. The file is light on actual emergencies. The file is the evidence the alarm won't consult.
+
+---
+
+## EMBODIMENT v05
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/false_alarm/embodiment/micro/v05.txt
+BAND: 2
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Derek's phone is on silent. His partner texts. He reads it when he's ready—not immediately, not on the alarm's schedule. "Dinner at 7?" He responds without the adrenaline spike. The message arrived as information, not as threat. The silent phone created a buffer between the buzz and his nervous system. The buffer is thin. The buffer is the difference between an emergency response and a dinner plan. He eats dinner at 7. The meal is unremarkable. The unremarkable meal, eaten by a body that isn't running an emergency protocol, tastes better than anything he's eaten in months.

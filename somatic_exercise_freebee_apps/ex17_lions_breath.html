@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lion's Breath — Simhasana</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Rubik:wght@300;400&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--roar:#D4763A;--calm:#A0886A;--bg:#0D0A08;--text:#E0D4C4;--muted:#6A5E50}
+  body{font-family:'Rubik',sans-serif;background:var(--bg);color:var(--text);height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none}
+  .wrap{z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.2rem}
+  h1{font-family:'Abril Fatface',serif;font-size:2rem;letter-spacing:.03em;color:var(--roar)}
+  .sub{font-size:.7rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+  .lion{position:relative;width:200px;height:200px;display:flex;align-items:center;justify-content:center}
+  .lion-face{font-size:6rem;transition:transform .3s;line-height:1}
+  .lion-face.roar{transform:scale(1.2)}
+  .mane-ring{position:absolute;inset:-10px;border-radius:50%;border:2px solid rgba(212,118,58,.1);transition:border-color .3s,box-shadow .3s}
+  .mane-ring.roar{border-color:rgba(212,118,58,.4);box-shadow:0 0 40px rgba(212,118,58,.2)}
+  .pn{font-family:'Abril Fatface',serif;font-size:1.5rem;letter-spacing:.04em;text-align:center;min-height:2rem}
+  .pc{font-size:2.5rem;font-weight:300;opacity:.7;text-align:center}
+  .inst{font-size:.72rem;color:var(--muted);text-align:center;min-height:2rem;line-height:1.5}
+  .bar{width:200px;height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
+  .bf{height:100%;width:0;border-radius:2px;background:var(--roar)}
+  .info-row{display:flex;gap:2rem;font-size:.78rem;color:var(--muted)}
+  .info-row strong{color:var(--text);font-weight:400}
+  .controls{display:flex;gap:1rem}
+  .btn{font-family:'Rubik',sans-serif;padding:.5rem 1.4rem;border:1px solid rgba(212,118,58,.2);border-radius:100px;background:rgba(212,118,58,.06);color:var(--text);font-size:.78rem;cursor:pointer;transition:all .3s}
+  .btn:hover{background:rgba(212,118,58,.15)}
+  .btn.pri{background:rgba(212,118,58,.12);border-color:rgba(212,118,58,.35)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Lion's Breath</h1>
+  <p class="sub">Simhasana · Release tension with a roar</p>
+  <div class="lion">
+    <div class="mane-ring" id="mane"></div>
+    <div class="lion-face" id="face">🦁</div>
+  </div>
+  <div class="pn" id="pn">Ready</div>
+  <div class="pc" id="pc"></div>
+  <div class="inst" id="inst">Inhale through nose, exhale with tongue out, eyes up — ROAR!</div>
+  <div class="bar"><div class="bf" id="bf"></div></div>
+  <div class="info-row">
+    <span>Rep <strong id="rn">0</strong> / <strong>10</strong></span>
+    <span>Elapsed <strong id="el">0:00</strong></span>
+  </div>
+  <div class="controls">
+    <button class="btn pri" id="sb" onclick="toggle()">Begin</button>
+    <button class="btn" onclick="doReset()">Reset</button>
+  </div>
+</div>
+<script>
+const INH=4,EXH=3,CYCLE=7,REPS=10,SESSION=70;
+let running=false,paused=false,t=0,total=0,lastTs=0,reps=0,lastP='',aCtx=null;
+function audio(){if(!aCtx)aCtx=new(window.AudioContext||window.webkitAudioContext)();return aCtx}
+function tone(f,d=.2){try{const x=audio(),o=x.createOscillator(),g=x.createGain();o.type='sawtooth';o.frequency.value=f;g.gain.setValueAtTime(0,x.currentTime);g.gain.linearRampToValueAtTime(.05,x.currentTime+.03);g.gain.exponentialRampToValueAtTime(.001,x.currentTime+d);o.connect(g);g.connect(x.destination);o.start();o.stop(x.currentTime+d)}catch(e){}}
+function fmt(s){return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
+
+function tick(ts){
+  if(!running||paused)return;
+  if(!lastTs)lastTs=ts;const dt=(ts-lastTs)/1000;lastTs=ts;t+=dt;total+=dt;
+  const ct=t%CYCLE;const isIn=ct<INH;
+  const cur=isIn?'in':'roar';
+  if(cur!==lastP){
+    if(!isIn)tone(120,.4);else tone(350,.15);
+    if(cur==='in'&&lastP==='roar'){reps++;document.getElementById('rn').textContent=reps;if(reps>=REPS){end();return}}
+    lastP=cur;
+  }
+  document.getElementById('face').classList.toggle('roar',!isIn);
+  document.getElementById('mane').classList.toggle('roar',!isIn);
+  document.getElementById('pn').textContent=isIn?'Inhale':'ROAR!';
+  document.getElementById('pc').textContent=Math.ceil(isIn?INH-ct:EXH-(ct-INH));
+  document.getElementById('inst').textContent=isIn?'Deep breath in through the nose':'Open mouth wide, tongue out, exhale forcefully — HAAAA!';
+  document.getElementById('bf').style.width=(total/SESSION*100)+'%';
+  document.getElementById('el').textContent=fmt(total);
+  requestAnimationFrame(tick);
+}
+function toggle(){
+  const b=document.getElementById('sb');
+  if(!running){running=true;paused=false;t=0;total=0;lastTs=0;reps=0;lastP='';
+    document.getElementById('rn').textContent='0';b.textContent='Pause';requestAnimationFrame(tick);
+  }else if(!paused){paused=true;lastTs=0;b.textContent='Resume'}
+  else{paused=false;lastTs=0;b.textContent='Pause';requestAnimationFrame(tick)}
+}
+function doReset(){
+  running=false;paused=false;t=0;total=0;lastTs=0;reps=0;lastP='';
+  document.getElementById('sb').textContent='Begin';document.getElementById('rn').textContent='0';
+  document.getElementById('el').textContent='0:00';document.getElementById('pn').textContent='Ready';
+  document.getElementById('pc').textContent='';document.getElementById('bf').style.width='0';
+  document.getElementById('face').classList.remove('roar');document.getElementById('mane').classList.remove('roar');
+}
+function end(){running=false;document.getElementById('sb').textContent='Begin';document.getElementById('pn').textContent='Power Released';document.getElementById('pc').textContent='';tone(528,.6)}
+</script>
+</body>
+</html>

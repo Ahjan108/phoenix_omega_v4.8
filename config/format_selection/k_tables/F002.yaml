@@ -1,0 +1,12 @@
+# K-table for F002 (Daily). Dev Spec §4.2.2. Chapter range 30-365; k_min for 30-ch minimum.
+format_id: F002
+tier: B
+chapter_count: 30
+
+k_min_per_slot:
+  HOOK: { k_min: 15 }
+  SCENE: { k_min: 20 }
+  STORY: { k_min: 30 }
+  REFLECTION: { k_min: 20 }
+  EXERCISE: { k_min: 8 }
+  INTEGRATION: { k_min: 10 }

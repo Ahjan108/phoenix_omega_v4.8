@@ -1,0 +1,12 @@
+# Maps freebie_id (from freebie_registry) to exercise landing page id (from exercises_landing.json).
+# Used by generate_html_freebie: when writing public/free/{slug}/index.html, if primary freebie
+# is mapped here, the page redirects to /breathwork/lp-{landing_id}.html for email capture.
+# Add more entries as you add somatic freebies to the registry.
+
+breath_timer_v1: cyclic_sighing
+breath_reset_structured_v1: box_breathing
+
+# Placeholders for future per-exercise freebies (uncomment when added to freebie_registry):
+# cyclic_sighing_v1: cyclic_sighing
+# box_breathing_v1: box_breathing
+# 478_breathing_v1: 478_breathing

@@ -1,0 +1,29 @@
+# Angle Integration Layer (V4.7). Authority: DEV SPEC ANGLE INTEGRATION LAYER.
+# angle_id -> structural narrative driver. Arc-First remains authoritative; angle chooses variant.
+# arc_path: optional path (relative to repo root) to arc YAML when this angle is selected; omit to use CLI --arc.
+
+angles:
+  WRONG_PROBLEM:
+    arc_variant: ARC_STANDARD_A_v2
+    chapter_1_role_bias: destabilization
+    integration_reinforcement_type: problem_inversion
+    framing_mode: debunk
+    # arc_path: config/source_of_truth/master_arcs/...  # set when variant arc exists
+
+  MAP_PROMISE:
+    arc_variant: ARC_STANDARD_A_v3
+    chapter_1_role_bias: recognition
+    integration_reinforcement_type: orientation
+    framing_mode: framework
+
+  HIDDEN_TRUTH:
+    arc_variant: ARC_STANDARD_A_v4
+    chapter_1_role_bias: destabilization
+    integration_reinforcement_type: revelation
+    framing_mode: reveal
+
+  ONE_LEVER:
+    arc_variant: ARC_STANDARD_A_v5
+    chapter_1_role_bias: recognition
+    integration_reinforcement_type: mechanism_focus
+    framing_mode: leverage

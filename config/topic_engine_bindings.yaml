@@ -1,0 +1,158 @@
+# topic_engine_bindings.yaml
+# Phoenix Omega V4 — Topic Engine Bindings
+# Hard gate: which engines/roles are allowed per topic
+# Aligned with Full Story Completion Spec engine routing
+
+---
+
+anxiety:
+  allowed_engines:
+    - false_alarm
+    - spiral
+    - watcher
+    - overwhelm
+    - shame
+    - comparison
+    - grief
+  required_roles:
+    - recognition
+    - mechanism_proof
+    - turning_point
+    - embodiment
+  optional_roles: []
+  forbidden_engines: []
+  forbidden_roles: []
+  notes: "Full engine set. Body reacts without danger, thought chains, detachment, saturation, self-as-problem, relative position, absence made present."
+
+boundaries:
+  allowed_engines:
+    - shame
+    - comparison
+    - false_alarm
+  required_roles:
+    - recognition
+    - mechanism_proof
+    - turning_point
+    - embodiment
+  optional_roles: []
+  forbidden_engines:
+    - spiral
+    - watcher
+    - overwhelm
+    - grief
+  forbidden_roles: []
+  notes: "Limit-setting blocked by exposure fear, measuring against others' limits, body alarm on saying no."
+
+financial_stress:
+  allowed_engines:
+    - overwhelm
+    - spiral
+    - shame
+  required_roles:
+    - recognition
+    - mechanism_proof
+    - turning_point
+    - embodiment
+  optional_roles: []
+  forbidden_engines:
+    - false_alarm
+    - watcher
+    - comparison
+    - grief
+  forbidden_roles: []
+  notes: "Money pressure as volume/saturation, catastrophic chains (A→B→C→ruin), money shame and exposure."
+
+courage:
+  allowed_engines:
+    - false_alarm
+    - shame
+    - spiral
+  required_roles:
+    - recognition
+    - mechanism_proof
+    - turning_point
+    - embodiment
+  optional_roles: []
+  forbidden_engines:
+    - watcher
+    - overwhelm
+    - comparison
+    - grief
+  forbidden_roles: []
+  notes: "Bold action blocked by body alarm, visibility/exposure fear, catastrophic prediction chains."
+
+compassion_fatigue:
+  allowed_engines:
+    - overwhelm
+    - watcher
+    - grief
+  required_roles:
+    - recognition
+    - mechanism_proof
+    - turning_point
+    - embodiment
+  optional_roles: []
+  forbidden_engines:
+    - false_alarm
+    - spiral
+    - shame
+    - comparison
+  forbidden_roles: []
+  notes: "Caring capacity exceeded (volume), detachment from caring, mourning the caring self that was."
+
+depression:
+  allowed_engines:
+    - watcher
+    - grief
+    - overwhelm
+  required_roles:
+    - recognition
+    - mechanism_proof
+    - turning_point
+    - embodiment
+  optional_roles: []
+  forbidden_engines:
+    - false_alarm
+    - spiral
+    - shame
+    - comparison
+  forbidden_roles: []
+  notes: "Observing life from outside, mourning aliveness that was, paralysis from too-much-ness."
+
+self_worth:
+  allowed_engines:
+    - shame
+    - comparison
+  required_roles:
+    - recognition
+    - mechanism_proof
+    - turning_point
+    - embodiment
+  optional_roles: []
+  forbidden_engines:
+    - false_alarm
+    - spiral
+    - watcher
+    - overwhelm
+    - grief
+  forbidden_roles: []
+  notes: "Value tied to external outcomes (shame), worth measured against others (comparison)."
+
+grief:
+  allowed_engines:
+    - grief
+    - watcher
+  required_roles:
+    - recognition
+    - mechanism_proof
+    - turning_point
+    - embodiment
+  optional_roles: []
+  forbidden_engines:
+    - false_alarm
+    - spiral
+    - shame
+    - comparison
+    - overwhelm
+  forbidden_roles: []
+  notes: "Absence made present (waves of recognition), grieving from behind glass (dissociation as protection)."

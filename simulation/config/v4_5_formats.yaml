@@ -1,0 +1,120 @@
+# Phoenix V4.5 Complete Format Spec — 14 formats / 6 tiers
+# Source: PHOENIX_V4_5_COMPLETE_FORMAT_SPEC.docx
+
+formats:
+  deep_book_6h:
+    duration: "6 hours"
+    words_min: 52000
+    words_max: 58000
+    chapters_min: 38
+    chapters_max: 44
+    parts: 5
+    tier: S
+  deep_book_5h:
+    duration: "5 hours"
+    words_min: 43000
+    words_max: 48000
+    chapters_min: 30
+    chapters_max: 36
+    parts: 4
+    tier: S
+  deep_book_4h:
+    duration: "4 hours"
+    words_min: 34000
+    words_max: 38000
+    chapters_min: 24
+    chapters_max: 30
+    parts: 3
+    parts_max: 4
+    tier: S
+  extended_book_3h:
+    duration: "3 hours"
+    words_min: 25000
+    words_max: 29000
+    chapters_min: 18
+    chapters_max: 22
+    parts: 3
+    tier: A
+  extended_book_2h:
+    duration: "2 hours"
+    words_min: 17000
+    words_max: 19000
+    chapters_min: 12
+    chapters_max: 16
+    parts: 2
+    tier: A
+  standard_book:
+    duration: "1 hour"
+    words_min: 8500
+    words_max: 10500
+    chapters_min: 7
+    chapters_max: 9
+    parts: 1
+    tier: B
+  short_book_45:
+    duration: "45 min"
+    words_min: 6000
+    words_max: 7500
+    chapters_min: 5
+    chapters_max: 7
+    parts: 1
+    tier: B
+  short_book_30:
+    duration: "30 min"
+    words_min: 4000
+    words_max: 5000
+    chapters_min: 3
+    chapters_max: 4
+    parts: 1
+    tier: C
+  micro_book_20:
+    duration: "20 min"
+    words_min: 2800
+    words_max: 3400
+    chapters_min: 2
+    chapters_max: 3
+    parts: 0
+    tier: C
+  micro_book_15:
+    duration: "15 min"
+    words_min: 2000
+    words_max: 2500
+    chapters_min: 2
+    chapters_max: 2
+    parts: 0
+    tier: C
+  capsule_10:
+    duration: "10 min"
+    words_min: 1300
+    words_max: 1700
+    chapters_min: 1
+    chapters_max: 2
+    parts: 0
+    tier: D
+  capsule_5:
+    duration: "5 min"
+    words_min: 650
+    words_max: 850
+    chapters_min: 1
+    chapters_max: 1
+    parts: 0
+    tier: D
+  reset_2:
+    duration: "2 min"
+    words_min: 250
+    words_max: 350
+    chapters_min: 0
+    chapters_max: 0
+    parts: 0
+    tier: E
+  reset_90s:
+    duration: "90 sec"
+    words_min: 180
+    words_max: 240
+    chapters_min: 0
+    chapters_max: 0
+    parts: 0
+    tier: E
+
+# Section types used per tier (for slot counting)
+section_types: [HOOK, SCENE, STORY, REFLECTION, EXERCISE, INTEGRATION]

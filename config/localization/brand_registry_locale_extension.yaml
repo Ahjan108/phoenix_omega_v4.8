@@ -1,0 +1,362 @@
+# brand_registry_locale_extension.yaml
+# Locale and territory fields to add to every brand in brand_registry.
+# Each brand is locked to ONE locale and ONE territory.
+# A book inherits these from its brand. One brand = one market.
+#
+# POLICY:
+# - en-US brands: 24 core brands (existing). Baseline catalog.
+# - Non-US brands: Separate brand IDs per locale.
+#   e.g. sleep_repair (en-US) ≠ sleep_repair_tw (zh-TW)
+# - Brand IDs must be unique across all locales.
+# - persona_affinity must reference personas valid for that locale.
+#
+# Authority: SYSTEMS_DOCUMENTATION §27
+
+schema_version: 1
+
+# ─── LOCALE BRAND NAMING CONVENTION ─────────────────────────────────────────
+#
+# en-US brands: existing names (sleep_repair, stabilizer, etc.)
+# Other locales: {brand_name}_{locale_suffix}
+#
+# Locale suffixes:
+#   zh-TW → _tw
+#   zh-HK → _hk
+#   zh-CN → _cn
+#   zh-SG → _sg
+#   ja-JP → _jp
+#   ko-KR → _kr
+#   es-US → _es_us
+#   es-ES → _es_es
+#   fr-FR → _fr
+#   de-DE → _de
+#   hu-HU → _hu
+
+# ─── PHASE 1: TAIWAN (zh-TW) PILOT BRANDS ────────────────────────────────────
+# 6 pilot brands. Highest-opportunity topics for Taiwan market.
+# Expand to full 24 after pilot wave validates locale separation.
+
+brands:
+
+  sleep_repair_tw:
+    locale: zh-TW
+    territory: TW
+    display_name: "睡眠修復"
+    voice_identity:
+      register: gentle_authority
+      pace: 0.82
+      gender_default: female
+      elevenlabs_voice_id: TBD          # assign after voice audition in zh-TW
+      google_voice: cmn-TW-Wavenet-A
+    persona_affinity:
+      high:
+        - anxious_insomniac_tw          # Taiwan-specific persona
+        - burned_out_professional_tw
+      medium:
+        - gen_z_tw
+    topic_coverage:
+      - sleep_anxiety
+      - nervous_system
+      - racing_thoughts
+    gtm_identity:
+      emotional_job: "停止懼怕夜晚"     # Stop dreading the night
+      functional_job: "不靠藥物入睡"    # Fall asleep without medication
+      discovery_hook: "你不需要更努力嘗試入睡，你需要停止嘗試"
+    pricing_posture: accessible
+    notes: "Taiwan market. Traditional script. Mandarin TTS."
+
+  stabilizer_tw:
+    locale: zh-TW
+    territory: TW
+    display_name: "壓力穩定器"
+    voice_identity:
+      register: warm_professional
+      pace: 0.90
+      gender_default: female
+      google_voice: cmn-TW-Wavenet-A
+    persona_affinity:
+      high:
+        - burned_out_professional_tw
+        - healthcare_worker_tw
+      medium:
+        - gen_z_tw
+    topic_coverage:
+      - burnout
+      - nervous_system
+      - chronic_stress
+    gtm_identity:
+      emotional_job: "停止在生存模式中掙扎"
+      functional_job: "重新調節你的神經系統"
+      discovery_hook: "你沒有能力問題，你有神經系統調節問題"
+    pricing_posture: mid_tier
+    notes: "Taiwan burnout market. Significant demand in tech sector."
+
+  panic_first_aid_tw:
+    locale: zh-TW
+    territory: TW
+    display_name: "恐慌急救"
+    voice_identity:
+      register: steady_direct
+      pace: 0.95
+      gender_default: female
+      google_voice: cmn-TW-Wavenet-A
+    persona_affinity:
+      high:
+        - acute_anxiety_sufferer_tw
+      medium:
+        - gen_z_tw
+        - burned_out_professional_tw
+    topic_coverage:
+      - panic_attacks
+      - acute_anxiety
+      - somatic_relief
+    gtm_identity:
+      emotional_job: "立即停止恐慌"
+      functional_job: "5分鐘內平息恐慌發作"
+      discovery_hook: "你沒有在死去，這是你的神經系統，以下是現在該做的事"
+    pricing_posture: accessible
+    notes: >
+      Crisis-moment content. Critical: keep sessions under 15 min.
+      Taiwan market has growing awareness of panic disorder.
+
+  gen_z_grounding_tw:
+    locale: zh-TW
+    territory: TW
+    display_name: "Z世代落地"
+    voice_identity:
+      register: peer
+      pace: 1.00
+      gender_default: female
+      google_voice: cmn-TW-Wavenet-A
+    persona_affinity:
+      high:
+        - gen_z_tw
+      medium:
+        - anxious_student_tw
+    topic_coverage:
+      - social_anxiety
+      - identity
+      - comparison_culture
+    gtm_identity:
+      emotional_job: "停止因比較而自我懷疑"
+      functional_job: "在社群媒體世界中找到自我"
+      discovery_hook: "沒有人給你這本手冊，這就是它"
+    pricing_posture: accessible
+    notes: >
+      Taiwan Gen Z. IG comparison culture, academic pressure (大考),
+      gap between parental expectations and personal values.
+      Invisible scripts very different from US Gen Z.
+
+  grief_companion_tw:
+    locale: zh-TW
+    territory: TW
+    display_name: "悲傷陪伴"
+    voice_identity:
+      register: tender_witness
+      pace: 0.85
+      gender_default: female
+      google_voice: cmn-TW-Wavenet-A
+    persona_affinity:
+      high:
+        - bereaved_adult_tw
+      medium:
+        - burned_out_professional_tw
+    topic_coverage:
+      - grief
+      - loss
+      - mourning
+    gtm_identity:
+      emotional_job: "讓悲傷被見到，而不是被修復"
+      functional_job: "在失去中找到自己的節奏"
+      discovery_hook: "悲傷不需要被修復，它需要一個見證者"
+    pricing_posture: accessible
+    notes: >
+      Taiwan cultural context: filial piety, ancestor veneration,
+      collective vs individual grief. Content must honor these.
+
+  inner_security_tw:
+    locale: zh-TW
+    territory: TW
+    display_name: "內在安全感"
+    voice_identity:
+      register: warm_boundaried
+      pace: 0.90
+      gender_default: female
+      google_voice: cmn-TW-Wavenet-A
+    persona_affinity:
+      high:
+        - anxious_attacher_tw
+        - relationship_struggler_tw
+      medium:
+        - gen_z_tw
+    topic_coverage:
+      - attachment
+      - relationships
+      - self_worth
+    gtm_identity:
+      emotional_job: "停止在關係中尋求認可"
+      functional_job: "建立內在而非外在的安全感"
+      discovery_hook: "每個關係問題都是神經系統問題"
+    pricing_posture: mid_tier
+
+# ─── PHASE 2: JAPAN (ja-JP) PILOT BRANDS ─────────────────────────────────────
+# 6 pilot brands. Japan-specific framing required.
+# NOTE: Avoid "mental health" framing — use "nervous system," "wellbeing," "self-care."
+
+  sleep_repair_jp:
+    locale: ja-JP
+    territory: JP
+    display_name: "睡眠修復"
+    voice_identity:
+      register: gentle_authority
+      pace: 0.85
+      gender_default: female
+      google_voice: ja-JP-Neural2-B
+    persona_affinity:
+      high:
+        - anxious_insomniac_jp
+        - burned_out_professional_jp
+      medium:
+        - gen_z_jp
+    topic_coverage:
+      - sleep_anxiety
+      - nervous_system
+      - racing_thoughts
+    gtm_identity:
+      emotional_job: "夜を恐れるのをやめる"
+      functional_job: "薬なしで眠れるようになる"
+      discovery_hook: "頑張って眠ろうとする必要はない。眠ろうとするのをやめればいい"
+    pricing_posture: mid_tier
+    notes: >
+      Japan: 不眠 (fumin = insomnia) high search volume.
+      Politeness register (丁寧語) required throughout.
+      Karoshi culture makes burnout + sleep brand highly relevant.
+
+  stabilizer_jp:
+    locale: ja-JP
+    territory: JP
+    display_name: "ストレス安定剤"
+    voice_identity:
+      register: warm_professional
+      pace: 0.90
+      gender_default: female
+      google_voice: ja-JP-Neural2-B
+    persona_affinity:
+      high:
+        - burned_out_professional_jp
+        - healthcare_worker_jp
+    topic_coverage:
+      - burnout
+      - nervous_system
+      - chronic_stress
+    gtm_identity:
+      emotional_job: "サバイバルモードから抜け出す"
+      functional_job: "神経系を整える"
+      discovery_hook: "あなたに能力がないのではない。神経系が調整できていないだけ"
+    pricing_posture: mid_tier
+    notes: "Japan karoshi (過労死) culture. Burnout brand has very high relevance."
+
+# ─── PHASE 3: KOREA (ko-KR) PILOT BRANDS ────────────────────────────────────
+
+  stabilizer_kr:
+    locale: ko-KR
+    territory: KR
+    display_name: "스트레스 안정제"
+    voice_identity:
+      register: warm_professional
+      pace: 0.95
+      gender_default: female
+      google_voice: ko-KR-Neural2-A
+    persona_affinity:
+      high:
+        - burned_out_professional_kr
+      medium:
+        - gen_z_kr
+    topic_coverage:
+      - burnout
+      - chronic_stress
+      - nervous_system
+    gtm_identity:
+      emotional_job: "생존 모드에서 벗어나기"
+      functional_job: "신경계 재조정"
+      discovery_hook: "능력이 부족한 게 아니라 신경계가 조절되지 않는 것"
+    pricing_posture: accessible
+    notes: >
+      Korea: 번아웃 (burnout) enormous search volume.
+      빨리빨리 culture = micro sessions may outperform long-form.
+
+# ─── PHASE 4: EUROPEAN LOCALES ──────────────────────────────────────────────
+
+  stabilizer_de:
+    locale: de-DE
+    territory: DE
+    display_name: "Stress-Stabilisator"
+    voice_identity:
+      register: evidence_based_warm
+      pace: 0.90
+      gender_default: female
+      google_voice: de-DE-Neural2-A
+    persona_affinity:
+      high:
+        - burned_out_professional_de
+    topic_coverage:
+      - burnout
+      - nervous_system
+      - chronic_stress
+    gtm_identity:
+      emotional_job: "Aus dem Überlebensmodus herausfinden"
+      functional_job: "Das Nervensystem regulieren"
+      discovery_hook: "Es ist kein Willensproblem. Es ist ein Nervensystem-Problem."
+    pricing_posture: mid_tier
+    notes: >
+      Germany: Burnout is a recognized clinical term with high cultural awareness.
+      Science-based framing essential. Avoid spiritual framing.
+      Audible.de is significant distribution channel.
+
+  sleep_repair_fr:
+    locale: fr-FR
+    territory: FR
+    display_name: "Réparation du Sommeil"
+    voice_identity:
+      register: warm_philosophical
+      pace: 0.85
+      gender_default: female
+      google_voice: fr-FR-Neural2-A
+    persona_affinity:
+      high:
+        - anxious_insomniac_fr
+        - burned_out_professional_fr
+    topic_coverage:
+      - sleep_anxiety
+      - nervous_system
+    gtm_identity:
+      emotional_job: "Arrêter de redouter la nuit"
+      functional_job: "S'endormir sans médicaments"
+      discovery_hook: "Vous n'avez pas besoin d'essayer plus fort. Vous avez besoin d'arrêter d'essayer."
+    pricing_posture: mid_tier
+
+  stabilizer_hu:
+    locale: hu-HU
+    territory: HU
+    display_name: "Stressz Stabilizátor"
+    voice_identity:
+      register: warm_professional
+      pace: 0.90
+      gender_default: female
+      google_voice: hu-HU-Standard-A   # No Neural2 for hu-HU — ElevenLabs primary
+      elevenlabs_preferred: true        # Flag: use ElevenLabs, not Google, for this locale
+    persona_affinity:
+      high:
+        - burned_out_professional_hu
+    topic_coverage:
+      - burnout
+      - nervous_system
+      - chronic_stress
+    gtm_identity:
+      emotional_job: "Kilépni a túlélő üzemmódból"
+      functional_job: "Az idegrendszer szabályozása"
+      discovery_hook: "Nem képességhiány. Az idegrendszer szabályozatlansága."
+    pricing_posture: accessible
+    notes: >
+      Hungary: ElevenLabs must be used — Google has no hu-HU Neural2 voice.
+      CI gate 49 enforces this. Smaller market but low competition.

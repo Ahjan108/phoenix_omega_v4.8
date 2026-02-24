@@ -1,0 +1,24 @@
+# TTS engine config for freebie audio (asset pipeline).
+# Authority: V4 Freebies + Immersion Ecosystem plan §3.3.
+# mapping: freebie_type → engine. Lock voices: ElevenLabs "Rachel", OpenAI "nova".
+
+engines:
+  elevenlabs:
+    api_key_env: ELEVENLABS_API_KEY
+    default_voice: "Rachel"
+    voices:
+      guided: "Rachel"
+      journal: "Rachel"
+  openai:
+    api_key_env: OPENAI_API_KEY
+    default_voice: "nova"
+    voices:
+      affirmations: "nova"
+      default: "nova"
+
+mapping:
+  guided_audio: elevenlabs
+  audio_journal_prompts: elevenlabs
+  affirmations_audio: openai
+  mini_audio: openai
+  default: openai

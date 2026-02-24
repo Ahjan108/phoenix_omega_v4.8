@@ -1,0 +1,56 @@
+# Structural Variation V4. Book structure families. Used at planning time only.
+# schema_version, stable IDs, compatibility tags, optional weights.
+
+schema_version: "1.0"
+
+archetypes:
+  classic_linear:
+    name: "Classic linear transformation"
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+    weights:
+      default: 1.0
+    notes: "Straight progression; no act breaks."
+
+  linear_transformation:
+    name: "Linear transformation (default)"
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+    weights:
+      default: 1.2
+
+  three_act:
+    name: "Three-act structure"
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+    weights:
+      default: 1.0
+    notes: "Setup / confrontation / resolution."
+
+  wave_cycle:
+    name: "Wave cycle (peaks and valleys)"
+    persona_tags: ["nyc_executives", "educators"]
+    topic_tags: ["boundaries", "self_worth", "courage"]
+    arc_tags: []
+    weights:
+      default: 0.9
+
+  slow_burn:
+    name: "Slow burn to single crisis"
+    persona_tags: ["healthcare_rns", "educators"]
+    topic_tags: ["grief", "compassion_fatigue"]
+    arc_tags: []
+    weights:
+      default: 0.85
+
+  recognition_to_agency:
+    name: "Recognition to agency"
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+    weights:
+      default: 1.0
+    notes: "See → understand → act."

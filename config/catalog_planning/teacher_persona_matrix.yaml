@@ -1,0 +1,58 @@
+# Persona × Teacher compatibility for Teacher Mode planning.
+# Authority: Teacher Mode structural design — prevents teacher misfit and platform similarity.
+# Planner: persona must be in allowed_personas; engine in allowed_engines.
+
+teachers:
+  ahjan:
+    allowed_personas:
+      - nyc_executives
+      - gen_z_professionals
+      - healthcare_rns
+      - burned_out_professional
+    disallowed_personas: []  # e.g. gen_alpha_students if too young for framing
+    preferred_locales:
+      - nyc_metro
+      - coastal_california
+    allowed_engines:
+      - shame
+      - false_alarm
+      - overwhelm
+      - spiral
+      - watcher
+      - grief
+      - comparison
+    constraints:
+      peak_intensity_limit: 5
+      identity_shift_allowed: false
+      min_tps_per_chapter: 5
+
+    persona_overlays:
+      nyc_executives:
+        default_angle: at_work
+        preferred_story_style: case_study
+        locale_overlays:
+          - "West Side Highway"
+          - "A train"
+          - "midtown lobby"
+      healthcare_rns:
+        default_angle: on_shift
+        preferred_story_style: micro_failure
+        locale_overlays:
+          - "handoff"
+          - "night shift"
+      gen_z_professionals:
+        default_angle: at_work
+        preferred_story_style: narrative
+
+  ajahn_x:
+    allowed_personas:
+      - nyc_executives
+    disallowed_personas: []
+    preferred_locales: []
+    allowed_engines:
+      - shame
+      - anxiety
+    constraints:
+      peak_intensity_limit: 5
+      identity_shift_allowed: false
+      min_tps_per_chapter: 5

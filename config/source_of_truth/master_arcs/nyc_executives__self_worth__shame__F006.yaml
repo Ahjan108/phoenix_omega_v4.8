@@ -1,0 +1,68 @@
+# Example Arc: nyc_executives × self_worth × shame × F006 (8 chapters)
+# Arc-First Canonical Spec v1.1. See ARC_AUTHORING_PLAYBOOK.md.
+
+arc_id: nyc_exec_self_worth_shame_standard_8
+persona: nyc_executives
+topic: self_worth
+engine: shame
+format: F006
+
+chapter_count: 8
+
+# Per-chapter BAND (1-5). Peak before final; max jump 2 between chapters.
+emotional_curve: [2, 3, 4, 4, 5, 4, 3, 2]
+
+# Tonal intensity per chapter.
+emotional_temperature_curve:
+  1: cool
+  2: cool
+  3: warm
+  4: warm
+  5: warm
+  6: hot
+  7: hot
+  8: warm
+
+chapter_intent:
+  1: establish_mask
+  2: expose_cost
+  3: destabilize_strategy
+  4: reveal_hidden_belief
+  5: confrontation
+  6: somatic_repair
+  7: relational_shift
+  8: embodied_identity
+
+# DEV SPEC 3: Emotional Role Taxonomy. Required; validated by arc validator.
+emotional_role_sequence:
+  - recognition
+  - destabilization
+  - destabilization
+  - reframe
+  - stabilization
+  - reframe
+  - stabilization
+  - integration
+
+# One per chapter; compiler enforces exact match.
+reflection_strategy_sequence:
+  - didactic
+  - socratic
+  - narrative_embedded
+  - didactic
+  - socratic
+  - narrative_embedded
+  - didactic
+  - socratic
+
+# Which chapter (1-based) is the cost_confrontation chapter. Must be in hot zone (5-7 for 8-ch).
+cost_chapter_index: 6
+
+# Engine-allowed only. Shame: open_loop or internal_shift_only.
+resolution_type: internal_shift_only
+
+motif:
+  primary_symbol: armor
+  recurring_image: conference_room_glass
+  recurring_question: "Who are you trying to impress?"
+  tonal_signature: restrained_intensity

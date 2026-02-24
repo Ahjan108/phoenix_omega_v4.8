@@ -1,0 +1,69 @@
+# V4.5 Validation Matrix: rule → tier (S A B C D E)
+# Min values per Part or per Book as specified in PHOENIX_V4_5_COMPLETE_FORMAT_SPEC
+
+tiers: [S, A, B, C, D, E]
+
+# Parts: number of parts (0 = single-part / N/A)
+parts_min:  { S: 4, A: 2, B: 1, C: 1, D: 0, E: 0 }
+parts_max:  { S: 5, A: 3, B: 1, C: 1, D: 0, E: 0 }
+
+# Chapters per format (from formats.yaml; here for validation)
+# Characters
+characters_min: { S: 4, A: 3, B: 4, C: 2, D: 1, E: 0 }
+characters_max: { S: 6, A: 4, B: 6, C: 3, D: 1, E: 0 }
+char_appearances_min: { S: 6, A: 4, B: 2, C: 1, D: 0, E: 0 }
+
+# Teaching layers (depth)
+teaching_layers_min: { S: 4, A: 2, B: 1, C: 1, D: 1, E: 0 }
+
+# Beat map: no adjacent same
+beat_map_no_adjacent_same: { S: true, A: true, B: true, C: true, D: false, E: false }
+# Beat map max repeats per book/part
+beat_map_max_repeats: { S: 3, A: 2, B: 1, B_short: 2, C: 0, D: 0, E: 0 }
+
+# Misfire tax (min count per Part or per book)
+misfire_tax_min: { S: 1, A: 1, B: 2, C: 1, D: 0, E: 0 }  # 0 = optional
+# Silence beat
+silence_beat_min: { S: 1, A: 1, B: 2, C: 1, D: 0, E: 0 }
+# Never-know
+never_know_min: { S: 1, A: 1, B: 2, C: 1, D: 0, E: 0 }
+# Interrupt (exactly N per Part or 1 per book)
+interrupt_count: { S: 1, A: 1, B: 1, C: 1, D: 0, E: 0 }  # per Part for S/A
+
+# Integration modes: min distinct modes used
+integration_modes_min: { S: 5, A: 4, B: 3, C: 2, D: 1, E: 1 }
+# STILL-HERE only in final chapter per Part
+still_here_final_only: { S: true, A: true, B: true, C: true, D: true, E: false }
+
+# Cost chapter / cost-visible (min per Part)
+cost_visible_min: { S: 1, A: 1, B: 1, C: 0, D: 0, E: 0 }
+
+# Flinch audit min
+flinch_audit_min: { S: 3, A: 2, B: 5, C: 2, D: 1, E: 0 }  # per Part for S/A
+
+# Volatility quotas by tier (emotional requirements)
+volatility_scenes_min: { S: 3, A: 2, B: 1, C: 0, D: 0, E: 0 }
+visible_consequence_min: { S: 1, A: 1, B: 0, C: 0, D: 0, E: 0 }
+action_despite_pattern_min: { S: 1, A: 1, B: 1, C: 0, D: 0, E: 0 }
+silence_beats_min: { S: 2, A: 1, B: 0, C: 0, D: 0, E: 0 }
+character_arc_completion_min: { S: 1, A: 0, B: 0, C: 0, D: 0, E: 0 }
+mild_spike_min: { S: 0, A: 0, B: 0, C: 1, D: 0, E: 0 }   # C: embarrassment, discomfort
+visible_interruption_min: { S: 0, A: 0, B: 0, C: 0, D: 1, E: 0 }  # D: must include
+embodied_modulation_required: { S: false, A: false, B: false, C: false, D: false, E: true }  # E: micro/reset
+
+# Temperature curve required
+temperature_curve: { S: true, A: true, B: true, C: true, D: true, E: false }
+# Hot chapter required
+hot_chapter_required: { S: true, A: true, B: true, C: false, D: false, E: false }
+
+# Reflection ceiling (words max)
+reflection_max: { S: 350, A: 350, B: 350, C: 280, D: 150, E: 0 }
+reflection_post_impact_max: { S: 280, A: 280, B: 280, C: 200, D: 120, E: 0 }
+
+# Metaphor registry
+metaphor_registry: { S: true, A: true, B: true, C: true, D: true, E: false }
+
+# Tier D/E special: reset/capsule atom counts
+# reset_2: SCENE(60-80) + EXERCISE(100-150) + INTEGRATION(50-80)
+# reset_90s: EXERCISE(120-160) + INTEGRATION(40-60)
+# capsule_5: 5 atoms HOOK-STORY-REFLECTION-EXERCISE-INTEGRATION

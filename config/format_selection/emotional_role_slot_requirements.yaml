@@ -1,0 +1,14 @@
+# DEV SPEC 3: Role → slot requirements. Format must include required slots for arc's roles.
+# Slot names match format_registry (HOOK, SCENE, STORY, REFLECTION, COMPRESSION, EXERCISE, INTEGRATION).
+
+role_requirements:
+  recognition:
+    must_include_slots: [HOOK, SCENE]
+  destabilization:
+    must_include_slots: [SCENE, STORY]
+  reframe:
+    must_include_slots: [REFLECTION]
+  stabilization:
+    must_include_slots: [EXERCISE]
+  integration:
+    must_include_slots: [INTEGRATION]

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wim Hof — Cold Adaptation</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Outfit:wght@200;300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#020a14;--ice:#0ea5e9;--frost:#7dd3fc;--pale:#e0f2fe;--deep:#1e3a5f;--text:#bae6fd;--m:#475569;--cold:#06b6d4}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(14,165,233,.04),transparent 50%),radial-gradient(ellipse at 30% 80%,rgba(6,182,212,.03),transparent 40%);z-index:0}
+.w{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1rem;padding:1.5rem;width:100%;max-width:480px}
+h1{font-family:'Fjalla One',sans-serif;font-size:1.8rem;letter-spacing:.1em;text-transform:uppercase;background:linear-gradient(180deg,var(--pale),var(--ice));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sb{font-size:.65rem;color:var(--m);letter-spacing:.2em;text-transform:uppercase}
+.warn{font-size:.58rem;color:#ef4444;text-align:center;padding:.4rem .8rem;border:1px solid rgba(239,68,68,.2);border-radius:6px;background:rgba(239,68,68,.04);line-height:1.4}
+canvas{width:260px;height:260px;display:block;margin:0 auto}
+
+.protocol-steps{display:flex;gap:.4rem;justify-content:center;flex-wrap:wrap}
+.ps{padding:.3rem .7rem;border-radius:100px;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(14,165,233,.1);color:var(--m);transition:.4s}
+.ps.ac{color:var(--frost);border-color:rgba(125,211,252,.3);background:rgba(125,211,252,.06)}
+.ps.dn2{opacity:.4}
+
+.inf{text-align:center}
+.ph{font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;transition:color .3s}
+.bg{font-family:'Fjalla One',sans-serif;font-size:3.5rem;transition:color .3s}
+.dt{font-size:.65rem;color:var(--m);letter-spacing:.1em}
+
+.cold-meter{width:100%;display:flex;align-items:center;gap:.6rem}
+.cm-l{font-size:.55rem;color:var(--m);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.cm-bar{flex:1;height:8px;background:rgba(255,255,255,.04);border-radius:4px;overflow:hidden}
+.cm-f{height:100%;width:0;border-radius:4px;transition:width .3s;background:linear-gradient(90deg,var(--deep),var(--ice),var(--frost),var(--pale))}
+.cm-v{font-family:'Fjalla One',sans-serif;font-size:.9rem;color:var(--frost);min-width:35px;text-align:right}
+
+.pr{width:100%;height:4px;background:rgba(255,255,255,.04);border-radius:2px;overflow:hidden}
+.prf{height:100%;width:0;border-radius:2px;transition:width .3s;background:linear-gradient(90deg,var(--deep),var(--ice),var(--frost))}
+
+.ct{display:flex;gap:1rem}
+.btn{font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.65rem 1.8rem;border:1px solid rgba(14,165,233,.2);border-radius:8px;background:rgba(14,165,233,.05);color:var(--text);cursor:pointer;transition:.25s}
+.btn:hover{background:rgba(14,165,233,.12)}.btn.p{border-color:rgba(14,165,233,.4);background:rgba(14,165,233,.1)}
+.bs{padding:.4rem .9rem;font-size:.65rem}
+.ds{display:none;flex-direction:column;align-items:center;gap:1rem;text-align:center;animation:fu .8s}
+.ds.show{display:flex}
+.ds h2{font-family:'Fjalla One',sans-serif;font-size:1.5rem;letter-spacing:.08em}
+.ds p{color:var(--m);font-size:.82rem;line-height:1.7;max-width:370px}
+.mn{display:flex;flex-direction:column;align-items:center;gap:1rem}.mn.off{display:none}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.sn{position:fixed;top:1rem;right:1rem;z-index:10;width:34px;height:34px;border-radius:50%;border:1px solid rgba(14,165,233,.12);background:rgba(14,165,233,.02);color:var(--m);cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<button class="sn" id="sB">🔔</button>
+<div class="w">
+<h1>Wim Hof · Cold</h1>
+<div class="sb">Cold Adaptation Protocol</div>
+<div class="warn">⚠ Never in water alone. Not for cardiac conditions, epilepsy, pregnancy, or Raynaud's. Stop immediately if you feel faint.</div>
+<div class="mn" id="mV">
+<canvas id="cv" width="520" height="520"></canvas>
+<div class="protocol-steps">
+  <div class="ps ac" id="ps1">Breathwork (2m)</div>
+  <div class="ps" id="ps2">Cold Exposure (2m)</div>
+  <div class="ps" id="ps3">Recovery (1m)</div>
+</div>
+<div class="inf"><div class="ph" id="ph">Ready</div><div class="bg" id="bg">—</div><div class="dt" id="dt">Breathing prep → Cold exposure → Warm recovery</div></div>
+<div class="cold-meter"><div class="cm-l">Adaptation</div><div class="cm-bar"><div class="cm-f" id="cmf"></div></div><div class="cm-v" id="cmv">0%</div></div>
+<div class="pr"><div class="prf" id="prf"></div></div>
+<div class="ct"><button class="btn p" id="go">Start Protocol</button><button class="btn bs" id="rs" style="display:none">Reset</button></div>
+</div>
+<div class="ds" id="dV">
+<h2>Cold Protocol Complete</h2>
+<p>You completed the full Wim Hof cold adaptation sequence: breathing to prepare your nervous system, then deliberate cold exposure while maintaining breath control, followed by warm recovery. Regular practice progressively increases brown fat activation, strengthens the immune response, and builds stress resilience through voluntary hormetic stress.</p>
+<p style="opacity:.6;font-style:italic">The cold is your teacher. Your breath is the lesson.</p>
+<button class="btn p" id="ag">Again</button>
+</div>
+</div>
+<script>
+// Phase 1: Breathwork prep (120s) — 30 power breaths (2s each) + 60s hold
+// Phase 2: Cold Exposure (120s) — slow breathing 5/5 while in cold
+// Phase 3: Recovery (60s) — gentle nasal breathing
+const PHASES=[
+  {name:'Breathwork Prep',dur:120,type:'breathwork'},
+  {name:'Cold Exposure',dur:120,type:'cold'},
+  {name:'Warm Recovery',dur:60,type:'recovery'}
+];
+const TOTAL=PHASES.reduce((s,p)=>s+p.dur,0);// 300s
+
+class Au{
+  constructor(){this.c=null;this.on=true}
+  init(){if(!this.c)this.c=new(window.AudioContext||window.webkitAudioContext)}
+  t(f,d,v=.05){if(!this.on||!this.c)return;const o=this.c.createOscillator(),g=this.c.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(v,this.c.currentTime);g.gain.linearRampToValueAtTime(0,this.c.currentTime+d);o.connect(g);g.connect(this.c.destination);o.start();o.stop(this.c.currentTime+d)}
+  bp(){this.t(220,.06,.04)}
+  coldTone(f,d){this.t(f,d,.04)}
+  toggle(){this.on=!this.on;return this.on}
+}
+const au=new Au(),cv=document.getElementById('cv'),c=cv.getContext('2d'),W=cv.width,H=cv.height,CX=W/2,CY=H/2;
+const ph$=document.getElementById('ph'),bg$=document.getElementById('bg'),dt$=document.getElementById('dt'),prf$=document.getElementById('prf');
+const cmf$=document.getElementById('cmf'),cmv$=document.getElementById('cmv');
+const go$=document.getElementById('go'),rs$=document.getElementById('rs'),mV=document.getElementById('mV'),dV=document.getElementById('dV');
+let st='idle',ss=0,pa=false,pO=0,pT2=0,lastPi=-1,lastBn=-1,lastIsI=null;
+
+function getPhase(el){let acc=0;for(let i=0;i<PHASES.length;i++){if(el<acc+PHASES[i].dur)return{pi:i,pe:el-acc,pp:(el-acc)/PHASES[i].dur};acc+=PHASES[i].dur}return{pi:2,pe:PHASES[2].dur,pp:1}}
+
+// Snowflake/crystal drawing
+function drawCrystal(cx,cy,r,branches,alpha){
+  for(let i=0;i<branches;i++){
+    const a=(i/branches)*Math.PI*2;
+    c.beginPath();c.moveTo(cx,cy);
+    const ex=cx+Math.cos(a)*r;const ey=cy+Math.sin(a)*r;
+    c.lineTo(ex,ey);c.strokeStyle=`rgba(125,211,252,${alpha})`;c.lineWidth=1.5;c.stroke();
+    // Sub-branches
+    const mx=cx+Math.cos(a)*r*.6;const my=cy+Math.sin(a)*r*.6;
+    const sub=r*.35;
+    c.beginPath();c.moveTo(mx,my);c.lineTo(mx+Math.cos(a+.6)*sub,my+Math.sin(a+.6)*sub);c.stroke();
+    c.beginPath();c.moveTo(mx,my);c.lineTo(mx+Math.cos(a-.6)*sub,my+Math.sin(a-.6)*sub);c.stroke();
+  }
+}
+
+function drawBreathwork(el){
+  c.clearRect(0,0,W,H);const t=Date.now()/1000;
+  // First 60s: 30 power breaths at 2s each
+  // Next 60s: retention hold
+  if(el<60){
+    const bProg=(el%2)/2;
+    const pulse=Math.sin(bProg*Math.PI);
+    const r=50+pulse*45;
+    const gd=c.createRadialGradient(CX,CY,0,CX,CY,r);
+    gd.addColorStop(0,`rgba(14,165,233,${.2+pulse*.25})`);
+    gd.addColorStop(.7,`rgba(6,182,212,${.1+pulse*.1})`);
+    gd.addColorStop(1,'transparent');
+    c.beginPath();c.arc(CX,CY,r,0,Math.PI*2);c.fillStyle=gd;c.fill();
+    // Crystal forming in background
+    const crystalAlpha=el/60*.1;
+    drawCrystal(CX,CY,r+30,6,crystalAlpha);
+  } else {
+    // Hold phase — crystal grows
+    const holdEl=el-60;const holdProg=holdEl/60;
+    const r=80+holdProg*30;
+    const pulse=Math.sin(t*1.5)*.1+.15;
+    const gd=c.createRadialGradient(CX,CY,0,CX,CY,r);
+    gd.addColorStop(0,`rgba(14,165,233,${pulse})`);gd.addColorStop(1,'transparent');
+    c.beginPath();c.arc(CX,CY,r,0,Math.PI*2);c.fillStyle=gd;c.fill();
+    // Growing crystal
+    drawCrystal(CX,CY,60+holdProg*50,6,.2+holdProg*.2);
+    // Timer arc
+    c.beginPath();c.arc(CX,CY,110,-Math.PI/2,-Math.PI/2+holdProg*Math.PI*2);
+    c.strokeStyle='rgba(14,165,233,.4)';c.lineWidth=3;c.stroke();
+  }
+}
+
+function drawCold(el,pp){
+  c.clearRect(0,0,W,H);const t=Date.now()/1000;
+  // Ice forming from edges inward
+  const iceDepth=pp*120;
+  // Frost border
+  for(let i=0;i<30;i++){
+    const side=i%4;
+    let fx,fy;
+    const pos=(i%8)/8;
+    if(side===0){fx=pos*W;fy=Math.random()*iceDepth}
+    else if(side===1){fx=W-Math.random()*iceDepth;fy=pos*H}
+    else if(side===2){fx=pos*W;fy=H-Math.random()*iceDepth}
+    else{fx=Math.random()*iceDepth;fy=pos*H}
+    const cr=5+pp*10;
+    drawCrystal(fx,fy,cr,6,.1+pp*.15);
+  }
+  // Central breathing orb (slow 5/5)
+  const breathDur=10;
+  const cycPos=(el%breathDur)/breathDur;
+  const isI=cycPos<.5;
+  const bProg=isI?cycPos*2:(cycPos-.5)*2;
+  const pulse=Math.sin(bProg*Math.PI);
+  const r=40+pulse*25;
+  const gd=c.createRadialGradient(CX,CY,0,CX,CY,r);
+  gd.addColorStop(0,`rgba(6,182,212,${.15+pulse*.15})`);
+  gd.addColorStop(1,'transparent');
+  c.beginPath();c.arc(CX,CY,r,0,Math.PI*2);c.fillStyle=gd;c.fill();
+  // Temperature text
+  const temp=Math.floor(20-pp*18);
+  c.font='600 14px Fjalla One';c.fillStyle=`rgba(125,211,252,${.3+pp*.3})`;c.textAlign='center';
+  c.fillText(temp+'°C',CX,CY+r+25);
+}
+
+function drawRecovery(el,pp){
+  c.clearRect(0,0,W,H);const t=Date.now()/1000;
+  const warmth=pp;
+  const r=60+Math.sin(t)*10;
+  const gd=c.createRadialGradient(CX,CY,0,CX,CY,r*2);
+  gd.addColorStop(0,`rgba(${Math.floor(16+warmth*220)},${Math.floor(185-warmth*80)},${Math.floor(129-warmth*50)},${.15+warmth*.1})`);
+  gd.addColorStop(1,'transparent');
+  c.beginPath();c.arc(CX,CY,r*2,0,Math.PI*2);c.fillStyle=gd;c.fill();
+  // Melting crystals
+  const melt=1-pp;
+  if(melt>.1) drawCrystal(CX,CY,40*melt,6,.1*melt);
+}
+
+function drawIdle(){c.clearRect(0,0,W,H);drawCrystal(CX,CY,40,6,.06)}
+
+function start(){
+  au.init();st='active';ss=performance.now();pa=false;pO=0;lastPi=-1;lastBn=-1;lastIsI=null;
+  go$.textContent='Pause';go$.classList.remove('p');rs$.style.display='inline-block';
+  dV.classList.remove('show');mV.classList.remove('off');tk();
+}
+
+function tk(){
+  if(st!=='active'||pa)return;
+  const el=(performance.now()-ss-pO)/1000;
+  if(el>=TOTAL){fin();return}
+  const{pi,pe,pp}=getPhase(el);const ph=PHASES[pi];
+  if(pi!==lastPi){
+    lastPi=pi;
+    document.querySelectorAll('.ps').forEach((e,i)=>{e.classList.remove('ac','dn2');if(i<pi)e.classList.add('dn2');else if(i===pi)e.classList.add('ac')});
+  }
+
+  if(ph.type==='breathwork'){
+    if(pe<60){
+      const bn=Math.min(30,Math.floor(pe/2)+1);
+      if(bn!==lastBn){lastBn=bn;au.bp()}
+      ph$.textContent='Power Breaths';ph$.style.color='var(--ice)';
+      bg$.textContent=bn+'/30';bg$.style.color='var(--ice)';
+      dt$.textContent='Deep rhythmic breaths to prepare';
+    } else {
+      const holdRem=Math.max(0,120-pe);
+      ph$.textContent='Retention Hold';ph$.style.color='var(--frost)';
+      bg$.textContent=Math.ceil(holdRem)+'s';bg$.style.color='var(--frost)';
+      dt$.textContent='Hold after exhale — building CO₂ tolerance';
+    }
+    drawBreathwork(pe);
+  } else if(ph.type==='cold'){
+    const coldRem=Math.max(0,ph.dur-pe);
+    // Slow breathing cues
+    const breathDur=10;const cycPos=(pe%breathDur)/breathDur;const isI=cycPos<.5;
+    if(isI!==lastIsI){lastIsI=isI;au.coldTone(isI?293.66:196,5)}
+    ph$.textContent=`Cold · ${isI?'Breathe In':'Breathe Out'}`;
+    ph$.style.color=isI?'var(--cold)':'var(--frost)';
+    bg$.textContent=Math.ceil(coldRem)+'s';bg$.style.color='var(--pale)';
+    dt$.textContent='Maintain slow breathing through the cold';
+    drawCold(pe,pp);
+  } else {
+    const recRem=Math.max(0,ph.dur-pe);
+    ph$.textContent='Warming Up';ph$.style.color='#10b981';
+    bg$.textContent=Math.ceil(recRem)+'s';bg$.style.color='#10b981';
+    dt$.textContent='Gentle breathing — let warmth return';
+    drawRecovery(pe,pp);
+  }
+
+  const totalProg=el/TOTAL;
+  prf$.style.width=(totalProg*100)+'%';
+  cmf$.style.width=(totalProg*100)+'%';
+  cmv$.textContent=Math.floor(totalProg*100)+'%';
+  requestAnimationFrame(tk);
+}
+
+function fin(){st='done';mV.classList.add('off');dV.classList.add('show')}
+function rst(){
+  st='idle';pa=false;pO=0;lastPi=-1;lastBn=-1;lastIsI=null;
+  go$.textContent='Start Protocol';go$.classList.add('p');rs$.style.display='none';
+  ph$.textContent='Ready';ph$.style.color='';bg$.textContent='—';bg$.style.color='';
+  dt$.textContent='Breathing prep → Cold exposure → Warm recovery';
+  prf$.style.width='0';cmf$.style.width='0';cmv$.textContent='0%';
+  document.querySelectorAll('.ps').forEach((e,i)=>{e.classList.remove('ac','dn2');if(i===0)e.classList.add('ac')});
+  dV.classList.remove('show');mV.classList.remove('off');il();
+}
+function tp(){if(!pa){pa=true;pT2=performance.now();go$.textContent='Resume';go$.classList.add('p')}else{pO+=performance.now()-pT2;pa=false;go$.textContent='Pause';go$.classList.remove('p');tk()}}
+go$.onclick=()=>{if(st==='idle')start();else if(st==='active')tp()};
+rs$.onclick=rst;document.getElementById('ag').onclick=()=>{rst();start()};
+document.getElementById('sB').onclick=()=>{au.init();const on=au.toggle();document.getElementById('sB').textContent=on?'🔔':'🔇'};
+function il(){if(st!=='idle')return;drawIdle();requestAnimationFrame(il)}il();
+</script>
+</body>
+</html>

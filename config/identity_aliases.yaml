@@ -1,0 +1,31 @@
+# Identity aliases — resolve to canonical atoms dir names before Stage 3.
+# Stage 3 assembly compiler receives ONLY canonical IDs. Alias resolution is done by pipeline/driver.
+# Authority: Canonical Spec §3.0, §5.3.
+
+persona_aliases:
+  nyc_exec: nyc_executives
+  nyc_executive: nyc_executives
+  healthcare_worker: healthcare_rns
+  healthcare_rn: healthcare_rns
+  gen_z: gen_z_professionals
+  gen_z_professional: gen_z_professionals
+  la_gen_z: gen_z_professionals
+  gen_alpha: gen_alpha_students
+
+topic_aliases:
+  relationship_anxiety: anxiety
+  social_anxiety: anxiety
+  overwhelm: anxiety
+  false_alarm: anxiety
+  spiral_thoughts: anxiety
+  identity: anxiety
+  overthinking: anxiety
+  burnout: anxiety
+  # grief is now canonical — no alias needed
+  shame: self_worth
+  comparison: self_worth
+
+# Canonical names (atoms dirs) are the keys below; they map to themselves so resolver can treat all IDs uniformly.
+# Optional: list canonical persona/topic for validation.
+# canonical_personas: [nyc_executives, healthcare_rns, gen_z_professionals, educators, gen_alpha_students]
+# canonical_topics: [anxiety, grief, self_worth, boundaries, financial_stress, courage, compassion_fatigue, depression]

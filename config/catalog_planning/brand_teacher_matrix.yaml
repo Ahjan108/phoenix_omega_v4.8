@@ -1,0 +1,31 @@
+# Brand × Teacher matrix for Teacher Mode portfolio planning.
+# Authority: specs/TEACHER_PORTFOLIO_PLANNING_SPEC.md
+# Reduces platform spam risk (Google Play, Spotify, Apple) by controlling velocity and diversity.
+
+brands:
+  stillness_press:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_wave: 6
+    release_spacing_days: 14
+    # Optional: topic/persona focus for this brand
+    # topic_focus: [anxiety, shame, self_worth, grief]
+    # persona_focus: [nyc_executives, burned_out_professional]
+
+  # cognitive_clarity:
+  #   teachers: [dr_y]
+  #   max_books_per_wave: 8
+  #   release_spacing_days: 10
+
+# Per-teacher saturation (optional)
+teacher_constraints:
+  ahjan:
+    max_books_per_topic: 4
+    max_books_per_persona: 5
+  ajahn_x:
+    max_books_per_topic: 4
+    max_books_per_persona: 5
+
+# Global defaults
+defaults:
+  min_release_spacing_days: 14
+  max_books_per_brand_per_month: 8

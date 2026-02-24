@@ -1,0 +1,40 @@
+# Golden fixture for emotional curve (dominant_band_sequence, chapter_slot_sequence, atom_ids).
+# Test uses tests/fixtures/atoms and tests/fixtures/bindings; no production config edits.
+# Arc-First: minimal arc required by compile_plan.
+input_seed: emotional_golden_seed
+book_spec:
+  persona_id: golden_test_persona
+  topic_id: golden_test_topic
+  seed: emotional_golden_seed
+format_plan:
+  chapter_count: 3
+  slot_definitions:
+    - [STORY]
+    - [STORY]
+    - [STORY]
+atoms_root: tests/fixtures/atoms
+bindings_path: tests/fixtures/bindings/golden_test_bindings.yaml
+
+# Minimal arc for compile_plan (emotional_curve drives expected_dominant_band_sequence).
+arc:
+  arc_id: golden_test_arc_3ch
+  persona: golden_test_persona
+  topic: golden_test_topic
+  engine: default_band_engine
+  format: F001
+  chapter_count: 3
+  emotional_curve: [2, 5, 4]
+  emotional_temperature_curve: {1: warm, 2: warm, 3: warm}
+  chapter_intent: {1: establish, 2: expose, 3: integrate}
+  reflection_strategy_sequence: [didactic, socratic, didactic]
+  cost_chapter_index: 2
+  resolution_type: open_loop
+  motif: {}
+  emotional_role_sequence: [recognition, reframe, integration]
+
+expected_dominant_band_sequence: [2, 5, 4]
+expected_chapter_slot_sequence: [["STORY"], ["STORY"], ["STORY"]]
+expected_atom_ids:
+  - golden_test_persona_golden_test_topic_test_engine_RECOGNITION_v01
+  - golden_test_persona_golden_test_topic_test_engine_RECOGNITION_v03
+  - golden_test_persona_golden_test_topic_test_engine_RECOGNITION_v02
