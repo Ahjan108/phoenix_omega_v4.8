@@ -1,0 +1,486 @@
+# working_parents × anxiety × scene_set
+# Slot type: SCENE
+# Count: 30
+# Voice: second-person present tense, sensory, one detail per sentence
+# Spec: max 10 words per sensory beat, min 2 location tokens, no emotional labeling, ends on action/sensory moment
+# Location tokens: {transit_line}, {street_name}, {weather_detail}
+
+---
+## SCENE v01 | school_dropoff_line
+---
+You're parked three cars back on {street_name}.
+The clock shows 8:43 AM.
+Your phone buzzes with a Slack message.
+Your hands grip the steering wheel harder.
+The car ahead doesn't move.
+You glance at your child in the mirror.
+They're unbuckling, ready before you've stopped.
+Behind you, another car idles.
+Your chest tightens.
+The teacher appears at the curb.
+You lean to unbuckle, reaching.
+---
+
+## SCENE v02 | 2am_child_wakecall
+---
+The monitor crackles at 2:17 AM.
+Your eyes open in darkness.
+Their voice comes through: small, unsure.
+You swing legs out of bed.
+Cold floor meets bare feet.
+Your partner doesn't stir.
+You pad down the hallway.
+The nightlight casts a thin orange.
+Their door is open three inches.
+You push it wider, careful.
+They're standing, tangled in sheets.
+You reach and lift them up.
+---
+
+## SCENE v03 | pediatrician_waiting_room
+---
+You sit with a clipboard.
+The pen hovers over "reason for visit."
+Fluorescent lights hum above you.
+Your child swings legs in the next chair.
+A mother across the room glances over.
+You don't know what she's thinking.
+Your phone shows three unread emails.
+The clock on the wall reads 10:52.
+The appointment was 10:30.
+A door opens, a name is called.
+It's not yours.
+You look back down at the form.
+---
+
+## SCENE v04 | parents_calendar
+---
+Your phone screen glows in the dark kitchen.
+Wednesday is already double-booked.
+Thursday has a work deadline flagged red.
+Friday the child has soccer at 5:00.
+You're also supposed to be on a call.
+Your shoulders rise toward your ears.
+The calendar squares don't lie.
+You zoom out to see the whole month.
+It's all color-coded and still overflowing.
+There's a gap on the sixteenth.
+You know something will fill it.
+Your thumb hovers over the screen.
+---
+
+## SCENE v05 | morning_before_school
+---
+They won't find their shoes.
+You asked them ten minutes ago.
+The car is running in the driveway.
+{weather_detail} drizzles on the windows.
+You're in your work shirt, half-buttoned.
+Your coffee sits untouched on the counter.
+They appear with one shoe.
+Just one.
+You feel heat in your face.
+You take a breath.
+You kneel down to help them look.
+The clock ticks toward departure.
+---
+
+## SCENE v06 | email_during_bedtime
+---
+The child is half-asleep on your lap.
+Your laptop is open on the couch.
+An email pings from your boss.
+The subject line says "urgent."
+You can't leave them alone to read it.
+You can't answer him right now.
+Their head grows heavier.
+The screen glows at arm's length.
+You stare at both things at once.
+The email will still be there.
+The child might not sleep.
+You close the laptop halfway.
+---
+
+## SCENE v07 | midday_text_from_school
+---
+Your phone buzzes during a meeting.
+It's from the school nurse.
+Your child has a temperature.
+You're two hours away.
+Your boss is still talking.
+You read the message again.
+103.2 degrees.
+You calculate pickup time and meeting end.
+They don't align.
+Someone at the table notices your face.
+You keep your eyes on your notebook.
+Your leg bounces under the table.
+---
+
+## SCENE v08 | partner_conflict_evening
+---
+You mention the pediatrician appointment cost.
+Your partner says you should've scheduled sooner.
+You're standing in the kitchen.
+The dishes are piled in the sink.
+You both know this isn't about the cost.
+They turn away to the refrigerator.
+The air feels thinner.
+You don't have words left.
+The child calls from the other room.
+One of you has to go.
+You both freeze for a second.
+Neither of you moves toward them yet.
+---
+
+## SCENE v09 | carline_comparison
+---
+You watch a mother walk past.
+Her child is perfectly dressed.
+Their hair is braided.
+Your child has a stain on their shirt.
+You didn't see it this morning.
+She didn't mention it.
+The other mother's car is newer.
+You don't know why you notice.
+Your hands are tight on the steering wheel.
+You pull forward as directed.
+Your child is singing to themselves.
+You listen and say nothing about the stain.
+---
+
+## SCENE v10 | nighttime_worry_spiral
+---
+You're lying in bed at 11:30 PM.
+Your partner sleeps beside you.
+You're running tomorrow's schedule.
+Backup backup plan if traffic is bad.
+What if the school calls again.
+Your breathing feels shallow.
+You try to slow it down.
+It doesn't work.
+The darkness doesn't help.
+You reach for your phone.
+You don't turn it on.
+You put it back down.
+---
+
+## SCENE v11 | work_call_interruption
+---
+You're on camera, mid-sentence.
+Your child appears in the doorway.
+They're asking for juice.
+You hold up one finger.
+Your boss is still talking.
+The child doesn't leave.
+You feel everyone's attention shift.
+Your face grows warm.
+You motion them away, quietly.
+They stand there, waiting.
+You finish your thought fast.
+Then you get up from your desk.
+---
+
+## SCENE v12 | sunday_evening_dread
+---
+It's 6:47 PM on Sunday.
+Monday morning exists in less than twelve hours.
+You're checking everyone's permission slips.
+One is missing a signature.
+You find another you forgot about entirely.
+Your chest tightens.
+You pull out a pen.
+Your handwriting is shaky.
+The child is asking about their backpack.
+Is it packed.
+You don't know.
+You're checking two forms at once.
+---
+
+## SCENE v13 | financial_text_during_day
+---
+Your bank app notification pops up.
+The childcare payment posted.
+It's more than you expected.
+You thought it was less this month.
+You recalculate the budget in your head.
+Groceries are already tight.
+Your coffee is getting cold.
+You're still at your desk.
+Your coworker asks if you're okay.
+You say yes.
+You're still holding your phone.
+The number is still on the screen.
+---
+
+## SCENE v14 | partner_not_understanding
+---
+You're trying to explain the schedule conflict.
+Your partner keeps checking their phone.
+You're standing in the bedroom.
+They're not looking at you.
+You know they're tired too.
+That doesn't make it better.
+Your voice gets smaller.
+You stop mid-sentence.
+They finally look up.
+"What?" they ask.
+You don't want to repeat it.
+You shake your head instead.
+---
+
+## SCENE v15 | carpool_coordination_fail
+---
+You sent a text about Friday.
+Nobody responded.
+Two hours before pickup you send again.
+Now three people respond at once.
+Nobody can take that day.
+You're in a work meeting.
+You can't leave.
+You read the messages three times.
+Your leg bounces.
+Your colleague is looking at you.
+You mute your mic.
+You start texting other options.
+---
+
+## SCENE v16 | 3pm_energy_crash
+---
+It's 3:15 PM and you're exhausted.
+The workday still has two hours.
+You've already answered forty emails.
+The next meeting is in five minutes.
+You haven't eaten since breakfast.
+Your coffee is lukewarm now.
+You think about pickup in forty minutes.
+After school activities are stacked tight.
+You look at your reflection in your monitor.
+You look like someone holding on.
+Your eyes close for a second.
+Someone knocks on your office door.
+---
+
+## SCENE v17 | bedtime_negotiation
+---
+They say five more minutes.
+You already gave five more minutes.
+You're standing in the doorway.
+Your shoulders ache.
+You know if they sleep late it cascades.
+Tomorrow will be worse.
+But tonight you're so tired.
+They pull the blanket up to their chin.
+Their eyes are still open.
+You sit on the edge of the bed.
+You don't remember sitting down.
+Your hand touches their hair.
+---
+
+## SCENE v18 | solo_bathroom_break
+---
+You lock the door.
+You don't turn on the light.
+The silence is almost loud.
+You sit down.
+You're not doing anything.
+This is just you, alone.
+Someone knocks after ninety seconds.
+You don't answer.
+They knock again.
+"Mom?" the voice calls.
+You put your head in your hands.
+You don't remember the last time you were alone.
+---
+
+## SCENE v19 | morning_mirror
+---
+You catch your reflection while brushing teeth.
+You look thinner than last month.
+Your eyes have new lines.
+You don't recognize yourself.
+Your child knocks on the bathroom door.
+You're supposed to be helping them get ready.
+You lean closer to the mirror.
+When did that happen.
+More knocking.
+You turn away from the glass.
+You open the door.
+Their face appears, already frustrated with the day.
+---
+
+## SCENE v20 | car_radio_off
+---
+You're driving alone for once.
+You could turn on music.
+The radio stays silent.
+Your hands grip the steering wheel.
+The {transit_line} is heavy today.
+You're thinking about the text from school.
+The cost of the new medication.
+Whether your child is happy.
+Whether you are.
+A car honks.
+The light turned green.
+You didn't notice.
+---
+
+## SCENE v21 | grocery_store_calculation
+---
+You're pushing the cart through produce.
+You price apples against your receipt total.
+You do the math faster than normal.
+You pick the cheaper ones.
+You think about what your child likes.
+You pick some of both anyway.
+You're doing this math again next week.
+And the week after.
+A woman bumps past you with her cart.
+You step back.
+You look at what's in your cart.
+It's enough but not plenty.
+---
+
+## SCENE v22 | night_sweat_wake
+---
+You wake up at 4 AM.
+Your shirt is damp.
+You were dreaming about something.
+You can't remember what.
+Your heart is still racing.
+The house is quiet and dark.
+Your partner breathes evenly beside you.
+You don't want to wake them.
+You slip out of bed.
+You go to check on your child.
+They're asleep, peaceful, untouched by worry.
+You stand in their doorway for several minutes.
+---
+
+## SCENE v23 | {street_name} standstill
+---
+You're stuck on {street_name} at 5:43 PM.
+The daycare closes at 6:00.
+You're seventeen minutes away.
+The traffic isn't moving.
+You check your mirrors.
+No exit for two more miles.
+You text a coworker: running late pickup.
+Your hands are sweating on the wheel.
+A car cuts in front of you.
+You let them.
+You don't have space for anger.
+You have two minutes.
+---
+
+## SCENE v24 | {weather_detail} morning_dread
+---
+Outside is {weather_detail} and gray.
+Nobody wants to get out of bed.
+Including you.
+You have thirteen minutes before you need to leave.
+Everyone is still in pajamas.
+You feel something crack in your chest.
+You ask them to get dressed.
+Your voice sounds too high.
+They move slowly, confused.
+You're not usually like this.
+You know that and hate it.
+You leave the room and close the door.
+---
+
+## SCENE v25 | pocket_change_count
+---
+You empty your work bag at the kitchen table.
+Two dollars and seventeen cents.
+That's the total in your pockets.
+Your child asks if they can get ice cream.
+You look at the money.
+You look at their face.
+You already know this week is tight.
+Payday is five days away.
+You could use the credit card.
+You don't want to.
+You tell them maybe this weekend.
+Their face falls just a little.
+---
+
+## SCENE v26 | work_laptop_late_night
+---
+It's 11 PM and you're still working.
+Your child has been asleep for hours.
+Your partner is asleep.
+You're in the dim kitchen light.
+The house feels like it's yours alone.
+You get through four emails.
+You finish one project outline.
+Your eyes burn.
+You should stop.
+You open the next item.
+Then the next.
+By midnight you've done barely anything.
+---
+
+## SCENE v27 | pediatrician_bill_envelope
+---
+The bill arrives on a Tuesday.
+You open it standing at the mailbox.
+Your chest tightens at the number.
+You thought insurance covered more.
+They didn't.
+You fold the paper carefully.
+You put it back in the envelope.
+You don't show it to your partner yet.
+You're not sure why.
+You just need a moment.
+You sit on the front step.
+{weather_detail} hits your face.
+---
+
+## SCENE v28 | comparison_scroll
+---
+You're scrolling your feed at midnight.
+Another parent posted about their family trip.
+Their child looks so happy.
+Your kid hasn't left the city in two years.
+You know this is highlight reel.
+You know you shouldn't compare.
+Your thumb keeps scrolling anyway.
+Another post, another family, another moment.
+You put your phone down.
+You pick it up again.
+Your jaw is clenched.
+You force yourself to stop.
+---
+
+## SCENE v29 | partner_asleep_early
+---
+Your partner fell asleep on the couch.
+It's only 8:30 PM.
+You have three loads of laundry to fold.
+You have lunch boxes to prep.
+You have emails still open on your laptop.
+You sit beside them.
+They sleep like they haven't slept in weeks.
+Maybe they haven't.
+You don't wake them.
+You get up and move to the laundry.
+The pile is higher than yesterday.
+You start folding in the quiet.
+---
+
+## SCENE v30 | dawn_quiet_before
+---
+You wake before everyone else.
+5:47 AM.
+The house is still dark and silent.
+You could make coffee.
+You could sit.
+You just lie there.
+In thirty minutes the day will start.
+Backpacks will be searched for.
+Someone will need something.
+But right now it's quiet.
+You listen to your own breathing.
+You count how many minutes you have left.
+---

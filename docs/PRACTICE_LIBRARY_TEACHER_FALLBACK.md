@@ -1,14 +1,16 @@
 # Practice Library — Teacher Fallback
 
-When a teacher has **fewer approved EXERCISE atoms than needed** for a book (e.g. fewer than the number of EXERCISE slots in the plan), the system can supplement from the **practice library** so books still compile. To keep exercises aligned with the teacher’s voice, a **teacher wrapper** ties each library exercise to the teacher’s teachings or doctrine.
+When a teacher has **fewer approved EXERCISE atoms than needed** for a book, the system can supplement from the **practice library** so books still compile. A **teacher wrapper** (intro/close) ties each library exercise to the teacher's voice. **Implemented** as of Teacher Mode strict + fallback (see [TEACHER_MODE_SYSTEM_REFERENCE.md](TEACHER_MODE_SYSTEM_REFERENCE.md)).
 
 ---
 
 ## 1. When fallback applies
 
-- **Teacher mode** is on (`teacher_atoms_root` set).
-- EXERCISE pool from `teacher_banks/<teacher_id>/approved_atoms/EXERCISE/` is **non-empty but smaller than** the number of EXERCISE slots required by the format (e.g. 6 chapters × 1 EXERCISE = 6 slots, but teacher has 2 approved).
-- Optional: config or feature flag to enable “teacher + practice library” merge (e.g. `teacher_exercise_fallback: true`).
+- **Teacher mode** is on (`teacher_id` set, not `default_teacher`).
+- **Config:** `config/teachers/<teacher_id>.yaml` has `teacher_exercise_fallback: true`.
+- EXERCISE pool from `teacher_banks/<teacher_id>/approved_atoms/EXERCISE/` is **non-empty but smaller than** the number of EXERCISE slots required by the format (after arc + format expanded).
+
+If teacher EXERCISE pool is **empty** and fallback is enabled, the **coverage gate fails** (fallback not allowed when pool is 0). If fallback is disabled, any EXERCISE shortfall fails at the coverage gate.
 
 ---
 
@@ -16,25 +18,24 @@ When a teacher has **fewer approved EXERCISE atoms than needed** for a book (e.g
 
 Library exercises are **generic**; the wrapper makes them **on-brand** for the teacher.
 
-- **Wrapper** = short doctrine-aligned **intro/framing** (and optionally a **close**) around the library exercise text.
-- Stored or generated per teacher (e.g. template or 1–2 sentences that reference the teacher’s framework, language, or key ideas).
-- At **render time**: for any EXERCISE slot filled from the practice library, output = `[teacher_wrapper_intro]` + `[practice_item.text]` + optional `[teacher_wrapper_close]`.
+- **Wrapper** = short **intro** and optional **close** around the practice library exercise text.
+- **Config:** `config/teachers/<teacher_id>.yaml` → `exercise_wrapper.intro_templates` and `exercise_wrapper.close_templates` (lists of strings).
+- At **render time** (Stage 6): for any EXERCISE slot whose `atom_source == "practice_fallback"`, the renderer (`phoenix_v4.rendering.book_renderer._wrap_practice_fallback_exercise`) outputs intro + practice_text + close. Intro/close are chosen **deterministically** by hash of (book_id, chapter_index, slot_index) so the same book reproduces identically.
 
 **Example:**  
-Teacher’s doctrine: “nervous system first.”  
-Wrapper intro: “Using our nervous-system-first approach, try this grounding practice.”  
+Teacher's doctrine: "nervous system first."  
+Intro template: "Using our nervous-system-first approach, try this grounding practice."  
 Then the full practice library exercise text.  
-Optional close: “Notice how this supports your nervous system before we move on.”
+Close template: "Notice how this supports your nervous system before we move on."
 
 ---
 
-## 3. Implementation options (no distribution logic yet)
+## 3. Implementation (current)
 
-- **Config:** e.g. `config/teachers/<teacher_id>.yaml` with `exercise_fallback: true` and optional `exercise_wrapper_intro` / `exercise_wrapper_close` (or paths to approved snippets).
-- **Pool merge:** When building the EXERCISE pool for a teacher, if `len(teacher_pool) < required_slots`, append practice-library items (from `get_backstop_pool()` or a teacher-filtered subset) and mark them (e.g. `metadata.source = "practice_library"`) so the renderer can apply the wrapper only to those.
-- **Rendering:** In prose resolution, if `atom_id` is a practice_id and the plan/context indicates teacher mode and “use wrapper,” resolve to `wrapper_intro + practice_text + wrapper_close` instead of raw `practice_text`.
-
-Distribution (e.g. 65% teacher / 25% library / 10% mixed) is **not** defined here; that will be specified in a later config/prompt.
+- **Config:** `config/teachers/<teacher_id>.yaml` — `teacher_exercise_fallback`, `exercise_wrapper.intro_templates`, `exercise_wrapper.close_templates`. Example: `config/teachers/master_feng.yaml`.
+- **Pool merge:** `phoenix_v4.planning.pool_index.PoolIndex.get_pool("EXERCISE", ...)` when `teacher_exercise_fallback` and `0 < len(teacher_pool) < required_count`: merges with `get_backstop_pool()`; each practice item has `atom_source="practice_fallback"`. Pool is sorted by (atom_source_priority, stable_hash(atom_id)) (teacher_native=0, teacher_synthetic=1, practice_fallback=2).
+- **Rendering:** Only when `atom_source == "practice_fallback"` (not for teacher_native or teacher_synthetic). See `phoenix_v4.rendering.book_renderer`.
+- **Validation:** `phoenix_v4.qa.validate_teacher_exercise_share`: when fallback is used, teacher-sourced EXERCISE count must be ≥ 60% of total EXERCISE slots. Pipeline runs this after compile.
 
 ---
 
@@ -43,3 +44,5 @@ Distribution (e.g. 65% teacher / 25% library / 10% mixed) is **not** defined her
 - **Practice store:** `SOURCE_OF_TRUTH/practice_library/store/practice_items.jsonl`
 - **Selection:** `config/practice/selection_rules.yaml` (EXERCISE_BACKSTOP allowed_content_types)
 - **Schema:** `specs/PRACTICE_ITEM_SCHEMA.md`
+- **Teacher Mode system reference:** [TEACHER_MODE_SYSTEM_REFERENCE.md](TEACHER_MODE_SYSTEM_REFERENCE.md)
+- **Master spec:** [specs/TEACHER_MODE_MASTER_SPEC.md](../specs/TEACHER_MODE_MASTER_SPEC.md)

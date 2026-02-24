@@ -25,6 +25,48 @@ def gate(name: str, passed: bool, detail: str = "", skip: bool = False):
     return passed
 
 
+def _summarize_story_band_gaps(persona_id: str, topic_id: str, arc_path: Path) -> str:
+    """
+    Build an actionable content-gap summary for STORY band coverage.
+    Returns empty string when summary cannot be computed.
+    """
+    try:
+        from phoenix_v4.planning.pool_index import PoolIndex
+    except Exception:
+        return ""
+    try:
+        pool_index = PoolIndex()
+        story_pool = pool_index.get_pool("STORY", persona_id, topic_id, None)
+        band_counts: dict[int, int] = {}
+        for e in story_pool:
+            b = int((e.metadata or {}).get("band", 3))
+            band_counts[b] = band_counts.get(b, 0) + 1
+        if not arc_path.exists():
+            return ""
+        arc = yaml.safe_load(arc_path.read_text()) or {}
+        curve = arc.get("emotional_curve") or []
+        if not isinstance(curve, list) or not curve:
+            return ""
+        available = set(band_counts.keys())
+        missing = [
+            f"ch{idx + 1}->B{required}"
+            for idx, required in enumerate(curve)
+            if isinstance(required, int) and required not in available
+        ]
+        counts_str = ", ".join(f"B{k}:{band_counts[k]}" for k in sorted(band_counts))
+        if not missing:
+            return f"story band coverage ok for arc; pool bands: {counts_str or 'none'}"
+        missing_str = ", ".join(missing[:12])
+        extra = f" (+{len(missing) - 12} more)" if len(missing) > 12 else ""
+        return (
+            "content gap: STORY band coverage missing for required arc chapters: "
+            f"{missing_str}{extra}; pool bands: {counts_str or 'none'}. "
+            "Add STORY atoms for missing BAND(s) or adjust arc emotional_curve."
+        )
+    except Exception:
+        return ""
+
+
 def main() -> int:
     failed = 0
 
@@ -196,6 +238,7 @@ def main() -> int:
     pipeline_script = REPO_ROOT / "scripts" / "run_pipeline.py"
     catalog_planner = REPO_ROOT / "phoenix_v4" / "planning" / "catalog_planner.py"
     assembly_compiler = REPO_ROOT / "phoenix_v4" / "planning" / "assembly_compiler.py"
+    gate15_detail = "run_pipeline.py + catalog_planner + assembly_compiler; one run produces valid CompiledBook"
     pipeline_ok = pipeline_script.exists() and catalog_planner.exists() and assembly_compiler.exists()
     if pipeline_ok:
         arc_path = REPO_ROOT / "config" / "source_of_truth" / "master_arcs" / "nyc_executives__self_worth__shame__F006.yaml"
@@ -234,13 +277,23 @@ def main() -> int:
                         print(f"      [Gate 15 pipeline stderr]: {r.stderr.strip()[:300]}")
                     elif r.stdout.strip():
                         print(f"      [Gate 15 pipeline stdout]: {r.stdout.strip()[:300]}")
+                    band_gap_summary = _summarize_story_band_gaps(
+                        persona_id="nyc_executives",
+                        topic_id="self_worth",
+                        arc_path=arc_path,
+                    )
+                    if band_gap_summary:
+                        gate15_detail = f"{gate15_detail}; {band_gap_summary}"
             except Exception as e:
                 pipeline_ok = False
                 print(f"      [Gate 15 exception]: {e}")
+                gate15_detail = "run_pipeline.py + catalog_planner + assembly_compiler; one run produces valid CompiledBook"
+    else:
+        gate15_detail = "run_pipeline.py + catalog_planner + assembly_compiler; one run produces valid CompiledBook"
     gate(
         "15. Full pipeline (Stage 1→2→3) runnable",
         pipeline_ok,
-        "run_pipeline.py + catalog_planner + assembly_compiler; one run produces valid CompiledBook",
+        gate15_detail,
     )
     if not pipeline_ok:
         failed += 1

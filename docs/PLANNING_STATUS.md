@@ -23,6 +23,9 @@
 | **specs/ARC_AUTHORING_PLAYBOOK.md** | **Active** | Arc authors; design sequence, failure modes, scale. |
 | **specs/ENGINE_DEFINITION_SCHEMA.md** | **Active** | Engine YAML; resolution types; engine–arc compatibility. |
 | **specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md** | **Advisory** | Narrative Depth Layer; subordinate to Arc-First Canonical. |
+| **specs/TEACHER_MODE_MASTER_SPEC.md** | **Active** | Teacher Mode: strict-by-default, coverage gate, EXERCISE fallback, TDEL, CI; single canonical summary. |
+| **TEACHER_MODE_INVARIANTS.md** (repo root) | **Active** | Non-negotiable invariants when teacher_mode=true. |
+| **docs/TEACHER_MODE_SYSTEM_REFERENCE.md** | **Active** | Full system reference: modules, scripts, config, artifacts. |
 | **specs/TEACHER_MODE_V4_CANONICAL_SPEC.md** | **Active** | Teacher Mode V4: teacher_banks, KB gap-fill (offline), Arc-First compatible; dev implementation authority. |
 | **specs/TEACHER_MODE_NORMALIZATION_SPEC.md** | **Active** | Normalization pipeline; structural entropy CI; platform similarity; style IDs. |
 | **specs/TEACHER_MODE_AUTHORING_PLAYBOOK.md** | **Active** | Content team workflow for Teacher Mode (onboard, KB, gaps, approve, compile). |
@@ -30,7 +33,7 @@
 | **talp/SYSTEMS_DOCUMENTATION.md** | **Reference** | Legacy full system rebuild spec; Layer 0–2; superseded for canonical overview by docs/SYSTEMS_V4.md. |
 | **config/catalog_planning/** | **Active** | domain_definitions, series_templates, capacity_constraints, teacher_persona_matrix.yaml, **brand_archetype_registry.yaml** (v1.1, 24 archetypes). |
 | **config/localization/** | **Active** | locale_registry, brand_registry_locale_extension; BookSpec locale/territory. |
-| **config/teachers/** | **Active** | teacher_registry.yaml (Teacher Mode); one entry per teacher, allowed_topics/engines, defaults. |
+| **config/teachers/** | **Active** | teacher_registry.yaml (Teacher Mode); **per-teacher &lt;teacher_id&gt;.yaml** (teacher_exercise_fallback, exercise_wrapper, teacher_quality_profile); example master_feng.yaml. See docs/TEACHER_MODE_SYSTEM_REFERENCE.md. |
 | **specs/BRAND_ARCHETYPE_VALIDATOR_SPEC.md** | **Active** | CI rules for brand archetype registry (structural, vocabulary, voice, pricing); fail at plan time. |
 | **phoenix_v4/qa/emotional_governance_rules.yaml** | **Active** | Machine-readable emotional/drift/TTS CI rules. |
 | **phoenix_v4/qa/validate_brand_archetype_registry.py** | **Active** | CI gate: validate registry YAML (run `PYTHONPATH=. python3 phoenix_v4/qa/validate_brand_archetype_registry.py`). |
