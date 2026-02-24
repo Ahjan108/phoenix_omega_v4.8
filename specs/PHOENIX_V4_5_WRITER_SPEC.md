@@ -788,7 +788,7 @@ Where topic gates, vocabulary, section packs, and canonical atoms live. Your bri
 
 **Topic gates & vocabulary (repo root):**
 
-- **config/topic_engine_bindings.yaml** — Which engines and roles are allowed per topic (anxiety, boundaries, financial_stress, courage, compassion_fatigue, depression, self_worth, grief). Your topic determines which engines you can use; do not write for forbidden engines. **Engine onboarding guides do not override config/topic_engine_bindings.yaml.** Writers may only write engines permitted by the topic binding for that topic.
+- **config/topic_engine_bindings.yaml** — Which engines and roles are allowed per topic. Unified 12 (per [unified_personas.md](../unified_personas.md) Part 2): overthinking, burnout, boundaries, self_worth, social_anxiety, financial_anxiety, imposter_syndrome, sleep_anxiety, depression, grief, compassion_fatigue, somatic_healing; legacy keys (anxiety, courage, financial_stress) may also exist. Your topic determines which engines you can use; do not write for forbidden engines. **Engine onboarding guides do not override config/topic_engine_bindings.yaml.** Writers may only write engines permitted by the topic binding for that topic.
 - **config/topic_skins.yaml** — Prohibited terms (global and per-topic), role suffixes (≤30 words), and topic overrides. Vocabulary steering is enforced from this file. No prohibited terms; use topic-appropriate language.
 
 **Section packs:**

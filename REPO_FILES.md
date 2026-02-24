@@ -33,7 +33,7 @@ V4 topic and engine configuration at repo root. Used by bindings/skins and pipel
 
 | File | Description |
 |------|-------------|
-| **config/topic_engine_bindings.yaml** | Which engines/roles are allowed per topic (anxiety, boundaries, financial_stress, courage, compassion_fatigue, depression, self_worth, grief). |
+| **config/topic_engine_bindings.yaml** | Which engines/roles are allowed per topic. Unified 12 (unified_personas Part 2): overthinking, burnout, boundaries, self_worth, social_anxiety, financial_anxiety, imposter_syndrome, sleep_anxiety, depression, grief, compassion_fatigue, somatic_healing; legacy keys (anxiety, courage, financial_stress) retained. canonical_topics.yaml must list all binding topics; validated by validate_canonical_sources.py. |
 | **config/topic_skins.yaml** | Topic vocabulary guard: prohibited terms, suffixes per role, topic overrides. |
 
 **config/catalog_planning/** — Stage 1 (catalog planner): domain_definitions.yaml, series_templates.yaml, capacity_constraints.yaml, **brand_archetype_registry.yaml** (v1.1, 24 archetypes), teacher_persona_matrix.yaml, **brand_teacher_assignments.yaml** (teacher/brand when not supplied). See specs/OMEGA_LAYER_CONTRACTS.md. **config/author_registry.yaml** — Pen-name authors (author_id, positioning_profile, assets_path); Writer Spec §23–§24. **config/brand_author_assignments.yaml** — default_author per brand when --author not supplied; resolved by phoenix_v4/planning/author_brand_resolver.py. **config/narrators/narrator_registry.yaml** — Narrator registry (Writer Spec §23.5). **config/brand_narrator_assignments.yaml** — default_narrator per brand; phoenix_v4/planning/narrator_brand_resolver.py.
@@ -44,7 +44,7 @@ V4 topic and engine configuration at repo root. Used by bindings/skins and pipel
 
 **SOURCE_OF_TRUTH/exercises_v4/** — V4 somatic exercise registry: registry.yaml (11 types, slot_07_practice, selection rules), candidate/_stubs/ (minimal stubs per type), approved/ (runtime source). See SOURCE_OF_TRUTH/exercises_v4/README.md and exercise_yaml_helper.txt.
 
-**config/format_selection/** — Stage 2 (format selector): format_registry.yaml (structural F001–F015 + runtime classes, default_slot_definitions), selection_rules.yaml (topic complexity, persona constraints, blueprint rotation). **config/format_selection/k_tables/** — K-tables per format (e.g. F006.yaml): k_min per slot type for capability check and achievable chapter count. **config/identity_aliases.yaml** — persona_aliases and topic_aliases; resolve to canonical (atoms dir names) before Stage 3. Pipeline resolves; Stage 3 does not. **config/source_of_truth/master_arcs/** — Arc-First: Master Arc YAMLs (persona__topic__engine__format.yaml). **config/source_of_truth/engines/** — Engine definition YAMLs (allowed_resolution_types, peak_intensity_limit, etc.); see specs/ENGINE_DEFINITION_SCHEMA.md.
+**config/format_selection/** — Stage 2 (format selector): format_registry.yaml (structural F001–F015 + runtime classes, default_slot_definitions), selection_rules.yaml (topic complexity, persona constraints, blueprint rotation). **config/format_selection/k_tables/** — K-tables per format (e.g. F006.yaml): k_min per slot type for capability check and achievable chapter count. **config/identity_aliases.yaml** — persona_aliases and topic_aliases; resolve to canonical (atoms dir names) before Stage 3. Pipeline resolves; Stage 3 does not. **config/source_of_truth/master_arcs/** — Arc-First: Master Arc YAMLs (persona__topic__engine__format.yaml). Batch-generated for unified scope via scripts/generate_arcs_from_backlog.py (F006 canonical format). templates/ (e.g. standard_escalation.yaml) used by tools/arc_generator.py. **config/source_of_truth/engines/** — Engine definition YAMLs (allowed_resolution_types, peak_intensity_limit, etc.); see specs/ENGINE_DEFINITION_SCHEMA.md.
 
 ---
 
@@ -123,6 +123,7 @@ Superseded docs; reference only. Do not use for implementation.
 | **scripts/run_pipeline.py** | Full pipeline: Stage 1 (catalog) → Stage 2 (format selector) → Stage 3 (assembly compiler). `python scripts/run_pipeline.py --topic <id> --persona <id> [--out path.plan.json]` or `--input example_input_stage2.yaml`. |
 | **scripts/validate_book_001_readiness.py** | Book_001 readiness: pre-compile (STORY count, BAND presence/diversity, duplicate IDs) and post-compile emotional curve (`--plan <path>`: ≥3 distinct BAND, no >3 consecutive same). See docs/BOOK_001_READINESS_CHECKLIST.md. |
 | **scripts/render_plan_to_txt.py** | Renders a compiled plan JSON to a single .txt for QA: resolves STORY atom_ids to prose from CANONICAL.txt; other slots as placeholders. `python scripts/render_plan_to_txt.py <plan.json> -o <out.txt>`. Outputs typically in `artifacts/books_qa/`. |
+| **scripts/generate_arcs_from_backlog.py** | Batch arc generation for content coverage: reads topic_engine_bindings (or backlog CSV); generates missing (persona, topic, engine, format) arcs via tools/arc_generator.py. Options: --format-id (default F006), --chapter-count, --dry-run, --overwrite, --personas. Used after aligning bindings to unified 12 topics (Content Coverage Unblock Step 2). |
 
 ---
 

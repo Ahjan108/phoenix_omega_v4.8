@@ -80,7 +80,7 @@ For the system to **render full books without placeholders** for every canonical
 - **INTEGRATION** — same; currently **no** INTEGRATION pool anywhere.
 - **HOOK / SCENE** — only if the chosen format includes these slots (e.g. standard_book with HOOK, SCENE).
 
-**Canonical personas × topics:** 4 × 8 = 32 (persona, topic) pairs. Only gen_z_professionals × anxiety has any non-STORY atoms. So **31 persona×topic combinations** lack REFLECTION, EXERCISE, INTEGRATION (and HOOK/SCENE where required).
+**Active personas × topics:** 10 × 12 = 120 (persona, topic) pairs in the catalog; only gen_z_professionals × anxiety has any non-STORY atoms. So **119 persona×topic combinations** lack REFLECTION, EXERCISE, INTEGRATION (and HOOK/SCENE where required) for full books without placeholders.
 
 ### 4.2 STORY depth and BAND diversity
 

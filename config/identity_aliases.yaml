@@ -26,6 +26,7 @@ topic_aliases:
   comparison: self_worth
 
 # Canonical names (atoms dirs) are the keys below; they map to themselves so resolver can treat all IDs uniformly.
-# Optional: list canonical persona/topic for validation.
-# canonical_personas: [nyc_executives, healthcare_rns, gen_z_professionals, educators, gen_alpha_students]
+# Active personas and topics: see unified_personas.md (repo root) — 10 active personas, 12 active topics.
+# Legacy aliases above may resolve to inactive personas (e.g. nyc_executives → used for migration to tech_finance_burnout).
+# canonical_personas: [nyc_executives, healthcare_rns, gen_z_professionals, educators, gen_alpha_students]  # legacy; active list in unified_personas.md
 # canonical_topics: [anxiety, grief, self_worth, boundaries, financial_stress, courage, compassion_fatigue, depression]

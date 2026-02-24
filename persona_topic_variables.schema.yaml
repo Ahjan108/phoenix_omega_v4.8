@@ -20,7 +20,7 @@ global:
         type: string
         required: true
         description: "Unique persona identifier (e.g., 'gen_z_professionals', 'nyc_executives')"
-        validation: "Must exist in unified_personas.yaml"
+        validation: "Must exist in unified_personas.md"
       
       name:
         type: string
@@ -1640,7 +1640,7 @@ integration_bridge_test:
 
 persona_integration:
   unified_personas_reference:
-    file: "unified_personas.yaml"
+    file: "unified_personas.md"
     required_fields:
       - "id"
       - "label"
@@ -1651,8 +1651,8 @@ persona_integration:
       - "domain_jargon" # can inform vocabulary
   
   no_duplication_rule:
-    description: "Do NOT duplicate persona data from unified_personas.yaml"
-    implementation: "Reference unified_personas.yaml, don't copy"
+    description: "Do NOT duplicate persona data from unified_personas.md"
+    implementation: "Reference unified_personas.md, don't copy"
     exception: "Only copy authority_tolerance, language_register, attention_span for hydration"
 
 # ==============================================================================
@@ -1665,7 +1665,7 @@ determinism:
   inputs:
     - "Template file (versioned)"
     - "Variable values (from this schema)"
-    - "Persona config (from unified_personas.yaml)"
+    - "Persona config (from unified_personas.md)"
   
   non_deterministic_forbidden:
     - "No randomness"

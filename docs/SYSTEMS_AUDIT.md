@@ -59,7 +59,8 @@
 
 | Tool | Status | Notes |
 |------|--------|------|
-| **tools/arc_generator.py** | ✅ | Generate concrete arc from template; --persona, --topic, --format, --chapter-count, --engine, --out. |
+| **tools/arc_generator.py** | ✅ | Generate concrete arc from template; --persona, --topic, --format, --chapter-count, --engine, --out. Enforces arc_loader role schema (max 2 consecutive same emotional_role, ≥4 distinct roles when chapter_count≥6). |
+| **scripts/generate_arcs_from_backlog.py** | ✅ | Batch arc generation for content coverage: bindings or backlog CSV → missing (persona, topic, engine, format) arcs; calls arc_generator per tuple; --format-id (e.g. F006), --dry-run, --overwrite. |
 | **tools/generate_arcs_batch.py** | ✅ | Batch arc generation from matrix (PyYAML required). |
 | **tools/tag_existing_atoms.py** | ✅ | Interactive or batch (CSV) tagging of CANONICAL blocks with narrative fields. |
 | **tools/exercise_lint/lint_exercise.py** | ✅ | Lint exercise YAML; positional file, optional --strict. |

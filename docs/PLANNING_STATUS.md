@@ -5,6 +5,8 @@
 
 **Canonical systems doc (whole V4 in one place):** [docs/SYSTEMS_V4.md](./SYSTEMS_V4.md)
 
+**Active personas and topics (catalog source of truth):** [unified_personas.md](../unified_personas.md) — 10 active personas, 12 active topics; config/catalog_planning/canonical_*.yaml must align.
+
 ---
 
 ## 1. Doc status across the system
@@ -31,7 +33,8 @@
 | **specs/TEACHER_MODE_AUTHORING_PLAYBOOK.md** | **Active** | Content team workflow for Teacher Mode (onboard, KB, gaps, approve, compile). |
 | **specs/README.md** | **Active** | Spec index; authority and run instructions; links to SYSTEMS_V4. |
 | **talp/SYSTEMS_DOCUMENTATION.md** | **Reference** | Legacy full system rebuild spec; Layer 0–2; superseded for canonical overview by docs/SYSTEMS_V4.md. |
-| **config/catalog_planning/** | **Active** | domain_definitions, series_templates, capacity_constraints, teacher_persona_matrix.yaml, **brand_archetype_registry.yaml** (v1.1, 24 archetypes). |
+| **unified_personas.md** (repo root) | **Canonical** | Source of truth for active personas (10) and topics (12); full catalog metadata, design foundation, catalog math, template requirements, consumer language map, production sequence. canonical_personas.yaml / canonical_topics.yaml must align. |
+| **config/catalog_planning/** | **Active** | domain_definitions, series_templates, capacity_constraints, teacher_persona_matrix.yaml, **brand_archetype_registry.yaml** (v1.1, 24 archetypes); **canonical_personas.yaml**, **canonical_topics.yaml** (align with unified_personas.md). |
 | **config/localization/** | **Active** | locale_registry, brand_registry_locale_extension; BookSpec locale/territory. |
 | **config/teachers/** | **Active** | teacher_registry.yaml (Teacher Mode); **per-teacher &lt;teacher_id&gt;.yaml** (teacher_exercise_fallback, exercise_wrapper, teacher_quality_profile); example master_feng.yaml. See docs/TEACHER_MODE_SYSTEM_REFERENCE.md. |
 | **specs/BRAND_ARCHETYPE_VALIDATOR_SPEC.md** | **Active** | CI rules for brand archetype registry (structural, vocabulary, voice, pricing); fail at plan time. |
@@ -99,6 +102,7 @@ Summary of what was implemented for the remaining V4 dev tasks (including option
 4. **V4 Immersion freebie types** — All immersion types in registry (journal_pdf, identity_sheet_pdf, thirty_day_tracker_pdf, environment_guide_pdf, emergency_kit_html, guided_audio, affirmations_audio, audio_journal_prompts, conversation_scripts_pdf, resistance_mapping_html, accountability_partner_pdf); templates in SOURCE_OF_TRUTH/freebies/templates/; tier_bundles updated; video/MP4 deferred. PHOENIX_FREEBIE_SYSTEM_SPEC §4 and registry updated.
 5. **Doc updates** — Remaining-to-finish table in SYSTEMS_V4: Freebies, Narrators, Teacher Mode Phase 2/3 all show "Still to do: —". PLANNING_STATUS: Narrators and Freebies rows updated; §4 Summary and §5 (this section) added. OMEGA_LAYER_CONTRACTS: narrator_id in BookSpec; Still to do notes narrator and KB-driven gap-fill implemented. REPO_FILES: narrator config and narrator_brand_resolver; gap_fill.py --kb-dir.
 6. **Stage 6 (book renderer)** — `phoenix_v4/rendering/`: prose_resolver (atom_id → prose from atoms/, compression_atoms, teacher_banks), book_renderer (TxtWriter, render_book). Refactored `scripts/render_plan_to_txt.py` to use Stage 6 API. Pipeline: `run_pipeline.py --render-book`, `--render-formats txt`, `--render-dir`. Teacher Mode subsection and knobs added to [V4_FEATURES_SCALE_AND_KNOBS.md](V4_FEATURES_SCALE_AND_KNOBS.md). SYSTEMS_V4, PLANNING_STATUS, specs/README, OMEGA_LAYER_CONTRACTS, COMPILED_PLAN_SCHEMA_CONTRACT, SYSTEMS_AUDIT, BOOK_001 docs updated to document Stage 6 and Teacher Mode knobs.
+7. **Content coverage unblock (bindings + arcs + playbook)** — **Step 1:** Added 7 unified topics to `config/topic_engine_bindings.yaml` (overthinking, burnout, social_anxiety, financial_anxiety, imposter_syndrome, sleep_anxiety, somatic_healing); updated `config/catalog_planning/canonical_topics.yaml` so all binding topics are listed; `validate_canonical_sources.py` passes. **Step 2:** Added `scripts/generate_arcs_from_backlog.py` (batch arc generation from bindings or backlog CSV); updated `tools/arc_generator.py` with `_enforce_role_schema()` so generated arcs pass arc_loader validation (max 2 consecutive same role, ≥4 distinct roles when chapter_count≥6); generated 450 F006 arcs under `config/source_of_truth/master_arcs/` for unified personas × binding topics × allowed engines. **Step 3:** §6 Content coverage playbook in this doc (source of truth, order bindings → arcs → STORY pools, links to backlog report and CSV). REPO_FILES, SYSTEMS_V4, PHOENIX_V4_5_WRITER_SPEC, PHOENIX_V4_CANONICAL_SPEC, SYSTEMS_AUDIT updated.
 
 **How to use:** Narrator: `run_pipeline.py ... --narrator default_narrator` or omit for brand default. KB-driven gap-fill: `python3 tools/teacher_mining/gap_fill.py --teacher <id> --gaps path/to/gaps.json --kb-dir SOURCE_OF_TRUTH/teacher_banks/<teacher>/kb`.
 

@@ -39,8 +39,8 @@ config/freebies/
     audio_scripts.yaml         (V4 Immersion: templated/fixed scripts for MP3)
     freebie_to_landing.yaml
 config/catalog_planning/
-    canonical_topics.yaml     (V4 Immersion: single source for asset planning)
-    canonical_personas.yaml
+    canonical_topics.yaml     (V4 Immersion: must align with unified_personas.md)
+    canonical_personas.yaml   (must align with unified_personas.md — 10 active personas)
 config/tts/
     engines.yaml               (V4 Immersion: TTS engine + voice mapping)
 config/validation.yaml         (V4 Immersion: asset validation rules)
@@ -165,7 +165,7 @@ Set **after** Stage 3 by the freebie planner. Arc unchanged. Planner may receive
 
 ## 11. V4 Immersion Ecosystem (implemented)
 
-**Canonical sources:** `config/catalog_planning/canonical_topics.yaml` and `canonical_personas.yaml` are the single source of truth for asset planning. Validated by `scripts/validate_canonical_sources.py` against `topic_engine_bindings.yaml` and `identity_aliases.yaml`.
+**Canonical sources:** **Source of truth for active personas and topics:** [unified_personas.md](../unified_personas.md) (10 active personas, 12 active topics). Config files `config/catalog_planning/canonical_topics.yaml` and `canonical_personas.yaml` must align with unified_personas.md and are used for asset planning. Validated by `scripts/validate_canonical_sources.py` against `topic_engine_bindings.yaml` and `identity_aliases.yaml`.
 
 **Asset pipeline (two modes):**  
 - **Catalog mode:** `scripts/plan_freebie_assets.py --catalog <yaml>` — manifest from a list of books (topic_id, persona_id, optional arc_path).  
