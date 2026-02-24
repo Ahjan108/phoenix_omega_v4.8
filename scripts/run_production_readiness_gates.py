@@ -205,6 +205,12 @@ def main() -> int:
             try:
                 out_path = REPO_ROOT / "artifacts" / "golden_plans" / "_gate_pipeline_out.json"
                 out_path.parent.mkdir(parents=True, exist_ok=True)
+                # Remove stale output so a cached file can't mask a real failure
+                try:
+                    if out_path.exists():
+                        out_path.unlink()
+                except OSError:
+                    pass  # Sandbox/permission restriction; proceed anyway
                 r = subprocess.run(
                     [
                         sys.executable, str(pipeline_script),
@@ -223,8 +229,14 @@ def main() -> int:
                     pipeline_ok = isinstance(data.get("plan_hash"), str) and isinstance(data.get("atom_ids"), list)
                 else:
                     pipeline_ok = False
-            except Exception:
+                    # Surface the real error so it's visible in gate output
+                    if r.stderr.strip():
+                        print(f"      [Gate 15 pipeline stderr]: {r.stderr.strip()[:300]}")
+                    elif r.stdout.strip():
+                        print(f"      [Gate 15 pipeline stdout]: {r.stdout.strip()[:300]}")
+            except Exception as e:
                 pipeline_ok = False
+                print(f"      [Gate 15 exception]: {e}")
     gate(
         "15. Full pipeline (Stage 1→2→3) runnable",
         pipeline_ok,
