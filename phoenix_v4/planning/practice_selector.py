@@ -74,7 +74,7 @@ def get_backstop_pool(
         practice_id = it.get("practice_id")
         if not practice_id:
             continue
-        out.append(AtomEntry(atom_id=practice_id, metadata={"content_type": ct}))
+        out.append(AtomEntry(atom_id=practice_id, metadata={"content_type": ct}, atom_source="practice_fallback"))
     out.sort(key=lambda e: e.atom_id)
     return out
 

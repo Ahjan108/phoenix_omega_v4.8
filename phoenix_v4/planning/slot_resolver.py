@@ -2,12 +2,13 @@
 Part 3.1 slot resolver: deterministic selection per slot, no reuse in-book.
 Selector hash algorithm: SHA256(selector_key) -> first 16 bytes big-endian int -> modulo len(available).
 Do not substitute Python's built-in hash() (salted per process, non-deterministic).
+Teacher Mode: when teacher_mode=True and no candidates, raise TeacherCoverageError (do not return None).
 """
 from __future__ import annotations
 
 import hashlib
 from dataclasses import dataclass
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, Tuple
 
 if TYPE_CHECKING:
     from phoenix_v4.planning.pool_index import AtomEntry, PoolIndex
@@ -27,6 +28,11 @@ class ResolverContext:
     used_semantic_families: Optional[set[str]] = None
     # Angle Integration (V4.7): chapter 1 framing bias. Optional dict with framing_mode, etc.
     angle_context: Optional[dict] = None
+    # Teacher Mode: when True, raise on no candidates; return (atom_id, atom_source).
+    teacher_mode: bool = False
+    # Required slot counts (for EXERCISE fallback merge). teacher_exercise_fallback from config.
+    required_slots_by_type: Optional[dict[str, int]] = None
+    teacher_exercise_fallback: bool = False
 
 
 def _selector_index(selector_key: str, available_count: int) -> int:
@@ -50,18 +56,23 @@ def resolve_slot(
     chapter_idx: int,
     slot_idx: int,
     context: ResolverContext,
-) -> Optional[str]:
+) -> Optional[Tuple[str, Optional[str]]]:
     """
-    Return one atom_id for this slot from the pool, or None if pool empty or all used.
+    Return (atom_id, atom_source) for this slot from the pool, or None if pool empty or all used (and not teacher_mode).
+    Teacher Mode: when teacher_mode and no candidates, raise TeacherCoverageError.
     No reuse: only atoms not in context.used_atom_ids are considered.
     Repetition decay: atoms with metadata.semantic_family already used are excluded.
     Determinism: selector_key = prefix + slot_type + ch:slot; SHA256 then modulo.
     """
+    required_count = context.required_slots_by_type.get(slot_type) if context.required_slots_by_type else None
+    teacher_exercise_fallback = context.teacher_exercise_fallback if slot_type == "EXERCISE" else False
     pool = context.pool_index.get_pool(
         slot_type,
         context.persona_id,
         context.topic_id,
         None,
+        required_count=required_count,
+        teacher_exercise_fallback=teacher_exercise_fallback,
     )
     available = [e for e in pool if e.atom_id not in context.used_atom_ids]
     # Repetition decay: exclude atoms whose semantic_family was already used this book
@@ -76,6 +87,12 @@ def resolve_slot(
         if ch_band is not None:
             available = [e for e in available if (e.metadata or {}).get("band") == ch_band]
     if not available:
+        if context.teacher_mode:
+            from phoenix_v4.teacher.coverage_gate import TeacherCoverageError
+            raise TeacherCoverageError(
+                f"No teacher atoms for slot {slot_type} at chapter {chapter_idx} slot {slot_idx}. "
+                "Coverage gate should have caught this; resolver must not return None in teacher mode."
+            )
         return None
     # Angle Integration (V4.7): chapter 1 framing bias — rank by angle_bias.score_atom then atom_id; deterministic pick
     if chapter_idx == 0 and context.angle_context:
@@ -93,4 +110,5 @@ def resolve_slot(
     fam = (chosen.metadata or {}).get("semantic_family")
     if fam is not None and context.used_semantic_families is not None:
         context.used_semantic_families.add(str(fam))
-    return chosen.atom_id
+    atom_source = getattr(chosen, "atom_source", None)
+    return (chosen.atom_id, atom_source)

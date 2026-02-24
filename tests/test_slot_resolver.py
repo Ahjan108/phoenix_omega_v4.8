@@ -59,14 +59,16 @@ def test_used_ids_excluded():
     )
     a1 = resolve_slot("STORY", 0, 0, context)
     assert a1 is not None
-    used.add(a1)
+    (aid1, _) = a1
+    used.add(aid1)
     a2 = resolve_slot("STORY", 1, 0, context)
     assert a2 is not None
-    assert a2 != a1
-    used.add(a2)
+    (aid2, _) = a2
+    assert aid2 != aid1
+    used.add(aid2)
     a3 = resolve_slot("STORY", 2, 0, context)
     assert a3 is not None
-    used.add(a3)
+    used.add(a3[0])
     # Pool has 3 atoms (bands 2, 4, 5). All three used. Next resolve for ch0 (band 2) has no available atom.
     a4 = resolve_slot("STORY", 0, 0, context)
     assert a4 is None
@@ -96,8 +98,9 @@ def test_band_filter_applied():
         required_band_by_chapter={0: 5},
         used_semantic_families=set(),
     )
-    aid = resolve_slot("STORY", 0, 0, context)
-    assert aid is not None
+    result = resolve_slot("STORY", 0, 0, context)
+    assert result is not None
+    aid = result[0]
     assert "v03" in aid or "RECOGNITION" in aid
 
 
@@ -153,4 +156,4 @@ def test_lexicographic_sort():
     a3 = resolve_slot("STORY", 2, 0, context)
     # Same seed prefix -> deterministic order. Just check we got three distinct or valid ids.
     assert a1 and a2 and a3
-    assert len({a1, a2, a3}) == 3
+    assert len({a1[0], a2[0], a3[0]}) == 3

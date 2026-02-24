@@ -85,6 +85,8 @@ class CompiledBook:
     # DEV SPEC 3: Emotional Role Taxonomy
     emotional_role_sequence: Optional[list[str]] = None  # length == chapter_count
     emotional_role_sig: Optional[str] = None  # compact e.g. r-d-f-s-i
+    # Teacher Mode: atom_source per slot (teacher_native | teacher_synthetic | practice_fallback); same length as atom_ids
+    atom_sources: Optional[list[Optional[str]]] = None
     # Optional slots / silence: slots allowed to be empty under budget
     silence_budget_used: Optional[int] = None
     # Asymmetry: optional weight/density per chapter (from arc)
@@ -491,10 +493,21 @@ def compile_plan(
     teacher_mode = book_spec.get("teacher_mode") is True
     teacher_id = (book_spec.get("teacher_id") or "").strip()
     teacher_atoms_root: Optional[Path] = None
+    teacher_exercise_fallback = False
+    required_slots_by_type: Optional[dict[str, int]] = None
     if teacher_mode and teacher_id and TEACHER_BANKS_ROOT.exists():
         teacher_root = TEACHER_BANKS_ROOT / teacher_id / "approved_atoms"
         if teacher_root.exists():
             teacher_atoms_root = teacher_root
+        from phoenix_v4.teacher.teacher_config import load_teacher_config
+        tcfg = load_teacher_config(teacher_id)
+        teacher_exercise_fallback = bool(tcfg.get("teacher_exercise_fallback"))
+        required_slots_by_type = {}
+        for row in slot_definitions:
+            for st in row:
+                slot_type = str(st).strip().upper()
+                if slot_type:
+                    required_slots_by_type[slot_type] = required_slots_by_type.get(slot_type, 0) + 1
 
     pool_index = PoolIndex(
         atoms_root=atoms_root,
@@ -527,10 +540,14 @@ def compile_plan(
         required_band_by_chapter=required_band_by_chapter,
         used_semantic_families=used_semantic_families,
         angle_context=angle_context,
+        teacher_mode=teacher_mode,
+        required_slots_by_type=required_slots_by_type,
+        teacher_exercise_fallback=teacher_exercise_fallback,
     )
 
     chapter_slot_sequence: list[list[str]] = []
     atom_ids: list[str] = []
+    atom_sources_out: Optional[list[Optional[str]]] = [] if teacher_mode else None
     dominant_band_sequence: list[Optional[int]] = []
     placeholder_slot_types: set[str] = set()
     compression_atom_ids: list[str] = [""] * chapter_count
@@ -541,9 +558,12 @@ def compile_plan(
         ch_slots = list(slot_definitions[ch]) if ch < len(slot_definitions) else []
         chapter_story_bands: list[int] = []
         for si, slot_type in enumerate(ch_slots):
-            aid = resolve_slot(slot_type, ch, si, context)
-            if aid is not None:
+            result = resolve_slot(slot_type, ch, si, context)
+            if result is not None:
+                aid, atom_source = result
                 atom_ids.append(aid)
+                if atom_sources_out is not None:
+                    atom_sources_out.append(atom_source)
                 used.add(aid)
                 if slot_type == "STORY":
                     chapter_story_bands.append(band_by_id.get(aid, 3))
@@ -559,6 +579,8 @@ def compile_plan(
                     and silence_budget_used < silence_budget
                 ):
                     atom_ids.append(f"silence:{slot_type}:ch{ch}:slot{si}")
+                    if atom_sources_out is not None:
+                        atom_sources_out.append(None)
                     silence_budget_used += 1
                 elif arc is not None and slot_type == "STORY":
                     raise ValueError(
@@ -567,6 +589,8 @@ def compile_plan(
                     )
                 else:
                     atom_ids.append(f"placeholder:{slot_type}:ch{ch}:slot{si}")
+                    if atom_sources_out is not None:
+                        atom_sources_out.append(None)
                     placeholder_slot_types.add(slot_type)
         chapter_slot_sequence.append(ch_slots)
         dominant_band_sequence.append(max(chapter_story_bands) if chapter_story_bands else None)
@@ -654,6 +678,7 @@ def compile_plan(
         compression_len_vec=compression_len_vec if any(compression_len_vec) else None,
         emotional_role_sequence=role_seq_out,
         emotional_role_sig=role_sig_out,
+        atom_sources=atom_sources_out,
         silence_budget_used=silence_budget_used if silence_budget > 0 else None,
         chapter_weights=chapter_weights_from_arc if chapter_weights_from_arc and len(chapter_weights_from_arc) == chapter_count else None,
         motif_injections=motif_injections_out,

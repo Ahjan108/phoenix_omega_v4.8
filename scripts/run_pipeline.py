@@ -189,6 +189,7 @@ def main() -> int:
     # Stage 1: BookSpec (author_id, narrator_id optional)
     from phoenix_v4.planning.catalog_planner import CatalogPlanner, BookSpec
     planner = CatalogPlanner()
+    teacher_mode = bool(teacher_id and teacher_id != "default_teacher")
     book_spec = planner.produce_single(
         topic_id=topic_id,
         persona_id=persona_id,
@@ -200,6 +201,7 @@ def main() -> int:
         angle_id=angle_id,
         author_id=author_id,
         narrator_id=narrator_id,
+        teacher_mode=teacher_mode,
     )
 
     if book_spec.angle_id.endswith("_general"):
@@ -334,9 +336,41 @@ def main() -> int:
             print(f"Arc/format role compatibility: {e}", file=sys.stderr)
         return 1
 
+    # Teacher Mode: mandatory pre-compile coverage gate (after arc + format expanded, before compile)
+    if book_spec_for_compiler.get("teacher_mode"):
+        from phoenix_v4.teacher.coverage_gate import run_coverage_gate, TeacherCoverageError
+        from phoenix_v4.teacher.teacher_config import load_teacher_config
+        artifacts_dir = REPO_ROOT / "artifacts"
+        artifacts_dir.mkdir(parents=True, exist_ok=True)
+        _tid = (book_spec_for_compiler.get("teacher_id") or "").strip()
+        _tcfg = load_teacher_config(_tid) if _tid else {}
+        teacher_exercise_fallback = bool(_tcfg.get("teacher_exercise_fallback"))
+        passed, gap_report = run_coverage_gate(
+            book_spec_for_compiler,
+            format_plan_dict,
+            arc,
+            teacher_exercise_fallback=teacher_exercise_fallback,
+            artifacts_dir=artifacts_dir,
+        )
+        if not passed and gap_report is not None:
+            (artifacts_dir / "teacher_coverage_report.json").write_text(
+                json.dumps(gap_report, indent=2), encoding="utf-8"
+            )
+            print("Teacher coverage gate failed. See artifacts/teacher_coverage_report.json", file=sys.stderr)
+            raise TeacherCoverageError(
+                "Teacher coverage insufficient for required slots. See artifacts/teacher_coverage_report.json"
+            )
+
     # Stage 3: CompiledBook (Arc-First: arc required)
+    # Teacher Mode: require_full_resolution=True so no placeholders are allowed (Gate A).
+    require_full_resolution = bool(book_spec_for_compiler.get("teacher_mode"))
     from phoenix_v4.planning.assembly_compiler import compile_plan
-    compiled = compile_plan(book_spec_for_compiler, format_plan_dict, arc_path=arc_path)
+    compiled = compile_plan(
+        book_spec_for_compiler,
+        format_plan_dict,
+        arc_path=arc_path,
+        require_full_resolution=require_full_resolution,
+    )
 
     # Part 3.1 / 3.3 validate compiled plan (structure)
     from phoenix_v4.qa.validate_compiled_plan import validate_compiled_plan
@@ -406,6 +440,8 @@ def main() -> int:
     if teacher_id and teacher_id != "default_teacher":
         out["teacher_id"] = teacher_id
         out["teacher_mode"] = True
+    if getattr(compiled, "atom_sources", None):
+        out["atom_sources"] = compiled.atom_sources
     # Structural fingerprint (CI / wave density / similarity)
     if compiled.emotional_temperature_sequence:
         out["emotional_temperature_sequence"] = compiled.emotional_temperature_sequence

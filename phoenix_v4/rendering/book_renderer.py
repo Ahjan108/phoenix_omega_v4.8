@@ -2,9 +2,11 @@
 Stage 6 book renderer: CompiledBook + prose map → manuscript/ebook outputs.
 Writers: TxtWriter (QA and pipeline). Optional DOCX/EPUB later.
 Edge cases: placeholders → [Placeholder: TYPE], silence → [Silence: TYPE], missing → fail or [Missing: atom_id].
+Teacher Mode: when atom_source == practice_fallback for EXERCISE, wrap with teacher intro/close templates (deterministic).
 """
 from __future__ import annotations
 
+import hashlib
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, List, Optional
@@ -53,6 +55,28 @@ def _get_prose(
     return f"[Missing: {atom_id}]"
 
 
+def _wrap_practice_fallback_exercise(prose: str, plan: dict[str, Any], chapter_index: int, slot_index: int) -> str:
+    """When EXERCISE has atom_source=practice_fallback, wrap with teacher intro/close. Deterministic by (book_id, ch, si)."""
+    teacher_id = (plan.get("teacher_id") or (plan.get("book_spec") or {}).get("teacher_id") or "").strip()
+    if not teacher_id:
+        return prose
+    try:
+        from phoenix_v4.teacher.teacher_config import load_teacher_config
+        cfg = load_teacher_config(teacher_id)
+        wrapper = cfg.get("exercise_wrapper") or {}
+        intro_templates = list(wrapper.get("intro_templates") or [])
+        close_templates = list(wrapper.get("close_templates") or [])
+        if not intro_templates and not close_templates:
+            return prose
+        book_id = plan.get("plan_id") or plan.get("plan_hash") or "book"
+        h = hashlib.sha256(f"{book_id}:{chapter_index}:{slot_index}".encode("utf-8")).hexdigest()
+        intro = (intro_templates[int(int(h[:8], 16) % len(intro_templates)] + "\n\n") if intro_templates else ""
+        close = ("\n\n" + close_templates[int(int(h[8:16], 16) % len(close_templates)]) if close_templates else ""
+        return f"{intro}{prose}{close}"
+    except Exception:
+        return prose
+
+
 def _build_title_page_lines(plan: dict[str, Any]) -> list[str]:
     """Optional title/credits from plan (author_assets, topic_id, persona_id)."""
     lines: list[str] = []
@@ -91,18 +115,21 @@ class TxtWriter:
         if self.options.title_page:
             lines.extend(_build_title_page_lines(self.plan))
 
+        atom_sources = self.plan.get("atom_sources") or []
         idx = 0
         for ch, slots in enumerate(chapter_slot_sequence):
             lines.append("")
             lines.append(f"========== CHAPTER {ch + 1} ==========")
             lines.append("")
-            for slot_type in slots:
+            for si, slot_type in enumerate(slots):
                 if idx >= len(atom_ids):
                     break
                 aid = atom_ids[idx]
-                idx += 1
                 slot_label = str(slot_type).strip()
                 prose = _get_prose(aid, slot_label, self.prose_map, self.render_result, self.options)
+                if atom_sources and idx < len(atom_sources) and atom_sources[idx] == "practice_fallback" and slot_label == "EXERCISE":
+                    prose = _wrap_practice_fallback_exercise(prose, self.plan, ch, si)
+                idx += 1
                 if self.options.include_slot_labels_qa and slot_label == "STORY" and not _is_placeholder_or_silence(aid):
                     lines.append(f"[STORY] {aid}")
                     lines.append("")

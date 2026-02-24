@@ -6,6 +6,7 @@ Other slot types: atoms/<persona>/<topic>/<slot_type>/CANONICAL.txt (or <slot_ty
 """
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -24,9 +25,10 @@ COMPRESSION_ATOMS_ROOT = REPO_ROOT / "SOURCE_OF_TRUTH" / "compression_atoms"
 
 @dataclass
 class AtomEntry:
-    """Minimal entry for an atom in a pool."""
+    """Minimal entry for an atom in a pool. atom_source: teacher_native | teacher_synthetic | practice_fallback (Teacher Mode)."""
     atom_id: str
     metadata: Optional[dict[str, Any]] = None
+    atom_source: Optional[str] = None  # teacher_native | teacher_synthetic | practice_fallback
 
 
 def _load_yaml(p: Path) -> dict:
@@ -114,7 +116,7 @@ def _load_compression_pool(persona_slug: str, topic_slug: str) -> list[AtomEntry
 
 
 def _load_teacher_pool(teacher_atoms_root: Path, slot_type: str) -> list[AtomEntry]:
-    """Load teacher approved atoms from teacher_atoms_root/<slot_type>/*.yaml. Teacher Mode V4."""
+    """Load teacher approved atoms from teacher_atoms_root/<slot_type>/*.yaml. Teacher Mode V4. Stamp atom_source from YAML source:."""
     slot_dir = teacher_atoms_root / slot_type
     if not slot_dir.exists():
         return []
@@ -134,7 +136,9 @@ def _load_teacher_pool(teacher_atoms_root: Path, slot_type: str) -> list[AtomEnt
         fam = data.get("semantic_family")
         if fam is not None:
             meta["semantic_family"] = str(fam)
-        entries.append(AtomEntry(atom_id=atom_id, metadata=meta if meta else None))
+        src = data.get("source") or ""
+        atom_source = "teacher_synthetic" if src and "synthetic" in str(src).lower() else "teacher_native"
+        entries.append(AtomEntry(atom_id=atom_id, metadata=meta if meta else None, atom_source=atom_source))
     return entries
 
 
@@ -158,14 +162,30 @@ class PoolIndex:
         persona_id: str,
         topic_id: str,
         format_plan: Optional[dict] = None,
+        required_count: Optional[int] = None,
+        teacher_exercise_fallback: bool = False,
     ) -> list[AtomEntry]:
         """
         Return list of AtomEntry for (persona, topic, slot_type).
         When teacher_atoms_root is set, loads from teacher_banks/<teacher_id>/approved_atoms/<slot_type>/*.yaml first.
+        EXERCISE fallback: when teacher_exercise_fallback and 0 < len(teacher_pool) < required_count, merge with practice library (teacher first); sort by (source_priority, stable_hash(atom_id)).
         Otherwise: STORY from engines; others from atoms/<persona>/<topic>/<slot_type>/CANONICAL.txt.
         """
         if self.teacher_atoms_root is not None:
             teacher_pool = _load_teacher_pool(self.teacher_atoms_root, slot_type)
+            if slot_type == "EXERCISE" and teacher_exercise_fallback and required_count is not None and 0 < len(teacher_pool) < required_count:
+                from phoenix_v4.planning.practice_selector import get_backstop_pool
+                backstop = get_backstop_pool()
+                merged = list(teacher_pool) + list(backstop)
+                _SOURCE_PRIORITY = {"teacher_native": 0, "teacher_synthetic": 1, "practice_fallback": 2}
+
+                def _sort_key(e: AtomEntry) -> tuple:
+                    pri = _SOURCE_PRIORITY.get(getattr(e, "atom_source", None) or "teacher_native", 0)
+                    h = hashlib.sha256(e.atom_id.encode("utf-8")).hexdigest()
+                    return (pri, h)
+
+                merged.sort(key=_sort_key)
+                return merged
             if teacher_pool:
                 return teacher_pool
             # Empty teacher pool: return empty (compile will fail or placeholder per spec)

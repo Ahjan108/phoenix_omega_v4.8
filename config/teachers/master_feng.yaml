@@ -1,0 +1,9 @@
+# Example Teacher Mode config (plan §2.1). Copy to <teacher_id>.yaml per teacher.
+teacher_id: master_feng
+teacher_quality_profile: balanced   # strict | balanced | minimal
+teacher_exercise_fallback: false   # set true to allow EXERCISE merge with practice library when pool < required
+fallback_exercise_share_min: 0.60   # teacher share among EXERCISE when fallback used
+teacher_total_share_min: 0.70       # (teacher_native + teacher_synthetic) / total_atoms
+exercise_wrapper:
+  intro_templates: []
+  close_templates: []
