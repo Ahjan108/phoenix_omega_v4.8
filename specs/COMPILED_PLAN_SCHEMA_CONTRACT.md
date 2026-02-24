@@ -16,6 +16,11 @@ Stage 3 (assembly compiler) emits **CompiledBook** with at least:
 - `arc_id` (when arc used)
 - `emotional_temperature_sequence` (when available)
 - `reflection_strategy_sequence` (when available)
+- `chapter_archetypes` (effective per-chapter archetypes from Stage 3 policy layer)
+- `chapter_exercise_modes` (none/micro/full per chapter)
+- `chapter_reflection_weights` (light/standard/heavy per chapter)
+- `chapter_story_depths` (light/standard/deep per chapter)
+- `chapter_planner_warnings` (non-fatal policy warnings)
 
 Pipeline (run_pipeline) attaches after Stage 3: **freebie fields** — `freebie_bundle`, `freebie_bundle_with_formats` (list of `{freebie_id, formats}`), `cta_template_id`, `freebie_slug`; **identity** — `narrator_id` (from BookSpec; resolved from brand when not supplied). Pipeline also appends to artifacts/freebies/index.jsonl when writing a plan. See [OMEGA_LAYER_CONTRACTS.md](./OMEGA_LAYER_CONTRACTS.md) and [PHOENIX_FREEBIE_SYSTEM_SPEC.md](./PHOENIX_FREEBIE_SYSTEM_SPEC.md).
 
@@ -61,3 +66,5 @@ Stage 3 (assembly compiler) **emits** these derived structural fields:
 | `emotional_temperature_sequence` | list     | From arc when present; else dominant_band_sequence as strings. Required for wave density. |
 
 Pipeline output (run_pipeline) includes `plan_id`, `format_id`, `engine_id`, `exercise_chapters`, `slot_sig`, and `emotional_temperature_sequence` so CI and wave density use them with no fallback extraction.
+
+Pipeline output also includes chapter policy fields (`chapter_archetypes`, `chapter_exercise_modes`, `chapter_reflection_weights`, `chapter_story_depths`, `chapter_planner_warnings`) and preserves variation selector archetypes as `variation_chapter_archetypes` for diagnostics.

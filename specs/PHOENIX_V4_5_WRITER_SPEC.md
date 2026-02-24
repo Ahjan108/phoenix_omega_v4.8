@@ -33,6 +33,7 @@ SpiritualTech Systems — February 2026 — Version 2.0
 23. [Identity & Audiobook Governance Layer](#23-identity--audiobook-governance-layer)
 24. [Author Positioning Compliance](#24-author-positioning-compliance)
 25. [Appendix B: Compression Atoms (slot_08_compression)](#25-appendix-b-compression-atoms-slot_08_compression)
+26. [Appendix C: T01 Rewrite Patterns](#26-appendix-c-t01-rewrite-patterns)
 
 ---
 
@@ -249,6 +250,12 @@ Mechanism explanation. This is where most TTS audiobooks die. Your ceiling is lo
 
 **The reflective beat:** Every reflection needs 1 sentence, max 25 words, in the first third, that directs the listener to their own experience. Second-person. Invites noticing a specific sensation or memory.
 
+**Dual-voice pattern (required):** REFLECTION can combine first-person authority with second-person reflective direction in the same block.
+
+Example (first-person authority + second-person reflective beat):
+
+`Your system learned speed as safety. I have seen this pattern repeatedly in high-pressure performers. Notice what happens in your chest when you delay one response by ten seconds.`
+
 **QA Checklist — REFLECTION:**
 
 - [ ] ≤ Tier ceiling (words)
@@ -279,6 +286,16 @@ Timed instructions: explicit. "Count to four." Not "for about four seconds." Max
 - [ ] Body-based (concrete sensation)
 
 **Where EXERCISE content comes from:** (1) **Canonical:** `atoms/<persona>/<topic>/EXERCISE/CANONICAL.txt` (block file). (2) **Teacher Mode:** `teacher_banks/<teacher_id>/approved_atoms/EXERCISE/*.yaml`. (3) **Backstop:** When canonical is missing or empty, assembly fills EXERCISE slots from the **practice library** (`SOURCE_OF_TRUTH/practice_library/store/practice_items.jsonl`) — 9×34 library_34 types (sensory_grounding, meditations, affirmations, etc.) plus optional ab_tady_37. Selection is deterministic (config: `config/practice/selection_rules.yaml`). Schema and pipeline: [PRACTICE_ITEM_SCHEMA.md](./PRACTICE_ITEM_SCHEMA.md); teacher fallback (wrapper): [../docs/PRACTICE_LIBRARY_TEACHER_FALLBACK.md](../docs/PRACTICE_LIBRARY_TEACHER_FALLBACK.md).
+
+**Book-size full exercise quotas (writer-facing):**
+
+| Book size | Full EXERCISE chapters max | Typical full-book expectation |
+|-----------|----------------------------|-------------------------------|
+| short (1–6 chapters) | 1 | 0–1 full, rest none/micro |
+| medium (7–10 chapters) | 3 | 1–3 full, rest none/micro |
+| long (11+ chapters) | 5 | 2–5 full, rest none/micro |
+
+Planner/CI enforce these caps. Write micro variants so chapters can carry practice intent without forcing a full workbook cadence.
 
 ---
 
@@ -493,6 +510,8 @@ Dialogue differentiates well in TTS. Use it strategically. The shift to quoted s
 | T06 | Exercise chunking | Exercise instructions > 8 words/sentence. Hard fail. |
 | T07 | Paragraph density | Paragraph > 100 words without break. Warn. |
 
+See [Appendix C](#26-appendix-c-t01-rewrite-patterns) for compliant rewrite examples for T01.
+
 ---
 
 # 13. Catalog QA & Drift Control
@@ -611,6 +630,8 @@ No chapter may contain > 2 monitored cliché phrases.
 **Gate S02:** Phrase in > 30% of catalog → warn.
 
 **Exception:** Cliché allowed if immediately followed by grounding/specificity, or if doctrine-locked for that teacher.
+
+**Scope policy (legacy migration):** S01/S02 are enforced as hard gates for new submissions and modified atoms. Legacy canonical atoms are migrated under a separate cleanup campaign; they are not auto-rejected retroactively unless explicitly reapproved in the current intake batch.
 
 ## 15.2 Abstract Noun Ceiling
 
@@ -806,6 +827,14 @@ Use this as the **template for engine-specific onboarding** (anxiety, grief, com
 
 **Short format (the_quiet_in_the_crowd):** Beat map: ground_first. Emotional temperature: cool (Ch1). Section types per chapter: HOOK, SCENE, STORY, REFLECTION, EXERCISE, INTEGRATION with word counts. Engines: false_alarm, spiral, watcher. Format: 3 chapters × 6 section types; ~12 min audio. Reference: `talp/analyze_intake/the_quiet_in_the_crowd.md`.
 
+**Forward reference (planner-controlled archetypes):** chapter shape is increasingly planner-driven via archetype policies. Writers should expect these fields in future intake manifests:
+- `arc_role` (`introduce|deepen|challenge|resolve`)
+- `exercise_mode` (`none|micro|full`)
+- `reflection_weight` (`light|standard|heavy`)
+- `story_depth` (`micro|standard|deep`)
+
+Until the archetype intake schema is fully published, continue writing section atoms per this spec; planner applies chapter-level distribution and transitions at assembly time.
+
 **Integration modes and tagging:** Document integration modes (e.g. BODY-LANDED) and story tagging (e.g. never_know, misfire_tax) as optional but recommended so assembly and QA can use them. Standardize **{EXERCISE: description}** (and level/duration) in writer-facing instructions so mining and assembly stay aligned.
 
 ---
@@ -953,6 +982,24 @@ Profiles define `allowed_language` and `forbidden_language` tags. Prose must sta
 ## 24.4 What This Section Does Not Do
 
 Does not change atom schema; does not modify STORY/REFLECTION/EXERCISE structure; does not override TTS or emotional governance rules.
+
+---
+
+# 26. Appendix C: T01 Rewrite Patterns
+
+These examples show how to pass T01 (`teaching sentence > 12 words` = hard fail) without losing meaning.
+
+1. Before: `Your nervous system interprets uncertainty as social danger and starts preparing you to hide.`
+   After: `Your system reads uncertainty as danger. It prepares you to hide.`
+
+2. Before: `When you delay your response, your body can learn that urgency is not safety.`
+   After: `Delay the response. Let your body learn urgency is not safety.`
+
+3. Before: `This pattern survives because avoidance brings relief quickly, even when it shrinks your life.`
+   After: `Avoidance relieves you quickly. It also shrinks your life.`
+
+4. Before: `The alarm is not proof of danger; it is proof of prediction.`
+   After: `The alarm is not danger. It is prediction.`
 
 ---
 

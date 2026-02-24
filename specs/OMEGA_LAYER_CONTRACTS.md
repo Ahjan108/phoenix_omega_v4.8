@@ -51,6 +51,7 @@ Produced by the format selector. Consumed by the assembly compiler (Stage 3).
 | `chapter_count` | int | Target chapter count. |
 | `word_target_range` | [int, int] | [min, max] words. |
 | `slot_definitions` | List[List[string]] | **Required for Stage 3.** Ordered slot types per chapter (e.g. one row per chapter). Stage 3 MUST NOT infer; format selector must supply from format policy. |
+| `book_size` | string \| null | `short` \| `medium` \| `long`. Derived from chapter_count in Stage 2 and used by Stage 3 chapter-planner quotas. |
 
 **Optional but recommended:**
 
@@ -75,6 +76,11 @@ Produced by the assembly compiler. Used for QA, release gates, and golden fixtur
 | `chapter_slot_sequence` | list | Ordered slot types per chapter (e.g. HOOK, SCENE, STORY, …). |
 | `atom_ids` | list | Ordered atom IDs selected (per chapter/slot). |
 | `dominant_band_sequence` | list \| null | Dominant emotional_intensity_band per chapter (STORY). |
+| `chapter_archetypes` | list \| null | Effective chapter archetype IDs selected by Stage 3 planner layer. |
+| `chapter_exercise_modes` | list \| null | Per-chapter exercise mode (`none` \| `micro` \| `full`). |
+| `chapter_reflection_weights` | list \| null | Per-chapter reflection weight (`light` \| `standard` \| `heavy`). |
+| `chapter_story_depths` | list \| null | Per-chapter story depth (`light` \| `standard` \| `deep`). |
+| `chapter_planner_warnings` | list \| null | Non-fatal policy warnings (for example role-distribution target mismatch). |
 
 **Freebie fields (set after Stage 3 by freebie planner):** [PHOENIX_FREEBIE_SYSTEM_SPEC.md](./PHOENIX_FREEBIE_SYSTEM_SPEC.md)
 
@@ -139,7 +145,7 @@ Produced by the assembly compiler. Used for QA, release gates, and golden fixtur
 - **Exercise layer (somatic / slot_07_practice):** SOURCE_OF_TRUTH/exercises_v4/registry.yaml (11 types, slot policies, selection rules); approved exercises from SOURCE_OF_TRUTH/exercises_v4/approved/. Optional assembly blueprint: docs/assembly/SOMATIC_BOOK_BLUEPRINT.yaml (10-slot contract, exercise cadence, emotional curve). **EXERCISE backstop:** When atoms/<persona>/<topic>/EXERCISE/CANONICAL.txt is missing or empty, EXERCISE pool is filled from SOURCE_OF_TRUTH/practice_library/store/practice_items.jsonl (9×34 library_34 + optional ab_tady_37); config/practice/selection_rules.yaml; specs/PRACTICE_ITEM_SCHEMA.md, docs/PRACTICE_LIBRARY_TEACHER_FALLBACK.md.
 - **Identity binding (Writer Spec §23):** **Pen-name authors — implemented.** config/author_registry.yaml (author_id, positioning_profile, optional assets_path); config/brand_author_assignments.yaml (default_author per brand); phoenix_v4/planning/author_brand_resolver.py (resolve author from brand when --author not supplied); phoenix_v4/planning/author_asset_loader.py (load bio, why_this_book, authority_position, audiobook_pre_intro from assets/authors/ or registry assets_path). Pipeline loads author assets when author_id set and fails if any required asset missing (§23.9); BookSpec and compiled plan carry author_assets. Freebie templates: {{author_bio}}, {{author_why_this_book}}, {{author_pen_name}}, {{author_audiobook_pre_intro}}. **Narrators — implemented.** config/narrators/narrator_registry.yaml; config/brand_narrator_assignments.yaml; phoenix_v4/planning/narrator_brand_resolver.py (default_narrator from brand); BookSpec and compiled plan carry narrator_id; run_pipeline --narrator; validation (brand_compatibility, status, disallowed_topics).
 - **Author positioning (Writer Spec §24):** config/authoring/author_positioning_profiles.yaml (profiles, default_by_brand); config/author_registry.yaml (positioning_profile per author).
-- **Freebies (V4 Immersion):** config/freebies/ (freebie_registry.yaml, freebie_selection_rules.yaml, tier_bundles.yaml, audio_scripts.yaml); config/catalog_planning/canonical_topics.yaml, canonical_personas.yaml; config/tts/engines.yaml; config/validation.yaml; config/asset_lifecycle.yaml.
+- **Freebies (V4 Immersion):** config/freebies/ (freebie_registry.yaml, freebie_selection_rules.yaml, tier_bundles.yaml, audio_scripts.yaml); config/catalog_planning/canonical_topics.yaml, canonical_personas.yaml (must align with **unified_personas.md** — repo root — source of truth for 10 active personas, 12 active topics); config/tts/engines.yaml; config/validation.yaml; config/asset_lifecycle.yaml.
 
 SYSTEMS_DOCUMENTATION describes strategy and references these configs. Canonical Spec Part 2 owns format IDs and slot semantics.
 

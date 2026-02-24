@@ -1,20 +1,22 @@
 # Unified Personas — Book Readiness Analysis
 
-**Purpose:** What is ready to write books today, what is missing, and what is left for the writing team so the system can write books for **all** personas.  
-**Sources:** docs/, specs/, config/, atoms/, unified_personas.txt (design transcript), BOOK_001_*, WRITER_COMMS_SYSTEMS_100, GOLDEN_PHOENIX_ATOM_UPGRADE_GUIDE.
+**Purpose:** What is ready to write books today, what is missing, and what is left for the writing team so the system can write books for **all** active personas.  
+**Sources:** [unified_personas.md](../unified_personas.md) (source of truth), docs/, specs/, config/, atoms/, BOOK_001_*, WRITER_COMMS_SYSTEMS_100, GOLDEN_PHOENIX_ATOM_UPGRADE_GUIDE.
 
 ---
 
 ## 1. What “unified_personas” refers to
 
-- **unified_personas.txt** is a long design transcript (mechanism-first architecture, atom roles, persona scaling).
-- **Canonical personas** (config): `nyc_executives`, `healthcare_rns`, `gen_z_professionals`, `gen_alpha_students` — see `config/catalog_planning/canonical_personas.yaml`.
-- **Atoms on disk** also include **educators** (not in canonical list). Identity aliases map variants (e.g. `nyc_exec`, `gen_z`) to these canonical dir names.
+- **Source of truth:** [unified_personas.md](../unified_personas.md) is the single source of truth for **active** personas and **active** topics. It defines **10 active personas** and **12 active topics**; pipeline, config, and catalog planning must use only those IDs.
+- **Active personas** (from unified_personas.md Part 1): `millennial_women_professionals`, `tech_finance_burnout`, `entrepreneurs`, `working_parents`, `gen_x_sandwich`, `corporate_managers`, `gen_z_professionals`, `healthcare_rns`, `gen_alpha_students`, `first_responders`.
+- **Active topics** (from unified_personas.md Part 2): `overthinking`, `burnout`, `boundaries`, `self_worth`, `social_anxiety`, `financial_anxiety`, `imposter_syndrome`, `sleep_anxiety`, `depression`, `grief`, `compassion_fatigue`, `somatic_healing`.
+- **Inactive (legacy):** Personas such as `nyc_executives`, `educators`, `sf_founders`, `smb_owners`, `parents_teens` are **inactive**; atoms or config may still reference them for migration (e.g. tech_finance_burnout migrates_from nyc_executives). Identity aliases map variants to canonical dir names.
+- **Config:** `config/catalog_planning/canonical_personas.yaml` and `canonical_topics.yaml` should align with unified_personas.md.
 
-Design takeaways from the transcript:
+Design foundation (in unified_personas.md Part 0):
 - **Atom roles (story arc):** RECOGNITION → MECHANISM_PROOF → TURNING_POINT → EMBODIMENT.
 - **Canonical = mechanism truth;** persona templates = voiced expression per listener.
-- **Scaling:** Tier 1 (5 personas), Tier 2 (+10), Tier 3 (+15); templates = Topics × Engines × Personas × Roles.
+- **Scaling:** Templates = Topics × Engines × Personas × Roles; see unified_personas.md for catalog math (e.g. 10×12 production grid, 1,008 titles).
 
 ---
 
@@ -84,7 +86,7 @@ For the system to **render full books without placeholders** for every canonical
 
 - Where STORY files **exist**, some lanes may have too few atoms per role or poor BAND spread for emotional-curve rules (≥3 distinct BANDs, no more than 3 consecutive same).
 - Where STORY files **don’t exist** for an allowed (topic, engine) pair, that lane cannot compile STORY slots (would need new CANONICAL.txt per engine).
-- **Educators** has atoms but is not in `canonical_personas.yaml`; asset planning and validation use canonical list. Either add educators to canonical or treat as non-canonical.
+- **Legacy personas** (e.g. educators, nyc_executives) may have atoms on disk but are **inactive** per unified_personas.md; asset planning and validation use the active list from unified_personas.md / canonical_personas.yaml.
 
 ### 4.3 Compression atoms
 
@@ -130,9 +132,8 @@ Prioritized list of **concrete deliverables** so every canonical (and optionally
 6. **Arcs**  
    - Author or validate master arcs for each persona×topic×engine×format you plan to ship (ARC_AUTHORING_PLAYBOOK, emotional_role_sequence, etc.).
 
-7. **Canonical vs educators**  
-   - If “all personas” includes educators: add educators to `canonical_personas.yaml` and run `validate_canonical_sources.py`.  
-   - If not, treat educators as non-canonical and scope “all personas” to the four canonical.
+7. **Active vs legacy personas**  
+   - Active personas and topics are defined in [unified_personas.md](../unified_personas.md). Ensure `canonical_personas.yaml` and `canonical_topics.yaml` align; run `validate_canonical_sources.py`. Legacy personas (e.g. educators, nyc_executives) are inactive unless added to unified_personas.md.
 
 8. **Author assets (if expanding author-bound books)**  
    - Register new authors in `config/author_registry.yaml` with `persona_ids`, `topic_ids`, `positioning_profile`, and create bio, why_this_book, authority_position, audiobook_pre_intro per author.

@@ -9,10 +9,11 @@
 
 ### Pipeline and assembly
 - **Stage 1 — Catalog planning** — BookSpec (topic_id, persona_id, teacher_id, brand_id, angle_id, series_id, installment_number, seed).
-- **Stage 2 — Format selection** — FormatPlan (format_structural_id, format_runtime_id, chapter_count, slot_definitions, tier, blueprint_variant). Arc-First alignment.
-- **Stage 3 — Assembly** — CompiledBook (plan_hash, chapter_slot_sequence, atom_ids, dominant_band_sequence, arc_id, emotional_temperature_sequence, emotional_role_sequence, slot_sig, exercise_chapters, freebie_bundle, freebie_bundle_with_formats, etc.).
+- **Stage 2 — Format selection** — FormatPlan (format_structural_id, format_runtime_id, chapter_count, slot_definitions, tier, blueprint_variant, **book_size**). Arc-First alignment.
+- **Stage 3 — Assembly** — CompiledBook (plan_hash, chapter_slot_sequence, atom_ids, dominant_band_sequence, arc_id, emotional_temperature_sequence, emotional_role_sequence, slot_sig, exercise_chapters, freebie_bundle, freebie_bundle_with_formats, **chapter_archetypes, chapter_exercise_modes, chapter_reflection_weights, chapter_story_depths, chapter_planner_warnings**, etc.).
 - **Stage 6 — Book renderer** — Renders CompiledBook → prose output (manuscript/QA). `phoenix_v4.rendering`: prose_resolver (atom_id → prose from atoms/, compression_atoms, teacher_banks, **practice library** for practice_id e.g. lib34_*, ab37_*), book_renderer (TxtWriter, render_book). QA: `scripts/render_plan_to_txt.py` uses Stage 6. Pipeline: `--render-book`, `--render-formats txt`, `--render-dir`; outputs to `artifacts/rendered/<plan_id>/book.txt`. Edge cases: placeholders/silence → [Placeholder/Silence: TYPE]; missing atoms → fail or [Missing: atom_id]; persona/topic from plan or inferred from first STORY atom_id via topic_engine_bindings.
 - **Arc-First** — Arc required; no arc = no compile. Arc defines chapter_count, emotional_curve, emotional_role_sequence, slot alignment.
+- **Chapter Planner (V4.8)** — Deterministic policy layer in Stage 3 (`phoenix_v4/planning/chapter_planner.py`) loaded from `config/source_of_truth/chapter_planner_policies.yaml`: candidate generation by arc role, hard quota/transition filter first, novelty scoring second, deterministic select. Applies chapter `exercise_mode` (`none|micro|full`), `reflection_weight`, `story_depth`, and slot policy overrides.
 - **Angle Integration (V4.7)** — When `angle_id` is set: arc variant from `config/angles/angle_registry.yaml` (optional `arc_path`); chapter 1 framing bias by `framing_mode` (debunk, framework, reveal, leverage); integration reinforcement validation (optional `reinforcement_type` on INTEGRATION atoms); CTSS includes `angle_id` (weight 0.05); wave density FAIL if ≥50% same angle_id. Config: `config/angles/angle_registry.yaml`; `phoenix_v4/planning/angle_resolver.py`, `angle_bias.py`.
 - **Alias resolution** — topic/persona aliases → canonical (identity_aliases.yaml).
 - **Teacher / author / narrator resolution** — teacher_brand_resolver, author_brand_resolver, narrator_brand_resolver; defaults from brand_teacher_assignments, brand_author_assignments, brand_narrator_assignments.
@@ -82,7 +83,7 @@
 ### Scale-related components
 | Component | Role |
 |-----------|------|
-| **Canonical topics/personas** | canonical_topics.yaml, canonical_personas.yaml — single list for asset planning and coverage; validated against topic_engine_bindings and identity_aliases. |
+| **Canonical topics/personas** | **Source of truth:** [unified_personas.md](../unified_personas.md) (10 active personas, 12 active topics). canonical_topics.yaml, canonical_personas.yaml must align with it; validated against topic_engine_bindings and identity_aliases. |
 | **Similarity index** | artifacts/catalog_similarity/index.jsonl — one row per compiled plan; CTSS fingerprint (arc, band_seq, slot_sig, exercise_chapters, story_fam_vec, ex_fam_vec, tps, freebie/CTA, role_seq, compression). Append on each plan via update_similarity_index. |
 | **Wave density check** | Runs over a batch (--plans-dir or index). FAILs if too many books share same arc_id, band_seq, slot_sig, exercise placement, or emotional_role_sig (and optionally compression). Prevents “same book N times” in one wave. |
 | **Freebie density gate** | Over artifacts/freebies/index.jsonl (plan rows, deduped by book_id). FAILs if identical freebie_bundle ratio ≥40%, identical CTA ≥50%, identical slug pattern ≥60%. Prevents every book in a wave from offering the same freebie bundle/CTA/slug. |
@@ -208,6 +209,7 @@ Together, these give **structural anti-spam**: we never ship waves of near-ident
 | config/freebies/freebie_selection_rules.yaml | identical_bundle_ratio_max: 0.40, identical_cta_ratio_max: 0.50, identical_slug_pattern_ratio_max: 0.60 | Density limits (can mirror validate_freebie_density). |
 | config/format_selection/selection_rules.yaml | topic_complexity, installment_strategy, persona_constraints | Format selection (opener/deepening/rotation; forbidden_formats, preferred_runtime, max/min chapter_count). |
 | config/format_selection/format_registry.yaml | structural_formats, runtime_formats, chapter_range, tier | Format definitions and word ranges. |
+| config/source_of_truth/chapter_planner_policies.yaml | book_size_by_chapters, role_distribution_targets, quotas, archetypes.slot_policy, archetypes.allowed_next | Chapter planner policy: arc-role distribution bounds, book-size exercise/reflection caps, transition compatibility, and per-archetype slot presence/weights. |
 | config/catalog_planning/capacity_constraints.yaml | max_books_per_topic_per_wave, min_story_atoms_per_topic_persona | Capacity. |
 | config/catalog_planning/brand_teacher_matrix.yaml | max_books_per_wave, max_books_per_topic, max_books_per_persona, min_release_spacing_days, teachers[], teacher_constraints | Release pacing; teachers per brand (Teacher Mode). |
 | config/catalog_planning/teacher_persona_matrix.yaml | teachers.*.allowed_personas, allowed_engines, preferred_locales | Teacher/persona/engine compatibility; invalid combo fails before Stage 1. |

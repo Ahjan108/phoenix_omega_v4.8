@@ -307,6 +307,9 @@ def main() -> int:
             template = list(slot_defs[-1]) if slot_defs else []
             extra = [template[:] for _ in range(arc.chapter_count - len(slot_defs))]
             format_plan_dict["slot_definitions"] = list(slot_defs) + extra
+    # Ensure book_size stays coherent after any chapter_count alignment.
+    ch_count_for_size = int(format_plan_dict.get("chapter_count") or arc.chapter_count or 0)
+    format_plan_dict["book_size"] = "short" if ch_count_for_size <= 6 else ("medium" if ch_count_for_size <= 10 else "long")
 
     # Part 3.1 capability check (before Stage 3)
     from phoenix_v4.planning.pool_index import PoolIndex
@@ -376,8 +379,13 @@ def main() -> int:
     from phoenix_v4.qa.validate_compiled_plan import validate_compiled_plan
     from phoenix_v4.planning.angle_resolver import get_angle_context
     angle_ctx = get_angle_context(book_spec_for_compiler.get("angle_id")) if book_spec_for_compiler.get("angle_id") else None
+    # Chapter planner may adjust per-chapter slot policies at compile time; validate against actual compiled sequence.
+    format_plan_for_validation = dict(format_plan_dict)
+    format_plan_for_validation["slot_definitions"] = compiled.chapter_slot_sequence
+    format_plan_for_validation["chapter_count"] = len(compiled.chapter_slot_sequence)
+    format_plan_for_validation["target_chapter_count"] = len(compiled.chapter_slot_sequence)
     val_result = validate_compiled_plan(
-        compiled, format_plan_dict,
+        compiled, format_plan_for_validation,
         angle_context=angle_ctx,
         enforce_integration_reinforcement=False,
     )
@@ -453,8 +461,27 @@ def main() -> int:
     if teacher_id and teacher_id != "default_teacher":
         out["teacher_id"] = teacher_id
         out["teacher_mode"] = True
+        # Plan §5.4: emit doctrine_version, doctrine_fingerprint for CI/audit (load from teacher bank if present)
+        teacher_banks = REPO_ROOT / "SOURCE_OF_TRUTH" / "teacher_banks"
+        doctrine_path = teacher_banks / teacher_id / "doctrine" / "doctrine.yaml"
+        if not doctrine_path.exists():
+            doctrine_path = teacher_banks / teacher_id / "doctrine.yaml"
+        if doctrine_path.exists():
+            try:
+                from phoenix_v4.teacher.doctrine_fingerprint import load_doctrine_yaml, fingerprint_doctrine
+                doctrine = load_doctrine_yaml(doctrine_path)
+                if doctrine:
+                    out["teacher_doctrine_version"] = doctrine.get("doctrine_version")
+                    out["doctrine_fingerprint"] = fingerprint_doctrine(doctrine)
+            except Exception:
+                pass
     if getattr(compiled, "atom_sources", None):
         out["atom_sources"] = compiled.atom_sources
+    # Plan §3.12: when teacher_mode and any synthetic present, doctrine version must be pinned
+    if teacher_id and teacher_id != "default_teacher" and getattr(compiled, "atom_sources", None):
+        if "teacher_synthetic" in (compiled.atom_sources or []) and not out.get("teacher_doctrine_version"):
+            print("Teacher mode with synthetic atoms requires teacher_doctrine_version (doctrine.yaml with doctrine_version).", file=sys.stderr)
+            return 1
     # Structural fingerprint (CI / wave density / similarity)
     if compiled.emotional_temperature_sequence:
         out["emotional_temperature_sequence"] = compiled.emotional_temperature_sequence
@@ -474,6 +501,16 @@ def main() -> int:
         out["angle_id"] = book_spec_for_compiler["angle_id"]
     if compiled.reflection_strategy_sequence:
         out["reflection_strategy_sequence"] = compiled.reflection_strategy_sequence
+    if compiled.chapter_archetypes:
+        out["chapter_archetypes"] = compiled.chapter_archetypes
+    if compiled.chapter_exercise_modes:
+        out["chapter_exercise_modes"] = compiled.chapter_exercise_modes
+    if compiled.chapter_reflection_weights:
+        out["chapter_reflection_weights"] = compiled.chapter_reflection_weights
+    if compiled.chapter_story_depths:
+        out["chapter_story_depths"] = compiled.chapter_story_depths
+    if compiled.chapter_planner_warnings:
+        out["chapter_planner_warnings"] = compiled.chapter_planner_warnings
     # Author identity and assets (Writer Spec §23)
     if book_spec_for_compiler.get("author_id"):
         out["author_id"] = book_spec_for_compiler["author_id"]
@@ -506,7 +543,9 @@ def main() -> int:
     out["motif_id"] = variation_knobs.get("motif_id", "motif_pattern")
     out["section_reorder_mode"] = variation_knobs.get("section_reorder_mode", "none")
     out["reframe_profile_id"] = variation_knobs.get("reframe_profile_id", "balanced")
-    out["chapter_archetypes"] = variation_knobs.get("chapter_archetypes", [])
+    out["variation_chapter_archetypes"] = variation_knobs.get("chapter_archetypes", [])
+    if not out.get("chapter_archetypes"):
+        out["chapter_archetypes"] = variation_knobs.get("chapter_archetypes", [])
     out["variation_signature"] = variation_knobs.get("variation_signature", "")
     if getattr(compiled, "motif_injections", None):
         out["motif_injections"] = compiled.motif_injections

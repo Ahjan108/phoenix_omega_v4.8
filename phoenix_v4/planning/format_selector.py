@@ -31,6 +31,7 @@ class FormatPlan:
     chapter_count: int
     word_target_range: tuple[int, int]
     slot_definitions: list[list[str]]  # one row per chapter; Stage 3 MUST NOT infer
+    book_size: Optional[str] = None  # short | medium | long (planner quotas)
     emotional_curve_profile: Optional[str] = None
     rationale: Optional[dict] = None
 
@@ -45,6 +46,7 @@ class FormatPlan:
             "target_chapter_count": self.chapter_count,
             "word_target_range": list(self.word_target_range),
             "slot_definitions": self.slot_definitions,
+            "book_size": self.book_size,
         }
 
 
@@ -230,6 +232,7 @@ class FormatSelector:
             chapter_count=chapter_count,
             word_target_range=word_range,
             slot_definitions=slot_definitions,
+            book_size=("short" if chapter_count <= 6 else "medium" if chapter_count <= 10 else "long"),
             emotional_curve_profile=curve,
             rationale={
                 "rules_fired": rationale,
@@ -296,6 +299,7 @@ def main() -> None:
         "blueprint_variant": plan.blueprint_variant,
         "chapter_count": plan.chapter_count,
         "word_target_range": list(plan.word_target_range),
+        "book_size": plan.book_size,
         "emotional_curve_profile": plan.emotional_curve_profile,
         "rationale": plan.rationale,
     }

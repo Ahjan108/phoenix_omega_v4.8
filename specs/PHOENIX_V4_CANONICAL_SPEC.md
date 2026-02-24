@@ -157,7 +157,7 @@ Production strategy: prioritize F003-F006 for scale; Golden Phoenix for provisio
 
 ### 3.0 Stage 3 Assembly Compiler Contract (Frozen)
 
-The Stage 3 assembly compiler deterministically produces a **CompiledBook** from a canonical **BookSpec** and **FormatPlan**. No inference, no aliasing, no planning inside the compiler.
+The Stage 3 assembly compiler deterministically produces a **CompiledBook** from a canonical **BookSpec** and **FormatPlan**. No inference, no aliasing. Planning is limited to deterministic chapter policy application (quotas/transitions/slot policy) using pre-defined config; no free-form planning inside the compiler.
 
 **Identity alias rule:** Persona and topic aliases (e.g. nyc_exec, relationship_anxiety) are resolved to canonical atoms dir names **before** Stage 3 only (e.g. via config/identity_aliases.yaml in the pipeline). Stage 3 receives only canonical topic_id and persona_id; it must not perform alias resolution.
 
@@ -175,6 +175,7 @@ The Stage 3 assembly compiler deterministically produces a **CompiledBook** from
 | format_plan | blueprint_variant | string | linear \| wave \| scaffold \| rupture. |
 | format_plan | chapter_count | int | Target chapter count. |
 | format_plan | **slot_definitions** | List[List[string]] | **Required.** Ordered slot types per chapter (e.g. [["HOOK","SCENE","STORY","REFLECTION","EXERCISE","INTEGRATION"], …]). Stage 3 MUST NOT infer or default slot types. |
+| format_plan | book_size | string \| null | Optional (`short` \| `medium` \| `long`). Used by Stage 3 chapter policy quotas when present. |
 
 **Absolute rules**
 
@@ -189,6 +190,11 @@ The Stage 3 assembly compiler deterministically produces a **CompiledBook** from
 | chapter_slot_sequence | List[List[string]] | Exactly format_plan.slot_definitions repeated per chapter (or one row per chapter). |
 | atom_ids | List[string] | One ID per slot, in order. Placeholder IDs allowed for non-STORY slots when pool absent. |
 | dominant_band_sequence | List[int \| null] | Dominant emotional_intensity_band per chapter (STORY). If no STORY slots exist in a chapter, dominant band is null for that chapter. |
+| chapter_archetypes | List[string] \| null | Effective per-chapter archetype sequence selected by policy layer. |
+| chapter_exercise_modes | List[string] \| null | Per-chapter exercise mode (`none` \| `micro` \| `full`). |
+| chapter_reflection_weights | List[string] \| null | Per-chapter reflection weight (`light` \| `standard` \| `heavy`). |
+| chapter_story_depths | List[string] \| null | Per-chapter story depth (`light` \| `standard` \| `deep`). |
+| chapter_planner_warnings | List[string] \| null | Non-fatal role distribution or policy warnings. |
 
 Stage 3 loads atoms from canonical paths in production; tests may override atoms_root for fixtures.
 

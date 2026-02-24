@@ -94,6 +94,12 @@ class CompiledBook:
     # Structural Variation V4: motif/reframe injection points for downstream renderer
     motif_injections: Optional[list[dict[str, Any]]] = None  # [{chapter_index, slot_index, phrase}]
     reframe_injections: Optional[list[dict[str, Any]]] = None  # [{chapter_index, slot_index, line_type, text}]
+    # Chapter planner outputs (anti-template cadence controls)
+    chapter_archetypes: Optional[list[str]] = None
+    chapter_exercise_modes: Optional[list[str]] = None
+    chapter_reflection_weights: Optional[list[str]] = None
+    chapter_story_depths: Optional[list[str]] = None
+    chapter_planner_warnings: Optional[list[str]] = None
 
 
 def _load_yaml(p: Path) -> dict:
@@ -485,6 +491,32 @@ def compile_plan(
         json.dumps({"book_spec": book_spec, "format_plan": format_plan, "arc": arc_raw}, sort_keys=True).encode()
     ).hexdigest()[:24]
 
+    # Chapter planner: archetype/weight planning (non-uniform slot application).
+    chapter_archetypes_out: Optional[list[str]] = None
+    chapter_exercise_modes_out: Optional[list[str]] = None
+    chapter_reflection_weights_out: Optional[list[str]] = None
+    chapter_story_depths_out: Optional[list[str]] = None
+    chapter_planner_warnings_out: Optional[list[str]] = None
+    try:
+        from phoenix_v4.planning.chapter_planner import plan_chapters
+        chapter_plan = plan_chapters(
+            slot_definitions=slot_definitions,
+            chapter_count=chapter_count,
+            selector_key_prefix=selector_key_prefix,
+            emotional_role_sequence=emotional_role_sequence if isinstance(emotional_role_sequence, list) else None,
+            book_size=(format_plan.get("book_size") or book_spec.get("book_size")),
+            enforce_role_distribution=bool(format_plan.get("enforce_arc_role_distribution") or False),
+        )
+        slot_definitions = chapter_plan.slot_definitions
+        chapter_archetypes_out = chapter_plan.chapter_archetypes
+        chapter_exercise_modes_out = chapter_plan.chapter_exercise_modes
+        chapter_reflection_weights_out = chapter_plan.chapter_reflection_weights
+        chapter_story_depths_out = chapter_plan.chapter_story_depths
+        chapter_planner_warnings_out = chapter_plan.warnings
+    except Exception as e:
+        # Do not hard-fail legacy flows on chapter-planner issues; preserve existing Stage 3 behavior.
+        chapter_planner_warnings_out = [f"chapter planner fallback: {e}"]
+
     required_band_by_chapter = {i: emotional_curve[i] for i in range(chapter_count)} if emotional_curve else None
 
     from phoenix_v4.planning.pool_index import PoolIndex
@@ -683,4 +715,9 @@ def compile_plan(
         chapter_weights=chapter_weights_from_arc if chapter_weights_from_arc and len(chapter_weights_from_arc) == chapter_count else None,
         motif_injections=motif_injections_out,
         reframe_injections=reframe_injections_out,
+        chapter_archetypes=chapter_archetypes_out,
+        chapter_exercise_modes=chapter_exercise_modes_out,
+        chapter_reflection_weights=chapter_reflection_weights_out,
+        chapter_story_depths=chapter_story_depths_out,
+        chapter_planner_warnings=chapter_planner_warnings_out,
     )

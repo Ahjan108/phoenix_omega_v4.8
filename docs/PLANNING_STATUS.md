@@ -1,6 +1,6 @@
 # Phoenix — System-Wide Planning Status
 
-**Last updated:** 2026-02-22  
+**Last updated:** 2026-02-24  
 **Purpose:** Single place for doc status, planning completeness, and what’s left for 100% planning.
 
 **Canonical systems doc (whole V4 in one place):** [docs/SYSTEMS_V4.md](./SYSTEMS_V4.md)
@@ -18,6 +18,7 @@
 | **specs/V4_5_PRODUCTION_READINESS_CHECKLIST.md** | **Active** | 15 release conditions; run `scripts/run_production_readiness_gates.py` + simulation. |
 | **specs/V4_6_BINGE_OPTIMIZATION_LAYER.md** | **Active** | FMT (Forward Momentum Trigger); emotional curves; volatility quotas. |
 | **specs/OMEGA_LAYER_CONTRACTS.md** | **Active** | Stage 1→2→3 (BookSpec, FormatPlan, CompiledBook); config locations. |
+| **config/source_of_truth/chapter_planner_policies.yaml** | **Active** | Chapter planner policy layer: role distribution targets, book-size quotas, transition constraints, slot policy weights (exercise/reflection/story depth). |
 | **specs/WRITER_DEV_SPEC_PHASE_2.md** | **Active** | Coverage, compile_strict; writer production rules. |
 | **specs/ARC_AUTHORING_PLAYBOOK.md** | **Active** | Arc authors; design sequence, failure modes, scale. |
 | **specs/ENGINE_DEFINITION_SCHEMA.md** | **Active** | Engine YAML; resolution types; engine–arc compatibility. |
@@ -54,6 +55,7 @@ Planning is **not 100%** until the following are specified and, where applicable
 | **Coverage enforcement in code** | **Implemented.** `phoenix_v4/planning/coverage_checker.py` runs capability_check over discovered (persona, topic); wired in `run_production_readiness_gates.py` gate 2b. | — |
 | **Gate #49 in pipeline** | **Wired.** Gate exists; `scripts/distribution/pre_export_check.py` runs Gate #49 before export. Call it before platform export. | — |
 | **Final book renderer (Stage 6)** | **Implemented.** `phoenix_v4/rendering/` (prose_resolver, book_renderer); QA script `scripts/render_plan_to_txt.py` uses Stage 6; pipeline `--render-book`, `--render-formats txt`, `--render-dir`. Output: manuscript/QA .txt at `artifacts/rendered/<plan_id>/book.txt`. See [V4_FEATURES_SCALE_AND_KNOBS.md](V4_FEATURES_SCALE_AND_KNOBS.md) §1 (Stage 6) and §3. | — |
+| **Chapter planner policy layer** | **Implemented.** `phoenix_v4/planning/chapter_planner.py` runs before slot resolution in Stage 3; policy in `config/source_of_truth/chapter_planner_policies.yaml`; strict order: candidate generation → quota/transition filter → novelty score → deterministic select. Emits `chapter_archetypes`, `chapter_exercise_modes`, `chapter_reflection_weights`, `chapter_story_depths`, `chapter_planner_warnings`. | — |
 
 Everything else needed for **deterministic assembly, emotional QA, TTS rhythm, drift protection, and release simulation** is specified and partially or fully implemented (Writer Spec §16, emotional_governance_rules.yaml, catalog planner with locale, simulation Phase 2/3, production readiness checklist).
 

@@ -1,0 +1,546 @@
+# healthcare_rns × depression × the weight that doesn't lift
+# Slot type: SCENE
+# Count: 30
+# Voice: second-person present tense, sensory, one detail per sentence
+# Spec: max 10 words per sensory beat, min 2 location tokens, no emotional labeling, ends on action/sensory moment
+# Location tokens: {transit_line}, {street_name}, {weather_detail}
+
+---
+
+## SCENE v01
+You're sitting in your car in the parking garage before your shift.
+The garage fluorescent light casts shadows between the parked vehicles.
+Outside the garage, rain continues from the night before.
+Your shift begins in twelve minutes; you remain motionless in the driver's seat.
+The steering wheel feels heavy beneath your hands.
+Your breath comes at its normal rate; your chest feels pressured.
+The key in the ignition hasn't yet been turned.
+The car's interior is cold; the heater hasn't been activated.
+Your eyes look toward the garage exit without focus.
+The morning light shows the day beginning despite your internal state.
+The rain outside creates sound against the windshield.
+Your hands grip the steering wheel without releasing.
+The clock shows 6:48am; you still haven't moved.
+You turn the key and the engine starts.
+
+---
+
+## SCENE v02
+You're charting in the nurses' station at 04:30 on night shift.
+The unit is quiet; most patients are sleeping.
+The fluorescent light above the station casts equal brightness everywhere.
+Outside the station window, the night shows no indication of dawn approaching.
+Your eyes move across the screen; the words blur slightly.
+The medication times you've administered exist in documentation.
+The charting requirement demands completion; your body moves through motions.
+The station's ambient hum from machines and lights continues.
+Your fingers move on the keyboard without apparent thought.
+The night stretches ahead with still five more hours remaining.
+Outside, rain continues with steady percussion.
+Your shoulders remain tense despite the quiet unit.
+The patient census shows no admissions expected before morning.
+You return to the medication room to prepare the next scheduled dose.
+
+---
+
+## SCENE v03
+You're leaving the hospital after your shift in early morning light.
+The parking garage fluorescent light reflects off the wet pavement.
+Outside the garage, rain has eased but clouds remain heavy.
+Your car sits in the same parking spot; you return to it daily.
+The key turns in the ignition; the engine starts without resistance.
+Your hands grip the steering wheel with weight in your arms.
+The drive home should take fifteen minutes; time feels extended.
+The transit bus on Route 94 passes slowly in traffic ahead.
+Your foot presses the accelerator without urgency or resistance.
+The dashboard clock shows 7:24am; the day has begun.
+Outside the windshield, the rain creates patterns on the glass.
+Your eyes track the road ahead without peripheral awareness.
+The radio plays; you don't adjust the station.
+Your car navigates toward home with mechanical precision.
+
+---
+
+## SCENE v04
+You're sitting in the break room after a patient interaction.
+The fluorescent light above the table creates flat, harsh illumination.
+Outside the break room window, the day shows rain continuing.
+The patient thanked you for their care; you felt nothing in response.
+Your hands rest on the table without tremor or movement.
+The coffee in the cup beside you is cold.
+The break room is empty except for you.
+The refrigerator cycles with mechanical sound.
+Your throat feels tight; your eyes feel heavy.
+The television in the corner plays with muted sound.
+Outside, the rain continues against the building exterior.
+Your legs feel weighted; movement would require excessive effort.
+The break room clock shows your break time has expired.
+You stand and move back toward your assigned patients.
+
+---
+
+## SCENE v05
+You wake before your alarm on a day off.
+Your bedroom window shows gray light; rain falls outside.
+The bed feels heavy beneath your body; rising feels impossible.
+The alarm clock reads 5:47am; you're not scheduled until evening.
+Your legs don't respond to your intention to get up.
+The weight across your chest doesn't ease with morning light.
+The rain outside creates sound that marks time passing.
+Your eyes remain open; your body remains still.
+The morning hours stretch ahead with no required obligation.
+The emptiness of the day presents no relief.
+Outside, the rain continues with persistent percussion.
+Your mind catalogs all tasks awaiting you at work.
+The thought of the evening shift creates the same weight.
+Your eyes close; you remain in bed.
+
+---
+
+## SCENE v06
+You're reviewing the schedule for next month in the nurses' station.
+The fluorescent light above the station illuminates your face evenly.
+Outside the station window, the day shows rain accumulated on ledges.
+Your schedule shows multiple twelve-hour shifts in succession.
+Your days off are scattered; consecutive days off are absent.
+The charge nurse asks if the schedule works for you.
+Your voice responds affirmatively despite your internal response.
+Your hand points to the specific dates; you've already accepted this reality.
+The charge nurse nods and moves to address other scheduling concerns.
+Outside, the rain continues with no indication of clearing.
+Your eyes return to the screen; the shifts remain fixed.
+The weight of the upcoming month sits in your chest.
+Your hands move to other tasks without processing this information.
+You continue the shift without conscious thought about next month.
+
+---
+
+## SCENE v07
+You're sitting in your car before arriving at work for your shift.
+The parking garage fluorescent light casts shadows around your vehicle.
+Outside the garage, rain shows the afternoon becoming darker than morning suggested.
+Your shift begins in four minutes; you've been sitting in this car for eight.
+The steering wheel has become warm under your grip.
+Your hands haven't moved in the past eight minutes.
+The windshield shows rain accumulating slowly.
+The key in the ignition remains unturned.
+Your chest rises and falls at baseline rate.
+The garage's fluorescent lights hum at a frequency you can feel.
+Outside, the rain continues with increasing intensity.
+Your eyes look forward without focus on any specific object.
+The four minutes until your shift begins feel like hours.
+Your hand finally turns the key; the car remains parked.
+
+---
+
+## SCENE v08
+You're documented as being present at work; your body moves through required tasks.
+The fluorescent light in the med room casts shadows beneath your eyes.
+Outside the med room window, rain shows weather darkening.
+Your hands prepare medications with appropriate precision.
+Your voice communicates necessary information with appropriate clinical tone.
+Your charting documents patient interactions with required detail.
+The tasks occur; your internal experience remains absent from the day.
+Your colleague asks how you're doing; you respond with appropriate brevity.
+The break room's coffee sits untouched beside you.
+Your patients receive appropriate care from your nursing actions.
+Outside, the rain continues against the building exterior.
+Your eyes remain open; your attention remains diffuse.
+The shift's hours pass without marked internal change.
+Your departure time approaches without relief or anticipation.
+
+---
+
+## SCENE v09
+You're driving home after your shift with the radio playing.
+The windshield shows rain creating patterns as wipers move.
+Outside the car, the evening shows the city lights beginning.
+The transit bus on Fourth Street passes slowly in traffic.
+Your hands steer the car with automatic precision.
+The route home is familiar; your mind doesn't track the navigation.
+The radio plays what might be news or music.
+Your ears register sound without processing content.
+The dashboard clock shows 20:15; the day is ending.
+Outside the windshield, the rain continues with steady persistence.
+Your foot presses the accelerator without conscious decision.
+Your eyes follow the taillights ahead.
+The drive extends with no sensation of passage.
+Your car approaches your home with parking accomplished automatically.
+
+---
+
+## SCENE v10
+You're lying awake at night despite exhaustion from your shift.
+Your bedroom ceiling appears in the darkness above you.
+Outside your window, rain continues from earlier in the day.
+The clock beside your bed shows 2:47am.
+Your body feels weighted; sleep doesn't come despite fatigue.
+The pillow beneath your head provides no comfort.
+The mattress receives your weight without reducing the pressure in your chest.
+Outside, the rain creates intermittent sound.
+Your eyes remain open; closing them brings no relief.
+The hours until morning feel infinite.
+The thought of tomorrow's shift creates the same heaviness.
+Your breathing continues at normal rate despite the pressure.
+Outside, the rain eases slightly as night deepens.
+You remain awake as the hours pass.
+
+---
+
+## SCENE v11
+You're in the break room on night shift when it's very quiet.
+The fluorescent light above the table creates flat illumination.
+Outside the break room window, the night shows no indication of dawn.
+No other nurses occupy the break room; the silence is complete.
+The refrigerator hums with mechanical regularity.
+Your hands hold nothing; your lap receives your gaze.
+The television plays with muted sound.
+The clock shows 03:17; four hours remain in the shift.
+Outside, the darkness remains unchanged from the previous hour.
+Your breathing continues at baseline rate.
+The break room walls are white; no visual interest exists.
+The coffee in the pot is two hours old.
+Your body doesn't move to retrieve it.
+You sit as minutes pass without internal change.
+
+---
+
+## SCENE v12
+You're talking to a colleague who asks what's wrong with you.
+Your face shows nothing unusual; your voice sounds appropriate.
+The fluorescent light in the hallway illuminates both of your faces equally.
+Outside the hallway window, rain shows the afternoon remaining.
+Your colleague has noticed your affect seems different.
+Your response explains work exhaustion; it's not inaccurate.
+Your colleague nods and says she understands how it is.
+Your voice sounds calm and appropriately paced.
+Your colleague returns to her patients without further concern.
+Outside, the rain continues with steady percussion.
+Your jaw tightens slightly as she leaves.
+Your hands move toward the next patient's chart.
+The interaction has occurred; your internal state remains unchanged.
+You continue the shift with appropriate external functioning.
+
+---
+
+## SCENE v13
+You're standing in the medication room unable to remember what you entered to retrieve.
+The fluorescent light above the med cart creates harsh shadows.
+Outside the med room window, rain continues against the glass.
+Your hands rest on the edge of the medication cabinet.
+Your mind has become diffuse; focus is difficult.
+The medication names on the shelf don't immediately register as familiar.
+Your eyes move across the labels without clarity.
+The med room temperature feels either too warm or too cold.
+Outside, the rain's intensity seems to match your internal state.
+Your hand reaches for the medication list on the cart.
+The ordered medication is written clearly; you read it twice.
+Your hands locate the medication and prepare the dose.
+The uncertainty about what you entered for settles.
+You move toward the patient's room with the prepared medication.
+
+---
+
+## SCENE v14
+You're leaving work at the end of your shift.
+The parking garage fluorescent light reflects off the wet pavement.
+Outside the garage, rain shows weather darkening toward evening.
+Your car is parked where you left it this morning.
+The key turns in the ignition without resistance.
+Your hands grip the steering wheel with weight in your arms.
+The drive home should take fifteen minutes; time feels extended.
+The traffic on Fifth Street moves slowly in rain.
+Your foot presses the accelerator without urgency.
+The dashboard clock shows the time; the day has ended.
+Outside the windshield, other drivers move toward their destinations.
+Your eyes track the road ahead without peripheral engagement.
+The radio plays; you don't adjust the volume.
+Your car navigates toward home with mechanical precision.
+
+---
+
+## SCENE v15
+You're sitting on your couch at home with the television playing.
+The screen shows programming that you're not actively watching.
+Outside your window, rain continues from earlier in the day.
+The couch receives your weight; you've been sitting for hours.
+Your hands rest in your lap without movement.
+The room is quiet except for the television's sound.
+The clock on the wall shows 19:47.
+Outside, the rain creates intermittent sound against the window.
+The thought of cooking dinner presents as insurmountable.
+Your stomach doesn't signal hunger despite not eating since morning.
+The television's color flickers across your face.
+Your eyes remain open; your attention remains diffuse.
+The hours until sleep time stretch ahead.
+You remain on the couch as the evening passes.
+
+---
+
+## SCENE v16
+You're in the patient room providing care that requires your full attention.
+The fluorescent light above the patient bed illuminates your hands working.
+Outside the patient room window, rain shows weather darkening.
+Your hands perform the required nursing tasks with appropriate precision.
+Your voice communicates with the patient using appropriate clinical tone.
+The patient's response shows they're receiving quality care.
+Your internal experience is absent from the moment.
+Your body moves through the required motions.
+Your mind occupies a space separate from your actions.
+Outside, the rain continues with steady percussion.
+Your hands complete the task without apparent strain.
+Your voice provides appropriate reassurance to the patient.
+Your face maintains professional composure.
+You move toward the next task on your assignment.
+
+---
+
+## SCENE v17
+You're reviewing next week's schedule with the knowledge of what awaits.
+The fluorescent light in the nurses' station illuminates the screen.
+Outside the station window, rain shows the afternoon becoming darker.
+Your shifts are listed for next week; they show the same pattern.
+The thought of the multiple consecutive shifts creates the weight.
+Your hands haven't moved to change anything about the schedule.
+The charge nurse moves past you without comment.
+Outside, the rain continues with steady precipitation.
+Your eyes remain on the screen showing next week's assignments.
+The days off scattered throughout provide minimal relief.
+Your mind catalogs the upcoming shifts with detachment.
+Your shoulders carry the weight of anticipated exhaustion.
+The schedule is accepted; your body will comply.
+You move away from the station toward your next task.
+
+---
+
+## SCENE v18
+You're lying in your bed on your day off at 11:30am.
+The bedroom curtains block most of the light outside.
+Outside, rain shows the day remains overcast and wet.
+Your body remains beneath the covers despite hours of wakefulness.
+The weight of the day off feels identical to work days.
+Your intention to accomplish tasks remains unrealized.
+The shower that should refresh seems like too much effort.
+The laundry piled in the corner awaits attention.
+Outside, the rain continues with no indication of clearing.
+Your eyes remain open as thoughts move slowly.
+The breakfast that was planned hasn't been prepared.
+Your body shifts position once; comfort remains absent.
+The hours of the day off extend ahead without relief.
+You remain in bed as time passes.
+
+---
+
+## SCENE v19
+You're in the hallway during shift change when exhaustion feels physical.
+The fluorescent light above casts shadows beneath your eyes.
+Outside the hallway window, evening shows the day transitioning to night.
+Your colleague comments on how tired you look.
+Your response indicates sleep deprivation; it's not entirely inaccurate.
+Your colleague suggests you catch up on sleep soon.
+Your voice agrees without commitment to changing patterns.
+Outside, the rain continues with steady percussion.
+Your colleague moves past you toward her assignment.
+Your jaw tightens as she leaves.
+Your hands move toward the next task.
+Your body continues moving through the shift.
+The exhaustion you're feeling has become your baseline state.
+You continue the work ahead of you.
+
+---
+
+## SCENE v20
+You're in the parking garage after finishing your shift.
+The fluorescent light casts shadows between the parked vehicles.
+Outside the garage, rain shows weather persisting into evening.
+Your car sits in space 47 where you parked this morning.
+The key turns in the ignition with mechanical response.
+Your hands grip the steering wheel; the weight feels appropriate.
+The dashboard clock shows 20:31; the day has concluded.
+The windshield shows rain accumulating slowly.
+Your foot presses the accelerator without consciousness.
+The route home is automatic; your attention isn't required.
+Outside, other vehicles move similarly toward their destinations.
+Your eyes follow the taillights ahead.
+The radio plays music you don't register.
+You navigate toward home with mechanical precision.
+
+---
+
+## SCENE v21
+You're aware that things have shifted; nothing feels right anymore.
+The fluorescent light in the break room creates harsh illumination.
+Outside the break room window, rain shows the day darkening.
+Your colleague mentions you used to laugh at jokes.
+The observation lands differently; it indicates change.
+Your voice acknowledges the comment without explanation.
+Your face maintains professional composure.
+Outside, the rain continues with persistence.
+Your colleague doesn't push further; she returns to her break.
+Your hands rest on the table without movement.
+The break room's quietness matches your internal state.
+The coffee in your cup is cold.
+Your eyes remain forward without focus.
+You sit as the break time concludes.
+
+---
+
+## SCENE v22
+You're counting down the minutes until your shift ends.
+The fluorescent light above the medication room casts harsh shadows.
+Outside the med room window, night shows complete darkness now.
+The clock shows 19:47; two hours and thirteen minutes remain.
+Your hands move through medication preparation with appropriate precision.
+The tasks require completion regardless of your internal state.
+Your charting documents required information with expected accuracy.
+Outside, the night shows no indication of change.
+Your patients receive appropriate care from your nursing actions.
+Your voice communicates necessary information with required clarity.
+The remaining hours stretch ahead with no acceleration.
+Your shoulders carry the accumulated fatigue.
+The end of shift approaches without relief.
+You continue the work that must be completed.
+
+---
+
+## SCENE v23
+You're driving home from work on a night when you can't remember the route.
+The windshield shows rain creating patterns as wipers move.
+Outside the car, the night shows the city lights passing.
+The radio plays; your mind doesn't register the content.
+Your hands steer the car with automatic precision.
+The traffic moves around you; you navigate without conscious thought.
+The transit bus passes on an adjacent street.
+Your foot presses the accelerator without decision.
+The dashboard clock shows the time; minutes pass.
+Outside the windshield, the rain continues.
+Your eyes track the road ahead without peripheral awareness.
+The route becomes familiar; home approaches.
+The parking accomplished without conscious registration.
+Your car sits in place; you sit still inside.
+
+---
+
+## SCENE v24
+You're in the locker room removing your scrubs after your shift.
+The fluorescent light above the lockers illuminates equally.
+Outside the locker room window, night shows rain persisting.
+Your scrubs contain sweat and the smell of patient care.
+Your hands remove them mechanically; they're placed in the locker.
+Your civilian clothes hang where they've been daily.
+You change into them with automatic efficiency.
+Outside, the rain continues with steady percussion.
+Your hands complete buttons without conscious attention.
+The locker door closes with a click.
+Your bag receives the items from your locker.
+Your body moves toward the exit.
+The parking garage receives your presence.
+Your feet carry you toward your car.
+
+---
+
+## SCENE v25
+You're lying awake on a night off contemplating the coming week.
+Your bed ceiling appears in the darkness above.
+Outside your window, rain continues from earlier in the day.
+The clock shows 3:14am; sleep remains elusive.
+Your body feels weighted; your mind moves slowly.
+The upcoming shifts occupy your attention without relief.
+The thought of morning continues to feel heavy.
+Outside, the rain eases slightly as night deepens.
+Your eyes remain open; closing them changes nothing.
+The hours stretch ahead toward morning.
+The exhaustion you're feeling has become constant.
+Your breathing continues at normal rate despite pressure.
+The darkness of your room matches your internal state.
+You remain awake as the night passes.
+
+---
+
+## SCENE v26
+You're at work for your shift with the awareness that this pattern is unsustainable.
+The fluorescent light in the nurses' station illuminates your face.
+Outside the station window, rain shows the afternoon darkening.
+Your assignment includes three patients; the workload is manageable.
+The feeling that nothing you do matters has become persistent.
+Your hands move through required tasks with appropriate precision.
+Your voice communicates necessary information with required clarity.
+Outside, the rain continues with steady percussion.
+Your charting documents patient care with expected accuracy.
+The medication administration proceeds without error or hesitation.
+Your colleagues move around the station without noticing your internal state.
+Your patients receive appropriate care from your nursing actions.
+The realization that this is your life now settles deeper.
+You continue the work ahead of you.
+
+---
+
+## SCENE v27
+You're sitting in your car before your shift begins.
+The parking garage fluorescent light casts shadows around your vehicle.
+Outside the garage, rain shows weather persisting.
+Your shift begins in seven minutes; you've been sitting here for nine.
+The steering wheel feels heavy beneath your hands.
+Your breath comes at normal rate; your chest feels pressured.
+The key in the ignition remains unturned.
+The car's interior is cold; the heater hasn't been activated.
+Outside, the rain continues with steady percussion.
+Your hands grip the steering wheel without releasing.
+The morning ahead looks identical to previous mornings.
+The week ahead looks identical to previous weeks.
+The feeling that this is endless settles.
+Your hand finally turns the key; you turn off the engine.
+
+---
+
+## SCENE v28
+You're leaving the hospital at the end of another shift.
+The parking garage fluorescent light reflects off the wet pavement.
+Outside the garage, rain shows weather that never seems to change.
+Your car sits in the same parking spot as always.
+The key turns in the ignition; the engine starts.
+Your hands grip the steering wheel with weight in your arms.
+The drive home should take fifteen minutes; time feels infinite.
+The transit bus on Route 94 passes slowly ahead.
+Your foot presses the accelerator without urgency.
+The dashboard clock shows the time; another day has ended.
+Outside the windshield, the rain creates patterns on glass.
+Your eyes track the road ahead without peripheral awareness.
+The radio plays; you don't adjust the station.
+Your car navigates toward home with mechanical precision.
+
+---
+
+## SCENE v29
+You're in the break room on night shift when energy feels depleted.
+The fluorescent light above creates flat, harsh illumination.
+Outside the break room window, the night shows darkness complete.
+The refrigerator hums with mechanical regularity.
+Your hands rest in your lap; movement feels impossible.
+The thought of five more hours remaining creates heaviness.
+The coffee in the pot is cold.
+Your body doesn't move to retrieve it.
+Outside, the darkness matches your internal state.
+The break room's silence is complete.
+Your eyes remain open; your attention remains diffuse.
+The television plays with muted sound creating background presence.
+The minutes until your break ends extend slowly.
+You remain on the break room chair as time passes.
+
+---
+
+## SCENE v30
+You're driving home from work on a day when nothing has changed.
+The windshield shows rain creating patterns as wipers move.
+Outside the car, the evening shows the city lights passing.
+The radio plays; your mind doesn't register the content.
+Your hands steer the car with automatic precision.
+The traffic moves around you; you navigate without conscious thought.
+The route home is familiar; your attention isn't required.
+Your foot presses the accelerator without decision.
+The dashboard clock shows the time; the day has ended.
+Outside the windshield, the rain continues with steady percussion.
+Your eyes track the road ahead without peripheral awareness.
+The parking accomplished without conscious registration.
+Your car sits in place; you sit still inside.
+You turn off the engine and remain in the darkness.

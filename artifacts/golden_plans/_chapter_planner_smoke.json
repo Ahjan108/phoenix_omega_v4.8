@@ -1,0 +1,360 @@
+{
+  "plan_hash": "98e798f56fe4127547c138f81786b483",
+  "plan_id": "98e798f56fe4127547c138f81786b483",
+  "chapter_slot_sequence": [
+    [
+      "HOOK",
+      "SCENE",
+      "STORY",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "STORY",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "STORY",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "STORY",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "STORY",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "STORY",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "STORY",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "STORY",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ]
+  ],
+  "atom_ids": [
+    "placeholder:HOOK:ch0:slot0",
+    "placeholder:SCENE:ch0:slot1",
+    "nyc_executives_self_worth_comparison_RECOGNITION_v02",
+    "nyc_executives_self_worth_REFLECTION_v18",
+    "nyc_executives_self_worth_INTEGRATION_v06",
+    "placeholder:HOOK:ch1:slot0",
+    "placeholder:SCENE:ch1:slot1",
+    "nyc_executives_self_worth_shame_EMBODIMENT_v04",
+    "nyc_executives_self_worth_REFLECTION_v27",
+    "lib34_body_awareness_25",
+    "nyc_executives_self_worth_INTEGRATION_v01",
+    "placeholder:HOOK:ch2:slot0",
+    "placeholder:SCENE:ch2:slot1",
+    "nyc_executives_self_worth_comparison_RECOGNITION_v04",
+    "nyc_executives_self_worth_REFLECTION_v21",
+    "lib34_reflections_24",
+    "nyc_executives_self_worth_INTEGRATION_v02",
+    "placeholder:HOOK:ch3:slot0",
+    "placeholder:SCENE:ch3:slot1",
+    "nyc_executives_self_worth_shame_TURNING_POINT_v03",
+    "nyc_executives_self_worth_REFLECTION_v01",
+    "nyc_executives_self_worth_INTEGRATION_v03",
+    "placeholder:HOOK:ch4:slot0",
+    "placeholder:SCENE:ch4:slot1",
+    "nyc_executives_self_worth_comparison_RECOGNITION_v05",
+    "nyc_executives_self_worth_REFLECTION_v13",
+    "lib34_thought_experiments_09",
+    "nyc_executives_self_worth_INTEGRATION_v07",
+    "placeholder:HOOK:ch5:slot0",
+    "placeholder:SCENE:ch5:slot1",
+    "nyc_executives_self_worth_shame_TURNING_POINT_v02",
+    "nyc_executives_self_worth_REFLECTION_v11",
+    "nyc_executives_self_worth_INTEGRATION_v05",
+    "placeholder:HOOK:ch6:slot0",
+    "placeholder:SCENE:ch6:slot1",
+    "nyc_executives_self_worth_comparison_RECOGNITION_v03",
+    "nyc_executives_self_worth_REFLECTION_v28",
+    "lib34_thought_experiments_20",
+    "nyc_executives_self_worth_INTEGRATION_v04",
+    "placeholder:HOOK:ch7:slot0",
+    "placeholder:SCENE:ch7:slot1",
+    "nyc_executives_self_worth_shame_MECHANISM_PROOF_v05",
+    "nyc_executives_self_worth_REFLECTION_v02",
+    "lib34_integration_bridges_18",
+    "placeholder:INTEGRATION:ch7:slot5"
+  ],
+  "dominant_band_sequence": [
+    2,
+    3,
+    4,
+    4,
+    5,
+    4,
+    3,
+    2
+  ],
+  "arc_id": "nyc_exec_self_worth_shame_standard_8",
+  "emotional_temperature_sequence": [
+    "cool",
+    "cool",
+    "warm",
+    "warm",
+    "warm",
+    "hot",
+    "hot",
+    "warm"
+  ],
+  "exercise_chapters": [
+    1,
+    2,
+    4,
+    6,
+    7
+  ],
+  "slot_sig": "F001:6f23e346f86a3c44",
+  "format_id": "F001",
+  "locale": "en-US",
+  "territory": "US",
+  "engine_id": "shame",
+  "angle_id": "imposter_at_work",
+  "reflection_strategy_sequence": [
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic"
+  ],
+  "chapter_archetypes": [
+    "intro_hook_heavy",
+    "deepen_mechanism",
+    "deepen_mechanism",
+    "challenge_cost",
+    "resolve_integration",
+    "legacy_uniform",
+    "practice_heavy",
+    "resolve_integration"
+  ],
+  "chapter_exercise_modes": [
+    "none",
+    "micro",
+    "micro",
+    "none",
+    "micro",
+    "none",
+    "full",
+    "micro"
+  ],
+  "chapter_reflection_weights": [
+    "light",
+    "standard",
+    "standard",
+    "heavy",
+    "standard",
+    "standard",
+    "light",
+    "standard"
+  ],
+  "chapter_story_depths": [
+    "standard",
+    "standard",
+    "standard",
+    "deep",
+    "micro",
+    "standard",
+    "micro",
+    "micro"
+  ],
+  "narrator_id": "default_narrator",
+  "emotional_role_sequence": [
+    "recognition",
+    "destabilization",
+    "destabilization",
+    "reframe",
+    "stabilization",
+    "reframe",
+    "stabilization",
+    "integration"
+  ],
+  "emotional_role_sig": "r-d-d-f-s-f-s-i",
+  "book_structure_id": "linear_transformation",
+  "journey_shape_id": "recognition_to_agency",
+  "motif_id": "motif_cost",
+  "section_reorder_mode": "none",
+  "reframe_profile_id": "balanced",
+  "variation_chapter_archetypes": [
+    "establish",
+    "expose",
+    "destabilize",
+    "reframe",
+    "stabilize",
+    "integrate",
+    "establish",
+    "expose"
+  ],
+  "variation_signature": "e66537d6c0c23b9f5df055fd1f448e87",
+  "motif_injections": [
+    {
+      "chapter_index": 0,
+      "slot_index": 2,
+      "phrase": "Staying the same has a price."
+    },
+    {
+      "chapter_index": 0,
+      "slot_index": 4,
+      "phrase": "The cost of not changing is already here."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 2,
+      "phrase": "The cost of not changing is already here."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 5,
+      "phrase": "The cost of not changing is already here."
+    },
+    {
+      "chapter_index": 2,
+      "slot_index": 2,
+      "phrase": "The cost of not changing is already here."
+    },
+    {
+      "chapter_index": 2,
+      "slot_index": 5,
+      "phrase": "The cost of not changing is already here."
+    },
+    {
+      "chapter_index": 3,
+      "slot_index": 2,
+      "phrase": "Staying the same has a price."
+    },
+    {
+      "chapter_index": 3,
+      "slot_index": 4,
+      "phrase": "What does it cost you to keep going like this?"
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 2,
+      "phrase": "Staying the same has a price."
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 5,
+      "phrase": "What does it cost you to keep going like this?"
+    },
+    {
+      "chapter_index": 5,
+      "slot_index": 2,
+      "phrase": "Staying the same has a price."
+    },
+    {
+      "chapter_index": 5,
+      "slot_index": 4,
+      "phrase": "Staying the same has a price."
+    }
+  ],
+  "reframe_injections": [
+    {
+      "chapter_index": 0,
+      "slot_index": 3,
+      "line_type": "constraint",
+      "text": "You don't have to do it all at once."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 3,
+      "line_type": "worldview",
+      "text": "Your nervous system is doing its best."
+    },
+    {
+      "chapter_index": 2,
+      "slot_index": 3,
+      "line_type": "micro_reframe",
+      "text": "What if this moment could be different?"
+    },
+    {
+      "chapter_index": 3,
+      "slot_index": 3,
+      "line_type": "constraint",
+      "text": "Progress isn't linear."
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 3,
+      "line_type": "worldview",
+      "text": "Change happens in relationship, not in isolation."
+    },
+    {
+      "chapter_index": 5,
+      "slot_index": 3,
+      "line_type": "micro_reframe",
+      "text": "You're not behind; you're exactly where you are."
+    },
+    {
+      "chapter_index": 6,
+      "slot_index": 3,
+      "line_type": "constraint",
+      "text": "Progress isn't linear."
+    },
+    {
+      "chapter_index": 7,
+      "slot_index": 3,
+      "line_type": "worldview",
+      "text": "Change happens in relationship, not in isolation."
+    }
+  ],
+  "freebie_bundle": [
+    "breath_reset_structured_v1",
+    "shame_assessment_v1"
+  ],
+  "cta_template_id": "workbook_forward",
+  "freebie_slug": "self-worth-nyc-executives-breath-reset-structured-v1",
+  "freebie_bundle_with_formats": [
+    {
+      "freebie_id": "breath_reset_structured_v1",
+      "formats": [
+        "html"
+      ]
+    },
+    {
+      "freebie_id": "shame_assessment_v1",
+      "formats": [
+        "html"
+      ]
+    }
+  ],
+  "topic_id": "self_worth",
+  "persona_id": "nyc_executives"
+}

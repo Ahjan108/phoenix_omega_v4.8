@@ -288,6 +288,56 @@ shares_templates_with: [mid_career_women_variant]
 
 ---
 
+### PERSONA 2: `tech_finance_burnout`
+
+```yaml
+persona_id: tech_finance_burnout
+display_name: Tech & Finance Burnout Professionals
+locale: en-US
+generation_dialect: mixed_millennial_gen_z
+active: true
+revenue_tier: 1
+
+beat_map: phoenix_14
+template_packs:
+  base: core_self_help_v1
+  overrides:
+    - energy_budget_pack
+    - cognitive_load_pack
+language_packs:
+  primary: en-US_core_v1
+  fallbacks: []
+
+voice_tone: analytical, dry, no-nonsense, quietly exhausted
+formality: 0.65
+slang_level: 0.15
+pace_bpm: 155
+pause_default_ms: 260
+story_injection_rate: 0.25
+breathing_exercise_frequency: 0.25
+
+tone_bias_business: 0.85
+tone_bias_scientific: 0.70
+tone_bias_spiritual: 0.05
+tone_bias_mythic: 0.05
+tone_bias_personal: 0.40
+
+# VOICE DISTINCTION:
+# Analytical mind applied to own breakdown. Uses systems thinking
+# metaphors. Comfortable with data but uncomfortable with feelings.
+# "I can debug a distributed system but I can't figure out why
+# I'm crying in the parking garage." Dry humor as defense.
+# Merges existing nyc_executives voice with tech worker specificity.
+
+domain_jargon:
+  - bandwidth
+  - pipeline
+  - sprint
+  - standup
+  - PIP
+  - calibration
+  - scope creep
+  - tech debt
   - burn rate
   - runway
   - leverage
