@@ -278,6 +278,8 @@ Timed instructions: explicit. "Count to four." Not "for about four seconds." Max
 - [ ] One step per sentence
 - [ ] Body-based (concrete sensation)
 
+**Where EXERCISE content comes from:** (1) **Canonical:** `atoms/<persona>/<topic>/EXERCISE/CANONICAL.txt` (block file). (2) **Teacher Mode:** `teacher_banks/<teacher_id>/approved_atoms/EXERCISE/*.yaml`. (3) **Backstop:** When canonical is missing or empty, assembly fills EXERCISE slots from the **practice library** (`SOURCE_OF_TRUTH/practice_library/store/practice_items.jsonl`) — 9×34 library_34 types (sensory_grounding, meditations, affirmations, etc.) plus optional ab_tady_37. Selection is deterministic (config: `config/practice/selection_rules.yaml`). Schema and pipeline: [PRACTICE_ITEM_SCHEMA.md](./PRACTICE_ITEM_SCHEMA.md); teacher fallback (wrapper): [../docs/PRACTICE_LIBRARY_TEACHER_FALLBACK.md](../docs/PRACTICE_LIBRARY_TEACHER_FALLBACK.md).
+
 ---
 
 ## 4.6 INTEGRATION (land)
@@ -775,6 +777,10 @@ Where topic gates, vocabulary, section packs, and canonical atoms live. Your bri
 **Canonical story atoms:**
 
 - **atoms/\<persona\>/\<topic\>/\<engine\>/CANONICAL.txt** — Canonical story atoms live under this path by persona, topic, and engine. Used for assembly and coverage. You may deliver new atoms to **get_these/** for ingestion; they are then moved into **atoms/** (see **get_these/README.md** and Canonical Spec Part 5).
+
+**Practice library (EXERCISE backstop):**
+
+- **SOURCE_OF_TRUTH/practice_library/** — inbox/ (raw `*_library_34.json`, optional ab_tady_37), tmp/ (raw JSONL), store/practice_items.jsonl (validated). **config/practice/selection_rules.yaml**, **config/practice/validation.yaml**. Scripts: **scripts/practice/ingest_practice_libraries.py**, **normalize_practice_items.py**, **validate_practice_store.py**, **extract_libraries_from_rtf.py** (specs/34_exercises.rtf → inbox). When EXERCISE canonical is missing, assembly fills from store; prose resolved by Stage 6 from store for atom_ids like lib34_*, ab37_*. Schema: [PRACTICE_ITEM_SCHEMA.md](./PRACTICE_ITEM_SCHEMA.md). Teacher fallback: [../docs/PRACTICE_LIBRARY_TEACHER_FALLBACK.md](../docs/PRACTICE_LIBRARY_TEACHER_FALLBACK.md). Safety lint: phoenix_v4/qa/practice_safety_lint.py.
 
 *Ref:* [PHOENIX_V4_CANONICAL_SPEC.md](./PHOENIX_V4_CANONICAL_SPEC.md) Part 5; REPO_FILES.md; get_these/README.md.
 

@@ -2,7 +2,7 @@
 
 **Purpose:** Single canonical description of the whole V4 system.  
 **Audience:** Engineers, QA, content governance, release.  
-**Last updated:** 2026-02-22  
+**Last updated:** 2026-02-23  
 **Authority:** This doc is the one systems-level overview; architecture authority remains [specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md](../specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md).
 
 **What’s still to do to finish the whole system:** [§ Remaining to finish](#remaining-to-finish-whole-system) below and [docs/PLANNING_STATUS.md](./PLANNING_STATUS.md).
@@ -73,11 +73,11 @@ Every compile requires an **arc file**. No arc = no compile.
 
 3. **Stage 3 — Assembly**  
    `phoenix_v4/planning/assembly_compiler.py`  
-   Consumes BookSpec + FormatPlan + **Arc**; outputs **CompiledBook** (plan_hash, chapter_slot_sequence, atom_ids, dominant_band_sequence, arc_id, emotional_temperature_sequence, reflection_strategy_sequence). Reads atoms from canonical pools or, in Teacher Mode, from `SOURCE_OF_TRUTH/teacher_banks/<teacher_id>/approved_atoms/`.
+   Consumes BookSpec + FormatPlan + **Arc**; outputs **CompiledBook** (plan_hash, chapter_slot_sequence, atom_ids, dominant_band_sequence, arc_id, emotional_temperature_sequence, reflection_strategy_sequence). Reads atoms from canonical pools or, in Teacher Mode, from `SOURCE_OF_TRUTH/teacher_banks/<teacher_id>/approved_atoms/`. **EXERCISE backstop:** When `atoms/<persona>/<topic>/EXERCISE/CANONICAL.txt` is missing or empty (and not Teacher Mode with teacher pool), EXERCISE pool is filled from the practice library via `phoenix_v4/planning/practice_selector.get_backstop_pool()` (config: `config/practice/selection_rules.yaml`).
 
 4. **Stage 6 — Book renderer**  
    `phoenix_v4/rendering/` (prose_resolver, book_renderer)  
-   Consumes **CompiledBook**; outputs **prose (manuscript/QA)**. Resolves atom_id → prose from atoms/, compression_atoms, teacher_banks (when teacher_mode). **QA:** `scripts/render_plan_to_txt.py` (uses Stage 6; `--allow-placeholders`, `--on-missing`). **Pipeline:** `run_pipeline.py --render-book` writes `artifacts/rendered/<plan_id>/book.txt`. See [docs/V4_FEATURES_SCALE_AND_KNOBS.md](V4_FEATURES_SCALE_AND_KNOBS.md) §1 (Stage 6) and §3.7 (Teacher Mode knobs).
+   Consumes **CompiledBook**; outputs **prose (manuscript/QA)**. Resolves atom_id → prose from atoms/, compression_atoms, teacher_banks (when teacher_mode), and **practice library** (when atom_id is a practice_id, e.g. lib34_*, ab37_*, via `practice_selector.get_practice_prose_map()`). **QA:** `scripts/render_plan_to_txt.py` (uses Stage 6; `--allow-placeholders`, `--on-missing`). **Pipeline:** `run_pipeline.py --render-book` writes `artifacts/rendered/<plan_id>/book.txt`. See [docs/V4_FEATURES_SCALE_AND_KNOBS.md](V4_FEATURES_SCALE_AND_KNOBS.md) §1 (Stage 6) and §3.7 (Teacher Mode knobs).
 
 **Entrypoint:** `scripts/run_pipeline.py` (--topic, --persona, --arc required; optional --teacher, --author, --narrator, --angle). When --author is omitted, author_id is resolved from config/brand_author_assignments.yaml (default_author per brand). When --narrator is omitted, narrator_id is resolved from config/brand_narrator_assignments.yaml (default_narrator per brand); Writer Spec §23.5. Teacher/persona/engine compatibility is enforced via `config/catalog_planning/teacher_persona_matrix.yaml` and `phoenix_v4/planning/teacher_matrix.py` when `--teacher` is set. **Environment:** Run with the project venv so PyYAML is available (e.g. `PYTHONPATH=. .venv/bin/python scripts/run_pipeline.py ...`). See [docs/SYSTEMS_AUDIT.md](./SYSTEMS_AUDIT.md) for full function audit.
 
@@ -153,6 +153,7 @@ Requires PyYAML for config and arc loading. See plan: Rigorous systems test (lea
 | Engines | config/source_of_truth/engines/ |
 | Teacher banks | SOURCE_OF_TRUTH/teacher_banks/&lt;teacher_id&gt;/ |
 | **Exercise registry (V4 somatic)** | **SOURCE_OF_TRUTH/exercises_v4/** (registry.yaml, 11 types; candidate/_stubs/, approved/; slot_07_practice + selection rules) |
+| **Practice library (EXERCISE backstop)** | **SOURCE_OF_TRUTH/practice_library/** (inbox/, tmp/, store/practice_items.jsonl); **config/practice/selection_rules.yaml**, **validation.yaml**. Scripts: scripts/practice/ingest_practice_libraries, normalize_practice_items, validate_practice_store, extract_libraries_from_rtf. Runtime: phoenix_v4/planning/practice_selector.py (load_store, get_backstop_pool, get_practice_prose_map); pool_index uses backstop when EXERCISE canonical empty; prose_resolver resolves practice_id → text from store. QA: phoenix_v4/qa/practice_safety_lint.py. Schema: specs/PRACTICE_ITEM_SCHEMA.md; teacher fallback: docs/PRACTICE_LIBRARY_TEACHER_FALLBACK.md. |
 | **Somatic assembly blueprint** | **docs/assembly/SOMATIC_BOOK_BLUEPRINT.yaml** (10-slot contract, exercise cadence, emotional curve; structure only) |
 | **Compression atoms (slot_08_compression)** | **SOURCE_OF_TRUTH/compression_atoms/** approved/\<persona\>/\<topic\>/*.yaml; 40–120w, one insight; formats may include COMPRESSION via slot_template (e.g. F006). CI: structural entropy, CTSS, wave density. DEV SPEC 2. |
 | **Freebies (V4 Immersion)** | config/freebies/ (registry, selection_rules, **tier_bundles.yaml**, **audio_scripts.yaml**); **config/catalog_planning/canonical_topics.yaml**, **canonical_personas.yaml**; **config/tts/engines.yaml** (TTS engine + voice mapping); **config/validation.yaml**, **config/asset_lifecycle.yaml**. Scripts: **validate_canonical_sources.py**, **plan_freebie_assets.py**, **create_freebie_assets.py**, **validate_asset_store.py**. Asset store: **artifacts/freebie_assets/store/{format}/{topic}/{persona}/{freebie_id}.{ext}**; manifest: **artifacts/asset_planning/manifest.jsonl**. Pipeline: **--formats**, **--skip-audio**, **--publish-dir**, **--asset-store**. |
@@ -207,5 +208,8 @@ Each spec that is part of the system has a **Still to do** section pointing here
 | **docs/authoring/AUTHOR_ASSET_WORKBOOK.md** | Operational: pen-name author assets (bio, why_this_book, authority_position, audiobook_pre_intro). |
 | **docs/writing/GOLDEN_PHOENIX_ATOM_UPGRADE_GUIDE.md** | Operational: persona-specific micro-stakes, promotion workflow (provisional_template → confirmed). |
 | **SOURCE_OF_TRUTH/exercises_v4/README.md** | Exercise registry (11 types), candidate/approved layout, slot_07_practice integration. |
+| **specs/PRACTICE_ITEM_SCHEMA.md** | Practice item schema, store layout, EXERCISE backstop and teacher fallback references. |
+| **docs/PRACTICE_LIBRARY_TEACHER_FALLBACK.md** | Teacher fallback: when teacher has insufficient EXERCISE atoms, supplement from practice library with doctrine wrapper. |
+| **SOURCE_OF_TRUTH/practice_library/README.md** | Practice library layout, pipeline (ingest → normalize → validate), usage (backstop, teacher fallback). |
 
 Older multi-doc and talp/SYSTEMS_DOCUMENTATION.md remain for reference; **this doc (docs/SYSTEMS_V4.md) is the single canonical systems description for V4.**
