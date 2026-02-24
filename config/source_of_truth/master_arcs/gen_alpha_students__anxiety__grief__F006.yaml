@@ -1,0 +1,118 @@
+arc_id: gen_alpha_students_anxiety_grief_F006_gen
+persona: gen_alpha_students
+topic: anxiety
+engine: grief
+format: F006
+chapter_count: 20
+emotional_curve:
+- 1
+- 1
+- 2
+- 2
+- 2
+- 2
+- 3
+- 3
+- 3
+- 3
+- 4
+- 4
+- 4
+- 4
+- 5
+- 5
+- 4
+- 3
+- 2
+- 2
+emotional_temperature_curve:
+  1: cool
+  2: cool
+  3: cool
+  4: cool
+  5: cool
+  6: cool
+  7: warm
+  8: warm
+  9: warm
+  10: warm
+  11: warm
+  12: warm
+  13: warm
+  14: warm
+  15: warm
+  16: hot
+  17: hot
+  18: warm
+  19: warm
+  20: warm
+chapter_intent:
+  1: establish_mask
+  2: expose_cost
+  3: destabilize_strategy
+  4: reveal_hidden_belief
+  5: confrontation
+  6: somatic_repair
+  7: relational_shift
+  8: embodied_identity
+  9: grounded_reframe
+  10: establish_mask
+  11: expose_cost
+  12: destabilize_strategy
+  13: reveal_hidden_belief
+  14: confrontation
+  15: somatic_repair
+  16: relational_shift
+  17: embodied_identity
+  18: grounded_reframe
+  19: establish_mask
+  20: embodied_identity
+emotional_role_sequence:
+- recognition
+- recognition
+- destabilization
+- reframe
+- reframe
+- destabilization
+- reframe
+- reframe
+- destabilization
+- destabilization
+- reframe
+- reframe
+- destabilization
+- destabilization
+- stabilization
+- stabilization
+- reframe
+- reframe
+- integration
+- integration
+reflection_strategy_sequence:
+- didactic
+- socratic
+- narrative_embedded
+- didactic
+- socratic
+- narrative_embedded
+- didactic
+- socratic
+- narrative_embedded
+- didactic
+- socratic
+- narrative_embedded
+- didactic
+- socratic
+- narrative_embedded
+- didactic
+- socratic
+- narrative_embedded
+- didactic
+- socratic
+cost_chapter_index: 15
+resolution_type: internal_shift_only
+motif:
+  primary_symbol: alarm
+  recurring_image: chest_and_phone
+  recurring_question: What is your body trying to tell you?
+  tonal_signature: restrained_clarity

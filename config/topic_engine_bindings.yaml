@@ -156,3 +156,138 @@ grief:
     - overwhelm
   forbidden_roles: []
   notes: "Absence made present (waves of recognition), grieving from behind glass (dissociation as protection)."
+
+# --- Unified 12 topics (additions from unified_personas.md Part 2) ---
+
+overthinking:
+  allowed_engines:
+    - spiral
+    - watcher
+    - false_alarm
+  required_roles:
+    - recognition
+    - mechanism_proof
+    - turning_point
+    - embodiment
+  optional_roles: []
+  forbidden_engines:
+    - shame
+    - comparison
+    - overwhelm
+    - grief
+  forbidden_roles: []
+  notes: "Rumination and thought chains (spiral), observing thoughts from outside (watcher), body alarm on cognitive load (false_alarm)."
+
+burnout:
+  allowed_engines:
+    - overwhelm
+    - watcher
+    - grief
+  required_roles:
+    - recognition
+    - mechanism_proof
+    - turning_point
+    - embodiment
+  optional_roles: []
+  forbidden_engines:
+    - false_alarm
+    - spiral
+    - shame
+    - comparison
+  forbidden_roles: []
+  notes: "Capacity exceeded (overwhelm), detachment from caring (watcher), mourning the pre-burnout self (grief). Aligned with compassion_fatigue model."
+
+social_anxiety:
+  allowed_engines:
+    - false_alarm
+    - shame
+    - comparison
+  required_roles:
+    - recognition
+    - mechanism_proof
+    - turning_point
+    - embodiment
+  optional_roles: []
+  forbidden_engines:
+    - spiral
+    - watcher
+    - overwhelm
+    - grief
+  forbidden_roles: []
+  notes: "Exposure fear and body alarm (false_alarm), visibility shame (shame), measuring against others (comparison)."
+
+financial_anxiety:
+  allowed_engines:
+    - overwhelm
+    - spiral
+    - shame
+  required_roles:
+    - recognition
+    - mechanism_proof
+    - turning_point
+    - embodiment
+  optional_roles: []
+  forbidden_engines:
+    - false_alarm
+    - watcher
+    - comparison
+    - grief
+  forbidden_roles: []
+  notes: "Money pressure as volume/saturation (overwhelm), catastrophic chains (spiral), money shame (shame). Canonical name per unified_personas; same psychological model as financial_stress."
+
+imposter_syndrome:
+  allowed_engines:
+    - shame
+    - comparison
+  required_roles:
+    - recognition
+    - mechanism_proof
+    - turning_point
+    - embodiment
+  optional_roles: []
+  forbidden_engines:
+    - false_alarm
+    - spiral
+    - watcher
+    - overwhelm
+    - grief
+  forbidden_roles: []
+  notes: "Value tied to exposure fear (shame), measuring against others' competence (comparison). Overlaps self_worth; distinct focus on competence/credibility."
+
+sleep_anxiety:
+  allowed_engines:
+    - false_alarm
+    - spiral
+    - overwhelm
+  required_roles:
+    - recognition
+    - mechanism_proof
+    - turning_point
+    - embodiment
+  optional_roles: []
+  forbidden_engines:
+    - watcher
+    - shame
+    - comparison
+    - grief
+  forbidden_roles: []
+  notes: "Body alarm around sleep (false_alarm), catastrophic sleep-thought chains (spiral), saturation of sleep effort (overwhelm)."
+
+somatic_healing:
+  allowed_engines:
+    - watcher
+    - overwhelm
+  required_roles:
+    - recognition
+    - mechanism_proof
+    - turning_point
+    - embodiment
+  optional_roles: []
+  forbidden_engines:
+    - false_alarm
+    - spiral
+    - shame
+    - comparison
+    - grief
+  forbidden_roles: []
+  notes: "Body-focused: observing sensation without fusion (watcher), working with capacity and titration (overwhelm)."

@@ -46,6 +46,9 @@ def _interp_curve(template: list[int], n: int) -> list[int]:
     return out
 
 
+ALLOWED_EMOTIONAL_ROLES = ("recognition", "destabilization", "reframe", "stabilization", "integration")
+
+
 def _interp_roles(template: list[str], n: int) -> list[str]:
     """Map template role sequence (length T) to length n. Index by proportional position."""
     if n <= 0 or not template:
@@ -59,6 +62,41 @@ def _interp_roles(template: list[str], n: int) -> list[str]:
     if out:
         out[0] = "recognition"
         out[-1] = "integration"
+    return _enforce_role_schema(out, n)
+
+
+def _enforce_role_schema(role_seq: list[str], n: int) -> list[str]:
+    """Enforce arc_loader rules: max 2 consecutive same role; nc>=6 => at least 4 unique roles."""
+    out = list(role_seq)
+    # Break runs of 3+ same role (insert reframe or stabilization in middle of run).
+    i = 0
+    while i < len(out):
+        run_len = 1
+        while i + run_len < len(out) and out[i + run_len] == out[i]:
+            run_len += 1
+        if run_len > 2:
+            # Replace middle indices with alternate role (avoid changing first/last).
+            insert_role = "reframe" if out[i] != "reframe" else "stabilization"
+            for j in range(1, run_len - 1):
+                idx = i + j
+                if 0 < idx < len(out) - 1:
+                    out[idx] = insert_role
+        i += run_len
+    # nc >= 6 must include at least 4 of 5 roles.
+    if n >= 6:
+        unique = set(out)
+        if len(unique) < 4:
+            # Add missing roles by replacing some middle destabilizations.
+            for r in ALLOWED_EMOTIONAL_ROLES:
+                if r in unique or r in ("recognition", "integration"):
+                    continue
+                for idx in range(1, len(out) - 1):
+                    if out[idx] == "destabilization" and out[idx - 1] != r and out[idx + 1] != r:
+                        out[idx] = r
+                        unique.add(r)
+                        break
+                if len(unique) >= 4:
+                    break
     return out
 
 

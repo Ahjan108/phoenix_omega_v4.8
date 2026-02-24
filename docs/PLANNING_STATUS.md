@@ -103,3 +103,20 @@ Summary of what was implemented for the remaining V4 dev tasks (including option
 **How to use:** Narrator: `run_pipeline.py ... --narrator default_narrator` or omit for brand default. KB-driven gap-fill: `python3 tools/teacher_mining/gap_fill.py --teacher <id> --gaps path/to/gaps.json --kb-dir SOURCE_OF_TRUTH/teacher_banks/<teacher>/kb`.
 
 For release, use **specs/V4_5_PRODUCTION_READINESS_CHECKLIST.md** (15 conditions) and **scripts/run_production_readiness_gates.py** plus simulation.
+
+---
+
+## 6. Content coverage playbook
+
+**Source of truth for what’s missing:** The **backlog report** (and its CSV) is the operational source of truth. Use it to prioritize which persona×topic×engine combinations need arcs, STORY atoms, or band depth.
+
+**Order of operations (do not start bulk content before Steps 1–2 are done):**
+
+1. **Bindings** — Every unified topic must have an entry in `config/topic_engine_bindings.yaml`. Until then, NO_BINDING rows block.
+2. **Arcs** — Generate arc YAMLs for every (persona, topic, engine, format) in scope (e.g. single canonical format F006). Use `tools/arc_generator.py` or `scripts/generate_arcs_from_backlog.py`. NO_ARC goes to 0 only when all in-scope tuples have an arc file for the chosen format policy.
+3. **STORY pools by band** — Content team fills `atoms/<persona>/<topic>/<engine>/` for STORY, with band metadata. Use the report to see NO_STORY_POOL and BAND_THIN; re-run the report periodically as pools are filled.
+
+**Artifacts:**
+
+- **Report (unified scope):** [artifacts/reports/content_coverage_backlog_unified.md](../artifacts/reports/content_coverage_backlog_unified.md)
+- **Full data CSV:** [artifacts/reports/content_coverage_backlog_unified.csv](../artifacts/reports/content_coverage_backlog_unified.csv)
