@@ -150,6 +150,11 @@ def main() -> int:
         default=None,
         help="Atoms root for single-locale run (e.g. atoms/zh-TW). For --locale-group, derived per book from spec.locale.",
     )
+    ap.add_argument(
+        "--no-teacher-mode",
+        action="store_true",
+        help="Compile with default_teacher (shared atoms only). Skips teacher exercise pool gate; use for catalog when teacher banks are empty.",
+    )
     args = ap.parse_args()
 
     brand_matrix_path = args.brand_matrix
@@ -290,13 +295,14 @@ def main() -> int:
             atoms_root = str(REPO_ROOT / "atoms" / spec.locale)
         elif args.atoms_root:
             atoms_root = args.atoms_root
+        teacher_id = "default_teacher" if args.no_teacher_mode else (spec.teacher_id or "default_teacher")
         cmd = [
             sys.executable,
             str(RUN_PIPELINE),
             "--topic", spec.topic_id,
             "--persona", spec.persona_id,
             "--arc", str(arc_path),
-            "--teacher", spec.teacher_id or "default_teacher",
+            "--teacher", teacher_id,
             "--seed", spec.seed,
             "--out", str(out_path),
             freebies_flag,

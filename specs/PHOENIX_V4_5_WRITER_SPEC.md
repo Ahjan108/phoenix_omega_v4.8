@@ -6,6 +6,8 @@ SpiritualTech Systems — February 2026 — Version 1.3
 
 **v1.3 (this version):** BAND Sonic Cadence (§5.5); Assembly Collision Guardrails (§13.6); Persona Emotional Base Temperature (§17.1); REFLECTION tier purpose and TIER_D fix (§7, §12.2b); Collision Scan test (§19); Personas §17 aligned to all 10 + base temperature table.
 
+**Section numbers in this document are authoritative.** Any .docx export should be generated from this markdown so cross-references (e.g. §5.5, §13.6) match. See [docs/WRITER_SPEC_MARKDOWN_AND_DOCX.md](../docs/WRITER_SPEC_MARKDOWN_AND_DOCX.md).
+
 ---
 
 ## Contents
