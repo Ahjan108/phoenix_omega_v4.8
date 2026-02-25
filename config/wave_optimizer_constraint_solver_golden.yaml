@@ -1,0 +1,52 @@
+# Golden-path run: relaxed quality so a single candidate is always eligible.
+# Used by scripts/run_golden_quality_path.py only.
+wave_optimizer:
+  target_size_default: 1
+  eligibility:
+    exclude_risks: ["BLOCKER", "RED"]
+    allow_yellow: true
+  constraints:
+    exclude_quality_fail: false
+    exclude_quality_missing: false
+    min_ending_strength: 0
+    min_csi_score: null
+    max_low_ending_ratio: 1.0
+    low_ending_threshold: 65
+  hard_constraints:
+    weekly_caps:
+      max_same_topic: 6
+      max_same_persona: 8
+      max_same_topic_persona_pair: 3
+      max_same_arc_id: 5
+      max_same_engine_id: 8
+      max_same_band_sig: 4
+      max_same_slot_sig: 4
+      max_same_variation_signature: 3
+      max_same_wave_fingerprint: 2
+      max_teacher_mode_books: 30
+      max_same_teacher_id: 10
+    cross_brand:
+      enforce_no_arc_overlap_when_convergent: false
+    brand_identity:
+      enforce_new_arc_cap_when_drift_critical: false
+  objective:
+    weights:
+      topic_diversity: 25
+      persona_diversity: 20
+      arc_diversity: 20
+      band_diversity: 15
+      volatility_preference: 10
+      freshness_preference: 5
+      yellow_risk_penalty: 5
+      quality_csi: 0.35
+      quality_ending: 0.15
+      quality_diversity: 0.10
+      quality_low_endings_penalty: 0.20
+    diversity:
+      enable_line_bucket_diversity: false
+    volatility_bins:
+      low: 0.35
+      high: 0.55
+  determinism:
+    tie_breaker: "candidate_sort_key"
+    epsilon_weight: 1

@@ -81,6 +81,12 @@
 | **phoenix_v4/quality/transformation_heatmap.py** | ✅ | Per-chapter transformation signals (recognition, reframe, challenge, relief, identity_shift); ending strength. --file or --plan, --json-out, --ascii, --last-n. |
 | **phoenix_v4/quality/memorable_line_detector.py** | ✅ | Highlight-density candidates from compiled book. --file or --plan, --json-out, --min-score, --max-lines. |
 | **phoenix_v4/quality/marketing_assets_from_lines.py** | ✅ | From memorable-line JSON: quotes.csv, pin_captions.txt, landing_page_hooks.txt, trailer_lines.txt, email_subject_lines.txt. --mem-lines, --brand, --topic, --persona, --out-dir, --top-n. |
+| **phoenix_v4/quality/quality_bundle_builder.py** | ✅ | Build book_quality_bundle: --rendered-text, --compiled-plan; runs heatmap + memorable + marketing, computes CSI, writes schema-validated bundle; exit 0/1/2. |
+| **phoenix_v4/ops/wave_candidates_enricher.py** | ✅ | Enrich wave candidates with quality from book_quality_bundle_*.json. --wave-candidates, --quality-bundles-dir, --out; optional --require-quality-pass, --min-ending-strength, --warn-on-missing. |
+| **phoenix_v4/ops/update_memorable_line_registry.py** | ✅ | Upsert bundle memorable lines into registry. --bundle &lt;path&gt;; appends to memorable_line_registry_v1.jsonl, writes snapshot. Run after quality_bundle_builder. |
+| **phoenix_v4/ops/check_memorable_line_registry.py** | ✅ | Check wave against registry for violations. --wave &lt;solution.json&gt;; exit 0/1/2; writes memorable_line_registry_violations_*.json. Run before export. |
+| **phoenix_v4/ops/catalog_health_dashboard_builder.py** | ✅ | Aggregate ops artifacts into catalog_health_summary_&lt;date&gt;.json. --ops-dir, --waves-dir, optional --md. |
+| **phoenix_v4/ops/quality_bundle_postprocessor.py** | ✅ | Add duplication_safety to bundle from registry snapshot; recompute CSI with new weight. --bundle, optional --registry-snapshot, --out. |
 
 ---
 

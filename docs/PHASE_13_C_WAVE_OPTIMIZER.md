@@ -61,8 +61,8 @@ PYTHONPATH=. python3 phoenix_v4/ops/wave_optimizer_constraint_solver.py \
 
 | Outcome | Artifacts |
 |--------|-----------|
-| **SOLVED** | `artifacts/ops/wave_optimizer/wave_optimizer_solution_{wave_id}.json`, `wave_optimizer_solution_{wave_id}.md` |
-| **INFEASIBLE** | `artifacts/ops/wave_optimizer/wave_optimizer_infeasible_{wave_id}.json` only |
+| **SOLVED** | `artifacts/ops/wave_optimizer/wave_optimizer_solution_{wave_id}.json` (includes **quality_summary** when quality enriched), `wave_optimizer_solution_{wave_id}.md` |
+| **INFEASIBLE** | `artifacts/ops/wave_optimizer/wave_optimizer_infeasible_{wave_id}.json` only (exclusion_breakdown may include quality-filter counts) |
 
 ### Exit codes
 
@@ -135,6 +135,12 @@ When a brand is drift-critical (from `brand_identity_stability_{report_date}.jso
 
 ---
 
+### 4.5 Quality constraints (from book_quality_bundle)
+
+When candidates are **enriched** with quality metrics (via `phoenix_v4/ops/wave_candidates_enricher.py` reading `book_quality_bundle_*.json`), the solver applies optional quality filters from `config.wave_optimizer.constraints`: **exclude_quality_fail**, **exclude_quality_missing**, **min_ending_strength**, **min_csi_score**. Exclusion counts in `exclusion_breakdown` (filtered_fail, filtered_ending, filtered_csi, filtered_missing). Pipeline: quality_bundle_builder → wave_candidates_enricher → solver.
+
+---
+
 ## 5. Soft constraints (objective)
 
 The solver maximizes a deterministic score while satisfying all hard constraints.
@@ -143,8 +149,9 @@ The solver maximizes a deterministic score while satisfying all hard constraints
 - **Volatility:** Prefer higher volatility (bucketed by `volatility_bins.low` / `high`).
 - **Freshness:** Prefer smaller `age_days` (e.g. ≤ 14).
 - **Risk:** Penalize `YELLOW` risk (optional penalty weight).
+- **Quality (when enriched):** `quality_csi` (CSI score 0–100), `quality_ending` (ending strength), `quality_diversity` (line-type bucket coverage), `quality_low_endings_penalty` (penalize wave ratio of low-ending books). Weights in `objective.weights`; set to 0 to disable. Helper: `phoenix_v4/ops/quality_objective.py`.
 
-Weights are in `objective.weights`: `topic_diversity`, `persona_diversity`, `arc_diversity`, `band_diversity`, `volatility_preference`, `freshness_preference`, `yellow_risk_penalty`.
+Weights are in `objective.weights`: `topic_diversity`, `persona_diversity`, `arc_diversity`, `band_diversity`, `volatility_preference`, `freshness_preference`, `yellow_risk_penalty`, and optionally **quality_csi**, **quality_ending**, **quality_diversity**, **quality_low_endings_penalty**.
 
 **Tie-break:** Deterministic via `candidate_sort_key` (lexicographic); same inputs → same selection.
 
@@ -180,7 +187,8 @@ Diagnostics are deterministic from counts and constraints, not heuristic.
 - **wave_optimizer.hard_constraints.weekly_caps** — All Phase 6 parity caps.
 - **wave_optimizer.hard_constraints.cross_brand** — `enforce_no_arc_overlap_when_convergent`, thresholds (convergent_warn_threshold, convergent_fail_threshold).
 - **wave_optimizer.hard_constraints.brand_identity** — `max_new_arcs_per_brand_when_critical`, drift_critical_threshold.
-- **wave_optimizer.objective.weights** — Diversity, volatility, freshness, yellow_risk_penalty.
+- **wave_optimizer.constraints** — Quality filters: `exclude_quality_fail`, `exclude_quality_missing`, `min_ending_strength`, `min_csi_score`, `max_low_ending_ratio`, `low_ending_threshold`.
+- **wave_optimizer.objective.weights** — Diversity, volatility, freshness, yellow_risk_penalty; optional **quality_csi**, **quality_ending**, **quality_diversity**, **quality_low_endings_penalty** (set to 0 to disable).
 - **wave_optimizer.objective.volatility_bins** — `low`, `high` for bucketing.
 - **wave_optimizer.determinism** — `tie_breaker` (candidate_sort_key), `epsilon_weight` (reserved).
 

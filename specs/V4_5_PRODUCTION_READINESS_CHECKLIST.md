@@ -1,10 +1,10 @@
-# V4.5 Is Production-Ready When These 15 Conditions Are True
+# V4.5 Is Production-Ready When These 17 Conditions Are True
 
 No fluff. No telemetry. No repair logic. Only release-critical gates.
 
 **Authority:** [PHOENIX_V4_5_WRITER_SPEC.md](./PHOENIX_V4_5_WRITER_SPEC.md) · [PHOENIX_V4_CANONICAL_SPEC.md](./PHOENIX_V4_CANONICAL_SPEC.md) · `phoenix_v4/qa/emotional_governance_rules.yaml` · `config/` (topic_engine_bindings, topic_skins) · `registry/` (section packs) · `atoms/` (canonical story atoms)
 
-**Run automatable checks:** From repo root, `python scripts/run_production_readiness_gates.py`. Then run `python simulation/run_simulation.py --n 10 --phase2 --phase3` for release simulation (Gate 12).
+**Run automatable checks:** From repo root, `python scripts/run_production_readiness_gates.py`. Then run `python simulation/run_simulation.py --n 10 --phase2 --phase3` for release simulation (Gate 12). **CI must have `jsonschema` installed;** Gate 17 and 17b enforce this and ops artifact validation (see [scripts/ci/README.md](../scripts/ci/README.md)).
 
 ---
 
@@ -235,7 +235,18 @@ Run: `PYTHONPATH=. python3 phoenix_v4/qa/validate_freebie_density.py --index art
 
 ---
 
-## When All 15 (or 16) Are True
+## 17. jsonschema required and ops artifact validation (non-optional)
+
+- **jsonschema** must be installed in the environment (e.g. `pip install jsonschema` or `pip install -r requirements.txt`). Gate 17 fails if `import jsonschema` raises.
+- When `artifacts/ops` or `artifacts/waves` exists, **Gate 17b** runs `scripts/ci/validate_ops_artifacts.py`; schema validation must pass. Ops validation cannot be skipped in CI.
+
+**If jsonschema is missing or ops validation is skipped → Not ready.**
+
+*Ref:* [scripts/ci/README.md](../scripts/ci/README.md); `scripts/run_production_readiness_gates.py` (Gate 17, 17b); `scripts/ci/validate_ops_artifacts.py`.
+
+---
+
+## When All 17 Are True
 
 You have:
 
@@ -255,7 +266,7 @@ That is production-grade.
 
 ## Still to do (whole system)
 
-These 15 conditions are the release gate. What remains to *finish the whole system* (e.g. coverage enforcement wired in CI, Gate #49 in distribution pipeline, optional freebie/narrator planning) is in the canonical systems doc and planning status:
+These 17 conditions are the release gate. What remains to *finish the whole system* (e.g. coverage enforcement wired in CI, Gate #49 in distribution pipeline, optional freebie/narrator planning) is in the canonical systems doc and planning status:
 
 - [../docs/SYSTEMS_V4.md](../docs/SYSTEMS_V4.md) — § Remaining to finish whole system
 - [../docs/PLANNING_STATUS.md](../docs/PLANNING_STATUS.md)

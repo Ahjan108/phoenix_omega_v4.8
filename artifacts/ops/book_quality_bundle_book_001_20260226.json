@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "99b4576c6b76efcbe7f45df0c7759fa5",
+  "book_id": "book_001",
+  "plan_id": "",
+  "arc_id": "",
+  "teacher_id": null,
+  "brand_id": null,
+  "persona_id": null,
+  "topic_id": null,
+  "generated_at": "2026-02-25T070259Z",
+  "inputs": {
+    "rendered_text_path": "/Users/ahjan/phoenix_omega/artifacts/rendered/book_001/book.txt",
+    "compiled_plan_path": "/Users/ahjan/phoenix_omega/artifacts/book_001.plan.json",
+    "atoms_root": null
+  },
+  "tool_results": {
+    "transformation_heatmap": {
+      "status": "warn",
+      "metrics": {
+        "recognition_count": 0,
+        "reframe_count": 0,
+        "relief_count": 0,
+        "identity_shift_count": 0,
+        "ending_strength_score": 0.0
+      },
+      "chapter_signals": [
+        {
+          "chapter_index": 0,
+          "signals": {
+            "recognition": 0,
+            "reframe": 0,
+            "relief": 0,
+            "identity": 0
+          }
+        }
+      ]
+    },
+    "memorable_line_detector": {
+      "status": "pass",
+      "metrics": {
+        "memorable_line_count": 2,
+        "strong_quote_count": 0,
+        "quote_density_per_1k_words": 4.016
+      },
+      "lines": [
+        {
+          "text": "Gets results, breathes, thinks: \"This is data about performance.",
+          "strength": "ok",
+          "chapter_index": 0,
+          "tags": [
+            "LENGTH_GOOD",
+            "IDENTITY"
+          ]
+        },
+        {
+          "text": "They don't mean you're terrible.\" The advice is for both of them.",
+          "strength": "ok",
+          "chapter_index": 0,
+          "tags": [
+            "LENGTH_GOOD",
+            "IDENTITY"
+          ]
+        }
+      ]
+    },
+    "marketing_assets_from_lines": {
+      "status": "pass",
+      "assets": {
+        "quotes": [
+          "Gets results, breathes, thinks: \"This is data about performance.",
+          "They don't mean you're terrible.\" The advice is for both of them."
+        ],
+        "pin_captions": [
+          "Gets results, breathes, thinks: \"This is data about performance. — phoenix • topic for persona",
+          "They don't mean you're terrible.\" The advice is for both of them. — phoenix • topic for persona"
+        ],
+        "landing_hooks": [
+          "Gets results, breathes, thinks: \"This is data about performance. (A new way to understand topic.)",
+          "They don't mean you're terrible.\" The advice is for both of them. (A new way to understand topic.)"
+        ],
+        "trailer_lines": [
+          "Gets results, breathes, thinks: \"This is data about performance.",
+          "They don't mean you're terrible.\" The advice is for both of them."
+        ],
+        "email_subjects": [
+          "Gets results, breathes, thinks: \"This is data about perfo…",
+          "They don't mean you're terrible.\" The advice is for both…"
+        ]
+      }
+    }
+  },
+  "csi": {
+    "score": 32.8,
+    "band": "F",
+    "components": {
+      "ending_strength": 0.0,
+      "transformation": 0.0,
+      "memorable_lines": 80.0,
+      "quote_density": 85.0,
+      "cta_fitness": 40.0
+    },
+    "weights": {
+      "transformation": 0.3,
+      "ending_strength": 0.25,
+      "memorable_lines": 0.2,
+      "quote_density": 0.15,
+      "cta_fitness": 0.1
+    },
+    "notes": []
+  },
+  "status": "fail",
+  "warnings": [],
+  "errors": [
+    "ending_strength below minimum (55)",
+    "transformation below minimum (55)"
+  ]
+}

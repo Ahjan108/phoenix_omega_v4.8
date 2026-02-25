@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Run V4.5 Production Readiness gates (14 conditions).
+Run V4.5 Production Readiness gates (17 conditions).
 Usage: from repo root: python scripts/run_production_readiness_gates.py
        or: python -m scripts.run_production_readiness_gates
 """
@@ -326,8 +326,37 @@ def main() -> int:
     else:
         gate("16. Freebie density (wave)", True, "No freebie index; skip", skip=True)
 
+    # --- 17. jsonschema required + ops artifact validation (CI must not skip) ---
+    try:
+        import jsonschema  # noqa: F401
+        jsonschema_available = True
+    except ImportError:
+        jsonschema_available = False
+    gate17_detail = "jsonschema installed" if jsonschema_available else "jsonschema not installed; pip install jsonschema"
+    if not gate("17. jsonschema required (ops validation non-optional)", jsonschema_available, gate17_detail):
+        failed += 1
+    elif (REPO_ROOT / "artifacts" / "ops").exists() or (REPO_ROOT / "artifacts" / "waves").exists():
+        try:
+            env = os.environ.copy()
+            env["PYTHONPATH"] = str(REPO_ROOT)
+            r = subprocess.run(
+                [sys.executable, str(REPO_ROOT / "scripts" / "ci" / "validate_ops_artifacts.py")],
+                cwd=str(REPO_ROOT),
+                env=env,
+                capture_output=True,
+                text=True,
+                timeout=60,
+            )
+            ops_validation_ok = r.returncode == 0
+            gate17_ops_detail = r.stderr.strip() or r.stdout.strip() or "validate_ops_artifacts exit non-zero"
+        except Exception as e:
+            ops_validation_ok = False
+            gate17_ops_detail = str(e)
+        if not gate("17b. Ops/waves schema validation (when dirs exist)", ops_validation_ok, gate17_ops_detail):
+            failed += 1
+
     # --- Report ---
-    print("V4.5 Production Readiness — 15 (+ freebie) conditions\n")
+    print("V4.5 Production Readiness — 17 conditions\n")
     for name, status, detail in RESULTS:
         sym = "✓" if status == "PASS" else ("○" if status == "SKIP" else "✗")
         print(f"  {sym} {status:4}  {name}")
