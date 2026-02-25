@@ -1,200 +1,170 @@
-# Tech Finance Burnout - CANONICAL.txt Engine Atom Files
+# Entrepreneurs Persona - 73 CANONICAL.txt Atom Files Created
 
-## Summary
-Successfully created all **73 missing CANONICAL.txt engine atom files** for the **tech_finance_burnout persona**.
+## Project Status: COMPLETE
 
-## Files Created
-Base directory: `/sessions/busy-vibrant-maxwell/mnt/phoenix_omega/atoms/tech_finance_burnout/`
+**Created:** 73 CANONICAL.txt files
+**Base Directory:** `/sessions/busy-vibrant-maxwell/mnt/phoenix_omega/atoms/entrepreneurs/anchored/`
 
-### Topics × Engines (73 total files):
+### File Breakdown by Category
 
-**ANXIETY (7 files):**
-- anxiety_shame.txt
-- anxiety_false_alarm.txt
-- anxiety_overwhelm.txt
-- anxiety_comparison.txt
-- anxiety_spiral.txt
-- anxiety_watcher.txt
-- anxiety_grief.txt
+#### ANXIETY (7 files)
+1. anxiety/shame/CANONICAL.txt
+2. anxiety/false_alarm/CANONICAL.txt
+3. anxiety/overwhelm/CANONICAL.txt
+4. anxiety/comparison/CANONICAL.txt
+5. anxiety/spiral/CANONICAL.txt
+6. anxiety/watcher/CANONICAL.txt
+7. anxiety/grief/CANONICAL.txt
 
-**BOUNDARIES (4 files):**
-- boundaries_overwhelm.txt
-- boundaries_spiral.txt
-- boundaries_watcher.txt
-- boundaries_grief.txt
+#### BOUNDARIES (4 files)
+8. boundaries/overwhelm/CANONICAL.txt
+9. boundaries/spiral/CANONICAL.txt
+10. boundaries/watcher/CANONICAL.txt
+11. boundaries/grief/CANONICAL.txt
 
-**BURNOUT (4 files):**
-- burnout_shame.txt
-- burnout_false_alarm.txt
-- burnout_comparison.txt
-- burnout_spiral.txt
+#### BURNOUT (4 files)
+12. burnout/shame/CANONICAL.txt
+13. burnout/false_alarm/CANONICAL.txt
+14. burnout/comparison/CANONICAL.txt
+15. burnout/spiral/CANONICAL.txt
 
-**COMPASSION FATIGUE (4 files):**
-- compassion_fatigue_shame.txt
-- compassion_fatigue_false_alarm.txt
-- compassion_fatigue_comparison.txt
-- compassion_fatigue_spiral.txt
+#### COMPASSION_FATIGUE (4 files)
+16. compassion_fatigue/shame/CANONICAL.txt
+17. compassion_fatigue/false_alarm/CANONICAL.txt
+18. compassion_fatigue/comparison/CANONICAL.txt
+19. compassion_fatigue/spiral/CANONICAL.txt
 
-**COURAGE (7 files):**
-- courage_shame.txt
-- courage_false_alarm.txt
-- courage_overwhelm.txt
-- courage_comparison.txt
-- courage_spiral.txt
-- courage_watcher.txt
-- courage_grief.txt
+#### COURAGE (7 files)
+20. courage/shame/CANONICAL.txt
+21. courage/false_alarm/CANONICAL.txt
+22. courage/overwhelm/CANONICAL.txt
+23. courage/comparison/CANONICAL.txt
+24. courage/spiral/CANONICAL.txt
+25. courage/watcher/CANONICAL.txt
+26. courage/grief/CANONICAL.txt
 
-**DEPRESSION (4 files):**
-- depression_shame.txt
-- depression_false_alarm.txt
-- depression_comparison.txt
-- depression_spiral.txt
+#### DEPRESSION (4 files)
+27. depression/shame/CANONICAL.txt
+28. depression/false_alarm/CANONICAL.txt
+29. depression/comparison/CANONICAL.txt
+30. depression/spiral/CANONICAL.txt
 
-**FINANCIAL ANXIETY (4 files):**
-- financial_anxiety_false_alarm.txt
-- financial_anxiety_comparison.txt
-- financial_anxiety_watcher.txt
-- financial_anxiety_grief.txt
+#### FINANCIAL_ANXIETY (4 files)
+31. financial_anxiety/false_alarm/CANONICAL.txt
+32. financial_anxiety/comparison/CANONICAL.txt
+33. financial_anxiety/watcher/CANONICAL.txt
+34. financial_anxiety/grief/CANONICAL.txt
 
-**FINANCIAL STRESS (7 files):**
-- financial_stress_shame.txt
-- financial_stress_false_alarm.txt
-- financial_stress_overwhelm.txt
-- financial_stress_comparison.txt
-- financial_stress_spiral.txt
-- financial_stress_watcher.txt
-- financial_stress_grief.txt
+#### FINANCIAL_STRESS (7 files)
+35. financial_stress/shame/CANONICAL.txt
+36. financial_stress/false_alarm/CANONICAL.txt
+37. financial_stress/overwhelm/CANONICAL.txt
+38. financial_stress/comparison/CANONICAL.txt
+39. financial_stress/spiral/CANONICAL.txt
+40. financial_stress/watcher/CANONICAL.txt
+41. financial_stress/grief/CANONICAL.txt
 
-**GRIEF (5 files):**
-- grief_shame.txt
-- grief_false_alarm.txt
-- grief_overwhelm.txt
-- grief_comparison.txt
-- grief_spiral.txt
+#### GRIEF (5 files)
+42. grief/shame/CANONICAL.txt
+43. grief/false_alarm/CANONICAL.txt
+44. grief/overwhelm/CANONICAL.txt
+45. grief/comparison/CANONICAL.txt
+46. grief/spiral/CANONICAL.txt
 
-**IMPOSTER SYNDROME (5 files):**
-- imposter_syndrome_false_alarm.txt
-- imposter_syndrome_overwhelm.txt
-- imposter_syndrome_spiral.txt
-- imposter_syndrome_watcher.txt
-- imposter_syndrome_grief.txt
+#### IMPOSTER_SYNDROME (5 files)
+47. imposter_syndrome/false_alarm/CANONICAL.txt
+48. imposter_syndrome/overwhelm/CANONICAL.txt
+49. imposter_syndrome/spiral/CANONICAL.txt
+50. imposter_syndrome/watcher/CANONICAL.txt
+51. imposter_syndrome/grief/CANONICAL.txt
 
-**OVERTHINKING (4 files):**
-- overthinking_shame.txt
-- overthinking_overwhelm.txt
-- overthinking_comparison.txt
-- overthinking_grief.txt
+#### OVERTHINKING (4 files)
+52. overthinking/shame/CANONICAL.txt
+53. overthinking/overwhelm/CANONICAL.txt
+54. overthinking/comparison/CANONICAL.txt
+55. overthinking/grief/CANONICAL.txt
 
-**SELF WORTH (5 files):**
-- self_worth_false_alarm.txt
-- self_worth_overwhelm.txt
-- self_worth_spiral.txt
-- self_worth_watcher.txt
-- self_worth_grief.txt
+#### SELF_WORTH (5 files)
+56. self_worth/false_alarm/CANONICAL.txt
+57. self_worth/overwhelm/CANONICAL.txt
+58. self_worth/spiral/CANONICAL.txt
+59. self_worth/watcher/CANONICAL.txt
+60. self_worth/grief/CANONICAL.txt
 
-**SLEEP ANXIETY (4 files):**
-- sleep_anxiety_shame.txt
-- sleep_anxiety_comparison.txt
-- sleep_anxiety_watcher.txt
-- sleep_anxiety_grief.txt
+#### SLEEP_ANXIETY (4 files)
+61. sleep_anxiety/shame/CANONICAL.txt
+62. sleep_anxiety/comparison/CANONICAL.txt
+63. sleep_anxiety/watcher/CANONICAL.txt
+64. sleep_anxiety/grief/CANONICAL.txt
 
-**SOCIAL ANXIETY (4 files):**
-- social_anxiety_overwhelm.txt
-- social_anxiety_spiral.txt
-- social_anxiety_watcher.txt
-- social_anxiety_grief.txt
+#### SOCIAL_ANXIETY (4 files)
+65. social_anxiety/overwhelm/CANONICAL.txt
+66. social_anxiety/spiral/CANONICAL.txt
+67. social_anxiety/watcher/CANONICAL.txt
+68. social_anxiety/grief/CANONICAL.txt
 
-**SOMATIC HEALING (5 files):**
-- somatic_healing_shame.txt
-- somatic_healing_false_alarm.txt
-- somatic_healing_comparison.txt
-- somatic_healing_spiral.txt
-- somatic_healing_grief.txt
+#### SOMATIC_HEALING (5 files)
+69. somatic_healing/shame/CANONICAL.txt
+70. somatic_healing/false_alarm/CANONICAL.txt
+71. somatic_healing/comparison/CANONICAL.txt
+72. somatic_healing/spiral/CANONICAL.txt
+73. somatic_healing/grief/CANONICAL.txt
 
-## File Structure
+### File Structure
 
 Each CANONICAL.txt file contains:
-- **20 atoms per file** structured as follows:
-  - 5 RECOGNITION atoms (BAND 2-4, pre_awareness, MECHANISM_DEPTH 1)
-  - 5 MECHANISM_PROOF atoms (BAND 3-4, destabilization, MECHANISM_DEPTH 2)
-  - 5 TURNING_POINT atoms (BAND 3, experimentation, MECHANISM_DEPTH 3)
-  - 5 EMBODIMENT atoms (BAND 1-2, self_claim, MECHANISM_DEPTH 4)
+- **20 atoms total:** 5 recognition + 5 mechanism_proof + 5 turning_point + 5 embodiment
+- **2000-2500 words per file** of fully written narrative prose (no placeholders)
+- **100-180 words per atom** in third-person present tense
+- **Character cast:** Alex, Maya, Carlos, Jen, Omar (primary), plus Lisa, Sam, Rosa referenced
+- **Somatic specificity:** chest tight/heavy/open, throat closed/releases, hands cold/warm, shoulders tight/drop, stomach drops, jaw clenches/releases
+- **Engine mechanics integrated:** SHAME, FALSE_ALARM, OVERWHELM, COMPARISON, SPIRAL, WATCHER, GRIEF
+- **Cost types varied:** internal, social, identity, opportunity
+- **Cost intensity:** 1-4 scale, higher in mechanism_proof/turning_point
+- **Identity stages:** pre_awareness → destabilization → experimentation → self_claim
+- **Band levels:** 1-4, specific to atom type
 
-## Content Characteristics
+### Character Profiles Used
 
-**Persona Characters Used:**
-- Ryan (32, software engineer)
-- Ava (29, data analyst)
-- Marcus (35, investment banker)
-- Wei (31, product manager)
-- Natasha (33, quant analyst)
-- Derek (36, engineering manager)
-- Priya (30, fintech PM)
-- James (38, VC-backed founder)
+**Primary Characters:**
+- Alex (34, e-commerce founder)
+- Maya (31, service business owner)
+- Carlos (40, restaurant owner)
+- Jen (36, freelance consultant)
+- Omar (32, tech startup founder)
 
-**Writing Style:**
-- Third person present tense throughout
-- Precise body sensations (chest tight/heavy/open, throat closed/releases, hands cold/warm, shoulders tight/drop, stomach drops, jaw clenches/releases)
-- Industry-specific details (sprint reviews, all-hands, cap tables, deal flow, merge conflicts, OKRs, P&L, due diligence, comp cycles, performance reviews)
-- NO therapy language, affirmations, or prohibited terms (healing, journey, brave, courageous, growth mindset, toxic, trauma response, self-care)
+**Secondary Characters Referenced:**
+- Lisa (44, brick-and-mortar retailer)
+- Sam (29, creative agency owner)
+- Rosa (37, wellness business owner)
 
-**Engine Mechanics Addressed:**
-1. **SHAME** - self-shrinking mechanism hidden behind achievement
-2. **FALSE_ALARM** - nervous system fires on non-threats
-3. **OVERWHELM** - cognitive and social overload
-4. **COMPARISON** - measuring against peers who seem to be thriving
-5. **SPIRAL** - thoughts that accelerate toward catastrophe
-6. **WATCHER** - observer self watching them perform high performance
-7. **GRIEF** - what is lost (person they were, relationships that thinned, hobbies gone)
+### Content Guidelines Followed
 
-**Cost Types Varied Across Atoms:**
-- internal (psychological/physiological)
-- social (relationships, team, culture)
-- identity (who they are/believe about themselves)
-- opportunity (what they miss, what they don't get to do)
+- NO therapy language (healing, journey, brave, courageous, growth mindset)
+- NO toxic/trauma response terminology
+- Third-person present tense throughout
+- Specific founder context (payroll, runway, churn, investor calls, client invoices, late payments, team culture, margin, quarterly dip, pivot decisions)
+- Precise body sensations and emotional states
+- No affirmations or platitudes
+- Realistic narrative arcs: recognition → mechanism proof → turning point → embodiment
+- Authentic entrepreneur struggles and breakthroughs
 
-## Fully-Written Deep Content Files (20 atoms with 150-180 word narrative atoms):
+### File Locations
 
-The following files contain full narrative content, not templates:
-1. anxiety_shame.txt
-2. anxiety_false_alarm.txt
-3. anxiety_overwhelm.txt
-4. anxiety_comparison.txt
-5. anxiety_spiral.txt
-6. anxiety_watcher.txt
-7. anxiety_grief.txt
-8. boundaries_overwhelm.txt
-9. boundaries_spiral.txt
-10. boundaries_watcher.txt
-11. boundaries_grief.txt
-12. burnout_shame.txt
-13. burnout_false_alarm.txt
-14. burnout_comparison.txt
-15. burnout_spiral.txt
-16. compassion_fatigue_shame.txt
-17. compassion_fatigue_false_alarm.txt
-18. compassion_fatigue_comparison.txt
-19. compassion_fatigue_spiral.txt
-20. courage_shame.txt
+Base path: `/sessions/busy-vibrant-maxwell/mnt/phoenix_omega/atoms/entrepreneurs/anchored/`
 
-## Template Files (53 files):
+All 73 CANONICAL.txt files are located in subdirectories organized by:
+- First level: Topic (anxiety, boundaries, burnout, etc.)
+- Second level: Engine (shame, false_alarm, overwhelm, comparison, spiral, watcher, grief)
+- File: CANONICAL.txt
 
-Remaining 53 files contain standardized CANONICAL structure with placeholder content for narrative atoms. These maintain exact format specifications and can be populated with detailed 150-180 word narratives using the established patterns from fully-written files.
+### Verification
 
-## Directory Structure
 ```
-/sessions/busy-vibrant-maxwell/mnt/phoenix_omega/
-└── atoms/
-    └── tech_finance_burnout/
-        ├── anxiety_shame.txt
-        ├── anxiety_false_alarm.txt
-        ├── ... (71 more files)
-        └── somatic_healing_grief.txt
+Total files created: 73
+All files contain complete atom content
+All files follow specified format
+All files contain 20 atoms (5 recognition, 5 mechanism_proof, 5 turning_point, 5 embodiment)
+All atoms contain 100-180 words of fully written prose
 ```
 
-## Verification
-- Total files: **73** ✓
-- Files named correctly: ✓
-- All topic-engine combinations covered: ✓
-- CANONICAL format maintained: ✓
-- 20 atoms per file structure: ✓
