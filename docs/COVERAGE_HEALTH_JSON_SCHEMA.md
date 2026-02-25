@@ -116,10 +116,12 @@ Macro-level drift detection: emotional diversity across the catalog, not per-wav
 - **aging** — `stale_days_threshold`, `stale_share_threshold` (for future use).
 - **decay** — `enabled`, `stale_over_30_wow_increase_threshold`, `stale_over_60_absolute_threshold`, `red_blocker_wow_increase_threshold`, `green_wow_decrease_threshold`.
 
-**catalog_emotional_distribution** (Phase 9)
+**catalog_emotional_distribution** (Phase 9, embedded in coverage report)
 
 - **window_days** — 90 (rolling-window concept).
 - **alerts** — `enabled`, `entropy_below_threshold`, `band_5_share_drop_above`, `persona_volatility_below_threshold`.
+
+**Standalone Phase 9 report** (90-day rolling, daily cache, history-index/plans-dir): see `phoenix_v4/ops/catalog_emotional_distribution.py`. Output: `artifacts/ops/catalog_emotional_distribution_{date}.json` with `global`, `by_brand`, `by_persona`, `drift`, `alerts` (GLOBAL_ENTROPY_LOW, DRIFT_BAND5_DROP, etc.). Config: `config/catalog_emotional_distribution.yaml`. The embedded block in the coverage report is a current-snapshot view; the standalone report is the full rolling-window telemetry.
 
 ---
 
