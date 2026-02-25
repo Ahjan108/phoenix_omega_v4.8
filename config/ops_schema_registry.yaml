@@ -67,6 +67,11 @@ ops_schema_registry:
     schema_path: "schemas/catalog_health_summary_v1.schema.json"
     artifact_pattern: "catalog_health_summary_*.json"
 
+  series_quality_report:
+    current_version: "1.0"
+    schema_path: "schemas/series_quality_report_v1.schema.json"
+    artifact_pattern: "series_quality_report_*.json"
+
   # Placeholders for future schemas (add schema_path when created)
   # coverage_health_weekly:
   #   current_version: "1.1"

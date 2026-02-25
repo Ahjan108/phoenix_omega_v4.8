@@ -166,6 +166,19 @@ def main() -> int:
     if r.returncode != 0:
         failures.append({"gate": "check_wave_density", "detail": r.stderr.strip() or r.stdout.strip()})
 
+    # 4b) Series diversity (P0: hard fail on adjacent mech+journey or band_curve; soft warn on combo density)
+    try:
+        from phoenix_v4.qa.validate_series_diversity import validate_series_diversity
+        hard_series, soft_series = validate_series_diversity(plans_dir)
+        steps.append({"series_diversity": {"hard_violations": len(hard_series), "soft_warnings": len(soft_series)}})
+        for v in hard_series:
+            failures.append({"gate": "validate_series_diversity", "detail": str(v)})
+        for w in soft_series:
+            warnings.append({"gate": "validate_series_diversity", "detail": str(w)})
+    except Exception as e:
+        steps.append({"series_diversity": {"error": str(e)}})
+        failures.append({"gate": "validate_series_diversity", "detail": str(e)})
+
     # 5) Index append only if all prior gates pass
     index_updates: List[Dict[str, Any]] = []
     if not failures and not args.dry_run_index_update:

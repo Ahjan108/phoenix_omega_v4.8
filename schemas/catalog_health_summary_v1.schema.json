@@ -47,6 +47,11 @@
         "candidates_blocked_by_quality": { "type": "integer", "minimum": 0 },
         "infeasible_waves_due_to_quality": { "type": "integer", "minimum": 0 }
       }
+    },
+    "series_health": {
+      "type": "object",
+      "description": "Series quality (read-only)",
+      "additionalProperties": true
     }
   }
 }

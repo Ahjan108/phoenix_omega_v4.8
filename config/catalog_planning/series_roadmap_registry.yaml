@@ -1,0 +1,36 @@
+# Registry of valid IDs for series roadmap planner (deterministic per-installment selection).
+# Used by phoenix_v4/planning/series_mode_planner to output search_intent_id, primary_mechanism_id, band_curve_id, duration_class.
+
+schema_version: "1.0"
+
+search_intent_ids:
+  - problem_solving
+  - life_transition
+  - behavioral_change
+  - identity_repair
+  - social_belonging
+  - identity_validation
+  - crisis_management
+  - deep_dive
+
+primary_mechanism_ids:
+  - nervous_system_safety
+  - shame_reduction
+  - comparison_release
+  - grief_integration
+  - overwhelm_containment
+  - false_alarm_reframe
+  - watcher_softening
+  - spiral_grounding
+
+band_curve_ids:
+  - gentle_rise
+  - two_peak
+  - crisis_landing
+  - steady_build
+  - wave_cycle
+
+duration_classes:
+  - short
+  - mid
+  - full

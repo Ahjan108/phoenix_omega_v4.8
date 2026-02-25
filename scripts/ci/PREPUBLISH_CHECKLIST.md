@@ -27,13 +27,14 @@ python scripts/ci/run_prepublish_gates.py \
 2. `check_platform_similarity.py` (per plan, against existing index)
 3. `check_prose_duplication.py` (wave rendered vs catalog rendered)
 4. `check_wave_density.py` (wave-wide)
+4b. **Series diversity** (P0): `validate_series_diversity` — hard fail on adjacent same (primary_mechanism_id + journey_shape_id) or same band_curve_id; soft warn on combo density. Fail on hard violations; pass with warnings on soft only.
 5. `update_similarity_index.py` (append only after all above pass)
 
-Rationale: no state mutation until all blocking checks pass; index update is the only mutating step. All gates 1–4 are always run for full diagnostics (no short-circuit on first failure).
+Rationale: no state mutation until all blocking checks pass; index update is the only mutating step. All gates 1–4 and 4b are always run for full diagnostics (no short-circuit on first failure).
 
 ## Blocking rules
-- Any non-zero exit from gates 1-4 blocks publish.
-- Similarity index is not updated unless gates 1-4 pass.
+- Any non-zero exit from gates 1–4 or 4b (series diversity hard violations) blocks publish.
+- Similarity index is not updated unless gates 1–4 and 4b pass.
 - If `--fail-on-similarity-warn` is used, CTSS review warnings are blocking.
 
 ## Required inputs

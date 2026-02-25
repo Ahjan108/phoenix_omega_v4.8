@@ -181,6 +181,21 @@ def _load_plan_brand(plan_path: Path) -> str | None:
         return None
 
 
+def _load_plan_series_order(plan_path: Path) -> tuple[str | None, int]:
+    """Extract (series_id, installment_number) for ordering. Non-series returns (None, 0)."""
+    if not plan_path.exists():
+        return (None, 0)
+    try:
+        data = json.loads(plan_path.read_text())
+        sid = data.get("series_id")
+        if not sid:
+            return (None, 0)
+        inst = data.get("installment_number")
+        return (sid, int(inst) if inst is not None else 0)
+    except Exception:
+        return (None, 0)
+
+
 def _load_wave_plans(wave_path: Path) -> list[Path]:
     """Return list of plan paths from wave file (one path per line)."""
     if not wave_path.exists():
@@ -198,7 +213,9 @@ def _load_wave_plans(wave_path: Path) -> list[Path]:
 
 
 def _gather_by_brand(plan_paths: list[Path], brand_from_plan: bool) -> dict[str, list[Path]]:
-    """Group plan paths by brand_id. If brand_from_plan False, put all under 'default'."""
+    """Group plan paths by brand_id. If brand_from_plan False, put all under 'default'.
+    Within each brand, sort by (series_id, installment_number) to preserve series order.
+    """
     by_brand: dict[str, list[Path]] = defaultdict(list)
     for p in plan_paths:
         if brand_from_plan:
@@ -208,6 +225,9 @@ def _gather_by_brand(plan_paths: list[Path], brand_from_plan: bool) -> dict[str,
         else:
             brand = "default"
         by_brand[brand].append(p)
+    # Preserve installment ordering within each brand (P2)
+    for brand in by_brand:
+        by_brand[brand].sort(key=lambda path: _load_plan_series_order(path))
     return dict(by_brand)
 
 
@@ -336,6 +356,29 @@ def generate_schedule(
     return schedule
 
 
+def _warn_series_ordering_drift(schedule: list[dict]) -> None:
+    """Emit a non-blocking warning if any series has installments scheduled out of order (P2)."""
+    series_last_week: dict[str, int] = {}
+    drift: list[str] = []
+    for row in schedule:
+        week = row.get("week") or 0
+        for brand, paths in row.get("assignments", {}).items():
+            for path_str in paths or []:
+                path = Path(path_str)
+                sid, inst = _load_plan_series_order(path)
+                if not sid:
+                    continue
+                if sid in series_last_week and inst < series_last_week[sid]:
+                    drift.append(f"series_id={sid} installment={inst} scheduled after higher installment in week {week}")
+                series_last_week[sid] = max(series_last_week.get(sid, 0), inst)
+    if drift:
+        print("WARN: Series ordering drift (installment order not preserved):", file=sys.stderr)
+        for d in drift[:5]:
+            print(f"  {d}", file=sys.stderr)
+        if len(drift) > 5:
+            print(f"  ... and {len(drift) - 5} more", file=sys.stderr)
+
+
 def _assign_books_to_week(
     schedule: list[dict],
     week_num: int,
@@ -449,6 +492,9 @@ def main() -> int:
         return 1
 
     platform_rows = _build_platform_rows(schedule, caps_list)
+
+    # P2: Non-blocking warning on series ordering drift (installment N after N+1 in same series)
+    _warn_series_ordering_drift(schedule)
 
     out = args.out or (REPO_ROOT / "artifacts" / "release_schedule.json")
     out.parent.mkdir(parents=True, exist_ok=True)

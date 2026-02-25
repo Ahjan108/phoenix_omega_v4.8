@@ -58,6 +58,10 @@ def _glob_coverage(ops_dir: Path) -> List[Path]:
     return list(ops_dir.glob("coverage_health_weekly_*.json"))
 
 
+def _glob_series_quality(ops_dir: Path) -> List[Path]:
+    return list(ops_dir.glob("series_quality_report_*.json"))
+
+
 def build_quality_metrics(ops_dir: Path) -> Dict[str, Any]:
     bundles = _glob_bundles(ops_dir)
     by_brand: Dict[str, List[float]] = defaultdict(list)
@@ -142,6 +146,26 @@ def build_coverage(ops_dir: Path) -> Dict[str, Any]:
     }
 
 
+def build_series_health(ops_dir: Path) -> Dict[str, Any]:
+    """Aggregate series quality reports (P2 read-only section)."""
+    reports = _glob_series_quality(ops_dir)
+    if not reports:
+        return {"hard_violations_total": 0, "soft_warnings_total": 0, "reports": []}
+    latest = max(reports, key=lambda p: p.stat().st_mtime)
+    data = _load_json(latest)
+    if not data:
+        return {"hard_violations_total": 0, "soft_warnings_total": 0, "reports": []}
+    hard = data.get("hard_violations") or []
+    soft = data.get("soft_warnings") or []
+    return {
+        "hard_violations_total": len(hard),
+        "soft_warnings_total": len(soft),
+        "opener_closer_collisions": data.get("opener_closer_collisions") or [],
+        "metadata_conflicts": data.get("metadata_conflicts") or [],
+        "reports": [str(latest)],
+    }
+
+
 def build_release_readiness(ops_dir: Path) -> Dict[str, Any]:
     infeasible = _glob_infeasible(ops_dir)
     blocked = 0
@@ -194,6 +218,7 @@ def main() -> int:
     duplication_risk = build_duplication_risk(ops_dir)
     coverage = build_coverage(ops_dir)
     release_readiness = build_release_readiness(ops_dir)
+    series_health = build_series_health(ops_dir)
 
     summary = {
         "schema_version": "1.0",
@@ -202,6 +227,7 @@ def main() -> int:
         "duplication_risk": duplication_risk,
         "coverage": coverage,
         "release_readiness": release_readiness,
+        "series_health": series_health,
     }
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -225,6 +251,10 @@ def main() -> int:
             "## Release readiness",
             f"- Candidates blocked by quality: {release_readiness['candidates_blocked_by_quality']}",
             f"- Infeasible waves (quality): {release_readiness['infeasible_waves_due_to_quality']}",
+            "",
+            "## Series health",
+            f"- Hard violations: {series_health.get('hard_violations_total', 0)}",
+            f"- Soft warnings: {series_health.get('soft_warnings_total', 0)}",
         ]
         md_path.write_text("\n".join(lines))
         print(f"Written: {md_path}")
