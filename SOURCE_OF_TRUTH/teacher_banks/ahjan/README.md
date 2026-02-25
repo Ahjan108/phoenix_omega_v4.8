@@ -9,4 +9,4 @@
 
 To compile a Teacher Mode book: pass `teacher_id="ahjan"` and `teacher_mode=True` in BookSpec (e.g. from catalog planner or pipeline). Stage 3 will use this bank's approved_atoms. Add atoms to approved_atoms/STORY/ (and EXERCISE/, etc.) then run gap report and gap-fill as needed (see specs/TEACHER_MODE_AUTHORING_PLAYBOOK.md).
 
-**Intake script:** `python3 scripts/intake_teacher_ahjan.py`
+**Intake script:** `python3 scripts/intake_teacher_ahjan.py` (copies from `teachers/ahjan/intake/` into `raw/`).

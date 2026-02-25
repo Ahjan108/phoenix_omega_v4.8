@@ -19,4 +19,4 @@ Optional file **config/teachers/\<teacher_id\>.yaml** controls strictness and EX
 | **teacher_total_share_min** | (teacher_native + teacher_synthetic) / total_atoms ≥ this (e.g. 0.70). |
 | **exercise_wrapper** | Optional. `intro_templates` and `close_templates` (lists of strings). When an EXERCISE slot is filled from practice library (`atom_source=practice_fallback`), renderer wraps prose with a deterministic intro/close from these lists. |
 
-Example: **config/teachers/master_feng.yaml**. Teacher doctrine (forbidden claims, tone, glossary) lives under `SOURCE_OF_TRUTH/teacher_banks/<teacher_id>/doctrine/doctrine.yaml` (or `doctrine.yaml` in teacher bank root).
+Examples: **config/teachers/master_feng.yaml**, **config/teachers/ahjan.yaml**. Teacher doctrine (forbidden claims, tone, glossary) lives under `SOURCE_OF_TRUTH/teacher_banks/<teacher_id>/doctrine/doctrine.yaml` (or `doctrine.yaml` in teacher bank root).

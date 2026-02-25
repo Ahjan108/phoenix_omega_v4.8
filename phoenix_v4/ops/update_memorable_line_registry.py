@@ -49,28 +49,30 @@ def main() -> int:
     snapshot_path = args.snapshot or ops_dir / "memorable_line_registry_snapshot_v1.json"
 
     lines = extract_lines_from_bundle(bundle_path)
+    appended = 0
     if not lines:
         print("No tracked memorable lines in bundle; nothing to append.")
-        return EXIT_PASS
-
-    seen_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
-    for (norm, strength, book_id, brand_id) in lines:
-        h = line_hash(norm)
-        record = {
-            "line_hash": h,
-            "normalized_text": norm,
-            "book_id": book_id,
-            "brand_id": brand_id or "",
-            "strength": strength,
-            "seen_at": seen_at,
-        }
-        append_record(jsonl_path, record)
-
-    index = load_registry_jsonl(jsonl_path)
-    snapshot = build_snapshot(index)
-    snapshot_path.parent.mkdir(parents=True, exist_ok=True)
-    snapshot_path.write_text(json.dumps(snapshot, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"Appended {len(lines)} line(s); snapshot written to {snapshot_path}")
+    else:
+        seen_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
+        for (norm, strength, book_id, brand_id) in lines:
+            h = line_hash(norm)
+            record = {
+                "line_hash": h,
+                "normalized_text": norm,
+                "book_id": book_id,
+                "brand_id": brand_id or "",
+                "strength": strength,
+                "seen_at": seen_at,
+            }
+            append_record(jsonl_path, record)
+        appended = len(lines)
+        index = load_registry_jsonl(jsonl_path)
+        snapshot = build_snapshot(index)
+        snapshot_path.parent.mkdir(parents=True, exist_ok=True)
+        snapshot_path.write_text(json.dumps(snapshot, indent=2, ensure_ascii=False), encoding="utf-8")
+        print(f"Appended {appended} line(s); snapshot written to {snapshot_path}")
+    # Structured signal for callers (e.g. golden path script); do not key off prose.
+    print(json.dumps({"appended": appended}))
     return EXIT_PASS
 
 

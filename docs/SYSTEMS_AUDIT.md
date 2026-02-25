@@ -83,10 +83,12 @@
 | **phoenix_v4/quality/marketing_assets_from_lines.py** | ✅ | From memorable-line JSON: quotes.csv, pin_captions.txt, landing_page_hooks.txt, trailer_lines.txt, email_subject_lines.txt. --mem-lines, --brand, --topic, --persona, --out-dir, --top-n. |
 | **phoenix_v4/quality/quality_bundle_builder.py** | ✅ | Build book_quality_bundle: --rendered-text, --compiled-plan; runs heatmap + memorable + marketing, computes CSI, writes schema-validated bundle; exit 0/1/2. |
 | **phoenix_v4/ops/wave_candidates_enricher.py** | ✅ | Enrich wave candidates with quality from book_quality_bundle_*.json. --wave-candidates, --quality-bundles-dir, --out; optional --require-quality-pass, --min-ending-strength, --warn-on-missing. |
-| **phoenix_v4/ops/update_memorable_line_registry.py** | ✅ | Upsert bundle memorable lines into registry. --bundle &lt;path&gt;; appends to memorable_line_registry_v1.jsonl, writes snapshot. Run after quality_bundle_builder. |
+| **phoenix_v4/ops/update_memorable_line_registry.py** | ✅ | Upsert bundle memorable lines into registry. --bundle &lt;path&gt;; appends to memorable_line_registry_v1.jsonl, writes snapshot (only when bundle has tracked good/great lines; else no-op). Emits stdout JSON `{"appended": N}`; callers must use this signal, fail fast if missing. Run after quality_bundle_builder. |
 | **phoenix_v4/ops/check_memorable_line_registry.py** | ✅ | Check wave against registry for violations. --wave &lt;solution.json&gt;; exit 0/1/2; writes memorable_line_registry_violations_*.json. Run before export. |
 | **phoenix_v4/ops/catalog_health_dashboard_builder.py** | ✅ | Aggregate ops artifacts into catalog_health_summary_&lt;date&gt;.json. --ops-dir, --waves-dir, optional --md. |
 | **phoenix_v4/ops/quality_bundle_postprocessor.py** | ✅ | Add duplication_safety to bundle from registry snapshot; recompute CSI with new weight. --bundle, optional --registry-snapshot, --out. |
+| **scripts/run_golden_quality_path.py** | ✅ | End-to-end quality path: quality_bundle_builder → update_memorable_line_registry → wave_candidates_enricher → wave_optimizer_constraint_solver → check_memorable_line_registry. Requires jsonschema; parses updater `{"appended": N}`, fails if signal missing. Run from repo root: `PYTHONPATH=. python scripts/run_golden_quality_path.py`. |
+| **tests/test_quality_regression.py** | ✅ | Regression tests: malformed CANONICAL.txt (parse/lint), missing chapter text in plan (memorable_line_detector), duplicate memorable-line collision (check_violations per_wave). |
 
 ---
 

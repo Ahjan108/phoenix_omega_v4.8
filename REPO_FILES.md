@@ -40,7 +40,7 @@ V4 topic and engine configuration at repo root. Used by bindings/skins and pipel
 
 **config/teachers/** — Teacher Mode V4: teacher_registry.yaml (one entry per teacher; allowed_topics, allowed_engines, teacher_mode_defaults). See specs/TEACHER_MODE_V4_CANONICAL_SPEC.md and config/teachers/README.md.
 
-**SOURCE_OF_TRUTH/teacher_banks/** — Per-teacher raw, kb, doctrine, candidate_atoms, approved_atoms (Teacher Mode V4). **ahjan:** intake from intake_teacher/; run `scripts/intake_teacher_ahjan.py` and `tools/teacher_mining/build_kb.py --teacher ahjan`. **tools/teacher_mining/gap_fill.py** — Gap-fill from gaps JSON (report_teacher_gaps); optional **--kb-dir** for KB-driven candidate body (index.json documents[].text or *.txt); body prefixed with [KB draft — review and edit before approval]; report includes kb_driven, kb_docs_used.
+**SOURCE_OF_TRUTH/teacher_banks/** — Per-teacher raw, kb, doctrine, candidate_atoms, approved_atoms (Teacher Mode V4). **ahjan:** source materials in `teachers/ahjan/` (intake in `teachers/ahjan/intake/`); run `scripts/intake_teacher_ahjan.py` and `tools/teacher_mining/build_kb.py --teacher ahjan`. **tools/teacher_mining/gap_fill.py** — Gap-fill from gaps JSON (report_teacher_gaps); optional **--kb-dir** for KB-driven candidate body (index.json documents[].text or *.txt); body prefixed with [KB draft — review and edit before approval]; report includes kb_driven, kb_docs_used.
 
 **SOURCE_OF_TRUTH/exercises_v4/** — V4 somatic exercise registry: registry.yaml (11 types, slot_07_practice, selection rules), candidate/_stubs/ (minimal stubs per type), approved/ (runtime source). See SOURCE_OF_TRUTH/exercises_v4/README.md and exercise_yaml_helper.txt.
 

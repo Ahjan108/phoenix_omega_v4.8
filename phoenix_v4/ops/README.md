@@ -204,6 +204,8 @@ Tracks extracted “strong” memorable lines (good/great) across the catalog to
 **Snapshot:** `artifacts/ops/memorable_line_registry_snapshot_v1.json` (compacted state).  
 **Config:** `config/quality/memorable_line_registry_policy.yaml` — `max_occurrences_global`, `max_occurrences_per_brand`, `max_occurrences_per_wave`, `strength_levels_tracked`, `block_on_violation`.
 
+**Registry artifacts (JSONL and snapshot) are written only when the bundle has at least one tracked memorable line (good/great).** Otherwise the updater no-ops and does not write. **Structured signal:** The updater always prints one JSON line on stdout: `{"appended": N}` (N = lines appended; 0 when no-op). Callers must use this signal; if missing, fail fast (contract break). **Golden path:** `scripts/run_golden_quality_path.py` runs bundle → update_registry → enricher → solver → check_registry; requires jsonschema; fails if `{"appended": N}` not found.
+
 **Pipeline hooks:**
 
 1. **After** `quality_bundle_builder.py` writes a bundle:

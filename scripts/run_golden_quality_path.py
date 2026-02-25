@@ -87,7 +87,21 @@ def main() -> int:
         print(f"FAIL update_memorable_line_registry: {r_registry.stderr or r_registry.stdout or 'non-zero exit'}", file=sys.stderr)
         return 1
     print("OK   update_memorable_line_registry")
-    registry_unchanged = "No tracked memorable lines" in (r_registry.stdout or "")
+    appended = None
+    for line in (r_registry.stdout or "").strip().splitlines():
+        line = line.strip()
+        if line.startswith("{"):
+            try:
+                sig = json.loads(line)
+                if "appended" in sig:
+                    appended = int(sig["appended"])
+                    break
+            except (json.JSONDecodeError, TypeError, ValueError):
+                pass
+    if appended is None:
+        print("FAIL update_memorable_line_registry: no JSON signal {\"appended\": N} in stdout; contract broken.", file=sys.stderr)
+        return 1
+    registry_unchanged = appended == 0
     if registry_unchanged:
         print("     (no tracked lines; registry unchanged)")
 

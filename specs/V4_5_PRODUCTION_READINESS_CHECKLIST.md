@@ -242,7 +242,7 @@ Run: `PYTHONPATH=. python3 phoenix_v4/qa/validate_freebie_density.py --index art
 
 **If jsonschema is missing or ops validation is skipped → Not ready.**
 
-*Ref:* [scripts/ci/README.md](../scripts/ci/README.md); `scripts/run_production_readiness_gates.py` (Gate 17, 17b); `scripts/ci/validate_ops_artifacts.py`.
+*Ref:* [scripts/ci/README.md](../scripts/ci/README.md); `scripts/run_production_readiness_gates.py` (Gate 17, 17b); `scripts/ci/validate_ops_artifacts.py`. **Regression tests** for quality/registry: `tests/test_quality_regression.py` (malformed CANONICAL, missing chapter text, duplicate memorable-line collision).
 
 ---
 

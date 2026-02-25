@@ -2,7 +2,7 @@
 """
 One-shot intake: Ahjan (teacher_id=ahjan) into Teacher Mode V4.
 - Ensures SOURCE_OF_TRUTH/teacher_banks/ahjan/ structure
-- Copies raw from intake_teacher/ if not already present
+- Copies raw from teachers/ahjan/intake/ if not already present
 - Builds KB (tools/teacher_mining/build_kb.py)
 Teacher is canonical name "Ahjan"; sources may say "Samvara" or "BD" — same teacher.
 """
@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-INTAKE_SOURCE = REPO_ROOT / "intake_teacher"
+INTAKE_SOURCE = REPO_ROOT / "teachers" / "ahjan" / "intake"
 TEACHER_ID = "ahjan"
 BANKS = REPO_ROOT / "SOURCE_OF_TRUTH" / "teacher_banks" / TEACHER_ID
 
@@ -31,7 +31,7 @@ def main() -> int:
     for sub in ("mining_runs", "gap_reports", "approval_logs"):
         (BANKS / "artifacts" / sub).mkdir(parents=True, exist_ok=True)
 
-    # 2. Copy raw from intake_teacher if we have source and raw is empty or missing files
+    # 2. Copy raw from teachers/ahjan/intake if we have source and raw is empty or missing files
     if INTAKE_SOURCE.exists():
         for f in INTAKE_SOURCE.glob("*.rtf"):
             dest = raw_dir / f.name
@@ -39,7 +39,7 @@ def main() -> int:
                 shutil.copy2(f, dest)
                 print(f"Copied raw: {f.name}")
     else:
-        print("Note: intake_teacher/ not found; using existing raw/ only.")
+        print("Note: teachers/ahjan/intake/ not found; using existing raw/ only.")
 
     # 3. Build KB
     result = subprocess.run(
