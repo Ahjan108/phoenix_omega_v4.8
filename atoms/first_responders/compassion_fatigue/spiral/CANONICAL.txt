@@ -1,0 +1,222 @@
+# first_responders × compassion_fatigue × spiral
+# 20 atoms: 5 recognition, 5 mechanism_proof, 5 turning_point, 5 embodiment
+
+## RECOGNITION v01
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/recognition/micro/v01.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+Marcus second-guesses a call. What if I missed something because I wasn't fully present? The spiral launches. What if I missed something critical? What if someone died because I was fatigued? The spiral is feeding on the fatigue and the guilt. His mind is running catastrophe scenarios.
+
+## RECOGNITION v02
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/recognition/micro/v02.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: social
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+Sofia checks and rechecks her documentation. What if I missed something? The spiral is feeding on fatigue. What if my fatigue caused someone harm? Her mind is spiraling into catastrophe. The fatigue is creating doubt. The doubt is creating the spiral.
+
+## RECOGNITION v03
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/recognition/micro/v03.txt
+BAND: 4
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Jake is spiraling about patient safety. Did I miss something? The fatigue is creating paranoia about his own competence. The spiral is feeding on itself.
+
+## RECOGNITION v04
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/recognition/micro/v04.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: social
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+Brianna is spiraling about fitness for duty. Should I even be doing this job if I'm this fatigued? The spiral is feeding. The fatigue is creating the spiral.
+
+## RECOGNITION v05
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/recognition/micro/v05.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+Heather is spiraling about leadership. If I'm fatigued, is the unit getting my best leadership? The spiral is feeding on doubt.
+
+## MECHANISM_PROOF v01
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/mechanism_proof/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 4
+IDENTITY_STAGE: destabilization
+---
+Marcus's spiral has been running for days. He's checking and rechecking calls. He's looking for evidence of his own failure. The spiral is consuming him because the fatigue is real and the guilt is feeding the spiral.
+
+## MECHANISM_PROOF v02
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/mechanism_proof/micro/v02.txt
+BAND: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: social
+COST_INTENSITY: 4
+IDENTITY_STAGE: destabilization
+---
+Sofia is unable to work because the spiral is running constantly. She's spiraling about patient harm and her own fatigue. The spiral is consuming her ability to function.
+
+## MECHANISM_PROOF v03
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/mechanism_proof/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 4
+IDENTITY_STAGE: destabilization
+---
+Jake can't trust himself anymore. The spiral has convinced him he's a danger. The fatigue and the spiral are creating a perfect storm.
+
+## MECHANISM_PROOF v04
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/mechanism_proof/micro/v04.txt
+BAND: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 4
+IDENTITY_STAGE: destabilization
+---
+Brianna is considering quitting. The spiral has convinced her she shouldn't be doing this job. The fatigue is creating the spiral and the spiral is amplifying the fatigue.
+
+## MECHANISM_PROOF v05
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/mechanism_proof/micro/v05.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: social
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+Heather is withdrawing from leadership. The spiral has convinced her the unit would be better without her. The fatigue is feeding the spiral that feeds the fatigue.
+
+## TURNING_POINT v01
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/turning_point/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
+COST_INTENSITY: 4
+IDENTITY_STAGE: experimentation
+---
+Marcus realizes: the spiral is about fatigue, not reality. He took the calls. Nothing bad happened. The spiral was fiction. Rest breaks the spiral.
+
+## TURNING_POINT v02
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/turning_point/micro/v02.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: social
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Sofia stops checking. By not feeding the spiral, it starts to break. The fatigue is still there. But the spiral is quieter.
+
+## TURNING_POINT v03
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/turning_point/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Jake brings evidence from reality: the calls worked out fine. The spiral stops when he checks the actual outcome instead of the catastrophic scenario.
+
+## TURNING_POINT v04
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/turning_point/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Brianna takes a day off. The spiral can't continue when she's rested. The spiral was feeding on fatigue.
+
+## TURNING_POINT v05
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/turning_point/micro/v05.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: social
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Heather rests. The spiral about leadership dissolves when she's no longer exhausted.
+
+## EMBODIMENT v01
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/embodiment/micro/v01.txt
+BAND: 1
+MECHANISM_DEPTH: 4
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: self_claim
+---
+Marcus knows the spiral now. When it starts, he brings evidence. The spiral is smaller.
+
+## EMBODIMENT v02
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/embodiment/micro/v02.txt
+BAND: 2
+MECHANISM_DEPTH: 4
+COST_TYPE: social
+COST_INTENSITY: 2
+IDENTITY_STAGE: self_claim
+---
+Sofia rests and the spiral quiets. She's managing the balance.
+
+## EMBODIMENT v03
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/embodiment/micro/v03.txt
+BAND: 2
+MECHANISM_DEPTH: 4
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: self_claim
+---
+Jake trusts himself again. The spiral is manageable when he rests.
+
+## EMBODIMENT v04
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/embodiment/micro/v04.txt
+BAND: 1
+MECHANISM_DEPTH: 4
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: self_claim
+---
+Brianna stays in the job. The spiral is smaller when she manages fatigue.
+
+## EMBODIMENT v05
+---
+path: story_atoms/first_responders/anchored/compassion_fatigue/spiral/embodiment/micro/v05.txt
+BAND: 2
+MECHANISM_DEPTH: 4
+COST_TYPE: social
+COST_INTENSITY: 2
+IDENTITY_STAGE: self_claim
+---
+Heather leads confidently again. The spiral is gone when she's rested.
