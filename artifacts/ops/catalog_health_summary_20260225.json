@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-02-25T055457Z",
+  "quality": {
+    "mean_csi_per_brand": {
+      "unknown": 32.8
+    },
+    "mean_csi_per_persona": {
+      "unknown": 32.8
+    },
+    "mean_csi_per_topic": {
+      "unknown": 32.8
+    },
+    "pass_count": 0,
+    "warn_count": 0,
+    "fail_count": 1,
+    "ending_strength_distribution": {
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0
+    },
+    "low_ending_ratio_per_wave": {}
+  },
+  "duplication_risk": {
+    "memorable_line_collision_count": 0,
+    "top_repeated_great_lines": [],
+    "wave_collision_hotspots": []
+  },
+  "coverage": {
+    "tuple_risk_trend": "",
+    "deficits_by_code_delta": {}
+  },
+  "release_readiness": {
+    "candidates_blocked_by_quality": 0,
+    "infeasible_waves_due_to_quality": 0
+  }
+}

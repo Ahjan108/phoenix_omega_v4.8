@@ -26,6 +26,47 @@ ops_schema_registry:
     schema_path: "schemas/book_quality_summary_v1.schema.json"
     artifact_pattern: "book_quality_summary_*.json"
 
+  story_atom_lint_summary:
+    current_version: "1.0"
+    schema_path: "schemas/story_atom_lint_v1.schema.json"
+    artifact_pattern: "story_atom_lint_summary_*.json"
+
+  book_transformation_summary:
+    current_version: "1.0"
+    schema_path: "schemas/book_transformation_summary_v1.schema.json"
+    artifact_pattern: "book_transformation_summary_*.json"
+
+  memorable_line_summary:
+    current_version: "1.0"
+    schema_path: "schemas/memorable_line_summary_v1.schema.json"
+    artifact_pattern: "memorable_line_summary_*.json"
+
+  book_quality_bundle:
+    current_version: "1.0"
+    schema_path: "schemas/book_quality_bundle_v1.schema.json"
+    artifact_pattern: "book_quality_bundle_*.json"
+
+  wave_candidates_enriched:
+    current_version: "1.0"
+    schema_path: "schemas/wave_candidates_enriched_v1.schema.json"
+    artifact_pattern: "*_candidates_enriched.json"
+    artifact_subdir: "waves"
+
+  memorable_line_registry_snapshot:
+    current_version: "1.0"
+    schema_path: "schemas/memorable_line_registry_snapshot_v1.schema.json"
+    artifact_pattern: "memorable_line_registry_snapshot_v1.json"
+
+  memorable_line_registry_violations:
+    current_version: "1.0"
+    schema_path: "schemas/memorable_line_registry_violations_v1.schema.json"
+    artifact_pattern: "memorable_line_registry_violations_*.json"
+
+  catalog_health_summary:
+    current_version: "1.0"
+    schema_path: "schemas/catalog_health_summary_v1.schema.json"
+    artifact_pattern: "catalog_health_summary_*.json"
+
   # Placeholders for future schemas (add schema_path when created)
   # coverage_health_weekly:
   #   current_version: "1.1"

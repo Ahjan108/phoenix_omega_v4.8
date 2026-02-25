@@ -26,6 +26,11 @@ try:
 except ImportError:
     yaml = None
 
+from phoenix_v4.ops.quality_objective import (
+    normalize_quality,
+    compute_wave_quality_stats,
+)
+
 
 def _load_yaml(p: Path) -> dict:
     if not p.exists() or yaml is None:
@@ -155,6 +160,33 @@ def solve(
         if not cid:
             continue
         eligible.append(c)
+
+    # Quality constraints (from book_quality_bundle / wave_candidates_enricher)
+    q_constraints = (wo.get("constraints") or {})
+    if q_constraints.get("exclude_quality_fail") or q_constraints.get("min_ending_strength") is not None or q_constraints.get("min_csi_score") is not None or q_constraints.get("exclude_quality_missing"):
+        quality_filtered = []
+        for c in eligible:
+            q = c.get("quality") or {}
+            status = (q.get("status") or "missing").lower()
+            if q_constraints.get("exclude_quality_fail") and status == "fail":
+                exclusion_breakdown["filtered_fail"] += 1
+                continue
+            if q_constraints.get("exclude_quality_missing") and (status == "missing" or not q):
+                exclusion_breakdown["filtered_missing"] += 1
+                continue
+            ending = q.get("ending_strength")
+            if ending is not None and q_constraints.get("min_ending_strength") is not None:
+                if float(ending) < float(q_constraints["min_ending_strength"]):
+                    exclusion_breakdown["filtered_ending"] += 1
+                    continue
+            csi = q.get("csi_score")
+            if csi is not None and q_constraints.get("min_csi_score") is not None:
+                if float(csi) < float(q_constraints["min_csi_score"]):
+                    exclusion_breakdown["filtered_csi"] += 1
+                    continue
+            quality_filtered.append(c)
+        eligible = quality_filtered
+
     eligible.sort(key=_sort_key)
 
     if len(eligible) < target_size:
@@ -252,8 +284,8 @@ def solve(
         if str(c.get("brand_id")) in drift_critical_brands and c.get("is_new_arc"):
             brand_new_arc_count[str(c.get("brand_id"))] -= 1
 
-    def score(c: dict, selected_ids: set[str]) -> int:
-        """Higher = better. Deterministic."""
+    def score(c: dict, selected_ids: set[str]) -> float:
+        """Higher = better. Deterministic. Returns float to allow quality fractional terms."""
         s = 0
         vol = float(c.get("volatility") or 0)
         if vol >= vol_high:
@@ -277,7 +309,14 @@ def solve(
             s += int(obj_cfg.get("band_diversity", 15))
         if (c.get("risk") or "GREEN").upper() == "YELLOW":
             s -= int(obj_cfg.get("yellow_risk_penalty", 5))
-        return max(0, s)
+        # Quality objective terms (scaled so they don't dominate integer diversity)
+        w_csi = float(obj_cfg.get("quality_csi", 0))
+        w_end = float(obj_cfg.get("quality_ending", 0))
+        if w_csi > 0 or w_end > 0:
+            qn = normalize_quality(c)
+            s += w_csi * 100 * (qn["csi_score"] / 100.0)
+            s += w_end * 100 * (qn["ending_strength"] / 100.0)
+        return max(0.0, s)
 
     selected_ids = set()
     remaining = list(eligible)
@@ -351,7 +390,16 @@ def run(
             ],
         }
     selected_ids = [c.get("candidate_id") for c in selected]
-    return {
+    quality_summary = None
+    if selected:
+        stats = compute_wave_quality_stats(selected)
+        quality_summary = {
+            "mean_csi": round(stats["mean_csi"], 2),
+            "mean_ending_strength": round(stats["mean_ending_strength"], 2),
+            "bucket_coverage": round(stats["bucket_coverage"], 2),
+            "low_ending_ratio": round(stats["low_ending_ratio"], 2),
+        }
+    result = {
         "schema_version": "1.0",
         "status": status,
         "wave_id": wave_id,
@@ -364,6 +412,9 @@ def run(
         "constraint_satisfaction": "all hard constraints satisfied",
         "determinism_note": "Same inputs + config yield identical selection.",
     }
+    if quality_summary is not None:
+        result["quality_summary"] = quality_summary
+    return result
 
 
 def main() -> int:
@@ -418,6 +469,26 @@ def main() -> int:
         lines.append(f"- {cid}")
     if len(result.get("selected") or []) > 50:
         lines.append(f"- ... and {len(result['selected']) - 50} more")
+    qs = result.get("quality_summary")
+    if qs:
+        lines.extend([
+            "",
+            "## Quality summary",
+            "",
+            f"- Mean CSI: {qs.get('mean_csi')}  Mean ending strength: {qs.get('mean_ending_strength')}",
+            f"- Bucket coverage: {qs.get('bucket_coverage')}  Low ending ratio: {qs.get('low_ending_ratio')}",
+        ])
+        items = result.get("selected_items") or []
+        by_csi = sorted([c for c in items if (c.get("quality") or {}).get("csi_score") is not None], key=lambda c: float((c.get("quality") or {}).get("csi_score", 0)), reverse=True)
+        by_end = sorted([c for c in items if (c.get("quality") or {}).get("ending_strength") is not None], key=lambda c: float((c.get("quality") or {}).get("ending_strength", 0)))
+        if by_csi:
+            lines.extend(["", "### Top 5 by CSI", ""])
+            for c in by_csi[:5]:
+                lines.append(f"- {c.get('candidate_id')}: {c.get('quality', {}).get('csi_score')}")
+        if by_end:
+            lines.extend(["", "### Bottom 5 by ending strength", ""])
+            for c in by_end[:5]:
+                lines.append(f"- {c.get('candidate_id')}: {c.get('quality', {}).get('ending_strength')}")
     lines.append("")
     lines.append("See JSON for full selected_items and constraint_satisfaction.")
     md_path.write_text("\n".join(lines))

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "wave_candidates_enriched_v1.schema.json",
+  "title": "WaveCandidatesEnrichedV1",
+  "description": "Wave candidate list augmented with quality metrics from book_quality_bundle. Ensures Wave Optimizer receives enriched structure only.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["candidates"],
+  "properties": {
+    "candidates": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/EnrichedCandidate" }
+    }
+  },
+  "$defs": {
+    "EnrichedCandidate": {
+      "type": "object",
+      "description": "Candidate with optional quality block from wave_candidates_enricher",
+      "required": ["book_id"],
+      "properties": {
+        "book_id": { "type": "string" },
+        "arc_id": { "type": "string" },
+        "teacher_id": { "type": "string" },
+        "persona_id": { "type": "string" },
+        "topic_id": { "type": "string" },
+        "candidate_id": { "type": "string" },
+        "quality": { "$ref": "#/$defs/QualityBlock" }
+      }
+    },
+    "QualityBlock": {
+      "type": "object",
+      "description": "Injected by wave_candidates_enricher from book_quality_bundle",
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pass", "warn", "fail", "missing"]
+        },
+        "csi_score": { "type": "number", "minimum": 0, "maximum": 100 },
+        "csi_band": { "type": "string", "enum": ["A", "B", "C", "D", "F"] },
+        "ending_strength": { "type": "number", "minimum": 0, "maximum": 100 },
+        "transformation": { "type": "number", "minimum": 0, "maximum": 100 },
+        "memorable_lines": { "type": "number", "minimum": 0, "maximum": 100 },
+        "quote_density": { "type": "number", "minimum": 0, "maximum": 100 },
+        "cta_fitness": { "type": "number", "minimum": 0, "maximum": 100 },
+        "line_type_buckets": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 },
+          "description": "e.g. identity, reframe, relief, directive"
+        }
+      }
+    }
+  }
+}

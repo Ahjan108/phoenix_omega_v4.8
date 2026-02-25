@@ -87,28 +87,31 @@ def main() -> int:
         return 1
 
     ops_dir = REPO_ROOT / "artifacts" / "ops"
-    if not ops_dir.exists():
-        print("No artifacts/ops directory; skipping validation.")
+    waves_dir = REPO_ROOT / "artifacts" / "waves"
+    dirs_to_scan = [d for d in [ops_dir, waves_dir] if d.exists()]
+    if not dirs_to_scan:
+        print("No artifacts/ops or artifacts/waves directory; skipping validation.")
         return 0
 
     failed = []
     validated = 0
-    for json_path in ops_dir.rglob("*.json"):
-        artifact_type = detect_artifact_type(json_path, registry)
-        if not artifact_type:
-            continue
-        entry = registry.get(artifact_type)
-        if not isinstance(entry, dict):
-            continue
-        schema_rel = entry.get("schema_path")
-        if not schema_rel:
-            continue
-        schema_path = REPO_ROOT / schema_rel
-        errs = validate_file(json_path, schema_path, validator_cls)
-        if errs:
-            failed.append((json_path, errs))
-        else:
-            validated += 1
+    for dir_path in dirs_to_scan:
+        for json_path in dir_path.rglob("*.json"):
+            artifact_type = detect_artifact_type(json_path, registry)
+            if not artifact_type:
+                continue
+            entry = registry.get(artifact_type)
+            if not isinstance(entry, dict):
+                continue
+            schema_rel = entry.get("schema_path")
+            if not schema_rel:
+                continue
+            schema_path = REPO_ROOT / schema_rel
+            errs = validate_file(json_path, schema_path, validator_cls)
+            if errs:
+                failed.append((json_path, errs))
+            else:
+                validated += 1
 
     if failed:
         print("SCHEMA VALIDATION FAILED", file=sys.stderr)

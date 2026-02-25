@@ -1,0 +1,192 @@
+{
+  "schema_version": "1.0",
+  "tool": "story_atom_lint",
+  "entity_type": "atom_file",
+  "entity_id": "/Users/ahjan/phoenix_omega/atoms/nyc_executives/self_worth/shame/CANONICAL.txt",
+  "generated_at": "2026-02-25T053119Z",
+  "status": "fail",
+  "summary": {
+    "total_atoms": 20,
+    "fail_count": 1,
+    "warn_count": 14,
+    "pass_count": 5
+  },
+  "details": [
+    {
+      "atom_id": "nyc_executives_self_worth_shame_RECOGNITION_v01",
+      "band": "1",
+      "status": "warn",
+      "issues": [
+        "NO_COST_SIGNAL",
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_RECOGNITION_v02",
+      "band": "1",
+      "status": "pass",
+      "issues": [
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_RECOGNITION_v03",
+      "band": "1",
+      "status": "warn",
+      "issues": [
+        "NO_INTERNAL_CONFLICT",
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_RECOGNITION_v04",
+      "band": "1",
+      "status": "warn",
+      "issues": [
+        "NO_COST_SIGNAL",
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_RECOGNITION_v05",
+      "band": "1",
+      "status": "warn",
+      "issues": [
+        "NO_COST_SIGNAL",
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_MECHANISM_PROOF_v01",
+      "band": "2",
+      "status": "pass",
+      "issues": [
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_MECHANISM_PROOF_v02",
+      "band": "2",
+      "status": "fail",
+      "issues": [
+        "NO_INTERNAL_CONFLICT",
+        "NO_COST_SIGNAL",
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_MECHANISM_PROOF_v03",
+      "band": "2",
+      "status": "pass",
+      "issues": [
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_MECHANISM_PROOF_v04",
+      "band": "2",
+      "status": "warn",
+      "issues": [
+        "NO_COST_SIGNAL",
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_MECHANISM_PROOF_v05",
+      "band": "2",
+      "status": "warn",
+      "issues": [
+        "NO_COST_SIGNAL",
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_TURNING_POINT_v01",
+      "band": "4",
+      "status": "warn",
+      "issues": [
+        "NO_COST_SIGNAL",
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_TURNING_POINT_v02",
+      "band": "4",
+      "status": "warn",
+      "issues": [
+        "NO_COST_SIGNAL",
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_TURNING_POINT_v03",
+      "band": "4",
+      "status": "warn",
+      "issues": [
+        "NO_COST_SIGNAL",
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_TURNING_POINT_v04",
+      "band": "5",
+      "status": "warn",
+      "issues": [
+        "NO_COST_SIGNAL",
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_TURNING_POINT_v05",
+      "band": "5",
+      "status": "warn",
+      "issues": [
+        "NO_COST_SIGNAL",
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_EMBODIMENT_v01",
+      "band": "3",
+      "status": "pass",
+      "issues": [
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_EMBODIMENT_v02",
+      "band": "3",
+      "status": "warn",
+      "issues": [
+        "NO_COST_SIGNAL",
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_EMBODIMENT_v03",
+      "band": "3",
+      "status": "pass",
+      "issues": [
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_EMBODIMENT_v04",
+      "band": "3",
+      "status": "warn",
+      "issues": [
+        "NO_COST_SIGNAL",
+        "NO_INSIGHT_PIVOT"
+      ]
+    },
+    {
+      "atom_id": "nyc_executives_self_worth_shame_EMBODIMENT_v05",
+      "band": "3",
+      "status": "warn",
+      "issues": [
+        "NO_COST_SIGNAL",
+        "NO_INSIGHT_PIVOT"
+      ]
+    }
+  ]
+}

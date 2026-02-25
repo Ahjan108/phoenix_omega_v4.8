@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "memorable_line_registry_violations_v1.schema.json",
+  "title": "MemorableLineRegistryViolationsV1",
+  "description": "Report of threshold violations from check_memorable_line_registry.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generated_at", "status", "violations", "summary"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "generated_at": { "type": "string", "description": "ISO-8601" },
+    "wave_id": { "type": "string" },
+    "status": { "type": "string", "enum": ["pass", "warn", "fail"] },
+    "violations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Violation" }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["total_violations", "blocking_count", "warning_count"],
+      "properties": {
+        "total_violations": { "type": "integer", "minimum": 0 },
+        "blocking_count": { "type": "integer", "minimum": 0 },
+        "warning_count": { "type": "integer", "minimum": 0 }
+      }
+    }
+  },
+  "$defs": {
+    "Violation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["line_hash", "reason", "severity"],
+      "properties": {
+        "line_hash": { "type": "string" },
+        "normalized_text": { "type": "string" },
+        "reason": { "type": "string" },
+        "severity": { "type": "string", "enum": ["blocking", "warning"] },
+        "book_id": { "type": "string" },
+        "occurrence_count": { "type": "integer" },
+        "max_allowed": { "type": "integer" },
+        "scope": { "type": "string", "enum": ["global", "per_brand", "per_wave"] }
+      }
+    }
+  }
+}

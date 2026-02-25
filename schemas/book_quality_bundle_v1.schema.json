@@ -1,0 +1,208 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "book_quality_bundle_v1.schema.json",
+  "title": "BookQualityBundleV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "bundle_id",
+    "book_id",
+    "plan_id",
+    "arc_id",
+    "generated_at",
+    "inputs",
+    "tool_results",
+    "csi",
+    "status",
+    "warnings",
+    "errors"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "bundle_id": { "type": "string" },
+    "book_id": { "type": "string" },
+    "plan_id": { "type": "string" },
+    "arc_id": { "type": "string" },
+    "teacher_id": { "type": ["string", "null"] },
+    "brand_id": { "type": ["string", "null"] },
+    "persona_id": { "type": ["string", "null"] },
+    "topic_id": { "type": ["string", "null"] },
+    "generated_at": { "type": "string", "description": "ISO-8601 timestamp" },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rendered_text_path"],
+      "properties": {
+        "rendered_text_path": { "type": "string" },
+        "compiled_plan_path": { "type": ["string", "null"] },
+        "atoms_root": { "type": ["string", "null"] }
+      }
+    },
+    "tool_results": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "transformation_heatmap",
+        "memorable_line_detector",
+        "marketing_assets_from_lines"
+      ],
+      "properties": {
+        "transformation_heatmap": { "$ref": "#/$defs/ToolResultTransformation" },
+        "memorable_line_detector": { "$ref": "#/$defs/ToolResultMemorableLines" },
+        "marketing_assets_from_lines": { "$ref": "#/$defs/ToolResultMarketingAssets" }
+      }
+    },
+    "csi": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["score", "band", "components", "weights", "notes"],
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 100 },
+        "band": { "type": "string", "enum": ["A", "B", "C", "D", "F"] },
+        "components": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "transformation",
+            "ending_strength",
+            "memorable_lines",
+            "quote_density",
+            "cta_fitness"
+          ],
+          "properties": {
+            "transformation": { "type": "number", "minimum": 0, "maximum": 100 },
+            "ending_strength": { "type": "number", "minimum": 0, "maximum": 100 },
+            "memorable_lines": { "type": "number", "minimum": 0, "maximum": 100 },
+            "quote_density": { "type": "number", "minimum": 0, "maximum": 100 },
+            "cta_fitness": { "type": "number", "minimum": 0, "maximum": 100 },
+            "duplication_safety": { "type": "number", "minimum": 0, "maximum": 100, "description": "Optional; set by quality_bundle_postprocessor from registry" }
+          }
+        },
+        "weights": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Component weight keys (e.g. transformation, ending_strength)"
+        },
+        "notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "status": { "type": "string", "enum": ["pass", "warn", "fail"] },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "errors": { "type": "array", "items": { "type": "string" } }
+  },
+  "$defs": {
+    "ToolResultTransformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "metrics", "chapter_signals"],
+      "properties": {
+        "status": { "type": "string", "enum": ["pass", "warn", "fail"] },
+        "metrics": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "recognition_count",
+            "reframe_count",
+            "relief_count",
+            "identity_shift_count",
+            "ending_strength_score"
+          ],
+          "properties": {
+            "recognition_count": { "type": "integer", "minimum": 0 },
+            "reframe_count": { "type": "integer", "minimum": 0 },
+            "relief_count": { "type": "integer", "minimum": 0 },
+            "identity_shift_count": { "type": "integer", "minimum": 0 },
+            "ending_strength_score": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        },
+        "chapter_signals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["chapter_index", "signals"],
+            "properties": {
+              "chapter_index": { "type": "integer", "minimum": 0 },
+              "signals": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "recognition": { "type": "integer", "minimum": 0 },
+                  "reframe": { "type": "integer", "minimum": 0 },
+                  "relief": { "type": "integer", "minimum": 0 },
+                  "identity": { "type": "integer", "minimum": 0 }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "ToolResultMemorableLines": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "metrics", "lines"],
+      "properties": {
+        "status": { "type": "string", "enum": ["pass", "warn", "fail"] },
+        "metrics": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "memorable_line_count",
+            "strong_quote_count",
+            "quote_density_per_1k_words"
+          ],
+          "properties": {
+            "memorable_line_count": { "type": "integer", "minimum": 0 },
+            "strong_quote_count": { "type": "integer", "minimum": 0 },
+            "quote_density_per_1k_words": { "type": "number", "minimum": 0 }
+          }
+        },
+        "lines": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["text", "strength", "chapter_index"],
+            "properties": {
+              "text": { "type": "string" },
+              "strength": { "type": "string", "enum": ["ok", "good", "great"] },
+              "chapter_index": { "type": "integer", "minimum": 0 },
+              "tags": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+    "ToolResultMarketingAssets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "assets"],
+      "properties": {
+        "status": { "type": "string", "enum": ["pass", "warn", "fail"] },
+        "assets": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "quotes",
+            "pin_captions",
+            "landing_hooks",
+            "trailer_lines",
+            "email_subjects"
+          ],
+          "properties": {
+            "quotes": { "type": "array", "items": { "type": "string" } },
+            "pin_captions": { "type": "array", "items": { "type": "string" } },
+            "landing_hooks": { "type": "array", "items": { "type": "string" } },
+            "trailer_lines": { "type": "array", "items": { "type": "string" } },
+            "email_subjects": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    }
+  }
+}

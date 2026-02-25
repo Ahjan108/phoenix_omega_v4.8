@@ -156,7 +156,19 @@ Together, these give **structural anti-spam**: we never ship waves of near-ident
 | validate_freebie_density.py | `--index` (or plans-dir) | artifacts/freebies/index.jsonl. |
 | run_production_readiness_gates.py | (none) | Gate 16 runs when freebie index has ≥2 plan rows. |
 
-### 3.4 Thresholds in code (CI / QA)
+### 3.4 Full catalog and standalone quality tools
+
+| Script / module | Notable flags | Default / effect |
+|-----------------|----------------|------------------|
+| **scripts/generate_full_catalog.py** | `--max-books`, `--brand`, `--seed`, `--candidates-dir`, `--skip-wave-selection`, `--wave-size`, `--out-wave`, `--generate-freebies` | Full catalog: portfolio → BookSpec → compile → wave selection. First 10 Books: `--brand <id> --max-books 10 --skip-wave-selection`. |
+| **phoenix_v4/quality/story_atom_lint.py** | `--path`, `--json-out`, `--fail-on` | Lint STORY atoms (specificity, conflict, cost, pivot); PASS/WARN/FAIL. File or directory of .txt/.md. |
+| **phoenix_v4/quality/transformation_heatmap.py** | `--file` or `--plan`, `--json-out`, `--ascii`, `--last-n` | Per-chapter recognition/reframe/challenge/relief/identity_shift; ending strength. |
+| **phoenix_v4/quality/memorable_line_detector.py** | `--file` or `--plan`, `--json-out`, `--min-score`, `--max-lines` | Highlight-density candidates; output includes highlight_density_per_1000_words. |
+| **phoenix_v4/quality/marketing_assets_from_lines.py** | `--mem-lines`, `--brand`, `--topic`, `--persona`, `--out-dir`, `--top-n` | From memorable-line JSON: quotes.csv, pin_captions.txt, landing_page_hooks.txt, trailer_lines.txt, email_subject_lines.txt. |
+
+These quality tools are **standalone** (run manually or in review); not part of CI. See [phoenix_v4/quality/README.md](../phoenix_v4/quality/README.md). Human checkpoint docs: [CREATIVE_QUALITY_VALIDATION_CHECKLIST.md](CREATIVE_QUALITY_VALIDATION_CHECKLIST.md), [FIRST_10_BOOKS_EVALUATION_PROTOCOL.md](FIRST_10_BOOKS_EVALUATION_PROTOCOL.md).
+
+### 3.5 Thresholds in code (CI / QA)
 
 | Source | Knob | Value | Meaning |
 |--------|------|--------|---------|
@@ -182,7 +194,7 @@ Together, these give **structural anti-spam**: we never ship waves of near-ident
 | check_author_positioning.py | somatic_companion command | 0.12 | FAIL if command_language density > 12%. |
 | check_author_positioning.py | high vulnerability narrative | 0.30 | Personal narrative ≤ 30% of chapter. |
 
-### 3.5 Emotional governance (phoenix_v4/qa/emotional_governance_rules.yaml)
+### 3.6 Emotional governance (phoenix_v4/qa/emotional_governance_rules.yaml)
 
 | Layer | Knob | Value | Meaning |
 |-------|------|--------|---------|
@@ -201,7 +213,7 @@ Together, these give **structural anti-spam**: we never ship waves of near-ident
 | catalog | waveform_entropy | min 3 distinct curves in 10-book window | FAIL else. |
 | catalog | reflection_density | max 2 consecutive same tier | FAIL else. |
 
-### 3.6 Config YAML knobs (selection)
+### 3.7 Config YAML knobs (selection)
 
 | File | Knob / area | Purpose |
 |------|----------------|--------|
@@ -221,7 +233,7 @@ Together, these give **structural anti-spam**: we never ship waves of near-ident
 | config/tts/engines.yaml | engines, mapping (freebie_type → engine), voices | TTS for asset pipeline. |
 | config/asset_lifecycle.yaml | regenerate_when (template_modified, tts_engine_upgraded, canonical_topics_changed), auto_prune | When to regenerate or prune assets. |
 
-### 3.7 Teacher Mode knobs
+### 3.8 Teacher Mode knobs
 
 | Where | Knob | Purpose |
 |-------|------|--------|
@@ -236,7 +248,7 @@ Together, these give **structural anti-spam**: we never ship waves of near-ident
 | **SOURCE_OF_TRUTH/teacher_banks/\<teacher_id\>/** | approved_atoms/\<slot_type\>/*.yaml, doctrine/, kb/ | Teacher-scoped atom pools and doctrine; Stage 3 and Stage 6 load from here when teacher_mode. |
 | **CTSS (platform similarity)** | tps weight 0.11 | Teacher presence in fingerprint; same teacher + same arc + same band_seq → high block risk. |
 
-### 3.8 CTSS weights (check_platform_similarity.py)
+### 3.9 CTSS weights (check_platform_similarity.py)
 
 | Component | Weight | Note |
 |-----------|--------|------|
@@ -255,7 +267,7 @@ Together, these give **structural anti-spam**: we never ship waves of near-ident
 
 (Total 1.0; adjust in code if you need to rebalance.)
 
-### 3.9 Systems test
+### 3.10 Systems test
 
 | Flag | Effect |
 |------|--------|

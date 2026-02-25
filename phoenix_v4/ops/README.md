@@ -196,6 +196,51 @@ All ops JSON artifacts are contract-bound to a JSON Schema. **Registry:** `confi
 
 Schema changes require a version bump, registry update, and entry in [docs/SCHEMA_CHANGELOG.md](../../docs/SCHEMA_CHANGELOG.md).
 
+## Memorable Line Registry (cross-catalog duplication guard)
+
+Tracks extracted “strong” memorable lines (good/great) across the catalog to avoid duplication risk from quality optimization.
+
+**Canonical:** `artifacts/ops/memorable_line_registry_v1.jsonl` (append-only events).  
+**Snapshot:** `artifacts/ops/memorable_line_registry_snapshot_v1.json` (compacted state).  
+**Config:** `config/quality/memorable_line_registry_policy.yaml` — `max_occurrences_global`, `max_occurrences_per_brand`, `max_occurrences_per_wave`, `strength_levels_tracked`, `block_on_violation`.
+
+**Pipeline hooks:**
+
+1. **After** `quality_bundle_builder.py` writes a bundle:
+   ```bash
+   PYTHONPATH=. python3 -m phoenix_v4.ops.update_memorable_line_registry --bundle artifacts/ops/book_quality_bundle_<book_id>_<date>.json
+   ```
+2. **Before** export (e.g. Gate #49 / pre_export_check):
+   ```bash
+   PYTHONPATH=. python3 -m phoenix_v4.ops.check_memorable_line_registry --wave artifacts/ops/wave_optimizer/wave_optimizer_solution_<wave_id>.json
+   ```
+
+**Exit:** `update_*` → 0; `check_*` → 0 pass, 1 fail (blocking), 2 warn.  
+**Violation report:** `artifacts/ops/memorable_line_registry_violations_<YYYYMMDD>.json`.  
+**Schemas:** `schemas/memorable_line_registry_snapshot_v1.schema.json`, `schemas/memorable_line_registry_violations_v1.schema.json`.
+
+## Catalog Health Dashboard
+
+Operator-facing summary from validated ops artifacts: quality (CSI, pass/warn/fail, ending strength), duplication risk (collision counts), coverage, release readiness.
+
+**Builder:** `phoenix_v4/ops/catalog_health_dashboard_builder.py`  
+**Outputs:** `artifacts/ops/catalog_health_summary_<YYYYMMDD>.json` (and optional `--md`).  
+**Schema:** `schemas/catalog_health_summary_v1.schema.json`.
+
+```bash
+PYTHONPATH=. python3 -m phoenix_v4.ops.catalog_health_dashboard_builder --ops-dir artifacts/ops --waves-dir artifacts/waves --md
+```
+
+## Quality bundle postprocessor (duplication-safe CSI)
+
+Adds `duplication_safety` (0–100) to an existing `book_quality_bundle` using the registry snapshot; recomputes CSI with weight 0.10 for duplication_safety. Run after registry update when snapshot exists.
+
+```bash
+PYTHONPATH=. python3 -m phoenix_v4.ops.quality_bundle_postprocessor --bundle artifacts/ops/book_quality_bundle_<book_id>_<date>.json [--registry-snapshot path] [--out path]
+```
+
+---
+
 ## Creative Quality Gate v1 (post-compile)
 
 Read-only gate on **compiled book** prose (after Stage 3 compile; before release-wave). Increases probability of emotional impact via deterministic heuristics only (no LLM).

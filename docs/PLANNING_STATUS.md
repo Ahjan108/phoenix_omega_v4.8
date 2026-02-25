@@ -54,6 +54,7 @@
 | **docs/HIGH_IMPACT_STORY_ATOM_UPGRADE_RUBRIC.md** | **Active** | Upstream: STORY atom rubric (specificity, cost, conflict, insight pivot, echo). Pass/fail if lacks 2 of 5; highest ROI. |
 | **docs/NARRATIVE_TENSION_VALIDATOR.md** | **Active** | Upstream: tension slope (rise/break/resolve vs oscillate/plateau); chapter-level tension questions; “where does rupture happen?” |
 | **docs/INSIGHT_DENSITY_ANALYZER.md** | **Active** | Upstream: insight density = reframes per 1k words; target 1 per 800–1,200 words; what counts vs encouragement/affirmation. |
+| **phoenix_v4/quality/** | **Active** | Standalone creative QA (no CI): **story_atom_lint.py**, **transformation_heatmap.py**, **memorable_line_detector.py**, **marketing_assets_from_lines.py** (quotes, pin captions, landing hooks, trailer lines, email subjects). See phoenix_v4/quality/README.md. |
 | **docs/SCHEMA_CHANGELOG.md** | **Active** | Ops and wave JSON schema version history; migration notes; required on any schema change. |
 | **config/ops_schema_registry.yaml** | **Active** | Ops artifact type → schema_path, artifact_pattern, current_version; used by scripts/ci/validate_ops_artifacts.py. |
 | **config/wave_optimizer_blocking_codes.yaml** | **Active** | Canonical wave optimizer blocking reason codes and Slack/Jira routing; machine-parseable. |

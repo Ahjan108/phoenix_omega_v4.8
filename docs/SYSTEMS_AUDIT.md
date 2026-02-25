@@ -36,6 +36,7 @@
 | **validate_engine_resolution** | ✅ | Arc engine vs engine definition. |
 | **Freebie generation** | ✅ | When --out and not --no-generate-freebies; writes plan and can generate freebie HTML under artifacts/freebies/. |
 | **Stage 6 (book renderer)** | ✅ | When --render-book; phoenix_v4/rendering (prose_resolver, book_renderer) writes artifacts/rendered/\<plan_id\>/book.txt. |
+| **scripts/generate_full_catalog.py** | ✅ | Full catalog orchestrator: portfolio → BookSpec → compile → wave selection. --path (story dir), --brand, --max-books, --skip-wave-selection, --candidates-dir, --out-wave. First 10 Books: --brand \<id\> --max-books 10 --skip-wave-selection. |
 
 ---
 
@@ -76,6 +77,10 @@
 | **scripts/render_plan_to_txt.py** | ✅ | QA: render plan JSON → .txt using Stage 6 (phoenix_v4.rendering); --allow-placeholders, --on-missing, --atoms-root. |
 | **phoenix_v4/planning/coverage_checker.py** | ✅ | capability_check over persona×topic; used in production gate 2b. |
 | **phoenix_v4/planning/format_selector.py** | ✅ | FormatSelector; has `main()` for standalone use. |
+| **phoenix_v4/quality/story_atom_lint.py** | ✅ | Deterministic STORY atom lint (specificity, conflict, cost, pivot). --path (file or dir), --json-out, --fail-on. Run: `python -m phoenix_v4.quality.story_atom_lint`. |
+| **phoenix_v4/quality/transformation_heatmap.py** | ✅ | Per-chapter transformation signals (recognition, reframe, challenge, relief, identity_shift); ending strength. --file or --plan, --json-out, --ascii, --last-n. |
+| **phoenix_v4/quality/memorable_line_detector.py** | ✅ | Highlight-density candidates from compiled book. --file or --plan, --json-out, --min-score, --max-lines. |
+| **phoenix_v4/quality/marketing_assets_from_lines.py** | ✅ | From memorable-line JSON: quotes.csv, pin_captions.txt, landing_page_hooks.txt, trailer_lines.txt, email_subject_lines.txt. --mem-lines, --brand, --topic, --persona, --out-dir, --top-n. |
 
 ---
 

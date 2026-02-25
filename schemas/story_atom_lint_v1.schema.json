@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "StoryAtomLintSummary",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "tool",
+    "entity_type",
+    "entity_id",
+    "generated_at",
+    "status",
+    "summary",
+    "details"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "string" },
+    "tool": { "const": "story_atom_lint" },
+    "entity_type": { "const": "atom_file" },
+    "entity_id": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "status": { "enum": ["pass", "warn", "fail"] },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["total_atoms", "fail_count", "warn_count", "pass_count"],
+      "properties": {
+        "total_atoms": { "type": "integer", "minimum": 0 },
+        "fail_count": { "type": "integer", "minimum": 0 },
+        "warn_count": { "type": "integer", "minimum": 0 },
+        "pass_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "details": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["atom_id", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "atom_id": { "type": "string" },
+          "band": { "type": "string" },
+          "status": { "enum": ["pass", "warn", "fail"] },
+          "issues": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}
