@@ -1,0 +1,30 @@
+# Phase 11 — Brand Identity Stability Index (BISI)
+# Tracks structural drift of a single brand over time (current vs previous window).
+# Ensures brand personality and emotional signature stay within intended bounds.
+
+brand_identity_stability:
+  window_days: 90
+
+  thresholds:
+    warn_above: 0.18   # drift_score > 0.18 → noticeable structural shift
+    fail_above: 0.25   # drift_score > 0.25 → identity instability (optional FAIL)
+
+  minimum_books_per_brand: 20   # require this many releases in BOTH windows to evaluate
+
+  weights:
+    arc: 0.30
+    slot: 0.20
+    band: 0.20
+    engine: 0.15
+    volatility: 0.15
+
+  recommendations:
+    BRAND_IDENTITY_DRIFT_HIGH: |
+      Stabilize brand structural profile.
+      Rebalance arc distribution toward previous window proportions.
+      Avoid introducing new engine or slot structures in next release cycle.
+      Do not reopen content unless coverage deficits exist.
+    BRAND_IDENTITY_DRIFT_CRITICAL: |
+      Pause new structural experimentation for this brand.
+      Freeze arc diversity expansion for 1 cycle.
+      Restore previous dominant structural mix before resuming expansion.

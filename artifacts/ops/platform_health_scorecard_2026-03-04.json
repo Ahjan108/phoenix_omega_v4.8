@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "generated_at_utc": "2026-02-25T02:38:03Z",
+  "report_date": "2026-03-04",
+  "components": {
+    "coverage_health_score": 0.2903,
+    "emotional_distribution_score": 0.0,
+    "cross_brand_divergence_score": 0.5,
+    "brand_identity_stability_score": 0.5
+  },
+  "composite_score": 0.3016,
+  "tier": "CRITICAL",
+  "sources_loaded": {
+    "coverage_health": true,
+    "catalog_emotional_distribution": true,
+    "cross_brand_divergence": true,
+    "brand_identity_stability": true
+  },
+  "alerts_summary": {
+    "coverage_alerts": 17,
+    "entropy_alerts": 3,
+    "divergence_alerts": 0,
+    "identity_alerts": 0
+  }
+}

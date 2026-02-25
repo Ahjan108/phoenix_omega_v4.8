@@ -1,0 +1,31 @@
+# Creative Quality Gate v1 — Post-compile, read-only, deterministic heuristics.
+# Runs after Stage 3 compile, before release-wave gating.
+# Authority: CREATIVE_QUALITY_GATE_V1.md
+
+creative_quality_v1:
+  transformation:
+    min_transformative_chapter_share: 0.60
+
+  arc_motion:
+    min_distinct_bands: 3
+    require_rise: true
+    require_fall: true
+    warn_flat_segments_over: 2
+
+  specificity:
+    warn_abstract_dominant_share: 0.50
+    fail_abstract_dominant_share: 0.70
+
+  ending_strength:
+    last_n_chapters: 2
+    require_compression: true
+    require_identity: true
+    require_action: true
+
+  lexical_rhythm:
+    warn_sentence_len_std_below: 4.0
+    fail_sentence_len_std_below: 2.5
+
+  parsing:
+    sentence_split: "regex"
+    min_sentence_chars: 6

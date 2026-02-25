@@ -2,7 +2,7 @@
 
 **Purpose:** Single canonical description of the whole V4 system.  
 **Audience:** Engineers, QA, content governance, release.  
-**Last updated:** 2026-02-23  
+**Last updated:** 2026-02-25  
 **Authority:** This doc is the one systems-level overview; architecture authority remains [specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md](../specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md).
 
 **What’s still to do to finish the whole system:** [§ Remaining to finish](#remaining-to-finish-whole-system) below and [docs/PLANNING_STATUS.md](./PLANNING_STATUS.md).
@@ -121,6 +121,8 @@ Every compile requires an **arc file**. No arc = no compile.
 
 **Observability and scale:** Structural drift dashboard (`scripts/obs/build_structural_drift_dashboard.py`) writes `artifacts/drift/summary.json` and `report.html` (includes **emotional role** distribution, top role signatures, role×band counts; DEV SPEC 3). Monte Carlo CTSS risk (`simulation/run_monte_carlo_ctss.py`) simulates duplication risk vs index. Wave orchestrator (`phoenix_v4/planning/wave_orchestrator.py`) selects a balanced wave from candidates (arc/band/slot/ex diversity, density constraints).
 
+**Phase 13-C — Deterministic Constraint Solver Wave Optimizer (DWO-CS):** Fully deterministic wave selection: satisfies hard constraints (weekly caps, cross-brand no arc overlap when CBDI convergent, brand-identity new-arc cap when BISI drift critical) and maximizes a deterministic objective. No randomness; no ML. Module: `phoenix_v4/ops/wave_optimizer_constraint_solver.py`. Config: `config/wave_optimizer_constraint_solver.yaml`. **Wave build pipeline order:** (1) Generate candidate set (e.g. wave_candidates_{wave_id}.json), (2) Run DWO-CS (`wave_optimizer_constraint_solver.py`), (3) Run Phase 6 `check_release_wave.py` as final verification, (4) Export wave. Outputs: `wave_optimizer_solution_{wave_id}.json`/.md or `wave_optimizer_infeasible_{wave_id}.json` with blocking reasons. Exit: 0 SOLVED, 1 INFEASIBLE, 2 SOLVED_WITH_WARN. See [docs/PHASE_13_C_WAVE_OPTIMIZER.md](./PHASE_13_C_WAVE_OPTIMIZER.md) and [phoenix_v4/ops/README.md](../phoenix_v4/ops/README.md).
+
 ---
 
 ## 7. Freebie and asset pipeline (V4 Immersion)
@@ -181,6 +183,7 @@ Requires PyYAML for config and arc loading. See plan: Rigorous systems test (lea
 | **Stage 6 (book renderer)** | phoenix_v4/rendering/ (prose_resolver, book_renderer). QA: scripts/render_plan_to_txt.py. Pipeline: run_pipeline.py --render-book, --render-formats txt, --render-dir. Output: artifacts/rendered/\<plan_id\>/book.txt. See [V4_FEATURES_SCALE_AND_KNOBS.md](V4_FEATURES_SCALE_AND_KNOBS.md). |
 | Emotional governance (QA) | phoenix_v4/qa/emotional_governance_rules.yaml |
 | Similarity index | artifacts/catalog_similarity/index.jsonl |
+| **Wave optimizer (Phase 13-C)** | **config/wave_optimizer_constraint_solver.yaml** — eligibility, hard_constraints.weekly_caps (Phase 6 parity), cross_brand, brand_identity, objective weights, determinism. Module: phoenix_v4/ops/wave_optimizer_constraint_solver.py. Outputs: artifacts/ops/wave_optimizer/wave_optimizer_solution_{wave_id}.json|.md or wave_optimizer_infeasible_{wave_id}.json. |
 
 ---
 
@@ -227,5 +230,7 @@ Each spec that is part of the system has a **Still to do** section pointing here
 | **specs/PRACTICE_ITEM_SCHEMA.md** | Practice item schema, store layout, EXERCISE backstop and teacher fallback references. |
 | **docs/PRACTICE_LIBRARY_TEACHER_FALLBACK.md** | Teacher fallback: when teacher has insufficient EXERCISE atoms, supplement from practice library with doctrine wrapper. |
 | **SOURCE_OF_TRUTH/practice_library/README.md** | Practice library layout, pipeline (ingest → normalize → validate), usage (backstop, teacher fallback). |
+| **docs/PHASE_13_C_WAVE_OPTIMIZER.md** | Phase 13-C DWO-CS: contract, inputs/outputs, hard/soft constraints, solver, config, CLI, infeasibility diagnostics, tests, ops playbook. |
+| **phoenix_v4/ops/README.md** | Ops tooling index: Coverage Health, Phase 6 release wave checks, Phase 9 Catalog Emotional Distribution, Phase 10 CBDI, Phase 11 BISI, Phase 12 UPHS, Phase 13-C DWO-CS. |
 
 Older multi-doc and talp/SYSTEMS_DOCUMENTATION.md remain for reference; **this doc (docs/SYSTEMS_V4.md) is the single canonical systems description for V4.**

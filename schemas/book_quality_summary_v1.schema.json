@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BookQualitySummary",
+  "description": "Creative Quality Gate v1 output — deterministic heuristic summary for a compiled book",
+  "type": "object",
+  "required": ["schema_version", "book_id", "generated_at_utc", "overall", "signals", "warnings", "fails"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "book_id": { "type": "string" },
+    "generated_at_utc": { "type": "string", "format": "date-time" },
+    "overall": { "type": "string", "enum": ["PASS", "WARN", "FAIL"] },
+    "signals": {
+      "type": "object",
+      "properties": {
+        "arc_motion": { "type": "object" },
+        "transformation": { "type": "object" },
+        "specificity": { "type": "object" },
+        "ending_strength": { "type": "object" },
+        "lexical_rhythm": { "type": "object" }
+      },
+      "additionalProperties": true
+    },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "fails": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

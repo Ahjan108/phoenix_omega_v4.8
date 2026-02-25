@@ -1,0 +1,31 @@
+# Phase 12 — Unified Platform Health Scorecard (UPHS)
+# Read-only aggregation of Coverage Health, Emotional Distribution, CBDI, BISI.
+# Single executive artifact: composite 0–1 score + tier.
+
+platform_health_scorecard:
+  # Weights for composite (must sum to 1.0)
+  weights:
+    coverage_health: 0.35
+    emotional_distribution: 0.25
+    cross_brand_divergence: 0.20
+    brand_identity_stability: 0.20
+
+  # Coverage health: velocity considered "good" if delta >= this
+  velocity_delta_threshold: 10
+
+  # Emotional: band_5_share normalized as min(1, share / target)
+  band_5_share_target: 0.06
+
+  # Tiers (composite score bounds)
+  tiers:
+    stable: 0.85
+    watch: 0.70
+    risk: 0.55
+
+  # Penalty multipliers when alerts fire (applied to component before composite)
+  penalties:
+    entropy_alert: 0.85
+    drift_alert_emotional: 0.90
+    divergence_warn: 0.90
+    divergence_fail: 0.70
+    identity_critical: 0.70

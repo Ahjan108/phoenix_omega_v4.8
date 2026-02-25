@@ -139,5 +139,6 @@ Hash only the **semantic body**.
 | 7.1 | KB similarity check before teacher approval | Teacher / validation | Outline |
 | 7.2 | Normalization family rotation by atom_id | Teacher / rendering | Outline |
 | 8 | Governance boundaries documented; no merge | Docs / process | Outline |
+| **13-C** | **Deterministic Constraint Solver Wave Optimizer (DWO-CS)** | Ops | **Implemented** |
 
-Implementing Phases 1 (tuple viability) and 2 (weekly coverage health) reduces most future instability; Phases 3–8 are scale and governance refinements.
+Implementing Phases 1 (tuple viability) and 2 (weekly coverage health) reduces most future instability; Phases 3–8 are scale and governance refinements. **Phase 13-C** provides deterministic wave selection (hard constraints + objective, no randomness); see [docs/PHASE_13_C_WAVE_OPTIMIZER.md](./PHASE_13_C_WAVE_OPTIMIZER.md).

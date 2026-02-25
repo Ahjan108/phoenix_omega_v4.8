@@ -1,0 +1,51 @@
+# Phase 13-C — Deterministic Constraint Solver Wave Optimizer (DWO-CS)
+# Produces a wave that provably satisfies hard constraints; deterministic selection.
+
+wave_optimizer:
+  target_size_default: 90
+
+  eligibility:
+    exclude_risks: ["BLOCKER", "RED"]
+    allow_yellow: true
+
+  hard_constraints:
+    weekly_caps:
+      max_same_topic: 6
+      max_same_persona: 8
+      max_same_topic_persona_pair: 3
+      max_same_arc_id: 5
+      max_same_engine_id: 8
+      max_same_band_sig: 4
+      max_same_slot_sig: 4
+      max_same_variation_signature: 3
+      max_same_wave_fingerprint: 2
+      max_teacher_mode_books: 30
+      max_same_teacher_id: 10
+
+    cross_brand:
+      enforce_no_arc_overlap_when_convergent: true
+      convergent_warn_threshold: 0.18
+      convergent_fail_threshold: 0.12
+
+    brand_identity:
+      enforce_new_arc_cap_when_drift_critical: true
+      drift_critical_threshold: 0.25
+      max_new_arcs_per_brand_when_critical: 2
+
+  objective:
+    weights:
+      topic_diversity: 25
+      persona_diversity: 20
+      arc_diversity: 20
+      band_diversity: 15
+      volatility_preference: 10
+      freshness_preference: 5
+      yellow_risk_penalty: 5
+
+    volatility_bins:
+      low: 0.35
+      high: 0.55
+
+  determinism:
+    tie_breaker: "candidate_sort_key"
+    epsilon_weight: 1
