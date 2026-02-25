@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phoenix/schemas/wave_candidates.schema.json",
+  "title": "Wave Candidates",
+  "type": "object",
+  "required": ["schema_version", "wave_id", "generated_at_utc", "candidates"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "wave_id": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-W[0-9]{2}$"
+    },
+    "generated_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "candidates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "candidate_id",
+          "tuple_id",
+          "brand_id",
+          "persona_id",
+          "topic_id",
+          "engine_id",
+          "arc_id",
+          "slot_sig",
+          "band_sig",
+          "variation_signature",
+          "teacher_mode",
+          "risk",
+          "candidate_sort_key"
+        ],
+        "properties": {
+          "candidate_id": { "type": "string" },
+          "tuple_id": { "type": "string" },
+          "brand_id": { "type": "string" },
+          "persona_id": { "type": "string" },
+          "topic_id": { "type": "string" },
+          "engine_id": { "type": "string" },
+          "arc_id": { "type": "string" },
+          "slot_sig": { "type": "string" },
+          "band_sig": {
+            "type": "string",
+            "pattern": "^[1-5](?:-[1-5])*$"
+          },
+          "variation_signature": { "type": "string" },
+          "teacher_mode": { "type": "boolean" },
+          "teacher_id": {
+            "type": ["string", "null"]
+          },
+          "risk": {
+            "type": "string",
+            "enum": ["BLOCKER", "RED", "YELLOW", "GREEN"]
+          },
+          "age_days": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "volatility": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "candidate_sort_key": {
+            "type": "string"
+          },
+          "wave_fingerprint": { "type": "string" },
+          "is_new_arc": { "type": "boolean" }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

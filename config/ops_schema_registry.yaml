@@ -1,0 +1,49 @@
+# Ops Dashboard — JSON Schema registry (single source of truth for artifact contracts).
+# Prevents schema sprawl, untracked format evolution, version conflicts.
+# CI: scripts/ci/validate_ops_artifacts.py validates artifacts against these schemas.
+# Any schema change requires: version bump, registry update, docs/SCHEMA_CHANGELOG.md entry.
+
+ops_schema_registry:
+  wave_candidates:
+    current_version: "1.0"
+    schema_path: "schemas/wave_candidates.schema.json"
+    artifact_pattern: "wave_candidates_*.json"
+
+  wave_optimizer_solution:
+    current_version: "1.0"
+    schema_path: "schemas/wave_optimizer_solution.schema.json"
+    artifact_pattern: "wave_optimizer_solution_*.json"
+    artifact_subdir: "wave_optimizer"
+
+  wave_optimizer_infeasible:
+    current_version: "1.0"
+    schema_path: "schemas/wave_optimizer_infeasible.schema.json"
+    artifact_pattern: "wave_optimizer_infeasible_*.json"
+    artifact_subdir: "wave_optimizer"
+
+  book_quality_summary:
+    current_version: "1.0"
+    schema_path: "schemas/book_quality_summary_v1.schema.json"
+    artifact_pattern: "book_quality_summary_*.json"
+
+  # Placeholders for future schemas (add schema_path when created)
+  # coverage_health_weekly:
+  #   current_version: "1.1"
+  #   schema_path: "schemas/coverage_health_v1_1.schema.json"
+  #   artifact_pattern: "coverage_health_weekly_*.json"
+  # catalog_emotional_distribution:
+  #   current_version: "1.0"
+  #   schema_path: "schemas/catalog_emotional_distribution.schema.json"
+  #   artifact_pattern: "catalog_emotional_distribution_*.json"
+  # cross_brand_divergence:
+  #   current_version: "1.0"
+  #   schema_path: "schemas/cross_brand_divergence.schema.json"
+  #   artifact_pattern: "cross_brand_divergence_*.json"
+  # brand_identity_stability:
+  #   current_version: "1.0"
+  #   schema_path: "schemas/brand_identity_stability.schema.json"
+  #   artifact_pattern: "brand_identity_stability_*.json"
+  # platform_health_scorecard:
+  #   current_version: "1.0"
+  #   schema_path: "schemas/platform_health_scorecard.schema.json"
+  #   artifact_pattern: "platform_health_scorecard_*.json"

@@ -155,8 +155,45 @@ def _compute_risk(
     return "GREEN"
 
 
-def _discover_tuples(arcs_root: Path) -> list[tuple[str, str, str, str]]:
-    """List (persona, topic, engine, format_id) from master_arcs filenames."""
+def _discover_tuples_from_catalog(config_root: Path, bindings: dict, formats: list[str]) -> list[tuple[str, str, str, str]]:
+    """
+    List (persona, topic, engine, format_id) from catalog universe:
+    personas × (topics with bindings) × allowed_engines × formats.
+    Ensures NO_ARC can appear for tuples that have no arc file yet.
+    """
+    out: list[tuple[str, str, str, str]] = []
+    # Personas from canonical config
+    personas_path = config_root / "catalog_planning" / "canonical_personas.yaml"
+    personas_data = _load_yaml(personas_path)
+    personas_list = personas_data.get("personas") or []
+    if not isinstance(personas_list, list):
+        personas_list = []
+    personas = [str(p) for p in personas_list if p]
+
+    # Topics = bindings keys that have allowed_engines
+    topics: list[str] = []
+    for k, v in bindings.items():
+        if k in ("---", "notes") or not isinstance(v, dict):
+            continue
+        allowed = v.get("allowed_engines") or v.get("engines")
+        if allowed:
+            topics.append(k)
+
+    for persona in personas:
+        for topic in topics:
+            bkey = _bindings_topic_key(topic)
+            topic_config = bindings.get(bkey)
+            if not topic_config or not isinstance(topic_config, dict):
+                continue
+            allowed_engines = topic_config.get("allowed_engines") or topic_config.get("engines") or []
+            for engine in allowed_engines:
+                for format_id in formats:
+                    out.append((persona, topic, str(engine), str(format_id)))
+    return sorted(out, key=lambda t: (t[0], t[1], t[2], t[3]))
+
+
+def _discover_tuples_arc_only(arcs_root: Path) -> list[tuple[str, str, str, str]]:
+    """Legacy: list (persona, topic, engine, format_id) from master_arcs filenames only."""
     out: list[tuple[str, str, str, str]] = []
     if not arcs_root.is_dir():
         return out
@@ -167,8 +204,21 @@ def _discover_tuples(arcs_root: Path) -> list[tuple[str, str, str, str]]:
     return sorted(out, key=lambda t: (t[0], t[1], t[2], t[3]))
 
 
+def _get_coverage_formats(repo_root: Path) -> list[str]:
+    """Formats for coverage tuple universe (personas × topics × engines × formats)."""
+    path = repo_root / "config" / "gates.yaml"
+    data = _load_yaml(path)
+    ch = data.get("coverage_health") or {}
+    formats = ch.get("formats")
+    if isinstance(formats, list) and formats:
+        return [str(f) for f in formats]
+    return ["F006"]
+
+
 def generate_report(repo_root: Optional[Path] = None) -> tuple[list[TupleRow], dict[str, Any]]:
-    """Compute per-tuple metrics and summary. Returns (rows, summary_dict)."""
+    """Compute per-tuple metrics and summary. Returns (rows, summary_dict).
+    Tuple universe = catalog (personas × topics × allowed_engines × formats) so NO_ARC appears for missing arcs.
+    """
     root = repo_root or REPO_ROOT
     config_root = root / "config"
     atoms_root = root / "atoms"
@@ -178,8 +228,9 @@ def generate_report(repo_root: Optional[Path] = None) -> tuple[list[TupleRow], d
     cfg = _get_gate_config()
     min_depth = cfg["min_story_pool_size"]
     skew_threshold = cfg["band_distribution_skew_threshold"]
+    formats = _get_coverage_formats(root)
 
-    tuples = _discover_tuples(arcs_root)
+    tuples = _discover_tuples_from_catalog(config_root, bindings, formats)
     rows: list[TupleRow] = []
 
     for persona, topic, engine, format_id in tuples:

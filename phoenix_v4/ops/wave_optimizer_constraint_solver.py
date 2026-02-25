@@ -350,6 +350,7 @@ def run(
                 "Do not reopen content unless coverage deficits exist; this is a scheduling pool issue.",
             ],
         }
+    selected_ids = [c.get("candidate_id") for c in selected]
     return {
         "schema_version": "1.0",
         "status": status,
@@ -357,7 +358,8 @@ def run(
         "target_size": target_size,
         "candidate_count": len(candidates),
         "selected_count": len(selected),
-        "selected": [c.get("candidate_id") for c in selected],
+        "selected": selected_ids,
+        "selected_candidates": selected_ids,
         "selected_items": selected,
         "constraint_satisfaction": "all hard constraints satisfied",
         "determinism_note": "Same inputs + config yield identical selection.",

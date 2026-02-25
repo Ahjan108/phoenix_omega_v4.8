@@ -226,10 +226,23 @@ No ad hoc changes.
 
 ---
 
-## 12. Related docs
+## 12. JSON Schemas and blocking codes (enterprise determinism)
+
+- **Wave candidates:** `schemas/wave_candidates.schema.json` — Contract for `wave_candidates_*.json` (schema_version, wave_id pattern `YYYY-Www`, generated_at_utc, candidates[] with required fields and risk enum).
+- **Solution:** `schemas/wave_optimizer_solution.schema.json` — Contract for `wave_optimizer_solution_*.json` (status SOLVED | SOLVED_WITH_WARN, selected_count, selected / selected_candidates).
+- **Infeasible:** `schemas/wave_optimizer_infeasible.schema.json` — Contract for `wave_optimizer_infeasible_*.json` (status INFEASIBLE, blocking_reasons[] with required `code`).
+- **Canonical blocking codes:** `config/wave_optimizer_blocking_codes.yaml` — Enumerated codes (e.g. INSUFFICIENT_ELIGIBLE_CANDIDATES, CROSS_BRAND_ARC_CONFLICT, BRAND_NEW_ARC_CAP_EXCEEDED) and Slack/Jira routing. Machine-parseable; no free-text ambiguity.
+- **Registry:** `config/ops_schema_registry.yaml` — Ops artifact types, schema paths, artifact patterns. Used by CI validators.
+
+**CI validation:** Run `python scripts/ci/validate_ops_artifacts.py` (requires `jsonschema`; see `requirements.txt`). Fails build if any ops JSON does not match its schema. Run `python scripts/ci/validate_ops_registry_consistency.py` to ensure registry and schema files are in sync.
+
+---
+
+## 13. Related docs
 
 - **phoenix_v4/ops/README.md** — Ops tooling index; Phase 13-C CLI and pipeline summary.
 - **docs/SYSTEMS_V4.md** — Canonical systems overview; §6 Phase 13-C and wave build order; §9 config table; §11 doc map.
+- **docs/SCHEMA_CHANGELOG.md** — Schema version history and migration notes.
 - **Phase 6** — `check_release_wave.py`, `config/release_wave_controls.yaml` (final verification gate).
 - **Phase 10** — CBDI (`cross_brand_divergence_*.json`) for convergent pairs.
 - **Phase 11** — BISI (`brand_identity_stability_*.json`) for drift-critical brands.

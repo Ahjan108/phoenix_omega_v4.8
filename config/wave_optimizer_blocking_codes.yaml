@@ -1,0 +1,108 @@
+# Wave Optimizer — Canonical blocking reason codes (deterministic, machine-parseable).
+# Use for CI, Slack/Jira routing, and ops dashboards. No free-text ambiguity.
+# Authority: Phase 13-C wave optimizer; docs/PHASE_13_C_WAVE_OPTIMIZER.md
+
+blocking_codes:
+  # Candidate pool issues
+  INSUFFICIENT_ELIGIBLE_CANDIDATES:
+    description: "Eligible candidates < target_size after exclusions."
+    category: candidate_pool
+
+  EXCESS_RISK_EXCLUSIONS:
+    description: "Too many candidates excluded due to BLOCKER/RED."
+    category: candidate_pool
+
+  BRAND_RANGE_EXCLUSION_CONFLICT:
+    description: "Candidates eliminated due to brand_emotional_range constraints."
+    category: candidate_pool
+
+  # Cap constraint violations
+  TOPIC_CAP_TOO_TIGHT:
+    description: "Topic caps prevent reaching target_size."
+    category: cap
+
+  PERSONA_CAP_TOO_TIGHT:
+    description: "Persona caps prevent reaching target_size."
+    category: cap
+
+  ARC_CAP_TOO_TIGHT:
+    description: "Arc caps prevent reaching target_size."
+    category: cap
+
+  ENGINE_CAP_TOO_TIGHT:
+    description: "Engine caps prevent reaching target_size."
+    category: cap
+
+  BAND_SIG_CAP_TOO_TIGHT:
+    description: "Band signature caps prevent reaching target_size."
+    category: cap
+
+  SLOT_SIG_CAP_TOO_TIGHT:
+    description: "Slot signature caps prevent reaching target_size."
+    category: cap
+
+  VARIATION_CAP_TOO_TIGHT:
+    description: "Variation caps prevent reaching target_size."
+    category: cap
+
+  TEACHER_MODE_CAP_TOO_TIGHT:
+    description: "Teacher mode book cap prevents reaching target_size."
+    category: cap
+
+  TEACHER_ID_CAP_TOO_TIGHT:
+    description: "Per-teacher caps prevent reaching target_size."
+    category: cap
+
+  WAVE_FINGERPRINT_CAP_TOO_TIGHT:
+    description: "Wave fingerprint (exact cluster) cap prevents reaching target_size."
+    category: cap
+
+  # Cross-brand constraint violations
+  CROSS_BRAND_ARC_CONFLICT:
+    description: "Arc overlap forbidden between convergent brands."
+    category: cross_brand
+
+  CROSS_BRAND_STRUCTURE_CONFLICT:
+    description: "Slot_sig + band_sig overlap forbidden between convergent brands."
+    category: cross_brand
+
+  # Brand identity stability violations
+  BRAND_NEW_ARC_CAP_EXCEEDED:
+    description: "Brand identity drift critical; new-arc cap for brand exceeded."
+    category: brand_identity
+
+  BRAND_NEW_SLOT_CAP_EXCEEDED:
+    description: "Brand identity drift critical; new-slot cap for brand exceeded."
+    category: brand_identity
+
+  # Structural / solver step
+  NO_VALID_CANDIDATE_AT_STEP:
+    description: "No remaining candidate can be added without violating a cap or cross-brand/identity constraint."
+    category: structural
+
+  # Emotional distribution (future)
+  EMOTIONAL_DISTRIBUTION_UNSATISFIABLE:
+    description: "Cannot meet required band or volatility objectives even without caps."
+    category: structural
+
+# Slack / Jira routing (deterministic; no free-text parsing)
+routing:
+  INSUFFICIENT_ELIGIBLE_CANDIDATES: ops-wave
+  EXCESS_RISK_EXCLUSIONS: ops-wave
+  BRAND_RANGE_EXCLUSION_CONFLICT: ops-wave
+  TOPIC_CAP_TOO_TIGHT: ops-policy
+  PERSONA_CAP_TOO_TIGHT: ops-policy
+  ARC_CAP_TOO_TIGHT: ops-policy
+  ENGINE_CAP_TOO_TIGHT: ops-policy
+  BAND_SIG_CAP_TOO_TIGHT: ops-policy
+  SLOT_SIG_CAP_TOO_TIGHT: ops-policy
+  VARIATION_CAP_TOO_TIGHT: ops-policy
+  TEACHER_MODE_CAP_TOO_TIGHT: ops-policy
+  TEACHER_ID_CAP_TOO_TIGHT: ops-policy
+  WAVE_FINGERPRINT_CAP_TOO_TIGHT: ops-policy
+  CROSS_BRAND_ARC_CONFLICT: brand-governance
+  CROSS_BRAND_STRUCTURE_CONFLICT: brand-governance
+  BRAND_NEW_ARC_CAP_EXCEEDED: brand-governance
+  BRAND_NEW_SLOT_CAP_EXCEEDED: brand-governance
+  NO_VALID_CANDIDATE_AT_STEP: ops-wave
+  EMOTIONAL_DISTRIBUTION_UNSATISFIABLE: release-strategy

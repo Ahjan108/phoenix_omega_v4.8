@@ -1,6 +1,6 @@
 # Phoenix — System-Wide Planning Status
 
-**Last updated:** 2026-02-24  
+**Last updated:** 2026-02-25  
 **Purpose:** Single place for doc status, planning completeness, and what’s left for 100% planning.
 
 **Canonical systems doc (whole V4 in one place):** [docs/SYSTEMS_V4.md](./SYSTEMS_V4.md)
@@ -46,6 +46,12 @@
 | **simulation/config/** | **Active** | v4_5_formats, emotional_temperature_curves, validation_matrix (volatility tiers). |
 | **SOURCE_OF_TRUTH/exercises_v4/** | **Active** | registry.yaml (11 types), candidate/_stubs/, approved/; slot_07_practice + selection rules. |
 | **docs/assembly/SOMATIC_BOOK_BLUEPRINT.yaml** | **Active** | Somatic book assembly: 10-slot contract, exercise cadence, emotional curve template; structure only, no prose. |
+| **docs/CREATIVE_QUALITY_GATE_V1.md** | **Active** | Creative Quality Gate v1: post-compile read-only gate; five deterministic signals (arc motion, transformation, specificity, ending, rhythm); config creative_quality_v1.yaml; phoenix_v4/gates/check_creative_quality_v1.py; output book_quality_summary_*.json. |
+| **docs/SCHEMA_CHANGELOG.md** | **Active** | Ops and wave JSON schema version history; migration notes; required on any schema change. |
+| **config/ops_schema_registry.yaml** | **Active** | Ops artifact type → schema_path, artifact_pattern, current_version; used by scripts/ci/validate_ops_artifacts.py. |
+| **config/wave_optimizer_blocking_codes.yaml** | **Active** | Canonical wave optimizer blocking reason codes and Slack/Jira routing; machine-parseable. |
+| **schemas/** (wave_*, book_quality_summary_v1) | **Active** | JSON Schema (Draft 2020-12/7) for wave_candidates, wave_optimizer_solution, wave_optimizer_infeasible, book_quality_summary. |
+| **docs/TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md** | **Active** | Tuple viability gate (Phase 1) and coverage health report (Phase 2); tuple universe from catalog so NO_ARC appears for missing arcs; paths, risk model, config. Replaces cursor_smart_planner.md. |
 
 ---
 

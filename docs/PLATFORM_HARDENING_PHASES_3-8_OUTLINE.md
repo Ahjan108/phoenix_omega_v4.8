@@ -140,5 +140,7 @@ Hash only the **semantic body**.
 | 7.2 | Normalization family rotation by atom_id | Teacher / rendering | Outline |
 | 8 | Governance boundaries documented; no merge | Docs / process | Outline |
 | **13-C** | **Deterministic Constraint Solver Wave Optimizer (DWO-CS)** | Ops | **Implemented** |
+| **Creative Quality Gate v1** | Post-compile read-only gate (arc motion, transformation, specificity, ending, rhythm) | Gates | **Implemented** |
+| **Ops schema & CI** | JSON Schema (wave_*, book_quality_summary), registry, blocking codes, validate_ops_artifacts, validate_ops_registry_consistency | Ops / CI | **Implemented** |
 
-Implementing Phases 1 (tuple viability) and 2 (weekly coverage health) reduces most future instability; Phases 3–8 are scale and governance refinements. **Phase 13-C** provides deterministic wave selection (hard constraints + objective, no randomness); see [docs/PHASE_13_C_WAVE_OPTIMIZER.md](./PHASE_13_C_WAVE_OPTIMIZER.md).
+Implementing Phases 1 (tuple viability) and 2 (weekly coverage health) reduces most future instability; Phases 3–8 are scale and governance refinements. **Phase 13-C** provides deterministic wave selection (hard constraints + objective, no randomness); see [docs/PHASE_13_C_WAVE_OPTIMIZER.md](./PHASE_13_C_WAVE_OPTIMIZER.md). **Creative Quality Gate v1** and **ops schema CI** add post-compile quality signals and contract-bound ops artifacts; see [docs/CREATIVE_QUALITY_GATE_V1.md](./CREATIVE_QUALITY_GATE_V1.md) and [docs/SCHEMA_CHANGELOG.md](./SCHEMA_CHANGELOG.md).

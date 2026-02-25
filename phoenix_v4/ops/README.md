@@ -4,6 +4,8 @@ Ops-owned. Content team reacts; ops runs.
 
 ## Coverage health report (Phase 2 + 2.5)
 
+**Tuple universe:** Tuples are discovered from **catalog** (personas from `config/catalog_planning/canonical_personas.yaml` × topics × allowed_engines from `config/topic_engine_bindings.yaml` × formats from `config/gates.yaml` → `coverage_health.formats`). This ensures **NO_ARC** appears for tuples that have no arc file yet (catalog viability), not only “arc health.” Spec: [docs/TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md](../../docs/TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md).
+
 **Schema:** v1.0 (stable contract) → v1.1 (velocity by persona/topic, deficit trend, risk trend). See `docs/COVERAGE_HEALTH_JSON_SCHEMA.md`.
 
 **Outputs:** `artifacts/ops/coverage_health_weekly_{date}.{md,csv,json}`. JSON is the dashboard contract; when previous week exists, v1.1 adds `velocity_by_persona`, `velocity_by_topic`, `deficit_trend_delta`, `tuple_risk_trend`, and indices for stagnation/decay visibility.
@@ -182,3 +184,25 @@ PYTHONPATH=. python3 phoenix_v4/ops/wave_optimizer_constraint_solver.py   --wave
 4. Export wave.
 
 Phase 6 remains the final gate to prevent drift; constraints in 13-C mirror it for selection.
+
+**Schemas & blocking codes:** Wave and solution/infeasible contracts: `schemas/wave_candidates.schema.json`, `schemas/wave_optimizer_solution.schema.json`, `schemas/wave_optimizer_infeasible.schema.json`. Canonical blocking reason codes and Slack/Jira routing: `config/wave_optimizer_blocking_codes.yaml`. See [docs/PHASE_13_C_WAVE_OPTIMIZER.md](../../docs/PHASE_13_C_WAVE_OPTIMIZER.md) §12.
+
+## Ops schema registry and CI validation
+
+All ops JSON artifacts are contract-bound to a JSON Schema. **Registry:** `config/ops_schema_registry.yaml` — artifact type, schema_path, artifact_pattern, current_version. **CI scripts (run from repo root):**
+
+- `python scripts/ci/validate_ops_artifacts.py` — Validates every ops JSON (under `artifacts/ops`) that matches a registry pattern against its schema. Requires `jsonschema` (see `requirements.txt`). Exit 1 on any validation failure.
+- `python scripts/ci/validate_ops_registry_consistency.py` — Ensures schema files exist for each registry entry and that matched artifacts have a schema. Exit 1 on mismatch.
+
+Schema changes require a version bump, registry update, and entry in [docs/SCHEMA_CHANGELOG.md](../../docs/SCHEMA_CHANGELOG.md).
+
+## Creative Quality Gate v1 (post-compile)
+
+Read-only gate on **compiled book** prose (after Stage 3 compile; before release-wave). Increases probability of emotional impact via deterministic heuristics only (no LLM).
+
+**Module:** `phoenix_v4/gates/check_creative_quality_v1.py`  
+**Config:** `config/creative_quality_v1.yaml`  
+**Output:** `artifacts/ops/book_quality_summary_{book_id}_{date}.json` (optional `--md` for .md summary)  
+**Exit:** 0 PASS, 2 WARN, 1 FAIL  
+
+**Signals:** Arc emotional motion (distinct bands, rise/fall, flat warn), transformation density (insight/reframe/identity markers), specificity (concrete vs abstract), ending strength (compression, identity, action in last N chapters), lexical rhythm (sentence-length variance). Schema: `schemas/book_quality_summary_v1.schema.json`. See [docs/CREATIVE_QUALITY_GATE_V1.md](../../docs/CREATIVE_QUALITY_GATE_V1.md).

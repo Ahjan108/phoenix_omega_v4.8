@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phoenix/schemas/wave_optimizer_solution.schema.json",
+  "title": "Wave Optimizer Solution",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "wave_id",
+    "status",
+    "target_size",
+    "selected_count"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "wave_id": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["SOLVED", "SOLVED_WITH_WARN"]
+    },
+    "target_size": { "type": "integer", "minimum": 1 },
+    "selected_count": { "type": "integer", "minimum": 0 },
+    "candidate_count": { "type": "integer", "minimum": 0 },
+    "selected": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "selected_candidates": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "selected_items": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "objective_breakdown": {
+      "type": "object",
+      "properties": {
+        "topic_diversity": { "type": "number" },
+        "persona_diversity": { "type": "number" },
+        "arc_diversity": { "type": "number" },
+        "band_diversity": { "type": "number" },
+        "volatility_score": { "type": "number" },
+        "freshness_score": { "type": "number" },
+        "risk_penalty": { "type": "number" },
+        "total_score": { "type": "number" }
+      },
+      "additionalProperties": true
+    },
+    "constraint_summary": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "constraint_satisfaction": { "type": "string" },
+    "determinism_note": { "type": "string" }
+  },
+  "additionalProperties": true
+}
