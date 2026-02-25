@@ -1,0 +1,34 @@
+# Phoenix V4 — Ops tooling
+
+Ops-owned. Content team reacts; ops runs.
+
+## Release-wave similarity & burst controls (Phase 6)
+
+Validates a **batch** of compiled plan JSONs (e.g. a week’s release wave) for:
+
+- **Weekly caps** — max same topic, persona, arc, band_sig, slot_sig, variation_signature, teacher_id, wave fingerprint
+- **Exact clusters** — same structural fingerprint (arc|slot_sig|band_sig|variation) → fail if cluster size exceeds cap
+- **Near clusters** — Jaccard similarity on token set (arc, slot, band, var, ex, role) ≥ threshold → fail if cluster size ≥ min
+- **Anti-homogeneity score** — normalized entropy over topic/persona/arc/band/slot/variation; fail if below `min_score`
+- **Sliding window** (optional) — share caps over last N weeks when `--history-index` is provided (index rows should have `release_week` or `publish_date`)
+
+**CLI (from repo root):**
+
+```bash
+PYTHONPATH=. python3 phoenix_v4/ops/check_release_wave.py \
+  --plans-dir artifacts/plans/wave_2026_02_25 \
+  --calendar-week 2026-W09 \
+  --history-index artifacts/catalog_similarity/index.jsonl \
+  --out-dir artifacts/ops/release_wave_checks \
+  --config config/release_wave_controls.yaml
+```
+
+- **Exit 0** — PASS  
+- **Exit 1** — FAIL (default on any violation)  
+- **Exit 2** — WARN-only (when `--warn-only` and violations present)
+
+**Outputs:** `release_wave_check_{week}.json`, `release_wave_check_{week}.md` in `--out-dir`.
+
+**Config:** `config/release_wave_controls.yaml` — `release_wave_controls.weekly_caps`, `clustering`, `sliding_window`, `anti_homogeneity`, `reporting`.
+
+**Integration:** Run after wave orchestrator selects candidate set; if FAIL, reselect or move books. Pre-export gate: no wave export without wave pass.

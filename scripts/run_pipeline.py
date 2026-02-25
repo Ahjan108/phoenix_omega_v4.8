@@ -186,6 +186,25 @@ def main() -> int:
             print(f"Error: narrator validation failed: {err}", file=sys.stderr)
             return 1
 
+    # Tuple viability preflight (hard entry gate; before Stage 1). No override.
+    from phoenix_v4.gates.check_tuple_viability import check_tuple_viability
+    teacher_mode = bool(teacher_id and teacher_id != "default_teacher")
+    viability = check_tuple_viability(
+        persona=arc.persona,
+        topic=arc.topic,
+        engine=arc.engine,
+        format_id=arc.format,
+        repo_root=REPO_ROOT,
+        teacher_mode=teacher_mode,
+        teacher_id=teacher_id if teacher_mode else None,
+        arc=arc,
+        brand_id=brand_id,
+    )
+    if viability.status != "PASS":
+        for e in viability.errors:
+            print(f"Tuple viability: {e}", file=sys.stderr)
+        return 1
+
     # Stage 1: BookSpec (author_id, narrator_id optional)
     from phoenix_v4.planning.catalog_planner import CatalogPlanner, BookSpec
     planner = CatalogPlanner()

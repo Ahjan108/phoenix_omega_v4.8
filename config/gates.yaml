@@ -1,0 +1,12 @@
+# Phoenix V4 — Gate configuration (tuple viability, coverage health)
+# Authority: Platform hardening program; publishing control surface.
+
+tuple_viability:
+  # Minimum STORY atoms in pool for (persona, topic, engine) to be viable.
+  min_story_pool_size: 12
+  # Teacher Mode: minimum approved EXERCISE atoms for tuple to pass (when teacher_mode=true).
+  min_teacher_exercise_pool: 5
+
+coverage_health:
+  # Band distribution skew threshold for YELLOW risk (e.g. one band >> others).
+  band_distribution_skew_threshold: 0.6

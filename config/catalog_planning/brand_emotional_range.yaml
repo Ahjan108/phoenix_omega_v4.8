@@ -1,0 +1,17 @@
+# Phoenix V4 — Brand emotional range (Phase 5)
+# Arc required bands must fall within [min_band, max_band] for the book's brand.
+# Fail before compile (tuple viability gate). Do not clip bands; fail early.
+
+# Default when brand not listed (permissive 1–5)
+default:
+  min_band: 1
+  max_band: 5
+
+# Per-brand overrides (optional)
+brands:
+  phoenix:
+    min_band: 2
+    max_band: 4
+  # stabilizer:
+  #   min_band: 2
+  #   max_band: 4

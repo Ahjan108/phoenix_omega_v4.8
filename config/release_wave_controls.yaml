@@ -1,0 +1,61 @@
+# Phoenix V4 — Release-wave similarity & burst controls (Phase 6)
+# Prevents platform suppression from batch-level homogeneity.
+# Consumes compiled plan JSON (Stage 3 output); no prose/atom modification.
+
+release_wave_controls:
+  allow_legacy_plans: true   # If true: missing optional fields → WARN and skip affected rules
+
+  # 1) Hard weekly caps (same-week burst)
+  weekly_caps:
+    max_same_topic: 6
+    max_same_persona: 8
+    max_same_topic_persona_pair: 3
+    max_same_arc_id: 5
+    max_same_engine_id: 8
+    max_same_brand_id: 20
+    max_same_band_signature: 4
+    max_same_slot_sig: 4
+    max_same_variation_signature: 3
+    max_same_wave_fingerprint: 3
+    max_teacher_mode_books: 30
+    max_same_teacher_id: 10
+
+  # 2) Exact fingerprint clusters (structural clones)
+  clustering:
+    enabled: true
+    exact_bucket_min_cluster_size: 3
+
+    # Near clusters (Jaccard on token set)
+    near_bucket:
+      enabled: true
+      jaccard_threshold: 0.85
+      min_cluster_size: 4
+
+  # 3) Sliding window density (multi-week)
+  sliding_window:
+    enabled: true
+    weeks: 4
+    caps:
+      max_topic_share: 0.18
+      max_persona_share: 0.22
+      max_arc_share: 0.16
+      max_band_sig_share: 0.14
+
+  # 4) Anti-homogeneity scoring (single KPI)
+  anti_homogeneity:
+    enabled: true
+    mode: fail_if_below   # or warn_if_below
+    min_score: 0.62
+    weights:
+      topic_diversity: 0.25
+      persona_diversity: 0.20
+      arc_diversity: 0.20
+      band_shape_diversity: 0.20
+      slot_diversity: 0.10
+      variation_diversity: 0.05
+
+  # 5) Reporting
+  reporting:
+    include_top_clusters: 10
+    include_example_books_per_cluster: 5
+    write_cluster_assignments: true
