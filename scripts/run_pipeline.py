@@ -98,6 +98,7 @@ def main() -> int:
     ap.add_argument("--render-book", action="store_true", help="Stage 6: render plan to prose (txt) after writing plan")
     ap.add_argument("--render-formats", default="txt", help="Comma-separated book output formats (default: txt)")
     ap.add_argument("--render-dir", default=None, help="Output dir for rendered book (default: artifacts/rendered/<plan_id>)")
+    ap.add_argument("--atoms-root", default=None, help="Atoms root (e.g. atoms/zh-TW). Default: repo atoms/")
     args = ap.parse_args()
 
     # Resolve input: CLI or YAML
@@ -386,12 +387,14 @@ def main() -> int:
     # Stage 3: CompiledBook (Arc-First: arc required)
     # Teacher Mode: require_full_resolution=True so no placeholders are allowed (Gate A).
     require_full_resolution = bool(book_spec_for_compiler.get("teacher_mode"))
+    atoms_root = Path(args.atoms_root) if args.atoms_root else None
     from phoenix_v4.planning.assembly_compiler import compile_plan
     compiled = compile_plan(
         book_spec_for_compiler,
         format_plan_dict,
         arc_path=arc_path,
         require_full_resolution=require_full_resolution,
+        atoms_root=atoms_root,
     )
 
     # Part 3.1 / 3.3 validate compiled plan (structure)

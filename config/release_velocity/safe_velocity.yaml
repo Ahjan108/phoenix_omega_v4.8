@@ -1,0 +1,53 @@
+# Safe release velocity (legitimate publisher model).
+# Authority: docs/RELEASE_VELOCITY_AND_SCHEDULE.md
+# Use these caps when building week-by-week schedules; do not exceed platform-safe ranges.
+# Scheduler (generate_weekly_schedule.py) fails hard if any brand/platform/week exceeds cap_max.
+
+schema_version: 1
+
+# Which trust tier to use when validating schedule (conservative default)
+default_trust_tier_for_scheduling: new_imprint
+# Platforms to validate against (all must pass)
+platforms_for_schedule_validation:
+  - google_play_books
+  - findaway_voices
+  - ximalaya
+# Map scheduler trust_tier -> per-platform config key (so one tier selects the right cap set)
+trust_tier_platform_key:
+  new_imprint:
+    google_play_books: new_imprint
+    findaway_voices: new_account
+    ximalaya: verified_account
+  established:
+    google_play_books: established_imprint
+    findaway_voices: established
+    ximalaya: verified_account
+
+# Google Play Books
+google_play_books:
+  new_imprint:
+    per_week: [10, 20]      # min, max
+    per_month: [40, 60]
+    per_year: [400, 600]
+  established_imprint:
+    per_week: [25, 50]
+    per_month: [100, 200]
+    per_year: [1000, 2000]
+  notes: "Dumping 300 in one day under a fresh account = anomaly risk."
+
+# Findaway Voices (Spotify / Apple / Libraries)
+findaway_voices:
+  new_account:
+    per_week: [5, 15]
+    per_month: [20, 50]
+  established:
+    per_week: [15, 30]
+    per_month: [60, 120]
+  notes: "Audio is slower: QA review, retailer ingestion, metadata propagation. 200 audiobooks in one week looks like content farming."
+
+# Ximalaya (China)
+ximalaya:
+  verified_account:
+    per_week: [5, 10]
+    per_month: [20, 40]
+  notes: "Copyright checks, licensing review, manual review, regulatory sensitivity. Scaling requires verified entity, clean copyright docs, platform relationship. Less tolerant of bulk industrial upload."

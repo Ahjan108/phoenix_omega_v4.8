@@ -36,14 +36,25 @@ So: the **pipeline** runs end-to-end for this lane; **only STORY slots are fille
 
 ### 2.2 STORY atom coverage (atoms/<persona>/<topic>/<engine>/CANONICAL.txt)
 
-- **~140 CANONICAL.txt files** under `atoms/` for STORY (one per persona × topic × engine).
-- **Personas with STORY pools:** nyc_executives, healthcare_rns, gen_z_professionals, gen_alpha_students, **educators** (5; educators not in canonical_personas.yaml).
-- **Topics:** anxiety, boundaries, financial_stress, courage, compassion_fatigue, depression, self_worth, grief (all 8 canonical topics).
-- **Engines** vary by topic (see `config/topic_engine_bindings.yaml`). Each file contains STORY atoms with role headers and BAND metadata (where tagged).
+- **All 10 active personas** have book-writing content in `atoms/`: each has **122 or 136 CANONICAL.txt files** (STORY and, where present, REFLECTION, EXERCISE, INTEGRATION, HOOK, SCENE, COMPRESSION). The three with 136 files (gen_z_professionals, healthcare_rns, gen_alpha_students) include extra legacy topic/engine combos (e.g. anxiety, financial_stress, courage).
+- **Legacy personas** (nyc_executives, educators) still have atoms on disk but are **inactive** per unified_personas.md; the pipeline uses the 10 active personas from canonical_personas.yaml.
+- **Topics:** active 12 (overthinking, burnout, boundaries, self_worth, social_anxiety, financial_anxiety, imposter_syndrome, sleep_anxiety, depression, grief, compassion_fatigue, somatic_healing); legacy bindings may include anxiety, financial_stress, courage (see `config/topic_engine_bindings.yaml`).
+- **Engines** vary by topic. Each CANONICAL file contains atoms with role headers and BAND metadata (where tagged).
 
-So: **many persona × topic × engine combinations already have STORY pools** that could support compilation if REFLECTION/EXERCISE/INTEGRATION existed or placeholders are accepted.
+So: **every active persona has atom content for book writing**; STORY is the slot type most broadly populated; REFLECTION/EXERCISE/INTEGRATION (and HOOK/SCENE where used) exist for some persona×topic lanes and placeholders are used elsewhere until pools are added.
 
-### 2.3 System and spec readiness
+### 2.3 Content scale (translation and adding personas)
+
+| Metric | Value |
+|--------|--------|
+| **Total words** (CANONICAL*.txt under atoms/) | **~4.1M** |
+| **Total characters** | ~25.7M |
+| **Total CANONICAL files** | **~1,911** |
+| **Words per active persona** | ~240k–420k (average ~370k) |
+
+Use these for translation cost (e.g. per-word or per-token) and for sizing a new persona (~250k–400k words and ~120–140 files if mirroring current coverage).
+
+### 2.4 System and spec readiness
 
 - **Arc-first, Stage 1→2→3→6:** Implemented (BookSpec, FormatPlan, CompiledBook, prose_resolver, render_plan_to_txt).
 - **Writer Spec (PHOENIX_V4_5_WRITER_SPEC):** Six atom types, TTS rules, persona/topic/engine gates, §23–§25.
@@ -57,7 +68,7 @@ So: **many persona × topic × engine combinations already have STORY pools** th
 
 | Atom type | Source path | Ready? | Notes |
 |-----------|-------------|--------|-------|
-| **STORY** | `atoms/<persona>/<topic>/<engine>/CANONICAL.txt` | **Yes for many lanes** | 140 files; roles RECOGNITION, MECHANISM_PROOF, TURNING_POINT, EMBODIMENT; BAND required. |
+| **STORY** | `atoms/<persona>/<topic>/<engine>/CANONICAL.txt` | **Yes for all 10 active personas** | Part of ~1,911 CANONICAL files; roles RECOGNITION, MECHANISM_PROOF, TURNING_POINT, EMBODIMENT; BAND required. |
 | **REFLECTION** | `atoms/<persona>/<topic>/REFLECTION/CANONICAL.txt` | **Only 1** | gen_z_professionals/anxiety only. |
 | **EXERCISE** | `atoms/<persona>/<topic>/EXERCISE/CANONICAL.txt` | **Only 1** | gen_z_professionals/anxiety only. |
 | **INTEGRATION** | `atoms/<persona>/<topic>/INTEGRATION/CANONICAL.txt` | **No** | No INTEGRATION CANONICAL.txt under atoms/. |
@@ -65,7 +76,7 @@ So: **many persona × topic × engine combinations already have STORY pools** th
 | **SCENE** | `atoms/<persona>/<topic>/SCENE/CANONICAL.txt` | **Only 1** | gen_z_professionals/anxiety only. |
 | **COMPRESSION** | `SOURCE_OF_TRUTH/compression_atoms/approved/<persona>/<topic>/*.yaml` | **Only 1 lane** | gen_z_professional/burnout only (2 YAMLs). |
 
-So: **only STORY is broadly populated.** Non-STORY slot types exist only for **gen_z_professionals × anxiety**. Book_001 (nyc_executives × self_worth) compiles because the compiler emits **placeholders** when a pool is empty (unless `require_full_resolution=True`).
+So: **STORY is the only slot type broadly populated across all 10 active personas.** Non-STORY slot types (REFLECTION, EXERCISE, INTEGRATION, HOOK, SCENE) exist for only a subset of persona×topic lanes (e.g. gen_z_professionals × anxiety). The compiler emits **placeholders** when a pool is empty unless `require_full_resolution=True`. Every active persona has sufficient STORY (and other slots where filled) to compile books; full books without placeholders require REFLECTION/EXERCISE/INTEGRATION pools per (persona, topic) you ship.
 
 ---
 

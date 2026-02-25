@@ -1,0 +1,40 @@
+# Release lanes: independent schedule caps per catalog scope.
+# Authority: docs/RELEASE_VELOCITY_AND_SCHEDULE.md
+# Use with: generate_weekly_schedule.py --lane en | zh24 [--zh-sublocale ...]
+#
+# Two lanes so EN is not throttled by Chinese/Ximalaya limits; ZH has its own caps.
+# Per-lane cap resolution: effective_cap = min(cap_max) over that lane's platforms only.
+
+schema_version: 1
+
+# Default when --lane not set: use all platforms (global conservative; Ximalaya clamps)
+# When --lane is set: use only that lane's platforms for cap resolution and validation.
+
+lanes:
+  # EN lane: English brands only. No Findaway coupling; no Chinese/Ximalaya limits.
+  en:
+    description: "English brands; cap against English channel rules only."
+    platforms:
+      - google_play_books
+    # Trust tier from safe_velocity.default_trust_tier_for_scheduling (or override per-lane later)
+
+  # ZH24 lane: 24 Chinese brands (zh-TW, zh-HK, zh-CN, zh-SG). Findaway workflow; conservative caps.
+  # Split by sub-locale for different platform sets (zh-CN = local only; TW/HK/SG = Findaway-eligible).
+  zh24:
+    description: "24 Chinese brands; Findaway workflow. Apply conservative caps independently."
+    # When --zh-sublocale not set: use union of all ZH platforms (effective_cap = min of both)
+    platforms:
+      - findaway_voices
+      - ximalaya
+    sub_locales:
+      # Mainland: local platforms only (not Findaway / not Google Play per locale_registry)
+      zh_cn:
+        description: "zh-CN; local platforms only (Ximalaya, etc.). Not Findaway/Google Play."
+        platforms:
+          - ximalaya
+      # Taiwan, Hong Kong, Singapore: Findaway-eligible + Google Play for those storefronts
+      zh_tw_hk_sg:
+        description: "zh-TW / zh-HK / zh-SG; Findaway-eligible."
+        platforms:
+          - findaway_voices
+          - google_play_books

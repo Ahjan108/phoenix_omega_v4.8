@@ -47,7 +47,7 @@
 | **SOURCE_OF_TRUTH/exercises_v4/** | **Active** | registry.yaml (11 types), candidate/_stubs/, approved/; slot_07_practice + selection rules. |
 | **docs/assembly/SOMATIC_BOOK_BLUEPRINT.yaml** | **Active** | Somatic book assembly: 10-slot contract, exercise cadence, emotional curve template; structure only, no prose. |
 | **docs/CREATIVE_QUALITY_GATE_V1.md** | **Active** | Creative Quality Gate v1: post-compile read-only gate; five deterministic signals (arc motion, transformation, specificity, ending, rhythm); config creative_quality_v1.yaml; phoenix_v4/gates/check_creative_quality_v1.py; output book_quality_summary_*.json. |
-| **scripts/generate_full_catalog.py** | **Active** | Full catalog orchestrator: portfolio → BookSpec → compile → wave selection. Use `--brand` + `--max-books 10` + `--skip-wave-selection` for First 10 Books evaluation. |
+| **scripts/generate_full_catalog.py** | **Active** | Full catalog orchestrator: portfolio → BookSpec → compile → wave selection. Use `--plan-only` to produce only BookSpecs (no compile/assembly), e.g. `--max-books 108 --plan-only`. Use `--brand` + `--max-books 10` + `--skip-wave-selection` for First 10 Books evaluation. |
 | **docs/CREATIVE_QUALITY_VALIDATION_CHECKLIST.md** | **Active** | Human-quality checklist (arc, story, exercise, voice, ending); use after each compile. |
 | **docs/FIRST_10_BOOKS_EVALUATION_PROTOCOL.md** | **Active** | Evaluate 10 books from one brand: compile → blind listen → 5-axis score → pattern analysis. |
 | **docs/SIMPLIFIED_EMOTIONAL_IMPACT_SCORING.md** | **Active** | Manual impact check: each chapter ≥2 of Recognition/Reframe/Relief/Challenge/Identity. |

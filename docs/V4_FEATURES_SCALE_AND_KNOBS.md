@@ -223,7 +223,7 @@ These quality tools are **standalone** (run manually or in review); not part of 
 | config/format_selection/format_registry.yaml | structural_formats, runtime_formats, chapter_range, tier | Format definitions and word ranges. |
 | config/source_of_truth/chapter_planner_policies.yaml | book_size_by_chapters, role_distribution_targets, quotas, archetypes.slot_policy, archetypes.allowed_next | Chapter planner policy: arc-role distribution bounds, book-size exercise/reflection caps, transition compatibility, and per-archetype slot presence/weights. |
 | config/catalog_planning/capacity_constraints.yaml | max_books_per_topic_per_wave, min_story_atoms_per_topic_persona | Capacity. |
-| config/catalog_planning/brand_teacher_matrix.yaml | max_books_per_wave, max_books_per_topic, max_books_per_persona, min_release_spacing_days, teachers[], teacher_constraints | Release pacing; teachers per brand (Teacher Mode). |
+| config/catalog_planning/brand_teacher_matrix.yaml | teachers[], teacher_constraints (max_books_per_topic, max_books_per_persona) | Teachers per brand; diversity guardrails. Release pacing from config/release_velocity and generate_weekly_schedule.py (see docs/RELEASE_VELOCITY_AND_SCHEDULE.md). |
 | config/catalog_planning/teacher_persona_matrix.yaml | teachers.*.allowed_personas, allowed_engines, preferred_locales | Teacher/persona/engine compatibility; invalid combo fails before Stage 1. |
 | config/catalog_planning/brand_teacher_assignments.yaml | default teacher_id (and brand_id) per series/brand | Resolver when --teacher/--brand omitted. |
 | config/teachers/teacher_registry.yaml | teachers.*.allowed_topics, allowed_engines, teacher_mode_defaults (require_teacher_story, require_teacher_exercise) | Per-teacher registry for pipeline and allocator. |
@@ -243,7 +243,7 @@ These quality tools are **standalone** (run manually or in review); not part of 
 | **check_structural_entropy.py** | `--teacher-mode`, `--atoms-dir` | Enable teacher-mode-only checks (chapter exercise/anchor, teacher STORY); atoms-dir can point at teacher_banks/\<id\>/approved_atoms. |
 | **config/catalog_planning/teacher_persona_matrix.yaml** | teachers.*.allowed_personas, allowed_engines, preferred_locales | Per-teacher persona/engine compatibility; invalid combo raises before Stage 1. |
 | **config/catalog_planning/brand_teacher_assignments.yaml** | default teacher_id per brand/series | Resolver uses when --teacher not supplied. |
-| **config/catalog_planning/brand_teacher_matrix.yaml** | teachers[], teacher_constraints, max_books_per_wave, etc. | Teachers per brand; release pacing and per-teacher limits. |
+| **config/catalog_planning/brand_teacher_matrix.yaml** | teachers[], teacher_constraints | Teachers per brand; diversity. Release pacing: config/release_velocity, generate_weekly_schedule.py. |
 | **config/teachers/teacher_registry.yaml** | teachers.*.allowed_topics, allowed_engines, teacher_mode_defaults (require_teacher_story, require_teacher_exercise) | Per-teacher registry; pipeline and allocator read this. |
 | **SOURCE_OF_TRUTH/teacher_banks/\<teacher_id\>/** | approved_atoms/\<slot_type\>/*.yaml, doctrine/, kb/ | Teacher-scoped atom pools and doctrine; Stage 3 and Stage 6 load from here when teacher_mode. |
 | **CTSS (platform similarity)** | tps weight 0.11 | Teacher presence in fingerprint; same teacher + same arc + same band_seq → high block risk. |

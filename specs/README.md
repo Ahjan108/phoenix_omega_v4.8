@@ -15,7 +15,7 @@
 | Spec | Audience | Purpose |
 |------|----------|---------|
 | [PHOENIX_ARC_FIRST_CANONICAL_SPEC.md](./PHOENIX_ARC_FIRST_CANONICAL_SPEC.md) | **Developers** | **CANONICAL.** Arc mandatory, engine overlay, atom pools; arc validation (structural only); migration rule; repo action diff (delete/modify/add). |
-| [PHOENIX_V4_5_WRITER_SPEC.md](./PHOENIX_V4_5_WRITER_SPEC.md) | **Writers** | Prose, TTS rules, Six Atom Types, emotional force, governance, tests; **§23** Identity & Audiobook (pen-name authors, narrator pre-intro, persona specificity). Content rules; structure follows Arc-First Canonical. |
+| [PHOENIX_V4_5_WRITER_SPEC.md](./PHOENIX_V4_5_WRITER_SPEC.md) | **Writers** | Prose, TTS rules, Six Atom Types, emotional force, governance, tests; **§23** Identity & Audiobook (pen-name authors, narrator pre-intro, persona specificity). Content rules; structure follows Arc-First Canonical. **Markdown = single source of truth;** section numbers (§5.5, §7, §13.6, etc.) are authoritative. DOCX export: [../docs/WRITER_SPEC_MARKDOWN_AND_DOCX.md](../docs/WRITER_SPEC_MARKDOWN_AND_DOCX.md). |
 | [PHOENIX_V4_CANONICAL_SPEC.md](./PHOENIX_V4_CANONICAL_SPEC.md) | **Reference** | Superseded for system architecture by Arc-First Canonical. Retained for atom taxonomy, format/slot reference until fully migrated. |
 | [V4_5_PRODUCTION_READINESS_CHECKLIST.md](./V4_5_PRODUCTION_READINESS_CHECKLIST.md) | **Release** | Go/no-go conditions before production. |
 | [V4_6_BINGE_OPTIMIZATION_LAYER.md](./V4_6_BINGE_OPTIMIZATION_LAYER.md) | **System** | Forward Momentum Trigger (FMT); binge/continuation. |

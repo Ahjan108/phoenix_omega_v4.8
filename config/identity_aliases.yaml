@@ -3,14 +3,26 @@
 # Authority: Canonical Spec §3.0, §5.3.
 
 persona_aliases:
-  nyc_exec: nyc_executives
-  nyc_executive: nyc_executives
+  # Legacy aliases; map to canonical of the 10 active (unified_personas.md)
+  nyc_exec: tech_finance_burnout
+  nyc_executive: tech_finance_burnout
   healthcare_worker: healthcare_rns
   healthcare_rn: healthcare_rns
   gen_z: gen_z_professionals
   gen_z_professional: gen_z_professionals
   la_gen_z: gen_z_professionals
   gen_alpha: gen_alpha_students
+  # Self-aliases so all 10 canonical personas appear as values (validator)
+  millennial_women_professionals: millennial_women_professionals
+  tech_finance_burnout: tech_finance_burnout
+  entrepreneurs: entrepreneurs
+  working_parents: working_parents
+  gen_x_sandwich: gen_x_sandwich
+  corporate_managers: corporate_managers
+  first_responders: first_responders
+  healthcare_rns: healthcare_rns
+  gen_z_professionals: gen_z_professionals
+  gen_alpha_students: gen_alpha_students
 
 topic_aliases:
   relationship_anxiety: anxiety

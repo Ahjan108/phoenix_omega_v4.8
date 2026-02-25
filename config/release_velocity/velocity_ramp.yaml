@@ -1,0 +1,39 @@
+# Velocity ramp: start with 1 series, build to 90 days, grow 30% to 6 months.
+# Authority: docs/RELEASE_VELOCITY_AND_SCHEDULE.md
+#
+# IMPORTANT: 70–84/week per brand is a LONG-TERM TOP-TIER TARGET for mature channels only.
+# It is NOT the default. Effective cap = min(platform cap_max), so Ximalaya (e.g. 10/wk)
+# currently clamps the single global schedule — safe, but you won't approach 70–84/wk unless
+# you schedule by channel/account tier separately (e.g. one schedule per platform). The
+# scheduler fails hard if any brand/platform/week exceeds that platform's cap.
+
+schema_version: 1
+
+# Target at steady state (per brand) — aspirational for mature channels; scheduler enforces platform caps
+target_books_per_week_per_brand: [70, 84]   # min, max — only valid when platform caps allow (see safe_velocity.yaml)
+target_ramp_weeks: 60   # final 60 days (≈8.5 weeks) to reach target from "6 months" level
+
+# Phase 1: Start with 1 series, build slowly to 90 days
+phase_1:
+  label: "First series to 90 days"
+  duration_days: 90
+  start_with_one_series: true
+  # Weekly cadence grows slowly (e.g. 1–2/wk early → ~5–10/wk by day 90); exact curve in schedule generator
+
+# Phase 2: From 90 days to 6 months — grow by 30%
+phase_2:
+  label: "30% growth to 6 months"
+  duration_days: 90   # 6 months total = 180 days; phase 2 = days 91–180
+  growth_rate: 1.30   # 30% increase over the period
+
+# Phase 3: From 6 months, over 60 days, ramp toward target — CAPPED by platform (safe_velocity.yaml)
+phase_3:
+  label: "60 days toward target (capped per platform)"
+  duration_days: 60
+  target_per_week_per_brand: [70, 84]   # used only when platform cap allows; otherwise scheduler uses cap_max
+  stagger: true   # vary week-to-week so amounts look different
+
+# Schedule output: week-by-week so user sees what books to upload each week
+schedule_output:
+  format: "weekly"   # one row per week: week_number, week_start_date, brand_id, book_count, plan_paths[]
+  stagger_within_week: true   # optional: spread uploads across weekdays

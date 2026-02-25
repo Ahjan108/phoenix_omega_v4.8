@@ -45,11 +45,9 @@ Brand identity must align with teacher philosophy. No mixing wildly divergent te
 **File:** `config/catalog_planning/brand_teacher_matrix.yaml`
 
 - `brands.<brand_id>.teachers` — list of teacher ids
-- `brands.<brand_id>.max_books_per_wave` — cap per release wave
-- `brands.<brand_id>.release_spacing_days` — minimum days between releases
-- Optional: `teacher_constraints.<teacher_id>.max_books_per_topic`, `max_books_per_persona` — topic/persona saturation guardrails
+- Optional: `teacher_constraints.<teacher_id>.max_books_per_topic`, `max_books_per_persona` — topic/persona saturation guardrails (diversity only)
 
-This enforces controlled release velocity and brand coherence.
+**Release cadence:** `max_books_per_wave`, `release_spacing_days`, and `max_books_per_brand_per_month` are **restored as fail-safe guardrails** in `brand_teacher_matrix.yaml` defaults. Release timing is driven by **week-by-week schedule** and **safe velocity** config; the scheduler fails hard if any brand/platform/week exceeds platform cap. See **§7** and `docs/RELEASE_VELOCITY_AND_SCHEDULE.md`.
 
 ---
 
@@ -95,11 +93,15 @@ Across teacher books, enforce variation in:
 
 ---
 
-## 7. Release Velocity Rules
+## 7. Release Velocity and Week-by-Week Schedule
 
-- Max 1 book per teacher per 14–21 days (configurable).
-- Max 6–8 per brand per month (configurable).
-- If a wave violates velocity → hard block.
+**Authority:** `config/release_velocity/safe_velocity.yaml`, `config/release_velocity/velocity_ramp.yaml`, `scripts/release/generate_weekly_schedule.py`. See **docs/RELEASE_VELOCITY_AND_SCHEDULE.md**.
+
+- **Target:** 70–84 books per week per brand (publishing-house research). Stagger weekly amounts so they look organic.
+- **Ramp:** Start with 1 series → build slowly to 90 days → grow by 30% to 6 months → over 60 days reach 70–84/wk per brand.
+- **Schedule:** Week-by-week plan: user sees which books to upload each week. Generate with `generate_weekly_schedule.py` from a wave or candidates dir.
+- **Safe velocity (platform):** Google Play (new 10–20/wk, established 25–50/wk), Findaway (new 5–15/wk, established 15–30/wk), Ximalaya (5–10/wk per verified account). Do not exceed these when assigning uploads.
+- Old rules **decommissioned:** max 1 book per teacher per 14–21 days; max 6–8 per brand per month. No longer enforced; replaced by the schedule and safe velocity config.
 
 ---
 
@@ -126,6 +128,7 @@ If too many books share same arc, same chapter count, same band pattern → flag
 
 - **Spotify / Apple (audio):** Avoid rapid catalog dumps; duration variability (±8%); different narrator/voice per teacher when possible; cover art structural differences.
 - **Google Play:** Vary preview segments, rotate excerpt chapters, stagger release waves; avoid excessive similar metadata.
+- **Numeric caps:** Per-platform safe velocity (new vs established imprint/account) is in `config/release_velocity/safe_velocity.yaml` (Google Play Books, Findaway Voices, Ximalaya). No explicit platform cap was previously in repo; caps are now centralized there and respected when building the weekly schedule.
 
 ---
 

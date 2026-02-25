@@ -2,8 +2,11 @@
 """
 Release entrypoint: run all pre-publish gates for a wave before export.
 
-Call this (or run_prepublish_gates.py directly) before any export to storefronts.
-Do not export when this script exits non-zero.
+Call this before any export to storefronts. Do not export when this script exits non-zero.
+
+Wave path contract (deterministic): when using --wave-id, plans and rendered dirs
+are resolved as artifacts/waves/<wave_id>/plans and artifacts/waves/<wave_id>/rendered.
+Any script that produces a wave for export must write to this layout.
 
 Usage:
   python scripts/release/prepare_wave_for_export.py --wave-id my_wave --index artifacts/catalog_similarity/index.jsonl --report artifacts/ops/prepublish_my_wave.json

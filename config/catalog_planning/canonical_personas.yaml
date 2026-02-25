@@ -1,13 +1,16 @@
 # Canonical personas — used for asset planning and freebie pipeline.
 # SOURCE OF TRUTH for active personas: unified_personas.md (repo root) — 10 active personas.
-# This YAML should align with unified_personas.md Part 1. When migrated, list the 10 active IDs.
+# This YAML should align with unified_personas.md Part 1.
 # Must stay in sync with config/identity_aliases.yaml (validated by validate_canonical_sources.py).
 
 personas:
-  - nyc_executives
-  - healthcare_rns
+  - millennial_women_professionals
+  - tech_finance_burnout
+  - entrepreneurs
+  - working_parents
+  - gen_x_sandwich
+  - corporate_managers
   - gen_z_professionals
+  - healthcare_rns
   - gen_alpha_students
-  # TODO: expand to 10 active from unified_personas.md: millennial_women_professionals,
-  # tech_finance_burnout, entrepreneurs, working_parents, gen_x_sandwich, corporate_managers,
-  # gen_z_professionals, healthcare_rns, gen_alpha_students, first_responders
+  - first_responders

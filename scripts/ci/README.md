@@ -48,3 +48,7 @@ This enforces the gate order:
 5. similarity index append (only after gates pass)
 
 Checklist: `scripts/ci/PREPUBLISH_CHECKLIST.md`.
+
+## No-bypass export check
+
+**`scripts/ci/check_export_no_bypass.py`** fails if any script in `scripts/ci/export_scripts_registry.yaml` does not reference `prepare_wave_for_export`. Ensures no export path bypasses the release entrypoint. Run from repo root: `python scripts/ci/check_export_no_bypass.py`. Add any new export-triggering script to the registry; it must call the release layer.

@@ -2,7 +2,9 @@
 
 **Single source of truth for writers.** Voice · Prose · Six Atom Types · TTS Rules · Phase 3 · Tests · Governance
 
-SpiritualTech Systems — February 2026 — Version 2.0
+SpiritualTech Systems — February 2026 — Version 1.3
+
+**v1.3 (this version):** BAND Sonic Cadence (§5.5); Assembly Collision Guardrails (§13.6); Persona Emotional Base Temperature (§17.1); REFLECTION tier purpose and TIER_D fix (§7, §12.2b); Collision Scan test (§19); Personas §17 aligned to all 10 + base temperature table.
 
 ---
 
@@ -350,6 +352,20 @@ Every atom in a chapter matches the chapter's temperature.
 
 *Ref:* `simulation/config/validation_matrix.yaml` (volatility quotas).
 
+## 5.5 BAND Sonic Cadence Rules
+
+Same word caps (e.g. 15/12/10/8) apply across BANDs, but **rhythm and density must match the band**. BAND 5 should sound like fragments; BAND 1 should sound spacious. These are the same word length but completely different rhythm.
+
+| BAND | Words per sentence (guideline) | Sonic character | Usage |
+|------|-------------------------------|-----------------|--------|
+| 1 | 5–8 | Quiet, observational, spacious | Low activation; room to breathe |
+| 2 | 6–10 | Steady, present | Building; no rush |
+| 3 | 6–12 | Balanced, teaching-ready | Mechanism naming; clarity |
+| 4 | 5–11 | Tighter, more urgent | Rising tension; consequence |
+| 5 | 3–7 | Fragmented, peak tension | Peak moment; short beats |
+
+Write to the band. A BAND 5 atom at 8 words per sentence should feel fractured and immediate, not like a BAND 1 observation.
+
 ---
 
 # 6. The Four Story Rules
@@ -379,6 +395,16 @@ One per book. Character performs avoided action while alarm still fires. Messy, 
 **Maximum 2 mechanism terms.** If you name amygdala, cortisol, and prefrontal cortex in one reflection, you are lecturing. Pick two.
 
 **Never start two reflections the same way.** Vary: social observation, listener's experience, character continuation, mechanism naming.
+
+### REFLECTION tier emotional purpose (canonical → TIER_D)
+
+| Tier | Emotional purpose | Word range | Do not |
+|------|-------------------|------------|--------|
+| CANONICAL | Name mechanism; connect story to listener | 55–120 | Lecture; > 2 mechanism terms |
+| TIER_A–C | Same; chunk size varies by format | See §12.2b | Long blocks without breath |
+| **TIER_D** | **Name what is happening in the body or behavior (1–2 sentences).** Emotional recognition, not mechanism explanation. | 55–80 | Explain *why* or mechanism; long teaching |
+
+**TIER_D fix:** TIER_D is emotional recognition — name what is happening in the body or behavior in 1–2 sentences. No mechanism explanation at 55–80 words.
 
 ---
 
@@ -490,7 +516,8 @@ For TTS-optimized builds, use lower reflection ceilings so teaching does not bec
 | Tier B (Standard/Short) | 180 | 140 |
 | Tier C (Micro) | 120 | — |
 | Tier D (Capsules) | 80 | — |
-| Tier E (Resets) | No reflections | — |
+
+**Tier D purpose:** Name what is happening in the body or behavior in 1–2 sentences. Emotional recognition only — no mechanism explanation. See §7 REFLECTION tier table.
 
 Source: PHOENIX_V4_5_TTS_PROSE_GUIDE (extracted). The §12.2 table (HARDSHIP/HELP/HEALING/HOPE) remains for legacy tier mapping where used.
 
@@ -560,6 +587,19 @@ Each book has an intensity curve across 12 chapters. Curves should vary at catal
 
 **Gate D10:** No two books share exact same intensity sequence → flag.
 **Gate D11:** Intensity variance < 1.5 (too flat) → warn.
+
+## 13.6 Assembly Collision Guardrails
+
+Same location appearing in 5 of 30 atoms, or "Your nervous system" repeated 8 times — nothing prevents this without explicit guardrails. Apply before approval.
+
+| Rule | Limit | Self-check |
+|------|--------|------------|
+| **Location** | Same location (e.g. "on the N-Judah") in max **3 of 30** variants | Count occurrences per location; cap at 3 |
+| **Mechanism sentence** | Same mechanism sentence (e.g. "Your nervous system does not distinguish...") max **2×** in book | Search phrase; if > 2, rephrase one |
+| **Metaphor / imagery** | Same metaphor or image system max **2×** across 5 imagery systems | Tag imagery family; no family > 2 in same book |
+| **Body sensation** | Same body region / sensation phrase max **3×** across 4 body regions | Chest/throat/gut/limbs; rotate |
+
+**Method:** Before submitting a batch, run a collision scan (see §19): same phrase, same location, same metaphor family. Fix before assembly.
 
 ---
 
@@ -743,11 +783,24 @@ Machine-enforceable minima (tags and counts) are in `phoenix_v4/qa/emotional_gov
 
 # 17. Personas
 
-- **Gen Alpha (10–15):** School, social media, identity. Hallways, cafeterias, group chats. Language: contemporary, not slang-heavy.
-- **Healthcare RN (25–45):** Hospital, shift work, compassion fatigue. Break rooms, nurses' stations, parking garages at 3AM.
-- **Gen Z Professional (22–30):** Workplace, career anxiety. Open offices, Slack, Zoom, all-hands.
+**Full list and briefs:** All 10 canonical personas are defined in [unified_personas.md](../unified_personas.md) and in config. Below: **Persona Emotional Base Temperature** — default emotional color per persona. Use this to prevent tone drift across writers. If no brief specifies otherwise, write to the base temperature.
 
-Persona boundaries are hard. If writing Gen Alpha and "quarterly" appears → auto-rejected.
+## 17.1 Persona Emotional Base Temperature
+
+| Persona | Default emotional color | Usage note |
+|---------|-------------------------|------------|
+| millennial_women_professionals | Warm-steady; recognition without drama | Career, comparison, boundaries |
+| tech_finance_burnout | Cool-to-warm; mechanism-aware, low drama | Burnout, overwork, nervous system |
+| entrepreneurs | Warm; direct, high agency | Risk, identity, uncertainty |
+| working_parents | Warm; tender but grounded | Guilt, time, boundaries |
+| gen_x_sandwich | Warm-steady; wry, observational | Caregiving, limits, identity |
+| corporate_managers | Cool-warm; professional, precise | Performance, visibility, feedback |
+| gen_z_professionals | Warm; peer-adjacent, clear | Social, career, comparison |
+| healthcare_rns | Warm; witnessed, low sentiment | Compassion fatigue, boundaries |
+| gen_alpha_students | Warm; contemporary, not slang-heavy | School, social, identity |
+| first_responders | Cool-steady; factual, contained | Trauma exposure, shift, boundaries |
+
+Persona boundaries are hard. If writing Gen Alpha and "quarterly" appears → auto-rejected. Match the base temperature unless the brief overrides.
 
 ---
 
@@ -779,6 +832,8 @@ Min 2 tokens per SCENE. Max 5. Scatter through prose.
 **The Prediction Test (integrations):** Read chapter without integration. Predict what it says. If you were right, it is a summary. Rewrite until it surprises.
 
 **The Stone Test (carry lines):** Read the final sentence. Does it land like a stone in still water? Could another sentence follow? If yes, it is not final enough.
+
+**The Collision Scan:** Before submitting a batch, scan for: (1) same location appearing in > 3 of 30 atoms; (2) same mechanism sentence (e.g. "Your nervous system does not distinguish...") > 2×; (3) same metaphor/imagery family > 2×; (4) same body region/sensation phrase > 3×. Fix before assembly. See §13.6 Assembly Collision Guardrails.
 
 ---
 

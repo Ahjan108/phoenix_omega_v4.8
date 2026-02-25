@@ -46,6 +46,13 @@ def load_teacher_registry(path: Optional[Path] = None) -> dict:
     return _load_yaml(path)
 
 
+def _load_canonical_personas() -> list[str]:
+    """Load persona IDs from config/catalog_planning/canonical_personas.yaml for allocation diversity."""
+    data = _load_yaml(CONFIG_CATALOG / "canonical_personas.yaml")
+    personas = data.get("personas") or []
+    return list(personas) if isinstance(personas, list) else []
+
+
 def _teacher_meets_coverage_threshold(
     teacher_id: str,
     min_exercise: int = 0,
@@ -90,7 +97,9 @@ def allocate_wave(
     teachers_reg = registry.get("teachers", {})
     brands = matrix.get("brands", {})
     constraints = matrix.get("teacher_constraints", {})
-    default_spacing = matrix.get("defaults", {}).get("min_release_spacing_days", 14)
+    # Release cadence is now from config/release_velocity and week-by-week schedule (see docs/RELEASE_VELOCITY_AND_SCHEDULE.md).
+    # This spacing is only for allocation interleaving (avoid back-to-back same teacher), not upload timing.
+    default_spacing = matrix.get("defaults", {}).get("min_release_spacing_days", 7)
     if spacing_days <= 0:
         spacing_days = default_spacing
 
@@ -111,13 +120,17 @@ def allocate_wave(
 
     # Simple round-robin allocation: cycle (teacher, topic, persona) from allowed sets
     topic_pool = set()
-    persona_pool = set()
     for t in eligible:
         topic_pool.update(teachers_reg.get(t, {}).get("allowed_topics", []))
-        # Persona not in registry typically; use placeholder or from series_templates later
-        persona_pool.add("nyc_executives")  # placeholder; real impl would read from series/capacity
-    topic_list = sorted(topic_pool)[:10]
-    persona_list = sorted(persona_pool) or ["nyc_executives"]
+    topic_list = sorted(topic_pool)
+    if not topic_list:
+        # Fallback: canonical topics so allocation can proceed
+        topics_cfg = _load_yaml(CONFIG_CATALOG / "canonical_topics.yaml")
+        topic_list = sorted(topics_cfg.get("topics") or []) or ["self_worth"]
+
+    persona_list = _load_canonical_personas()
+    if not persona_list:
+        persona_list = ["tech_finance_burnout"]
 
     allocations: list[TeacherAllocation] = []
     t_idx = 0

@@ -199,6 +199,354 @@ brands:
       discovery_hook: "每個關係問題都是神經系統問題"
     pricing_posture: mid_tier
 
+# ─── PHASE 1b: ZH-HK, ZH-CN, ZH-SG (24-brand Chinese catalog) ─────────────────
+# 6 base brands × 4 locales = 24. Mirror structure of zh-TW pilots.
+
+  sleep_repair_hk:
+    locale: zh-HK
+    territory: HK
+    display_name: "睡眠修復"
+    voice_identity:
+      register: gentle_authority
+      pace: 0.82
+      gender_default: female
+      google_voice: yue-HK-Standard-A
+    persona_affinity:
+      high: [anxious_insomniac_tw, burned_out_professional_tw]
+      medium: [gen_z_tw]
+    topic_coverage: [sleep_anxiety, nervous_system, racing_thoughts]
+    gtm_identity:
+      emotional_job: "停止懼怕夜晚"
+      functional_job: "不靠藥物入睡"
+      discovery_hook: "你不需要更努力嘗試入睡，你需要停止嘗試"
+    pricing_posture: accessible
+    notes: "Hong Kong. Traditional script. Cantonese TTS."
+  stabilizer_hk:
+    locale: zh-HK
+    territory: HK
+    display_name: "壓力穩定器"
+    voice_identity:
+      register: warm_professional
+      pace: 0.90
+      gender_default: female
+      google_voice: yue-HK-Standard-A
+    persona_affinity:
+      high: [burned_out_professional_tw, healthcare_worker_tw]
+      medium: [gen_z_tw]
+    topic_coverage: [burnout, nervous_system, chronic_stress]
+    gtm_identity:
+      emotional_job: "停止在生存模式中掙扎"
+      functional_job: "重新調節你的神經系統"
+      discovery_hook: "你沒有能力問題，你有神經系統調節問題"
+    pricing_posture: mid_tier
+    notes: "Hong Kong burnout market."
+  panic_first_aid_hk:
+    locale: zh-HK
+    territory: HK
+    display_name: "恐慌急救"
+    voice_identity:
+      register: steady_direct
+      pace: 0.95
+      gender_default: female
+      google_voice: yue-HK-Standard-A
+    persona_affinity:
+      high: [acute_anxiety_sufferer_tw]
+      medium: [gen_z_tw, burned_out_professional_tw]
+    topic_coverage: [panic_attacks, acute_anxiety, somatic_relief]
+    gtm_identity:
+      emotional_job: "立即停止恐慌"
+      functional_job: "5分鐘內平息恐慌發作"
+      discovery_hook: "你沒有在死去，這是你的神經系統，以下是現在該做的事"
+    pricing_posture: accessible
+    notes: "Hong Kong. Crisis-moment content."
+  gen_z_grounding_hk:
+    locale: zh-HK
+    territory: HK
+    display_name: "Z世代落地"
+    voice_identity:
+      register: peer
+      pace: 1.00
+      gender_default: female
+      google_voice: yue-HK-Standard-A
+    persona_affinity:
+      high: [gen_z_tw]
+      medium: [anxious_student_tw]
+    topic_coverage: [social_anxiety, identity, comparison_culture]
+    gtm_identity:
+      emotional_job: "停止因比較而自我懷疑"
+      functional_job: "在社群媒體世界中找到自我"
+      discovery_hook: "沒有人給你這本手冊，這就是它"
+    pricing_posture: accessible
+    notes: "Hong Kong Gen Z."
+  grief_companion_hk:
+    locale: zh-HK
+    territory: HK
+    display_name: "悲傷陪伴"
+    voice_identity:
+      register: tender_witness
+      pace: 0.85
+      gender_default: female
+      google_voice: yue-HK-Standard-A
+    persona_affinity:
+      high: [bereaved_adult_tw]
+      medium: [burned_out_professional_tw]
+    topic_coverage: [grief, loss, mourning]
+    gtm_identity:
+      emotional_job: "讓悲傷被見到，而不是被修復"
+      functional_job: "在失去中找到自己的節奏"
+      discovery_hook: "悲傷不需要被修復，它需要一個見證者"
+    pricing_posture: accessible
+    notes: "Hong Kong. Traditional script."
+  inner_security_hk:
+    locale: zh-HK
+    territory: HK
+    display_name: "內在安全感"
+    voice_identity:
+      register: warm_boundaried
+      pace: 0.90
+      gender_default: female
+      google_voice: yue-HK-Standard-A
+    persona_affinity:
+      high: [anxious_attacher_tw, relationship_struggler_tw]
+      medium: [gen_z_tw]
+    topic_coverage: [attachment, relationships, self_worth]
+    gtm_identity:
+      emotional_job: "停止在關係中尋求認可"
+      functional_job: "建立內在而非外在的安全感"
+      discovery_hook: "每個關係問題都是神經系統問題"
+    pricing_posture: mid_tier
+    notes: "Hong Kong."
+
+  sleep_repair_cn:
+    locale: zh-CN
+    territory: CN
+    display_name: "睡眠修复"
+    voice_identity:
+      register: gentle_authority
+      pace: 0.82
+      gender_default: female
+      google_voice: cmn-CN-Wavenet-A
+    persona_affinity:
+      high: [anxious_insomniac_tw, burned_out_professional_tw]
+      medium: [gen_z_tw]
+    topic_coverage: [sleep_anxiety, nervous_system, racing_thoughts]
+    gtm_identity:
+      emotional_job: "停止惧怕夜晚"
+      functional_job: "不靠药物入睡"
+      discovery_hook: "你不需要更努力尝试入睡，你需要停止尝试"
+    pricing_posture: accessible
+    notes: "Mainland China. Simplified script. Mandarin TTS."
+  stabilizer_cn:
+    locale: zh-CN
+    territory: CN
+    display_name: "压力稳定器"
+    voice_identity:
+      register: warm_professional
+      pace: 0.90
+      gender_default: female
+      google_voice: cmn-CN-Wavenet-A
+    persona_affinity:
+      high: [burned_out_professional_tw, healthcare_worker_tw]
+      medium: [gen_z_tw]
+    topic_coverage: [burnout, nervous_system, chronic_stress]
+    gtm_identity:
+      emotional_job: "停止在生存模式中挣扎"
+      functional_job: "重新调节你的神经系统"
+      discovery_hook: "你没有能力问题，你有神经系统调节问题"
+    pricing_posture: mid_tier
+    notes: "Mainland China. Simplified."
+  panic_first_aid_cn:
+    locale: zh-CN
+    territory: CN
+    display_name: "恐慌急救"
+    voice_identity:
+      register: steady_direct
+      pace: 0.95
+      gender_default: female
+      google_voice: cmn-CN-Wavenet-A
+    persona_affinity:
+      high: [acute_anxiety_sufferer_tw]
+      medium: [gen_z_tw, burned_out_professional_tw]
+    topic_coverage: [panic_attacks, acute_anxiety, somatic_relief]
+    gtm_identity:
+      emotional_job: "立即停止恐慌"
+      functional_job: "5分钟内平息恐慌发作"
+      discovery_hook: "你没有在死去，这是你的神经系统，以下是现在该做的事"
+    pricing_posture: accessible
+    notes: "Mainland China."
+  gen_z_grounding_cn:
+    locale: zh-CN
+    territory: CN
+    display_name: "Z世代落地"
+    voice_identity:
+      register: peer
+      pace: 1.00
+      gender_default: female
+      google_voice: cmn-CN-Wavenet-A
+    persona_affinity:
+      high: [gen_z_tw]
+      medium: [anxious_student_tw]
+    topic_coverage: [social_anxiety, identity, comparison_culture]
+    gtm_identity:
+      emotional_job: "停止因比较而自我怀疑"
+      functional_job: "在社交媒体世界中找到自我"
+      discovery_hook: "没有人给你这本手册，这就是它"
+    pricing_posture: accessible
+    notes: "Mainland China. Simplified."
+  grief_companion_cn:
+    locale: zh-CN
+    territory: CN
+    display_name: "悲伤陪伴"
+    voice_identity:
+      register: tender_witness
+      pace: 0.85
+      gender_default: female
+      google_voice: cmn-CN-Wavenet-A
+    persona_affinity:
+      high: [bereaved_adult_tw]
+      medium: [burned_out_professional_tw]
+    topic_coverage: [grief, loss, mourning]
+    gtm_identity:
+      emotional_job: "让悲伤被见到，而不是被修复"
+      functional_job: "在失去中找到自己的节奏"
+      discovery_hook: "悲伤不需要被修复，它需要一个见证者"
+    pricing_posture: accessible
+    notes: "Mainland China."
+  inner_security_cn:
+    locale: zh-CN
+    territory: CN
+    display_name: "内在安全感"
+    voice_identity:
+      register: warm_boundaried
+      pace: 0.90
+      gender_default: female
+      google_voice: cmn-CN-Wavenet-A
+    persona_affinity:
+      high: [anxious_attacher_tw, relationship_struggler_tw]
+      medium: [gen_z_tw]
+    topic_coverage: [attachment, relationships, self_worth]
+    gtm_identity:
+      emotional_job: "停止在关系中寻求认可"
+      functional_job: "建立内在而非外在的安全感"
+      discovery_hook: "每个关系问题都是神经系统问题"
+    pricing_posture: mid_tier
+    notes: "Mainland China. Simplified."
+
+  sleep_repair_sg:
+    locale: zh-SG
+    territory: SG
+    display_name: "睡眠修复"
+    voice_identity:
+      register: gentle_authority
+      pace: 0.82
+      gender_default: female
+      google_voice: cmn-CN-Wavenet-A
+    persona_affinity:
+      high: [anxious_insomniac_tw, burned_out_professional_tw]
+      medium: [gen_z_tw]
+    topic_coverage: [sleep_anxiety, nervous_system, racing_thoughts]
+    gtm_identity:
+      emotional_job: "停止惧怕夜晚"
+      functional_job: "不靠药物入睡"
+      discovery_hook: "你不需要更努力尝试入睡，你需要停止尝试"
+    pricing_posture: accessible
+    notes: "Singapore. Simplified script."
+  stabilizer_sg:
+    locale: zh-SG
+    territory: SG
+    display_name: "压力稳定器"
+    voice_identity:
+      register: warm_professional
+      pace: 0.90
+      gender_default: female
+      google_voice: cmn-CN-Wavenet-A
+    persona_affinity:
+      high: [burned_out_professional_tw, healthcare_worker_tw]
+      medium: [gen_z_tw]
+    topic_coverage: [burnout, nervous_system, chronic_stress]
+    gtm_identity:
+      emotional_job: "停止在生存模式中挣扎"
+      functional_job: "重新调节你的神经系统"
+      discovery_hook: "你没有能力问题，你有神经系统调节问题"
+    pricing_posture: mid_tier
+    notes: "Singapore."
+  panic_first_aid_sg:
+    locale: zh-SG
+    territory: SG
+    display_name: "恐慌急救"
+    voice_identity:
+      register: steady_direct
+      pace: 0.95
+      gender_default: female
+      google_voice: cmn-CN-Wavenet-A
+    persona_affinity:
+      high: [acute_anxiety_sufferer_tw]
+      medium: [gen_z_tw, burned_out_professional_tw]
+    topic_coverage: [panic_attacks, acute_anxiety, somatic_relief]
+    gtm_identity:
+      emotional_job: "立即停止恐慌"
+      functional_job: "5分钟内平息恐慌发作"
+      discovery_hook: "你没有在死去，这是你的神经系统，以下是现在该做的事"
+    pricing_posture: accessible
+    notes: "Singapore."
+  gen_z_grounding_sg:
+    locale: zh-SG
+    territory: SG
+    display_name: "Z世代落地"
+    voice_identity:
+      register: peer
+      pace: 1.00
+      gender_default: female
+      google_voice: cmn-CN-Wavenet-A
+    persona_affinity:
+      high: [gen_z_tw]
+      medium: [anxious_student_tw]
+    topic_coverage: [social_anxiety, identity, comparison_culture]
+    gtm_identity:
+      emotional_job: "停止因比较而自我怀疑"
+      functional_job: "在社交媒体世界中找到自我"
+      discovery_hook: "没有人给你这本手册，这就是它"
+    pricing_posture: accessible
+    notes: "Singapore. Simplified."
+  grief_companion_sg:
+    locale: zh-SG
+    territory: SG
+    display_name: "悲伤陪伴"
+    voice_identity:
+      register: tender_witness
+      pace: 0.85
+      gender_default: female
+      google_voice: cmn-CN-Wavenet-A
+    persona_affinity:
+      high: [bereaved_adult_tw]
+      medium: [burned_out_professional_tw]
+    topic_coverage: [grief, loss, mourning]
+    gtm_identity:
+      emotional_job: "让悲伤被见到，而不是被修复"
+      functional_job: "在失去中找到自己的节奏"
+      discovery_hook: "悲伤不需要被修复，它需要一个见证者"
+    pricing_posture: accessible
+    notes: "Singapore."
+  inner_security_sg:
+    locale: zh-SG
+    territory: SG
+    display_name: "内在安全感"
+    voice_identity:
+      register: warm_boundaried
+      pace: 0.90
+      gender_default: female
+      google_voice: cmn-CN-Wavenet-A
+    persona_affinity:
+      high: [anxious_attacher_tw, relationship_struggler_tw]
+      medium: [gen_z_tw]
+    topic_coverage: [attachment, relationships, self_worth]
+    gtm_identity:
+      emotional_job: "停止在关系中寻求认可"
+      functional_job: "建立内在而非外在的安全感"
+      discovery_hook: "每个关系问题都是神经系统问题"
+    pricing_posture: mid_tier
+    notes: "Singapore. Simplified."
+
 # ─── PHASE 2: JAPAN (ja-JP) PILOT BRANDS ─────────────────────────────────────
 # 6 pilot brands. Japan-specific framing required.
 # NOTE: Avoid "mental health" framing — use "nervous system," "wellbeing," "self-care."

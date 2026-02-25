@@ -1,6 +1,17 @@
 # Pre-Publish Checklist (Blocking)
 
-Use one command only:
+## Wave path contract (deterministic)
+
+Any script that produces a wave for export **must** write to this layout so `prepare_wave_for_export` can resolve paths by `--wave-id`:
+
+- **Plans:** `artifacts/waves/<wave_id>/plans/` (compiled plan `.json` files)
+- **Rendered prose:** `artifacts/waves/<wave_id>/rendered/` (rendered `.txt` for the same wave)
+
+Then `prepare_wave_for_export --wave-id <wave_id>` resolves plans-dir and wave-rendered-dir from these paths. Do not add alternate wave layouts for export.
+
+---
+
+Use one command only (prefer release layer):
 
 ```bash
 python scripts/ci/run_prepublish_gates.py \
@@ -41,6 +52,6 @@ Rationale: no state mutation until all blocking checks pass; index update is the
 - Archive the JSON report in release artifacts for auditability.
 
 ## Release automation
-- **Release automation must call** `scripts/ci/run_prepublish_gates.py` or `scripts/release/prepare_wave_for_export.py` before any export to storefronts.
+- **The only path to export is via `scripts/release/` entrypoints.** Call `scripts/release/prepare_wave_for_export.py` (or the single export script that calls it) before any export to storefronts. Do not add alternate upload paths that skip gates. Automation must call release-layer scripts only, not `scripts/ci/run_prepublish_gates.py` directly for export.
 - **Do not export** when the command exits non-zero. The only path to "approved for export" is through this prepublish pass.
 
