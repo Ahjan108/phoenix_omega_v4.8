@@ -11,10 +11,10 @@ brands:
     # topic_focus: [anxiety, shame, self_worth, grief]
     # persona_focus: [nyc_executives, burned_out_professional]
 
-  # cognitive_clarity:
-  #   teachers: [dr_y]
-  #   max_books_per_wave: 8
-  #   release_spacing_days: 10
+  cognitive_clarity:
+    teachers: [ahjan]
+    max_books_per_wave: 6
+    release_spacing_days: 14
 
 # Per-teacher saturation (optional)
 teacher_constraints:

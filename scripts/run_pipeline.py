@@ -138,15 +138,15 @@ def main() -> int:
     from phoenix_v4.planning.arc_loader import load_arc
     arc = load_arc(arc_path)
 
-    teacher_id = (args.teacher or "").strip() or "default_teacher"
-    brand_id = "phoenix"
-    if teacher_id == "default_teacher":
-        from phoenix_v4.planning.teacher_brand_resolver import resolve_teacher_brand
-        teacher_id, brand_id = resolve_teacher_brand(
-            topic_id=topic_id,
-            persona_id=persona_id,
-            series_id=series_id,
-        )
+    requested_teacher = (args.teacher or "").strip() or None
+    from phoenix_v4.planning.teacher_brand_resolver import resolve_teacher_brand
+    _, resolved_brand = resolve_teacher_brand(
+        topic_id=topic_id,
+        persona_id=persona_id,
+        series_id=series_id,
+    )
+    teacher_id = requested_teacher or "default_teacher"
+    brand_id = resolved_brand
     if teacher_id and teacher_id != "default_teacher":
         from phoenix_v4.planning.teacher_matrix import load_teacher_matrix, validate_teacher_assignment
         matrix = load_teacher_matrix()

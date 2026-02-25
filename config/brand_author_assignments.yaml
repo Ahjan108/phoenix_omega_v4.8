@@ -3,7 +3,11 @@
 # First matching row wins (brand_id required; optional topic_ids, persona_ids, series_ids to narrow).
 
 assignments:
-  - brand_id: phoenix
+  - brand_id: stillness_press
+    default_author: null
+    # No default: use --author explicitly or teacher-only book.
+
+  - brand_id: cognitive_clarity
     default_author: null
     # No default: use --author explicitly or teacher-only book.
 

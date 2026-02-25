@@ -3,15 +3,23 @@
 # When run_pipeline does not receive explicit --teacher/--brand, resolver uses this (first matching row).
 
 assignments:
-  - brand_id: phoenix
+  # Multi-brand default brand routing (non-teacher unless --teacher is passed).
+  # Resolver picks deterministically across all matching rows to spread load.
+  - brand_id: stillness_press
     teacher_id: default_teacher
     # Optional: narrow by topic_ids, persona_ids, series_ids (empty = any)
     topic_ids: []
     persona_ids: []
     series_ids: []
 
+  - brand_id: cognitive_clarity
+    teacher_id: default_teacher
+    topic_ids: []
+    persona_ids: []
+    series_ids: []
+
   # Example: assign a specific teacher for a brand when needed
-  # - brand_id: phoenix
+  # - brand_id: stillness_press
   #   teacher_id: ajahn_x
   #   topic_ids: [self_worth, shame]
   #   persona_ids: [nyc_executives]

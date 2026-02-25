@@ -1,0 +1,54 @@
+{
+  "teacher_id": "ahjan",
+  "topic_id": "self_worth",
+  "persona_id": "nyc_executives",
+  "format_id": "F001",
+  "arc_id": "nyc_exec_self_worth_shame_standard_8",
+  "required_by_slot": {
+    "HOOK": 8,
+    "SCENE": 8,
+    "STORY": 8,
+    "REFLECTION": 8,
+    "EXERCISE": 8,
+    "INTEGRATION": 8
+  },
+  "required_story_by_band": {
+    "2": 2,
+    "3": 2,
+    "4": 3,
+    "5": 1
+  },
+  "available_by_slot": {
+    "QUOTE": 9,
+    "INTEGRATION": 0,
+    "EXERCISE": 65,
+    "TEACHING": 100,
+    "SCENE": 0,
+    "HOOK": 0,
+    "STORY": 11
+  },
+  "story_band_inventory": {
+    "3": 11
+  },
+  "gaps": {
+    "EXERCISE": {},
+    "HOOK": {
+      "total_missing": 8
+    },
+    "INTEGRATION": {
+      "total_missing": 8
+    },
+    "REFLECTION": {
+      "total_missing": 8
+    },
+    "SCENE": {
+      "total_missing": 8
+    },
+    "STORY": {
+      "band_2": 2,
+      "band_4": 3,
+      "band_5": 1
+    }
+  },
+  "fallback_required": false
+}

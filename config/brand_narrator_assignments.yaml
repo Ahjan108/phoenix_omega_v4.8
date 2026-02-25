@@ -3,7 +3,10 @@
 # First matching row wins.
 
 assignments:
-  - brand_id: phoenix
+  - brand_id: stillness_press
+    default_narrator: default_narrator
+
+  - brand_id: cognitive_clarity
     default_narrator: default_narrator
 
   # Add rows for other brands when using multiple narrators:
