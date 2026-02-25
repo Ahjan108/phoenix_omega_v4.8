@@ -10,3 +10,30 @@ tuple_viability:
 coverage_health:
   # Band distribution skew threshold for YELLOW risk (e.g. one band >> others).
   band_distribution_skew_threshold: 0.6
+
+# Ops alerts (v1.1): stagnation + decay
+coverage_health_alerts:
+  stagnation:
+    enabled: true
+    window_weeks: 4
+    min_story_delta_total: 5
+    require_risk_not_green: true
+  aging:
+    enabled: true
+    stale_days_threshold: 30
+    stale_share_threshold: 0.35
+  decay:
+    enabled: true
+    stale_over_30_wow_increase_threshold: 10
+    stale_over_60_absolute_threshold: 20
+    red_blocker_wow_increase_threshold: 5
+    green_wow_decrease_threshold: 5
+
+# Phase 9 — Catalog emotional distribution (90-day rolling concept; drift vs previous run)
+catalog_emotional_distribution:
+  window_days: 90
+  alerts:
+    enabled: true
+    entropy_below_threshold: 0.85
+    band_5_share_drop_above: 0.03
+    persona_volatility_below_threshold: 0.40

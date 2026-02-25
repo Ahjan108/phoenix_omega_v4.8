@@ -2,6 +2,12 @@
 
 Ops-owned. Content team reacts; ops runs.
 
+## Coverage health report (Phase 2 + 2.5)
+
+**Schema:** v1.0 (stable contract) → v1.1 (velocity by persona/topic, deficit trend, risk trend). See `docs/COVERAGE_HEALTH_JSON_SCHEMA.md`.
+
+**Outputs:** `artifacts/ops/coverage_health_weekly_{date}.{md,csv,json}`. JSON is the dashboard contract; when previous week exists, v1.1 adds `velocity_by_persona`, `velocity_by_topic`, `deficit_trend_delta`, `tuple_risk_trend`, and indices for stagnation/decay visibility.
+
 ## Release-wave similarity & burst controls (Phase 6)
 
 Validates a **batch** of compiled plan JSONs (e.g. a week’s release wave) for:
