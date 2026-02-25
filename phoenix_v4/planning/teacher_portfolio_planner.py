@@ -123,7 +123,7 @@ def allocate_wave(
     t_idx = 0
     topic_idx = 0
     persona_idx = 0
-    for i in range(min(total_books, 100)):
+    for i in range(total_books):
         teacher_id = eligible[t_idx % len(eligible)]
         brand_id = teacher_to_brand.get(teacher_id, "default")
         topic_id = topic_list[topic_idx % len(topic_list)] if topic_list else "self_worth"

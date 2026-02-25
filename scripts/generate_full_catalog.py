@@ -18,6 +18,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -87,6 +88,11 @@ def main() -> int:
         action="store_true",
         help="Generate freebie HTML during compile (default: off for catalog speed).",
     )
+    ap.add_argument(
+        "--plan-only",
+        action="store_true",
+        help="Only allocate and produce BookSpecs; do not run compile/assembly or wave selection.",
+    )
     args = ap.parse_args()
 
     # --- Step 1: Teacher portfolio allocation ---
@@ -151,7 +157,21 @@ def main() -> int:
         print("No BookSpecs produced.", file=sys.stderr)
         return 1
 
+    # Cap to requested max_books (e.g. 108)
+    if len(specs) > args.max_books:
+        specs = specs[: args.max_books]
     print(f"BookSpecs produced: {len(specs)}.")
+
+    if args.plan_only:
+        args.candidates_dir.mkdir(parents=True, exist_ok=True)
+        for i, (alloc, spec) in enumerate(specs):
+            out_path = args.candidates_dir / f"book_{i:04d}_{spec.topic_id}_{spec.persona_id}.spec.json"
+            out_path.write_text(
+                json.dumps(spec.to_dict(), indent=2),
+                encoding="utf-8",
+            )
+        print(f"Wrote {len(specs)} BookSpecs to {args.candidates_dir} (plan-only; no assemble).")
+        return 0
 
     # --- Step 3: Compile each book via run_pipeline ---
     args.candidates_dir.mkdir(parents=True, exist_ok=True)

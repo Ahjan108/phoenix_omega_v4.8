@@ -26,3 +26,25 @@ python scripts/run_production_readiness_gates.py
 This runs 17 conditions including Gate 17 (jsonschema required) and Gate 17b (ops/waves schema validation when those dirs exist).
 
 **Quality/registry regression tests:** `tests/test_quality_regression.py` — malformed CANONICAL.txt, missing chapter text in plan, duplicate memorable-line collision. Run: `python -m unittest tests.test_quality_regression -v`.
+
+## Running pre-publish anti-spam gates
+
+From repo root:
+
+```bash
+python scripts/ci/run_prepublish_gates.py \
+  --plans-dir artifacts/waves/<wave_id>/plans \
+  --index artifacts/catalog_similarity/index.jsonl \
+  --wave-rendered-dir artifacts/waves/<wave_id>/rendered \
+  --catalog-rendered-dir artifacts/catalog_rendered \
+  --report artifacts/ops/prepublish_<wave_id>.json
+```
+
+This enforces the gate order:
+1. structural entropy
+2. platform similarity
+3. wave density
+4. prose duplication
+5. similarity index append (only after gates pass)
+
+Checklist: `scripts/ci/PREPUBLISH_CHECKLIST.md`.
