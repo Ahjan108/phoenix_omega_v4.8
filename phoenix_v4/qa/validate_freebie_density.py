@@ -22,10 +22,24 @@ from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 CONFIG_FREEBIES = REPO_ROOT / "config" / "freebies"
+CTA_ANTI_SPAM = CONFIG_FREEBIES / "cta_anti_spam.yaml"
 
 THRESHOLD_BUNDLE = 0.40
 THRESHOLD_CTA = 0.50
 THRESHOLD_SLUG = 0.60
+
+
+def _load_thresholds() -> tuple[float, float, float]:
+    """Load thresholds from config/freebies/cta_anti_spam.yaml if present."""
+    if not CTA_ANTI_SPAM.exists():
+        return THRESHOLD_BUNDLE, THRESHOLD_CTA, THRESHOLD_SLUG
+    cfg = _load_yaml(CTA_ANTI_SPAM)
+    dt = cfg.get("density_thresholds") or {}
+    return (
+        float(dt.get("identical_bundle_ratio", THRESHOLD_BUNDLE)),
+        float(dt.get("identical_cta_ratio", THRESHOLD_CTA)),
+        float(dt.get("identical_slug_pattern_ratio", THRESHOLD_SLUG)),
+    )
 
 
 def _load_yaml(p: Path) -> dict:
@@ -191,11 +205,16 @@ def main() -> int:
         print("FREEBIE DENSITY: PASS (no plans or index)")
         return 0
 
+    tb, tc, ts = _load_thresholds()
+    # Config overrides built-in defaults; CLI args override config
+    bundle_th = args.threshold_bundle if args.threshold_bundle != THRESHOLD_BUNDLE else tb
+    cta_th = args.threshold_cta if args.threshold_cta != THRESHOLD_CTA else tc
+    slug_th = args.threshold_slug if args.threshold_slug != THRESHOLD_SLUG else ts
     passed, failures = run(
         rows,
-        threshold_bundle=args.threshold_bundle,
-        threshold_cta=args.threshold_cta,
-        threshold_slug=args.threshold_slug,
+        threshold_bundle=bundle_th,
+        threshold_cta=cta_th,
+        threshold_slug=slug_th,
     )
     if not passed:
         print("FREEBIE DENSITY: FAIL", file=sys.stderr)

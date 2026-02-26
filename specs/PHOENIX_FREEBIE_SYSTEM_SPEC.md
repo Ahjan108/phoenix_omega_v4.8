@@ -156,10 +156,38 @@ Set **after** Stage 3 by the freebie planner. Arc unchanged. Planner may receive
 - **CTSS:** Catalog similarity index row includes `freebie_bundle_signature`, `cta_signature`; CTSS weight 0.08 total (0.04 each). `scripts/ci/update_similarity_index.py` and `check_platform_similarity.py`; Monte Carlo uses same weights.
 - **Reseed:** `plan_freebies(..., wave_index=...)` — when wave_index (rows from `artifacts/freebies/index.jsonl`) is provided and density would exceed thresholds, slug is deterministically varied with a seed suffix. Wave normalization is plan-row-only and deduped by `book_id`.
 - **Pipeline:** On each run with `--out`, the pipeline upserts one plan row per `book_id` into `artifacts/freebies/index.jsonl`, passes existing index rows as `wave_index` to the planner, and by default generates HTML freebie artifacts (`public/free/<slug>/`). Use `--no-generate-freebies` to skip HTML generation.
+- **CTA signature index + caps (per brand/quarter):** Optional index `artifacts/freebies/cta_signature_index.jsonl` (book_id, brand_id, quarter, cta_signature). Config `config/freebies/cta_anti_spam.yaml`: `max_same_cta_signature_per_brand_per_quarter`. Check fails when the same CTA wording (signature) is used more than the cap within a brand in a quarter. See §10.5 for in-book CTA; §10.6 for delivery gate.
 
 **27 exercise landing pages (email capture):** `config/freebies/exercises_landing.json` is the source of truth for 27 breathwork/somatic exercises. Run `python3 scripts/generate_landing_pages.py` to output `public/breathwork/lp-{id}.html` (one per exercise). Each page is minimal: title, benefit, duration, email field, MailerLite placeholders. When the planner assigns a somatic freebie that appears in `config/freebies/freebie_to_landing.yaml`, `public/free/{slug}/index.html` is generated as a redirect to the corresponding `public/breathwork/lp-{id}.html` so book CTAs send traffic to the right email-capture page. Email sequences (5-email welcome + persona variants) live in `docs/email_sequences/`.
 
 ---
+
+## 10.5 In-book CTA insertion point (anti-spam / quality)
+
+**Purpose:** One explicit place in the book where the freebie CTA appears (not only on the freebie page). Prevents CTA sprawl and keeps wording consistent with the CTA template layer.
+
+**Insertion point:** **Back matter — final integration segment.** The pipeline MUST inject the in-book CTA exactly once, after the last chapter’s content (or after the final INTEGRATION slot), in a dedicated **back matter** block. No CTA in body chapters; no mid-book CTAs.
+
+**Contract:**
+
+- **Location:** After last chapter / final integration. Implementations may use a dedicated “back_matter” segment or append to the final integration segment.
+- **Content:** Rendered CTA text (from `cta_templates.yaml` keyed by `cta_template_id`) with `{topic}`, `{freebie_name}`, `{slug}` substituted; plus the canonical URL `PhoenixProtocolBooks.com/free/{slug}` (or locale-equivalent).
+- **Source:** Plan fields `cta_template_id`, `freebie_slug`, plus `topic_id` / `persona_id` and primary freebie name for substitution. Pipeline MUST resolve these from the compiled plan and MUST NOT emit raw placeholders (e.g. `{{cta_text}}`, `{{slug}}`) in book output — see delivery gate §10.6.
+
+**Writer spec / assembly:** The assembly or rendering step that produces manuscript/HTML/audio script MUST receive `cta_template_id`, `freebie_slug`, and inject the single back-matter CTA at the defined insertion point. See OMEGA_LAYER_CONTRACTS and writer spec for integration.
+
+---
+
+## 10.6 Delivery gate: no placeholders or metadata in book output
+
+**Purpose:** Fail the pipeline if unreplaced placeholders or metadata artifacts leak into final book output (manuscript, HTML, audio script). Ensures readers never see `{{cta_text}}`, `{{slug}}`, or similar.
+
+**Gate:** A pre-export check MUST scan book output (e.g. rendered `.txt` under wave-rendered-dir, or export artifacts) for:
+
+- Unreplaced mustache placeholders: `{{...}}` (e.g. `{{cta_text}}`, `{{slug}}`, `{{topic}}`, `{{freebie_name}}`).
+- Structural placeholders: `[Placeholder: ...]`, `[Silence: ...]` (if these are not intended in final copy).
+
+**Action:** If any match is found, the gate FAILs and export MUST NOT proceed. Implementation: `scripts/ci/check_book_output_no_placeholders.py`; wired in pre-publish gates and/or production readiness.
 
 ---
 

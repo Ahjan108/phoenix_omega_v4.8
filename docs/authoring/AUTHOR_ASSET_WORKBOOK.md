@@ -244,6 +244,8 @@ transition_line: >
 status: approved
 ```
 
+**Stable vs dynamic blocks (intro/ending variation):** When Controlled Intro/Conclusion Variation is enabled (`config/source_of_truth/intro_ending_variation.yaml`), the following blocks are **stable** (always from this YAML): `author_intro`, `author_background`. The following are **dynamic** (may be chosen from per-brand pattern banks): `book_title_line`, `series_line`, `why_this_book`, `transition_line`; optionally `narrator_intro`. If the pipeline supplies a runtime book title (e.g. from the naming engine), it is used for `book_title_line`; if your YAML has a fixed `book_title_line` that would differ from the runtime title, the build **fails** (no silent override). Either supply a dynamic title at compile time or use one fixed line per asset. Pattern banks supply variants for dynamic blocks; see SYSTEMS_V4 and the intro/outro variation section.
+
 ---
 
 ## 7. Brand Binding Checklist

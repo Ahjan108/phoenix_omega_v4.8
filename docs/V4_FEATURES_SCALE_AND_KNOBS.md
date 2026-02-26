@@ -86,7 +86,11 @@
 | **Canonical topics/personas** | **Source of truth:** [unified_personas.md](../unified_personas.md) (10 active personas, 12 active topics). canonical_topics.yaml, canonical_personas.yaml must align with it; validated against topic_engine_bindings and identity_aliases. |
 | **Similarity index** | artifacts/catalog_similarity/index.jsonl — one row per compiled plan; CTSS fingerprint (arc, band_seq, slot_sig, exercise_chapters, story_fam_vec, ex_fam_vec, tps, freebie/CTA, role_seq, compression). Append on each plan via update_similarity_index. |
 | **Wave density check** | Runs over a batch (--plans-dir or index). FAILs if too many books share same arc_id, band_seq, slot_sig, exercise placement, or emotional_role_sig (and optionally compression). Prevents “same book N times” in one wave. |
-| **Freebie density gate** | Over artifacts/freebies/index.jsonl (plan rows, deduped by book_id). FAILs if identical freebie_bundle ratio ≥40%, identical CTA ≥50%, identical slug pattern ≥60%. Prevents every book in a wave from offering the same freebie bundle/CTA/slug. |
+| **Freebie density gate** | Over artifacts/freebies/index.jsonl (plan rows, deduped by book_id). FAILs if identical freebie_bundle ratio ≥40%, identical CTA ≥50%, identical slug pattern ≥60%. Thresholds configurable via config/freebies/cta_anti_spam.yaml (density_thresholds). Prevents every book in a wave from offering the same freebie bundle/CTA/slug. |
+| **CTA signature index + caps** | artifacts/freebies/cta_signature_index.jsonl (optional); config/freebies/cta_anti_spam.yaml (max_same_cta_signature_per_brand_per_quarter). phoenix_v4/qa/cta_signature_caps.py — FAIL when same CTA wording exceeds cap per brand/quarter. |
+| **In-book CTA insertion point** | Spec §10.5: single back-matter insertion (after final integration); pipeline must inject CTA text + URL from plan (cta_template_id, freebie_slug). No CTA in body chapters. |
+| **Delivery gate (no placeholders)** | scripts/ci/check_book_output_no_placeholders.py — FAIL if {{...}}, [Placeholder: ...], [Silence: ...] appear in rendered book output. Wired in run_prepublish_gates (§10.6). |
+| **Wave CTA diversity** | check_release_wave: weekly_caps max_same_cta_style, max_same_slug_pattern; anti_homogeneity weights cta_diversity, slug_diversity. config/release_wave_controls.yaml. |
 | **Structural entropy** | Per-book: story family dominance, exercise family concentration, compression family diversity; min word counts; emotional_role_sequence rules. Prevents one structure or one family dominating a single book. |
 | **Emotional governance (catalog)** | Catalog-level: structural_similarity, waveform_entropy, reflection_density (rolling windows). Prevents catalog-wide flattening or clone runs. |
 | **Wave orchestrator** | Selects a balanced wave from candidates using arc/band/slot/ex (and density) constraints so the chosen set is diverse by construction. |
@@ -153,8 +157,10 @@ Together, these give **structural anti-spam**: we never ship waves of near-ident
 | check_author_positioning.py | `--plan`, `--book-spec`, `--atoms-dir` | Plan (and optional spec/atoms). |
 | check_platform_similarity.py | `--plan`, `--plans-dir`, `--index`, `--block`, `--review` | block=0.78, review=0.65. |
 | check_wave_density.py | `--plans-dir`, `--plan-list`, `--index` | Batch of plans. |
-| validate_freebie_density.py | `--index` (or plans-dir) | artifacts/freebies/index.jsonl. |
-| run_production_readiness_gates.py | (none) | Gate 16 runs when freebie index has ≥2 plan rows. |
+| validate_freebie_density.py | `--index` (or plans-dir) | artifacts/freebies/index.jsonl; thresholds from config/freebies/cta_anti_spam.yaml when present. |
+| cta_signature_caps.py | `--index`, `--config`, `--write-index` | CTA signature caps per brand/quarter; optional cta_signature_index.jsonl. |
+| check_book_output_no_placeholders.py | `--wave-rendered-dir` or &lt;dir&gt; | Rendered book .txt; FAIL if placeholders/metadata leak (§10.6). |
+| run_production_readiness_gates.py | (none) | Gate 16 runs when freebie index has ≥2 plan rows. Pre-publish: run_prepublish_gates includes delivery gate (book output no placeholders). |
 
 ### 3.4 Full catalog and standalone quality tools
 

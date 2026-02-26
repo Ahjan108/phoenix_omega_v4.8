@@ -19,6 +19,9 @@ release_wave_controls:
     max_same_wave_fingerprint: 3
     max_teacher_mode_books: 30
     max_same_teacher_id: 10
+    # CTA diversity: same style/slug share caps (anti-spam)
+    max_same_cta_style: 6
+    max_same_slug_pattern: 5
 
   # 2) Exact fingerprint clusters (structural clones)
   clustering:
@@ -47,12 +50,14 @@ release_wave_controls:
     mode: fail_if_below   # or warn_if_below
     min_score: 0.62
     weights:
-      topic_diversity: 0.25
-      persona_diversity: 0.20
-      arc_diversity: 0.20
-      band_shape_diversity: 0.20
+      topic_diversity: 0.22
+      persona_diversity: 0.18
+      arc_diversity: 0.18
+      band_shape_diversity: 0.18
       slot_diversity: 0.10
       variation_diversity: 0.05
+      cta_diversity: 0.05
+      slug_diversity: 0.04
 
   # 5) Reporting
   reporting:

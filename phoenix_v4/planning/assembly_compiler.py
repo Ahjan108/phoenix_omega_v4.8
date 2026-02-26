@@ -100,6 +100,9 @@ class CompiledBook:
     chapter_reflection_weights: Optional[list[str]] = None
     chapter_story_depths: Optional[list[str]] = None
     chapter_planner_warnings: Optional[list[str]] = None
+    # Intro/ending variation (Controlled Intro/Conclusion): final chapter INTEGRATION + carry line
+    ending_signature: Optional[str] = None  # SHA256(final INTEGRATION atom_id + carry_line)[:16]
+    carry_line: Optional[str] = None  # chosen carry line for final chapter (for TTS)
 
 
 def _load_yaml(p: Path) -> dict:
@@ -559,12 +562,24 @@ def compile_plan(
     )
     silence_budget = int(format_plan.get("silence_budget") or book_spec.get("silence_budget") or 0)
     used_semantic_families: set[str] = set()
-    # Angle Integration (V4.7): chapter 1 framing bias
+    # Angle Integration (V4.7): chapter 1 framing bias; intro/ending variation: opening_style_id soft bias
     angle_context = None
     _angle_id = book_spec.get("angle_id") if isinstance(book_spec, dict) else getattr(book_spec, "angle_id", None)
     if _angle_id:
         from phoenix_v4.planning.angle_resolver import get_angle_context
         angle_context = get_angle_context(_angle_id)
+    _opening_style_id = book_spec.get("opening_style_id") if isinstance(book_spec, dict) else getattr(book_spec, "opening_style_id", None)
+    if _opening_style_id:
+        angle_context = dict(angle_context) if angle_context else {}
+        angle_context["opening_style_id"] = _opening_style_id
+    # Intro/ending variation: final chapter INTEGRATION ranking and carry line
+    ending_context = None
+    _integration_ending_style_id = book_spec.get("integration_ending_style_id") if isinstance(book_spec, dict) else getattr(book_spec, "integration_ending_style_id", None)
+    if _integration_ending_style_id is not None:
+        ending_context = {
+            "final_chapter_index": chapter_count - 1,
+            "integration_ending_style_id": _integration_ending_style_id,
+        }
     context = ResolverContext(
         persona_id=persona_id,
         topic_id=topic_id,
@@ -575,6 +590,7 @@ def compile_plan(
         required_band_by_chapter=required_band_by_chapter,
         used_semantic_families=used_semantic_families,
         angle_context=angle_context,
+        ending_context=ending_context,
         teacher_mode=teacher_mode,
         required_slots_by_type=required_slots_by_type,
         teacher_exercise_fallback=teacher_exercise_fallback,
@@ -629,6 +645,26 @@ def compile_plan(
                     placeholder_slot_types.add(slot_type)
         chapter_slot_sequence.append(ch_slots)
         dominant_band_sequence.append(max(chapter_story_bands) if chapter_story_bands else None)
+
+    # Intro/ending variation: compute ending_signature from final INTEGRATION atom + carry line
+    ending_signature_out: Optional[str] = None
+    carry_line_out: Optional[str] = None
+    _carry_line_style_id = book_spec.get("carry_line_style_id") if isinstance(book_spec, dict) else getattr(book_spec, "carry_line_style_id", None)
+    if _carry_line_style_id and chapter_count > 0:
+        final_ch = chapter_count - 1
+        final_slots = slot_definitions[final_ch] if final_ch < len(slot_definitions) else []
+        final_int_si = next((i for i, st in enumerate(final_slots) if str(st).strip().upper() == "INTEGRATION"), None)
+        if final_int_si is not None:
+            global_idx = sum(len(slot_definitions[i]) for i in range(final_ch)) + final_int_si
+            if global_idx < len(atom_ids):
+                final_integration_atom_id = atom_ids[global_idx]
+                from phoenix_v4.planning.intro_ending_selector import select_carry_line
+                _seed = book_spec.get("seed", "default_seed") if isinstance(book_spec, dict) else getattr(book_spec, "seed", "default_seed")
+                carry_line_out = select_carry_line(
+                    _carry_line_style_id, topic_id, persona_id, _seed, config_root=CONFIG_ROOT / "source_of_truth",
+                )
+                payload = f"{final_integration_atom_id}\n{carry_line_out}"
+                ending_signature_out = hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
 
     if require_full_resolution and placeholder_slot_types:
         raise ValueError(
@@ -723,4 +759,6 @@ def compile_plan(
         chapter_reflection_weights=chapter_reflection_weights_out,
         chapter_story_depths=chapter_story_depths_out,
         chapter_planner_warnings=chapter_planner_warnings_out,
+        ending_signature=ending_signature_out,
+        carry_line=carry_line_out,
     )

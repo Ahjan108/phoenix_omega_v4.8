@@ -166,6 +166,26 @@ def main() -> int:
     if r.returncode != 0:
         failures.append({"gate": "check_wave_density", "detail": r.stderr.strip() or r.stdout.strip()})
 
+    # 4a) Delivery gate: no placeholders/metadata in book output (§10.6)
+    placeholder_cmd = [
+        sys.executable,
+        str(REPO_ROOT / "scripts" / "ci" / "check_book_output_no_placeholders.py"),
+        "--wave-rendered-dir",
+        str(wave_rendered_dir),
+    ]
+    r = _run(placeholder_cmd)
+    steps.append(
+        {
+            "book_output_no_placeholders": {
+                "rc": r.returncode,
+                "stdout": (r.stdout or "").strip(),
+                "stderr": (r.stderr or "").strip(),
+            }
+        }
+    )
+    if r.returncode != 0:
+        failures.append({"gate": "check_book_output_no_placeholders", "detail": r.stderr.strip() or r.stdout.strip()})
+
     # 4b) Series diversity (P0: hard fail on adjacent mech+journey or band_curve; soft warn on combo density)
     try:
         from phoenix_v4.qa.validate_series_diversity import validate_series_diversity

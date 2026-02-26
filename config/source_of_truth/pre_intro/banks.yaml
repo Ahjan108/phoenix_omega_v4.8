@@ -1,0 +1,64 @@
+# Per-brand pre-intro pattern banks. 8–12 variants per list.
+# Authority: Controlled Intro/Conclusion Variation plan.
+# Dynamic blocks: why_this_book (frame types), narrator_intro (optional), transition_line.
+# book_title_line / series_line: prefer runtime injection; banks can supply fallback phrasing templates if needed.
+
+schema_version: "1.0"
+
+# Default bank used when brand_id has no entry (fallback to YAML per plan).
+default:
+  pre_intro_frames:
+    - frame_id: credibility
+      text: "This book comes from years of working with people who thought they had to fix themselves before they could feel okay. You don't."
+    - frame_id: stakes
+      text: "What you're carrying has a cost. Not a moral cost—a nervous system cost. This book is about seeing it clearly."
+    - frame_id: method
+      text: "The approach here isn't more effort. It's a different kind of attention. One you can actually sustain."
+    - frame_id: listener_contract
+      text: "You don't have to believe anything in advance. Just listen. Your body will recognize what fits."
+    - frame_id: confession
+      text: "I wrote this after watching the same pattern repeat: capable people, exhausted by the wrong battle. This is the other way."
+  narrator_intro_variants:
+    - "I'll be guiding you through this audiobook."
+    - "I'll be reading this book for you."
+    - "I'm your guide for this audiobook."
+  transition_line_variants:
+    - "Chapter One."
+    - "Let's begin."
+    - "We'll start with Chapter One."
+
+brands:
+  stillness_press:
+    pre_intro_frames:
+      - frame_id: credibility
+        text: "This book comes from years of working with people who thought they had to fix themselves before they could feel okay. You don't."
+      - frame_id: stakes
+        text: "What you're carrying has a cost. Not a moral cost—a nervous system cost. This book is about seeing it clearly."
+      - frame_id: method
+        text: "The approach here isn't more effort. It's a different kind of attention. One you can actually sustain."
+      - frame_id: listener_contract
+        text: "You don't have to believe anything in advance. Just listen. Your body will recognize what fits."
+      - frame_id: confession
+        text: "I wrote this after watching the same pattern repeat: capable people, exhausted by the wrong battle. This is the other way."
+    narrator_intro_variants:
+      - "I'll be guiding you through this audiobook."
+      - "I'll be reading this book for you."
+    transition_line_variants:
+      - "Chapter One."
+      - "Let's begin."
+
+  cognitive_clarity:
+    pre_intro_frames:
+      - frame_id: credibility
+        text: "This book comes from years of working with people who thought they had to fix themselves before they could feel okay. You don't."
+      - frame_id: stakes
+        text: "What you're carrying has a cost. Not a moral cost—a nervous system cost. This book is about seeing it clearly."
+      - frame_id: method
+        text: "The approach here isn't more effort. It's a different kind of attention. One you can actually sustain."
+      - frame_id: listener_contract
+        text: "You don't have to believe anything in advance. Just listen. Your body will recognize what fits."
+    narrator_intro_variants:
+      - "I'll be guiding you through this audiobook."
+    transition_line_variants:
+      - "Chapter One."
+      - "Let's begin."

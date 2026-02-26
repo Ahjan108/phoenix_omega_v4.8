@@ -3,13 +3,146 @@ Stage 6 book renderer: CompiledBook + prose map → manuscript/ebook outputs.
 Writers: TxtWriter (QA and pipeline). Optional DOCX/EPUB later.
 Edge cases: placeholders → [Placeholder: TYPE], silence → [Silence: TYPE], missing → fail or [Missing: atom_id].
 Teacher Mode: when atom_source == practice_fallback for EXERCISE, wrap with teacher intro/close templates (deterministic).
+Delivery: clean_for_delivery() strips scaffolding + resolves loc-var fallbacks.
+          delivery_contract_gate() hard-fails build if forbidden artifacts survive into output.
 """
 from __future__ import annotations
 
 import hashlib
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, List, Optional
+
+
+# ---------------------------------------------------------------------------
+# Delivery contract: forbidden patterns that must never reach output
+# ---------------------------------------------------------------------------
+
+# Universal sensory fallbacks for location variables that may not be hydrated.
+# Written to work anywhere — no city, no transit system, no weather specifics.
+_LOC_VAR_FALLBACKS: dict[str, str] = {
+    "weather_detail":   "gray light through the window",
+    "street_name":      "the street below",
+    "transit_line":     "the train",
+    "transit_stop":     "the platform",
+    "city_name":        "the city",
+    "neighborhood":     "the neighborhood",
+    "building_type":    "the building",
+    "local_landmark":   "a landmark nearby",
+    "park_name":        "the park",
+    "coffee_shop":      "a coffee shop",
+    "restaurant":       "a nearby restaurant",
+    "store_name":       "a nearby store",
+    "office_building":  "the office building",
+    "commute_mode":     "the commute",
+}
+
+# Metadata keys that belong to the pipeline, not the reader.
+_METADATA_LINE_RE = re.compile(
+    r"^\s*"
+    r"(family|voice_mode|mode|reframe_type|mechanism_emphasis|"
+    r"weight|carry_line|atom_id|BAND|MECHANISM_DEPTH|"
+    r"COST_TYPE|COST_INTENSITY|IDENTITY_STAGE)"
+    r"\s*:",
+    re.IGNORECASE,
+)
+
+# Inline block headers like [family: F4 voice_mode: guide mechanism_emphasis: automatic]
+_METADATA_BLOCK_RE = re.compile(r"^\[.*?(family|voice_mode|mode|reframe_type).*?\]", re.IGNORECASE)
+
+# Title-page lines like "Topic: anxiety" or "Persona: gen_z_professionals"
+_TITLE_META_RE = re.compile(r"^(Topic|Persona)\s*:", re.IGNORECASE)
+
+# Scaffold markers
+_DIVIDER_RE    = re.compile(r"^---\s*$")
+_CHAPTER_RE    = re.compile(r"^={5,}.*CHAPTER", re.IGNORECASE)
+
+
+class DeliveryContractError(ValueError):
+    """Raised by delivery_contract_gate() when forbidden artifacts survive into prose output."""
+
+
+def _resolve_loc_var_fallbacks(text: str) -> str:
+    """Replace known location variables with universal sensory fallbacks.
+    Any {var} that remains after this is caught and hard-failed by delivery_contract_gate().
+    """
+    for var_name, fallback in _LOC_VAR_FALLBACKS.items():
+        text = text.replace("{" + var_name + "}", fallback)
+    return text
+
+
+def _strip_scaffolding_lines(text: str) -> str:
+    """Remove lines that are pipeline control data or markdown scaffolding, not prose."""
+    out: list[str] = []
+    for line in text.splitlines():
+        stripped = line.strip()
+        if (
+            _METADATA_LINE_RE.match(stripped)
+            or _METADATA_BLOCK_RE.match(stripped)
+            or _TITLE_META_RE.match(stripped)
+            or _DIVIDER_RE.match(stripped)
+            or _CHAPTER_RE.match(stripped)
+        ):
+            continue
+        out.append(line)
+    return "\n".join(out)
+
+
+def clean_for_delivery(text: str) -> str:
+    """Post-assembly cleanup pass.
+
+    Order of operations:
+      1. Resolve known loc-var placeholders with universal fallbacks.
+      2. Strip pipeline metadata lines and markdown scaffolding.
+      3. Collapse 3+ consecutive blank lines to 2 (paragraph breathing room only).
+
+    Always call this before delivery_contract_gate().
+    """
+    text = _resolve_loc_var_fallbacks(text)
+    text = _strip_scaffolding_lines(text)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
+
+
+def delivery_contract_gate(text: str, source_hint: str = "output") -> None:
+    """Hard-fail the build if any forbidden artifact survives into delivered prose.
+
+    Call after clean_for_delivery(). Raises DeliveryContractError with line numbers
+    and descriptions so the upstream author or atom can be fixed.
+
+    Checks (per line):
+      - Unresolved {variable} placeholders
+      - Pipeline metadata keys: family:, voice_mode:, mode:, reframe_type:
+      - Markdown dividers: ---
+      - Chapter scaffold markers: ===...=== CHAPTER
+    """
+    violations: list[str] = []
+    for lineno, line in enumerate(text.splitlines(), 1):
+        stripped = line.strip()
+        m = re.search(r"\{[^}]+\}", line)
+        if m:
+            violations.append(f"  line {lineno}: unresolved variable {m.group()!r}")
+        if _METADATA_LINE_RE.match(stripped):
+            violations.append(f"  line {lineno}: pipeline metadata key in prose {stripped[:40]!r}")
+        if _METADATA_BLOCK_RE.match(stripped):
+            violations.append(f"  line {lineno}: metadata block in prose {stripped[:60]!r}")
+        if _DIVIDER_RE.match(stripped):
+            violations.append(f"  line {lineno}: markdown divider '---'")
+        if _CHAPTER_RE.match(stripped):
+            violations.append(f"  line {lineno}: chapter scaffold marker {stripped[:40]!r}")
+
+    if violations:
+        extra = (
+            f" ... and {len(violations) - 5} more" if len(violations) > 5 else ""
+        )
+        raise DeliveryContractError(
+            f"Delivery contract violated in {source_hint}: "
+            f"{len(violations)} artifact(s) found.\n"
+            + "\n".join(violations[:5])
+            + extra
+            + "\n\nFix the upstream atom, or add the variable to _LOC_VAR_FALLBACKS."
+        )
 
 from phoenix_v4.rendering.prose_resolver import (
     RenderResult,
@@ -23,9 +156,10 @@ from phoenix_v4.rendering.prose_resolver import (
 class RenderOptions:
     """Options for Stage 6 rendering."""
     allow_placeholders: bool = False
-    on_missing: str = "fail"  # "fail" | "placeholder"
+    on_missing: str = "fail"          # "fail" | "placeholder"
     title_page: bool = True
     include_slot_labels_qa: bool = False  # If True, emit [STORY] atom_id before prose (QA style)
+    clean_output: bool = True         # Strip scaffolding + run delivery_contract_gate before write
 
 
 def _get_prose(
@@ -112,14 +246,20 @@ class TxtWriter:
             raise ValueError("Plan missing chapter_slot_sequence or atom_ids")
 
         lines: list[str] = []
-        if self.options.title_page:
+        if self.options.title_page and not self.options.clean_output:
+            # Title page only in QA mode; clean_output strips persona/topic metadata
             lines.extend(_build_title_page_lines(self.plan))
 
         atom_sources = self.plan.get("atom_sources") or []
         idx = 0
         for ch, slots in enumerate(chapter_slot_sequence):
             lines.append("")
-            lines.append(f"========== CHAPTER {ch + 1} ==========")
+            if self.options.clean_output:
+                # Clean delivery: simple heading, no scaffold decoration
+                lines.append(f"Chapter {ch + 1}")
+            else:
+                # QA mode: scaffold markers kept for diff/debugging
+                lines.append(f"========== CHAPTER {ch + 1} ==========")
             lines.append("")
             for si, slot_type in enumerate(slots):
                 if idx >= len(atom_ids):
@@ -137,9 +277,15 @@ class TxtWriter:
                 lines.append("")
             lines.append("")
 
+        full_text = "\n".join(lines).strip()
+
+        if self.options.clean_output:
+            full_text = clean_for_delivery(full_text)
+            delivery_contract_gate(full_text, source_hint=str(out_path))
+
         out_path = Path(out_path)
         out_path.parent.mkdir(parents=True, exist_ok=True)
-        out_path.write_text("\n".join(lines).strip() + "\n", encoding="utf-8")
+        out_path.write_text(full_text + "\n", encoding="utf-8")
         return out_path
 
 
@@ -155,10 +301,21 @@ def render_book(
     on_missing: str = "fail",
     title_page: bool = True,
     include_slot_labels_qa: bool = False,
+    clean_output: bool = True,
 ) -> dict[str, Path]:
     """
     Stage 6: resolve prose for plan and write requested formats to output_dir.
     Returns dict format -> path (e.g. {"txt": Path("output_dir/book.txt")}).
+
+    clean_output=True (default):
+      - Strips pipeline metadata, markdown dividers, and chapter scaffold markers.
+      - Resolves unhydrated loc-vars ({weather_detail} etc.) with universal fallbacks.
+      - Runs delivery_contract_gate() before write — hard-fails if any artifact survives.
+      Use for production epub/TTS output.
+
+    clean_output=False:
+      - Passes raw assembled text through (scaffold markers preserved).
+      - No gate. Use for QA diffs and debugging.
     """
     formats = formats or ["txt"]
     output_dir = Path(output_dir)
@@ -188,6 +345,7 @@ def render_book(
         on_missing=on_missing,
         title_page=title_page,
         include_slot_labels_qa=include_slot_labels_qa,
+        clean_output=clean_output,
     )
     written: dict[str, Path] = {}
 

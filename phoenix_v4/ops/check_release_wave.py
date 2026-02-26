@@ -103,6 +103,16 @@ def _role_sig_from_plan(plan: dict[str, Any]) -> str:
     return ""
 
 
+def _slug_pattern(slug: str) -> str:
+    """Reduce slug to pattern for CTA/slug diversity (e.g. topic-persona). Aligned with validate_freebie_density."""
+    if not slug:
+        return ""
+    parts = (slug or "").split("-")
+    if len(parts) >= 2:
+        return f"{parts[0]}-{parts[1]}"
+    return slug
+
+
 @dataclass
 class WavePlanRow:
     book_id: str
@@ -119,6 +129,8 @@ class WavePlanRow:
     exercise_chapters_sig: str
     role_sig: str
     chapter_count: int
+    cta_template_id: str = ""
+    slug_pattern: str = ""
     raw: dict[str, Any] = field(repr=False)
 
 
@@ -144,6 +156,8 @@ def extract_wave_row(plan: dict[str, Any], plan_path: str = "") -> Optional[Wave
     role_sig = _role_sig_from_plan(plan)
     ch_seq = _safe_list(plan.get("chapter_slot_sequence"))
     chapter_count = len(ch_seq) if ch_seq else int(plan.get("chapter_count") or 0)
+    cta_template_id = str(plan.get("cta_template_id") or "")
+    slug_pattern = _slug_pattern(str(plan.get("freebie_slug") or plan.get("slug") or ""))
 
     # Minimal required for wave checks: need arc_id or meaningful structure (chapter_slot_sequence)
     if not book_id and not plan_path:
@@ -166,6 +180,8 @@ def extract_wave_row(plan: dict[str, Any], plan_path: str = "") -> Optional[Wave
         exercise_chapters_sig=exercise_chapters_sig,
         role_sig=role_sig,
         chapter_count=chapter_count,
+        cta_template_id=cta_template_id,
+        slug_pattern=slug_pattern,
         raw=plan,
     )
 
@@ -279,6 +295,8 @@ def run_weekly_caps(
     wave_fp_count: dict[str, int] = defaultdict(int)
     teacher_count: dict[str, int] = defaultdict(int)
     teacher_mode_count = 0
+    cta_style_count: dict[str, int] = defaultdict(int)
+    slug_pattern_count: dict[str, int] = defaultdict(int)
 
     for r in rows:
         topic_count[r.topic_id] += 1
@@ -299,6 +317,10 @@ def run_weekly_caps(
             teacher_mode_count += 1
         if r.teacher_id:
             teacher_count[r.teacher_id] += 1
+        if r.cta_template_id:
+            cta_style_count[r.cta_template_id] += 1
+        if r.slug_pattern:
+            slug_pattern_count[r.slug_pattern] += 1
 
     cap_map = {
         "topic_id": (topic_count, caps.get("max_same_topic"), "WEEKLY_CAP_TOPIC_EXCEEDED"),
@@ -312,6 +334,8 @@ def run_weekly_caps(
         "variation_signature": (variation_count, caps.get("max_same_variation_signature"), "WEEKLY_CAP_VARIATION_SIG_EXCEEDED"),
         "wave_fingerprint": (wave_fp_count, caps.get("max_same_wave_fingerprint"), "WAVE_CLUSTER_EXACT_TOO_LARGE"),
         "teacher_id": (teacher_count, caps.get("max_same_teacher_id"), "WEEKLY_CAP_TEACHER_EXCEEDED"),
+        "cta_template_id": (cta_style_count, caps.get("max_same_cta_style"), "WEEKLY_CAP_CTA_STYLE_EXCEEDED"),
+        "slug_pattern": (slug_pattern_count, caps.get("max_same_slug_pattern"), "WEEKLY_CAP_SLUG_PATTERN_EXCEEDED"),
     }
     for key, (counts, cap, code) in cap_map.items():
         if cap is None:
@@ -408,6 +432,8 @@ def run_anti_homogeneity(
     band_count: dict[str, int] = defaultdict(int)
     slot_count: dict[str, int] = defaultdict(int)
     var_count: dict[str, int] = defaultdict(int)
+    cta_count: dict[str, int] = defaultdict(int)
+    slug_count: dict[str, int] = defaultdict(int)
     for r in rows:
         topic_count[r.topic_id] += 1
         persona_count[r.persona_id] += 1
@@ -418,6 +444,10 @@ def run_anti_homogeneity(
             slot_count[r.slot_sig] += 1
         if r.variation_signature:
             var_count[r.variation_signature] += 1
+        if r.cta_template_id:
+            cta_count[r.cta_template_id] += 1
+        if r.slug_pattern:
+            slug_count[r.slug_pattern] += 1
 
     w = weights
     score = (
@@ -427,8 +457,10 @@ def run_anti_homogeneity(
         + w.get("band_shape_diversity", 0) * normalized_entropy(band_count, total)
         + w.get("slot_diversity", 0) * normalized_entropy(slot_count, total)
         + w.get("variation_diversity", 0) * normalized_entropy(var_count, total)
+        + w.get("cta_diversity", 0) * normalized_entropy(cta_count, total)
+        + w.get("slug_diversity", 0) * normalized_entropy(slug_count, total)
     )
-    total_w = sum(w.get(k, 0) for k in ("topic_diversity", "persona_diversity", "arc_diversity", "band_shape_diversity", "slot_diversity", "variation_diversity"))
+    total_w = sum(w.get(k, 0) for k in ("topic_diversity", "persona_diversity", "arc_diversity", "band_shape_diversity", "slot_diversity", "variation_diversity", "cta_diversity", "slug_diversity"))
     if total_w > 0:
         score /= total_w
     return round(score, 4)

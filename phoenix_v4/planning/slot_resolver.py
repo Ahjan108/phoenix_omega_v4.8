@@ -28,6 +28,8 @@ class ResolverContext:
     used_semantic_families: Optional[set[str]] = None
     # Angle Integration (V4.7): chapter 1 framing bias. Optional dict with framing_mode, etc.
     angle_context: Optional[dict] = None
+    # Intro/ending variation: final chapter INTEGRATION ranking by ending_style. Optional dict with final_chapter_index, integration_ending_style_id.
+    ending_context: Optional[dict] = None
     # Teacher Mode: when True, raise on no candidates; return (atom_id, atom_source).
     teacher_mode: bool = False
     # Required slot counts (for EXERCISE fallback merge). teacher_exercise_fallback from config.
@@ -100,6 +102,20 @@ def resolve_slot(
         def _key(e: "AtomEntry") -> tuple:
             return (-score_atom(e.metadata, slot_type, context.angle_context), e.atom_id)
         available.sort(key=_key)
+    # Intro/ending variation: final chapter INTEGRATION — soft bias by ending_style
+    elif (
+        slot_type == "INTEGRATION"
+        and context.ending_context
+        and chapter_idx == context.ending_context.get("final_chapter_index")
+    ):
+        ending_style_id = (context.ending_context.get("integration_ending_style_id") or "").strip()
+        if ending_style_id:
+            from phoenix_v4.planning.angle_bias import score_ending_atom
+            def _key_end(e: "AtomEntry") -> tuple:
+                return (-score_ending_atom(e.metadata, ending_style_id), e.atom_id)
+            available.sort(key=_key_end)
+        else:
+            available.sort(key=lambda e: e.atom_id)
     else:
         # Lexicographic sort by atom_id (raw UTF-8; no Unicode normalization)
         available.sort(key=lambda e: e.atom_id)

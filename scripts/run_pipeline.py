@@ -299,6 +299,107 @@ def main() -> int:
         # Attach for downstream (templates, audiobook pre-intro, etc.); omit internal 'errors' in payload
         book_spec_for_compiler["author_assets"] = {k: v for k, v in author_assets.items() if k != "errors"}
 
+        # Controlled Intro/Conclusion Variation: resolve pre-intro from pattern banks when enabled
+        intro_ending_cfg = {}
+        try:
+            from phoenix_v4.planning.intro_ending_caps import load_intro_ending_config
+            intro_ending_cfg = load_intro_ending_config()
+        except Exception:
+            pass
+        if intro_ending_cfg.get("intro_ending_variation_enabled"):
+            from phoenix_v4.planning.pre_intro_resolver import (
+                resolve_pre_intro_blocks,
+                compute_pre_intro_signature,
+                PRE_INTRO_BLOCK_ORDER,
+            )
+            from phoenix_v4.planning.author_asset_loader import render_audiobook_pre_intro
+            from phoenix_v4.qa.validate_pre_intro import validate_pre_intro
+            from phoenix_v4.planning.intro_ending_caps import (
+                get_quarter_for_brand,
+                load_signature_index,
+                check_intro_cap_and_duplicate,
+            )
+            config_sot = REPO_ROOT / "config" / "source_of_truth"
+            pattern_bank_overrides_yaml = bool(intro_ending_cfg.get("pattern_bank_overrides_yaml"))
+            max_retries = int(intro_ending_cfg.get("max_retries", 5))
+            cap_share = float(intro_ending_cfg.get("intro_signature_cap_share", 0.15))
+            selector_key = f"{canonical_topic}|{canonical_persona}|{seed}"
+            series_id = book_spec_for_compiler.get("series_id")
+            include_series_line = bool(series_id)
+            book_title_runtime = ""  # TODO: from naming engine when available
+            series_name_runtime = ""
+            signature_index_path = REPO_ROOT / "artifacts" / "pre_intro_signatures.jsonl"
+            signature_index = load_signature_index(signature_index_path)
+            quarter = get_quarter_for_brand(brand_id)
+            last_cap_result = None
+            resolved_blocks = None
+            pre_intro_sig = None
+            for retry in range(max_retries):
+                sk = selector_key if retry == 0 else f"{selector_key}:retry{retry}"
+                try:
+                    resolved_blocks = resolve_pre_intro_blocks(
+                        author_assets,
+                        brand_id,
+                        sk,
+                        book_title=book_title_runtime,
+                        series_name=series_name_runtime,
+                        include_series_line=include_series_line,
+                        pattern_bank_overrides_yaml=pattern_bank_overrides_yaml,
+                        config_root=config_sot,
+                    )
+                except ValueError as e:
+                    print(f"Pre-intro resolution failed: {e}", file=sys.stderr)
+                    return 1
+                # Merge stable blocks from original so required blocks present
+                yaml_blocks = author_assets.get("audiobook_pre_intro") or {}
+                for k in ("author_intro", "author_background"):
+                    if yaml_blocks.get(k) and not resolved_blocks.get(k):
+                        resolved_blocks[k] = yaml_blocks[k]
+                val = validate_pre_intro(resolved_blocks, book_spec_for_compiler.get("author_id"))
+                if not val.valid:
+                    for err in val.errors:
+                        print(f"Pre-intro validation failed: {err}", file=sys.stderr)
+                    return 1
+                full_text = render_audiobook_pre_intro(
+                    author_assets,
+                    book_title=book_title_runtime,
+                    series_name=series_name_runtime,
+                    include_series_line=include_series_line,
+                    resolved_blocks=resolved_blocks,
+                )
+                pre_intro_sig = compute_pre_intro_signature(full_text)
+                last_cap_result = check_intro_cap_and_duplicate(
+                    brand_id, quarter, pre_intro_sig, signature_index, cap_share=cap_share,
+                )
+                if last_cap_result.ok:
+                    break
+            if not last_cap_result.ok:
+                print(f"Pre-intro cap/duplicate gate failed after {max_retries} retries: {last_cap_result.error}", file=sys.stderr)
+                if last_cap_result.candidate_alternatives:
+                    for alt in last_cap_result.candidate_alternatives:
+                        print(f"  Alternative: {alt}", file=sys.stderr)
+                return 1
+            # Replace author_assets audiobook_pre_intro with resolved and attach signature for plan output
+            author_assets = {**author_assets, "audiobook_pre_intro": resolved_blocks}
+            book_spec_for_compiler["author_assets"] = {k: v for k, v in author_assets.items() if k != "errors"}
+            book_spec_for_compiler["_pre_intro_signature"] = pre_intro_sig
+            # Opening chapter recognition style (soft bias for chapter 0)
+            from phoenix_v4.planning.intro_ending_selector import (
+                select_opening_style_id,
+                select_integration_ending_style_id,
+                select_carry_line_style_id,
+            )
+            book_spec_for_compiler["opening_style_id"] = select_opening_style_id(
+                canonical_topic, canonical_persona, seed, config_root=config_sot,
+            )
+            book_spec_for_compiler["integration_ending_style_id"] = select_integration_ending_style_id(
+                canonical_topic, canonical_persona, seed, config_root=config_sot,
+            )
+            book_spec_for_compiler["carry_line_style_id"] = select_carry_line_style_id(
+                canonical_topic, canonical_persona, seed, config_root=config_sot,
+            )
+            book_spec_for_compiler["seed"] = seed
+
     format_plan_dict = format_plan.to_compiler_input()
 
     # Structural Variation V4: select variation knobs (deterministic, anti-cluster) — before Stage 3 so compiler can use them
@@ -572,6 +673,18 @@ def main() -> int:
         out["narrator_id"] = book_spec_for_compiler["narrator_id"]
     if author_assets is not None:
         out["author_assets"] = {k: v for k, v in author_assets.items() if k != "errors"}
+    if book_spec_for_compiler.get("_pre_intro_signature"):
+        out["pre_intro_signature"] = book_spec_for_compiler["_pre_intro_signature"]
+    if book_spec_for_compiler.get("opening_style_id"):
+        out["opening_style_id"] = book_spec_for_compiler["opening_style_id"]
+    if book_spec_for_compiler.get("integration_ending_style_id"):
+        out["integration_ending_style_id"] = book_spec_for_compiler["integration_ending_style_id"]
+    if book_spec_for_compiler.get("carry_line_style_id"):
+        out["carry_line_style_id"] = book_spec_for_compiler["carry_line_style_id"]
+    if getattr(compiled, "ending_signature", None):
+        out["ending_signature"] = compiled.ending_signature
+    if getattr(compiled, "carry_line", None):
+        out["carry_line"] = compiled.carry_line
     # Author positioning (Writer Spec §24)
     if compiled.author_positioning_profile:
         out["author_positioning_profile"] = compiled.author_positioning_profile
@@ -650,11 +763,51 @@ def main() -> int:
         out["freebie_bundle_with_formats"] = [{"freebie_id": fid, "formats": ["html"]} for fid in freebie_bundle]
     out["topic_id"] = book_spec_for_compiler.get("topic_id") or book_spec_for_compiler.get("topic") or ""
     out["persona_id"] = book_spec_for_compiler.get("persona_id") or book_spec_for_compiler.get("persona") or ""
+    # Ending cap/duplicate gate (intro_ending_variation)
+    if out.get("ending_signature"):
+        try:
+            from phoenix_v4.planning.intro_ending_caps import (
+                load_intro_ending_config,
+                get_quarter_for_brand,
+                load_signature_index,
+                check_ending_cap_and_duplicate,
+            )
+            intro_cfg = load_intro_ending_config()
+            if intro_cfg.get("intro_ending_variation_enabled"):
+                sig_path = REPO_ROOT / "artifacts" / "pre_intro_signatures.jsonl"
+                end_index = load_signature_index(sig_path)
+                quarter = get_quarter_for_brand(brand_id)
+                end_cap = float(intro_cfg.get("ending_signature_cap_share", 0.20))
+                end_result = check_ending_cap_and_duplicate(
+                    brand_id, quarter, out["ending_signature"], end_index, cap_share=end_cap,
+                )
+                if not end_result.ok:
+                    print(f"Ending cap/duplicate gate failed: {end_result.error}", file=sys.stderr)
+                    if end_result.candidate_alternatives:
+                        for alt in end_result.candidate_alternatives:
+                            print(f"  Alternative: {alt}", file=sys.stderr)
+                    return 1
+        except Exception as e:
+            import warnings
+            warnings.warn(f"Ending cap check failed: {e}", stacklevel=2)
     if args.out:
         Path(args.out).parent.mkdir(parents=True, exist_ok=True)
         with open(args.out, "w") as f:
             json.dump(out, f, indent=2)
         print(f"Wrote {args.out}")
+        # Record pre-intro signature for cap/duplicate gate (intro_ending_variation)
+        if out.get("pre_intro_signature") or out.get("ending_signature"):
+            from phoenix_v4.planning.intro_ending_caps import get_quarter_for_brand
+            sig_path = REPO_ROOT / "artifacts" / "pre_intro_signatures.jsonl"
+            sig_path.parent.mkdir(parents=True, exist_ok=True)
+            quarter = get_quarter_for_brand(brand_id)
+            row = {"brand_id": brand_id, "quarter": quarter}
+            if out.get("pre_intro_signature"):
+                row["pre_intro_signature"] = out["pre_intro_signature"]
+            if out.get("ending_signature"):
+                row["ending_signature"] = out["ending_signature"]
+            with open(sig_path, "a", encoding="utf-8") as sf:
+                sf.write(json.dumps(row) + "\n")
         # Upsert plan row into freebie plan index (one row per book_id)
         index_path = REPO_ROOT / "artifacts" / "freebies" / "index.jsonl"
         index_row = {

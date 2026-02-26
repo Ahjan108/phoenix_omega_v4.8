@@ -119,3 +119,8 @@ runtime_formats:
     chapter_count_default: 4
     word_range: [3000, 4000]
     compatible_tiers: [B, C]
+  deep_book_6h:
+    duration_minutes: 360
+    chapter_count_default: 24
+    word_range: [52000, 58000]
+    compatible_tiers: [A]

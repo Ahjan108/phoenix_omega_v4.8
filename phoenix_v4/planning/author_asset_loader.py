@@ -219,12 +219,14 @@ def render_audiobook_pre_intro(
     book_title: str = "",
     series_name: str = "",
     include_series_line: bool = False,
+    resolved_blocks: Optional[dict[str, str]] = None,
 ) -> str:
     """
-    Render the narrator-read pre-intro text from author_assets (Writer Spec §23.4 order).
+    Render the narrator-read pre-intro text (Writer Spec §23.4 order).
+    When resolved_blocks is provided, use it for block content; else use author_assets["audiobook_pre_intro"].
     Blocks: narrator_intro, book_title_line, series_line (if include_series_line), author_intro, author_background, why_this_book, transition_line.
     """
-    blocks = author_assets.get("audiobook_pre_intro") or {}
+    blocks = resolved_blocks if resolved_blocks is not None else (author_assets.get("audiobook_pre_intro") or {})
     parts = []
     if blocks.get("narrator_intro"):
         parts.append(blocks["narrator_intro"])

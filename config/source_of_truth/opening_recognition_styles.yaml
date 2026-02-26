@@ -1,0 +1,32 @@
+# Opening chapter recognition style — soft ranking bias for chapter 0 only.
+# Authority: Controlled Intro/Conclusion Variation plan.
+# First chapter remains recognition; style biases HOOK/STORY selection, no hard filter.
+
+schema_version: "1.0"
+
+styles:
+  sensory_cold_open:
+    name: "Sensory cold-open"
+    persona_tags: []
+    topic_tags: []
+    weights:
+      default: 1.0
+    # Metadata tag to boost in slot_resolver: atoms with opening_style: sensory_cold_open rank higher in ch0.
+  direct_second_person:
+    name: "Direct second-person"
+    persona_tags: []
+    topic_tags: []
+    weights:
+      default: 1.0
+  micro_story:
+    name: "Micro-story"
+    persona_tags: []
+    topic_tags: []
+    weights:
+      default: 1.0
+  question_led:
+    name: "Question-led"
+    persona_tags: []
+    topic_tags: []
+    weights:
+      default: 1.0

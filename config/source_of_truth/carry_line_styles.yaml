@@ -1,0 +1,37 @@
+# Carry-line style — final chapter INTEGRATION only. One line per book from selected style.
+# Authority: Controlled Intro/Conclusion Variation plan.
+# Families: declarative, permission, boundary, anti_spiral, body_anchor.
+
+schema_version: "1.0"
+
+styles:
+  declarative:
+    name: "Declarative"
+    lines:
+      - "You're still here. That's the work."
+      - "This is what it looks like when you don't leave."
+      - "Nothing to fix. Just this."
+  permission:
+    name: "Permission"
+    lines:
+      - "You're allowed to be exactly where you are."
+      - "You don't have to move yet."
+      - "It's okay that this is where you are."
+  boundary:
+    name: "Boundary"
+    lines:
+      - "That thought can stay outside. You're in here."
+      - "You get to decide what gets in."
+      - "The line is yours to hold."
+  anti_spiral:
+    name: "Anti-spiral"
+    lines:
+      - "One breath. Then the next."
+      - "You don't have to solve it now."
+      - "Pause. That's enough."
+  body_anchor:
+    name: "Body-anchor"
+    lines:
+      - "Feel your feet on the floor."
+      - "Your breath is right here."
+      - "Ground under you. Still here."
