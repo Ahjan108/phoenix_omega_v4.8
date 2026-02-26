@@ -99,6 +99,12 @@ def main() -> int:
     ap.add_argument("--render-formats", default="txt", help="Comma-separated book output formats (default: txt)")
     ap.add_argument("--render-dir", default=None, help="Output dir for rendered book (default: artifacts/rendered/<plan_id>)")
     ap.add_argument("--atoms-root", default=None, help="Atoms root (e.g. atoms/zh-TW). Default: repo atoms/")
+    ap.add_argument(
+        "--atoms-model",
+        choices=["legacy", "cluster"],
+        default=None,
+        help="Atoms model: legacy (persona-specific) or cluster (core+overlay). Precedence: CLI > spec > config (legacy_personas).",
+    )
     args = ap.parse_args()
 
     # Resolve input: CLI or YAML

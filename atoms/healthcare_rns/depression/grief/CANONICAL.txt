@@ -1,39 +1,38 @@
 
-
 ## RECOGNITION v01
 ---
 path: story_atoms/healthcare_rns/anchored/depression/grief/recognition/micro/v01.txt
 BAND: 2
 MECHANISM_DEPTH: 1
-COST_TYPE: opportunity
-COST_INTENSITY: 2
+COST_TYPE: identity
+COST_INTENSITY: 1
 IDENTITY_STAGE: pre_awareness
 ---
-Nora opens her locker and sees the photo of her last patient—the one who died three months ago. She remembers the fight to keep him stable. She remembers the family at the bedside. She remembers the moment the monitor flatlined. The memory is there. The feeling that used to attach to the memory is not. She should feel grief. She should feel the weight of the death. Instead, there is a kind of flatness. She closes the locker. The memory stays. The grief that should accompany it is somewhere else. She carries the photo with her through the shift even as she carries the absence of the feeling that should be carrying the memory.
+Chen realizes she's not excited about anything anymore. The sunrise that used to move her is just a change in light. The patient who recovered is just a good outcome, not a joy. Music, which she used to love, is now background noise. She's grieving the loss of pleasure itself. The world hasn't changed. Her capacity to be moved by it has. She's mourning the self who could feel delight.
 ---
 
 ## RECOGNITION v02
 ---
 path: story_atoms/healthcare_rns/anchored/depression/grief/recognition/micro/v02.txt
-BAND: 3
+BAND: 2
 MECHANISM_DEPTH: 1
-COST_TYPE: opportunity
-COST_INTENSITY: 2
+COST_TYPE: identity
+COST_INTENSITY: 1
 IDENTITY_STAGE: pre_awareness
 ---
-Aisha sits in her car after a shift that held a code. The code failed. The patient died. Aisha participated in the code. Aisha watched the patient die. She used to go home after codes and feel the weight of them. She used to need to talk or cry or sit with the weight. This time, she sits in her car and the weight is not arriving. She should be grieving. She should be processing. Instead, there is the fact of the death without the feeling that usually attaches to death. She turns on the ignition and drives home. The absence of the feeling is almost worse than the feeling would have been.
+Maria looks at her family and feels distant. They love her. They want to connect. She has nothing to give them. She's grieving the version of herself that had energy for relationships. That self has been consumed by the work, the losses, the unprocessed pain. She's mourning not a person who died but a self that's become unavailable.
 ---
 
 ## RECOGNITION v03
 ---
-path: story_atoms/healthcare_rns/anchored/depression/grief/recognition/micro/v03.txt
-BAND: 2
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/grief/recognition/micro/v03.txt
+BAND: 3
 MECHANISM_DEPTH: 1
-COST_TYPE: opportunity
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-Claire delivers a stillborn. The baby is born and is not breathing. Claire has delivered stillborns before. She has grieved before. She has held the grief while also doing the technical work. This time, the technical work happens. She delivers. She attends to the mother. She coordinates with the team. But something inside the experience is missing. She should be grieving. She should be feeling the particular weight of the birth that is also a death. The weight is not there. She is a person watching a birth-death happen. The watching is clear. The grief is not. She finishes the delivery and realizes that the absence of the grief is something she will need to grieve.
+Dominique sits in her apartment on a day off and feels the weight. The heaviness is not sadness that comes and goes. It's a constant weight. She's grieving the lightness she used to know. She's mourning the capacity to have a day off that feels restful. Every moment is heavy now. Every experience is filtered through a layer of gray.
 ---
 
 ## RECOGNITION v04
@@ -41,23 +40,23 @@ Claire delivers a stillborn. The baby is born and is not breathing. Claire has d
 path: story_atoms/healthcare_rns/anchored/depression/grief/recognition/micro/v04.txt
 BAND: 3
 MECHANISM_DEPTH: 1
-COST_TYPE: opportunity
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-Tomás has been in the ICU for ten years. In those ten years, he has lost patients. He has grieved the losses. The grieving has been part of the work. This year, a patient that he cared for long-term — four months in the ICU — died. Tomás attended the death. The death was appropriate. The patient was ready. Tomás was present for the family and the transition. But Tomás did not feel the grief that he used to feel when a long-term patient died. He felt the respect for the death. He felt the compassion for the family. But the grief that used to accompany the death—the small tear, the sitting with the loss afterward—is not there. He drives home and realizes that the losses are stacking up, but he is not carrying them. The uncried grief is becoming a problem he does not have the energy to address.
+Keisha watches herself from the inside. She's going through motions. Getting up. Going to work. Coming home. She's hollow. The person inside the body is gone. She's grieving her own absence. The body moves but the animating force has withdrawn. She's mourning not something external but her own disappearance.
 ---
 
 ## RECOGNITION v05
 ---
 path: story_atoms/healthcare_rns/anchored/depression/grief/recognition/micro/v05.txt
 BAND: 4
-MECHANISM_DEPTH: 1
-COST_TYPE: opportunity
-COST_INTENSITY: 2
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
-Derek worked with a colleague for two years. The colleague quit nursing yesterday. Derek knew it was coming. The hospital system broke them. The staffing was impossible. The emotional weight was too much. Derek tried to convince the colleague to stay. The colleague left anyway. Derek should feel the loss of the colleague from the profession. He should feel the loss of the person from his daily work. He should feel the grief of someone choosing to leave a profession he also chose. But Derek is aware that the loss is not landing as loss. It is landing as a fact. His colleague left. The absence of the colleague will reorganize the schedule. Derek will adjust. And the feeling that should accompany the loss of a professional ally—the grief of the profession losing someone — is not arriving.
+The accumulation is loss upon loss. Each patient who dies is a loss. Each colleague who leaves is a loss. Each shift where something inside doesn't respond properly is a loss. The losses are internal and external and the nurses cannot grieve them because there's no time. They move from loss to loss without pause. The grief becomes depression when it has nowhere to go. It settles into the body as heaviness. It becomes the air they breathe.
 ---
 
 ## MECHANISM_PROOF v01
@@ -65,35 +64,35 @@ Derek worked with a colleague for two years. The colleague quit nursing yesterda
 path: story_atoms/healthcare_rns/anchored/depression/grief/mechanism_proof/micro/v01.txt
 BAND: 3
 MECHANISM_DEPTH: 2
-COST_TYPE: opportunity
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Nora notices that she is accumulating losses without accumulating the grief. Her patient died. A colleague quit. A family member is sick at home. The unit is short-staffed. The losses are real. The grief is not arriving. She used to carry the losses as weight. The weight was how she knew she cared. The absence of the weight is beginning to feel like the absence of caring. She sits with this awareness and it becomes clear: the depression is not just the flatness. The depression is also the depression's ability to attach itself to the real losses and prevent the grief from happening. The grief is a response she should be having. The depression is preventing it. And the longer the grief does not arrive, the more she feels like a person who has stopped caring about what should be cared about.
+The mechanism is: I have experienced too much loss. I cannot continue to be affected by it. The mechanism produces depression as a protective response to cumulative grief. Chen's inability to feel delight is the mechanism at work. She has lost too many patients. She has felt too much pain. The system has learned that feeling leads to pain, so it shuts feeling down. The proof is the flatness of her experience.
 ---
 
 ## MECHANISM_PROOF v02
 ---
 path: story_atoms/healthcare_rns/anchored/depression/grief/mechanism_proof/micro/v02.txt
-BAND: 4
+BAND: 3
 MECHANISM_DEPTH: 2
-COST_TYPE: opportunity
-COST_INTENSITY: 4
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Aisha has processed difficult deaths her entire career. The processing looks like crying in the supply closet, talking with colleagues, sitting with the weight outside of work. This time, after the code that failed, she does not cry. She does not process. She goes home and makes dinner and watches a show. The evening is ordinary. The death is still dead. But the ordinary evening is what follows. She is aware that she should be grieving and she is aware that she is not grieving and she is aware that the not-grieving is making her feel like a person who has become unmoored from the work's meaning. The death meant something. She is not letting the death mean anything inside her. The gap between the meaning and her response to the meaning is becoming a source of additional grief—grief about her own inability to grieve.
+The mechanism proves itself through the isolation it creates. Maria cannot easily explain to her family why she's distant. The grief of losing her own capacity to connect has no language. She's mourning something internal. The proof is the way the mechanism makes her presence invisible while her body continues to function.
 ---
 
 ## MECHANISM_PROOF v03
 ---
 path: story_atoms/healthcare_rns/anchored/depression/grief/mechanism_proof/micro/v03.txt
-BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: opportunity
-COST_INTENSITY: 4
+BAND: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
-Claire is an L&D nurse. Her work holds birth and death simultaneously. She used to move between the two with the grief and joy that both deserve. The joy of the live births was real. The grief of the stillbirths was real. She moved between them as a person who could hold both. Now the births and deaths are happening and she is watching them happen without the emotional response that makes the work bearable. She delivered a stillborn last week. She delivers a healthy baby today. Both events are the same to her. Both are tasks. The absence of the grief for the stillborn is matched by the absence of the joy for the living baby. She is a L&D nurse operating without the emotional range that the work requires. The realization is that the depression has not just flattened her mood. The depression has made the work meaningless because meaning requires emotional response and the emotional response is gone.
+The mechanism's proof is in the body. Dominique's heaviness is not metaphorical. It's in her muscles. It's in the way she moves. The depression is the physicalization of ungrieved loss. Her body holds what her mind cannot process. The proof is the way the world feels thick, resistant, difficult to move through.
 ---
 
 ## MECHANISM_PROOF v04
@@ -101,11 +100,11 @@ Claire is an L&D nurse. Her work holds birth and death simultaneously. She used 
 path: story_atoms/healthcare_rns/anchored/depression/grief/mechanism_proof/micro/v04.txt
 BAND: 4
 MECHANISM_DEPTH: 3
-COST_TYPE: opportunity
-COST_INTENSITY: 4
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
-Tomás realizes that the depression is using the real losses of the work as cover. The patient died. The colleague quit. These are real events. The depression attaches to the real events and says: this is why you feel nothing. The death is too heavy. The quitting is too much. You are drowning in losses. The depression is correct about the losses. The depression is wrong about the solution. The depression thinks the solution is to stop feeling. Tomás is beginning to understand that the inability to grieve the losses is not a response to the losses. The inability to grieve is a symptom of the depression using the losses as fuel. The losses are real. The depression is preventing him from processing the losses in the way that grief allows. He is carrying the weight of the losses without the emotional container that grief provides.
+The mechanism creates a particular kind of grief: the loss of self. Keisha is mourning not people but her own animation. The depression is the lived experience of disappearance. The mechanism has convinced the system that ceasing to feel is the same as ceasing to suffer. But ceasing to feel is its own kind of suffering.
 ---
 
 ## MECHANISM_PROOF v05
@@ -113,61 +112,59 @@ Tomás realizes that the depression is using the real losses of the work as cove
 path: story_atoms/healthcare_rns/anchored/depression/grief/mechanism_proof/micro/v05.txt
 BAND: 3
 MECHANISM_DEPTH: 3
-COST_TYPE: opportunity
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Derek catalogs the losses. His colleague left. Three patients died in the past six weeks. His unit is permanently short-staffed. The losses are accumulating. The grief is not. He should be grieving the colleague. He should be grieving the patients. He should be grieving the loss of what nursing used to mean to him — a profession where people chose to stay. Instead, he is aware that the losses are real and his response to the losses is not happening. The awareness that he cannot grieve is adding to the weight. He is not just carrying the losses. He is carrying the losses plus the knowledge that he should be grieving and cannot access the grief. The depression is telling him a story: the losses are too much. The grief is too heavy. The solution is numbness. And the numbness is becoming its own kind of death.
+The mechanism makes depression feel like the natural state. The nurses cannot imagine feeling otherwise. They have accommodated so much loss that the absence of feeling seems normal. The proof is the way they describe depression as a fact of their work rather than as a crisis requiring attention.
 ---
 
 ## TURNING_POINT v01
 ---
 path: story_atoms/healthcare_rns/anchored/depression/grief/turning_point/micro/v01.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: opportunity
-COST_INTENSITY: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Nora sits in the grief group at the hospital. Other nurses are talking about the patients they lost. The grief in the room is real and present. Nora is listening and she realizes something: she is grieving right now. Not for her own losses. She is grieving for the losses of the nurses in the room. Their grief is reaching her. Her own grief is not. She sits with this and speaks: "I lost a patient and I couldn't grieve." The room is quiet. One of the nurses says: "That's depression. The grief gets stuck." The naming is the turning point. Her inability to grieve is not a failure of character. It is a symptom. The symptom can be addressed. The grief is still in there. The depression is just preventing access to it.
+Chen sits with a colleague who mentions their own depression. The colleague speaks of the grief underlying it. The loss of hope. The loss of the future they'd imagined. For the first time, Chen has language for what she's experiencing. It's not weakness. It's grief. The naming allows for the possibility of movement.
 ---
 
 ## TURNING_POINT v02
 ---
 path: story_atoms/healthcare_rns/anchored/depression/grief/turning_point/micro/v02.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: opportunity
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Aisha tells her therapist about the code that failed. The therapist asks: "How did you feel about it?" Aisha answers: "I didn't. I should have, but I didn't." The therapist nods and says: "Your depression is grief-locked. You can't access the grief because the depression is in the way. But the grief is in there. It's waiting for you to be able to reach it." The reframe is significant. The grief is not lost. It is not gone. It is simply not accessible right now. The inaccessibility is temporary. The treating of the depression might open the door to the grief. Aisha leaves the session with the knowledge that her inability to grieve is not about her. It is about the depression's hold on her emotional capacity.
+Maria talks to someone about the depression. She says: I've lost something inside myself. The person asks: What would help you grieve it? The question opens something. Maria realizes she hasn't been allowing herself to grieve. The mechanism has required her to move past loss without stopping. The experimentation is toward pausing, acknowledging, grieving.
 ---
 
 ## TURNING_POINT v03
 ---
 path: story_atoms/healthcare_rns/anchored/depression/grief/turning_point/micro/v03.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: opportunity
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
-CALLBACK_ID: claire_birth_death
-CALLBACK_PHASE: setup
 ---
-Claire reads something about depression and grief. The article says: "Depression can hollow grief. The losses are real. The emotional response may not arrive. This is not callousness. This is a depression symptom." Claire reads this and something releases. She is not a bad L&D nurse. She is a good L&D nurse with depression. The depression has made the work feel meaningless because depression removes the emotional response. But the work has meaning. The meaning is still there. She is just not able to feel it right now. The reframe is small. The impact is large. She calls her psychiatrist and says: "I need treatment. I can't feel the work anymore."
+Dominique takes a week off. She doesn't do anything productive. She allows herself to feel the heaviness without trying to fix it. The heaviness begins to shift. Not disappear. But shift. It becomes sadness instead of numbness. The sadness is actually progress because it means something is moving again.
 ---
 
 ## TURNING_POINT v04
 ---
 path: story_atoms/healthcare_rns/anchored/depression/grief/turning_point/micro/v04.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: opportunity
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Tomás sits with Elijah and tells him the truth: the colleague's departure broke something. The accumulated losses broke something. The inability to grieve is breaking something else. Elijah listens and says: "That's not normal nursing burnout. That's depression." Tomás has been thinking of this as the profession being too hard. Elijah is suggesting it is his brain not being able to process the hardness. The suggestion opens a door. The profession is hard. But his particular hardness right now is not just the profession. It is the depression on top of the profession. The depression is treatable. The profession will still be hard. But at least he can address one of the two problems.
+Keisha begins to acknowledge her own absence. She talks to a therapist about the way she's disappeared. Not dramatic disappearance. Just the slow withdrawal of her own presence. In the acknowledgment, there's the possibility of return. The mechanism that required disappearance begins to loosen.
 ---
 
 ## TURNING_POINT v05
@@ -175,107 +172,69 @@ Tomás sits with Elijah and tells him the truth: the colleague's departure broke
 path: story_atoms/healthcare_rns/anchored/depression/grief/turning_point/micro/v05.txt
 BAND: 3
 MECHANISM_DEPTH: 3
-COST_TYPE: opportunity
-COST_INTENSITY: 4
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Derek attends the goodbye event for the colleague who quit. He sees the colleague happy — relieved to be leaving. Derek feels a flash of something. Not quite grief. But the beginning of grief. The colleague made the right choice. The profession is broken. The colleague is getting out. And Derek is feeling the grief of that reality. The grief is small and it is real and it is the first feeling that has reached him in weeks. It is not the full grief. But it is proof that the grief is in there, waiting for the depression to release its hold. He goes home and cries. Not for long. But it is the beginning of access to the emotions that have been locked away.
+Over weeks, the nurses begin to grieve explicitly. They sit with the losses they've accumulated. They allow themselves to feel the weight of them. The depression becomes a place to work from rather than a place to hide in. The experimentation is toward integration of the grief rather than toward suppression of it.
 ---
 
 ## EMBODIMENT v01
 ---
 path: story_atoms/healthcare_rns/anchored/depression/grief/embodiment/micro/v01.txt
 BAND: 2
-MECHANISM_DEPTH: 3
-COST_TYPE: opportunity
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Nora starts medication. After two weeks, she is in the grief group again. The nurses are sharing losses. This time, when a nurse talks about a patient death, Nora feels something shift inside. The sadness arrives. Not the full sadness yet. But the beginning of the emotional access. She cries a little. The tears are for the other nurses' losses and maybe also for her own. The grief is beginning to thaw. The depression is still there. But the medication is creating a small opening. The opening is enough for the grief to begin to move.
+Chen feels something shift inside. A small pleasure. A patient's recovery moves her. It's quiet but it's real. The capacity to feel is returning because she's allowed herself to grieve the losses. The depression is not gone. But it's no longer complete. The return of small feelings is the return of her own presence.
 ---
 
 ## EMBODIMENT v02
 ---
 path: story_atoms/healthcare_rns/anchored/depression/grief/embodiment/micro/v02.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: opportunity
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Aisha is in therapy and on medication. A patient dies. She participates in the death. She goes to the supply closet. She cries. Not the full cry. But the beginning of the response. The grief is returning. It is still muted by the depression. But it is arriving. She sits in the supply closet and feels the sadness. The sadness is proof that she is still the person who grieves what needs grieving.
+Maria looks at her family and feels something. Not the fullness of before, but a warmth. A presence. She's returning. The grief of the losses she's experienced is settled in her body now, not dissolving her. She can be present and grieving simultaneously.
 ---
 
 ## EMBODIMENT v03
 ---
 path: story_atoms/healthcare_rns/anchored/depression/grief/embodiment/micro/v03.txt
 BAND: 2
-MECHANISM_DEPTH: 3
-COST_TYPE: opportunity
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
 IDENTITY_STAGE: self_claim
-CALLBACK_ID: claire_birth_death
-CALLBACK_PHASE: return
 ---
-Claire delivers a stillborn. She participates in the birth. She attends to the family. And she feels the grief. Not the full grief yet. The depression is still present. But the medication is opening the door. She feels the weight of the birth that is also a death. The weight is the thing that makes the work meaningful. The weight is the thing that is worth carrying. The medication is not making her feel joy or relief. But it is making her feel the grief. And the grief is proof that she is actually present in the work.
+Dominique's heaviness is different now. It's the weight of real experience, not the suffocation of unprocessed loss. She moves with her grief. She's integrated it. The body that was resistant is beginning to move more freely.
 ---
 
 ## EMBODIMENT v04
 ---
 path: story_atoms/healthcare_rns/anchored/depression/grief/embodiment/micro/v04.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: opportunity
-COST_INTENSITY: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
 IDENTITY_STAGE: self_claim
 ---
-Tomás receives a message from the colleague who left. The colleague is doing well. Is happy to be out of nursing. Tomás reads the message and feels the grief. Not the loss of the colleague to him personally. The grief of the profession losing people who cared. The grief is real and it is his. The depression is no longer preventing him from having the response that the loss deserves. He sits with the grief and it moves through him in the way that grief moves when you allow it. The allowing is the thing that the medication and treatment made possible.
+Keisha is present again. The absence has lifted. Not entirely. There are still moments of withdrawal. But the animating force has returned. She's claiming her presence again. The mechanism that required disappearance no longer governs her.
 ---
 
 ## EMBODIMENT v05
 ---
 path: story_atoms/healthcare_rns/anchored/depression/grief/embodiment/micro/v05.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: opportunity
-COST_INTENSITY: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
 IDENTITY_STAGE: self_claim
 ---
-Derek is on medication and in therapy. His patient dies. He attends to the death. After the death, he goes to his car and he cries. The crying is full. The grief is accessible. The medication has not made the losses disappear. The grief is still hard. But the grief is his. He is not locked out of his own response to the losses of the work. He carries the weight. The weight is how he knows he is still a person who cares about what should be cared about.
----
-
-## STORY v21
----
-path: grief dressed as nothing
-BAND: 1
-SEMANTIC_FAMILY: SF1
----
-Nora isn't crying. A patient she cared for died. She should be grieving. The grief is there but it doesn't look like traditional sadness. It looks like nothing. It looks like flatness. She's going through days with no emotional texture. Food is flavorless. The future is unreal. She's not depressed—she's grieving. But the grief has no shape. It's not tears, not anger, not the emotions she expected. The grief is arriving as absence. Absence of feeling, absence of motivation, absence of forward direction. It's so quiet she's not sure it's happening. She just knows that the world has lost color and she doesn't know how to restore it. The grief without the traditional emotional markers is harder to recognize and harder to address. It's just quiet emptiness with a death attached to it.
----
-
-## STORY v22
----
-path: grief without tears
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-Tomás is grieving his career. Not dramatically. Not with tears. He's grieving the nurse he expected to be and the reality of the nurse he is. The gap between those two is the grief. He's going through the motions at work while his heart is somewhere else. The grief doesn't announce itself. It just lives in the background as a low-level wrongness about everything. He used to love this job. The love has been replaced by something flat. He's competent. He's present. He doesn't care. The grief of losing the caring is the thing he's not talking about. The grief is so normal now—six months in—that it looks like depression. It's actually loss. It's actually the grief of becoming a different person than you expected to become.
----
-
-## STORY v23
----
-path: grief creating depression
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-Aisha is grieving too much at once. Patient losses, career expectations, her identity as a compassionate healer. The accumulated grief has converted into something that looks like depression. She's not eating. She's sleeping fourteen hours and still exhausted. She's having persistent thoughts that she shouldn't exist. The thoughts aren't suicidal per se—they're just: the world would be fine without me. That's the thought. The grief has organized itself into depressive symptoms. She can't see the grief underneath. She just sees: I'm depressed. I'm broken. I'm not going to get better. The grief is too big to be expressed as grief. So it's converting into the language of depression. She needs to grieve. Instead she's medicating. The medication might help but the underlying grief needs expression and it's not getting it.
----
-
-## STORY v24
----
-path: grief as system shutdown
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-Derek is in total system shutdown. He's grieving the loss of himself as someone who could handle this. He's grieving the loss of resilience. He's grieving the loss of hope. The accumulated grief is so total it's indistinguishable from depression. He's sleeping eighteen hours and still exhausted. He's not eating. He's not showering. He's not answering calls. The grief has disabled him. He's not going to work because the grief is preventing movement. He's not connecting with family because the grief is preventing presence. The grief has converted into total system failure. He needs psychiatric help. He needs to grieve. He needs to stop working. He needs time. None of these things are happening because the grief is too big for normal grieving channels. It's overflowing into depression that might not resolve without intervention.
+The nurses have learned to grieve. They're no longer pretending that the losses don't matter. They're allowing themselves to be affected by what they've experienced. The depression is lifting because the grief has somewhere to live. They're reclaiming their own humanity through the act of mourning.
 ---

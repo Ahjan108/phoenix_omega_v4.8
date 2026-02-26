@@ -1,39 +1,38 @@
 
-
 ## RECOGNITION v01
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/recognition/micro/v01.txt
 BAND: 2
 MECHANISM_DEPTH: 1
-COST_TYPE: internal
-COST_INTENSITY: 2
+COST_TYPE: social
+COST_INTENSITY: 1
 IDENTITY_STAGE: pre_awareness
 ---
-Nora rehearses declining the committee assignment while driving to work. The words are simple: "I don't have capacity for this right now." Her hands grip the steering wheel harder with each rehearsal. Her jaw tightens. By the time she parks, her body has processed the refusal as though it already happened and went badly. She walks into the hospital carrying the physiological residue of a conversation that hasn't occurred. The meeting is at two. The alarm has been running since seven. The alarm doesn't distinguish between anticipation and event. Both receive the full threat response.
+Chen declines an extra shift. Maria waits for the fallout. The charge nurse reassigns the shift to another nurse. Nothing breaks. No icy silence. No passive-aggressive comments. The feared catastrophe doesn't materialize. Yet Maria feels confused, as though she's witnessed an anomaly. The fear lives deeper than logic. She knows that refusing work sometimes doesn't destroy relationships. She's seen it happen. But the belief that it would destroy her relationships, specifically, remains intact. Chen is just luckier, or braver, or the rules don't apply to Chen the same way they apply to Maria.
 ---
 
 ## RECOGNITION v02
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/recognition/micro/v02.txt
-BAND: 3
+BAND: 2
 MECHANISM_DEPTH: 1
 COST_TYPE: social
-COST_INTENSITY: 3
+COST_INTENSITY: 1
 IDENTITY_STAGE: pre_awareness
 ---
-Tomás needs to tell the night nurse that her handoff reports are incomplete. Important information is missing—medication changes, pending labs. He's caught two issues that could have caused errors. The feedback is necessary. His body treats the feedback as a confrontation: heart rate elevated, palms damp, stomach clenching. The feedback isn't a confrontation. The feedback is a safety conversation between colleagues. His body can't tell the difference. His body processes any interpersonal boundary—criticism, refusal, correction—through the same threat channel. The channel doesn't have gradations. It has one setting: danger.
+Dominique watches as Keisha sets a boundary with a difficult family. Keisha's tone is kind but firm. She doesn't soften the limit with excessive explanation. The next shift, the family is calmer. They've accepted the boundary. Dominique has expected the boundary to damage the relationship. Instead, the relationship improves. Yet the fear that setting boundaries damages relationships remains alive in her body. She attributes this outcome to Keisha's expertise. Dominique assumes her own attempt at boundary-setting would produce the feared result that didn't happen here.
 ---
 
 ## RECOGNITION v03
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/recognition/micro/v03.txt
-BAND: 2
+BAND: 3
 MECHANISM_DEPTH: 1
-COST_TYPE: internal
+COST_TYPE: social
 COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-Aisha needs to tell a parent that visiting hours are over. Standard policy. She's told hundreds of families. This parent is distraught—a child who's been admitted for three days, a parent who sleeps in the chair and doesn't eat. The boundary is clear and necessary: the child needs rest, the parent needs rest, the unit needs its quiet hours. Aisha's alarm fires anyway. The alarm says: telling a suffering parent to leave makes you cruel. The policy says: the boundary serves everyone including the parent. The alarm doesn't process policy. The alarm processes the anticipated face of a parent being asked to leave their child.
+A new nurse, Tomas, leaves exactly at shift end on his first week. Maria expects resentment. The charge nurse doesn't mention his departure time. Colleagues don't comment on his professional boundaries. He's simply accepted as someone with clear limits. Yet the fear in Maria is that her own boundary-setting would be different. She tells herself Tomas is new, so standards are lower. Or Tomas is male, and his boundaries are seen as appropriate self-care while hers would be seen as selfishness. The false alarm of nothing bad happening fails to disarm the fear.
 ---
 
 ## RECOGNITION v04
@@ -41,23 +40,23 @@ Aisha needs to tell a parent that visiting hours are over. Standard policy. She'
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/recognition/micro/v04.txt
 BAND: 3
 MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-Claire needs to tell the attending that his order doesn't match the patient's allergy profile. The allergy is documented. The order contradicts it. This is a safety intervention—one of nursing's core functions. Her body responds as though she's challenging authority: throat tightens, voice wants to soften, words want to wrap the correction in apology. The correction doesn't need apology. The correction needs clarity. "The patient is allergic to penicillin. This order contains amoxicillin." Twelve words. Her body prepares for those twelve words as though they're a disciplinary hearing. The twelve words are patient advocacy. The alarm reads them as insubordination.
+Alicia misses a social event after her shift because she's exhausted. She simply doesn't go. She doesn't apologize extensively. She doesn't feel compelled to provide elaborate explanation. The friendship continues without damage. Maria observes this and feels something shift. Yet the shift is incomplete. She thinks: If I set that boundary, people would feel abandoned. The evidence contradicts it, but the belief is older than evidence. It lives in her nervous system as truth.
 ---
 
 ## RECOGNITION v05
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/recognition/micro/v05.txt
 BAND: 4
-MECHANISM_DEPTH: 1
-COST_TYPE: internal
-COST_INTENSITY: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
-Derek spends his entire break anticipating a conversation with his manager about scheduling. He needs two specific days off next month for a family event. The request is reasonable. The unit allows schedule requests. The process is straightforward. His break—his only thirty minutes of rest in twelve hours—is consumed by the alarm running scenarios: the manager will be annoyed, the request will be denied, he'll be seen as inflexible. He eats his sandwich in the break room with adrenaline coursing through him for a scheduling request. The sandwich and the adrenaline don't belong together. The alarm puts them at the same table.
+Month after month, Maria watches the false alarms. Colleagues set boundaries. Feared consequences don't occur. Her mind generates increasingly elaborate explanations for why the pattern doesn't apply to her. They're different people. Their careers are more secure. Their relationships are stronger. Their patients don't need them the same way. The evidence accumulates that setting boundaries doesn't destroy relationships, yet the fear remains, as though it exists independent of what actually happens.
 ---
 
 ## MECHANISM_PROOF v01
@@ -65,35 +64,35 @@ Derek spends his entire break anticipating a conversation with his manager about
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/mechanism_proof/micro/v01.txt
 BAND: 3
 MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 3
+COST_TYPE: social
+COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Nora maps the alarm's pattern across boundary types. Declining a committee: high alarm. Calling in sick when genuinely ill: maximum alarm. Asking for a schedule change: moderate alarm. Telling a physician about a concern: high alarm. The pattern reveals that the alarm's volume correlates with how visible the boundary is to authority figures. Private boundaries—leaving on time, protecting a break—trigger lower alarm. Public boundaries—declining in meetings, questioning orders—trigger maximum. The alarm is a social exposure detector. It measures who will see the boundary, not whether the boundary is appropriate. Appropriateness is irrelevant to the alarm. Visibility is everything.
+The mechanism is this: If I set limits, people will feel abandoned, and relationships will be damaged. The proof against this mechanism is everywhere. Chen sets limits. Relationships persist. Keisha sets limits. The family dynamic improves. Tomas sets limits. He's integrated into the unit. Yet Maria's mind cannot absorb the proof. The mechanism is not based on logic. It's based on a deep belief about her own nature: that she is responsible for others' feelings, and that her worth is measured by her ability to meet unlimited needs. Against this belief system, the evidence of colleagues thriving with boundaries feels like an exception that proves the rule.
 ---
 
 ## MECHANISM_PROOF v02
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/mechanism_proof/micro/v02.txt
-BAND: 4
+BAND: 3
 MECHANISM_DEPTH: 2
 COST_TYPE: social
 COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Tomás tracks his alarm's predictions versus outcomes over one month. Seven boundaries set. Seven alarm activations predicting: anger, resentment, professional consequences. Actual outcomes: five neutral responses, one "thank you for catching that," one mild annoyance that resolved in an hour. The alarm predicted catastrophe seven times. Catastrophe occurred zero times. Mild annoyance occurred once. The alarm's error rate is roughly 100%. Even the one "negative" outcome—mild annoyance—resolved without consequence. The alarm is a system that produces emergency responses to non-emergency situations with near-perfect consistency. The consistency isn't accuracy. The consistency is a pattern.
+Maria finds herself in a hallway conversation with Alicia about weekend plans. Alicia mentions she told her aging parent she couldn't visit this week. The parent was disappointed but accepted it. Alicia still loves her parent. The relationship is intact. The feared outcome (abandonment, damage, guilt) didn't materialize. Yet when Maria imagines saying no to her own family, the fear is acute. The mechanism whispers: Maybe Alicia's parent is more understanding. Maybe your family needs you differently. The proof is ignored because the belief is that other people can set boundaries, but you cannot.
 ---
 
 ## MECHANISM_PROOF v03
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/mechanism_proof/micro/v03.txt
-BAND: 3
+BAND: 4
 MECHANISM_DEPTH: 2
-COST_TYPE: internal
+COST_TYPE: identity
 COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
-Aisha discovers the alarm fires hardest on boundaries that involve emotional labor. Telling a family about visiting hours—a boundary wrapped in emotional complexity—produces maximum alarm. Declining a supply restock request from pharmacy—a boundary with no emotional content—produces minimal alarm. The alarm's intensity tracks the emotional vulnerability of the person receiving the boundary. The more vulnerable the recipient, the louder the alarm. The alarm has confused setting a boundary with causing harm. Setting a boundary with a suffering parent isn't causing harm. The alarm treats them as identical because both involve discomfort. The discomfort of a boundary and the harm of cruelty are categorically different. The alarm can't distinguish them.
+The charge nurse approaches Dominique asking her to stay late. Dominique feels the familiar knot. She thinks about saying no. The fear activates: If she says no, she'll be seen as uncommitted. The career she's built will be questioned. She'll be passed over for shifts she wants. The team will resent her. Yet she's watched this scenario play out dozens of times with colleagues. The feared consequence never happens. The charge nurse moves to the next person. The shift gets covered. No one is permanently damaged. Yet the false alarm of repeated safety fails to convince her nervous system.
 ---
 
 ## MECHANISM_PROOF v04
@@ -101,73 +100,71 @@ Aisha discovers the alarm fires hardest on boundaries that involve emotional lab
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/mechanism_proof/micro/v04.txt
 BAND: 4
 MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 4
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
-Claire identifies the alarm's deepest cost in nursing specifically: it undermines patient advocacy. Every time the alarm fires on a safety concern—an incorrect order, an unsafe staffing ratio, a missed assessment—it makes advocacy physically expensive. The nurse who needs to speak up for patient safety must first override a body alarm that treats speaking up as personal danger. The alarm converts patient advocacy into self-sacrifice. It shouldn't be self-sacrifice to say "this patient is allergic to this medication." It should be routine. The alarm makes the routine feel heroic. The heroic framing means only the bravest nurses speak up consistently. Safety shouldn't require bravery. The alarm makes it require bravery.
+Maria lies awake thinking about what would happen if she said no. She runs through scenarios: judgment, isolation, being labeled as selfish, losing respect. She visualizes the charge nurse's face, the potential resentment, the way it might ripple. In her mind, the catastrophe is vivid and certain. Yet the reality around her contradicts the visualization. She sees colleagues say no. She sees them respected. The false alarm of their safety doesn't penetrate the certainty of her imagined danger. The mechanism is that something in her specifically makes the feared outcome inevitable.
 ---
 
 ## MECHANISM_PROOF v05
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/mechanism_proof/micro/v05.txt
 BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: opportunity
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
 COST_INTENSITY: 2
-IDENTITY_STAGE: pre_awareness
+IDENTITY_STAGE: destabilization
 ---
-Derek calculates the alarm's time cost. The scheduling conversation took three minutes. The alarm ran for six hours—his entire break plus three hours of background processing during patient care. Six hours of physiological stress for three minutes of actual interaction. The ratio is 120:1. He's spending 120 units of stress for every unit of actual difficulty. The excess stress doesn't improve the conversation's outcome. The excess stress depletes his capacity for patient care during the hours it runs. The alarm consumes clinical resources—attention, patience, energy—to produce nothing except the alarm itself. The alarm's product is more alarm.
+The false alarm is the gap between what actually happens when others set boundaries and what Maria believes will happen when she sets them. This gap is where the mechanism lives. It feeds on the belief that she is uniquely responsible, uniquely needed, uniquely incapable of setting limits without causing harm. The evidence of colleagues thriving becomes part of the false alarm. It proves that boundaries can be safe for them. It cannot touch the deeper belief that for Maria, boundaries mean abandonment.
 ---
 
 ## TURNING_POINT v01
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/turning_point/micro/v01.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: social
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Nora declines the committee assignment. "I don't have capacity for this right now." The alarm fires at full volume. The response: "No problem, I'll ask Janet." Five words. The alarm predicted professional consequences, being labeled uncommitted, a note in some invisible file. The actual result was a redirect to Janet. Nora sits with the alarm still pounding and the conversation already forgotten by the other person. The asymmetry is visible: her body is in crisis, the other person has moved on. The alarm and reality are operating in different dimensions. Reality resolved in five words. The alarm will need two hours to process the resolution.
+One evening, the charge nurse calls asking if Maria can stay late. Maria feels the familiar fear activate. The threat narrative runs. But this time, a small voice asks: What if nothing bad happens? What if this is another false alarm? The question is tentative, but it creates a crack. Maria decides to say yes to staying but sets a specific time limit: she'll stay until eight, not longer. It's a small boundary. The fear is present but she moves forward anyway.
 ---
 
 ## TURNING_POINT v02
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/turning_point/micro/v02.txt
 BAND: 3
-MECHANISM_DEPTH: 3
+MECHANISM_DEPTH: 2
 COST_TYPE: social
 COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Tomás gives the feedback about handoff reports. He uses the formula he prepared: specific, behavior-focused, patient-safety-framed. "I've noticed some pending labs aren't making it into the handoff. Can we add a check for those?" The night nurse nods: "Yeah, I've been rushing. I'll add it to my template." The conversation lasts ninety seconds. The alarm predicted hostility, defensiveness, a damaged relationship. The actual conversation was two professionals adjusting a workflow. The alarm's model of the night nurse was a worst-case simulation. The actual night nurse was a colleague who appreciated the catch.
+At eight p.m., Maria tells the charge nurse she's heading out. The charge nurse nods and thanks her. No judgment. No mention of how Maria should have stayed longer. No implication that she's being selfish. Maria leaves and the false alarm is not activated. The feared catastrophe doesn't occur. She drives home and waits for the guilt, the sense that she's abandoned her team. It's muted. Smaller. The false alarm of safety is beginning to compete with the false alarm of danger.
 ---
 
 ## TURNING_POINT v03
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/turning_point/micro/v03.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
-CALLBACK_ID: visiting_hours
-CALLBACK_PHASE: setup
 ---
-Aisha tells the parent that visiting hours are ending. She sits down first—puts herself at eye level. "I know you want to be here. The unit closes to visitors at eight so your child can get the rest they need. You can come back at seven tomorrow." The parent's face does the thing the alarm predicted: pain, resistance, the brief flash of anger at being separated from a sick child. Then the parent nods. The nod comes after the flash. The alarm only modeled the flash. The alarm didn't model what comes after the flash: the parent who also knows their child needs rest, who also hasn't slept, who also needs the boundary even if it hurts.
+The next time there's a request for extra coverage, Maria rehearses what she'll say. She practices the words. She doesn't say yes immediately. She lets silence sit. Then she speaks: "I can't stay late tonight, but I can help with one admission before I leave." It's a boundary with a small offering. Her heart races. The feared judgment doesn't appear. Instead, her colleague says thank you and moves forward. The false alarm remains in her mind, but the reality has contradicted it twice now. The gap is narrowing.
 ---
 
 ## TURNING_POINT v04
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/turning_point/micro/v04.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Claire says the twelve words. "The patient is allergic to penicillin. This order contains amoxicillin." The attending pauses. Checks the chart. "Good catch. I'll change the order." Six words of response. The alarm ran for forty minutes before those six words—forty minutes of throat tightening and word rehearsing and scenario modeling. The attending's response was not irritation, not defensiveness, not the power dynamic the alarm projected. The response was a physician doing what physicians do when nurses advocate: adjusting. The alarm framed advocacy as confrontation. The outcome showed advocacy as collaboration. The framing and the outcome are from different playbooks.
+Maria tells Alicia what she's doing. She's experimenting with saying no to some requests, seeing what happens. Alicia listens and then shares her own experience. She too was waiting for the catastrophe. She too had watched it not happen to others and assumed it would happen to her. But it didn't. Alicia's words provide ballast. Someone else has lived inside the same false alarm and moved through it. Maria isn't crazy for fearing the imagined outcome. She's just been believing it longer than necessary.
 ---
 
 ## TURNING_POINT v05
@@ -175,107 +172,69 @@ Claire says the twelve words. "The patient is allergic to penicillin. This order
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/turning_point/micro/v05.txt
 BAND: 3
 MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Derek submits the schedule request. Doesn't have the conversation—submits it through the scheduling system. The alarm fires on the submission. He watches the alarm fire on a computer form. The form doesn't have a face. The form doesn't have feelings. The form is a rectangle on a screen. His body is producing a threat response to a rectangle. The absurdity is clarifying. He's been treating schedule requests as interpersonal confrontations when they're administrative transactions. The manager approves the request the next morning with no comment. The rectangle processed the boundary. The boundary didn't require a face-to-face alarm. The boundary required a form.
+Over weeks, each time Maria sets a small boundary and the feared consequence doesn't materialize, the false alarm becomes more visible. She can see it now. The mechanism says danger. Reality says safety. The gap is where her experimentation lives. She's building a new pattern of evidence. The old false alarm is still running, but it's no longer the only story. She's writing a new one in her body through small, repeated experiences of safety.
 ---
 
 ## EMBODIMENT v01
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/embodiment/micro/v01.txt
 BAND: 2
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: social
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Nora declines another request. The alarm fires. She walks through it. Says no. Gets a neutral response. The cycle is becoming predictable: alarm, boundary, neutral outcome, alarm fade. The predictability doesn't prevent the alarm. The predictability provides a counter-narrative while the alarm runs. The alarm says catastrophe. The predictability says: the last four were fine. She holds both narratives. The alarm's narrative is louder. The predictability's narrative is more accurate. She acts on accuracy instead of volume. The volume persists. The outcomes continue to be neutral. The gap between the alarm's predictions and reality's outcomes is her growing evidence base.
+Maria stands at the intersection of shift end and a request for coverage. She doesn't hear the false alarm as loudly. She says no, gently but clearly. The world doesn't end. Her relationships remain. She's still part of the team. The fear that set boundaries meant abandonment has been quiet for weeks now. The evidence has accumulated. She's still the same person. She's still a good nurse. She's simply a person with limits.
 ---
 
 ## EMBODIMENT v02
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/embodiment/micro/v02.txt
 BAND: 1
-MECHANISM_DEPTH: 3
+MECHANISM_DEPTH: 1
 COST_TYPE: social
-COST_INTENSITY: 2
-IDENTITY_STAGE: experimentation
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Tomás gives feedback again. Different colleague, same approach: specific, behavior-focused, safety-framed. The alarm fires. The feedback lands. The colleague adjusts. Tomás is building a practice. The practice doesn't eliminate the alarm—the alarm fires each time with conviction. The practice means the alarm fires into a context of previous successes. The alarm says this time will be different. The record says it won't. He acts on the record. The colleague says: "Thanks for telling me." The alarm didn't predict thanks. The alarm can't model gratitude because gratitude isn't a threat. The alarm only models threats.
+When someone is disappointed by Maria's boundary, she feels compassion for them without dissolving the boundary. This is new. Previously, any sign of disappointment would make her rescind the limit. Now she can hold both: their disappointment and her boundary. The false alarm of catastrophe is so quiet now that she barely notices it.
 ---
 
 ## EMBODIMENT v03
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/embodiment/micro/v03.txt
 BAND: 2
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
-CALLBACK_ID: visiting_hours
-CALLBACK_PHASE: return
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Aisha tells another parent about visiting hours. Same approach: sit down, eye level, clear and warm. The alarm fires. The parent's face does the flash—pain, resistance. Then the nod. The sequence is becoming familiar: alarm, boundary, flash, nod. The alarm predicted the flash would be the whole story. The flash is one frame. The nod is the next frame. The alarm can't see past the flash. Aisha can now see past the flash because she's seen the nod enough times to expect it. The expectation doesn't silence the alarm. The expectation provides the rest of the story that the alarm cuts short.
+Maria volunteers for a shift because she wants to, not because she's afraid of judgment if she doesn't. The quality of her presence changes. She's engaged. She's making choices. The chronic sense that she's abandoning someone is gone because she's not operating from compulsion. She's operating from choice.
 ---
 
 ## EMBODIMENT v04
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/embodiment/micro/v04.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Claire catches another medication issue. The alarm fires. She says the words—different medication, same structure. The attending adjusts. The alarm fades. She's advocated for patient safety four times this month. Each time the alarm fired. Each time the outcome was professional and collaborative. The alarm hasn't recalibrated. She has. She no longer waits for the alarm to subside before speaking. She speaks during the alarm. The speaking and the alarm coexist. The patient's safety doesn't wait for Claire's alarm to resolve. The patient's safety requires Claire to act during the alarm. She acts. The alarm runs. The patient is safe. All three happen simultaneously.
+A new nurse asks Maria for advice about saying no to requests. Maria speaks from the quiet place where she's landed. The feared outcome doesn't happen. Relationships are stronger when boundaries are clear. Boundaries are acts of care, not betrayal. She speaks with certainty because her body now knows it to be true.
 ---
 
 ## EMBODIMENT v05
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/false_alarm/embodiment/micro/v05.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Derek submits another schedule request. The alarm fires—smaller this time, not because it learned but because the administrative channel reduces the alarm's fuel. No face, no tone, no real-time reaction. Just a form. He submits and walks away. The approval comes that afternoon. He's requested four schedule adjustments this quarter. Four approvals. Zero conversations. Zero conflicts. The alarm ran four times on a process that has a 100% approval rate. The alarm's model of the process is catastrophic. The process's actual record is administrative. He keeps using the form. The form is a boundary-setting tool that the alarm has difficulty dramatizing.
----
-
-## STORY v21
----
-path: low hum beneath the surface
-BAND: 1
-SEMANTIC_FAMILY: SF1
----
-Nora notices her jaw is clenched while writing a routine email to the attending. The email is professional. The email is necessary. The email asks a straightforward question about a patient lab value. Her body is clenched around a question. She unclenches her jaw. Within thirty seconds, it re-clenches. The alarm is running underneath things even when there's nothing threatening. It's like background radiation. She can't see it but her cells register it. By end of shift, her neck is tight. By end of the week, the tightness has become her baseline. The alarm learned to live underneath everything. It's not dramatic anymore. It's just the new temperature of her body.
----
-
-## STORY v22
----
-path: preparing for rejection
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-Tomás schedules a meeting with his manager to discuss scheduling flexibility. He has a week to prepare. The meeting is five days away. For five days, his brain runs simulations of rejection. The manager is busy. The manager will say no. The manager will see this as inflexibility. Tomás finds himself being extra helpful, extra available, extra compliant. He's building a case for why he should be allowed limits by proving he has no limits. He's doing extra work to earn the right to work less. The alarm is so invisible that he doesn't notice he's marketing his deservingness. The alarm is smart like that. It doesn't announce itself. It just nudges you to prove you're not the person the alarm says you might be.
----
-
-## STORY v23
----
-path: every interaction becomes a test
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-Aisha is at maximum activation. Every single interpersonal exchange has become a threat test. A senior nurse asks about a patient's assessment—Aisha hears: you didn't assess properly. A physician questions a medication timing—Aisha hears: you're incompetent. A colleague asks to borrow supplies—Aisha hears the request as an indictment that she didn't prepare the cart. Her body is running full threat response to routine interactions. She's exhausted from defending against hostility that no one else is expressing. Her hands shake when she handles medication. She second-guesses every clinical decision. She keeps asking herself: did I miss something? Is someone angry at me? The alarm is now her dominant experience of work. It's louder than the patients. It's louder than the tasks. She can't separate herself from the alarm anymore. The alarm has become her operating system.
----
-
-## STORY v24
----
-path: breaking the circuit
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-Claire is sitting in her car in the parking lot before her shift. She's been here for ten minutes. She's been here because the alarm is screaming and she hasn't gone inside yet. Today she has to work with an attending who corrected her in front of a resident last week. The correction was reasonable. The correction still lives in her body as humiliation. The alarm is telling her not to go in. The alarm is telling her this place is unsafe. She knows it's not. Her clinical judgment tells her the environment is fine. Her body tells her it's a minefield. She's stuck between two truths: this is a safe place and my body doesn't feel safe here. She sits in the car. An hour shift has become unbearable to face. She could call in sick. She's thought about it fourteen times. She sits in the car with her phone in her hand knowing she has to go in and knowing her nervous system doesn't believe she can handle it.
+Maria and Alicia pass in the hallway. Alicia smiles recognizing something settled in Maria's posture. The false alarm is no longer running in her entire nervous system. She moves with the ease of someone who's tested her fear against reality and found reality to be safer than the mechanism predicted. She's claimed the possibility that boundaries can be safe, that setting limits is compatible with being a good nurse, that the catastrophe was always imagined.
 ---

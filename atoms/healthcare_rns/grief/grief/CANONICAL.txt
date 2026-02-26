@@ -1,39 +1,38 @@
 
-
 ## RECOGNITION v01
 ---
 path: story_atoms/healthcare_rns/anchored/grief/grief/recognition/micro/v01.txt
 BAND: 2
 MECHANISM_DEPTH: 1
-COST_TYPE: internal
-COST_INTENSITY: 2
+COST_TYPE: identity
+COST_INTENSITY: 1
 IDENTITY_STAGE: pre_awareness
 ---
-Nora loses a patient she cared for over three shifts. Mr. Tran. Seventy-four. Heart failure. She knew his coffee preference, his daughter's name, the way he folded his blanket into a triangle. He died on the fourth shift while she was off. She reads the chart note and the reading produces a weight in her body that the chart can't contain. The weight isn't in the clinical details—the deterioration, the code, the time of death. The weight is in the blanket triangle. The clinical facts are processable. The blanket triangle is not. The blanket triangle is a person-specific detail that no clinical framework can metabolize.
+A patient Maria has been caring for dies. Not unexpectedly. The trajectory was clear. Yet the death still lands. Maria feels it in her chest. There's no formula that makes this easier. The patient had a name. A family who loved them. A life that will no longer be lived. Maria feels the weight of what's been lost. Not loss in the abstract. Loss of this specific person who was alive this morning.
 ---
 
 ## RECOGNITION v02
 ---
 path: story_atoms/healthcare_rns/anchored/grief/grief/recognition/micro/v02.txt
-BAND: 3
+BAND: 2
 MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 1
 IDENTITY_STAGE: pre_awareness
 ---
-Tomás walks into Room 4 and it's a different patient. The previous patient—Mr. Cortez, seventy-two hours in the ICU, slowly improving—was transferred to the step-down unit yesterday. Room 4 now has a new name on the board, new drips, new family. The transition is standard. The feeling is not. Something in Tomás's body doesn't release Mr. Cortez when the room changes occupants. He carries a faint imprint of the seventy-two hours—the conversations with the wife, the small improvements celebrated with cautious optimism, the specific rhythm of Mr. Cortez's ventilator. The imprint doesn't process. The imprint just stays, unresolved, as he starts assessing the new patient.
+Chen sits with a family who's grieving. She holds their grief without trying to fix it. She sees the mother's face. The father's silence. The way they hold each other. Chen feels their loss. She can't separate herself from it. She's grieving too. Not her loss. Their loss. But the grief moves through her like it's her own.
 ---
 
 ## RECOGNITION v03
 ---
 path: story_atoms/healthcare_rns/anchored/grief/grief/recognition/micro/v03.txt
-BAND: 2
+BAND: 3
 MECHANISM_DEPTH: 1
-COST_TYPE: internal
+COST_TYPE: identity
 COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-Aisha attends the memorial service for a patient. Seven years old. Leukemia. Aisha knew him for fourteen months. The service has photos—the child at the beach, at a birthday party, in a hospital bed with a superhero cape. The hospital bed photo is Aisha's unit. She recognizes the blanket, the IV pole, the crayon drawings on the wall. She's in the background of one photo, blurred but recognizable. The grief arrives through the photos and lands in a place she doesn't have language for. Not personal grief—she wasn't family. Not clinical grief—the death was expected and well-managed. A grief between personal and clinical that nursing doesn't name.
+Dominique goes to a patient's funeral. She sits in the back. She doesn't need to be there. But something in her required witnessing the completion. The body in the casket. The family in dark clothes. The finality. Dominique cries. She cries for the patient. She cries for the family. She cries for the lives that are forever changed by this death.
 ---
 
 ## RECOGNITION v04
@@ -41,23 +40,23 @@ Aisha attends the memorial service for a patient. Seven years old. Leukemia. Ais
 path: story_atoms/healthcare_rns/anchored/grief/grief/recognition/micro/v04.txt
 BAND: 3
 MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-Claire loses a baby during delivery. The delivery was emergent. Everything was done correctly. The outcome was death. She completes the post-mortem documentation. She speaks with the family. She debriefs with the team. She drives home. She sits in her driveway. The sitting is grief, but the grief has no social container. Her husband asks how her day was. The answer—a baby died—is both the truth and utterly inadequate. The inadequacy of the answer is part of the grief. The grief lives in a professional context that her personal life can't fully access. She carries the grief home and it has no room that fits it.
+Keisha's patient doesn't make it. The code doesn't work. The family has to say goodbye to a body instead of a person. Keisha prepares the body. She touches the patient's hand one more time. She whispers something only the patient can hear. The grief is profound. It's not unprofessional. It's the mark of someone who cared.
 ---
 
 ## RECOGNITION v05
 ---
 path: story_atoms/healthcare_rns/anchored/grief/grief/recognition/micro/v05.txt
 BAND: 4
-MECHANISM_DEPTH: 1
-COST_TYPE: internal
-COST_INTENSITY: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
-Derek counts his patient deaths. Seventeen in three years. Not all unexpected—some were comfort care, some were long declines. But seventeen people whose last professional caregiver was Derek. Seventeen people whose final vital signs he documented, whose families he stood with, whose bodies he prepared for transport. The count produces a weight that surprises him. He hasn't counted before. The deaths happened individually, spaced across months. Individually, each was processed and filed. Collectively, seventeen is a number that sits differently in the body than any single death. The accumulation was invisible until the counting made it visible. The visibility produces a grief he didn't know was waiting.
+The accumulation of grief becomes the landscape of the work. Each death adds to the collective weight. The nurses mourn not just individuals but the pattern of mortality that's part of their daily reality. Grief is not extraordinary. It's ordinary. It's the water they swim in. They float in grief. They work in grief. They love their patients and then they lose them.
 ---
 
 ## MECHANISM_PROOF v01
@@ -65,35 +64,35 @@ Derek counts his patient deaths. Seventeen in three years. Not all unexpected—
 path: story_atoms/healthcare_rns/anchored/grief/grief/mechanism_proof/micro/v01.txt
 BAND: 3
 MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Nora identifies the grief's location: it lives in the personal details she absorbs about patients. The clinical facts—diagnoses, labs, medications—process through professional channels and are metabolized by training. The personal details—the blanket triangle, the daughter's name, the coffee preference—process through human channels that nursing doesn't equip or support. The personal details are what make patients into people. The people are what Nora grieves. The patients are clinical entities that the system handles. The people are individuals that Nora carries. The system processes patients. Nora processes people. The system has a framework. Nora doesn't.
+The mechanism is: I can care for dying people and not be affected by their dying. The mechanism produces a certain compartmentalization. Maria's professional capacity is real. She can manage the medical tasks. Yet she cannot avoid the reality that the person dies. The mechanism tries to keep feeling separate from function. But the separation is never complete.
 ---
 
 ## MECHANISM_PROOF v02
 ---
-path: story_atoms/healthcare_rns/anchored/grief/grief/mechanism_proof/micro/v02.txt
-BAND: 4
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/grief/mechanism_proof/micro/v02.txt
+BAND: 3
 MECHANISM_DEPTH: 2
-COST_TYPE: social
+COST_TYPE: identity
 COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Tomás maps the imprint phenomenon. Each patient leaves a faint residue—not clinical data but relational memory. The wife's specific worry pattern. The patient's particular way of communicating pain. The negotiations about food and rest and autonomy. These exchanges are relational, and relational data doesn't clear when the patient transfers. The data persists because the relationships, however brief, were real. Tomás relates to his patients as people during their stay. The relating produces attachment. The attachment produces grief when the relationship ends—whether through death, transfer, or discharge. The grief is proportional to the relating. The system that benefits from the relating doesn't account for the grief it produces.
+The mechanism proves itself through the way grief cannot be scheduled. Chen can't grieve during her shift. She must continue working. The mechanism says: You can feel later. Yet later becomes tomorrow, next week, never. The grief accumulates because the mechanism doesn't allow for processing. The proof is the backlog of ungrieved losses.
 ---
 
 ## MECHANISM_PROOF v03
 ---
 path: story_atoms/healthcare_rns/anchored/grief/grief/mechanism_proof/micro/v03.txt
-BAND: 3
+BAND: 4
 MECHANISM_DEPTH: 2
-COST_TYPE: internal
+COST_TYPE: identity
 COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
-Aisha identifies the unnamed grief as a category error. The grief categories available to her are: personal grief (family, friends) and clinical grief (expected patient outcomes, professional processing). Her grief for the seven-year-old fits neither category. It's more than clinical—she knew him for fourteen months, longer than some friendships. It's less than family—she wasn't at the birthday party in the photo. The grief falls between categories and the between-space has no support structure. No bereavement leave for patient deaths. No professional framework for grief that exceeds clinical but falls short of personal. The between-grief accumulates without a processing system.
+The mechanism isolates. Dominique's grief at the funeral cannot be easily explained to her family. They don't understand why she's so affected by a patient she knew for two weeks. The mechanism suggests that the grief is not valid. It's not family. It's work. The isolation deepens the grief. She's grieving alone.
 ---
 
 ## MECHANISM_PROOF v04
@@ -101,73 +100,71 @@ Aisha identifies the unnamed grief as a category error. The grief categories ava
 path: story_atoms/healthcare_rns/anchored/grief/grief/mechanism_proof/micro/v04.txt
 BAND: 4
 MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 4
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
-Claire discovers the driveway grief has a social dimension she didn't expect. The grief isolates her from her husband because the grief is professional and her husband is civilian. He can hear that a baby died. He can't hold the specific weight of a baby dying in her hands—the temperature change, the silence, the family's sound. The grief requires a witness who has shared the experience. Her husband is a loving witness who hasn't shared the experience. The gap between his love and his understanding is where the isolation lives. She's not alone. She's alone in the specific way that professional grief in nursing creates: surrounded by non-witnesses who care deeply and can't fully reach her.
+The mechanism creates a particular kind of guilt. Keisha grieves her patient. But the mechanism whispers: You should have done more. The code should have worked. The death is somehow your failure. The grief becomes entangled with guilt. The mechanism has weaponized the grief.
 ---
 
 ## MECHANISM_PROOF v05
 ---
 path: story_atoms/healthcare_rns/anchored/grief/grief/mechanism_proof/micro/v05.txt
 BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: opportunity
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
 COST_INTENSITY: 2
-IDENTITY_STAGE: pre_awareness
+IDENTITY_STAGE: destabilization
 ---
-Derek examines what happens to unprocessed accumulated grief. Seventeen deaths, individually processed as clinical events, collectively unprocessed as a body of loss. The unprocessed collective manifests as: fatigue that sleep doesn't fix, a growing emotional distance from new patients, a reluctance to learn personal details about the people in his care. The reluctance is protective—fewer personal details means less grief when they die. The protection reduces the grief and also reduces the quality of the care. The accumulated grief is shaping his practice. The shape it's producing is: narrower, more clinical, less human. The narrowing is the accumulated grief's footprint.
+The mechanism makes the grief feel like weakness. The nurses work in a field where death is normal. If they grieve every death, they'll be unable to continue. The mechanism suggests that their grief is sentimentality. They should be tougher. Yet grief is not weakness. It's the mark of someone who's loved. The mechanism tries to invalidate what's actually the most human response.
 ---
 
 ## TURNING_POINT v01
 ---
 path: story_atoms/healthcare_rns/anchored/grief/grief/turning_point/micro/v01.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Nora tells her colleague about the blanket triangle. Not in a debrief—during a quiet moment at the station. "Mr. Tran used to fold his blanket into a triangle. I don't know why that's the thing I keep thinking about." The colleague nods. The colleague says: "For me it was Mrs. Rodriguez's slippers. She had these purple slippers." Two personal details. Two griefs held in two sentences. The sharing doesn't process the grief. The sharing places the grief in a social context where it's recognized as legitimate. The blanket triangle isn't a clinical fact. The blanket triangle is a grief anchor. The colleague's slippers are another. The anchors are what make the grief real.
+Maria tells someone about her patient's death. She doesn't try to minimize it. She says: This person died. This matters. I'm grieving. The person listens without judgment. In the listening, there's permission to grieve. Maria realizes she's been waiting for permission. Permission that no one was going to give her except herself.
 ---
 
 ## TURNING_POINT v02
 ---
 path: story_atoms/healthcare_rns/anchored/grief/grief/turning_point/micro/v02.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: social
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
 COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Tomás visits Mr. Cortez on the step-down unit. Not a clinical visit—a personal one. Two minutes. He asks how Mr. Cortez is feeling. Mr. Cortez remembers him: "The night nurse. You explained everything to my wife." The recognition closes something the transfer left open. The imprint—the seventy-two hours, the conversations, the rhythm of the ventilator—receives an ending instead of an amputation. The visit is not standard. The visit is a completion. Tomás walks back to the ICU with the imprint resolved, not through clinical processing but through relational closure. The relationship needed an ending. The transfer didn't provide one. The visit did.
+Chen takes time off after a difficult death. She doesn't go shopping or have fun. She sits with the grief. She cries when she needs to. The time gives the grief space. The mechanism that required compartmentalization begins to loosen. Grief can have time. Grief can have space.
 ---
 
 ## TURNING_POINT v03
 ---
 path: story_atoms/healthcare_rns/anchored/grief/grief/turning_point/micro/v03.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
-CALLBACK_ID: memorial_photo
-CALLBACK_PHASE: setup
 ---
-Aisha writes the seven-year-old's name in a notebook. Not a clinical notebook—a personal one. Just the name and the dates: the date she met him and the date he died. Fourteen months between the dates. Below the name, she writes one sentence: "He liked the superhero cape and he was braver than most adults I've treated." The sentence is a eulogy the between-grief demanded and the system didn't provide. The writing takes sixty seconds. The sixty seconds produce a specific relief—the relief of naming a grief that had no name and placing it somewhere it can be held. The notebook is the somewhere. The somewhere exists now.
+Dominique connects with her family about why the funeral mattered. She explains: This person was part of my work. Their death affects me. Her family begins to understand that grief in this work is different but not less than family grief. The isolation begins to ease. The grief can be witnessed.
 ---
 
 ## TURNING_POINT v04
 ---
 path: story_atoms/healthcare_rns/anchored/grief/grief/turning_point/micro/v04.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Claire calls a colleague from the driveway. Not her husband. A colleague who was in the room. She says: "I'm in my driveway and I can't go inside." The colleague says: "I know. I sat in mine for twenty minutes last time." The shared experience bridges the isolation. The colleague doesn't explain the weight. The colleague carries the same weight. The call lasts four minutes. Neither says anything therapeutic. Both say things that recognize the specific grief of the specific event. The recognition is the function. The husband inside the house loves her. The colleague on the phone understands her. Both are needed. The call provides what the house can't. She goes inside afterward.
+Keisha releases the guilt. Her patient died of a disease. The code didn't work because the disease was too advanced. Keisha did everything she could. The grief doesn't require guilt. The mechanism tried to merge them. But they're separate. Grief for the loss is different from guilt about care. She separates them.
 ---
 
 ## TURNING_POINT v05
@@ -175,107 +172,69 @@ Claire calls a colleague from the driveway. Not her husband. A colleague who was
 path: story_atoms/healthcare_rns/anchored/grief/grief/turning_point/micro/v05.txt
 BAND: 3
 MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Derek reads the names. All seventeen. He wrote them in a list: names, approximate dates, one detail each. The details: the model ship builder, the grandmother who sang hymns, the young man with the motorcycle tattoo, the woman who asked him to call her by her first name. Seventeen details. The list converts the accumulated number into individual people. Each person on the list received Derek's care during their last hours or days. The list is heavy. The list is also an honoring that the accumulated blur wasn't. The blur was protective but disrespectful—it erased individual people into a mass. The list restores individuals. The restoring is the grief beginning to process.
+Over weeks, the nurses begin to honor their grief. They acknowledge that care produces attachment and attachment produces grief. Instead of trying to prevent the grief, they're allowing it. The experimentation is toward integrating grief as a normal part of caring work.
 ---
 
 ## EMBODIMENT v01
 ---
 path: story_atoms/healthcare_rns/anchored/grief/grief/embodiment/micro/v01.txt
 BAND: 2
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Nora shares another personal detail with the same colleague. Different patient, different detail: "Mrs. Kim always asked me to adjust the blinds so she could see the sunset." The colleague shares back: "Mr. Johnson used to narrate his blood draw. 'And now she's putting on the tourniquet.'" They laugh. The laughter is grief's companion—not opposed to it but traveling alongside it. The sharing is becoming a practice. Not formal—no schedule, no protocol. Just two nurses exchanging the human details that the clinical system doesn't hold. The exchanging creates a container for the grief that the system didn't build. The container is informal and essential.
+Maria thinks about her patient. She feels the sadness. She doesn't try to fix it or minimize it. She simply lets it be part of her. The patient mattered. The patient's death matters. Her grief matters. She's claimed the right to grieve in a profession that often denies it.
 ---
 
 ## EMBODIMENT v02
 ---
 path: story_atoms/healthcare_rns/anchored/grief/grief/embodiment/micro/v02.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 2
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Tomás visits another patient on the step-down unit. Three minutes. The patient remembers him. The imprint receives its ending. He starts the practice: when possible, a brief visit after transfer. Not every patient—the volume doesn't allow it. The patients whose imprints are strongest: the ones he related to most, the ones whose stays were longest, the ones whose families became temporarily his. The visits close what the transfers leave open. The closures process grief that otherwise accumulates. The practice doesn't eliminate the imprints. The practice gives the imprints resolution. Resolution is what grief needs to move. Without resolution, grief stays.
+Chen cares for another dying patient. The knowing that the patient will die doesn't prevent her from caring. The caring produces grief that's already beginning. She lets herself experience it. The grief is not separate from the love. It's the other side of love.
 ---
 
 ## EMBODIMENT v03
 ---
 path: story_atoms/healthcare_rns/anchored/grief/grief/embodiment/micro/v03.txt
 BAND: 2
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
-CALLBACK_ID: memorial_photo
-CALLBACK_PHASE: return
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Aisha writes another name in the notebook. A twelve-year-old who died last month. Below the name: "She taught me a card trick during chemo. I still can't do it right." The sentence holds the between-grief—more than clinical, less than family, exactly the relationship a pediatric oncology nurse develops over months of treatment. The notebook now has six names. Six names, six dates, six sentences. The notebook is a memorial the system didn't build. Aisha built it with sixty seconds per entry. The entries are not heavy. The entries are precise. The precision gives the grief a shape. Shaped grief processes differently than shapeless grief. Shapeless grief accumulates. Shaped grief moves.
+Dominique speaks to families about death with the weight of her own experience. She knows what they're about to experience. The grief she's carried gives her capacity to witness theirs. Her vulnerability is her strength. She's allowed herself to grieve and it makes her present to others' grief.
 ---
 
 ## EMBODIMENT v04
 ---
 path: story_atoms/healthcare_rns/anchored/grief/grief/embodiment/micro/v04.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Claire calls the colleague again after another difficult delivery. Different outcome this time—the baby survived but the mother hemorrhaged and went to the ICU. The grief is different: not death-grief but fear-grief, the grief of almost. The colleague answers: "Tell me." Claire tells. The telling takes six minutes. The colleague listens. The listening is the container. After the call, Claire goes inside. Her husband asks how her day was. She says: "Hard, but I already talked to someone who gets it." The sentence bridges the two worlds. The husband receives the summary. The colleague received the detail. Both forms of holding are in place. The isolation has a workaround.
+Keisha sits with the death as part of the work. She grieves. She continues. She grieves and works. The two are not separate. She's claimed the right to care deeply and be affected by loss. That's not weakness. That's the heart of her profession.
 ---
 
 ## EMBODIMENT v05
 ---
 path: story_atoms/healthcare_rns/anchored/grief/grief/embodiment/micro/v05.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Derek adds an eighteenth name to the list. A patient who died last week—a retired teacher who quoted poetry during assessments. The detail: "She recited Dickinson while I took her blood pressure." The list grows. The list is not a monument—it's a practice. Each name is a moment of recognition: this person existed, I cared for them, the caring produced a grief that deserves acknowledgment. The acknowledgment takes thirty seconds. The thirty seconds prevent the death from being absorbed into the accumulated blur. The blur is still there—the earlier deaths that weren't named. But the newer deaths are named. The naming changes the trajectory. The grief is attended to instead of ignored. Attended grief is grief that can eventually settle.
----
-
-## STORY v21
----
-path: small silence of loss
-BAND: 1
-SEMANTIC_FAMILY: SF1
----
-Nora hasn't cried yet. A patient she cared for across three months of recovery died overnight. She came on shift and learned he was gone. She finished her charting. She went home. The grief is sitting in her chest like a closed fist. It's not dramatic. It's just quiet weight. She's eating dinner with her family and thinking about his breathing pattern from yesterday when he was stable. His breathing is different now. It's not there. The grief is this: remembering how someone was and knowing they're not anymore. The gap between the was and the isn't is the grief. She's not angry. She's not bargaining. She's just carrying the gap. It's small and it's significant and it's barely visible to anyone looking at her.
----
-
-## STORY v22
----
-path: grief without permission
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-Tomás isn't allowed to grieve at work. The patient died. The next patient is admitted. The job continues. The grief has to fit into breaks that are too short and emotions that are too public. He's learned to wall it off. The walling makes sense—work doesn't stop for grief. But the grief is still there, walled inside while he does the next task. It creates a sort of internal pressure. Grief isn't meant to be walled. Grief needs expression. He's storing unexpressed grief the way a system stores pressure. By end of week, the pressure is noticeable. He's short-tempered. He's more tired. His body is expressing what his schedule won't allow his heart to express. The grief exists in his body as tension. That's where grief lives when it has no permission.
----
-
-## STORY v23
----
-path: grief fracturing identity
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-Aisha lost the patient she was most invested in. She'd been advocating for a change in treatment. The change was made. The patient deteriorated anyway. She's convinced the advocacy caused the deterioration. She's convinced the change she fought for killed the patient. Logically, she knows that's not how it works. Emotionally, the grief has wrapped itself around guilt. The two emotions have become inseparable. She can't grieve without the guilt. She can't guilt without the grief. They're feeding each other. The combination is rewriting her entire identity as a nurse. She was supposed to help. She helped and the patient died. The grief is saying: you're not good at this. The grief is actually saying: this patient's death belonged to no one and that's unbearable. But the form it's taking is: it was you. The grief has made her a villain in a story she didn't write.
----
-
-## STORY v24
----
-path: grief as total collapse
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-Derek can't do this anymore. The patient he was most connected to died. This patient was recovering. This patient had a future. Derek had watched him improve day by day. He had photographs of recovery. The patient died in his sleep. Overnight. No warning. Derek came on shift to news that the person he'd been investing hope in was gone. The grief is total. It's not grief that lives alongside work. It's grief that has replaced work entirely. He's walked through the whole shift in a state of dissociation. He can't feel the grief because the grief is too big. He's numb underneath the grief. The numbness is protective. When the protective numbness wears off—tonight, tomorrow, next week—the grief will be the thing that destroys him. He can feel it waiting. He's terrified of what happens when the grief breaks through.
+The nurses have integrated grief into their sense of themselves. They're people who care for dying people. They grieve. The grief is not a problem to be solved. It's an integral part of the work they've chosen. They've claimed this fully.
 ---

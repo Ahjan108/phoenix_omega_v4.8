@@ -85,12 +85,14 @@ def allocate_wave(
     seed: str = "default",
     min_exercise_coverage: int = 0,
     min_story_coverage: int = 0,
+    personas_override: Optional[list[str]] = None,
 ) -> list[TeacherAllocation]:
     """
     Produce an ordered list of (teacher_id, topic_id, persona_id, brand_id) for the wave.
     Respects brand matrix (teachers per brand, max per wave) and teacher allowed_topics.
     Excludes teachers below coverage threshold (min EXERCISE, min STORY total) when set (plan §9).
     Does not back-to-back same teacher when spacing_days > 0 (interleaves by brand/teacher).
+    personas_override: if provided, use this list instead of canonical_personas.yaml (e.g. for ZH/cluster allocation).
     """
     matrix = load_brand_matrix(brand_matrix_path)
     registry = load_teacher_registry(teacher_registry_path)
@@ -128,7 +130,7 @@ def allocate_wave(
         topics_cfg = _load_yaml(CONFIG_CATALOG / "canonical_topics.yaml")
         topic_list = sorted(topics_cfg.get("topics") or []) or ["self_worth"]
 
-    persona_list = _load_canonical_personas()
+    persona_list = personas_override if personas_override is not None else _load_canonical_personas()
     if not persona_list:
         persona_list = ["tech_finance_burnout"]
 

@@ -1,39 +1,38 @@
 
-
 ## RECOGNITION v01
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/recognition/micro/v01.txt
 BAND: 2
 MECHANISM_DEPTH: 1
-COST_TYPE: internal
-COST_INTENSITY: 2
+COST_TYPE: social
+COST_INTENSITY: 1
 IDENTITY_STAGE: pre_awareness
 ---
-Nora watches Marcus stay four hours past his shift to finish a project for the unit council. Marcus doesn't complain. Marcus looks energized. Nora looks at Marcus and then at herself and the comparison produces a simple verdict: Marcus gives more. The verdict doesn't account for the fact that Marcus has no children, lives five minutes from the hospital, and chose unit council work as his professional development focus. Nora has two kids, a forty-minute commute, and chose clinical education as hers. The comparison erases every variable except the one visible right now: he stayed and she's leaving. She leaves with the comparison in her chest.
+Maria watches Chen at the nurses station after a twelve-hour shift. Chen's charting is meticulous, practiced, the pen moving steadily through documentation. When the charge nurse calls asking if anyone can stay late, Chen glances up briefly, then returns to work. Maria's throat tightens. She's already heard the ask three times. She hasn't declined once. Chen declines without explanation. The fluorescent lights hum overhead. Other nurses rustle papers, shuffle toward the time clock. Maria sees Chen standing, gathering her bag. No apology. No justification. Just the simple movement of leaving. The weight of Maria's own undeclared yes presses into her shoulders, heavy and unexamined.
 ---
 
 ## RECOGNITION v02
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/recognition/micro/v02.txt
-BAND: 3
+BAND: 2
 MECHANISM_DEPTH: 1
 COST_TYPE: social
-COST_INTENSITY: 3
+COST_INTENSITY: 1
 IDENTITY_STAGE: pre_awareness
 ---
-Tomás notices that three nurses on his unit never seem to say no. They pick up shifts, cover lunches, stay late, volunteer for committees. He tracks this for two weeks and confirms: they say yes to everything. The comparison is immediate: they can handle it and he can't. He said no to an extra shift last week. He declined a committee invitation last month. The comparison positions his boundaries as deficiencies by measuring them against people who appear to have none. He doesn't know what those three nurses' home lives look like. He doesn't know their fatigue levels, their health status, their resentment. He knows they said yes. The comparison needs nothing else.
+The unit conference room, Tuesday morning. Dominique sits across from Raj, who's explaining why he's transferring to day shift. His voice is steady, informative. The request was simple. No elaborate reasoning. No guilt coloring his tone. Dominique feels her own explanation forming in her mouth, the one she's rehearsed a hundred times about why she can't reduce her hours: responsibility, team need, the implication that her body is infinite. Raj's wrists rest on the table, relaxed. Dominique's knuckles are white. She observes the difference without naming it, the ease in another person's refusal, the absence of catastrophe in the wake.
 ---
 
 ## RECOGNITION v03
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/recognition/micro/v03.txt
-BAND: 2
+BAND: 3
 MECHANISM_DEPTH: 1
-COST_TYPE: internal
+COST_TYPE: social
 COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-Aisha scrolls through the unit's group chat. Photos of nurses at the hospital fundraiser—a Saturday event. She wasn't there. She spent Saturday with her mother, who needs increasing support. The group chat is full of smiling faces and team captions. The photos create a visual record of participation that Aisha's absence from. The comparison says: they show up for the team, you show up for yourself. The reality is: she showed up for her mother. The comparison can't weigh caring for a parent against attending a fundraiser. The comparison only sees the group and the gap where Aisha should be standing.
+A difficult family on the floor. The patient's daughter demands updates every hour, contradicts care decisions, raises her voice when protocols aren't explained in real time. Keisha handles the first three escalations. On the fourth, she documents the complaint, notifies management, and tells the daughter the conversation is complete. She closes the door. Alicia, working the adjacent room, continues answering the same daughter's questions, offering reassurance, explaining care repeatedly. Keisha's action seems impossible from inside Alicia's framework. The energy required to say no feels dangerous. Yet Keisha moved through it like a necessary boundary, not a betrayal.
 ---
 
 ## RECOGNITION v04
@@ -41,23 +40,23 @@ Aisha scrolls through the unit's group chat. Photos of nurses at the hospital fu
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/recognition/micro/v04.txt
 BAND: 3
 MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-Claire compares her departure time to the other nurses on her shift. She leaves at 7:35—thirty-five minutes past the end of her twelve-hour shift. Two other nurses leave at 8:30. One stays until 9. Claire's thirty-five minutes, which already represents unpaid work, feels insufficient next to their ninety and one hundred twenty minutes. The comparison converts her thirty-five minutes of overtime into evidence of inadequacy by measuring it against someone else's two hours. Both durations represent work beyond the contracted shift. The comparison can only see relative position, not absolute contribution. Relative to them, she's leaving early. Absolute to her contract, she's staying late.
+Tomas finishes his shift at exactly seven p.m. He's worked sixty hours that week. When questioned about staying past schedule for a patient admission, his answer is no. No explanation. No softening. Maria watches from the supply room. She sees Tomas leaving while she's still here, while the unit needs coverage, while she could theoretically help. The patient will be fine with day shift coverage. The unit will adapt. Tomas adapted by refusing. The gap between them feels like a mirror Maria can't quite look into directly.
 ---
 
 ## RECOGNITION v05
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/recognition/micro/v05.txt
 BAND: 4
-MECHANISM_DEPTH: 1
-COST_TYPE: internal
-COST_INTENSITY: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
-Derek reads about a nurse on social media who works full-time, is in nurse practitioner school, volunteers at a free clinic, and posts motivational content about "grinding." The post has four thousand likes. Derek works full-time. He goes home. He sleeps. He watches television. He does not grind. The comparison between the social media nurse and Derek produces a gap so large it feels like a species difference. The social media nurse is a highlight reel. Derek is a behind-the-scenes cut. He knows this intellectually. The comparison doesn't operate intellectually. The comparison operates visually, and the visual is: that nurse does everything and you do the minimum.
+Weeks accumulate. Maria notices the pattern more acutely. The nurses who maintain boundaries seem to be the ones with stability outside work, relationships intact, energy for their own needs. They leave on time. They say no to extra shifts. They don't absorb others' expectations like personal responsibility. Yet they're not blamed. They're not fired. They're not abandoned. They move through the unit with a lightness Maria hasn't felt in years. The cost of her own endless availability becomes visible only in the contrast, in the bodies of colleagues who chose differently. She compares and feels the weight of what she's been carrying.
 ---
 
 ## MECHANISM_PROOF v01
@@ -65,35 +64,35 @@ Derek reads about a nurse on social media who works full-time, is in nurse pract
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/mechanism_proof/micro/v01.txt
 BAND: 3
 MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 3
+COST_TYPE: social
+COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Nora examines what the comparison is actually measuring. It's measuring visible sacrifice. Marcus staying four hours is visible. Nora's forty-minute commute in both directions is invisible. Her two hours of evening childcare are invisible. Her preparation for tomorrow's clinical education session is invisible. The comparison only sees the hospital. Everything outside the hospital doesn't exist in the comparison's frame. By the comparison's logic, Marcus gives more because Marcus's giving is visible and Nora's is distributed across locations the comparison can't see. The comparison operates through a hospital-shaped window. Life outside the window isn't measured.
+Chen's refusal to stay late triggers a fear in Maria that feels almost instinctive. If Chen says no and others don't question her commitment, then Maria's constant yes must mean something else. Either Maria is choosing self-sacrifice, or Chen is choosing to be a worse nurse, a less dedicated teammate. Maria watches Chen's patients. Their outcomes are identical. The care is sound. Yet the fear persists that boundary-setting equals abandonment. This fear is the mechanism: if I limit myself, I abandon my patients and my team. The proof appears to contradict it, but Maria's mind reframes. Chen just hasn't been tested by the right crisis yet.
 ---
 
 ## MECHANISM_PROOF v02
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/mechanism_proof/micro/v02.txt
-BAND: 4
+BAND: 3
 MECHANISM_DEPTH: 2
 COST_TYPE: social
 COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Tomás learns that one of the three yes-nurses is on anxiety medication, another is going through a divorce, and the third cried in the parking lot last week. The information arrives through the normal channels of workplace proximity. The yes-nurses are saying yes at a cost the comparison couldn't see. Their yeses aren't evidence of greater capacity. Their yeses are evidence of boundaries they can't set, costs they're absorbing, breaking points they're approaching. Tomás's no was healthier than their yeses. The comparison measured the wrong variable. The comparison measured output and ignored cost. Output without cost analysis is incomplete data.
+Dominique tracks Raj's transfer. Days pass. No one speaks of his leaving as abandonment. His last shifts are covered without drama. Management thanks him for his notice. His relationships with colleagues persist unchanged. The mechanism Dominique has been operating from states: If I set boundaries, I will be seen as uncommitted, and my relationships will suffer. Yet Raj set a boundary and his relationships held. Dominique watches, confused. The fear remains alive even as the proof contradicts it, because accepting the proof would require dismantling the story she's built about who she is.
 ---
 
 ## MECHANISM_PROOF v03
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/mechanism_proof/micro/v03.txt
-BAND: 3
+BAND: 4
 MECHANISM_DEPTH: 2
-COST_TYPE: internal
+COST_TYPE: identity
 COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
-Aisha identifies the comparison's relationship to nursing culture specifically. Nursing culture celebrates sacrifice. The nurse who stays, who picks up, who puts the unit first—this is the cultural hero. The nurse who sets boundaries, who protects personal time, who says "not today"—this is the cultural outlier. The comparison draws its metrics from the culture. The culture says: more sacrifice equals more value. The comparison internalizes this equation and runs it constantly. Aisha's boundaries make her less valuable by the culture's metric. Aisha's boundaries also make her sustainable. The culture doesn't have a metric for sustainability. The culture measures sprints. Aisha is running a marathon.
+Keisha's refusal to the difficult family doesn't result in formal complaints about her. The daughter adjusts to the new boundary. Her behavior actually improves with the clarity. No escalation. No consequences. Yet when Maria observes this, she feels vertigo. The mechanism running underneath her own choices is this: My availability and endless accommodation protect others and prove my value. If I stop being available, harm occurs. Keisha stopped and harm didn't occur. The pattern should update. Instead, Maria's mind fragments. Maybe Keisha is stronger than Maria. Maybe Keisha's patients don't need what Maria's need. Maybe this one case is the exception.
 ---
 
 ## MECHANISM_PROOF v04
@@ -101,73 +100,71 @@ Aisha identifies the comparison's relationship to nursing culture specifically. 
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/mechanism_proof/micro/v04.txt
 BAND: 4
 MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 4
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
-Claire maps the comparison to nursing's staffing crisis. Units are understaffed. The understaffing creates a culture where anyone who doesn't work beyond their limits is perceived as not doing enough. The perception isn't personal—it's systemic. When three nurses cover the work of five, the two nurses maintaining boundaries look like they're not contributing. In reality, the system is three nurses short. The comparison can't see the missing nurses. The comparison only sees who's present and who's not. Claire's departure at thirty-five minutes past her shift is measured against people compensating for a system failure. The system failure is invisible. Her departure time is visible. The comparison makes her the failure.
+Tomas leaves at seven p.m. consistently. He's considered a good nurse. He's respected. He's not isolated. The mechanism Tomas has presumably dismantled is the one that says: I must earn my worthiness through sacrifice. Yet Maria carries that mechanism like an invisible skeleton. She compares her availability to Tomas's refusal and feels inadequate in both directions. If she stays late, she's not like Tomas. If she leaves on time, she fears she's abandoning her identity. The observation of someone else's freedom destabilizes her without liberating her.
 ---
 
 ## MECHANISM_PROOF v05
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/mechanism_proof/micro/v05.txt
 BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: opportunity
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
 COST_INTENSITY: 2
-IDENTITY_STAGE: pre_awareness
+IDENTITY_STAGE: destabilization
 ---
-Derek examines the social media nurse more carefully. The posts are from 2023. The bio says NP school. The free clinic posts stopped eight months ago. The motivational content is unchanged but the workload posts have shifted to stories about burnout. The grind narrative has a timeline. The timeline shows acceleration, peak output, then deceleration. The comparison took a snapshot of the peak and made it the standard. The full timeline shows a trajectory that includes the crash the comparison cropped out. Derek's "minimum" is sustainable. The social media nurse's "maximum" was not. The comparison chose the unsustainable as the benchmark for the sustainable.
+The repeated observation forces a crack in the mechanism. Maria begins to see that the nurses with boundaries are not experiencing the catastrophe she's imagined. They're tired but functional. They have lives. They haven't been fired for saying no. Yet the crack doesn't mean transformation. It means living inside cognitive dissonance. The old belief system still fires underneath her nervous system. She sees colleagues thriving with boundaries while her own refusal feels dangerous. The comparison has become a mirror that shows her the cost of her choices without yet offering her the possibility of different choices.
 ---
 
 ## TURNING_POINT v01
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/turning_point/micro/v01.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: social
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Nora calculates her total contribution. Hospital hours plus commute plus childcare plus education prep. The total is sixty-two hours per week of work and care labor. Marcus's total, as far as she can estimate: fifty-six hours of hospital-focused work. Her sixty-two is distributed. His fifty-six is concentrated. The comparison only saw the concentrated portion and called it more. The math shows her total is larger but spread across more domains. She writes the number down: sixty-two. The number doesn't make the comparison stop. The number gives her something to hold when the comparison says she's doing less. The number says she's doing more. The more is just invisible.
+Alicia catches Maria in the break room looking at her phone. It's seven forty-five p.m. She should have left forty-five minutes ago. The charge nurse is still asking for coverage for an admission. Alicia sits down. She tells Maria about her own experience, how she used to stay late, how she burned out, how she learned that saying no was actually saying yes to her ability to continue showing up. The words are specific. They're not abstract. Alicia speaks from the body of someone who changed. Maria listens. The listening is different than observation. There's a thread of possibility in another person's story that wasn't present in watching from a distance.
 ---
 
 ## TURNING_POINT v02
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/turning_point/micro/v02.txt
 BAND: 3
-MECHANISM_DEPTH: 3
+MECHANISM_DEPTH: 2
 COST_TYPE: social
 COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Tomás asks one of the yes-nurses how she's doing. Not professionally. Personally. She pauses. The pause is long enough to be an answer. "Tired," she says. One word. Tomás nods. They stand in the hallway with the one word between them. The yes-nurse's yes isn't what the comparison suggested—it's not evidence of superior capacity. It's evidence of a different failure mode: the inability to stop. Tomás's no and the yes-nurse's yes are both responses to the same impossible system. His response preserves himself at the cost of appearing less committed. Her response preserves her image at the cost of herself.
+The next time the charge nurse asks for coverage, Maria says she can stay until eight, but not longer. It's a small refusal. Partial. But it's a first movement. Her heart races. She expects immediate consequence. None comes. The shift continues. She leaves at eight. The unit functions. No patient suffers. No one scolds her. The absence of catastrophe is so profound that it feels almost wrong, like she's escaped accountability somehow. Yet the night passes. She wakes in the morning without the knot of guilt she usually carries.
 ---
 
 ## TURNING_POINT v03
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/turning_point/micro/v03.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
-CALLBACK_ID: saturday_space
-CALLBACK_PHASE: setup
 ---
-Aisha posts a photo on her own social media. Not from the fundraiser. From Saturday with her mother. Her mother is smiling. The kitchen is messy. They're making something together. Aisha doesn't caption it with anything about sacrifice or priorities. She just posts it. The photo is a counter-document to the fundraiser photos—not an argument, just an alternative frame. This is what she was doing while they were at the fundraiser. Both activities are valid. The comparison wanted her at the fundraiser. Her mother wanted her in the kitchen. She was in the kitchen. The kitchen is not less than the fundraiser. The kitchen is just somewhere else.
+She notices Raj at the time clock. She asks him how he decided to transfer. He's direct. He tells her he was exhausted. He needed shorter shifts. He requested it. Management accommodated. Maria asks if anyone blamed him. Raj looks confused by the question. No one blamed him. He wasn't a bad nurse. He set a need and moved toward it. The simplicity of his explanation undoes something in Maria. She's been constructing blame that never materialized. She's been apologizing for needs she hasn't even stated yet.
 ---
 
 ## TURNING_POINT v04
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/turning_point/micro/v04.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Claire stops checking who's still at the station when she leaves. The checking was the comparison's data collection method: scanning the room, noting who remains, calculating relative sacrifice. She packs her bag, gives handoff, and walks out without looking back. The not-looking is deliberate and uncomfortable. The comparison wants the data. Without the data, the comparison can't run its calculation. She walks to the parking lot in the dark with an undone comparison humming in the background. The humming is quieter than the completed comparison would have been. The completed version would have produced a specific deficit. The undone version produces only vagueness. Vagueness is more livable than a specific verdict.
+Three shifts later, Maria stays late because she chooses to, not because she was asked and couldn't refuse. The difference in her body is immediate. She's present with the work. She's not burning. The next shift, she leaves on time and doesn't apologize. She observes herself doing this. It feels foreign, like trying on clothes that might not fit. But they do fit. Over days, the experimentation accumulates. She's not transformed. She's not suddenly free. But she's moving, testing, trying to inhabit a way of being that she only knew from watching others.
 ---
 
 ## TURNING_POINT v05
@@ -175,107 +172,69 @@ Claire stops checking who's still at the station when she leaves. The checking w
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/turning_point/micro/v05.txt
 BAND: 3
 MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Derek unfollows the social media nurse. Not out of anger—out of data hygiene. The account was producing a benchmark that was unsustainable and undisclosed. The unfollow removes one comparison input. His feed now shows his actual colleagues, whose lives are visible in their real complexity: some picking up extra shifts, some setting boundaries, all somewhere on the spectrum between overwork and rest. The real spectrum is more useful than the curated highlight reel. The real spectrum shows him in the middle—not at the bottom, not at the top. The middle is where sustainable practice lives. The extremes are where it burns out.
+The comparison that once felt destabilizing begins to shift. When Maria sees Keisha decline extra work, she no longer feels the vertigo. She's beginning to inhabit the possibility that setting limits is not betrayal. The other nurses are still there, still present as mirrors, but the mirror is beginning to show her not what she's lacking but what's possible. The mechanism that told her she must sacrifice to matter is loosening, not because she's reasoned her way out of it, but because her body is learning something different through small movements toward her own needs.
 ---
 
 ## EMBODIMENT v01
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/embodiment/micro/v01.txt
 BAND: 2
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: social
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Nora leaves on time. Marcus is still at the station. The comparison flickers: he's staying, you're leaving. She holds the flicker and also holds the sixty-two. The sixty-two includes the commute and the children and the education prep that will happen at her kitchen table. The comparison can't follow her home. The comparison's frame ends at the hospital door. She walks through the door and into the parts of her contribution that the comparison doesn't measure. The unmeasured parts are not less real. The unmeasured parts are just less visible. She drives home with the comparison fading in the rearview mirror.
+Maria stands at the time clock at the end of her scheduled shift. Chen is beside her. For the first time, they're both leaving together. No explanation needed. No one calls to delay them. The fluorescent lights buzz overhead. Maria's bag is in her hand. Her body feels lighter than it has in months. She catches her reflection in the window and barely recognizes herself. There's no guilt visible. No apology in her posture. She's simply a person finishing her work and going home. Chen glances at her and nods. It's a small gesture, barely a movement. But it acknowledges something true: Maria is here, present, choosing, and the unit continues.
 ---
 
 ## EMBODIMENT v02
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/embodiment/micro/v02.txt
 BAND: 1
-MECHANISM_DEPTH: 3
+MECHANISM_DEPTH: 1
 COST_TYPE: social
-COST_INTENSITY: 2
-IDENTITY_STAGE: experimentation
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Tomás says no to an extra shift with the comparison running. The yes-nurses will probably pick it up. The comparison will note the discrepancy. He says no anyway. Goes home. Cooks a meal. Eats it slowly. The meal doesn't look like nursing. The meal looks like recovery. The recovery enables tomorrow's shift to be performed at full capacity. The yes-nurses will be at diminished capacity because their recovery was replaced by an extra shift. The comparison can't model tomorrow. The comparison can only model today's visible sacrifice. Tomorrow's capacity difference is invisible until it manifests as a near-miss or a sharp tone or a sick call.
+When a difficult family member becomes frustrated with Maria, Maria maintains her professional boundary without softening it with unnecessary explanation. The family member leaves irritated. The next day, their behavior is more appropriate. Maria feels the quiet solidity of her own standing. She's not abandoning anyone. She's holding clear limits. The distinction, which once seemed impossible, now lives in her body. It's not overthought. It's simply the way she moves through her work.
 ---
 
 ## EMBODIMENT v03
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/embodiment/micro/v03.txt
 BAND: 2
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
-CALLBACK_ID: saturday_space
-CALLBACK_PHASE: return
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Aisha misses another Saturday event. A unit potluck this time. She's with her mother again. The comparison tries to activate: they're bonding without you, they'll notice you're not there. She lets it activate and simultaneously holds the kitchen image—her mother's hands, the flour on the counter, the conversation that only happens when they cook. The potluck and the kitchen are happening simultaneously. She can only be in one. She chose the kitchen. The comparison says she chose wrong. Her mother's laugh says she chose. Not wrong. Just chose. The choosing is the boundary. The boundary includes loss. The loss is the potluck's community. The gain is the kitchen's intimacy.
+Maria volunteers to stay late because the unit is genuinely short-staffed and she has the capacity that night. It's a choice, not a compulsion. The difference is felt in her entire system. Her work is engaged rather than resentful. She's contributing from fullness rather than depletion. When she leaves two hours later, she doesn't carry the residue of obligation. She's chosen and lived her choice.
 ---
 
 ## EMBODIMENT v04
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/embodiment/micro/v04.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Claire leaves on time three shifts in a row. Each time, the not-looking practice. Pack bag. Give handoff. Walk out. The comparison hums in the background each time. The humming doesn't escalate because she's not feeding it data. Without knowing who stayed and for how long, the comparison can't produce a specific deficit. It can only produce a general anxiety. The general anxiety is manageable. The specific deficit was not. She's discovered that the comparison's power comes from precision—the exact number of minutes, the exact names of who stayed. Without precision, the comparison loses its authority.
+A colleague asks Maria how she manages to leave on time and still feel good about her work. Maria pauses. She's surprised to find she doesn't have to think about the answer. She simply says: I do the work I'm scheduled to do, and then I stop. The simplicity of it, spoken aloud, feels revolutionary. The colleague hears something in her voice that wasn't there before. A groundedness. A person who knows who she is.
 ---
 
 ## EMBODIMENT v05
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/comparison/embodiment/micro/v05.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Derek's feed now shows real nurses living real lives. Some post about hard shifts. Some post about rest days. Some post about both. The comparison still runs—it's a habit with deep roots—but the inputs are more realistic. The realistic inputs produce more realistic comparisons. The realistic comparisons show Derek in the middle of a normal distribution. Some nurses do more. Some do less. Most do roughly what the system requires and then go home. Going home is the boundary. The boundary is normal. The comparison tried to make normal look like failure. The normal distribution says normal is, by definition, the most common position.
----
-
-## STORY v21
----
-path: quiet noticing in comparison
-BAND: 1
-SEMANTIC_FAMILY: SF1
----
-Nora sits in the break room with her phone. She scrolls past photos: a nurse at a conference, a nurse with a certification badge, a nurse at a professional development event. Her phone is bright. Her attention narrows to each achievement, each credential, each visible marker of growth. She has not attended a conference in two years. Her last certification renewal was on the deadline. The comparison is quiet. It doesn't yell. It whispers: you're not moving forward like they are. The whisper arrives in the break room like background music. She finishes her coffee listening to the whisper. The break ends. She returns to the unit with the whisper still playing underneath everything else.
----
-
-## STORY v22
----
-path: absence becoming weight
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-Tomás notices a new nurse on the unit—energetic, quick to volunteer, stays late on her second week. He remembers being like that. He remembers not having boundaries because boundaries felt like admitting you couldn't handle the work. He was twenty-eight then. He's forty-two now. The comparison between his current self and new-nurse-him doesn't announce itself. It settles. It says: you were better at this before you had limits. The comparison with your past self is a slow erosion. It's not the drama of measuring against others. It's the quiet weight of measuring against who you used to be. Who you used to be didn't have kids. Didn't have a mortgage. Didn't know the cost yet.
----
-
-## STORY v23
----
-path: comparison consuming the shift
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-Aisha is spiraling. Four different nurses did things today—four visible acts of commitment that Aisha didn't match. Marcus stayed to help restock the supply room. Chen volunteered for overtime. Sarah suggested a new workflow improvement. Priya brought in cupcakes for the team. Aisha did her job. Aisha did her job well. Aisha did her job with presence and attention and skill. The comparison doesn't measure job quality. The comparison only measures visibility of extra. By shift end, Aisha has converted her entire day into a performance gap. The gap has consumed her. She can't name a single patient interaction. She can't remember what went right. She can only remember the four things she didn't do. The comparison has eaten the whole day and left her hollow. She drives home with her hands shaking. The comparison doesn't sleep. It keeps running.
----
-
-## STORY v24
----
-path: past self, present breaking point
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-Derek has hit the edge. He was the nurse who did everything once. Years back—he was the one with the extra shifts, the committees, the energy. He was the comparison that others failed against. He burned out so completely he had to take a month off. He came back changed. Now he sets boundaries. Now he leaves on time. Now he says no. But the comparison with past-Derek is destroying him. Past-Derek looks like failure from present-Derek's perspective. Present-Derek looks like giving-up from past-Derek's perspective. He can't be both the guy who sacrifices and the guy who has limits. The contradiction is tearing him apart. He hasn't slept properly in a week. His manager asked if he's okay. He said yes and his voice broke. The comparison between who he was and who he needs to be is pulling in opposite directions at full force. He's not sure which direction will win.
+Maria and Raj pass in the hallway. He's heading in as she's leaving. He smiles, recognizing something in her that wasn't visible before. She's become, like him, a person with boundaries. Not because she chose to abandon her patients, but because she chose to stay capable of caring for them. Her presence has changed. It no longer carries the weight of apology. She's simply here, doing her work, then moving toward her life.
 ---

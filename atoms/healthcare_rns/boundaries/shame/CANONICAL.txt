@@ -1,39 +1,38 @@
 
-
 ## RECOGNITION v01
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/recognition/micro/v01.txt
 BAND: 2
 MECHANISM_DEPTH: 1
-COST_TYPE: internal
-COST_INTENSITY: 2
+COST_TYPE: identity
+COST_INTENSITY: 1
 IDENTITY_STAGE: pre_awareness
 ---
-Nora says yes to the extra shift. Her body said no—feet aching, sleep debt visible in the mirror, a headache that started at hour ten and hasn't left. Her mouth said yes because the charge nurse's voice carried a specific tone: we need you. The "we need you" bypasses the body's information and activates a different system. The system says: nurses who say no aren't team players. Team players don't count their hours. The shame of not being a team player outweighs the body's data. She picks up the shift. The headache stays. The shame of saying no would have stayed longer.
+Keisha declines an extra shift. She states it matter-of-factly. Maria feels a visceral reaction. Not anger. Not confusion. Shame. A shame that settles into her chest and radiates outward. Keisha is doing something Maria cannot imagine doing. The shame is not about Keisha. It's about the gap between who Maria is and who Keisha is. Keisha is someone who knows her limits. Maria is someone who doesn't. Or worse, Maria is someone who knows her limits and violates them anyway. The shame colors the observation. It makes Keisha's boundary-setting feel like a rebuke.
 ---
 
 ## RECOGNITION v02
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/recognition/micro/v02.txt
-BAND: 3
+BAND: 2
 MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 1
 IDENTITY_STAGE: pre_awareness
 ---
-Tomás covers a colleague's patients during lunch. Not a quick cover—a full hour because the colleague extended lunch without asking. Tomás manages eight patients for sixty minutes. He doesn't say anything when the colleague returns. The colleague doesn't apologize. Tomás's silence isn't politeness. It's shame preemption—if he says something, the colleague might think he's petty, might tell others he's difficult, might label him the nurse who can't handle a little extra. The boundary he needs to set (don't extend without asking) is blocked by the shame of being seen as someone who needs boundaries. Needing boundaries feels like failing at flexibility.
+Chen leaves on time while Maria stays late. The fluorescent lights hum. Chen moves toward the exit with ease. Maria remains at the bedside. The shame is quiet but present. It says: You are weak. You cannot leave. You are the kind of person who says yes when you should say no. Chen is the kind of person who protects herself. You are not. The shame doesn't create conviction. It creates a sense of fundamental inadequacy.
 ---
 
 ## RECOGNITION v03
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/recognition/micro/v03.txt
-BAND: 2
+BAND: 3
 MECHANISM_DEPTH: 1
-COST_TYPE: internal
+COST_TYPE: identity
 COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-Aisha takes the difficult patient assignment without protest. Room 7: behavioral issues, multiple call lights per hour, verbal aggression toward staff. The charge nurse asks who can take Room 7. Silence. Aisha volunteers because the silence feels like accusation—someone has to take it, and if she doesn't, the silence will break with someone being assigned against their will. The volunteering isn't generosity. It's shame avoidance. The shame says: the nurse who doesn't volunteer for the hard room is the nurse who makes others carry her weight. She carries Room 7's weight. Her own weight is not in the calculation.
+A family member becomes frustrated with Dominique. Dominique holds her boundary. She doesn't apologize for it. The family member leaves irritated. Dominique continues her work. Maria observes and feels shame both for Dominique and for herself. For Dominique, there's pity. Maria imagines that Dominique is cold, that she doesn't care deeply, that boundaries are a defense against feeling. For herself, there's a deeper shame: Maria cares so much that she dissolves her boundaries. The shame suggests that her carefulness is weakness, her emotional availability is pathology.
 ---
 
 ## RECOGNITION v04
@@ -41,23 +40,23 @@ Aisha takes the difficult patient assignment without protest. Room 7: behavioral
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/recognition/micro/v04.txt
 BAND: 3
 MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-Claire stays ninety minutes past her shift to finish charting. Her relief arrived on time. The charting could have been handed off—the standard handoff includes incomplete documentation. But handing off incomplete charts produces a specific shame in Claire's body: the shame of leaving work for someone else. The standard allows it. Claire's shame doesn't operate on the standard. Claire's shame operates on a personal code that says: you finish what you start, you don't burden the next nurse, you leave the chart the way you want to find it. The code is admirable. The code also costs ninety minutes of her life after a twelve-hour shift.
+Tomas tells a patient's family he'll be off shift at seven and another nurse will assume care. He says it simply. No apology. The family accepts it. Maria watches and feels shame at how different this is from her own interactions. She over-explains. She apologizes. She makes promises about continuity that go beyond her scope. Tomas doesn't do this. He's professional without being apologetic. The gap feels like evidence of her fundamental inadequacy as a nurse.
 ---
 
 ## RECOGNITION v05
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/recognition/micro/v05.txt
 BAND: 4
-MECHANISM_DEPTH: 1
-COST_TYPE: internal
-COST_INTENSITY: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
-Derek answers his phone on his day off. The unit calling. Short-staffed. Can he come in. He's exhausted—three twelve-hour shifts in a row. His body is telling him no with clarity: muscle soreness, cognitive fog, the kind of fatigue that makes driving unsafe. He says yes. Not because he wants to. Because the shame of saying no to a short-staffed unit is louder than his body's data. The shame says: they need you and you're home watching TV. The body says: you're home recovering from thirty-six hours of critical care. The shame doesn't count recovery as a valid activity. Recovery looks like laziness to the shame.
+Weeks pass. Maria accumulates shame. Not from external judgment, but from internal observation. She watches herself stay late again. She watches herself apologize again. She watches herself over-accommodate again. Each observation produces shame. The shame says: You are failing to be the kind of nurse you admire. You are failing to be the kind of person who can set limits. The shame becomes the evidence for the belief that she is fundamentally broken in the area of boundaries.
 ---
 
 ## MECHANISM_PROOF v01
@@ -65,35 +64,35 @@ Derek answers his phone on his day off. The unit calling. Short-staffed. Can he 
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/mechanism_proof/micro/v01.txt
 BAND: 3
 MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Nora maps the shame's source. It's not internal—it's institutional. The nursing culture she trained in celebrated self-sacrifice as professionalism. The nurses who stayed late were praised. The nurses who picked up extra shifts were valued. The nurses who said no were... not punished, exactly. Noted. The noting was subtle—a slight shift in how the charge nurse assigned rooms, a faint coolness in the break room. The shame she feels when she considers saying no isn't personal weakness. It's a trained response to a system that equates boundaries with disloyalty. The training was effective. The training is still running.
+The mechanism is this: I am the kind of person who cannot set boundaries. This belief is so foundational that it seems not like a belief but like truth. The mechanism produces shame because it describes a fundamental inadequacy. The proof seems everywhere. Maria stays late. Colleagues leave. Maria apologizes. Colleagues don't. Maria feels guilty for setting limits. Colleagues don't. The mechanism reads all of this as evidence that she is deficient, incapable, not enough.
 ---
 
 ## MECHANISM_PROOF v02
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/mechanism_proof/micro/v02.txt
-BAND: 4
+BAND: 3
 MECHANISM_DEPTH: 2
-COST_TYPE: social
+COST_TYPE: identity
 COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Tomás realizes the shame operates differently based on who crosses his boundary. When a patient crosses a boundary—calls excessively, makes unreasonable demands—the shame says: be patient, they're sick. When a colleague crosses a boundary—extends lunch, dumps tasks—the shame says: be flexible, they're stressed. When the system crosses a boundary—understaffing, mandatory overtime—the shame says: be tough, this is nursing. Every boundary violation has a shame-generated excuse. The excuse always prioritizes the other party's needs. The shame has no mechanism for prioritizing Tomás's needs. His needs don't have a shame-protected category.
+The mechanism feeds on shame and shame feeds on the mechanism. When Maria observes herself over-apologizing, the shame intensifies. The shame then reinforces the belief: you see, this is who you are, someone who apologizes too much. The mechanism doesn't motivate change. It motivates hiding. Maria stops talking about her struggles with boundaries. She keeps the shame private. The isolation deepens the belief that she's uniquely broken.
 ---
 
 ## MECHANISM_PROOF v03
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/mechanism_proof/micro/v03.txt
-BAND: 3
+BAND: 4
 MECHANISM_DEPTH: 2
-COST_TYPE: internal
+COST_TYPE: identity
 COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
-Aisha counts her voluntary difficult assignments over three months. Fourteen times. Fourteen times she took Room 7 or its equivalent. She counts the times others volunteered. Three. The distribution isn't fair. The shame prevented her from noticing the distribution because the shame operates shift by shift. Each shift, the shame runs the same calculation: someone has to take it, be that someone. The calculation doesn't accumulate. It doesn't track patterns. It doesn't notice that "someone" is always Aisha. The shame's per-shift logic produces a quarterly pattern of exploitation that the shame itself can't see.
+A patient's family asks for something outside Maria's scope. She feels the compulsion to say yes, the shame that rises when she considers saying no, and the compromise: she'll try to make it work. Later, she realizes she overextended. The shame is acute. She tells herself: This is what I do. This is who I am. Someone who cannot protect her own boundaries. The mechanism doesn't produce insight. It produces resignation.
 ---
 
 ## MECHANISM_PROOF v04
@@ -101,73 +100,71 @@ Aisha counts her voluntary difficult assignments over three months. Fourteen tim
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/mechanism_proof/micro/v04.txt
 BAND: 4
 MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 4
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
-Claire calculates the ninety minutes. Per shift, ninety minutes past end. Three shifts per week. That's four and a half hours of unpaid work per week. Eighteen hours per month. Two hundred sixteen hours per year. Twenty-seven eight-hour days of work that Claire performs because the shame of handing off incomplete charts is more painful than the loss of twenty-seven days. The shame converts a standard professional behavior—shift handoff—into a personal failure. The conversion costs twenty-seven days per year. The days don't appear in any workload metric. The days appear in Claire's fatigue, her strained marriage, her disappearing hobbies. The shame's cost is denominated in life, not hours.
+Maria begins to see other nurses as better than her in this regard. Keisha is stronger. Chen is wiser. Dominique is braver. The shame spreads. It's not just about boundaries anymore. It's about her fundamental worth. If she can't do what they do, then maybe she's not as good a nurse. Maybe she's not as strong. Maybe she shouldn't be in this profession at all. The mechanism has evolved from specific belief to global inadequacy.
 ---
 
 ## MECHANISM_PROOF v05
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/mechanism_proof/micro/v05.txt
 BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: opportunity
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
 COST_INTENSITY: 2
-IDENTITY_STAGE: pre_awareness
+IDENTITY_STAGE: destabilization
 ---
-Derek tracks his rest quality after saying yes on days off. Average sleep before an unplanned shift: four hours. Average cognitive function during that shift: measurably worse. He's counted three near-misses on fatigue-driven shifts—moments where his processing lagged, where the system caught what he should have caught first. The shame of saying no protects his image as a reliable nurse. The yes that the shame produces puts patients in front of a nurse operating at diminished capacity. The shame's protection of his professional image actively undermines his professional performance. The protection and the harm are the same action.
+The shame becomes exhausting. It requires constant self-surveillance. Maria is always observing herself, looking for the evidence that confirms she's inadequate at boundaries. The mechanism is so integrated that she can't imagine it being otherwise. She is fundamentally someone who struggles with limits. The shame is not a feeling. It's a identity.
 ---
 
 ## TURNING_POINT v01
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/turning_point/micro/v01.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Nora says no to the extra shift. The shame fires instantly—full volume, full body. She says it anyway: "I can't come in tomorrow. I need the day off." The charge nurse says: "Okay, I'll try someone else." Four words. The shame predicted: disappointment, judgment, being labeled unreliable. The actual response was operational—the charge nurse moved to the next name on the list. Nora stands in her kitchen with the shame still pounding and the phone call already over. The shame's catastrophe lasted thirty seconds in reality and will last three hours in her body. The reality and the body operate on different timescales.
+Alicia finds Maria in the break room. She sits down and tells Maria about her own shame around boundaries. How she felt broken. How she thought she was the only one who struggled. How she watched others set boundaries and felt inadequate. But then she realized: the shame was keeping her from even trying. It was making her identity fixed. Alicia speaks quietly. She says: We're not broken. We just learned a pattern. And patterns can change. The words land differently because they come from someone who's lived inside the same shame.
 ---
 
 ## TURNING_POINT v02
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/turning_point/micro/v02.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: social
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
 COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Tomás says it to the colleague: "I need you back from lunch on time." Seven words. The shame fires. The colleague looks surprised—not offended, surprised. As though the boundary hadn't occurred to them. "Yeah, sorry. I lost track." The interaction is eleven words total. The shame mobilized a full defensive response for eleven words of ordinary conversation. The colleague returns on time the next day. The boundary worked. The shame said the boundary would damage the relationship. The relationship is unchanged except that it now includes a limit that makes it sustainable.
+Maria begins to question the mechanism. If shame is so present, and she's still a good nurse, then maybe the mechanism is not truth. Maybe the shame is not evidence of inadequacy. Maybe it's just evidence that she's operating against her own learned pattern. The questioning is small. It doesn't dissolve the shame. But it creates a gap. Inside the gap is the possibility that she could be a good nurse and someone who struggles with boundaries. That those things aren't mutually exclusive.
 ---
 
 ## TURNING_POINT v03
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/turning_point/micro/v03.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
-CALLBACK_ID: room_seven
-CALLBACK_PHASE: setup
 ---
-Aisha doesn't volunteer for Room 7. The silence stretches. The charge nurse assigns the room to another nurse—the same nurse who hasn't taken a difficult assignment in two months. The assignment is equitable. The shame fires anyway: you should have taken it, you let someone else carry it. Aisha sits with the shame and simultaneously with the math: fourteen to three. The math contextualizes the shame. The shame says she's abandoning her team. The math says her team has been relying on her shame to avoid their own turns. She lets someone else have a turn. The shame calls it selfish. The math calls it fair.
+Maria attempts a small boundary. She declines one request for overtime. The shame shows up immediately. It says: You're selfish. You're abandoning your team. But Maria has started to notice that the shame is louder than reality. The team is fine. The shift is covered. The feared consequence doesn't appear. Yet the shame doesn't disappear either. She's learning to move forward despite the shame, not because the shame is gone.
 ---
 
 ## TURNING_POINT v04
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/turning_point/micro/v04.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Claire hands off incomplete charting for the first time. She tells the oncoming nurse: "I have two charts still in progress. Here's where I am on each." The words leave her mouth and the shame detonates. The oncoming nurse nods: "No problem. I'll finish them during my first round." The interaction is normal. It's the standard that Claire's shame converted into a personal failure for ten years. She drives home at the end of her shift—not ninety minutes later, at the end. The drive is twenty minutes. She's home in twenty minutes. The twenty minutes that used to be ninety produce a physical sensation she's not used to: time.
+She tells Keisha what she's doing. Keisha listens and then says something that shocks Maria. Keisha also struggles sometimes. She also feels the pull to over-extend. The difference is that Keisha doesn't believe the mechanism. She doesn't think the pull means she's broken. She thinks it means she has a generous heart that sometimes needs protection. The reframe is subtle but it changes something. Generosity is not the problem. Unexamined generosity is.
 ---
 
 ## TURNING_POINT v05
@@ -175,107 +172,69 @@ Claire hands off incomplete charting for the first time. She tells the oncoming 
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/turning_point/micro/v05.txt
 BAND: 3
 MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Derek says no to the day-off call. The phone rings. He sees the unit number. The shame starts before he answers. He answers. "I can't come in today. I'm not rested enough to be safe." The word "safe" is deliberate. He's framing the boundary as a clinical judgment because it is one. The charge nurse pauses, then: "Understood. Take care." Derek puts the phone down. The shame says: they're disappointed. The clinical judgment says: a fatigued nurse is a dangerous nurse. The shame and the clinical judgment are in direct conflict. He chose the clinical judgment. The patients he would have cared for will get a rested nurse instead.
+Over weeks, Maria practices setting boundaries while the shame is present. She doesn't wait for the shame to disappear. She moves while it's still speaking. Each movement reveals the gap between what shame says and what actually happens. The shame is still loud, but it's becoming less convincing. She's beginning to see that the shame is not evidence. It's just noise. And she doesn't have to believe the noise.
 ---
 
 ## EMBODIMENT v01
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/embodiment/micro/v01.txt
 BAND: 2
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Nora says no to another extra shift. The shame fires. Quieter than last time—not because the shame learned but because Nora's evidence folder is growing. Three refusals, three neutral responses, zero consequences. The shame's predictions have a zero percent accuracy rate. She says no and lets the shame run its cycle. The cycle takes two hours instead of three. She spends the day off sleeping, cooking, sitting in silence. The silence is restorative. The silence is also the thing the shame calls laziness. She's learning to hold the silence and the shame simultaneously. The silence is winning because the silence produces rest and the shame produces nothing.
+Maria sets a boundary with a family member. The shame rises. She acknowledges it quietly. She does not fuse with it. She says what she needs to say anyway. The shame is present, but it's no longer the ruler of her choices. It's just a voice. One voice among many. This simple shift changes everything. She's no longer broken. She's just human, with a particular pattern that requires attention.
 ---
 
 ## EMBODIMENT v02
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/embodiment/micro/v02.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 2
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Tomás sets the lunch boundary again. Different colleague, same limit: "I need you back on time—I can't safely manage eight patients alone for an extended period." The framing is clinical. The colleague returns on time. Tomás is learning that clinical framing gives the boundary a structure the shame has difficulty attacking. The shame can argue with "I need a break." The shame can't argue with "I can't safely manage eight patients." The safety argument is unarguable because it's true and because the profession's highest value is patient safety. He's setting personal boundaries using the profession's own language.
+When Maria observes herself declining extra work, the shame is quiet now. She doesn't attack herself for it. She doesn't call herself selfish. She simply notes: I'm honoring my own needs. This is something I've learned to do. The internal narrative has shifted from judgment to observation.
 ---
 
 ## EMBODIMENT v03
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/embodiment/micro/v03.txt
 BAND: 2
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
-CALLBACK_ID: room_seven
-CALLBACK_PHASE: return
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Aisha watches the difficult assignment rotation. She volunteers once this month. Others volunteer twice. The distribution is approaching equity. Her shame still fires on the shifts where she doesn't volunteer—a residual pulse that says she should be carrying more. She holds the pulse and holds the math. The math is clear now: equitable distribution means everyone carries difficult rooms, not just the nurse whose shame is loudest. The loud shame was subsidizing the team's avoidance. The subsidy is ending. The team is adjusting. The adjustment looks like fairness. The fairness was always available. Her shame was the obstacle.
+Maria leaves on time and doesn't apologize. Her body has learned that this is allowed. The shame that used to accompany this action is gone. In its place is a quiet groundedness. She is a good nurse. She is also someone with limits. Both things are true. Both things are allowed.
 ---
 
 ## EMBODIMENT v04
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/embodiment/micro/v04.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Claire hands off charting for the third time. The shame fires at a lower volume. The oncoming nurse finishes the charts. No complaints. No notation. No consequence. Claire has reclaimed four and a half hours this week. The hours went to: dinner with her husband, thirty minutes of reading, a walk that wasn't rushed. The reclaimed hours are ordinary. The ordinary hours were missing for years because the shame assigned them to documentation that someone else could do. The charting gets done. The marriage gets dinner. Both things happen when the boundary holds. Only the charting happens when the shame decides.
+A new nurse tells Maria she's struggling with boundaries. Maria speaks from her own lived experience. She doesn't pretend the shame disappears. She speaks honestly about how it shows up and what's possible despite its presence. The new nurse hears something in her voice: not perfection, but integration. Not a fixed identity, but a person who's learning.
 ---
 
 ## EMBODIMENT v05
 ---
 path: story_atoms/healthcare_rns/anchored/boundaries/shame/embodiment/micro/v05.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Derek says no to the phone on his day off and doesn't answer it. The phone rings. He sees the unit. He lets it ring. Voicemail. He listens to the voicemail an hour later—they found coverage. The unit functioned without him. The shame says: they needed you and you ignored them. The voicemail says: they needed a nurse and they found one. He was not the only option. The shame positioned him as the only option because the shame needs him to be indispensable. Indispensable people can't say no. Dispensable people can rest. He rests. The unit is fine. Both things are true and the shame can only hold one.
----
-
-## STORY v21
----
-path: noticing the internal verdict
-BAND: 1
-SEMANTIC_FAMILY: SF1
----
-Nora made a small clinical error today—not a patient harm, a catch-before-harm mistake. She corrected it. The shift ended. Now she's home and the error is replaying. Not the correction. Not the safe outcome. The error. Her brain has selected this moment as a permanent exhibit of her inadequacy. She's running a private showing of her failure on repeat. The shame is quiet. It doesn't rage. It whispers: this is who you are. This is what you do. Small errors become evidence of fundamental failure. The narrative is so convincing because it's internal. No one else is watching the replay. She's the only audience to her own judgment. She goes to bed carrying the error like it happened yesterday.
----
-
-## STORY v22
----
-path: the story you tell yourself
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-Tomás lost his patience with a patient's family member today. The family member was difficult. The interaction escalated. Tomás lowered his voice and set a boundary firmly. It was appropriate. It was needed. The family member left. Tomás now carries the memory as evidence that he's someone who loses his temper. The fact that he's patient most of the time doesn't matter. The fact that the boundary was warranted doesn't matter. The shame has selected this single interaction and made it representative of his whole character. The shame is efficient like that. It takes one moment and uses it to convict the whole person. He's internalizing it as: this is the real you underneath the professional veneer.
----
-
-## STORY v23
----
-path: shame consuming capability
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-Aisha made a medication timing error. Caught before harm. Reported. Addressed. The incident is complete. Her shame is not. She's convinced herself that the error revealed her true level of competence. She's been a nurse for nine years. The shame is rewriting her history. Nine years of safe practice is being overwritten by one mistake. She's questioning everything. Can I really assess patients? Did I miss something earlier today? Am I actually good at this? The shame is systematic. It's not just about the error. It's converting the error into proof that she was never qualified. She's now second-guessing her entire professional identity. She sat in her car between shifts and cried. She didn't call anyone. She sat with the shame in private and let it organize her self-image into failure.
----
-
-## STORY v24
----
-path: shame at breaking point
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-Derek is drowning in his own judgment of himself. He called in sick two days last week. He wasn't actually sick—he was overwhelmed. He lied to his manager. The lie is now a permanent indictment in his internal court. He's not a person who was struggling. He's a person who lies. The shame is restructuring his identity. Every previous ethical action is now suspect. Did he only do those things for image? Is his whole character this hollow? The lying has become proof of fundamental bad character. He can't tell anyone. The shame demands secrecy. The secrecy deepens the shame. He's isolated with his internal verdict and the verdict is guilty. He's reading it as: you're not who you thought you were. You're actually someone much worse. The shame is total. It's invaded everything.
+Maria and Keisha stand together at the end of a shift. Keisha comments on how much more settled Maria seems. Maria nods. The mechanism that told her she was fundamentally broken around boundaries has loosened. The shame still visits sometimes, but it no longer defines her. She's claimed the identity of someone who's learning, someone who has limits, someone who is becoming more herself.
 ---

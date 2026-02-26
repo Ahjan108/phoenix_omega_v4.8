@@ -1,39 +1,38 @@
 
-
 ## RECOGNITION v01
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/recognition/micro/v01.txt
 BAND: 2
 MECHANISM_DEPTH: 1
-COST_TYPE: internal
-COST_INTENSITY: 2
+COST_TYPE: identity
+COST_INTENSITY: 1
 IDENTITY_STAGE: pre_awareness
 ---
-Nora watches the nurse educator present at the staff meeting. The educator speaks without notes, references current literature, connects theory to practice in sentences that sound effortless. Nora has ideas of equal quality in her notebook. The ideas stay in the notebook because Nora measures her value against the educator's presentation style, not against the ideas themselves. The comparison says: your ideas might be good but your delivery isn't that. The delivery is a learned skill. The ideas are clinical innovations. The comparison weighs delivery over substance and finds Nora's substance insufficient because it lives in a notebook instead of a presentation.
+Maria watches Keisha work. Keisha is efficient. Patients love her. She never seems rushed. She has energy at the end of her shift. Maria compares herself. Maria feels rushed all day. She feels behind. She leaves exhausted. The comparison creates a gap. Keisha is the nurse Maria thinks she should be. Maria is something less. The comparison is happening without words, just in the body.
 ---
 
 ## RECOGNITION v02
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/recognition/micro/v02.txt
-BAND: 3
+BAND: 2
 MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 1
 IDENTITY_STAGE: pre_awareness
 ---
-Tomás learns that his colleague was accepted into a critical care fellowship. The colleague has four years of experience to Tomás's five. The acceptance stings in a location Tomás can't identify immediately. The location is his sense of professional value. The colleague's acceptance doesn't reduce Tomás's competence. His skills haven't changed. His patients aren't affected. But the comparison has established a scoreboard and the scoreboard now shows the colleague ahead. The scoreboard didn't exist until the acceptance email. The email created the scoreboard and populated it in the same moment. Tomás's worth hasn't changed. The measurement has appeared.
+Dominique sees Chen charting. Chen finishes charting for a patient in half the time it takes Dominique. Dominique thinks: Chen is better at this. Chen is smarter. Chen is more organized. The comparison feeds a quiet sense of inadequacy. The gap between her and Chen becomes evidence that she's not good enough at this work.
 ---
 
 ## RECOGNITION v03
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/recognition/micro/v03.txt
-BAND: 2
+BAND: 3
 MECHANISM_DEPTH: 1
-COST_TYPE: internal
+COST_TYPE: identity
 COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-Aisha sees a nurse on social media receiving a national award for pediatric nursing innovation. The nurse developed a pain assessment tool for nonverbal children. The award produces a cascade in Aisha: she should be doing more, she should be innovating, she should be contributing beyond her unit. The "should" is the comparison converting someone else's achievement into her own deficit. The award-winning nurse is one nurse among hundreds of thousands. The comparison treats the exception as the standard and finds Aisha—who provides excellent daily care to sick children—below it. Daily care doesn't win awards. Daily care sustains lives. The comparison can't measure life-sustaining. It can measure awards.
+Raj hears about Alicia's certification. Alicia is pursuing advancement. Raj has stalled in his career. The comparison rises. Alicia is advancing. Raj is stuck. The comparison becomes a statement about worth. Alicia is more committed. Alicia is going somewhere. Raj is just working. The worth gets measured by professional trajectory.
 ---
 
 ## RECOGNITION v04
@@ -41,23 +40,23 @@ Aisha sees a nurse on social media receiving a national award for pediatric nurs
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/recognition/micro/v04.txt
 BAND: 3
 MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-Claire compares herself to the nurse-midwife who joins the L&D team. The midwife has a master's degree, prescribing authority, the ability to manage deliveries independently. Claire has a BSN and ten years of bedside expertise. The comparison measures Claire against the midwife's credentials and finds Claire's position below. The comparison doesn't measure clinical wisdom, patient rapport, team integration, or the specific judgment that comes from two thousand deliveries. The comparison measures titles. Claire's title is "staff nurse." The midwife's title is "certified nurse-midwife." The comparison reads titles as worth. Worth isn't a title. The comparison insists it is.
+Tomas watches as newer nurses quickly become confident. They dive in. They don't second-guess themselves. Tomas is still careful. Still checking. Still uncertain in some areas. The comparison creates doubt. Maybe Tomas is weaker. Maybe he doesn't belong. The comparison is between Tomas and a version of the new nurses that might not be real, but feels true.
 ---
 
 ## RECOGNITION v05
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/recognition/micro/v05.txt
 BAND: 4
-MECHANISM_DEPTH: 1
-COST_TYPE: internal
-COST_INTENSITY: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
-Derek compares his nursing career to his friends' careers outside healthcare. They have titles: software engineer, product manager, marketing director. They have salaries that exceed his by significant margins. They have career ladders that are visible and climbable. Derek has: three years of med-surg nursing, a BSN, and a salary that hasn't kept pace with inflation. The comparison produces a worth calculation that reduces nursing to its economic value and finds the economic value insufficient. The calculation doesn't include the thirty-two-year-old whose wife he held while she screamed, or the eighty-year-old who told him about model ships. The calculation doesn't have a column for those.
+The comparisons accumulate. The nurses build a hierarchy in their minds. At the top are the ones who seem most competent, most composed, most suited for the work. At the bottom is where each of them sees themselves. The hierarchy becomes invisible but it's the lens through which they measure their own worth. Every interaction is filtered through this hierarchy.
 ---
 
 ## MECHANISM_PROOF v01
@@ -65,35 +64,35 @@ Derek compares his nursing career to his friends' careers outside healthcare. Th
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/mechanism_proof/micro/v01.txt
 BAND: 3
 MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Nora identifies the comparison's selection bias. It selects the nurse educator's public speaking. It selects the charge nurse's authority. It selects the researcher's publication record. It never selects her own strengths: patient education, family communication, clinical thoroughness. The comparison has a catalog of other people's visible strengths and a blind spot for her own. The blind spot is structural—the comparison can only measure what it observes in others. It can't observe its own host's strengths because it's inside them. From inside, strengths look like normal behavior. From outside, strengths look like exceptional performance. The comparison only has the outside view of others and the inside view of herself.
+The mechanism is: My worth is determined by how I compare to other nurses. Maria's constant comparison is the mechanism at work. Keisha is better. Keisha has worth. Maria is worse. Maria has less worth. The mechanism uses comparison as the metric for self-evaluation. The proof is everywhere. Every interaction becomes data in the comparison.
 ---
 
 ## MECHANISM_PROOF v02
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/mechanism_proof/micro/v02.txt
-BAND: 4
+BAND: 3
 MECHANISM_DEPTH: 2
-COST_TYPE: social
+COST_TYPE: identity
 COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Tomás realizes the scoreboard is always single-variable. The colleague's fellowship: one variable (acceptance). Tomás's strengths: multi-variable (clinical skill, patient rapport, team contribution, teaching ability). The scoreboard can only display one variable at a time. On any single variable, someone else is ahead. On the full picture—all variables combined—Tomás is competitive. But the full picture is complex. The scoreboard is simple. Simple is more compelling than complex. The scoreboard wins the attention because it provides a clear ranking. The full picture provides an ambiguous assessment. The comparison prefers clarity to accuracy. Clarity says: you're behind. Accuracy says: it's complicated.
+The mechanism produces proof through selective observation. Dominique notices what Chen does well and what she herself struggles with. She doesn't notice what she does well. She doesn't notice what Chen struggles with. The mechanism is biased. It's designed to prove that others are better. The proof is selective but it feels complete.
 ---
 
 ## MECHANISM_PROOF v03
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/mechanism_proof/micro/v03.txt
-BAND: 3
+BAND: 4
 MECHANISM_DEPTH: 2
-COST_TYPE: internal
+COST_TYPE: identity
 COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
-Aisha discovers the comparison operates on visible achievements exclusively. Awards, publications, promotions, titles—these are visible. Daily excellence is invisible. She provides expert care to critically ill children for six years, and the comparison registers this as baseline because it doesn't generate a visible marker. The award-winning nurse has one innovation and one visible marker. The comparison values one visible marker over six years of invisible expertise. The visibility bias means the comparison can never value what Aisha actually does because what she actually does doesn't produce artifacts. Her value is in the doing, not in the documenting. The comparison only sees documents.
+The mechanism extends beyond individual nurses to entire trajectories. Raj's worth is measured by his career advancement compared to Alicia's. The comparison is designed to prove that Alicia is more worthy. The mechanism doesn't allow for the possibility that they're just on different paths. Different doesn't mean worse. But the mechanism reads all differences as ranking.
 ---
 
 ## MECHANISM_PROOF v04
@@ -101,73 +100,71 @@ Aisha discovers the comparison operates on visible achievements exclusively. Awa
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/mechanism_proof/micro/v04.txt
 BAND: 4
 MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 4
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
-Claire maps the comparison to nursing's credential hierarchy. The hierarchy says: BSN is below MSN is below DNP is below MD. The hierarchy is a professional structure, not a worth structure. But the comparison reads it as worth. Each credential level above Claire's registers as a worth deficit. The midwife's master's degree doesn't make Claire less valuable—it makes the midwife differently trained. Both provide care. Both contribute. The comparison insists on ranking what should be collaborative. Collaboration doesn't have a scoreboard. The comparison installs one anyway. The installed scoreboard converts colleagues into competitors and converts Claire's ten years into insufficient credentials.
+The mechanism isolates through comparison. Tomas cannot easily talk about his uncertainty because the comparison has made uncertainty feel shameful. He compares himself to confident new nurses and concludes that his own uncertainty is a character flaw. The isolation deepens the comparison. He's alone with the sense that he's not good enough.
 ---
 
 ## MECHANISM_PROOF v05
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/mechanism_proof/micro/v05.txt
 BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: opportunity
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
 COST_INTENSITY: 2
-IDENTITY_STAGE: pre_awareness
+IDENTITY_STAGE: destabilization
 ---
-Derek examines the cross-industry comparison's logic. His software engineer friend earns more. The comparison says: you're worth less. Worth in this calculation equals salary. Salary equals market value. Market value equals human value. Each step in the chain is a logical error. Salary reflects market demand, not human contribution. Market demand reflects industry economics, not the significance of the work. A software engineer's salary and a nurse's salary are products of different economic systems, not different human values. The comparison conflates economic and human value because economic value is numerical and the comparison runs on numbers.
+The mechanism's deepest proof is the way it's become invisible. The nurses don't think they're engaging in constant comparison. They just think they're noticing reality. But the reality they're noticing is filtered through the comparison lens. The mechanism has become the way they perceive themselves.
 ---
 
 ## TURNING_POINT v01
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/turning_point/micro/v01.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Nora evaluates her own work using her own metric. Not the educator's delivery, not the charge nurse's authority. Her metric: patients leave understanding their care. She reviews her last week: nine discharge education sessions, seven produced documented patient comprehension. Seven out of nine. The number is hers—produced by her skill, measured by her standard. The comparison tries to redirect: but the educator's presentation—Nora holds her number. Seven out of nine. The number doesn't need to be compared. The number describes competence in a domain she chose and developed. The comparison wants a ranking. The metric provides a measurement. Measurements don't require rankings.
+Maria talks to Keisha about her experience of watching Keisha work. She expects Keisha to confirm that she's more efficient. Instead, Keisha says she struggles. She's not as composed as Maria thinks. The comparison breaks. The image Maria had built doesn't match Keisha's experience of herself. The possibility opens that the comparison might not be accurate.
 ---
 
 ## TURNING_POINT v02
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/turning_point/micro/v02.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: social
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
 COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Tomás congratulates the colleague on the fellowship. Genuinely. The genuine congratulation coexists with the comparison's sting. He holds both. Then adds a question he hasn't asked before: what does Tomás want. Not what does the scoreboard say. What does Tomás want. He doesn't want a fellowship. He wants to be an excellent bedside ICU nurse. The scoreboard can't measure "excellent bedside nurse" against "fellowship participant" because they're different pursuits. The comparison tried to rank them. The question dissolves the ranking by revealing different goals. Different goals can't be ranked. They can only be pursued.
+Dominique notices something. Chen, who she thought was so organized, asks her for advice on charting. Chen sees Dominique as more skilled in that area. The comparison fragments. It's not as simple as Chen being better. They're each good at different things. The hierarchy begins to wobble.
 ---
 
 ## TURNING_POINT v03
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/turning_point/micro/v03.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
-CALLBACK_ID: daily_excellence
-CALLBACK_PHASE: setup
 ---
-Aisha lists her invisible achievements. Not for anyone else—for herself. Twenty-seven children assessed this month. Four deteriorations caught early. Three parents supported through new diagnoses. Eleven successful difficult IV accesses. Two hundred sixteen medications administered without error. The list is long and completely invisible to anyone who doesn't work beside her. The award-winning nurse has one visible achievement. Aisha has two hundred sixteen invisible ones. The comparison valued one over two hundred sixteen because the one was visible. The list makes the two hundred sixteen visible to the only person who needs to see them: Aisha. The list is a corrective lens on a distorted measurement.
+Raj realizes that his path and Alicia's are just different. Alicia is pursuing advancement. Raj values stability and presence with his family. The difference is not about worth. It's about values. The comparison dissolves when Raj remembers what actually matters to him.
 ---
 
 ## TURNING_POINT v04
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/turning_point/micro/v04.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Claire works alongside the midwife. Same patient. The midwife manages the medical decision-making. Claire manages the nursing care. During a complication, Claire identifies a pattern in the fetal heart tracing that the midwife doesn't catch because the midwife's training emphasized management and Claire's training emphasized continuous assessment. Claire's catch prevents an emergency. The collaboration—not the competition—produces the best outcome. The credential hierarchy said Claire was below the midwife. The clinical moment said Claire's perspective was necessary. Necessary is not below. Necessary is essential. The collaboration dissolved the hierarchy for thirty seconds of shared patient care.
+Tomas starts talking about his uncertainty. He mentions it to a new nurse. The new nurse responds with relief. She's also uncertain. She's just been pretending. Tomas realized the comparison he was making was between his inside and someone else's outside. The outside looked confident. The inside was actually full of doubt.
 ---
 
 ## TURNING_POINT v05
@@ -175,107 +172,69 @@ Claire works alongside the midwife. Same patient. The midwife manages the medica
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/turning_point/micro/v05.txt
 BAND: 3
 MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Derek talks to his software engineer friend about work. The friend describes debugging a system for three weeks. Derek describes holding a dying patient's hand. The friend goes quiet. Then: "I couldn't do what you do." The statement isn't performative—the friend means it. The comparison that ranked Derek below the friend's salary didn't account for the fact that the friend, earning more, genuinely couldn't perform Derek's work. The comparison measured economic value. The friend's statement measured something else—the specific capacity to be present during human extremity. The capacity doesn't have a salary. The capacity has a value the salary can't represent.
+Over weeks, the nurses notice the comparison less frequently. They're beginning to measure themselves by their own values instead of by how they rank against others. The hierarchy is losing power. The experimentation is toward evaluating worth from the inside rather than through the mirror of comparison.
 ---
 
 ## EMBODIMENT v01
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/embodiment/micro/v01.txt
 BAND: 2
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Nora uses her own metric again. Eight out of ten this week—patients who left understanding their care plan. The comparison flickers: the educator presented again, flawlessly. Nora holds her eight out of ten. The eight didn't require a presentation. The eight required nine years of learning how patients process medical information, which words produce comprehension and which produce confusion, which teaching methods work at bedside versus in a classroom. The educator's skill is real. Nora's skill is also real. Both skills serve patients. The comparison wants one to be superior. The patients need both.
+Maria works and doesn't compare herself to Keisha anymore. She's not better or worse. They're just different nurses. Maria is good at what she does. That doesn't require Keisha to be bad. The freedom from constant comparison is felt as lightness.
 ---
 
 ## EMBODIMENT v02
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/embodiment/micro/v02.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 2
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Tomás focuses on his bedside practice. The colleague is in the fellowship. Tomás is at the bedside. The scoreboard shows a gap. Tomás ignores the scoreboard and pays attention to what he does: a patient's blood pressure stabilizes under his titration. A family understands the treatment plan because of how he explained it. A new nurse learns a skill because Tomás taught it. Each action is his. Each action has value. The value doesn't require comparison to exist. The value is inherent in the action. A stabilized blood pressure doesn't become less valuable because a colleague is in a fellowship. The pressure stabilized. That's the measurement that matters.
+Dominique asks for advice when she needs it. She offers advice when she has knowledge. The interaction is not filtered through comparison. She's just responding to what's actually needed. The worth is not measured by the exchange.
 ---
 
 ## EMBODIMENT v03
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/embodiment/micro/v03.txt
 BAND: 2
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
-CALLBACK_ID: daily_excellence
-CALLBACK_PHASE: return
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Aisha reviews her monthly list. Two hundred thirty-one medications. Five early deterioration catches. The numbers are hers. The numbers describe a nurse whose daily practice keeps children alive and comfortable. The award-winning nurse's tool is important. Aisha's daily practice is also important. The word "also" is the key—not "less than," not "instead of." Also. Both contributions exist in the same professional ecosystem. The ecosystem needs innovators and it needs daily practitioners. Aisha is a daily practitioner whose practice is excellent and invisible and essential. Essential and invisible are compatible. The comparison said invisible meant unimportant. Essential says otherwise.
+Raj owns his career path. He's not advancing because he doesn't want to. The non-advancement is not a statement about his worth. It's a statement about his values. He's claimed his own trajectory.
 ---
 
 ## EMBODIMENT v04
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/embodiment/micro/v04.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Claire and the midwife develop a working rhythm. The midwife brings prescriptive authority. Claire brings assessment depth. The collaboration produces better outcomes than either would produce alone. The credential comparison still runs—MSN versus BSN, the hierarchy's whisper. But the collaboration overrides the whisper with evidence: the tracing catch, the family communication, the pattern recognition that prevented the emergency. The collaboration says: different skills, equal necessity. The hierarchy says: different levels, unequal value. Claire works inside the collaboration and lets the hierarchy exist as background noise. The collaboration is louder because the collaboration produces results. The hierarchy produces rankings. Results outweigh rankings.
+Tomas talks about his uncertainty without shame. He's learning. He's careful. He's thorough. These are qualities. The comparison that made uncertainty feel like a flaw is no longer operational.
 ---
 
 ## EMBODIMENT v05
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/comparison/embodiment/micro/v05.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Derek sits with the cross-industry comparison and holds the friend's words: "I couldn't do what you do." The comparison still runs—salaries, titles, visible career trajectories. The comparison runs alongside the friend's statement. Both exist. The comparison measures economic value and finds Derek below. The friend's statement measures human capacity and finds Derek possessing something the friend can't access. The two measurements use different scales. Derek's worth isn't resolved by choosing one measurement. Derek's worth exists in the space where both measurements are held simultaneously. The economic gap is real. The capacity gap is also real. He holds both gaps. The holding is the practice.
----
-
-## STORY v21
----
-path: quiet measuring against others
-BAND: 1
-SEMANTIC_FAMILY: SF1
----
-Nora sits beside a colleague and the comparison starts automatically. The colleague is laughing with a patient. Nora recognizes: I didn't laugh like that today. I was more formal. The comparison whispers: your interaction was professional but less human. The colleague is more skilled at this. The automatic measuring happens without permission. Nora's brain is running constant comparative analysis. She's scoring herself against everyone. The scoring is invisible but relentless. She doesn't announce it. She doesn't act on it. It just runs underneath everything. By end of shift, she's accumulated fifty small verdicts: she's less empathic, less quick, less connected, less good at nursing than everyone around her. The comparisons are quiet but they're everywhere. The quiet measurement is slowly converting her self-worth into a ranking system.
----
-
-## STORY v22
----
-path: measuring against internal standard
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-Tomás is measuring himself against the nurse he used to be. He was faster five years ago. He was more confident. He knew more. Current Tomás is comparing to past-Tomás constantly. Past-Tomás is winning every single time. The comparison is internal. No one else is involved. He's the only one measuring. That makes it worse somehow. He can't tell anyone. He can't argue with the comparison. The comparison is him measuring himself. Current Tomás is less, and the measurement is delivered by the only authority that matters—his own assessment. He doesn't like what he sees. The comparison is converting his sense of self-worth into evidence of decline.
----
-
-## STORY v23
----
-path: comparison consuming self-image
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-Aisha is in total collapse from comparison. Every single person is doing better. She's tracking it obsessively. The newer nurses are more energetic. The experienced nurses are wiser. The nurses from other units are more advanced. The nurses on social media are inspiring. Aisha is measuring herself against every reference point available and losing against all of them. She's become a comparison algorithm. All her energy is going into comparative measurement. She's barely functioning as a nurse because she's so busy ranking herself. The ranking is always the same: you're below average. You're not as good. You're not as capable. Everyone else is ahead. The comparison has convinced her that she's the worst nurse on the unit. Logically, she knows this isn't possible. The comparison doesn't have access to logic. The comparison is total and consuming and leaving no capacity for self-compassion.
----
-
-## STORY v24
----
-path: self-worth at zero
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-Derek has concluded he's not good at being a nurse. The conclusion comes from years of comparison. Every time he measures himself against others, he measures himself as less. The less has accumulated. Less energetic, less innovative, less passionate, less dedicated. The conclusion is that his entire approach to the profession is inadequate. He's not changing his behavior because the behavior measurement has converted into character assessment. He's not measuring what he does. He's measuring who he is. And who he is—according to his relentless internal comparison—is someone who shouldn't be doing this job. The comparison has moved beyond specific inadequacies into fundamental unworthiness. He's convinced that his patients would be safer with a different nurse. He's convinced the unit would function better without him. The comparison has converted into a verdict: you don't belong here. And the verdict is destroying him.
+The nurses have released the hierarchy. They still see other nurses' strengths. But the strengths are not being used to measure their own shortcomings. They've claimed their own worth independent of comparison.
 ---

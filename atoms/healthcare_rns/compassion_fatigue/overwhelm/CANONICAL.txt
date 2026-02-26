@@ -1,39 +1,38 @@
 
-
 ## RECOGNITION v01
 ---
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/recognition/micro/v01.txt
 BAND: 2
 MECHANISM_DEPTH: 1
-COST_TYPE: internal
-COST_INTENSITY: 2
+COST_TYPE: social
+COST_INTENSITY: 1
 IDENTITY_STAGE: pre_awareness
 ---
-Nora's patient is crying. The crying is real—pain, fear, isolation. Nora stands at the bedside and can identify each component of the distress. She can name it. She can chart it. She cannot feel it. The inability to feel the patient's distress arrives without announcement. She remembers feeling it—the first year, the second year. The feeling was automatic, like breathing. Now the feeling requires effort she doesn't have at hour ten of a twelve-hour shift with five other patients waiting. The effort shortage isn't callousness. The effort shortage is a tank running empty. The tank was full once. The tank has been draining for seven years with no refill protocol.
+Maria arrives at work and already feels the weight. Seven patients. Three are new admissions. One is coded overnight. The charge nurse is short-staffed. The weight is not theoretical. It's in her shoulders, her breath, the tightness across her chest. She hasn't even begun her shift. The overwhelm arrives before the work does. Her system recognizes the pattern: too much, too fast, not enough support. The overwhelm floods her nervous system like water into a cup that's already full.
 ---
 
 ## RECOGNITION v02
 ---
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/recognition/micro/v02.txt
-BAND: 3
+BAND: 2
 MECHANISM_DEPTH: 1
 COST_TYPE: social
-COST_INTENSITY: 3
+COST_INTENSITY: 1
 IDENTITY_STAGE: pre_awareness
 ---
-Tomás notices he's started using clinical language with families. "The patient is hemodynamically stable" instead of "your father's blood pressure is better and he's comfortable." The clinical language is accurate. The clinical language is also a wall. The wall went up gradually—one family conversation at a time, over five years of ICU work. The wall keeps him efficient. The wall also keeps him separate from the humans in the beds and the humans in the chairs beside the beds. He talks through the wall because talking without the wall requires an emotional exposure he can no longer afford on a shift with four critical patients.
+Dominique stands in the hallway. There are four call lights blinking. She hears them even when they're not sounding. Her brain is in constant activation mode. Patient one needs medication. Patient two needs help to the bathroom. Patient three has a concern about her discharge. Patient four's family member is waiting to speak with her. The overwhelm is the way all four needs press simultaneously. There's no sequence. There's no priority that feels manageable. There's only the pressure of competing demands with insufficient time.
 ---
 
 ## RECOGNITION v03
 ---
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/recognition/micro/v03.txt
-BAND: 2
+BAND: 3
 MECHANISM_DEPTH: 1
-COST_TYPE: internal
+COST_TYPE: identity
 COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-Aisha used to hold children's hands during procedures. She still does, but the holding has changed. The grip is professional—firm, reassuring, technically correct. The grip used to be personal—connected, present, an extension of her care that went beyond the clinical task. The shift from personal to professional happened somewhere between year two and year four. She didn't decide to shift. The volume of procedures shifted her. Twelve hands held per shift. Twelve emotional connections per shift was unsustainable. The grip adapted. The adaptation is invisible to the child. The adaptation is visible to Aisha every time her hand closes around a small fist and the closing feels mechanical instead of instinctive.
+Keisha goes home at the end of her shift and can't stop working in her head. She's running through conversations, checking that she gave the right medications, wondering if she missed something. The overwhelm doesn't end when her shift ends. It lives in her body. It's in her inability to sleep. It's in the way she wakes at three a.m. with a task still unfinished in her mind. The overwhelm has colonized her nervous system.
 ---
 
 ## RECOGNITION v04
@@ -41,23 +40,23 @@ Aisha used to hold children's hands during procedures. She still does, but the h
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/recognition/micro/v04.txt
 BAND: 3
 MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-Claire delivers her fourth baby of the shift. The delivery is successful—healthy baby, healthy mother. The room fills with joy. Claire watches the joy and produces the appropriate response: smile, congratulations, supportive presence. The appropriate response is performed. It was genuine once. The first hundred deliveries produced genuine joy. The next hundred produced a blend of genuine and performed. Now, at delivery number approximately two thousand, the performance is dominant and the genuine is a thin layer underneath. She's not faking. She's depleted. The depletion shows as performance because performance requires less energy than genuine emotional participation.
+Tomas feels the overwhelm in his body before he feels it in his mind. His shoulders are tense. His jaw is clenched. His stomach is tight. These physical sensations are the language of overwhelm. He's carrying the weight of responsibility for seven patients without adequate support, and his body is the landscape where that excess pressure lives. The overwhelm is not a thought. It's a somatic fact.
 ---
 
 ## RECOGNITION v05
 ---
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/recognition/micro/v05.txt
 BAND: 4
-MECHANISM_DEPTH: 1
-COST_TYPE: internal
-COST_INTENSITY: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
-Derek goes home after a shift where a patient died. The patient was thirty-two. The death was sudden—pulmonary embolism, massive, unpreventable. Derek performed CPR for thirty minutes. The patient didn't survive. Derek drives home and feels nothing. Not numb—he's been numb before and this is different. This is empty. The space where the feeling should be is unfurnished. He parks in his driveway and waits for the grief to arrive. It doesn't. He makes dinner. Watches television. Goes to bed. The thirty-two-year-old died and Derek's emotional response is indistinguishable from a shift where nothing happened. The indistinguishability is the signal. Three years ago he would have cried in the parking lot.
+The overwhelm accumulates. Each shift adds weight. The system becomes like a dam with too much pressure behind it. The nurses feel it approaching. They can sense the breaking point. Yet they continue to function because they must, because patients need them, because there's no alternative that seems available. The overwhelm is not a crisis. It's the chronic condition of understaffing, underresourcing, and over-responsibility becoming embodied.
 ---
 
 ## MECHANISM_PROOF v01
@@ -65,35 +64,35 @@ Derek goes home after a shift where a patient died. The patient was thirty-two. 
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/mechanism_proof/micro/v01.txt
 BAND: 3
 MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 3
+COST_TYPE: social
+COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Nora maps the depletion pattern. Each shift requires emotional output—empathy, patience, presence—for every patient interaction. The output is not discretionary. It's the job. The problem is the input. There is no scheduled emotional recovery. There's no refill between patients, between shifts, between crises. Physical recovery has protocols: breaks, days off, vacation. Emotional recovery has nothing. The system treats emotional capacity as infinite. The system designs staffing ratios for clinical tasks and assumes the emotional labor is free. The labor is not free. The labor draws from a finite reservoir. Seven years of drawing without replenishment produced the emptiness at the bedside.
+The mechanism is: I must function despite overwhelming circumstances. This mechanism proves itself through the continued ability to move, to chart, to medicate, to care. Maria can work a shift while completely overwhelmed. The mechanism doesn't require that the overwhelm disappear. It requires that the overwhelm be managed, suppressed, tolerated. The mechanism proves itself through function. Yet function in the face of overwhelming circumstances creates a fracture between what's demanded and what's sustainable.
 ---
 
 ## MECHANISM_PROOF v02
 ---
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/mechanism_proof/micro/v02.txt
-BAND: 4
+BAND: 3
 MECHANISM_DEPTH: 2
 COST_TYPE: social
 COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Tomás realizes the clinical language wall serves two functions. First: efficiency. Clinical language is faster than emotional language. Second: protection. Clinical language prevents emotional exchange. The protection wasn't a conscious choice. The protection emerged because the emotional exchanges were exceeding his capacity. Four ICU patients means four families means four sets of fear, grief, hope, and desperation—every shift. Absorbing all four without a wall would saturate his emotional capacity by hour four. The wall keeps him functional through hour twelve. The functionality and the disconnection are the same mechanism. He can't be functional and fully connected. The system requires functional.
+The mechanism produces a particular kind of proof: the ability to continue working while experiencing symptoms of overwhelm. Dominique's hands shake. Her focus fragments. Yet she completes her tasks. The mechanism interprets this as evidence of strength. You can do hard things. You can manage impossible circumstances. The proof reinforces the mechanism, which asks for more. The system escalates. The overwhelm deepens.
 ---
 
 ## MECHANISM_PROOF v03
 ---
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/mechanism_proof/micro/v03.txt
-BAND: 3
+BAND: 4
 MECHANISM_DEPTH: 2
-COST_TYPE: internal
+COST_TYPE: identity
 COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
-Aisha counts the emotional transitions in a single shift. Room 1: a child recovering, parents relieved. Room 2: a new diagnosis, parents devastated. Room 3: a child in pain, parents frustrated. Room 4: a child being discharged, parents grateful. Four rooms, four emotional registers, four sets of needs she's expected to meet with full presence. The emotional shifting—from relief to devastation to frustration to gratitude—costs cognitive and emotional energy that no workload metric captures. The shift between devastation and gratitude alone requires a reset her brain can barely execute. The accumulation of resets across six years produced the mechanical grip. The grip is a conservation measure.
+The mechanism's proof is embodied. Keisha's inability to sleep is the mechanism at work. Her nervous system is in constant activation. The overwhelm has become neurobiological. It's not just a feeling anymore. It's affecting her sleep cycles, her digestion, her immune function. The mechanism produces proof through the body's breakdown. Yet the breakdown is interpreted as personal inadequacy rather than systemic failure.
 ---
 
 ## MECHANISM_PROOF v04
@@ -101,73 +100,71 @@ Aisha counts the emotional transitions in a single shift. Room 1: a child recove
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/mechanism_proof/micro/v04.txt
 BAND: 4
 MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 4
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
-Claire identifies the specific exhaustion of repeated emotional extremes. Labor and delivery operates between two poles: profound joy and profound grief. Both are present on every shift. A healthy delivery in Room 1 and a fetal demise in Room 2 can happen in the same hour. The distance between the poles is maximum. Claire travels between them multiple times per shift. The travel costs more than either pole alone because the transition requires emotional code-switching that has no recovery period. The performed joy isn't dishonest. The performed joy is the only joy available when genuine joy is depleted by the proximity of grief. The poles exhaust her not individually but in their proximity.
+The mechanism isolates. Tomas cannot easily communicate to his partner what he's experiencing. The overwhelm is too pervasive. It colors everything. He comes home and cannot transition. He cannot be present. The mechanism requires that he remain in a state of high activation even in spaces meant for rest. The proof is the way overwhelm has infiltrated every system of his life.
 ---
 
 ## MECHANISM_PROOF v05
 ---
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/mechanism_proof/micro/v05.txt
 BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: opportunity
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
 COST_INTENSITY: 2
-IDENTITY_STAGE: pre_awareness
+IDENTITY_STAGE: destabilization
 ---
-Derek tracks his emotional responses over two months. He assigns a number from one to ten—ten being full emotional engagement, one being the emptiness after the thirty-two-year-old's death. Month one average: 3.2. Month two average: 2.8. The trend is downward. The downward trend correlates with no variable except time—not patient acuity, not shift length, not personal stress. Just time. The longer he nurses, the lower the average drops. The drop isn't about any single patient. The drop is about the cumulative weight of all patients. Each patient withdraws a small amount from the reservoir. The withdrawals are constant. The deposits are zero. The math produces an inevitable trajectory.
+The mechanism's deepest proof is the way the nurses begin to believe that this level of overwhelm is normal. It's the default state of nursing. Everyone experiences it. Everyone manages it. The mechanism makes the unsustainable feel like it's just the job. The proof is the normalization of what's actually a crisis state.
 ---
 
 ## TURNING_POINT v01
 ---
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/turning_point/micro/v01.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: social
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Nora sits with one patient for three minutes. Not all six—one. The patient is post-surgical, uncomfortable, anxious about results. Nora sits. The sitting is not efficient. The other five patients wait. She gives three minutes of full attention to one person's fear. The fear doesn't resolve in three minutes. But the giving of three minutes produces a sensation she recognizes: connection. The connection draws from the depleted reservoir and also, slightly, refills it. The refill is small—a few drops in a dry tank. The drops are enough to register. The depletion was total withdrawal. The three minutes introduced a deposit. The deposit changes the equation.
+Alicia has a breakdown. She cannot function. She calls in sick and cries in her car in the parking lot. This is the breaking point. The mechanism has pushed too far. In the moment of breaking, there's a clarification. The overwhelm is not something she can manage her way through. It's something that needs to change fundamentally. The turning point is not finding a better coping strategy. It's accepting that the current circumstances are unsustainable.
 ---
 
 ## TURNING_POINT v02
 ---
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/turning_point/micro/v02.txt
 BAND: 3
-MECHANISM_DEPTH: 3
+MECHANISM_DEPTH: 2
 COST_TYPE: social
 COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Tomás translates the clinical language for one family. Not all four—one. He sits with the wife of the patient in Room 2 and says: "Your husband is doing better today. His blood pressure is stronger and he's more alert. I think that's a good sign." The words are simple. The simplicity costs more than the clinical language because the simplicity requires emotional presence. He gives the presence to one family and uses the clinical wall for the other three. The one family's response—relief, tears, a squeeze of his hand—produces something the clinical language doesn't: reciprocity. The reciprocity is a deposit. Small. Present.
+Maria begins to track what specifically triggers the overwhelm. It's not all work. It's specific ratios of patients to nurses. It's specific types of patients. It's specific times of the month. The specificity allows her to start making choices. She can't change the overall system. But she can choose when and where she works. She can begin to protect herself through selection rather than through suppression.
 ---
 
 ## TURNING_POINT v03
 ---
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/turning_point/micro/v03.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
-CALLBACK_ID: hand_grip
-CALLBACK_PHASE: setup
 ---
-Aisha holds a child's hand differently. One child, one procedure. She lets the grip be personal instead of professional. The difference is internal—the child can't tell. Aisha can tell. The personal grip involves paying attention to the child's hand as a hand, not as a clinical contact point. The fingers are small and warm and gripping back. The gripping back is the connection. She feels the gripping back and something in her chest responds—not the depletion, but the reason she chose pediatric nursing. The reason is still there. The reason needs the personal grip to activate. The professional grip conserves energy. The personal grip uses energy and generates it simultaneously.
+Dominique talks to Keisha about the overwhelm. Keisha admits that she's also been experiencing it. In the conversation, there's a shift. The overwhelm is not individual inadequacy. It's a systemic condition. Both nurses are capable. Both are experienced. Yet both are overwhelmed. The overwhelm is about the structure, not about them. This reframe allows for different kinds of responses.
 ---
 
 ## TURNING_POINT v04
 ---
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/turning_point/micro/v04.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Claire allows the genuine emotion in one delivery. Not performed—felt. A mother she's been with through a complicated pregnancy delivers a healthy baby. Claire lets herself feel the relief. The relief moves through her body—shoulders dropping, eyes watering, something unlocking in her chest. The feeling is expensive. The feeling is also the first genuine emotional participation in weeks. The expense produces something the performance doesn't: replenishment. The genuine feeling draws from the reservoir and simultaneously adds to it. The performance only draws. She can't feel genuinely for every delivery. She can feel genuinely for one. One is a start.
+Tomas asks for a change in his schedule. He requests fewer patients per shift. The request is denied. He sits with this. He realizes he has a choice. He can continue accepting overwhelm as the cost of the job. Or he can leave. The experimentation is not about fixing the overwhelm. It's about choosing himself. He begins to look at other positions.
 ---
 
 ## TURNING_POINT v05
@@ -175,107 +172,69 @@ Claire allows the genuine emotion in one delivery. Not performed—felt. A mothe
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/turning_point/micro/v05.txt
 BAND: 3
 MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Derek feels something after a patient's death. Not the thirty-two-year-old—a different patient, an eighty-year-old whose family was present, whose death was peaceful. Derek sits with the family for five minutes after the time of death. The family tells him the patient loved gardening. Derek listens. The gardening detail breaks through the emptiness. Not grief—not yet—but the precursor to grief: recognition that a specific person has ended. The gardening. The specific detail is the entry point. Clinical data doesn't produce emotional response anymore. Personal details still can. The five minutes of personal detail produce what the clinical shift couldn't: a faint, genuine ache.
+Over weeks, the mechanism loosens slightly. The nurses begin to challenge the belief that overwhelm is manageable. They begin to make small changes. Different shifts. Fewer patients. Different units. The changes are not about suppressing the overwhelm anymore. They're about creating conditions where overwhelm might be less likely. The experimentation is toward the possibility of breathing.
 ---
 
 ## EMBODIMENT v01
 ---
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/embodiment/micro/v01.txt
 BAND: 2
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: social
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Nora sits with one patient per shift. Not a protocol—a practice. Three minutes of full presence. The other five patients receive competent, efficient, boundaried care. The one patient receives something more. The three minutes per shift don't refill the reservoir. The three minutes keep the reservoir from dropping to zero. The difference between empty and nearly empty is the difference between the flat nothing at the bedside and the faint hum of connection. The hum is small. The hum is the evidence that compassion fatigue is not the death of compassion but the depletion of it. Depleted things can receive small inputs. Dead things cannot.
+Maria works a shift with four patients instead of seven. Four is manageable. She completes her work. She leaves on time. She goes home and is present with her family. The difference is felt throughout her system. She's not holding a chronic state of overwhelm. She's simply working. The embodiment is the experience of her nervous system being in a regulated state while working.
 ---
 
 ## EMBODIMENT v02
 ---
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/embodiment/micro/v02.txt
 BAND: 1
-MECHANISM_DEPTH: 3
+MECHANISM_DEPTH: 1
 COST_TYPE: social
-COST_INTENSITY: 2
-IDENTITY_STAGE: experimentation
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Tomás translates for one family per shift. The clinical wall stays up for the other three. The one translation—simple words, emotional presence—produces a reciprocity that the wall blocks. He's distributing his emotional resources strategically: three families receive safety through clinical competence, one family receives both safety and connection. The distribution isn't ideal. The distribution is sustainable. Sustainable is what allows him to continue working in the ICU instead of leaving, which is what the full depletion was building toward. The one translation per shift is an investment in his own continuity as a nurse.
+Dominique sleeps through the night for the first time in months. She wakes without the knot in her stomach. The overwhelm is not completely gone, but it's no longer chronic. She's no longer in constant activation. Her body remembers what regulation feels like. The shift in her nervous system is subtle but revolutionary.
 ---
 
 ## EMBODIMENT v03
 ---
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/embodiment/micro/v03.txt
 BAND: 2
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
-CALLBACK_ID: hand_grip
-CALLBACK_PHASE: return
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Aisha holds another child's hand with the personal grip. The child is seven, scared, about to have a port accessed. The personal grip feels the smallness of the hand and the grip back and the tremor of fear. Aisha feels the fear—not as data, as emotion. The emotion moves through her and costs something and also generates something. The cost is the energy of emotional engagement. The generation is the meaning that made her choose this specialty. The mechanical grip conserved energy. The personal grip generates meaning. She can't sustain the personal grip for twelve hands per shift. She can sustain it for three. Three is enough to keep the meaning alive.
+Keisha notices she can think again. The constant background activation is quieter. She can focus on a task rather than juggling five simultaneously. The overwhelm that was living in her every moment begins to ease. She's not back to baseline, but she's moving toward it. The embodiment is the return of her capacity for presence.
 ---
 
 ## EMBODIMENT v04
 ---
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/embodiment/micro/v04.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Claire feels genuinely in two deliveries per shift now. Not all of them—the volume still requires performance for most. But two deliveries get the real emotion: the genuine relief, the authentic celebration, the actual tears if they come. The two deliveries don't solve the compassion fatigue. The two deliveries punctuate the performance with reality. The reality prevents the performance from becoming the entire experience of her work. The performance is necessary. The reality is sustaining. Both operate in the same shift. She knows which deliveries to give the reality to—usually the ones that remind her why she chose this. The choosing of which moments to feel fully is its own kind of clinical judgment.
+Tomas transfers to a different unit. The patient load is lower. The acuity is managed. The overwhelm begins to lift like fog. He realizes that he's not broken. The overwhelm was a response to unsustainable circumstances. When the circumstances change, the overwhelm can ease. He's reclaimed the possibility of sustainable work.
 ---
 
 ## EMBODIMENT v05
 ---
 path: story_atoms/healthcare_rns/anchored/compassion_fatigue/overwhelm/embodiment/micro/v05.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Derek asks for personal details. Not from every patient—from one per shift. The gardening detail opened a channel that clinical data had closed. He asks: "What do you do when you're not here?" The answers are ordinary—cooking, woodworking, reading, watching grandchildren play. The ordinary answers are the details that make patients into people. The people produce emotional responses that clinical data doesn't. His tracking numbers are up slightly: month three average: 3.5. The increase is small. The increase follows the introduction of personal detail into his practice. The details don't cost time. The details cost attention. The attention deposits something the clinical withdrawal can't.
----
-
-## STORY v21
----
-path: the weight before it has a name
-BAND: 1
-SEMANTIC_FAMILY: SF1
----
-Nora walked out of the unit yesterday and didn't want to go back. She doesn't feel upset. She doesn't feel angry. She feels flat about the job that used to mean something. She's never felt this before. The emotional response to people suffering used to be automatic. Now people tell her about their fears and she's listening but she's somewhere else. She's present and hollow. The overwhelming is so quiet she's not sure it's there. But her body knows. Her body's response to patients now is fatigue before she's done anything. The overwhelm is arriving as exhaustion rather than emotion. She wonders if she's depressed. The overwhelm doesn't feel like sadness. It feels like all the feeling is being absorbed by emptiness.
----
-
-## STORY v22
----
-path: the gap between care and capacity
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-Tomás has more patients than emotional bandwidth. Each patient needs something—reassurance, explanation, advocacy, presence. He has the clinical skill to provide all of it. He has zero emotional surplus for any of it. He's reading from a script now. He smiles when he used to smile. He listens when he used to listen. The action is there. The resonance is gone. The gap between what he's supposed to provide and what he has to give is expanding. He used to fill the gap with caring. Now the gap is just a gap. He's doing the job but the job that requires constant compassion is leaving him hollowed. The overwhelm is visible as shutdown—he's less talkative, less engaged, more efficient. Efficiency is replacing care. The overwhelm has converted him into a more automated version of himself.
----
-
-## STORY v23
----
-path: overwhelm breaking the system
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-Aisha has started making small errors. Not the big ones—the small ones that add up. She forgot to check a medication interaction yesterday. She missed updating a family on a lab result. She charted the wrong time on an assessment. The errors are coming from overwhelm. Her attention is fractured across too many emotional needs. The patients are overwhelming. The demands are overwhelming. Her own cup is overwhelmed. She's trying to give from a cup that broke weeks ago. The errors are now evidence that she's burning out in real-time. She can see it happening and she can't stop it. She's reporting the errors. She's correcting them. But the fact that she made them at all is the signal. The overwhelm has broken through the protection that expertise usually provides. She's not just emotionally flooded. She's becoming clinically compromised.
----
-
-## STORY v24
----
-path: overwhelm at system failure
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-Derek didn't show up for his shift. He didn't call. He couldn't physically move from his bed. The overwhelm had moved from background to total. He's received three phone calls and two texts. He hasn't responded. He's afraid if he talks about it he'll cry and he can't cry because if he starts he doesn't think he'll stop. The overwhelm is total system shutdown. He's given everything for years and there's nothing left. His manager will be angry. The unit will be short. Patients will be affected. He knows all of this and he still can't move. The overwhelm has disabled him. This is not depression—this is the specific fatigue that comes from using all your emotional reserves on behalf of other people and having none left for survival. He's calling his doctor. He's calling his therapist. He's making phone calls instead of going to work because his body has decided: this job is unsustainable and I will not participate.
+The nurses have moved from managing overwhelm to creating conditions where overwhelm is less likely. They're no longer trying to function in impossible circumstances. They're setting limits on what circumstances they'll accept. The embodiment is the return to their own agency.
 ---

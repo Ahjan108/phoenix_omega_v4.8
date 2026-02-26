@@ -8,8 +8,15 @@ from __future__ import annotations
 import hashlib
 import json
 from dataclasses import dataclass
+from enum import Enum
 from pathlib import Path
 from typing import Any, Optional
+
+
+class AtomsModel(str, Enum):
+    """Legacy vs cluster atoms layout. Policy: legacy_personas → legacy; else cluster."""
+    LEGACY = "legacy"
+    CLUSTER = "cluster"
 
 try:
     import yaml
@@ -42,6 +49,7 @@ class BookSpec:
     author_id: Optional[str] = None
     author_positioning_profile: Optional[str] = None
     narrator_id: Optional[str] = None
+    atoms_model: Optional[AtomsModel] = None
 
     def to_dict(self) -> dict[str, Any]:
         out = {
@@ -64,6 +72,8 @@ class BookSpec:
             out["author_positioning_profile"] = self.author_positioning_profile
         if self.narrator_id is not None:
             out["narrator_id"] = self.narrator_id
+        if self.atoms_model is not None:
+            out["atoms_model"] = self.atoms_model.value
         return out
 
 
@@ -176,9 +186,11 @@ class CatalogPlanner:
         author_id: Optional[str] = None,
         author_positioning_profile: Optional[str] = None,
         narrator_id: Optional[str] = None,
+        atoms_model: Optional[AtomsModel] = None,
     ) -> BookSpec:
         """Produce one BookSpec. Required: topic_id, persona_id.
 
+        atoms_model: optional; caller sets (e.g. from legacy_personas). Planner does not infer.
         locale resolution: 1) caller-supplied 2) brand_registry[brand_id].locale 3) en-US.
         territory resolution: 1) caller-supplied 2) brand_registry[brand_id].territory 3) US.
         teacher_mode: when True, Stage 3 uses teacher_banks/<teacher_id>/approved_atoms/ for pools.
@@ -244,6 +256,7 @@ class CatalogPlanner:
             author_id=author_id,
             author_positioning_profile=positioning,
             narrator_id=narrator_id,
+            atoms_model=atoms_model,
         )
 
     def _derive_angle(

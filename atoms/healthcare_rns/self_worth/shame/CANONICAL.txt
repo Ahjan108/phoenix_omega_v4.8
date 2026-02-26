@@ -1,39 +1,38 @@
 
-
 ## RECOGNITION v01
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/recognition/micro/v01.txt
 BAND: 2
 MECHANISM_DEPTH: 1
-COST_TYPE: internal
-COST_INTENSITY: 2
+COST_TYPE: identity
+COST_INTENSITY: 1
 IDENTITY_STAGE: pre_awareness
 ---
-Nora receives a perfect patient satisfaction score. She reads the comment: "Nora was attentive and made me feel safe." The score produces a brief warmth followed by an immediate qualification: the patient was easy, the shift was manageable, anyone would have gotten that score with that patient. The qualification erases the score before it can settle. The warmth lasts two seconds. The qualification lasts the rest of the shift. Her brain has a mechanism for receiving positive data and reclassifying it as circumstantial before it can update her self-assessment. The assessment stays fixed at "adequate." The score says "excellent." The assessment overrides the score.
+Chen makes an error in patient care. It's caught before harm occurs. She did the right thing by catching it. Yet the shame arrives. Her face flushes. She feels seen in her inadequacy. The error proves something she already suspected: she's not good enough. The shame is not about this specific mistake. It's the feeling that this mistake proves something fundamental about her worthiness.
 ---
 
 ## RECOGNITION v02
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/recognition/micro/v02.txt
-BAND: 3
+BAND: 2
 MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 1
 IDENTITY_STAGE: pre_awareness
 ---
-Tomás saves a patient's life by catching a subtle change in cardiac rhythm. The attending says: "Good eye." Two words of professional recognition from a physician. Tomás's internal response: "That's literally my job." The response converts life-saving clinical judgment into minimum job performance. The conversion is instant. The "good eye" was recognition of expertise. Tomás's response reframed expertise as expectation. Expectations can't generate worth because they're baseline. Everything Tomás does well gets filed under baseline. The baseline keeps rising. Nothing exceeds it because everything that could exceed it gets absorbed into the new baseline the moment it occurs.
+Alicia realizes she didn't remember a detail about a patient. Another nurse had to remind her. The shame settles. Alicia feels exposed. Not incompetent in a specific way, but incompetent in a fundamental way. The forgotten detail becomes evidence that she's not cut out for this work. The shame is not proportional to the mistake. It's about worth.
 ---
 
 ## RECOGNITION v03
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/recognition/micro/v03.txt
-BAND: 2
+BAND: 3
 MECHANISM_DEPTH: 1
-COST_TYPE: internal
+COST_TYPE: identity
 COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-Aisha is nominated for the unit's nurse of the quarter. The nomination produces not pride but panic. The shame says: you don't deserve it, others work harder, they'll see through you. The nomination is based on peer votes—colleagues who work alongside her selected her. The shame overrides the peers' judgment with its own: they don't know the real picture, they don't see the moments you fell short. The shame has a more comprehensive database than the peers. The database is also fiction—curated to include every shortfall and exclude every success. The peers are working from reality. The shame is working from a rigged archive.
+Dominique speaks up in a meeting and later feels shame. Her voice was shaky. She stumbled over her words. The shame says: You see, you can't even speak clearly. You don't belong in these conversations. The shame makes the content of what she said invisible. All she can see is her own perceived inadequacy in saying it.
 ---
 
 ## RECOGNITION v04
@@ -41,23 +40,23 @@ Aisha is nominated for the unit's nurse of the quarter. The nomination produces 
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/recognition/micro/v04.txt
 BAND: 3
 MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-Claire receives a birth plan thank-you letter. The family writes two pages about how Claire's care made their experience safe and beautiful. Claire reads the letter and her first thought is: they're being generous, I was just doing my job. The letter describes specific actions—the way she explained each step, the way she advocated for the family's preferences, the way she held the space when complications arose. The specificity of the letter contradicts the "just doing my job" dismissal. The job doesn't automatically include the care the letter describes. The care was Claire's choice. The shame won't let the choice register as extraordinary because extraordinary generates worth and the shame requires the worth to stay low.
+Keisha doesn't know the answer to a question a patient asks. She looks it up. The patient waits. The shame is acute. The feeling is that she should have known. The feeling that her not knowing proves she's a bad nurse. The shame creates a sense of being exposed as a fraud.
 ---
 
 ## RECOGNITION v05
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/recognition/micro/v05.txt
 BAND: 4
-MECHANISM_DEPTH: 1
-COST_TYPE: internal
-COST_INTENSITY: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
-Derek finishes a shift where every patient was stable, every medication was on time, every assessment was thorough, every family was informed. He drives home and the evaluation begins: what did I miss, what could I have done better, where did I cut corners. The evaluation is standard—it runs after every shift. The evaluation never finds the shift satisfactory. Satisfactory doesn't exist in the evaluation's framework. The framework has two categories: insufficient and not-yet-proven-insufficient. The second category is where good shifts land. The evaluation can't produce "enough" because "enough" would terminate the evaluation and the evaluation's purpose is to run continuously. Its purpose is not assessment. Its purpose is vigilance against the possibility of worth.
+The accumulation of shame creates a pervasive sense that the nurses are not worthy of their roles. Each mistake, each moment of uncertainty, each gap between what they think they should know and what they actually know becomes evidence. The nurses begin to see themselves as imposters. The shame is not about specific failures. It's about fundamental unworthiness.
 ---
 
 ## MECHANISM_PROOF v01
@@ -65,35 +64,35 @@ Derek finishes a shift where every patient was stable, every medication was on t
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/mechanism_proof/micro/v01.txt
 BAND: 3
 MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Nora maps the shame's arithmetic. Positive events: reclassified as circumstantial or expected. Negative events: classified as evidence of true self. The arithmetic has a directional bias—positive data is discounted, negative data is amplified. Ten positive patient interactions and one mistake: the shame weighs the mistake at ten times the value of each interaction. The mathematics produce a consistent deficit regardless of the input ratio. She could have ninety-nine positive outcomes and one negative and the shame would weight the one at ninety-nine. The arithmetic isn't math. The arithmetic is a predetermined conclusion searching for justification.
+The mechanism is: My mistakes prove my fundamental unworthiness. Chen's error, caught before harm, is turned into proof by the mechanism. The mechanism says: If you were worth your role, this wouldn't have happened. The error becomes evidence of inadequacy. The proof is circular. The mechanism uses the mistake to confirm the unworthiness.
 ---
 
 ## MECHANISM_PROOF v02
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/mechanism_proof/micro/v02.txt
-BAND: 4
+BAND: 3
 MECHANISM_DEPTH: 2
-COST_TYPE: social
+COST_TYPE: identity
 COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Tomás identifies the rising baseline. Year one: catching a cardiac arrhythmia would have generated genuine satisfaction. Year three: catching arrhythmias is baseline. Now he needs to catch something rarer, something more obscure, to feel competent. The baseline absorbs every achievement and immediately recalibrates. The recalibration means competence is always slightly out of reach. He's always performing at the level that was impressive last year and inadequate this year. The goalpost moves at the exact speed of his development. He never arrives because the destination is designed to move.
+The mechanism produces proof through the internal narrative. Alicia forgot a detail. The mechanism reads this as: You don't have the capacity for this work. The proof is the internal conviction that grows with each mistake. The mechanism is not based on actual performance. It's based on the belief that mistakes indicate fundamental inadequacy.
 ---
 
 ## MECHANISM_PROOF v03
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/mechanism_proof/micro/v03.txt
-BAND: 3
+BAND: 4
 MECHANISM_DEPTH: 2
-COST_TYPE: internal
+COST_TYPE: identity
 COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
-Aisha discovers the shame has a specific relationship with nursing's helping identity. Nursing says: your value is in what you give. The shame says: what you give is never enough. The combination produces a self-worth model where she can only generate value through service and the service is never sufficient. She can't earn worth through rest, through boundaries, through personal accomplishment—only through giving. And the giving is structurally insufficient. The model is a treadmill running at a speed she can't match. The treadmill was designed by a profession that celebrates self-sacrifice and a shame system that guarantees the sacrifice is never enough.
+The mechanism makes visible presence into shame. Dominique spoke in a meeting. Other people might see her contribution. The mechanism sees only her voice shaking. The mechanism focuses the proof on her perceived inadequacy while ignoring what she actually said. The mechanism is selective in what counts as evidence.
 ---
 
 ## MECHANISM_PROOF v04
@@ -101,73 +100,71 @@ Aisha discovers the shame has a specific relationship with nursing's helping ide
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/mechanism_proof/micro/v04.txt
 BAND: 4
 MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 4
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
-Claire maps the shame's interaction with her clinical expertise. She's one of the most experienced L&D nurses in the hospital. Her clinical judgment has directly saved lives. The shame holds this record and responds: anyone with ten years would have the same skills. The response generalizes her specific expertise into generic experience. The generalization erases what's individual about her practice—her particular intuition, her specific way of reading tracings, her unique ability to communicate with anxious families. The shame can't acknowledge individual excellence because individual excellence generates personal worth. The shame needs worth to remain collective and replaceable. Replaceable people don't deserve more than baseline.
+The mechanism creates impossibly high standards. Keisha doesn't know something. The mechanism says she should know everything. The mechanism produces proof that she's inadequate by comparing her to an impossible standard. The proof is designed to fail. She can never meet the standard because the standard is not real.
 ---
 
 ## MECHANISM_PROOF v05
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/mechanism_proof/micro/v05.txt
 BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: opportunity
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
 COST_INTENSITY: 2
-IDENTITY_STAGE: pre_awareness
+IDENTITY_STAGE: destabilization
 ---
-Derek calculates what the shame-driven evaluation costs him. Every shift ends with a post-mortem that focuses exclusively on deficits. The post-mortem takes approximately thirty minutes of drive-time and evening reflection. Thirty minutes per shift, three shifts per week, 156 shifts per year. That's seventy-eight hours per year spent evaluating himself negatively. The evaluation produces no clinical improvement—the deficits it identifies are either trivial or systemic. The evaluation produces chronic self-doubt. Seventy-eight hours invested annually in a process that returns only diminished self-regard. The investment is significant. The return is harmful. The shame presents the evaluation as quality control. The output says otherwise.
+The mechanism's deepest proof is the imposter narrative. The nurses begin to believe they don't actually belong. Other people are real nurses. They are frauds. The mechanism produces proof through the conviction that they're faking competence. The proof is felt as absolute truth.
 ---
 
 ## TURNING_POINT v01
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/turning_point/micro/v01.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Nora reads the patient satisfaction comment again: "Nora was attentive and made me feel safe." The qualification starts: easy patient, manageable shift. She stops the qualification. Holds the comment. The comment describes two things: attention and safety. Attention is a skill she's developed over seven years. Safety is an atmosphere she creates through clinical competence and emotional presence. Neither is circumstantial. Both are hers. She lets the comment update her self-assessment for ten seconds before the shame reasserts. The ten seconds are longer than the usual two. The additional eight seconds represent the comment being received instead of deflected. Eight seconds of worth.
+Chen talks to a colleague about the error. The colleague mentions their own recent errors. Chen realizes she's not the only one. Mistakes are part of the work. The mechanism that turned the error into proof of unworthiness begins to crack. The error becomes what it actually is: a learning opportunity.
 ---
 
 ## TURNING_POINT v02
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/turning_point/micro/v02.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: social
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
 COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Tomás responds to the attending's "good eye" differently. Instead of "that's my job," he says nothing. Just nods. The nod is receptive instead of dismissive. The "good eye" sits in his body for a moment without being reclassified. The rhythm change caught required knowledge of the patient's baseline, awareness of a subtle shift, and the clinical judgment to flag it. The flag was not baseline. New nurses wouldn't have caught it. Experienced nurses might have. He caught it because of his specific pattern of attention. The specific pattern is his. The nod lets the recognition of the specific pattern exist for ten seconds before the baseline recalibrates.
+Alicia asks a manager about the imposter feeling. The manager responds: Everyone feels that sometimes. It doesn't mean you don't belong. The statement opens something. Maybe the feeling is not evidence. Maybe it's just a feeling. The experimentation is toward separating the feeling of inadequacy from the belief in inadequacy.
 ---
 
 ## TURNING_POINT v03
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/turning_point/micro/v03.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
-CALLBACK_ID: peer_nomination
-CALLBACK_PHASE: setup
 ---
-Aisha reads the nurse of the quarter nomination form. Three peer comments. Each describes a specific behavior: "Aisha stays calm when families are distressed." "Aisha catches things in her assessments that others miss." "Aisha makes the kids feel safe." The specifics resist the shame's generalization. The shame can't say "anyone would do that" about a specific observation from a colleague who works beside her. The colleague saw something specific to Aisha. The specificity is the crack in the shame's wall. General praise slides off. Specific observation sticks. She reads the three comments again. The comments describe a nurse. The nurse is her. The description is accurate.
+Dominique reviews feedback from her speaking in the meeting. People thanked her. She made a good point. Her voice shaking didn't invalidate what she said. The mechanism has been using her nervousness as proof while ignoring the content. The experimentation is toward separating her performance from her worth.
 ---
 
 ## TURNING_POINT v04
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/turning_point/micro/v04.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Claire keeps the thank-you letter on her desk instead of filing it. The letter is visible during her shift. The shame says: that's vain, that's self-congratulatory, that's inappropriate. The letter says: a family's birth experience was shaped by Claire's specific care. The shame calls visibility vanity. The letter calls visibility documentation. Medical professionals document everything—vital signs, interventions, outcomes. Claire is documenting an outcome the system doesn't measure: a family's experience of feeling cared for. The documentation is legitimate. The shame's objection to the documentation is the shame's objection to evidence of worth existing in visible form.
+Keisha talks to a senior nurse she admires. The senior nurse admits: I still have to look things up. I still don't know everything. Keisha realizes the mechanism has been comparing her to an impossible standard. The senior nurse, whom Keisha sees as competent, also doesn't know things. Knowledge gaps are not proof of unworthiness.
 ---
 
 ## TURNING_POINT v05
@@ -175,107 +172,69 @@ Claire keeps the thank-you letter on her desk instead of filing it. The letter i
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/turning_point/micro/v05.txt
 BAND: 3
 MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Derek changes the post-shift evaluation. Instead of "what did I miss," he starts with "what went well." The reordering is deliberate and uncomfortable. The shame says: starting with positives is complacent. The practice says: starting with positives creates an accurate baseline against which deficits can be properly sized. He lists three things that went well. Then lists what could improve. The improvement items, viewed against the three successes, are proportional—small adjustments inside a competent performance. The same items, viewed without the successes, looked like evidence of inadequacy. The frame changes the weight. The weight was always the shame's to assign. The frame takes the assignment back.
+Over weeks, the nurses begin to challenge the imposter narrative. They're doing the work. They're doing it well. The feeling that they don't belong is not the same as the fact that they don't belong. The experimentation is toward trusting their actual performance over the mechanism's narrative.
 ---
 
 ## EMBODIMENT v01
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/embodiment/micro/v01.txt
 BAND: 2
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Nora receives another positive comment. The qualification starts. She notices it starting and holds the comment for ten seconds before the qualification can complete. Ten seconds of receiving. The shame runs its reclassification protocol during and after the ten seconds. But the ten seconds happened first. The comment was received before it was dismissed. The receiving and the dismissing coexist. The receiving is growing—ten seconds this time, up from eight last time. The arithmetic of the shame still runs. Nora is developing a competing arithmetic: one that counts the seconds of reception. The shame's arithmetic is louder. Nora's arithmetic is newer. Newer things grow.
+Chen makes an error. The shame shows up. She feels it. She doesn't fuse with it. She says: Okay, I felt ashamed. Now I learn from this. The mistake becomes information instead of proof. She's claimed her own capacity to make mistakes and be worthy.
 ---
 
 ## EMBODIMENT v02
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/embodiment/micro/v02.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 2
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Tomás catches another subtle clinical sign. The attending says: "You always catch those." Always. The word implies a pattern. Patterns are harder for the baseline to absorb because patterns describe a consistent ability, not a one-time event. The baseline can absorb a single catch: lucky timing. The baseline struggles with "always" because always implies a skill that's reliably present. Tomás holds the "always" for fifteen seconds. The baseline tries to recalibrate. The "always" resists absorption because it describes something ongoing. The shame needs events to be isolated. Patterns are connected. Connected events are harder to dismiss than isolated ones.
+Alicia forgets something. The shame is present but quieter. She looks it up. She continues her work. The forgotten detail doesn't make her unworthy. She's worthy of her role despite the gaps in her knowledge.
 ---
 
 ## EMBODIMENT v03
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/embodiment/micro/v03.txt
 BAND: 2
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
-CALLBACK_ID: peer_nomination
-CALLBACK_PHASE: return
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Aisha accepts the nurse of the quarter recognition at the unit meeting. She stands in front of twenty colleagues. The shame fires at maximum: you don't deserve this, they'll realize they were wrong. She stands anyway. A colleague claps. Others follow. The clapping is external data that the shame's internal data contradicts. Both data sets exist simultaneously. She holds the plaque and the shame in the same body. The plaque has her name and a specific citation. The citation describes real behaviors observed by real people. The shame describes imagined failures observed by no one. The plaque is evidence. The shame is narrative. She's learning to tell the difference.
+Dominique speaks in a meeting. Her voice might shake. But the content is good. The nervousness doesn't invalidate her contribution. She's claimed the right to be imperfect while still being valuable.
 ---
 
 ## EMBODIMENT v04
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/embodiment/micro/v04.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Claire adds a second letter to her desk. Different family, different delivery, same theme: the specific care Claire provided made the experience better. Two letters. The shame's voice is quieter against two letters than against one. Not silent—the shame adjusts volume, not function. But two specific accounts from two different families describing the same pattern of care are harder to dismiss as generosity or coincidence. The pattern in the letters matches the pattern Claire sees in her own practice. The match between external observation and internal reality is what worth feels like. The feeling is tentative. The feeling is supported by documentation. Documentation is evidence. Evidence accumulates.
+Keisha doesn't know something. She looks it up. She's not a fraud. She's someone with knowledge gaps who's willing to learn. She's claimed her worth independent of knowing everything.
 ---
 
 ## EMBODIMENT v05
 ---
 path: story_atoms/healthcare_rns/anchored/self_worth/shame/embodiment/micro/v05.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Derek does the reordered evaluation after another shift. Three things well, then improvements. The three things: a complex dressing change handled smoothly, a confused patient redirected with patience, a family conversation that ended with visible relief. The improvements: charting was thirty minutes late, missed a comfort round. The improvements, next to the successes, are proportional. The shame wants the improvements to be the entire story. The reordering insists the successes are part of the same story. The full story—successes and improvements—describes a competent nurse having a normal shift. The shame's version of the story—improvements only—describes an inadequate nurse barely surviving. The full story is more accurate. He's learning to read the full story.
----
-
-## STORY v21
----
-path: small evidence of failure
-BAND: 1
-SEMANTIC_FAMILY: SF1
----
-Nora made a charting error. Not a clinical consequence—a documentation error. She corrected it. Now she's replaying the moment of the error. Her body knows it differently than her mind. Her mind says: error identified, error corrected, learning moment. Her body says: you are careless. You are someone who makes mistakes. The error has become evidence of intrinsic failure. Not a moment. Not a correctable thing. A thing about her. The shame is quiet. It's just a feeling underneath things. She's aware she's being hard on herself. She can't stop. The shame has its own logic. One error equals person who makes errors. Person who makes errors equals inadequate. Inadequate equals unworthy. The logic chain happens fast and she can't catch it happening.
----
-
-## STORY v22
----
-path: shame from internal verdict
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-Tomás lost patience with a confused patient. The patient was disoriented and kept asking the same questions and Tomás's answer was sharp. It lasted two seconds. The patient didn't seem hurt. Tomás corrected and was gentle the rest of the shift. The moment is over. The shame is beginning. The shame says: this is who you really are. Patient, kind Tomás is a performance. Impatient Tomás is the truth. The shame has selected this two-second moment as proof of his actual nature. Everything else is cover. The shame doesn't produce proportionate response. The shame produces: you're an unkind person. You shouldn't work with vulnerable people. You should quit. The shame's conclusion doesn't match the actual situation. The shame doesn't care. The shame knows something about him that's darker than he wants to believe.
----
-
-## STORY v23
----
-path: shame invading identity
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-Aisha is convinced she's a bad nurse. The shame started with specific failures and has expanded into a totality. She missed something during an assessment. She was rushed with a family. She didn't follow up on something she said she would. Three moments across three months. The shame has converted the three moments into proof of fundamental inadequacy. She's now in a state where every action feels like it's being evaluated by a jury that's already decided: guilty of not being good enough. She's trying to work while carrying the shame conviction. The shame is rewriting everything she does as inadequate. She helps a patient and the shame says: not well enough. She's efficient and the shame says: cold. She's careful and the shame says: slow. The shame has become her dominant experience of self. She can barely recognize the competent parts of herself underneath the pervasive shame.
----
-
-## STORY v24
----
-path: shame at total conviction
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-Claire is operating under a total shame conviction: she is a bad nurse and everyone knows it. The conviction emerged from one incident where she spoke up about something inappropriate and the interaction went badly. One situation. Six months of shame interpretation. The shame has rewritten her memory. The incident now proves: you're confrontational, you're not a team player, you're a liability. The proof is complete in her mind. She's convinced her colleagues are talking about her. She's convinced her manager is documenting her mistakes. She's convinced that people are waiting for her to be reassigned. None of this is evidenced. The shame is generating the narrative. The shame conviction is so total that she's making decisions based on the conviction. She's considering leaving. She's considering a different specialty. The shame has moved from emotion into identity and the identity shift is threatening her career. She's locked in a self-fulfilling prophecy where the shame is causing the performance decline that the shame predicted.
+The nurses have released the imposter narrative. They're real nurses. The shame is quieter. They move through their work with a sense of belonging that's based on their actual performance, not on the mechanism's impossible standards.
 ---

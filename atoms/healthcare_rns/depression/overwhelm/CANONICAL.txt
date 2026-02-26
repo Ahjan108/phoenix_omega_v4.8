@@ -1,39 +1,38 @@
 
-
 ## RECOGNITION v01
 ---
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/recognition/micro/v01.txt
 BAND: 2
 MECHANISM_DEPTH: 1
-COST_TYPE: opportunity
-COST_INTENSITY: 2
+COST_TYPE: social
+COST_INTENSITY: 1
 IDENTITY_STAGE: pre_awareness
 ---
-Nora walks into the ICU at 6:50 am. The board shows five patients. Five is normal. On a good day, five is manageable. Today, looking at the assignments, something in her chest closes. Her shoulders slump. She's been an ICU nurse for five years. She can do five patients. But something inside her has changed. The flatness she's been explaining as shift fatigue — the thing that's been there since maybe April, or maybe longer — sits under her ribs like a stone. Her throat tightens. She tells herself once the patient load decreases, once hospital staffing improves, once she gets more time off, she'll feel different. Her jaw stays tight. She clocks in. She doesn't move. Her hands shake slightly. The pile of work is real. The depression underneath it is realer. But she's learned to read depression as overwhelm. It's easier. It's explainable. It's something she can think her way out of.
+Tomas arrives at work and the requests start immediately. Patient needs. Family questions. Charting deadlines. The overwhelm arrives like a wave. He knows he can't swim through it. The overwhelm is no longer separate from his mood. It's foundational. When the overwhelm is this constant, mood itself changes. The world becomes narrower. Options disappear. Everything feels difficult.
 ---
 
 ## RECOGNITION v02
 ---
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/recognition/micro/v02.txt
-BAND: 3
+BAND: 2
 MECHANISM_DEPTH: 1
 COST_TYPE: social
-COST_INTENSITY: 3
+COST_INTENSITY: 1
 IDENTITY_STAGE: pre_awareness
 ---
-Tomás sits in the nurse's break room at 2 pm. He's been a nurse for ten years. He loves the work — he used to love it. His coworker Nora asks if he's okay. He says fine, just tired. His jaw is clenched. He hasn't slept well in months. The flatness that used to only live in the early mornings has moved in permanently. His sternum is tight. The work is hard. There are twelve patients. Some are critical. The work requires presence. The presence requires a resource he doesn't have. His hands shake when he connects the IV. He tells himself it's just senior nurse burnout. It'll pass. The workload will lighten. His throat is tight. He picks up extra shifts to make more money, to prove he can still do this, to push through. The pushing makes the flatness heavier.
+Alicia wakes up and the first thought is how overwhelmed she'll be today. She hasn't even gotten out of bed. The anticipation of overwhelm is creating overwhelm. She feels her energy depleting before the day begins. The depression lives inside the overwhelm. It's the thought that nothing will get better, the tasks will continue, the demands won't decrease.
 ---
 
 ## RECOGNITION v03
 ---
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/recognition/micro/v03.txt
-BAND: 2
+BAND: 3
 MECHANISM_DEPTH: 1
 COST_TYPE: identity
-COST_INTENSITY: 3
+COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-Aisha is an excellent nurse. She knows this because her patients recover, because the families trust her, because the other staff look to her for leadership. But something in her is empty. Her jaw is clenched when she enters rooms. Her hands move through patient care automatically. She's present physically. She's not present otherwise. Her sternum is tight. She tells herself it's the job. It's the suffering she sees. It's the twelve-hour shifts. It's the staffing crisis. Once these things change, she'll feel present again. Her throat is tight. But the emptiness predates the staffing crisis. She's been hollow for longer than she's named. Her belly is hollow. The work didn't cause it. The work is just where it's living.
+Maria feels the two movements at once. The overwhelm pushes outward. The depression pulls inward. She's simultaneously flooded and empty. The overwhelm says there's too much to do. The depression says nothing matters. Together they create a particular kind of paralysis. The system is activated and collapsed simultaneously.
 ---
 
 ## RECOGNITION v04
@@ -41,23 +40,23 @@ Aisha is an excellent nurse. She knows this because her patients recover, becaus
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/recognition/micro/v04.txt
 BAND: 3
 MECHANISM_DEPTH: 1
-COST_TYPE: internal
-COST_INTENSITY: 4
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-Claire is in L&D. Births are joyful. She's supposed to feel joyful. She moves through the deliveries. She does her job well. The babies are born, the mothers are happy, the families are crying. She's unmoved. Her jaw is clenched. She reads this absence as burnout. Too many shifts. Too much emotional labor. Too much being present to other people's joy when her own joy tank is empty. Her hands shake. Her chest is tight. She tells herself that once she gets off night shift, once the schedule improves, once she has a real weekend, the presence will return. Her throat is tight. She picks up doubles because the money will help. It doesn't help. Her belly is hollow. The work is real. The depression is realer. They're not the same thing. But she can't see this yet.
+Raj notices that the overwhelm used to energize him. He could function in chaos. Now the overwhelm just deepens the depression. He doesn't have energy to meet its demands. The depression has consumed the reserves that used to allow him to function through overwhelming circumstances. He's stuck between two forces pulling in opposite directions.
 ---
 
 ## RECOGNITION v05
 ---
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/recognition/micro/v05.txt
 BAND: 4
-MECHANISM_DEPTH: 1
-COST_TYPE: opportunity
-COST_INTENSITY: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
-Derek is a med-surg nurse. Three years in. He still believes in the work. But the belief doesn't translate to feeling. He goes through shifts on autopilot. He's competent. He's reliable. He's invisible. His shoulders carry weight that has nothing to do with patient care. His jaw is tight. His hands shake at the end of shifts. He tells his friends it's stress. It's the job. It's healthcare. Everyone feels this way. But the flatness he's describing as stress goes deeper. It was there before this job. It'll be there after. His chest is compressed. His throat is tight. He's been flat for so long he's forgotten what feeling means. The flatness has become the baseline. His belly is hollow. He works more hours, thinking if he just proves himself enough, if he shows up hard enough, the invisible gray thing will finally lift.
+The combination becomes familiar. The nurses come to expect it. Overwhelm plus depression is just how they operate now. The overwhelm keeps them functional. The depression keeps them from being happy. The two together create a kind of grinding continuance without meaning. The nurses are not actively suffering a crisis. They're suffering a chronic state of being flooded and empty simultaneously.
 ---
 
 ## MECHANISM_PROOF v01
@@ -65,35 +64,35 @@ Derek is a med-surg nurse. Three years in. He still believes in the work. But th
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/mechanism_proof/micro/v01.txt
 BAND: 3
 MECHANISM_DEPTH: 2
-COST_TYPE: opportunity
-COST_INTENSITY: 3
+COST_TYPE: social
+COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Nora works a double. Sixteen hours. She's done doubles before. Today, the double is impossible. Her shoulders ache. The first eight hours are fine. The second eight hours are like moving through water. Her jaw is clenched so tight she feels it in her neck. She's tired because she slept four hours. She's tired because something deeper is tired. Her chest is tight. She finishes the double and expects relief. It doesn't come. She's proven she can do the work. The flatness is still there, unchanged. She sleeps and wakes up exhausted. Her hands shake. She tells herself she needs to get ahead now, to catch up on sleep, to reset. She takes her next day off. She sleeps twelve hours. She wakes up exhausted. Her belly is hollow. The work is real. The exhaustion is real. But the flatness is independent. It's not caused by overtime. It won't be fixed by rest. Her throat is tight. She can't see this yet.
+The mechanism is: Overwhelm forces me to keep going. The depression is what happens when I stop. The mechanism creates a false choice. Either stay in constant motion and avoid depression, or stop and be consumed by it. The mechanism proves itself through the way stillness brings sadness and motion keeps it at bay. Tomas learned this early. Stay busy or fall apart.
 ---
 
 ## MECHANISM_PROOF v02
 ---
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/mechanism_proof/micro/v02.txt
-BAND: 4
+BAND: 3
 MECHANISM_DEPTH: 2
 COST_TYPE: social
-COST_INTENSITY: 4
+COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Tomás calls in sick three times in a month. Not physically sick. Just unable. The guilt is immense. He's supposed to be reliable. He calls out and the whole unit is short-staffed, which means his colleagues are drowning. His jaw clenches. He feels responsible. He goes back to work. His hands shake. He's working understaffed and underfed. His chest is tight. The pile grows — things he hasn't done, patients he couldn't fully care for, notes he has to catch up on. He picks up more shifts to prove himself. The more shifts make the depression heavier. His sternum aches. His throat is constricted. He's trying to out-work the guilt about not being present. It won't work. His belly is hollow. The depression is underneath all of this. The work didn't cause it. The guilt is just the flatness finding something to attach to.
+The mechanism creates a feedback loop. The overwhelm produces exhaustion. The exhaustion deepens depression. The depression creates difficulty managing the overwhelm. The difficulty increases the sense of overwhelm. Alicia wakes anxious because she knows this loop. Her nervous system is primed for it. The mechanism proves itself through this self-perpetuating cycle.
 ---
 
 ## MECHANISM_PROOF v03
 ---
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/mechanism_proof/micro/v03.txt
-BAND: 3
+BAND: 4
 MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 4
+COST_TYPE: identity
+COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
-Aisha's caseload increases. Four patients becomes six. Six becomes nine in the span of a month. Each increase is reasonable in the clinical context. Each increase is impossible for her emotional capacity. Her jaw is so tight her dentist mentions it. Her shoulders are rigid. She's still doing excellent work. Her patients still recover. The families still trust her. But she's not there. She's moving like a ghost. Her hands move through procedures. Her presence doesn't follow. Her chest is compressed. She's trying to prove she can handle anything. She can handle the work. She can't handle the flatness while handling the work. Her sternum aches. She tells herself to push through. The pushing makes the disappearing faster. Her throat is constricted. Her belly is hollow. She's becoming excellent at being absent while appearing present.
+The mechanism produces proof in the gap between what's demanded and what's available. Maria has seven patients. She has the capacity for four. The overwhelm is the gap. The depression is the response to being unable to close the gap. The mechanism says: You cannot do what's required. The proof is the constant failure to keep up.
 ---
 
 ## MECHANISM_PROOF v04
@@ -102,10 +101,10 @@ path: story_atoms/healthcare_rns/anchored/depression/overwhelm/mechanism_proof/m
 BAND: 4
 MECHANISM_DEPTH: 3
 COST_TYPE: identity
-COST_INTENSITY: 4
+COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
-Claire's solution is to work more nights. More shifts means better pay. Better pay means she can afford to move, to fix her apartment, to have a life outside of work. Except the more shifts make the inside of her more empty. She's unmoved by births. She's going through the joy for families while feeling nothing. Her jaw is clenched. Her hands shake when holding newborns. Her chest is tight. She reads this as needing more separation from the work. She takes on leadership roles to feel like she's contributing something beyond being present. Her shoulders are rigid. She's added leadership tasks to an already impossible schedule. Her throat is tight. The depression is not about the work. The work is where she's trying to hide from the depression. Her belly is hollow. The hiding is making it worse. But she can't see this yet.
+The mechanism isolates. Raj cannot explain to friends what he's experiencing. The overwhelm plus depression is like drowning while the world continues normally. He's surrounded by people but the experience is solitary. The mechanism proves itself through the way the combination creates a particular kind of loneliness.
 ---
 
 ## MECHANISM_PROOF v05
@@ -113,63 +112,59 @@ Claire's solution is to work more nights. More shifts means better pay. Better p
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/mechanism_proof/micro/v05.txt
 BAND: 3
 MECHANISM_DEPTH: 3
-COST_TYPE: opportunity
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: destabilization
 ---
-Derek has stopped doing laundry. His scrubs are dirty. He's borrowing from coworkers. His hands shake. His apartment is chaos. He reads this as too busy. So he works faster, sleeps less, cuts every corner he can. His jaw is clenched. His shoulders are rigid. He's managed to make himself even more behind. The management solutions are making it worse. He's proven that working harder doesn't fix anything. So he's decided he's not working hard enough. His chest is tight. He adds another job — PRN at the hospital across town. His throat is tight. His belly is hollow. He's running parallel systems of overwhelm and depression. He can't see that the depression is the root. The overwhelm is just where it's living. His sternum aches. He's accelerating toward a collapse he can't prevent because he's treating the symptom as if it's the cause.
+The mechanism's deepest proof is the way it becomes normalized. The nurses expect the combination. They plan around it. They accept it as the cost of the work. The mechanism has convinced them that overwhelm plus depression is simply what nursing is. The proof is the resignation.
 ---
 
 ## TURNING_POINT v01
 ---
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/turning_point/micro/v01.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: social
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
-CALLBACK_ID: healthcare_01
-CALLBACK_PHASE: setup
 ---
-Nora has a shift where she's so tired she makes a medication error. Not a serious one. Caught quickly. But it cracks her open. She's been pushing through flatness. The push finally failed. She sits in the office with the charge nurse and something breaks. She tells the truth: she can't make herself care about the work. She's not interested. She's going through the motions. Her jaw unclenches slightly. The charge nurse listens. Then asks: "How long has it been like this?" Nora doesn't know. Since before this job, probably. The charge nurse says: "I think you should talk to occupational health. I think what you're describing is depression, not burnout." Nora's chest cracks open. For the first time, someone named it. Not as a work problem. As a medical problem. Her throat opens. Her hands stop shaking for a moment.
+Tomas sits with someone and they ask: What if you didn't have to stay in motion to stay alive? What if there's a way to manage the overwhelm without the depression being the price? The question opens a possibility. Maybe the mechanism is not the only option. Maybe there's another way.
 ---
 
 ## TURNING_POINT v02
 ---
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/turning_point/micro/v02.txt
 BAND: 3
-MECHANISM_DEPTH: 3
+MECHANISM_DEPTH: 2
 COST_TYPE: social
-COST_INTENSITY: 3
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Tomás collapses. Not physically. Emotionally. He can't get out of bed. He calls in. He doesn't go back for a week. The guilt is immense. But something in that week of not-working, something shifts. He's not performing. He's just surviving. His jaw unclenches slightly. His coworker Nora reaches out. She tells him she thinks she's depressed. She's seeing a therapist. Tomás realizes: the thing he's been calling burnout has a name. Depression. His sternum releases. He calls his therapist from years ago. The therapist says: "Burnout and depression are different. Depression is medical. It needs treatment." Tomás's throat opens. For the first time, he considers that the answer isn't a better schedule or better staffing. The answer might be medication. Treatment. His hands are slightly less shaky.
+Alicia wakes anxious but decides not to go to work. She calls in. The world doesn't end. The unit covers the shift. She spends the day resting. At first, the depression deepens without the motion to distract from it. But after several hours, something shifts. The depression is still present but she's no longer trapped in the loop of anticipating overwhelm.
 ---
 
 ## TURNING_POINT v03
 ---
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/turning_point/micro/v03.txt
 BAND: 3
-MECHANISM_DEPTH: 3
+MECHANISM_DEPTH: 2
 COST_TYPE: identity
-COST_INTENSITY: 4
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
-CALLBACK_ID: healthcare_02
-CALLBACK_PHASE: setup
 ---
-Aisha goes to occupational health complaining of exhaustion. The nurse practitioner asks about sleep, appetite, mood. Aisha realizes: she has none of these. Not because of work. Because of depression. Her jaw unclenches. She's been treating work as the problem. Work is real. But work didn't cause this. This caused her to hate work. Her chest releases slightly. The practitioner suggests medication and therapy. Aisha resists initially. Then asks: "Will I feel less empty?" The practitioner says: "You'll probably start to feel something again, yes." Aisha's sternum releases. For the first time, she's considering that the emptiness isn't a permanent state. That treatment might work. Her throat opens. Her hands are steadier. Her belly unclenches slightly.
+Maria starts to reduce her patient load. Four instead of seven. The overwhelm decreases significantly. With the overwhelm decreased, the depression becomes clearer. She can see it's not just a reaction to circumstance. But it's also more manageable when she's not flooded. The separation allows for different interventions.
 ---
 
 ## TURNING_POINT v04
 ---
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/turning_point/micro/v04.txt
 BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: opportunity
-COST_INTENSITY: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Claire attends a birth and feels nothing. This is the breaking point. She's supposed to feel something at births. She doesn't. Her jaw clenches. She calls her doctor immediately after her shift. The doctor takes her seriously. Sets her up with a psychiatrist. Claire goes in expecting to hear she needs to reduce her schedule. Instead, the psychiatrist says: "You're describing major depression. The schedule might be a factor, but it's not the cause." Claire's chest cracks open. She's been blaming the job. The job is real. But the depression is separate. Her throat opens. For the first time, she considers that she might feel present again. Not because of a schedule change. Because of treatment. Her hands stop shaking. Her sternum releases. Her belly unclenches slightly.
+Raj talks to a therapist about the mechanism. The false choice between motion and collapse. The therapist suggests: What if you could slow down without collapsing? What if the depression doesn't require the overwhelm to be present? The experimentation is toward testing this possibility.
 ---
 
 ## TURNING_POINT v05
@@ -177,107 +172,69 @@ Claire attends a birth and feels nothing. This is the breaking point. She's supp
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/turning_point/micro/v05.txt
 BAND: 3
 MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
-Derek gets a letter from his bank about a missed payment. He doesn't remember missing a payment. He's been paying automatically. He checks. He missed five payments. He has no idea how. His hands shake. He calls his best friend. His friend asks: "Have you slept in the last week?" Derek doesn't know. His friend makes him an appointment with a psychiatrist. Derek sits in the office and describes the last three years. He talks about the doubling-up jobs, the inability to care for himself, the flatness. The psychiatrist says: "This is depression. The jobs are what's happening on top of the depression. You need to treat the depression first." Derek's jaw unclenches slightly. His chest cracks open. For the first time, someone said: depression first. Not more work. Depression treatment. His hands are slightly less shaky.
+Over weeks, the nurses begin to interrupt the mechanism. They don't accept the overwhelm as permanent. They make changes. They reduce hours. They take days off. They seek support for the depression. The experimentation is toward breaking the cycle by addressing both parts simultaneously.
 ---
 
 ## EMBODIMENT v01
 ---
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/embodiment/micro/v01.txt
 BAND: 2
-MECHANISM_DEPTH: 3
-COST_TYPE: opportunity
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
+MECHANISM_DEPTH: 1
+COST_TYPE: social
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Nora reduces her schedule. Not because the work disappeared, but because she needs to treat the depression. The anxiety rises — you're letting down your team, you're not strong enough, you're wasting potential. Her shoulders tense. Her jaw clenches. But underneath the anxiety, she knows something: the flatness doesn't get worse when she works less. It stays the same. She's holding both things: the anxiety (the voice that says she should be working) and the knowledge (working doesn't fix the flatness). Her chest is tight. She starts medication. After three weeks, there's a small lift. Not complete. The flatness is still there. But it's lighter. Her hands are less shaky. She's still anxious about her work. The anxiety is still real. But she can feel the difference now between anxiety (about career) and depression (chemical, separate, treatable). Her sternum aches slightly less.
+Tomas works a manageable shift. Four patients. Clear priorities. He's not running. He's moving with purpose. At the end of the shift, there's satisfaction instead of just exhaustion. The overwhelm that produces depression is not present. The work is just work. It can be demanding without being defeating.
 ---
 
 ## EMBODIMENT v02
 ---
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/embodiment/micro/v02.txt
 BAND: 1
-MECHANISM_DEPTH: 3
+MECHANISM_DEPTH: 1
 COST_TYPE: social
-COST_INTENSITY: 2
-IDENTITY_STAGE: experimentation
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
 ---
-Tomás starts therapy and medication. The medication takes four weeks to work. During those four weeks, he's in therapy learning about depression. His therapist says: "You can be a good nurse and also be depressed. These aren't contradictory." Tomás's jaw unclenches slightly. He's been blaming himself for not being the nurse he used to be. But the depression was always there. He's learning this. His shoulders release incrementally. He's still working. The work is still hard. His chest is less tight. But he's not alone in the work anymore. He has support. He has treatment. His hands are less shaky because someone is helping him carry the depression while he carries the work. The depression is still there, but it has less power over him.
+Alicia wakes without the anticipation of being flooded. The day is just a day. There are things to do. The depression is quieter when it's not mixed with the overwhelm. She's learning they're different things that reinforce each other. Separating them gives her agency over both.
 ---
 
 ## EMBODIMENT v03
 ---
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/embodiment/micro/v03.txt
 BAND: 2
-MECHANISM_DEPTH: 3
+MECHANISM_DEPTH: 1
 COST_TYPE: identity
-COST_INTENSITY: 2
+COST_INTENSITY: 1
 IDENTITY_STAGE: self_claim
-CALLBACK_ID: healthcare_02
-CALLBACK_PHASE: return
 ---
-Aisha starts medication. It takes three weeks. After three weeks, there's a difference. Not big. Small. There's interest in the patients again. There's presence returning. Not completely. But incrementally. Her jaw unclenches slightly. Her shoulders release a little. She's still tired. The work is still hard. But she's present. She's not a ghost moving through the unit. She's here. Her chest releases incrementally. She's learned something: the emptiness wasn't permanent. It was treatable. She's holding both things: the work (which is real and hard) and the depression (which is being treated). They don't have to be in conflict. Her sternum aches slightly less. Her hands are steadier. She's learning that treating the depression allows her to be a better nurse, not a worse one.
+Maria processes her emotions while her work is manageable. The depression is present but she can move with it. She's not trying to outrun it. She's learning to live with it while maintaining her capacity. The two can coexist without one destroying her ability to function.
 ---
 
 ## EMBODIMENT v04
 ---
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/embodiment/micro/v04.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
 IDENTITY_STAGE: self_claim
 ---
-Claire starts antidepressants. She's still on the same schedule. She still attends births. But something is different. There's a tiny amount of joy returning. Not for every birth. Some births touch her. Some bring tears. She's present. Her jaw unclenches over the first month. Her hands shake less. The medication isn't a miracle. It doesn't make the job easier. It doesn't solve the healthcare crisis. It just makes the flatness slightly less heavy. Her chest releases a little. She's still compassionate. She's still a good nurse. But now she can do it without disappearing. Her throat is less tight. She's learning that treating the depression allows her to feel the joy again. Not always. But sometimes. Sometimes is more than it was.
+Raj has stopped seeing the choice as binary. He can be in motion without the motion being frantic. He can rest without collapsing. The mechanism that created the false choice has loosened. He's claimed his own middle ground.
 ---
 
 ## EMBODIMENT v05
 ---
 path: story_atoms/healthcare_rns/anchored/depression/overwhelm/embodiment/micro/v05.txt
 BAND: 1
-MECHANISM_DEPTH: 3
-COST_TYPE: opportunity
-COST_INTENSITY: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
 IDENTITY_STAGE: self_claim
 ---
-Derek quits the second job. He keeps his main position. He cuts his schedule back. The anxiety is loud — you're lazy, you're not ambitious enough, you're wasting your potential. His jaw clenches. But something in him shifts. He starts medication. After a month, there's a difference. Small. He can do laundry again. He can answer texts. The small things that require initiative are slightly more possible. His shoulders release incrementally. His hands shake less. He's still tired. The work is still hard. But he's not running two jobs while depressed anymore. His chest releases slightly. He's learning something: doing less is treatment. Doing less allows him to be present in the one job. His sternum aches slightly less. He's holding both things: ambition (which is real) and depression (which needs treatment). They don't have to be in conflict. He can work hard and also take care of himself.
----
-
-## STORY v21
----
-path: flatness replacing engagement
-BAND: 1
-SEMANTIC_FAMILY: SF1
----
-Nora used to feel things sharply. Now she's numb to most of it. A patient asked her a question today and she heard the question from very far away. She answered. The patient was satisfied. Nora felt nothing. Not sad about the numbness. Not glad about the interaction. Nothing. The overwhelm has converted into flatness. She's still doing the work. She's just doing it from a place of emotional disconnection. No feeling is being generated. No emotion is being spent. Just action without resonance. The flatness is protecting her from the overwhelm. The overwhelm was too much so the body has shut down the feeling response. Now everything is muted. Now nothing connects. She's aware something's wrong but the flatness is too convenient. The flatness is safer than feeling.
----
-
-## STORY v22
----
-path: overwhelm as numbness
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-Tomás has stopped wanting things. The overwhelm has converted into anhedonia—the inability to feel pleasure. Work happens. He does it. He feels nothing about it. He comes home. He feels nothing about that either. Nothing is good or bad. Everything is just the next thing. The overwhelm used to be acute—moments of too-much-ness. Now it's chronic. Now it's the new baseline. He's adjusted to having no emotional experience. He thought he could keep working like this. He doesn't think about the future. The future is just more of this flatness. The overwhelm has worn him into a kind of depression where engagement feels impossible. He's not interested in recovery. Recovery sounds like effort. He just wants the flatness to continue because the flatness requires nothing.
----
-
-## STORY v23
----
-path: overwhelm breaking into depression
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-Aisha has stopped functioning. The overwhelm has broken through into actual clinical depression. She's called in sick for a week. She can't get out of bed. She can't answer texts. She can't make a meal. The overwhelm of work has spread into her entire life. Everything feels impossible. Everything feels pointless. The overwhelm started as too-much-emotion and has become no-emotion. She's suicidal-adjacent. Not planning. Just thinking: it would be easier if I wasn't here. The depression is deep. The overwhelm created it. The overwhelm at work has infected her whole system. She needs to be on leave. She needs medication. She needs therapy. She needs to stop. None of this is happening because the depression has disabled her capacity to take steps. She's locked in overwhelm-turned-depression with no momentum to escape.
----
-
-## STORY v24
----
-path: overwhelm at total collapse
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-Claire is admitted to the hospital. Not as a nurse. As a patient. The overwhelm has progressed into full depressive collapse and she's had to stop everything. She's on psychiatric hold because the suicidal ideation has moved from thinking to planning. The work overwhelm created the depression. The depression has destroyed her capacity to continue. She's lying in a hospital bed looking at the ceiling and thinking about how she got here. Six months ago she was functioning. The overwhelm was gradual. The depression was gradual. The collapse was sudden. Now she's on medication, in therapy, and facing the reality that she might not return to nursing. The overwhelm has cost her everything. Her career, her stability, her safety. The overwhelm that started with too many patients and too many emotions has ended in psychiatric hospitalization.
+The nurses have separated the overwhelm from the depression. By addressing the overwhelm through changed circumstances, they've gained the space to address the depression directly. The combination that was destroying them has been interrupted.
 ---
