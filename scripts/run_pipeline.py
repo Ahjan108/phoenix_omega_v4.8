@@ -83,6 +83,20 @@ def main() -> int:
     ap.add_argument("--seed", default="pipeline_seed_001", help="Determinism seed")
     ap.add_argument("--runtime-format", default=None, help="Force Stage 2 runtime (e.g. standard_book for 12 chapters)")
     ap.add_argument("--structural-format", default=None, help="Force Stage 2 structural format (e.g. F006 for 8-12 chapters)")
+    ap.add_argument(
+        "--output-format",
+        default=None,
+        help=(
+            "Modular output format id (freeze mode). "
+            "Examples: five_min_practice, pocket_guide, ten_things_to_do, symptom_to_action_atlas, "
+            "daily_text_audio_companion, crisis_cards, weekly_challenge_pack, faq_audiobook, myth_vs_mechanism, protocol_library"
+        ),
+    )
+    ap.add_argument(
+        "--disable-v4-freeze",
+        action="store_true",
+        help="Disable modular V4 freeze for this run and allow legacy structural/runtime format selection.",
+    )
     ap.add_argument("--input", default=None, help="YAML file with topic_id, persona_id, installment_number (Stage 2 input)")
     ap.add_argument("--arc", required=True, help="Path to Master Arc YAML (required; no arc = no compile)")
     ap.add_argument("--teacher", default=None, help="Teacher id for Teacher Mode (validated against teacher_persona_matrix)")
@@ -112,6 +126,22 @@ def main() -> int:
         help="Atoms model: legacy (persona-specific) or cluster (core+overlay). Precedence: CLI > spec > config (legacy_personas).",
     )
     args = ap.parse_args()
+    # V4 freeze settings: restrict pipeline outputs to modular formats unless explicitly disabled.
+    from pearl_prime.modular_format_freeze import (
+        apply_output_format_to_plan,
+        load_freeze_settings,
+        require_valid_output_format,
+    )
+    freeze_settings = load_freeze_settings()
+    freeze_enabled = bool(freeze_settings.enabled and not args.disable_v4_freeze)
+
+    if freeze_enabled and (args.structural_format or args.runtime_format):
+        print(
+            "Error: --structural-format/--runtime-format are blocked while V4 freeze is enabled. "
+            "Use --output-format with modular formats.",
+            file=sys.stderr,
+        )
+        return 1
 
     # Resolve input: CLI or YAML
     topic_id = args.topic
@@ -408,6 +438,21 @@ def main() -> int:
 
     format_plan_dict = format_plan.to_compiler_input()
 
+    # V4 freeze: apply modular output format before variation/compile wiring.
+    if freeze_enabled:
+        selected_output_format = (args.output_format or freeze_settings.default_output_format or "").strip()
+        try:
+            require_valid_output_format(selected_output_format, freeze_settings)
+        except ValueError as e:
+            print(f"Error: {e}", file=sys.stderr)
+            return 1
+        format_plan_dict = apply_output_format_to_plan(
+            format_plan_dict,
+            output_format_id=selected_output_format,
+            chapter_count=arc.chapter_count,
+            settings=freeze_settings,
+        )
+
     # Structural Variation V4: select variation knobs (deterministic, anti-cluster) — before Stage 3 so compiler can use them
     variation_knobs = {}
     try:
@@ -703,6 +748,10 @@ def main() -> int:
         out["slot_sig"] = compiled.slot_sig
     out["format_id"] = format_plan_dict.get("format_structural_id") or format_plan_dict.get("format_id") or ""
     out["runtime_format_id"] = args.runtime_format or format_plan_dict.get("runtime_format_id") or ""
+    if format_plan_dict.get("output_format_id"):
+        out["output_format_id"] = format_plan_dict.get("output_format_id")
+        out["output_format_name"] = format_plan_dict.get("output_format_name")
+    out["v4_freeze_enabled"] = freeze_enabled
     out["locale"] = book_spec_for_compiler.get("locale", "en-US")
     out["territory"] = book_spec_for_compiler.get("territory", "US")
     out["atoms_model"] = effective_atoms_model
