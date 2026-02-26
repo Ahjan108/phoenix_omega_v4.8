@@ -1,0 +1,871 @@
+{
+  "runtime_format_id": "deep_book_6h",
+  "word_range_target": [
+    52000,
+    58000
+  ],
+  "grand_total_words": 12520,
+  "deficit_to_minimum": 39480,
+  "slot_totals": {
+    "HOOK": 473,
+    "SCENE": 1812,
+    "STORY": 2408,
+    "REFLECTION": 7000,
+    "INTEGRATION": 375,
+    "EXERCISE": 452
+  },
+  "chapters": [
+    {
+      "chapter": 1,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v22",
+          "word_count": 18
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v26",
+          "word_count": 80
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_watcher_MECHANISM_PROOF_v05",
+          "word_count": 94
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v01",
+          "word_count": 276
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v01",
+          "word_count": 15
+        }
+      ],
+      "chapter_word_count": 483,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1683
+    },
+    {
+      "chapter": 2,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v28",
+          "word_count": 19
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v24",
+          "word_count": 79
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_grief_MECHANISM_PROOF_v05",
+          "word_count": 103
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v29",
+          "word_count": 364
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v22",
+          "word_count": 18
+        }
+      ],
+      "chapter_word_count": 583,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1583
+    },
+    {
+      "chapter": 3,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v10",
+          "word_count": 18
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v11",
+          "word_count": 76
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_comparison_MECHANISM_PROOF_v01",
+          "word_count": 103
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v35",
+          "word_count": 215
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v05",
+          "word_count": 14
+        }
+      ],
+      "chapter_word_count": 426,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1740
+    },
+    {
+      "chapter": 4,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v07",
+          "word_count": 20
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v14",
+          "word_count": 78
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_shame_EMBODIMENT_v04",
+          "word_count": 95
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v27",
+          "word_count": 365
+        },
+        {
+          "slot": "EXERCISE",
+          "atom_id": "gen_alpha_students_anxiety_EXERCISE_v01",
+          "word_count": 49
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v04",
+          "word_count": 15
+        }
+      ],
+      "chapter_word_count": 622,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1544
+    },
+    {
+      "chapter": 5,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v26",
+          "word_count": 17
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v10",
+          "word_count": 76
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_overwhelm_TURNING_POINT_v01",
+          "word_count": 107
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v25",
+          "word_count": 345
+        },
+        {
+          "slot": "EXERCISE",
+          "atom_id": "gen_alpha_students_anxiety_EXERCISE_v26",
+          "word_count": 34
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v14",
+          "word_count": 14
+        }
+      ],
+      "chapter_word_count": 593,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1573
+    },
+    {
+      "chapter": 6,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v18",
+          "word_count": 17
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v04",
+          "word_count": 68
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_spiral_TURNING_POINT_v04",
+          "word_count": 98
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v31",
+          "word_count": 209
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v16",
+          "word_count": 18
+        }
+      ],
+      "chapter_word_count": 410,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1756
+    },
+    {
+      "chapter": 7,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v25",
+          "word_count": 22
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v06",
+          "word_count": 71
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_watcher_EMBODIMENT_v03",
+          "word_count": 103
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v43",
+          "word_count": 241
+        },
+        {
+          "slot": "EXERCISE",
+          "atom_id": "gen_alpha_students_anxiety_EXERCISE_v17",
+          "word_count": 34
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v17",
+          "word_count": 16
+        }
+      ],
+      "chapter_word_count": 487,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1679
+    },
+    {
+      "chapter": 8,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v09",
+          "word_count": 21
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v02",
+          "word_count": 61
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_shame_TURNING_POINT_v04",
+          "word_count": 106
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v47",
+          "word_count": 203
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v12",
+          "word_count": 15
+        }
+      ],
+      "chapter_word_count": 406,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1760
+    },
+    {
+      "chapter": 9,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v03",
+          "word_count": 23
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v30",
+          "word_count": 80
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_overwhelm_RECOGNITION_v05",
+          "word_count": 112
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v23",
+          "word_count": 332
+        },
+        {
+          "slot": "EXERCISE",
+          "atom_id": "gen_alpha_students_anxiety_EXERCISE_v27",
+          "word_count": 33
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v08",
+          "word_count": 13
+        }
+      ],
+      "chapter_word_count": 593,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1573
+    },
+    {
+      "chapter": 10,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v11",
+          "word_count": 19
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v01",
+          "word_count": 61
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_comparison_MECHANISM_PROOF_v04",
+          "word_count": 94
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v33",
+          "word_count": 221
+        },
+        {
+          "slot": "EXERCISE",
+          "atom_id": "gen_alpha_students_anxiety_EXERCISE_v16",
+          "word_count": 36
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v20",
+          "word_count": 14
+        }
+      ],
+      "chapter_word_count": 445,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1721
+    },
+    {
+      "chapter": 11,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v06",
+          "word_count": 24
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v08",
+          "word_count": 70
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_grief_RECOGNITION_v02",
+          "word_count": 97
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v07",
+          "word_count": 322
+        },
+        {
+          "slot": "EXERCISE",
+          "atom_id": "gen_alpha_students_anxiety_EXERCISE_v15",
+          "word_count": 35
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v18",
+          "word_count": 18
+        }
+      ],
+      "chapter_word_count": 566,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1600
+    },
+    {
+      "chapter": 12,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v24",
+          "word_count": 20
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v12",
+          "word_count": 75
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_overwhelm_TURNING_POINT_v04",
+          "word_count": 93
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v21",
+          "word_count": 333
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v06",
+          "word_count": 13
+        }
+      ],
+      "chapter_word_count": 534,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1632
+    },
+    {
+      "chapter": 13,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v01",
+          "word_count": 27
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v19",
+          "word_count": 82
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_watcher_MECHANISM_PROOF_v04",
+          "word_count": 97
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v41",
+          "word_count": 237
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v15",
+          "word_count": 16
+        }
+      ],
+      "chapter_word_count": 459,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1707
+    },
+    {
+      "chapter": 14,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v05",
+          "word_count": 20
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v13",
+          "word_count": 78
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_overwhelm_EMBODIMENT_v04",
+          "word_count": 97
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v11",
+          "word_count": 344
+        },
+        {
+          "slot": "EXERCISE",
+          "atom_id": "gen_alpha_students_anxiety_EXERCISE_v14",
+          "word_count": 39
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v03",
+          "word_count": 24
+        }
+      ],
+      "chapter_word_count": 602,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1564
+    },
+    {
+      "chapter": 15,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v12",
+          "word_count": 19
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v05",
+          "word_count": 71
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_shame_TURNING_POINT_v03",
+          "word_count": 105
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v17",
+          "word_count": 353
+        },
+        {
+          "slot": "EXERCISE",
+          "atom_id": "gen_alpha_students_anxiety_EXERCISE_v11",
+          "word_count": 39
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v10",
+          "word_count": 15
+        }
+      ],
+      "chapter_word_count": 602,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1564
+    },
+    {
+      "chapter": 16,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v23",
+          "word_count": 15
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v28",
+          "word_count": 84
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_watcher_MECHANISM_PROOF_v03",
+          "word_count": 100
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v45",
+          "word_count": 231
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v21",
+          "word_count": 18
+        }
+      ],
+      "chapter_word_count": 448,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1718
+    },
+    {
+      "chapter": 17,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v04",
+          "word_count": 21
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v23",
+          "word_count": 82
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_shame_MECHANISM_PROOF_v02",
+          "word_count": 92
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v05",
+          "word_count": 323
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v24",
+          "word_count": 19
+        }
+      ],
+      "chapter_word_count": 537,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1629
+    },
+    {
+      "chapter": 18,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v20",
+          "word_count": 21
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v15",
+          "word_count": 74
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_false_alarm_EMBODIMENT_v04",
+          "word_count": 115
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v13",
+          "word_count": 337
+        },
+        {
+          "slot": "EXERCISE",
+          "atom_id": "gen_alpha_students_anxiety_EXERCISE_v05",
+          "word_count": 41
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v19",
+          "word_count": 18
+        }
+      ],
+      "chapter_word_count": 606,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1560
+    },
+    {
+      "chapter": 19,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v19",
+          "word_count": 18
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v18",
+          "word_count": 80
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_comparison_MECHANISM_PROOF_v05",
+          "word_count": 98
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v39",
+          "word_count": 214
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v09",
+          "word_count": 13
+        }
+      ],
+      "chapter_word_count": 423,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1743
+    },
+    {
+      "chapter": 20,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v17",
+          "word_count": 17
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v29",
+          "word_count": 84
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_spiral_MECHANISM_PROOF_v02",
+          "word_count": 89
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v37",
+          "word_count": 225
+        },
+        {
+          "slot": "EXERCISE",
+          "atom_id": "gen_alpha_students_anxiety_EXERCISE_v18",
+          "word_count": 34
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v02",
+          "word_count": 13
+        }
+      ],
+      "chapter_word_count": 462,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1704
+    },
+    {
+      "chapter": 21,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v30",
+          "word_count": 21
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v22",
+          "word_count": 82
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_watcher_TURNING_POINT_v01",
+          "word_count": 107
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v09",
+          "word_count": 316
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v13",
+          "word_count": 17
+        }
+      ],
+      "chapter_word_count": 543,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1623
+    },
+    {
+      "chapter": 22,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v14",
+          "word_count": 18
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v07",
+          "word_count": 71
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_watcher_RECOGNITION_v01",
+          "word_count": 93
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v19",
+          "word_count": 356
+        },
+        {
+          "slot": "EXERCISE",
+          "atom_id": "gen_alpha_students_anxiety_EXERCISE_v10",
+          "word_count": 36
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v11",
+          "word_count": 14
+        }
+      ],
+      "chapter_word_count": 588,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1578
+    },
+    {
+      "chapter": 23,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v27",
+          "word_count": 18
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v03",
+          "word_count": 65
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_overwhelm_RECOGNITION_v01",
+          "word_count": 103
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v03",
+          "word_count": 295
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v23",
+          "word_count": 12
+        }
+      ],
+      "chapter_word_count": 493,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1673
+    },
+    {
+      "chapter": 24,
+      "slots": [
+        {
+          "slot": "HOOK",
+          "atom_id": "gen_alpha_students_anxiety_HOOK_v21",
+          "word_count": 20
+        },
+        {
+          "slot": "SCENE",
+          "atom_id": "gen_alpha_students_anxiety_SCENE_v27",
+          "word_count": 84
+        },
+        {
+          "slot": "STORY",
+          "atom_id": "gen_alpha_students_anxiety_comparison_MECHANISM_PROOF_v03",
+          "word_count": 107
+        },
+        {
+          "slot": "REFLECTION",
+          "atom_id": "gen_alpha_students_anxiety_REFLECTION_v15",
+          "word_count": 343
+        },
+        {
+          "slot": "EXERCISE",
+          "atom_id": "gen_alpha_students_anxiety_EXERCISE_v20",
+          "word_count": 42
+        },
+        {
+          "slot": "INTEGRATION",
+          "atom_id": "gen_alpha_students_anxiety_INTEGRATION_v07",
+          "word_count": 13
+        }
+      ],
+      "chapter_word_count": 609,
+      "target_per_chapter": 2166,
+      "chapter_deficit": 1557
+    }
+  ]
+}

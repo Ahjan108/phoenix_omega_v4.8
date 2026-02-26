@@ -1,0 +1,39 @@
+{
+  "teacher_id": "ahjan",
+  "timestamp": "2026-02-26T11:08:14.240201+00:00",
+  "model": "claude-sonnet-4-20250514",
+  "dry_run": true,
+  "raw_dir": "/Users/ahjan/phoenix_omega/SOURCE_OF_TRUTH/teacher_banks/ahjan/raw",
+  "out_dir": "/Users/ahjan/phoenix_omega/SOURCE_OF_TRUTH/teacher_banks/ahjan/doctrine",
+  "corpus_files": [
+    "BD Blog - 10k states of mind: The Journey to Buddhist Enlightenment and Inner Peace .rtf",
+    "BD Blog - Career success and the spiritual path.rtf",
+    "BD Blog - Embracing Caretaker Personalities to Understand the Depths of Love .rtf",
+    "BD Blog - Embracing Love and Tantra: A Journey Beyond Conventional Wisdom .rtf",
+    "BD Blog - Enlightened One.rtf",
+    "BD Blog - Exploring Love and Enlightenment: A Journey Through Tibetan Rebirth and Universal Love .rtf",
+    "BD Blog - Happiness and Purity.rtf",
+    "BD Blog - Illuminating the Path to Spiritual Purity: The Essence of Light in Different Spiritual Traditions .rtf",
+    "BD Blog - Personal Power: The Path to Greater Love and Enlightenment .rtf",
+    "BD Blog - Psychic development for Clarity.rtf",
+    "BD Blog - Spiritual Tenacity: The Drive Towards Purity .rtf",
+    "BD Blog - Spiritual Visions and Dreams: A Gateway to Illumination .rtf",
+    "BD Blog - The Essence of Love in Bhakti Yoga .rtf",
+    "BD Blog - The Pathway to Greater Love and Fulfillment: The Practice of Selfless Giving .rtf",
+    "BD Blog - The Wheel of Dharma and the Pathway to Enlightenment: A Journey Beyond the Six Worlds .rtf",
+    "BD Blog - Title: The Transformative Power of Gratitude: Overcoming Stress and Finding Inner Peace .rtf",
+    "BD Blog - Title: The Transformative Power of Meditation: A Journey to Greater Love .rtf",
+    "BD Blog - enlightenment requires self-effort.rtf",
+    "Buddha Dojo Blog - Karma Yoga: The Path of Purity and Humility .rtf",
+    "Buddha Dojo Blog Karma Yoga.rtf",
+    "README.md",
+    "comparison videos AM.rtf"
+  ],
+  "extraction_prompts_used": [
+    "core_concepts",
+    "story_helpers",
+    "exercise_helpers",
+    "signature_vibe",
+    "content_audit"
+  ]
+}

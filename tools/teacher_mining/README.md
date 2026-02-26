@@ -1,7 +1,23 @@
 # Teacher mining tools
 
-- **build_kb.py** — Build teacher KB from `raw/` (RTF, txt, md) → `kb/index.json` with documents and chunks. Run first.
+- **intake_normalize.py** — **LLM intake pass (Teacher Authoring Layer).** Reads `raw/`, produces doctrine assets: `main_teaching_atoms.yaml`, `story_helpers.yaml`, `exercise_helpers.yaml`, `signature_vibe.yaml`, `content_audit.yaml`. Run once per teacher at intake; human review then downstream tools use these. See **specs/TEACHER_AUTHORING_LAYER_SPEC.md**.
+- **build_kb.py** — Build teacher KB from `raw/` (RTF, txt, md) → `kb/index.json` with documents and chunks. Run after intake (or first if no authoring layer yet).
 - **mine_kb_to_atoms.py** — Mine the KB into STORY, EXERCISE, QUOTE, and TEACHING atom banks.
+
+## LLM intake pass (Authoring Layer)
+
+Run first when onboarding a teacher so gap-fill and normalizers have doctrine-layer assets:
+
+```bash
+# Stub only (no API): writes placeholder YAML for all 5 assets + intake_manifest.json
+python3 tools/teacher_mining/intake_normalize.py --teacher ahjan --dry-run
+
+# With Anthropic API key: full extraction from raw/
+export ANTHROPIC_API_KEY=...
+python3 tools/teacher_mining/intake_normalize.py --teacher ahjan
+```
+
+Outputs go to `SOURCE_OF_TRUTH/teacher_banks/<teacher_id>/doctrine/`. Content lead must set `reviewed_by` and `review_date` before downstream tools treat assets as authoritative.
 
 ## Mine KB to atoms
 

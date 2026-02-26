@@ -14,6 +14,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, List, Optional
 
+from phoenix_v4.quality.chapter_flow_gate import evaluate_chapter_flow
 
 # ---------------------------------------------------------------------------
 # Delivery contract: forbidden patterns that must never reach output
@@ -144,12 +145,291 @@ def delivery_contract_gate(text: str, source_hint: str = "output") -> None:
             + "\n\nFix the upstream atom, or add the variable to _LOC_VAR_FALLBACKS."
         )
 
+import json
+
+import yaml
+
+# ---------------------------------------------------------------------------
+# Mechanism alias system
+# ---------------------------------------------------------------------------
+
+_MECHANISM_ALIASES_DIR = Path(__file__).parent.parent.parent / "config" / "source_of_truth" / "mechanism_aliases"
+_MECHANISM_ALIAS_CACHE: dict[str, dict] = {}
+
+
+def _load_mechanism_alias(persona_id: str, topic_id: str) -> Optional[dict]:
+    """Load the mechanism alias for this persona × topic, or None if not found.
+
+    Returns the parsed YAML dict with at minimum:
+      short_form, descriptor, naming_moment, forms
+    """
+    if not persona_id or not topic_id:
+        return None
+    cache_key = f"{persona_id}/{topic_id}"
+    if cache_key in _MECHANISM_ALIAS_CACHE:
+        return _MECHANISM_ALIAS_CACHE[cache_key]
+    path = _MECHANISM_ALIASES_DIR / persona_id / f"{topic_id}.yaml"
+    if not path.exists():
+        _MECHANISM_ALIAS_CACHE[cache_key] = None  # type: ignore[assignment]
+        return None
+    try:
+        alias = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        _MECHANISM_ALIAS_CACHE[cache_key] = alias
+        return alias
+    except Exception:
+        _MECHANISM_ALIAS_CACHE[cache_key] = None  # type: ignore[assignment]
+        return None
+
+
+def _resolve_mechanism_alias_tokens(text: str, alias: Optional[dict]) -> str:
+    """Replace {{MA}}, {{MA_DEF}}, {{MA_FULL}} tokens with alias values.
+
+    Also substitutes literal "the mechanism" / "The mechanism" / "this mechanism"
+    with the persona-specific alias short_form, so existing atoms that use the
+    generic phrase are automatically upgraded without requiring atom edits.
+
+    If no alias is provided, replaces tokens with a neutral fallback so the
+    delivery_contract_gate doesn't fire on unresolved {variable} patterns.
+    """
+    if alias:
+        short_form    = alias.get("short_form") or "this pattern"
+        descriptor    = alias.get("descriptor") or "the pattern that shapes this experience"
+        naming_moment = alias.get("naming_moment") or ""
+    else:
+        short_form    = "this pattern"
+        descriptor    = "the pattern that shapes this experience"
+        naming_moment = ""
+
+    # Explicit tokens (new atoms / future-facing)
+    text = text.replace("{{MA}}", short_form)
+    text = text.replace("{{MA_DEF}}", descriptor)
+    text = text.replace("{{MA_FULL}}", naming_moment)
+
+    # Backward-compatible: replace generic "the mechanism" in existing atoms
+    if alias:
+        # Sentence-start capitalised form first (order matters)
+        sf_cap = short_form[0].upper() + short_form[1:] if short_form else short_form
+        text = text.replace("The mechanism", sf_cap)
+        text = text.replace("the mechanism", short_form)
+        text = text.replace("this mechanism", short_form)
+        text = text.replace("that mechanism", short_form)
+
+    return text
+
+
+def _build_naming_moment_block(alias: dict) -> str:
+    """Compose the full naming-moment paragraph injected once into Chapter 1.
+
+    Structure:
+      [naming_moment text]
+
+      That's [short_form]. It will come up throughout this book — not because
+      it's the only thing happening, but because it tends to be underneath
+      most of what we're going to look at.
+    """
+    short_form    = alias.get("short_form") or "this pattern"
+    naming_moment = (alias.get("naming_moment") or "").strip()
+    if not naming_moment:
+        return ""
+    bridge = (
+        f"That's {short_form}. It will come up throughout this book — not because "
+        f"it's the only thing happening, but because it tends to be underneath "
+        f"most of what we're going to look at."
+    )
+    return f"{naming_moment}\n\n{bridge}"
+
+
 from phoenix_v4.rendering.prose_resolver import (
     RenderResult,
     resolve_prose_for_plan,
     _is_placeholder_or_silence,
     _slot_type_from_placeholder_or_silence,
 )
+
+# ---------------------------------------------------------------------------
+# Word-count build gate + slot-level deficit report
+# ---------------------------------------------------------------------------
+
+_FORMAT_REGISTRY_PATH = Path(__file__).parent.parent.parent / "config" / "format_selection" / "format_registry.yaml"
+_FORMAT_REGISTRY_CACHE: Optional[dict] = None
+
+
+def _load_format_registry() -> dict:
+    global _FORMAT_REGISTRY_CACHE
+    if _FORMAT_REGISTRY_CACHE is None:
+        try:
+            _FORMAT_REGISTRY_CACHE = yaml.safe_load(_FORMAT_REGISTRY_PATH.read_text(encoding="utf-8")) or {}
+        except Exception:
+            _FORMAT_REGISTRY_CACHE = {}
+    return _FORMAT_REGISTRY_CACHE
+
+
+def _runtime_word_range(runtime_format_id: str) -> Optional[tuple[int, int]]:
+    """Return (min, max) word range for a runtime format, or None if not found."""
+    if not runtime_format_id:
+        return None
+    registry = _load_format_registry()
+    runtime_formats = registry.get("runtime_formats") or {}
+    entry = runtime_formats.get(runtime_format_id) or {}
+    word_range = entry.get("word_range")
+    if word_range and len(word_range) == 2:
+        return (int(word_range[0]), int(word_range[1]))
+    return None
+
+
+class WordCountGateError(ValueError):
+    """Raised when rendered word count falls below the runtime format's minimum target."""
+
+
+def word_count_gate(text: str, runtime_format_id: str, source_hint: str = "output") -> dict:
+    """Fail build if word count is below the runtime format's word_range minimum.
+
+    Returns a metrics dict on success:
+      {"word_count": N, "word_range": (min, max), "runtime_format_id": id, "status": "pass"}
+
+    Raises WordCountGateError with a clear deficit message on failure.
+    """
+    word_count = len(text.split())
+    word_range = _runtime_word_range(runtime_format_id)
+
+    metrics = {
+        "word_count": word_count,
+        "runtime_format_id": runtime_format_id,
+        "word_range": list(word_range) if word_range else None,
+        "status": "pass",
+    }
+
+    if word_range is None:
+        metrics["status"] = "skip"
+        metrics["note"] = f"runtime_format_id {runtime_format_id!r} not found in format_registry — gate skipped"
+        return metrics
+
+    lo, hi = word_range
+    if word_count < lo:
+        deficit = lo - word_count
+        pct = word_count / lo * 100
+        raise WordCountGateError(
+            f"Word count gate FAILED for {source_hint}.\n"
+            f"  Runtime target : {runtime_format_id} → {lo:,}–{hi:,} words\n"
+            f"  Actual output  : {word_count:,} words ({pct:.0f}% of minimum)\n"
+            f"  Deficit        : {deficit:,} words\n\n"
+            f"Fix options (see docs/LONGFORM_STRATEGY.md):\n"
+            f"  1. Increase per-atom prose length (target 400–800 words for 6h builds).\n"
+            f"  2. Add a second STORY slot per chapter (doubles narrative content).\n"
+            f"  3. Enable multi-atom REFLECTION composition in format k-table."
+        )
+
+    if word_count > hi:
+        metrics["status"] = "warn_over"
+        metrics["note"] = f"Word count {word_count:,} exceeds max {hi:,} — review pacing"
+
+    return metrics
+
+
+class ChapterFlowGateError(ValueError):
+    """Raised when chapter flow gate is enforced and one or more chapters fail."""
+
+
+def _extract_rendered_chapters(rendered_text: str) -> list[tuple[int, str]]:
+    """
+    Split rendered manuscript by clean chapter headings ("Chapter N").
+    Returns list of (chapter_number, chapter_text_without_heading).
+    """
+    lines = rendered_text.splitlines()
+    chapters: list[tuple[int, str]] = []
+    current_num: Optional[int] = None
+    current_lines: list[str] = []
+    for line in lines:
+        m = re.match(r"^\s*Chapter\s+(\d+)\s*$", line.strip())
+        if m:
+            if current_num is not None:
+                chapters.append((current_num, "\n".join(current_lines).strip()))
+            current_num = int(m.group(1))
+            current_lines = []
+            continue
+        if current_num is not None:
+            current_lines.append(line)
+    if current_num is not None:
+        chapters.append((current_num, "\n".join(current_lines).strip()))
+    return chapters
+
+
+def chapter_flow_gate_report(rendered_text: str) -> dict[str, Any]:
+    """
+    Evaluate each rendered chapter with chapter_flow_gate and return summary report.
+    """
+    chapters = _extract_rendered_chapters(rendered_text)
+    chapter_reports: list[dict[str, Any]] = []
+    failed = 0
+    for chapter_number, chapter_text in chapters:
+        res = evaluate_chapter_flow(chapter_text)
+        if res.status != "PASS":
+            failed += 1
+        chapter_reports.append(
+            {
+                "chapter": chapter_number,
+                "status": res.status,
+                "score": res.score,
+                "errors": res.errors,
+                "warnings": res.warnings,
+                "metrics": res.metrics,
+            }
+        )
+    return {
+        "chapter_count": len(chapters),
+        "failed_chapters": failed,
+        "status": "PASS" if failed == 0 else "FAIL",
+        "chapters": chapter_reports,
+    }
+
+
+def _build_deficit_report(
+    plan: dict,
+    prose_map: dict[str, str],
+    runtime_format_id: str,
+) -> dict:
+    """Build a per-chapter, per-slot word-budget breakdown.
+
+    Returns a dict suitable for writing as budget.json alongside the rendered book.
+    """
+    chapter_slot_sequence = plan.get("chapter_slot_sequence") or []
+    atom_ids = plan.get("atom_ids") or []
+    word_range = _runtime_word_range(runtime_format_id)
+    target_total = word_range[0] if word_range else None
+    target_per_chapter = (target_total // len(chapter_slot_sequence)) if (target_total and chapter_slot_sequence) else None
+
+    chapters = []
+    slot_totals: dict[str, int] = {}
+    grand_total = 0
+    idx = 0
+
+    for ch_idx, slots in enumerate(chapter_slot_sequence):
+        ch_data: dict = {"chapter": ch_idx + 1, "slots": [], "chapter_word_count": 0}
+        for slot_type in slots:
+            if idx >= len(atom_ids):
+                break
+            aid = atom_ids[idx]
+            prose = prose_map.get(aid, "")
+            wc = len(prose.split()) if prose else 0
+            ch_data["slots"].append({"slot": slot_type, "atom_id": aid, "word_count": wc})
+            ch_data["chapter_word_count"] += wc
+            slot_totals[slot_type] = slot_totals.get(slot_type, 0) + wc
+            grand_total += wc
+            idx += 1
+
+        deficit = ((target_per_chapter - ch_data["chapter_word_count"]) if target_per_chapter else None)
+        ch_data["target_per_chapter"] = target_per_chapter
+        ch_data["chapter_deficit"] = deficit
+        chapters.append(ch_data)
+
+    return {
+        "runtime_format_id": runtime_format_id,
+        "word_range_target": list(word_range) if word_range else None,
+        "grand_total_words": grand_total,
+        "deficit_to_minimum": ((word_range[0] - grand_total) if word_range else None),
+        "slot_totals": slot_totals,
+        "chapters": chapters,
+    }
 
 
 @dataclass
@@ -160,6 +440,7 @@ class RenderOptions:
     title_page: bool = True
     include_slot_labels_qa: bool = False  # If True, emit [STORY] atom_id before prose (QA style)
     clean_output: bool = True         # Strip scaffolding + run delivery_contract_gate before write
+    mechanism_alias: Optional[dict] = None  # Loaded alias dict for {{MA}} token resolution
 
 
 def _get_prose(
@@ -251,6 +532,9 @@ class TxtWriter:
             lines.extend(_build_title_page_lines(self.plan))
 
         atom_sources = self.plan.get("atom_sources") or []
+        alias = self.options.mechanism_alias  # may be None
+        naming_moment_injected = False
+
         idx = 0
         for ch, slots in enumerate(chapter_slot_sequence):
             lines.append("")
@@ -275,9 +559,27 @@ class TxtWriter:
                     lines.append("")
                 lines.append(prose)
                 lines.append("")
+
+                # Inject mechanism alias naming_moment once, after the first HOOK in Chapter 1
+                if (
+                    not naming_moment_injected
+                    and ch == 0
+                    and slot_label == "HOOK"
+                    and alias
+                    and self.options.clean_output
+                ):
+                    naming_block = _build_naming_moment_block(alias)
+                    if naming_block:
+                        lines.append(naming_block)
+                        lines.append("")
+                        naming_moment_injected = True
+
             lines.append("")
 
         full_text = "\n".join(lines).strip()
+
+        # Resolve {{MA}}, {{MA_DEF}}, {{MA_FULL}} tokens before delivery gate
+        full_text = _resolve_mechanism_alias_tokens(full_text, alias)
 
         if self.options.clean_output:
             full_text = clean_for_delivery(full_text)
@@ -302,6 +604,8 @@ def render_book(
     title_page: bool = True,
     include_slot_labels_qa: bool = False,
     clean_output: bool = True,
+    enforce_word_count: bool = True,
+    enforce_chapter_flow: bool = False,
 ) -> dict[str, Path]:
     """
     Stage 6: resolve prose for plan and write requested formats to output_dir.
@@ -316,6 +620,16 @@ def render_book(
     clean_output=False:
       - Passes raw assembled text through (scaffold markers preserved).
       - No gate. Use for QA diffs and debugging.
+
+    enforce_word_count=True (default):
+      - Reads runtime_format_id from plan and compares rendered word count to word_range min.
+      - Writes a budget.json deficit report alongside every rendered book.
+      - Raises WordCountGateError if word count is below minimum.
+      - Set to False to skip gate (e.g. for short QA builds or atom-pool builds).
+
+    enforce_chapter_flow=False (default):
+      - Computes chapter flow report at output_dir/chapter_flow_report.json.
+      - If True and any chapter fails flow gate, raises ChapterFlowGateError.
     """
     formats = formats or ["txt"]
     output_dir = Path(output_dir)
@@ -340,19 +654,52 @@ def render_book(
             + (f" ... and {len(render_result.missing_ids) - 5} more" if len(render_result.missing_ids) > 5 else "")
         )
 
+    # Load mechanism alias for this persona × topic (gracefully no-ops if not found)
+    persona_id = (plan.get("persona_id") or (plan.get("book_spec") or {}).get("persona_id") or "").strip()
+    topic_id   = (plan.get("topic_id")   or (plan.get("book_spec") or {}).get("topic_id")   or "").strip()
+    alias = _load_mechanism_alias(persona_id, topic_id)
+
     options = RenderOptions(
         allow_placeholders=allow_placeholders,
         on_missing=on_missing,
         title_page=title_page,
         include_slot_labels_qa=include_slot_labels_qa,
         clean_output=clean_output,
+        mechanism_alias=alias,
     )
     written: dict[str, Path] = {}
+    runtime_format_id = (plan.get("runtime_format_id") or "").strip()
 
     if "txt" in formats:
         writer = TxtWriter(plan, render_result.prose_map, render_result, options)
         out_path = output_dir / "book.txt"
         writer.write(out_path)
         written["txt"] = out_path
+
+        # Word-count gate + slot-level deficit report (always written, gate optional)
+        rendered_text = out_path.read_text(encoding="utf-8")
+        flow_report = chapter_flow_gate_report(rendered_text)
+        flow_path = output_dir / "chapter_flow_report.json"
+        flow_path.write_text(json.dumps(flow_report, indent=2), encoding="utf-8")
+        written["chapter_flow_report"] = flow_path
+
+        if enforce_chapter_flow and flow_report.get("status") != "PASS":
+            first_fail = next((c for c in flow_report.get("chapters", []) if c.get("status") != "PASS"), None)
+            if first_fail:
+                raise ChapterFlowGateError(
+                    f"Chapter flow gate FAILED at chapter {first_fail.get('chapter')}: "
+                    + ", ".join(first_fail.get("errors") or ["UNKNOWN"])
+                )
+            raise ChapterFlowGateError("Chapter flow gate FAILED.")
+
+        deficit_report = _build_deficit_report(plan, render_result.prose_map, runtime_format_id)
+        budget_path = output_dir / "budget.json"
+        budget_path.write_text(json.dumps(deficit_report, indent=2), encoding="utf-8")
+        written["budget"] = budget_path
+
+        if enforce_word_count and runtime_format_id:
+            wc_metrics = word_count_gate(rendered_text, runtime_format_id, source_hint=str(out_path))
+            deficit_report["gate_result"] = wc_metrics
+            budget_path.write_text(json.dumps(deficit_report, indent=2), encoding="utf-8")
 
     return written

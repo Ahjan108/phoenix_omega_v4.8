@@ -45,8 +45,10 @@ python scripts/ci/run_prepublish_gates.py \
 This enforces the gate order:
 1. structural entropy
 2. platform similarity
-3. wave density
-4. prose duplication
+3. prose duplication
+4. wave density
+4a. **delivery gate** — book output no placeholders (PHOENIX_FREEBIE_SYSTEM_SPEC §10.6; `check_book_output_no_placeholders.py`)
+4b. series diversity
 5. similarity index append (only after gates pass)
 
 Checklist: `scripts/ci/PREPUBLISH_CHECKLIST.md`.

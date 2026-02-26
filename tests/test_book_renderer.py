@@ -14,6 +14,7 @@ from phoenix_v4.rendering.prose_resolver import (
     _slot_type_from_placeholder_or_silence,
 )
 from phoenix_v4.rendering.book_renderer import (
+    ChapterFlowGateError,
     RenderOptions,
     TxtWriter,
     render_book,
@@ -80,7 +81,7 @@ def test_render_book_txt_with_placeholders_allowed(tmp_path: Path) -> None:
     assert "txt" in written
     assert (tmp_path / "book.txt").exists()
     text = (tmp_path / "book.txt").read_text()
-    assert "CHAPTER 1" in text
+    assert "Chapter 1" in text
     assert "[Placeholder:" in text
 
 
@@ -98,3 +99,43 @@ def test_txt_writer_emits_missing_when_on_missing_placeholder() -> None:
     writer.write(out)
     assert "[Missing:" in out.read_text()
     out.unlink(missing_ok=True)
+
+
+def test_render_book_writes_chapter_flow_report(tmp_path: Path) -> None:
+    plan = {
+        "plan_hash": "flow_report_hash",
+        "atom_ids": ["placeholder:HOOK:ch0:slot0", "placeholder:STORY:ch0:slot1"],
+        "chapter_slot_sequence": [["HOOK", "STORY"]],
+    }
+    written = render_book(
+        plan,
+        tmp_path,
+        formats=["txt"],
+        allow_placeholders=True,
+        on_missing="placeholder",
+        title_page=False,
+        enforce_word_count=False,
+    )
+    assert "chapter_flow_report" in written
+    report = json.loads((tmp_path / "chapter_flow_report.json").read_text(encoding="utf-8"))
+    assert report["chapter_count"] >= 1
+    assert report["status"] in {"PASS", "FAIL"}
+
+
+def test_render_book_enforce_chapter_flow_raises(tmp_path: Path) -> None:
+    plan = {
+        "plan_hash": "flow_gate_fail_hash",
+        "atom_ids": ["placeholder:HOOK:ch0:slot0", "placeholder:STORY:ch0:slot1"],
+        "chapter_slot_sequence": [["HOOK", "STORY"]],
+    }
+    with pytest.raises(ChapterFlowGateError):
+        render_book(
+            plan,
+            tmp_path,
+            formats=["txt"],
+            allow_placeholders=True,
+            on_missing="placeholder",
+            title_page=False,
+            enforce_word_count=False,
+            enforce_chapter_flow=True,
+        )

@@ -1,0 +1,38 @@
+schema_version: '1.0'
+teacher_id: ahjan
+narrator_position: author_as_interpreter
+narrator_voice: The author describes how someone benefited from the teacher's teaching.
+  Third person for others.
+transformation_patterns:
+- pattern_id: recognition
+  description: Placeholder.
+  serves_mta:
+  - core_teaching_1
+  - core_teaching_2
+  typical_arc: stuck → encounter_teaching → shift
+- pattern_id: application
+  description: Placeholder.
+  serves_mta:
+  - core_teaching_1
+  typical_arc: apply → difficulty → partial_resolution
+persona_scenarios:
+  gen_z_professionals:
+  - Placeholder scenario.
+  healthcare_rns:
+  - Placeholder scenario.
+band_templates:
+  band_1_2:
+    shape: Early recognition.
+    resolution: Open.
+  band_3:
+    shape: Mechanism visible.
+    resolution: Partial.
+  band_4_5:
+    shape: Cost and complication.
+    resolution: Open loop.
+forbidden_moves:
+- Character has emotional breakthrough through journaling alone
+- Story ends with character feeling healed or fixed
+- Author claims direct lineage with teacher
+reviewed_by: null
+review_date: null

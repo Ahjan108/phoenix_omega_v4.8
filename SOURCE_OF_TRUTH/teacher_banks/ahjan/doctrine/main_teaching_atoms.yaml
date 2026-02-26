@@ -1,0 +1,57 @@
+schema_version: '1.0'
+teacher_id: ahjan
+extraction_date: '2026-02-26'
+reviewed_by: null
+review_date: null
+main_teaching_atoms:
+- teaching_statement: 'Placeholder: replace with teacher''s core idea.'
+  mechanism: 'Placeholder: how change works in this framework.'
+  counter_pattern: 'Placeholder: what this teaching corrects.'
+  story_seed: 'Placeholder: what a story proving this teaching looks like.'
+  exercise_seed: 'Placeholder: what a practice applying this teaching looks like.'
+  band_affinity: &id001
+  - 2
+  - 3
+  - 4
+  allowed_topics: &id002
+  - anxiety
+  - self_worth
+  tags: &id003
+  - placeholder
+  concept_id: core_teaching_1
+- teaching_statement: 'Placeholder: replace with teacher''s core idea.'
+  mechanism: 'Placeholder: how change works in this framework.'
+  counter_pattern: 'Placeholder: what this teaching corrects.'
+  story_seed: 'Placeholder: what a story proving this teaching looks like.'
+  exercise_seed: 'Placeholder: what a practice applying this teaching looks like.'
+  band_affinity: *id001
+  allowed_topics: *id002
+  tags: *id003
+  concept_id: core_teaching_2
+- teaching_statement: 'Placeholder: replace with teacher''s core idea.'
+  mechanism: 'Placeholder: how change works in this framework.'
+  counter_pattern: 'Placeholder: what this teaching corrects.'
+  story_seed: 'Placeholder: what a story proving this teaching looks like.'
+  exercise_seed: 'Placeholder: what a practice applying this teaching looks like.'
+  band_affinity: *id001
+  allowed_topics: *id002
+  tags: *id003
+  concept_id: core_teaching_3
+- teaching_statement: 'Placeholder: replace with teacher''s core idea.'
+  mechanism: 'Placeholder: how change works in this framework.'
+  counter_pattern: 'Placeholder: what this teaching corrects.'
+  story_seed: 'Placeholder: what a story proving this teaching looks like.'
+  exercise_seed: 'Placeholder: what a practice applying this teaching looks like.'
+  band_affinity: *id001
+  allowed_topics: *id002
+  tags: *id003
+  concept_id: core_teaching_4
+- teaching_statement: 'Placeholder: replace with teacher''s core idea.'
+  mechanism: 'Placeholder: how change works in this framework.'
+  counter_pattern: 'Placeholder: what this teaching corrects.'
+  story_seed: 'Placeholder: what a story proving this teaching looks like.'
+  exercise_seed: 'Placeholder: what a practice applying this teaching looks like.'
+  band_affinity: *id001
+  allowed_topics: *id002
+  tags: *id003
+  concept_id: core_teaching_5

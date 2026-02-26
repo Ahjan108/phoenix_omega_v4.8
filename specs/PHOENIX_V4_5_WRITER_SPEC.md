@@ -960,9 +960,13 @@ Asset word ranges: bio.yaml 120–180; why_this_book.yaml 150–250; authority_p
 
 **Separate from Teacher Mode Pre-Intro.** Applies to pen-name books only.
 
-The narrator reads the following blocks in order before Chapter 1: `narrator_intro`, `book_title_line`, `series_line` (omit if no series), `author_intro`, `author_background`, `why_this_book`, `transition_line`.
+The narrator reads the following blocks **in fixed order** before Chapter 1: `narrator_intro`, `book_title_line`, `series_line` (omit if no series), `author_intro`, `author_background`, `why_this_book`, `transition_line`. Order is never reordered; variation is inside each block (wording patterns only).
 
 **Content rules:** No marketing language; no transformation promises; no invented credentials; no first-person emotional appeals beyond lived context; must be persona-aware in `author_background` and `why_this_book`.
+
+**Book title / subtitle / series / author / narrator:** See [../docs/INTRO_AND_CONCLUSION_SYSTEM.md](../docs/INTRO_AND_CONCLUSION_SYSTEM.md) for how book title line, series mention, author intro, and narrator intro (AI voice) are sourced. When a naming engine supplies title/subtitle at compile time, it is used for `book_title_line`; if YAML has a fixed line that would differ, the build fails (no silent override).
+
+**Controlled variation (optional):** When intro/ending variation is enabled, some blocks may be chosen from per-brand pattern banks with caps and signature gates. See [INTRO_CONCLUSION_VARIATION_SPEC.md](./INTRO_CONCLUSION_VARIATION_SPEC.md) and [../docs/authoring/AUTHOR_ASSET_WORKBOOK.md](../docs/authoring/AUTHOR_ASSET_WORKBOOK.md) (stable vs dynamic blocks).
 
 **Assembly:** Identity Binding (e.g. Stage 2.5), before arc compile. See OMEGA_LAYER_CONTRACTS for schema extension.
 

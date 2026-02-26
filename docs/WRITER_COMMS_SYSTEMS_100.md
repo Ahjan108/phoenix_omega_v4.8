@@ -55,6 +55,7 @@
 ## 6. Single Source of Truth
 
 - **How to write:** [specs/PHOENIX_V4_5_WRITER_SPEC.md](../specs/PHOENIX_V4_5_WRITER_SPEC.md) — voice, atom types, TTS rules, gates, §23–§25.
+- **Intro/conclusion (book title, series, author, narrator, first/last chapter):** [docs/INTRO_AND_CONCLUSION_SYSTEM.md](INTRO_AND_CONCLUSION_SYSTEM.md); controlled variation: [specs/INTRO_CONCLUSION_VARIATION_SPEC.md](../specs/INTRO_CONCLUSION_VARIATION_SPEC.md).
 - **Arcs:** [specs/ARC_AUTHORING_PLAYBOOK.md](../specs/ARC_AUTHORING_PLAYBOOK.md).
 - **Config that constrains you:** config/topic_engine_bindings.yaml (engines per topic), config/topic_skins.yaml (prohibited terms), config/format_selection/ (formats and slots).
 

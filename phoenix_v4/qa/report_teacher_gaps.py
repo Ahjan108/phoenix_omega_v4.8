@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Report teacher coverage gaps for a planned book (plan + arc + teacher).
-Output: JSON with gaps by role (STORY bands, EXERCISE count) for gap_fill.py input.
-Authority: specs/TEACHER_MODE_V4_CANONICAL_SPEC.md §9, TEACHER_MODE_AUTHORING_PLAYBOOK.
+Output: JSON with gaps by role (STORY bands, EXERCISE count) and optional mta_coverage for gap_fill.py input.
+Authority: specs/TEACHER_MODE_V4_CANONICAL_SPEC.md §9, TEACHER_AUTHORING_LAYER_SPEC.md §8.2.
 """
 from __future__ import annotations
 
@@ -18,6 +18,10 @@ TEACHER_BANKS = REPO_ROOT / "SOURCE_OF_TRUTH" / "teacher_banks"
 
 def _approved_dir(teacher_id: str) -> Path:
     return TEACHER_BANKS / teacher_id / "approved_atoms"
+
+
+def _doctrine_dir(teacher_id: str) -> Path:
+    return TEACHER_BANKS / teacher_id / "doctrine"
 
 
 def _count_teacher_atoms_by_slot_and_band(teacher_id: str) -> tuple[dict[str, int], dict[str, dict[str, int]]]:
@@ -44,6 +48,95 @@ def _count_teacher_atoms_by_slot_and_band(teacher_id: str) -> tuple[dict[str, in
                 except Exception:
                     story_bands[slot]["3"] = story_bands[slot].get("3", 0) + 1
     return dict(slot_totals), {k: dict(v) for k, v in story_bands.items()}
+
+
+def _count_teacher_atoms_by_serves_mta(teacher_id: str) -> tuple[dict[str, int], dict[str, int]]:
+    """Count approved STORY and EXERCISE atoms per serves_mta (concept_id). Returns (story_by_mta, exercise_by_mta)."""
+    root = _approved_dir(teacher_id)
+    story_by_mta: dict[str, int] = defaultdict(int)
+    exercise_by_mta: dict[str, int] = defaultdict(int)
+    if not root.exists():
+        return dict(story_by_mta), dict(exercise_by_mta)
+    try:
+        import yaml
+    except ImportError:
+        return dict(story_by_mta), dict(exercise_by_mta)
+    for slot, mta_dict in [("STORY", story_by_mta), ("EXERCISE", exercise_by_mta)]:
+        slot_dir = root / slot
+        if not slot_dir.is_dir():
+            continue
+        for f in slot_dir.iterdir():
+            if f.suffix not in (".yaml", ".yml", ".json"):
+                continue
+            try:
+                data = yaml.safe_load(f.read_text()) or {}
+                mta = data.get("serves_mta")
+                if mta:
+                    if isinstance(mta, list):
+                        for c in mta:
+                            mta_dict[str(c)] = mta_dict.get(str(c), 0) + 1
+                    else:
+                        mta_dict[str(mta)] = mta_dict.get(str(mta), 0) + 1
+            except Exception:
+                continue
+    return dict(story_by_mta), dict(exercise_by_mta)
+
+
+def _load_main_teaching_atoms(teacher_id: str) -> list[dict] | None:
+    """Load main_teaching_atoms.yaml; return list of MTA dicts or None if missing."""
+    path = _doctrine_dir(teacher_id) / "main_teaching_atoms.yaml"
+    if not path.exists():
+        return None
+    try:
+        import yaml
+        data = yaml.safe_load(path.read_text()) or {}
+        atoms = data.get("main_teaching_atoms")
+        return atoms if isinstance(atoms, list) else None
+    except Exception:
+        return None
+
+
+def _compute_mta_coverage(
+    teacher_id: str,
+    plan: dict,
+    arc: dict,
+    slot_definitions: list,
+) -> dict[str, dict[str, int]] | None:
+    """
+    If arc has chapter_mta_assignments and main_teaching_atoms.yaml exists, compute per-MTA
+    required/available/gap for STORY and EXERCISE. Otherwise return None.
+    """
+    mta_list = _load_main_teaching_atoms(teacher_id)
+    chapter_assignments = arc.get("chapter_mta_assignments")
+    if not mta_list or not chapter_assignments or not isinstance(chapter_assignments, dict):
+        return None
+    # Required per MTA: number of chapters assigned that primary_mta
+    required_story: dict[str, int] = defaultdict(int)
+    required_exercise: dict[str, int] = defaultdict(int)
+    for ch_key, assign in chapter_assignments.items():
+        if not isinstance(assign, dict):
+            continue
+        mta = assign.get("primary_mta")
+        if not mta:
+            continue
+        required_story[mta] += 1
+        required_exercise[mta] += 1
+    story_by_mta, exercise_by_mta = _count_teacher_atoms_by_serves_mta(teacher_id)
+    out: dict[str, dict[str, int]] = {}
+    for cid in set(required_story) | set(required_exercise) | set(story_by_mta) | set(exercise_by_mta):
+        req_s = required_story.get(cid, 0)
+        req_e = required_exercise.get(cid, 0)
+        have_s = story_by_mta.get(cid, 0)
+        have_e = exercise_by_mta.get(cid, 0)
+        out[cid] = {
+            "required_stories": req_s,
+            "available_stories": have_s,
+            "gap_stories": max(0, req_s - have_s),
+            "required_exercises": req_e,
+            "available_exercises": have_e,
+            "gap_exercises": max(0, req_e - have_e),
+        }
+    return out if out else None
 
 
 def run_report(plan_path: Path, arc_path: Path, teacher_id: str) -> dict:
@@ -90,7 +183,7 @@ def run_report(plan_path: Path, arc_path: Path, teacher_id: str) -> dict:
     if required_exercise > have_exercise:
         gaps_exercise["total_missing"] = required_exercise - have_exercise
 
-    return {
+    report = {
         "teacher_id": teacher_id,
         "topic": plan.get("topic_id") or plan.get("topic", ""),
         "persona": plan.get("persona_id") or plan.get("persona", ""),
@@ -101,6 +194,10 @@ def run_report(plan_path: Path, arc_path: Path, teacher_id: str) -> dict:
             "EXERCISE": gaps_exercise if gaps_exercise else {"total_missing": 0},
         },
     }
+    mta_coverage = _compute_mta_coverage(teacher_id, plan, arc, slot_definitions)
+    if mta_coverage is not None:
+        report["mta_coverage"] = mta_coverage
+    return report
 
 
 def main() -> int:

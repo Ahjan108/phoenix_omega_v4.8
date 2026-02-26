@@ -98,6 +98,7 @@ def main() -> int:
     ap.add_argument("--render-book", action="store_true", help="Stage 6: render plan to prose (txt) after writing plan")
     ap.add_argument("--render-formats", default="txt", help="Comma-separated book output formats (default: txt)")
     ap.add_argument("--render-dir", default=None, help="Output dir for rendered book (default: artifacts/rendered/<plan_id>)")
+    ap.add_argument("--skip-word-count-gate", action="store_true", help="Bypass word count minimum gate (use when content density work is in progress)")
     ap.add_argument("--atoms-root", default=None, help="Atoms root (e.g. atoms/zh-TW). Default: repo atoms/")
     ap.add_argument(
         "--atoms-model",
@@ -646,6 +647,7 @@ def main() -> int:
     if compiled.slot_sig:
         out["slot_sig"] = compiled.slot_sig
     out["format_id"] = format_plan_dict.get("format_structural_id") or format_plan_dict.get("format_id") or ""
+    out["runtime_format_id"] = args.runtime_format or format_plan_dict.get("runtime_format_id") or ""
     out["locale"] = book_spec_for_compiler.get("locale", "en-US")
     out["territory"] = book_spec_for_compiler.get("territory", "US")
     out["atoms_model"] = effective_atoms_model
@@ -856,6 +858,7 @@ def main() -> int:
                     on_missing="fail",
                     title_page=True,
                     include_slot_labels_qa=False,
+                    enforce_word_count=not args.skip_word_count_gate,
                 )
                 for fmt, path in written.items():
                     print(f"Rendered book ({fmt}): {path}")

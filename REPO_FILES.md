@@ -66,7 +66,7 @@ Section and pack registries (e.g. grief section pack). Pipeline can point `SECTI
 
 ## atoms/
 
-Canonical story atoms by persona, topic, and engine. Path: `atoms/<persona>/<topic>/<engine>/CANONICAL.txt`. Personas: educators, nyc_executives, healthcare_rns, gen_alpha_students, gen_z_professionals. Used for assembly and coverage.
+Canonical story atoms by persona, topic, and engine. Path: `atoms/<persona>/<topic>/<engine>/CANONICAL.txt`. Personas: educators, nyc_executives, healthcare_rns, gen_alpha_students, gen_z_professionals (see config/catalog_planning/canonical_personas.yaml for active list). Used for assembly and coverage. **100% atoms sim test:** `tests/test_atoms_coverage_100_percent.py` — asserts every (persona, topic, engine) in the catalog has a non-empty STORY pool for all books; run `python3 tests/test_atoms_coverage_100_percent.py` from repo root; see docs/TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md §7.
 
 ---
 

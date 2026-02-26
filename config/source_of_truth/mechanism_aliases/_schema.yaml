@@ -1,0 +1,32 @@
+# mechanism_alias schema
+# One file per persona × topic combination.
+# Path: mechanism_aliases/{persona}/{topic}.yaml
+#
+# At render time the renderer resolves:
+#   {{MA}}      → short_form   (used inline throughout atoms)
+#   {{MA_DEF}}  → descriptor   (used when a one-liner definition is needed)
+#   {{MA_FULL}} → naming_moment (injected once into Chapter 1 as a NAMING beat)
+#
+# Authoring rules:
+#   - short_form: 2–5 words, lowercase, no punctuation. Should read naturally
+#     in a sentence: "that's {{MA}} at work" / "{{MA}} doesn't have an off switch"
+#   - descriptor: one sentence (≤20 words). What it does, not what it is.
+#   - naming_moment: 80–140 words. Three beats:
+#       1. SCENE — place the reader in a concrete, persona-specific situation
+#       2. BEHAVIOR — describe what the mechanism does in that situation
+#       3. NAME — introduce the short_form as the label for this pattern
+#     Write in present tense. No "you should" / "you need to". Observational voice.
+#   - forms: grammatical variants for natural prose
+#     (possessive, plural, verb_form are optional; used by advanced atom templates)
+
+# Required fields
+persona: ~         # string: e.g. gen_alpha_students
+topic: ~           # string: e.g. anxiety
+short_form: ~      # string: 2–5 words, the alias for "the mechanism"
+descriptor: ~      # string: ≤20 words, one sentence
+naming_moment: ~   # string: 80–140 word paragraph (or two short ones)
+
+# Optional
+forms:
+  possessive: ~    # e.g. "the notification spiral's"
+  verb_form: ~     # e.g. "spiraling"

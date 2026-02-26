@@ -217,9 +217,21 @@ Set **after** Stage 3 by the freebie planner. Arc unchanged. Planner may receive
 - **V4 Immersion types:** All immersion freebie types are in the registry with `output_formats`; document types have templates in SOURCE_OF_TRUTH/freebies/templates/; audio types (guided_audio, affirmations_audio, audio_journal_prompts) use pre-created assets only (no file_template). Video (MP4) deferred.
 - **Narrator support** and **KB-driven gap-fill** are documented in OMEGA_LAYER_CONTRACTS.md, docs/SYSTEMS_V4.md, and docs/PLANNING_STATUS.md §5.
 
+**CTA and freebie anti-spam (all documented in docs and specs):**
+
+| Item | Spec | Code / config | Docs |
+|------|------|----------------|------|
+| In-book CTA insertion point | §10.5 | Contract only; assembly/rendering must inject at back matter | SYSTEMS_V4.md §7, PLANNING_STATUS.md |
+| CTA signature index + caps (per brand/quarter) | §10 | `phoenix_v4/qa/cta_signature_caps.py`, `config/freebies/cta_anti_spam.yaml`, optional `artifacts/freebies/cta_signature_index.jsonl` | SYSTEMS_V4.md §7 table, V4_FEATURES_SCALE_AND_KNOBS.md |
+| Slug/CTA uniqueness thresholds | §10 | `config/freebies/cta_anti_spam.yaml` → `density_thresholds`; `phoenix_v4/qa/validate_freebie_density.py` loads when present | SYSTEMS_V4.md §7 table |
+| Delivery gate (no placeholders in book output) | §10.6 | `scripts/ci/check_book_output_no_placeholders.py`; wired in `run_prepublish_gates.py` step 4a | SYSTEMS_V4.md §6 (gate order), §7 table |
+| Wave CTA diversity (same style/slug share caps) | §10 | `phoenix_v4/ops/check_release_wave.py` (WavePlanRow.cta_template_id, slug_pattern; weekly_caps; anti_homogeneity weights); `config/release_wave_controls.yaml` | SYSTEMS_V4.md §7 table, V4_FEATURES_SCALE_AND_KNOBS.md |
+
 ---
 
 ## References
 
 - [OMEGA_LAYER_CONTRACTS.md](./OMEGA_LAYER_CONTRACTS.md) — BookSpec, FormatPlan, CompiledBook (freebie fields optional).
 - [docs/PLANNING_STATUS.md](../docs/PLANNING_STATUS.md) — Freebie pipeline status.
+- [docs/SYSTEMS_V4.md](../docs/SYSTEMS_V4.md) — §7 Freebie and asset pipeline; CTA and freebie anti-spam table (in-book CTA, CTA signature caps, delivery gate, wave CTA diversity).
+- [docs/V4_FEATURES_SCALE_AND_KNOBS.md](../docs/V4_FEATURES_SCALE_AND_KNOBS.md) — Freebie density gate, CTA signature caps, delivery gate, wave CTA diversity (scripts and config).

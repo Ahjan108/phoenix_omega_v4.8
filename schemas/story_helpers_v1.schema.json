@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "StoryHelpers",
+  "description": "Teacher Authoring Layer — story helpers (doctrine/story_helpers.yaml)",
+  "type": "object",
+  "required": ["schema_version", "teacher_id", "narrator_position", "narrator_voice", "transformation_patterns", "persona_scenarios", "band_templates", "forbidden_moves"],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": { "type": "string" },
+    "teacher_id": { "type": "string" },
+    "narrator_position": { "type": "string" },
+    "narrator_voice": { "type": "string" },
+    "transformation_patterns": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "required": ["pattern_id", "description", "serves_mta", "typical_arc"],
+        "properties": {
+          "pattern_id": { "type": "string" },
+          "description": { "type": "string" },
+          "serves_mta": { "type": "array", "items": { "type": "string" } },
+          "typical_arc": { "type": "string" }
+        }
+      }
+    },
+    "persona_scenarios": { "type": "object", "additionalProperties": { "type": "array", "items": { "type": "string" } } },
+    "band_templates": {
+      "type": "object",
+      "properties": {
+        "band_1_2": { "type": "object", "required": ["shape", "resolution"], "properties": { "shape": { "type": "string" }, "resolution": { "type": "string" } },
+        "band_3": { "type": "object", "required": ["shape", "resolution"], "properties": { "shape": { "type": "string" }, "resolution": { "type": "string" } },
+        "band_4_5": { "type": "object", "required": ["shape", "resolution"], "properties": { "shape": { "type": "string" }, "resolution": { "type": "string" } }
+      }
+    },
+    "forbidden_moves": { "type": "array", "minItems": 3, "items": { "type": "string" } }
+  }
+}

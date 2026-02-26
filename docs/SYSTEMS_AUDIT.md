@@ -76,6 +76,7 @@
 | **phoenix_v4/rendering/** | ✅ | Stage 6: prose_resolver (atom_id → prose from atoms/, compression_atoms, teacher_banks), book_renderer (TxtWriter, render_book). Used by render_plan_to_txt and run_pipeline --render-book. |
 | **scripts/render_plan_to_txt.py** | ✅ | QA: render plan JSON → .txt using Stage 6 (phoenix_v4.rendering); --allow-placeholders, --on-missing, --atoms-root. |
 | **phoenix_v4/planning/coverage_checker.py** | ✅ | capability_check over persona×topic; used in production gate 2b. |
+| **tests/test_atoms_coverage_100_percent.py** | ✅ | Sim test: every (persona, topic, engine) in catalog has non-empty STORY pool; run `python3 tests/test_atoms_coverage_100_percent.py` or pytest; exit 0 only when 100%; run_sim_test() for programmatic use. See docs/TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md §7. |
 | **phoenix_v4/planning/format_selector.py** | ✅ | FormatSelector; has `main()` for standalone use. |
 | **phoenix_v4/quality/story_atom_lint.py** | ✅ | Deterministic STORY atom lint (specificity, conflict, cost, pivot). --path (file or dir), --json-out, --fail-on. Run: `python -m phoenix_v4.quality.story_atom_lint`. |
 | **phoenix_v4/quality/transformation_heatmap.py** | ✅ | Per-chapter transformation signals (recognition, reframe, challenge, relief, identity_shift); ending strength. --file or --plan, --json-out, --ascii, --last-n. |

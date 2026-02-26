@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "score": 100,
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "paragraphs": 11,
+    "sentences": 36,
+    "transition_hits": 3,
+    "thesis_hits": 4,
+    "avg_adjacent_overlap": 0.059,
+    "sentence_len_std": 5.4
+  },
+  "seed": "genz-proof-01",
+  "output_path": "artifacts/proof_chapter/chapter_01.txt"
+}
