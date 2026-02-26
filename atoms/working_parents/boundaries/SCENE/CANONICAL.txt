@@ -1,12 +1,8 @@
-# working_parents × boundaries × scene_set
-# Slot type: SCENE
-# Count: 30
-# Voice: second-person present tense, sensory, one detail per sentence
-# Spec: max 10 words per sensory beat, min 2 location tokens, no emotional labeling, ends on action/sensory moment
-# Location tokens: {transit_line}, {street_name}, {weather_detail}
 
----
+
 ## SCENE v01 | work_call_interruption
+---
+
 ---
 You're on a client call.
 Your child appears at your office door.
@@ -24,6 +20,8 @@ You mouth "later" and turn back to the screen.
 
 ## SCENE v02 | partner_needs_response
 ---
+
+---
 Your partner texts: "Can you handle bedtime?"
 You're finishing a work project.
 The deadline is in two hours.
@@ -39,6 +37,8 @@ The clock says 5:47 PM.
 ---
 
 ## SCENE v03 | your_needs_bottom_priority
+---
+
 ---
 You mentioned needing to go to the dentist.
 You said it last week.
@@ -56,6 +56,8 @@ You don't call the dentist.
 
 ## SCENE v04 | family_meeting_ignored
 ---
+
+---
 You said Sunday dinner is family time.
 No screens, everyone present.
 You said this two weeks ago.
@@ -71,6 +73,8 @@ You eat in silence, you and whoever happens to be there.
 ---
 
 ## SCENE v05 | small_request_big_response
+---
+
 ---
 You ask your partner to pick up groceries.
 You give them a list.
@@ -88,6 +92,8 @@ You leave without speaking.
 
 ## SCENE v06 | child_boundary_test
 ---
+
+---
 Your child asks for something.
 You say no.
 They ask again, same question.
@@ -103,6 +109,8 @@ You leave the room before you change your mind.
 ---
 
 ## SCENE v07 | self_care_guilt
+---
+
 ---
 You want to take a bath.
 Your partner is working late.
@@ -120,6 +128,8 @@ You go fold laundry in the living room.
 
 ## SCENE v08 | late_night_conversation
 ---
+
+---
 Your partner wants to talk at 11 PM.
 They've been quiet all evening.
 You're exhausted.
@@ -135,6 +145,8 @@ You feel guilty and resentful at once.
 ---
 
 ## SCENE v09 | asking_for_help
+---
+
 ---
 You finally say: "I need support this week."
 Your partner nods.
@@ -152,6 +164,8 @@ You say never mind and change the subject.
 
 ## SCENE v10 | {weather_detail} errand_alone
 ---
+
+---
 You say you're going to the store.
 It's {weather_detail} and you could use the break.
 Your partner doesn't offer to come.
@@ -167,6 +181,8 @@ You drive slower than necessary.
 ---
 
 ## SCENE v11 | work_email_intrusion
+---
+
 ---
 Your phone buzzes during family dinner.
 Your partner sees you check it.
@@ -184,6 +200,8 @@ You weren't even going to check it.
 
 ## SCENE v12 | {street_name} solo_drive
 ---
+
+---
 You're driving on {street_name} without anyone in the car.
 You're going to the work meeting.
 You could let yourself feel the time.
@@ -199,6 +217,8 @@ You keep driving and calculating.
 ---
 
 ## SCENE v13 | mouth_shut_moment
+---
+
 ---
 Your partner suggests something for the weekend.
 It's not what you want.
@@ -216,6 +236,8 @@ They don't seem to notice the difference.
 
 ## SCENE v14 | child_asking_while_busy
 ---
+
+---
 Your child is asking you a question.
 You're in the middle of responding to a work message.
 They ask again.
@@ -231,6 +253,8 @@ But inside you're frustrated they interrupted.
 ---
 
 ## SCENE v15 | partner_criticism_timing
+---
+
 ---
 Your partner says something about how you handled bedtime.
 You're standing at the kitchen counter.
@@ -248,6 +272,8 @@ You go upstairs and close the door.
 
 ## SCENE v16 | {transit_line} carpool_pickup
 ---
+
+---
 You're picking up another parent's child.
 They're running late.
 You're already anxious about the timeline.
@@ -263,6 +289,8 @@ You're feeling anger that isn't about them.
 ---
 
 ## SCENE v17 | bathroom_locked_door
+---
+
 ---
 You lock yourself in the bathroom.
 Not because you need to use it.
@@ -280,6 +308,8 @@ You're just closed off.
 
 ## SCENE v18 | silent_night_resentment
 ---
+
+---
 You're sleeping next to someone.
 But you're alone in your anger.
 You're replaying the afternoon.
@@ -295,6 +325,8 @@ You turn to face the wall.
 ---
 
 ## SCENE v19 | school_form_boundary
+---
+
 ---
 The school wants a signature for an optional activity.
 It costs money you don't have.
@@ -312,6 +344,8 @@ Nobody's satisfied.
 
 ## SCENE v20 | night_shift_boundary
 ---
+
+---
 Your partner mentions they might travel for work.
 It's two weeks away.
 You're supposed to have the kids alone.
@@ -327,6 +361,8 @@ You both pretend you don't.
 ---
 
 ## SCENE v21 | email_after_bedtime
+---
+
 ---
 You're sitting on the couch after the kids sleep.
 Your partner is beside you scrolling.
@@ -344,6 +380,8 @@ You hate that it feels normal.
 
 ## SCENE v22 | child_interrupts_intimacy
 ---
+
+---
 You and your partner are finally close.
 Your child calls out from their room.
 You both freeze.
@@ -359,6 +397,8 @@ You lie beside them in the dark.
 ---
 
 ## SCENE v23 | comparison_with_friend
+---
+
 ---
 Your friend talks about their solo vacation.
 A week, just them.
@@ -376,6 +416,8 @@ You don't mention any of it.
 
 ## SCENE v24 | morning_resentment
 ---
+
+---
 You wake up and immediately start your list.
 Your partner rolls over and goes back to sleep.
 It's Saturday.
@@ -391,6 +433,8 @@ You're not sure when you decided this was your job alone.
 ---
 
 ## SCENE v25 | {weather_detail} moment_stolen
+---
+
 ---
 It's {weather_detail} and beautiful outside.
 You want to sit on the porch.
@@ -408,6 +452,8 @@ You go back to checking email.
 
 ## SCENE v26 | voice_small_again
 ---
+
+---
 You're telling your partner what you need.
 Your voice gets smaller with each word.
 You can hear yourself doing it.
@@ -423,6 +469,8 @@ You did.
 ---
 
 ## SCENE v27 | guilt_spiral_bedtime
+---
+
 ---
 You're enforcing a boundary with your child.
 They're upset.
@@ -440,6 +488,8 @@ You lie in bed later thinking about their tears.
 
 ## SCENE v28 | "we'll_talk_later" trap
 ---
+
+---
 You need to discuss something important.
 Your partner says "not right now."
 You say okay.
@@ -456,6 +506,8 @@ The silence feels safer than the conversation.
 
 ## SCENE v29 | partner_sleeps_through_child_call
 ---
+
+---
 Your child calls in the night.
 Your partner doesn't wake.
 You do.
@@ -471,6 +523,8 @@ You stay that way until dawn.
 ---
 
 ## SCENE v30 | permission_to_exist
+---
+
 ---
 You're sitting in the car in the driveway.
 You haven't turned off the engine.

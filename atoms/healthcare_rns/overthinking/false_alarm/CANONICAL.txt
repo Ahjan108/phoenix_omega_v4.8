@@ -1,51 +1,31 @@
-# healthcare_rns / overthinking / false_alarm
-# Slot type: STORY (engine)
-# Engine: false_alarm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the symptom that doesn't leave
-BAND: 1
-SEMANTIC_FAMILY: SF1
----
-My partner has a headache and I've immediately run through the differential. Tension headache. Dehydration. Hypertension. Aneurysm. I'm asking them about neck stiffness and fever and light sensitivity. I'm describing the symptoms of meningitis to someone who just has a headache from sitting at a computer too long. I'm performing clinical assessment on my own family. I can't turn it off. A patient comes in with chest pain and I understand intellectually that ninety-five percent of the time it's not cardiac. But my brain has been trained to think about the five percent. To scan for the dangerous diagnosis. And I can't untrain that. So I'm sitting with my family performing a clinical workup on every symptom. I'm asking about radiation and onset and character of the pain. I'm thinking about EKGs and troponin levels. And I'm scaring them. I'm making a headache into a medical emergency by examining it too closely. I'm turning a normal bodily sensation into a potential crisis. And I can't stop myself. My brain doesn't understand the difference anymore between the people I'm responsible for at the hospital and the people I'm responsible for at home. Everyone gets the clinical scan. Everyone gets the differential. Everyone gets the treatment of someone who might be sick.
----
-
-## STORY v02
----
-path: the hypervigilance that became normal
 BAND: 2
-SEMANTIC_FAMILY: SF2
+SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-I'm at the grocery store and I'm watching people's breathing. I'm noting who looks cyanotic. I'm assessing who looks acutely ill. I'm in the middle of my regular life and I'm running diagnostics on strangers. A cashier coughs and I'm noting the color of their sputum. An older man walks by slowly and I'm thinking about gait disturbance and fall risk. A child is sitting in the cart looking pale and I'm thinking about dehydration or sepsis. I can't see humans anymore without immediately assessing them for illness. This hypervigilance at work is necessary. It keeps people alive. But it's invaded my real life. I can't look at my kids without scanning them for symptoms. I can't listen to my partner talk about their day without running a mental diagnostic tree. I've become a human diagnostic machine that operates all the time. And the strange part is that mostly everything is fine. Everyone is fine. But I'm stuck in the mode that assumes they might not be. I'm living in a state of perpetual clinical alert because I've been trained by the job to always look for the worst-case scenario.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the false alarms that compound
-BAND: 3
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-I've called the doctor seventeen times about my kids' symptoms in the last six months. Most of the time it was nothing. Seventeen times I've gone into clinical-alert mode about a fever that was teething or a rash that was eczema or a cough that was a cold. And each time I was terrified that I was missing something. Each time I was running through the differential. Each time I was convinced that this time it was the serious diagnosis. And I've called the pediatrician so many times that I think she's starting to dread my calls. Because she knows that ninety-five percent of the time I'm catastrophizing. But I can't stop. I can't see a symptom and just accept that it's nothing. I have to run it through the filter of medical knowledge and imagine all the terrible things it could be. And then I have to call a doctor to reassure me that I'm overthinking. Which I am. But I can't stop. The false alarms are compounding. Everyone in my family knows that when I start asking clinical questions something is not about to be wrong but I'm about to convince myself that it is. And they're tired of it. I'm tired of it. But the clinical brain doesn't understand false alarms. It understands that missing one real alarm could be catastrophic. So it triggers constantly.
----
-
-## STORY v04
----
-path: the night you thought it was serious
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-My daughter had a fever last month. Hundred and two point three Fahrenheit. In the scheme of childhood fevers this is not alarming. It's literally a normal immune response. And I knew this clinically. I knew that a fever alone is not dangerous. I knew that the body's response to infection is fever. But I couldn't stop myself. I was running through the differential at midnight. Viral syndrome. Otitis media. Strep throat. Meningitis. I was checking her neck for stiffness. I was looking at her for petechiae. I was in clinical mode at two in the morning when my child just needed to sleep. I called the nurse line. They told me to give acetaminophen and call back if the fever persisted. I knew they were right. I knew that my response was disproportionate. But I couldn't shut off the part of my brain that was scanning for the worst outcome. I'd seen pediatric sepsis. I'd seen it progress. I'd seen how fast it could move. And even though I knew logically that my daughter was fine, I couldn't access that knowledge at three in the morning when I was convinced that I was missing something. I gave myself and my family a night of anxiety based on a perfectly normal fever. And I did it because my clinical training has overridden my ability to trust normal. The false alarm has become my default.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the vigilance that never rests
 BAND: 5
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-I've been in this hypervigilant state for so long that I don't know what normal feels like anymore. I can't be around people without running diagnostics. I can't be away from people without worrying that something is happening that I'm missing. I'm trapped between two forms of anxiety. The anxiety that someone is sick and I'm not there to catch it. The anxiety that I'm catastrophizing again and I'm going to alarm everyone for nothing. I'm stuck. I can't turn off the clinical assessment even though I know most of the time it's a false alarm. I can't trust that the false alarms are false because the one time they're not will be the one I missed. So I keep calling. Keep asking. Keep scanning. Keep running differentials on my family. And they're bearing the cost of my hypervigilance. They're living with someone who sees them as potential patients. Who's always half-ready for them to decompensate. Who can't just be present without running diagnostics. The false alarms aren't actually false to me. They're just early alerts that mostly don't materialize. But I have to treat every one like it might be the serious one. Because in the hospital that's what keeps people alive. In my personal life it's just destroying my ability to have normal relationships with the people I love.
+
 ---

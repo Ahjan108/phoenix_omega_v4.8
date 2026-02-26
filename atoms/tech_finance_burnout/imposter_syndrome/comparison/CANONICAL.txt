@@ -1,259 +1,101 @@
-# tech_finance_burnout / imposter_syndrome / comparison
-# Slot type: STORY (engine)
-# Engine: comparison
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: Your peer just got promoted and you didn't
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You found out through the company announcement. Your peer got promoted. Same level as you. Same start date. Same experience.
-
-They got promoted and you didn't.
-
-You're trying to understand why. You're thinking about what they have that you don't. You're thinking about what you're missing.
-
-Maybe they're smarter. Maybe they're better at politics. Maybe they're just better.
-
+RECOGNITION v02
 ---
 
-## STORY v02
----
-path: You see someone's salary and it's more than yours
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You find out what someone makes. It's more than you. They have the same role. They might have less experience.
-
-The gap is real. The gap is proof that you're being undervalued.
-
-Or maybe you're just not good enough to make that much.
-
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: Someone solved a problem faster than you would have
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-A colleague jumped into a problem. They solved it in minutes. You would have taken hours.
-
-You're thinking about how fast they are. You're thinking about how much faster they are than you. You're thinking about the gap.
-
+RECOGNITION v04
 ---
 
-## STORY v04
----
-path: Your old classmate is doing better than you
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-You checked on your old classmate. They're further ahead. They're at a better company. They're making more money. They're more successful.
-
-You were supposed to be the one who did well. You were supposed to be the smart one.
-
-But they're doing better.
-
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: You're on a video call with more senior people
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Everyone on the call is more senior than you. Everyone has more experience. Everyone sounds like they know more.
-
-You're listening. You're noticing how much more they understand. You're noticing the gaps in your knowledge.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v06
----
-path: Someone gets recognition for work you could have done
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-Someone gets credit for a project. You were involved in the project. But they got the credit.
-
-You're comparing the two of you. You're thinking about whether you could have done what they did. You're thinking about whether they're actually better.
-
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: You see someone's GitHub and it's impressive
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-You look at someone's public GitHub. The projects are impressive. The code is clean. The contributions are prolific.
-
-You look at your own GitHub. It's less impressive. It's less prolific. It's less.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v08
----
-path: Someone talks about their side project and you have none
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-Someone mentions their side project. They're building something. They're creating. They're growing.
-
-You don't have a side project. You're just working. You're not building anything on your own.
-
-The comparison makes you feel like you're not ambitious enough.
-
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: You're looking at your peers' accomplishments on LinkedIn
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-You're scrolling LinkedIn. Everyone's posting about promotions. Everyone's posting about new roles. Everyone's posting about wins.
-
-You're comparing. You're calculating. You're seeing how much less you have to post about.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v10
----
-path: You realize someone with less experience is more accomplished
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-Someone junior to you is shipping more. Someone junior to you is getting more recognition. Someone junior to you seems to be advancing faster.
-
-How is that possible. What are they doing that you're not.
-
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: You're in a room and you're the least accomplished person
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-You're at a conference. You're at a meetup. You're in a room full of engineers.
-
-And you're the least impressive person there. Everyone else has done more. Everyone else has shipped more. Everyone else has advanced further.
-
+TURNING_POINT v02
 ---
 
-## STORY v12
----
-path: You compare your trajectory to the ideal
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-You're where you're supposed to be by age. You're on track. You're doing okay.
-
-But the ideal is further. The ideal is what you could have done. The ideal is what you're not.
-
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: You see what your former manager is doing now
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-Your former manager left the company. They went somewhere bigger. They got a better title. They're advancing faster.
-
-They started at the same level as you. They're now ahead. You're comparing. You're calculating. You're seeing the gap.
-
+TURNING_POINT v04
 ---
 
-## STORY v14
----
-path: Someone gets an offer you turned down
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-Someone took an offer. The offer is at a prestigious company. The offer is impressive.
-
-You turned down a similar offer. You made a different choice. And now you're wondering if you chose wrong.
-
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: You're the only one who doesn't have expertise in that area
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Everyone on the team has deep expertise in something. Everyone has a specialty. Everyone is known for something.
-
-You don't have a specialty. You're generalist. You're less than everyone else's specialization.
-
+EMBODIMENT v01
 ---
 
-## STORY v16
----
-path: You calculate the salary gap and it's more than you thought
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-You talk to someone about money. The salary gap is bigger than you expected. Over a lifetime, the difference is enormous.
-
-You're thinking about what it would take to close the gap. You're thinking about whether you ever will.
-
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: You see someone's wealth and realize how far behind you are
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You find out that someone is buying a house. Someone is buying a car. Someone is investing aggressively.
-
-You're stuck. You're not advancing. You're behind.
-
+EMBODIMENT v03
 ---
 
-## STORY v18
----
-path: You're comparing yourself to a version of you that doesn't exist
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-You're comparing yourself to the you that could have been. The version that made different choices. The version that's further ahead.
-
-That version of you is more successful. That version of you is winning.
-
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: You feel like everyone's leaving you behind
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-Everyone's advancing. Everyone's getting better jobs. Everyone's making more money. Everyone's having success.
-
-You're staying still. You're falling behind. You're not winning.
-
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: You stop comparing for a day and then start again
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-You decide to stop comparing. You decide to focus on your own path.
-
-And it works for a day. And then you see someone's announcement. And then you're comparing again.
-
-The comparison is a habit. The comparison is how you measure yourself.
-
-You're going to have to break the habit. But first you're going to compare one more time.
-

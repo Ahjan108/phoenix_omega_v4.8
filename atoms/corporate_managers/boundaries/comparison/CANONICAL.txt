@@ -1,225 +1,101 @@
-# corporate_managers / boundaries / comparison
-# Slot type: STORY (engine)
-# Engine: comparison
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the peer who left at five
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: pre_awareness---
 ---
-Someone you work with leaves at five. Every day. Five o'clock. They pack up. They go home. And the comparison is that they're doing something that you can't seem to do. Or won't. And the comparison is to the person you are when you're still there at six. Seven. Still working. And the comparison is that they've decided that five is enough. That work ends at five. And their career is still happening. They're still advancing. And the comparison is that maybe the thing you think is necessary isn't. Maybe the extra hours aren't creating the advantage you think they are. Maybe the person who leaves at five is actually smarter than the person who stays until seven.
----
-
----
-
-## STORY v02
----
-path: the manager with a hobby
-BAND: 1
-SEMANTIC_FAMILY: SF3
----
-Someone mentioned their hobby. They do something. Something that takes time. Something that's not work. And the comparison is immediate. When do they have time for that. And the answer is that they make time. They protect time. They have boundaries that you don't have. And the comparison is that they're the kind of person who has a life outside of work. And you're the kind of person who doesn't. And the comparison is about what's possible. What's possible if you decide that there's something important enough to protect time for.
+RECOGNITION v02
 ---
 
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: the one who says no
-BAND: 1
-SEMANTIC_FAMILY: SF1
----
-There's someone who declines meetings. Who doesn't say yes to every request. Who seems to have decided that their time is valuable. And the comparison is that they're okay being that person. The person who says no. And you're not okay being that person. And the comparison is that they're not being fired for saying no. They're not being sidelined. They're still advancing. And the comparison is that maybe the boundary is not the risk you think it is. Maybe the risk is the lack of boundary. Maybe the risk is the yes to everything.
----
-
----
-
-## STORY v04
----
-path: the person with presence
 BAND: 2
-SEMANTIC_FAMILY: SF4
+SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-When they're in a meeting, they're in the meeting. You can tell. They're not checking their phone. They're not thinking about the seventeen other things. They're just... there. And the comparison is to the way you're in meetings. Partially. Distracted. Present but not present. And the comparison is that their presence is a kind of wealth. And your distraction is a kind of poverty. And the comparison is that the presence might be possible if you protected it.
+RECOGNITION v04
 ---
 
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: the manager who's energized
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: pre_awareness---
 ---
-Someone seems happy. Engaged. They talk about their team with something like joy. And the comparison is that you talk about your team with something like exhaustion. And the comparison is that the difference might be boundaries. The difference might be the ability to step away. The difference might be the practice of not being always on. And the comparison is that they've chosen a different way and they seem better for it.
----
-
----
-
-## STORY v06
----
-path: the email they didn't send
-BAND: 2
-SEMANTIC_FAMILY: SF5
----
-There was a problem. And someone else didn't respond immediately. They took time. They probably set it down. They probably stepped away. And when they came back, they solved it differently. More thoughtfully. And the comparison is that your immediate response is not always the best response. And the comparison is that maybe the boundary serves a purpose. Maybe it creates space for better thinking.
+MECHANISM_PROOF v01
 ---
 
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the schedule that's different
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-You looked at someone's calendar. They have blocks. Blocked time. Time where nothing can be scheduled. Time that's protected. And the comparison is that your calendar is a patchwork. It's available. It's permeable. And the comparison is that the protected time might be the thing that makes the difference. Might be the thing that allows them to actually do work. While you're trapped in the meetings about the work.
----
-
----
-
-## STORY v08
----
-path: the person who's been here longer
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-Someone has been in this kind of role for ten years. Longer than you. And they have boundaries. More boundaries than you. And the comparison is that they've learned. They've figured out what's necessary and what's not. They've figured out that the boundary is what allows the career. Not the sacrifice. And the comparison is that they're the future version of you. If you learn. If you figure out the boundaries.
+MECHANISM_PROOF v03
 ---
 
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: what they're not doing
-BAND: 3
-SEMANTIC_FAMILY: SF1
----
-You're monitoring Slack at all hours. You're answering email on the weekend. You're thinking about work on the vacation. And someone else isn't. Someone else has decided that those things are not part of the job. And the comparison is that they've decided something you haven't. And the comparison is that the decision is available to you. You could decide the same thing. But you haven't. And the comparison is that the difference between them and you is the decision. And the decision is yours to make.
----
-
----
-
-## STORY v10
----
-path: the person you admire
 BAND: 4
-SEMANTIC_FAMILY: SF2
+SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-There's someone you admire. For competence. For presence. For seeming to have it together. And if you looked more carefully, you'd notice that they have boundaries. That they've decided what matters and what doesn't. That they've protected something. And the comparison is that maybe the thing you admire about them is not the work they do. It's the way they do it. The presence. The attention. The ability to be all there. And the comparison is that the presence requires the boundary.
+MECHANISM_PROOF v05
 ---
 
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the leaving at the right time
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-Someone is leaving when they should leave. When the work is done. Or when the hours are done. And the comparison is that you're leaving when there's nothing else you can do. When you've given everything. And the comparison is that the difference is the boundary. The difference is the decision to leave even if there's work that could be done. And the comparison is that making that decision is possible. It's available to you.
----
-
----
-
-## STORY v12
----
-path: the energy they still have
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-At the end of the week, they still have energy. And the comparison is that you don't. And the comparison is that the energy difference might be the boundary difference. And the comparison is that the energy is what allows them to be better. To lead better. To think better. And the comparison is that maybe the thing you think is weakness, the boundary, is actually what creates strength.
+TURNING_POINT v02
 ---
 
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the career that's different
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: experimentation---
 ---
-Their career looks different from yours. Not worse. Different. They advanced at a different pace. But they're further along in terms of presence. In terms of sustainability. In terms of knowing what the job is and what it isn't. And the comparison is that maybe career advancement is not the measure that matters. And the comparison is that maybe the measure is something else. Something about the quality of the doing. Not the quantity.
----
-
----
-
-## STORY v14
----
-path: the relationship they have with work
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-They have a relationship with work that's... different. It's not love. It's not resentment. It's just work. It's something they do. Something they do well. And then they stop. And the comparison is to your relationship with work. Which is consuming. Which is all-encompassing. Which doesn't have an off switch. And the comparison is that maybe the difference is the boundary. Maybe the boundary creates the healthy relationship.
+TURNING_POINT v04
 ---
 
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the person who's aging differently
-BAND: 5
+BAND: 3
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: experimentation---
 ---
-Someone is aging well. Not just physically. But they seem okay. Stable. Present. And the comparison is to how you're aging. You're aging differently. Faster maybe. Stressed. And the comparison is that the difference might be cumulative. The difference might be the slow toll of no boundaries. And the comparison is that you're watching the cost. And you're seeing it. And you're still not stopping.
----
-
----
-
-## STORY v16
----
-path: the gap that's widening
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-The gap between you and the person with boundaries is widening. Not in competence. In something else. In quality of life. In presence. In the ability to actually lead instead of just manage. And the comparison is that you're watching the gap widen and you're not crossing it. And the comparison is that the crossing would require changing something. And the comparison is that you're not ready to change. But the gap is still widening.
+EMBODIMENT v01
 ---
 
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the thing they decided
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-They decided that there are things more important than work. Or at least as important. And the comparison is that you haven't decided that. And the comparison is that the decision is the thing that makes the difference. Not the job. Not the company. The decision about what matters. And the comparison is that their decision looks stronger than yours. Their decision looks smarter. And the comparison is that the decision is available to you.
----
-
----
-
-## STORY v18
----
-path: the version of them you want to be
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-You want to be like them. Have what they have. The boundaries. The presence. The seeming ease with how they move through work. And the comparison is that the wanting is a signal. The wanting is telling you something about what's missing. And the comparison is that what's missing is the boundary. And the boundary is something you could build. But you're using the comparison as a way to avoid the building.
+EMBODIMENT v03
 ---
 
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the choice that looks harder than it is
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-The choice to have boundaries looks harder than it probably is. The comparison is making it harder. Because the comparison is saying if you have boundaries, you'll be less. You'll be left behind. And the comparison is making the choice seem impossible. And the comparison is the wall between you and what you want. And the comparison keeps the wall in place.
+EMBODIMENT v05
 ---
-
----
-
-## STORY v20
----
-path: the path not taken
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-You're looking at their path. The path with boundaries. And you're comparing it to your path. The path without. And the comparison is that you're on the harder path. And the comparison is that you could switch. But the switching would require admitting that you chose wrong. And the comparison is that the admission is harder than the path. So you stay on the harder path. And you compare. And you stay.
----
-

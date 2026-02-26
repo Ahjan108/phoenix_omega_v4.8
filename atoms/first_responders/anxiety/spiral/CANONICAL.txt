@@ -1,5 +1,4 @@
-# first_responders × anxiety × spiral
-# 20 atoms: 5 recognition, 5 mechanism_proof, 5 turning_point, 5 embodiment
+
 
 ## RECOGNITION v01
 ---
@@ -11,17 +10,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
 Jake made a mistake. Small. Procedural. Nothing that hurt anyone. But his mind has launched into spiral. What if someone reports it? What if it goes on my record? What if I lose my job? What if I can't do this job? His hands are shaking. His chest is tight. One small mistake has triggered a cascade of what-ifs. Each one feeding into the next. His mind is running scenarios of career destruction. His body is responding to the imagined future as if it's happening now.
-
-## RECOGNITION v02
+RECOGNITION v02
 ---
-path: story_atoms/first_responders/anchored/anxiety/spiral/recognition/micro/v02.txt
-BAND: 3
-MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: pre_awareness
----
-Sofia's call resulted in a patient who sued. The case is pending. Sofia is spiraling. What if I lose the case? What if my insurance doesn't cover it? What if the department blames me? What if they fire me? The spiral is feeding itself. Each thought triggers the next worse thought. Her mind is in the future where everything has gone wrong. Her body is living that future now. Chest tight. Stomach clenched. She can't sleep.
 
 ## RECOGNITION v03
 ---
@@ -33,17 +23,8 @@ COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
 Marcus didn't catch something. The senior paramedic caught it during shift debrief. It was nothing. But Marcus's mind spiraled. What if I'd missed something more serious? What if I killed someone? What if that's who I am now—the guy who misses things? The spiral has convinced him that one near-miss is evidence of a fundamental flaw. His hands are shaking. His mind won't land.
-
-## RECOGNITION v04
+RECOGNITION v04
 ---
-path: story_atoms/first_responders/anchored/anxiety/spiral/recognition/micro/v04.txt
-BAND: 2
-MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: pre_awareness
----
-Kyle said something wrong in the station. Made a joke that didn't land. Now he's spiraling. Do they think I'm an idiot? Are they talking about me? Is this going to affect how they see me? The spiral is feeding on itself. One awkward moment has become evidence of social failure. His mind is racing through scenarios of rejection. His body is tense.
 
 ## RECOGNITION v05
 ---
@@ -55,17 +36,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
 Heather gave a direct command that the rookie questioned. She's spiraling. Does he not trust my judgment? Is my authority compromised? Will the whole unit see me as weak now? The spiral has taken one moment of questioning and turned it into evidence of leadership failure. Her chest is tight. Her jaw clenches.
-
-## MECHANISM_PROOF v01
+MECHANISM_PROOF v01
 ---
-path: story_atoms/first_responders/anchored/anxiety/spiral/mechanism_proof/micro/v01.txt
-BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: identity
-COST_INTENSITY: 4
-IDENTITY_STAGE: destabilization
----
-Jake's spiral has been running for three days now. The mistake is still small. Still nothing happened. But the spiral has created a narrative: I'm going to lose this job. I'm going to be unemployed. I'm going to be marked as someone who can't handle the job. Each thought is building on the previous one. He's not sleeping. He's showing up to work but his mind is in catastrophe. The senior officers notice he's off. But he can't explain. How do you explain: I'm spiraling about something that's fine?
 
 ## MECHANISM_PROOF v02
 ---
@@ -77,17 +49,8 @@ COST_INTENSITY: 4
 IDENTITY_STAGE: destabilization
 ---
 Sofia's spiral is consuming her. The lawsuit is real. The spiral is making it bigger. She's now convinced she'll lose everything. Her reputation. Her job. Her career. The spiral is feeding on itself. She's checking the law firm's website multiple times a day. Each visit makes it worse. She's researching worst-case scenarios. The more she researches, the more real the catastrophe becomes. She's isolating. The crew notices she's withdrawn. But she can't explain the spiral.
-
-## MECHANISM_PROOF v03
+MECHANISM_PROOF v03
 ---
-path: story_atoms/first_responders/anchored/anxiety/spiral/mechanism_proof/micro/v03.txt
-BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 4
-IDENTITY_STAGE: destabilization
----
-Marcus is spiraling so deeply he can't do his job. He's overthinking every call. Checking twice. Checking three times. The spiral has convinced him he's incompetent. The senior paramedic notices. Asks if he's okay. Marcus lies. He can't admit: one small miss has spiraled into me thinking I'm fundamentally broken. The spiral is now affecting his performance. Which feeds the spiral. Which makes his performance worse.
 
 ## MECHANISM_PROOF v04
 ---
@@ -99,17 +62,8 @@ COST_INTENSITY: 4
 IDENTITY_STAGE: destabilization
 ---
 Kyle's spiral about the joke is still running. Now he's re-analyzing everything he says. Every interaction is potential evidence of social failure. The spiral has him second-guessing himself constantly. He's quieter now. He's trying not to make mistakes. But the trying is visible. The crew notices. And now the spiral has evidence: they're noticing my awkwardness. Which makes him more awkward. The spiral is self-fulfilling.
-
-## MECHANISM_PROOF v05
+MECHANISM_PROOF v05
 ---
-path: story_atoms/first_responders/anchored/anxiety/spiral/mechanism_proof/micro/v05.txt
-BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: destabilization
----
-Heather is spiraling about the rookie's question. She's now questioning all her decisions. Is she actually a good leader? The spiral has taken one moment and made it evidence of fundamental incompetence. She's second-guessing everything. Her presence is less steady. The crew notices. Which feeds the spiral. She's now convinced her entire leadership is compromised.
 
 ## TURNING_POINT v01
 ---
@@ -121,17 +75,8 @@ COST_INTENSITY: 4
 IDENTITY_STAGE: experimentation
 ---
 Jake stops spiraling by interrupting the spiral. When the thought comes—career is over—he asks: is that actually true right now? The answer is no. The mistake happened. Nothing bad resulted. His job is fine. The spiral stops when he brings it to the present. He still feels anxious. But the spiral has broken. He can function again. He practices this. When the spiral tries to start, he brings himself back to what's actually true.
-
-## TURNING_POINT v02
+TURNING_POINT v02
 ---
-path: story_atoms/first_responders/anchored/anxiety/spiral/turning_point/micro/v02.txt
-BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
----
-Sofia talks to a lawyer. The lawyer tells her: the case is standard. Most cases like this get resolved. Sofia realizes: the spiral took a normal legal situation and made it catastrophic in her mind. The lawyer's calm assessment breaks the spiral. The case is still pending. But Sofia is no longer in the catastrophic future. She's back in the present where the case is just a case. The spiral is still trying to pull her forward. But she has a baseline now.
 
 ## TURNING_POINT v03
 ---
@@ -143,17 +88,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: experimentation
 ---
 Marcus talks to Dex about the small miss. Dex says: happens to everyone. One miss doesn't make you broken. Marcus realizes: the spiral took a normal situation and spun it into character evidence. The spiral stops when Marcus realizes the spiral was the problem, not the miss. He still checks carefully. But he's no longer spiraling. He's just being careful.
-
-## TURNING_POINT v04
+TURNING_POINT v04
 ---
-path: story_atoms/first_responders/anchored/anxiety/spiral/turning_point/micro/v04.txt
-BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: identity
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
----
-Kyle speaks deliberately in the station. Says something small. Observes: no one cares. No one reacted badly. The joke from days ago is completely forgotten. The spiral stops because Kyle brought evidence from the present that contradicts the spiral's narrative. The crew doesn't think he's socially incompetent. They're just living their lives. The spiral can't survive reality.
 
 ## TURNING_POINT v05
 ---
@@ -165,17 +101,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: experimentation
 ---
 Heather makes another decision confidently. The rookie accepts it. She realizes: one question doesn't mean authority is compromised. The spiral was spinning fiction. The crew is still here. Still responsive. The decision was fine. The leadership is fine. The spiral stops when she realizes the spiral is the narrative, not reality.
-
-## EMBODIMENT v01
+EMBODIMENT v01
 ---
-path: story_atoms/first_responders/anchored/anxiety/spiral/embodiment/micro/v01.txt
-BAND: 1
-MECHANISM_DEPTH: 4
-COST_TYPE: identity
-COST_INTENSITY: 2
-IDENTITY_STAGE: self_claim
----
-Jake knows the spiral now. When it starts, he doesn't fight it. He just observes: here's the spiral. It's not real. It's my anxious mind doing its thing. He brings himself back to the present. The spiral still happens. But it's faster now. He's not trapped in the catastrophic future. He's available now.
 
 ## EMBODIMENT v02
 ---
@@ -187,17 +114,8 @@ COST_INTENSITY: 2
 IDENTITY_STAGE: self_claim
 ---
 Sofia is managing the case now. Not spiraling. The spiral tried multiple times. But she has a container for it. She knows: the spiral is how my anxiety works. It's not evidence. She's dealing with the real case, not the spiraled version. The case will resolve how it resolves.
-
-## EMBODIMENT v03
+EMBODIMENT v03
 ---
-path: story_atoms/first_responders/anchored/anxiety/spiral/embodiment/micro/v03.txt
-BAND: 2
-MECHANISM_DEPTH: 4
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: self_claim
----
-Marcus does his job. Carefully. Not obsessively. The spiral tried to make him obsessive. But he knows now: one miss is just one miss. Not character. His work is steady. His mind is clearer.
 
 ## EMBODIMENT v04
 ---
@@ -209,14 +127,5 @@ COST_INTENSITY: 2
 IDENTITY_STAGE: self_claim
 ---
 Kyle speaks in the station now without rehearsing. The spiral is much smaller. He's present. He's social. He's fine. The evidence is in the actual responses from the crew. Not the spiral's fiction.
-
-## EMBODIMENT v05
+EMBODIMENT v05
 ---
-path: story_atoms/first_responders/anchored/anxiety/spiral/embodiment/micro/v05.txt
-BAND: 2
-MECHANISM_DEPTH: 4
-COST_TYPE: social
-COST_INTENSITY: 2
-IDENTITY_STAGE: self_claim
----
-Heather leads with conviction now. The spiral was trying to convince her she was incompetent. The evidence is: the unit functions. The calls are managed. The crew respects her. That's the real narrative. The spiral's fiction is gone.

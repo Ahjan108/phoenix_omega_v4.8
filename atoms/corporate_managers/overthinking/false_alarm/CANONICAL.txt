@@ -1,205 +1,101 @@
-# corporate_managers / overthinking / false_alarm
-# Slot type: STORY (engine)
-# Engine: false_alarm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the email that meant nothing
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You got an email from your director. No subject line. Just your name and "can we sync tomorrow." Your stomach dropped. Sync. That word means something. That word means evaluation. That word means maybe things are going badly. You spent the rest of the day in low-level panic. Trying to think what you'd done wrong. What metrics were off. What decision was being questioned. The next morning you sat down for the sync and she just needed to discuss a cross-functional project. The email had nothing to do with your performance. But you'd already spiraled. You'd already created the problem in your head.
-
----
-
-## STORY v02
----
-path: the notification
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-Your phone dinged. A notification from someone on your team. "Need to discuss the Q3 plan." In your head: they're upset. They're going to tell me something bad. They're going to ask for something I can't give. You immediately started problem-solving. You were tense. You were ready to defend. And then they showed you the draft and it was good. They just wanted feedback. But you'd already spent twenty minutes in a threat state over a notification.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the canceled meeting
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-A meeting got canceled. A one-on-one with someone. They reschedule it for next week. Your brain immediately went to: why. Are they unhappy. Is there a problem I don't know about. You spent the time between now and next week wondering. By the time the meeting happened, you were prepared for bad news. The actual conversation was fine. Just a scheduling conflict on their end. But you'd managed to create anxiety out of a calendar change.
-
----
-
-## STORY v04
----
-path: the silence after you spoke
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-You said something in a meeting. You thought it was smart. And then there was silence. A few seconds. And in those seconds, your brain created an entire narrative. You said something dumb. People think you're not as competent as you pretend to be. You're going to be found out. Then someone replied and you realized the silence was just thinking time. But you'd already died a thousand deaths in those few seconds.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the pattern-matching brain
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Something that happened once is probably going to happen again. Your brain is connecting dots that probably aren't actually connected. One person gave you critical feedback in a performance review. Now every piece of feedback feels like the beginning of a performance plan. Every comment sounds like criticism. Your threat-detection system is on overdrive. Creating patterns where there are none. Creating danger where there's just regular work interaction.
-
----
-
-## STORY v06
----
-path: the thing you interpreted wrong
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-Someone said something. And you interpreted it in the worst possible way. They were probably joking. Or they probably meant it differently. But you took it the way that made you feel worst. And you carried that interpretation all day. You replayed it. You created narrative around it. You prepared a response for the next time you saw them. And then you found out you misunderstood. But that was only after you'd spent hours in a negative emotional state based on a false interpretation.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the innocent question that wasn't innocent in your head
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-Your boss asked how a project was going. A normal question. But your brain inserted sinister intent. She's questioning whether you have it under control. She's monitoring you because she doesn't trust you. She's going to find something to criticize. You got defensive in your answer. You over-explained. You were too eager to prove everything was fine. And later you realized she was probably just making conversation. But your interpretation had created a threat that wasn't there.
-
----
-
-## STORY v08
----
-path: the metric that looked bad until it didn't
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-You looked at your team's numbers mid-quarter. They looked lower than expected. Your brain immediately started catastrophizing. This is going to miss targets. You're going to have to explain this to your director. Your credibility is going to take a hit. You spiraled for hours. And then you checked again and realized the numbers hadn't updated correctly. Or you'd been looking at last year's data. The threat you created was completely imaginary. But you'd spent hours in panic state before discovering that.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the feedback that was actually feedback
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-Someone gave you feedback. Constructive feedback. About something specific you could improve. And your brain immediately elevated it to: this person thinks I'm bad at my job. This person doesn't believe in me. This is going on my record. You created a whole narrative of rejection and failure out of what was actually just helpful information. And because you were in threat mode, you interpreted every subsequent interaction with that person through the lens of their "disappointment" in you. But they probably forgot about the feedback five minutes after they gave it.
-
----
-
-## STORY v10
----
-path: the absence of communication
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-No one has talked to you in a while. And your brain interprets that as bad. If things were going well, they'd be checking in. The fact that they're not means something is wrong. You're flying under the radar. You're not being valued. But the absence of negative communication isn't actually communication. It's just absence. And you're creating meaning out of nothing. Worst-case meaning. Threat-based meaning.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the reassurance that didn't work
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Someone told you that you're doing fine. That your performance is good. That everything is on track. And part of you believed them. But another part of your brain immediately thought: they're just saying that. They're being nice. If I were actually performing well, I would know it. I would feel it. So now I'm even more worried because the reassurance didn't reassure me. It just made me paranoid about what they're not saying.
-
----
-
-## STORY v12
----
-path: the normal tension that became a crisis
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-There's normal workplace tension. Some disagreement about an approach. Someone advocating for something you don't think is right. And your brain turns that into: conflict. Escalation. You're going to lose this fight. You're going to be overruled and proven wrong. But actually, it was just a normal discussion. People disagreed. The work moved forward. But you spent the interaction in fight mode. Creating an enemy where there was just a colleague with a different opinion.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the crisis that never materialized
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-You predicted something bad was going to happen. You prepared for it. You worried about it. You talked yourself through scenarios. And then the thing didn't happen. Or it happened differently than you predicted. Or it was handled fine. And you realized you'd spent all that energy on a false alarm. But now you're already wired. You're already in crisis mode. And the system won't down-regulate just because the crisis was fake.
-
----
-
-## STORY v14
----
-path: the physical response to nothing
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-Your body responded to the threat. Heart racing. Tension in your shoulders. Adrenaline. And there was no actual threat. Just your brain telling your body something dangerous was happening. And now you're stuck with the physiological response. Adrenaline in your system looking for something to do. And you're exhausted because your body just ran a marathon for a threat that didn't exist.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the false alarm that made you seem paranoid
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-You created a problem in your head and you acted on it. You brought it up to someone. You asked about something that didn't need asking about. You revealed your anxiety to people who didn't know you were anxious. And now they think you're hypervigilant. They think you're not grounded in reality. They think you're seeing problems that aren't there. Which is accurate. But now they know that about you.
-
----
-
-## STORY v16
----
-path: the cumulative effect of false alarms
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-It's happened so many times that your threat-detection system is permanently elevated. You're always scanning for danger. Every piece of communication is potentially a threat. You're never quite sure what's real and what's your brain overinterpreting. You're living in a state of constant low-level alert. And it's exhausting. And you don't know how to turn it off.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the moment when you questioned your judgment
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You realized you can't trust your own threat detection anymore. When something feels like a crisis, it might be. Or it might not be. You have no way to know. So you've started second-guessing your instincts. That might be good. It might prevent you from overreacting. Or it might mean you miss actual problems because you're too busy questioning whether they're real. Either way, you've lost confidence in your own perception.
-
----
-
-## STORY v18
----
-path: the fear of the system breaking down
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-Your threat-detection system has become unreliable. And you're terrified. Because what if there's actually a real threat and you miss it because you've cried wolf so many times. What if something really bad is actually happening and you dismiss it as a false alarm. The system that's supposed to protect you has become a liability. And now you're anxious about your anxiety.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the exhaustion of always being on alert
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-You're tired. Not regular tired. Hypervigilance tired. Alert tired. The kind of tired that comes from constantly scanning for danger that usually isn't there. Your nervous system is in a permanent state of activation. And even when there's no crisis, you're braced for one. You're waiting for the alarm that's probably going to turn out to be false. But you can't stop preparing.
-
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: the loss of the ability to distinguish real from false
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-Everything feels like a crisis until it's over. And by the time it's over, you've moved on to the next potential crisis. You're stuck in a loop of alarm and relief and alarm. And you don't know if you're actually good at threat detection or if you're terrible at it. You don't know if your instincts are protecting you or destroying you. You're just trapped in the constant activation.
-

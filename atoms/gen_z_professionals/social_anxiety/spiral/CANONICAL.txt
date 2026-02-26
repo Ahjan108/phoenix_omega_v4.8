@@ -1,8 +1,4 @@
-# gen_z_professionals × social_anxiety × spiral
 
-SPIRAL engine for social_anxiety: The post-interaction spiral. They said something in the meeting — was it stupid? Did people notice? What did that look mean? The spiral replicates the interaction dozens of times, each replay finding new evidence of failure. For gen_z professionals, the spiral often happens via text review: re-reading Slack messages they sent, parsing emoji responses, analyzing reply speed. Digital traces make the spiral replicable.
-
----
 
 ## Recognition v01
 ---
@@ -14,17 +10,8 @@ COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
 Alex said something in the standup. It was a comment about code architecture. The comment was reasonable. But now, three hours later, Alex is replaying it. Did the tone sound right? Did people think it was obvious? The replay is automatic. The brain has decided the comment needs to be audited. Alex's chest tightens with each replay. The comment is slightly different each time Alex replays it. In the original, Alex sounded competent. In the replay, Alex sounds defensive. In the next replay, condescending. The replays are generating evidence of failure. Alex didn't say anything actually wrong, but the spiral has decided there might be something wrong. The body responds to the spiral as if the thing actually happened. The neck becomes stiff. The shoulders rise. Alex is living through the mistake repeatedly.
-
-## Recognition v02
+Recognition v02
 ---
-path: story_atoms/gen_z_professionals/social_anxiety/spiral/recognition/micro/v02.txt
-BAND: 4
-MECHANISM_DEPTH: 2
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: pre_awareness
----
-Jordan sent a Slack message an hour ago. The message was asking for clarification on a project timeline. The message was professional. But Jordan checks the response. The response is short. A single sentence. No emoji. Jordan's body immediately tenses. The short response means Jordan is being difficult. The no-emoji means the person is annoyed. Jordan replays the original message. Does it sound pushy? Does it sound like Jordan doesn't trust them? The message looks fine in the original reading. But the short response has recontextualized it. Now Jordan is looking for the problem in the message. The spiral is already active. Jordan's jaw clenches. The reply speed is being analyzed. They responded quickly — that's good, right? Or does the quick response mean they're annoyed and want to end the conversation? Jordan's hands are moving toward the phone to re-read the exchange again.
 
 ## Recognition v03
 ---
@@ -36,17 +23,8 @@ COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
 Priya made a joke in the meeting. It landed. People laughed. Priya felt good for approximately three minutes. Then the spiral activated. Was it the right kind of joke? Did someone laugh out of politeness? Did the joke reveal something about Priya that Priya didn't intend to reveal? The original moment of success is being dismantled by the spiral. Priya's body begins to experience the moment as if it failed. The stomach feels queasy. The armpits become slightly damp. Priya is having a physical anxiety response to a moment that was actually successful. The spiral is not just memory — it's a reconstruction that generates real physical symptoms. Priya is getting stressed about whether she got stressed.
-
-## Recognition v04
+Recognition v04
 ---
-path: story_atoms/gen_z_professionals/social_anxiety/spiral/recognition/micro/v04.txt
-BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: identity
-COST_INTENSITY: 2
-IDENTITY_STAGE: pre_awareness
----
-Sam said they'd be available for a call, but then had to cancel. Sam sent a professional message explaining. The message was clear and apologetic. Now Sam is spiraling through the message. Did it come across as casual? Did it seem like Sam doesn't care about the meeting? Sam's identity is being questioned by Sam. Sam is not a reliable person. This is now evidence. Sam's stomach is tight. The shame is present. Sam has done nothing wrong, but the spiral is generating shame about the cancellation. The shame becomes shame about being someone who needs to cancel. The shame becomes shame about Sam's reliability as a person. The spiral is not about the specific event anymore — it's about whether Sam is fundamentally inadequate. The body carries this whole spiral.
 
 ## Recognition v05
 ---
@@ -58,7 +36,6 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
 Marcus sent an email to a client. The email was clear and professional. Marcus re-reads it three times before sending. Marcus's hands are shaking slightly. The stakes are high. The client is important. The email went. Marcus checks for a response. There's no response yet. But the spiral has already started. Did the email sound too formal? Did it sound cold? Does the lack of immediate response mean the client is disappointed? Marcus's body is mobilized for a threat. The threat is that Marcus communicated badly. The threat is that Marcus ruined something. The threat is not real yet, but the body is responding as if it is. The chest is tight. The mind is generating scenarios. In all of them, Marcus has failed.
-
 ---
 
 ## Mechanism_Proof v01
@@ -71,17 +48,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
 Alex replays the comment obsessively. Each replay is slightly different. Each replay provides new information about what went wrong. The replays are multiplication of the same moment. Alex is not learning anything from the replays. The replays are just deepening the sense of error. Alex's body is tightening around the error. The mechanism is that the spiral generates evidence of failure by re-examining the original statement. The original statement doesn't change. But the interpretation of it keeps getting worse. Alex is no longer sure what was actually said. Alex is sure what it means: Alex is not good at this. The shoulder blades are practically meeting. The head aches from the concentration of the loop. The mechanism is self-generating. The more Alex replays, the more evidence Alex finds. The more evidence Alex finds, the more replays seem necessary.
-
-## Mechanism_Proof v02
+Mechanism_Proof v02
 ---
-path: story_atoms/gen_z_professionals/social_anxiety/spiral/mechanism_proof/micro/v02.txt
-BAND: 4
-MECHANISM_DEPTH: 4
-COST_TYPE: social
-COST_INTENSITY: 4
-IDENTITY_STAGE: destabilization
----
-Jordan opens the Slack exchange again. The second re-read produces new information. The first message was fine. But the second message — Jordan's follow-up — that sounds desperate. That sounds like Jordan is worried. That sounds like Jordan is doubting the person. Jordan's stomach drops. The mechanism is that each re-read finds a new problem. The original problem was in Jordan's perception of the response. The new problem is in Jordan's own messages. Jordan is now the source of the failure. Jordan's jaw is clenched so hard that the teeth ache. Jordan's hands are shaking slightly. Jordan wants to send another message to clarify. But clarifying would require acknowledging that something went wrong. The mechanism is that the spiral produces a need to fix, but the fixing would require exposing the spiral. Jordan is trapped. The body is experiencing this as physical entrapment. The chest is constricted.
 
 ## Mechanism_Proof v03
 ---
@@ -93,17 +61,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
 Priya is now spiraling about the spiral. The joke was fine. The spiral is the problem. The spiral is revealing anxiety. The anxiety is revealing that Priya is someone who spirals. The mechanism is self-referential. The spiral is becoming evidence of brokenness. Priya is not broken, but the spiral is telling Priya that she is. Priya's body is responding to the story the spiral is telling. The story is that Priya is someone who can't handle social success. The body tightens around this story. Priya's breathing becomes shallower. The mechanism is that the spiral is not just about one moment — it's about what the spiral reveals about character. Priya is now in a second-order spiral. The first spiral was about the joke. The second spiral is about the spiraling itself. Each level of spiral seems to reveal deeper failure.
-
-## Mechanism_Proof v04
+Mechanism_Proof v04
 ---
-path: story_atoms/gen_z_professionals/social_anxiety/spiral/mechanism_proof/micro/v04.txt
-BAND: 4
-MECHANISM_DEPTH: 4
-COST_TYPE: identity
-COST_INTENSITY: 4
-IDENTITY_STAGE: destabilization
----
-Sam is now spiraling about canceling. The spiral has constructed a narrative. Sam is unreliable. Sam has always been unreliable. This moment is evidence of a pattern. The mechanism is that the spiral is creating a pattern out of a single incident. Sam's body is experiencing this as identity confirmation. Sam is someone who can't follow through. The shame is accumulating. Sam shouldn't have said yes to the call in the first place. Sam knew the availability was uncertain. Sam caused this. The mechanism is that the spiral is generating blame that attaches to Sam's character. The chest is hollow. Sam's hands are pressed against the stomach. The body is feeling the shame the spiral has produced. The mechanism is that shame prevents action. Sam can't fix the situation because the spiral has made it about who Sam is, not what Sam did.
 
 ## Mechanism_Proof v05
 ---
@@ -115,7 +74,6 @@ COST_INTENSITY: 4
 IDENTITY_STAGE: destabilization
 ---
 Marcus is generating scenarios based on no information. The email was sent six hours ago. No response is available. The mechanism is that the absence of information creates a vacuum that the spiral fills. Marcus's brain is generating possible responses. Most of them are negative. Marcus is imagining the client's disappointment. Marcus is imagining the email being forwarded with criticism. Marcus is imagining the client deciding to switch vendors. None of this has happened. All of it feels like it's happening. The body is experiencing the scenarios as real. Marcus's heart is beating slightly faster. The palms are beginning to sweat. The mechanism is that the spiral doesn't require facts — it generates them. Marcus is not waiting for information anymore. Marcus is creating it. The creation feels involuntary. Marcus has lost the ability to be uncertain. The uncertainty has been filled with threat.
-
 ---
 
 ## Turning_Point v01
@@ -128,17 +86,8 @@ COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
 Alex asks someone directly. Alex says: I made a comment in the standup about architecture. The comment is now being replayed as wrong. Can you tell me if it was actually wrong? The asking is the turning point. Alex is interrupting the spiral with external reality. The person responds: your comment was fine. It was helpful. The response doesn't fully convince Alex, but it introduces doubt into the spiral. The spiral requires certainty. The certainty that the thing was definitely wrong. The external perspective introduces uncertainty into that certainty. Alex's body relaxes slightly. The certainty of wrongness is the only thing that keeps the spiral alive. The moment the certainty is questioned, the spiral begins to lose power. Alex's shoulders drop slightly. The mechanism is reversing.
-
-## Turning_Point v02
+Turning_Point v02
 ---
-path: story_atoms/gen_z_professionals/social_anxiety/spiral/turning_point/micro/v02.txt
-BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 2
-IDENTITY_STAGE: experimentation
----
-Jordan stops re-reading the messages. Jordan knows the spiral. Jordan recognizes the pattern. The pattern is: short response activates spiral, re-reading generates evidence, evidence generates shame, shame generates more re-reading. Jordan interrupts this by putting the phone down. The not-reading is an experiment. The not-reading is the opposite of what the spiral is demanding. The spiral is demanding clarification. The not-reading is refusing to provide it. Jordan's body is anxious about the refusal. But underneath the anxiety is a kind of strength. Jordan is choosing reality over the spiral. The person sent a short response because they were busy. That's the actual fact. The short response doesn't mean anything about Jordan. The not-reading allows Jordan to know this. The mechanism is reversing because Jordan is refusing to feed it.
 
 ## Turning_Point v03
 ---
@@ -150,17 +99,8 @@ COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
 Priya acknowledges the spiral. Priya notices: I'm spiraling about a moment that was actually good. The noticing is the turning point. The spiral usually happens invisibly. The making visible of it changes it. Priya is no longer the spiral — Priya is observing the spiral. The observation creates space. There's Priya and there's the spiral. The spiral is a thing that happens, not a thing that Priya is. Priya's body softens. The identification with the spiral is loosening. Priya says: I'm spiraling. This is what spirals feel like. This is not truth. This is just spiral. The mechanism is reversing because the spiral is being named as a separate process rather than reality.
-
-## Turning_Point v04
+Turning_Point v04
 ---
-path: story_atoms/gen_z_professionals/social_anxiety/spiral/turning_point/micro/v04.txt
-BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: identity
-COST_INTENSITY: 2
-IDENTITY_STAGE: experimentation
----
-Sam stops accepting the narrative about unreliability. Sam acknowledges: I had to cancel one call. This doesn't make me unreliable. This makes me human. The rejection of the narrative is a turning point. The narrative was constructed by the spiral. The spiral was generating a pattern out of a single incident. Sam is refusing to accept the pattern. Sam's body recognizes this refusal as self-defense. The chest opens slightly. The shame begins to decrease because Sam is no longer accepting the story that produced the shame. Sam canceled a call. Sam is not defined by this. The mechanism is reversing because the spiral's narrative is being rejected.
 
 ## Turning_Point v05
 ---
@@ -172,7 +112,6 @@ COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
 Marcus stops generating scenarios. The no-response is not information. The no-response is absence. Marcus is practicing tolerance for the absence. The practice is uncomfortable. The practice is also the reversal. The mechanism of the spiral is scenario-generation. By stopping the generation, Marcus is interrupting the mechanism. Marcus doesn't know if the email went well. Marcus also doesn't know if it went badly. The unknowing is where Marcus settles. The body's activation decreases when the scenarios stop being generated. The heart rate normalizes. The palms dry. Marcus is choosing present reality over projected futures. The mechanism is reversing because the fuel for the spiral — the scenarios — is being withdrawn.
-
 ---
 
 ## Embodiment v01
@@ -185,17 +124,8 @@ COST_INTENSITY: 1
 IDENTITY_STAGE: self_claim
 ---
 Alex still makes comments in standups. The comments are no longer automatically followed by replay spirals. Sometimes the spiral starts. Alex has learned to interrupt it quickly. Alex asks or moves on. The body knows this pattern now. The shoulders don't automatically tighten. The moment doesn't become a recurring event. Alex can speak and move forward. The spiral is no longer the default response to being heard.
-
-## Embodiment v02
+Embodiment v02
 ---
-path: story_atoms/gen_z_professionals/social_anxiety/spiral/embodiment/micro/v02.txt
-BAND: 2
-MECHANISM_DEPTH: 2
-COST_TYPE: social
-COST_INTENSITY: 1
-IDENTITY_STAGE: self_claim
----
-Jordan sends messages and puts the phone away. The messages exist in the world. Jordan is no longer replicating them in the spiral. The jaw is looser. The hands are steady. Jordan is available to receive responses, but Jordan is not generating them privately. The difference is freedom. Jordan's body knows when to put the phone down. The putting-down is automatic now.
 
 ## Embodiment v03
 ---
@@ -207,17 +137,8 @@ COST_INTENSITY: 1
 IDENTITY_STAGE: self_claim
 ---
 Priya makes jokes and lets them land. She doesn't spiral backward through the moment. The moment exists and then it's over. Priya's body is loose. Priya is present for the next moment instead of replaying the last one. The spiraling is not completely gone, but it's not the default response anymore. Priya can move through social situations without being dragged backward.
-
-## Embodiment v04
+Embodiment v04
 ---
-path: story_atoms/gen_z_professionals/social_anxiety/spiral/embodiment/micro/v04.txt
-BAND: 2
-MECHANISM_DEPTH: 2
-COST_TYPE: identity
-COST_INTENSITY: 1
-IDENTITY_STAGE: self_claim
----
-Sam knows she can cancel sometimes and not be fundamentally unreliable. The knowing is in the body. Sam's spine is straighter. Sam doesn't spiral through single incidents into character assassination. Sam is not defined by individual moments. Sam is a whole person who sometimes succeeds and sometimes doesn't. The acceptance is stable.
 
 ## Embodiment v05
 ---
@@ -229,4 +150,4 @@ COST_INTENSITY: 1
 IDENTITY_STAGE: self_claim
 ---
 Marcus can send emails and tolerate the wait. The wait is not filled with scenarios. The wait is just waiting. Marcus's body is relaxed into this. The email will receive a response or it won't. The response will be positive or it won't. Marcus is no longer generating the response in advance. Marcus is available to actual responses. The chest is open. The mind is present. Marcus can work on the next thing.
-
+---

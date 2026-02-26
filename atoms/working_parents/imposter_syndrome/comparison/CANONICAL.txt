@@ -1,206 +1,101 @@
-# working_parents / imposter_syndrome / comparison
-# Slot type: STORY (engine)
-# Engine: comparison
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the colleague without kids who got the promotion
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Your colleague got promoted. The same position you were considering for. They don't have kids. They can work late. They can travel. They can focus completely on work. You have kids. You can't work late because of pickup. You can't travel because of logistics. You can't focus because part of your brain is always on parent mode. They had the advantage. They got promoted because they could give more. Because they didn't have to divide their attention. You can't compete. You're at a disadvantage. You can't beat someone who isn't juggling two lives.
-
----
-
-## STORY v02
----
-path: the parent who seems to have it all figured out
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-There's a parent at your child's school. She seems to have it all figured out. Her kids are well-behaved. Well-dressed. She volunteers. She seems calm. Her career seems to be going well. You can't figure out how she does it. You're struggling with half of what she's managing. Is she just better at this. Is she just smarter. More organized. More capable. You're looking at her and seeing everything you can't do. She's the standard and you're falling short. She's the proof that this is possible. And you're the proof that you're not capable.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the work mom who has a nanny
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Your colleague has a nanny. That's how she does it. She has help. She can work late and go to meetings without worrying about pickup. She can have a full career because she has childcare. You don't have a nanny. You can't afford a nanny. So you have to do it all yourself. You're at a disadvantage. She has an advantage you can't access. So of course she's more successful. Of course she's more present at work. Of course she got the promotion. She doesn't have to choose between parenting and working. She just works. While you're stuck managing both.
-
----
-
-## STORY v04
----
-path: the woman who never seems exhausted
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-There's someone in your life. A friend. A colleague. Someone who has kids and a career and she never seems tired. She has energy. She has presence. She's engaged. How is she not exhausted. How is she still smiling at the end of the day. You're falling apart and she's thriving. Is there something she's doing that you're not. Is there some secret. Some technique. You're comparing yourself to her and coming up short. You feel like you're drowning and she's swimming. What's wrong with you.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the colleague who advanced while you stalled
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You and your colleague started at the same place. Same role. Same level. Then you had kids and you scaled back. You went part-time. You stopped traveling. Your career froze. Her career kept going. She got promotions. She got opportunities. She's ahead of you now. Significantly ahead. You used to be peers. Now she's leading and you're following. The gap is getting bigger. And you can see it. Every meeting. Every opportunity she gets that you didn't. You're falling behind. And it's because of the kids. Because of the choice you made.
-
----
-
-## STORY v06
----
-path: the parent who gets the projects you wanted
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-There's a project. A good one. You wanted it. But the manager gave it to someone else. Someone without kids. Someone who can dedicate the time. Someone who won't have to leave early for pickup. Someone who can work weekends if needed. You would have wanted it. You would have been good at it. But you couldn't commit the hours. So it went to someone who could. You're comparing your partial availability to their full availability and you're losing. You'll always lose this comparison.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the friend who has fewer kids and more career
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-Your friend has one kid. You have two. She seems to be doing fine. Her career is moving forward. She has time for things. You have two kids and you're drowning. Is it the extra child. Is that what's doing it. Or is it just that you're worse at this than her. You're comparing your two-kid situation to her one-kid situation and wondering if you'd be okay with one. If you could handle it. If you made the wrong choice having the second one. The comparison is making you question your own life.
-
----
-
-## STORY v08
----
-path: the mother who seems to enjoy motherhood
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-There's a mother who seems to actually enjoy it. She plays with her kids. She's engaged. She's present. She seems to like them. You love your kids. But you don't always enjoy them. Sometimes you tolerate them. Sometimes you resent them. Sometimes you're just trying to get through the day. And here's this mother who seems to genuinely love this phase of parenting. You're comparing your resentment to her joy. And you're failing. You should be enjoying this more. She is. What's wrong with you.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the peer who's further along
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-Someone you used to know from school is further along than you are. Different career. Different success level. Different place in life. You're comparing where you are to where they are and you're behind. They don't have kids. They took a different path. They took risks you didn't take. And it paid off. You took the safe path. You had kids. And you're behind. You're reading their updates and feeling like you failed. Like you made the wrong choices. Like you're not successful enough.
-
----
-
-## STORY v10
----
-path: the woman who works full-time and parents perfectly
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-There's a woman who works full-time. She has well-behaved kids. She seems present. Her house seems clean. She seems happy. And you're thinking. How is she doing this. What is she doing differently. You work and you parent and you feel like you're failing at both. She seems to be excelling at both. Is she just better. Is she just more capable. Is she just smarter about time management. Or is she lying and you just can't see it. Either way you're comparing yourself to her and losing.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the colleague who gets to travel for work
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Your colleague gets to go to conferences. Gets to travel for work. Gets to have experiences outside of home and office. You can't travel because of the kids. Because of logistics. Because of cost. She gets to expand her mind. Get new perspectives. Network. And you get to stay home. You're stuck. You're comparing her expanding world to your contracting one. And you're falling behind. In experience. In perspective. In the kind of growth that happens from being out in the world.
-
----
-
-## STORY v12
----
-path: the comparison to who you used to be
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-You're comparing yourself to you. The version of you before kids. That person was going places. That person had ambitions. That person was succeeding. Now you're comparing present you to past you. And present you is failing. You've lost ground. You've lost momentum. You've become someone less than who you were. The person in the mirror is not the person you expected to be at this age. The person you used to be is beating the person you are now.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the man at work with kids who advanced
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-There's a man at work. He has kids. Same number maybe. But he's advancing. He got promoted. He got the project. He's moving forward while you're stuck. Is it because he's a man. Is it because people expect more from him and less from him at the same time. Is it because his partner manages the household. Is it because he's just better at compartmentalizing. You're comparing his trajectory to yours and his is going up. Yours is flat. And you don't know why. You don't know what he's doing differently.
-
----
-
-## STORY v14
----
-path: the parent mentor who seems perfect
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-There's someone you look up to. A parent at the school. A colleague. Someone who seems to be doing it all right. They're your model. You're trying to be like them. But they're so far ahead. So much more capable. So much more together. You're comparing yourself to them and you're nowhere close. They're the standard and you're the failure. You can see the gap. Every time you talk to them. Every time you observe them. They're the person you want to be and you're the person you are. And there's a massive distance between those two things.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the success of someone who looks like they shouldn't have succeeded
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Someone you know from before kids. Same background. Same education. Same starting point. But they don't have kids. And they're wildly successful. And you're... not. They took a different path and the path paid off. You can see where the two roads diverged. And you chose the road that leads here. To this place. Where you're not as successful as your peer. You're comparing your life to their life and you chose the harder one.
-
----
-
-## STORY v16
----
-path: the woman with more kids than you who's doing better
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-There's a woman who has three kids. And two jobs. And she seems fine. More than fine. She's thriving. You have two kids and one job and you're drowning. How is she doing this. What is she doing that you're not. Is she superhuman. Does she not need sleep. Does she not feel overwhelmed. She's the proof that this is possible. And you're the proof that you're not capable. You're comparing her three-kid life to your two-kid life and she's winning.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the moment you realize you'll never catch up
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You realize you won't catch up to where you would have been if you hadn't had kids. If you hadn't scaled back. If you hadn't made the compromises. You've fallen behind. Significantly. And the gap is only getting bigger. Your peers are advancing. They're getting further ahead. And you're staying in place. Or moving backward. You can see the trajectory now. You'll never close the gap. You're permanently behind. You made a choice and this is the consequence. You'll always be behind your peers who didn't have kids.
-
----
-
-## STORY v18
----
-path: the comparison to the person you should have become
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-There's an alternate version of you. The one who didn't have kids right away. The one who focused on career. The one who took the risks. That version is further along. That version is more successful. That version is more accomplished. You can see her in your imagination. The person you could have been. You're comparing yourself to her and you're losing. You made the choices. You have the life. And it's not as good as the alternative.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the gap that grows every year
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-Every year you fall further behind. Your peers advance. They get raises. They get promotions. They build equity in their careers. You stay in place. Or move backward. The gap between you and them is increasing. Every year it gets bigger. Every year you're more behind. Every year your choices to be a present parent are costing you more in terms of career. And you're comparing what you gain from parenting to what you lose in career and it's not equal.
-
----
-
-## STORY v20
----
-path: the knowledge that you chose the harder path
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-You know you chose the harder path. You're balancing two things. Work and parenting. And it's harder than doing one. Your peers who don't have kids are doing one thing. Your peers who have kids and have partners managing the household are doing one thing in terms of logistics. You're doing both. Fully. And you're comparing yourself to people who are doing half of what you're doing and succeeding more and the math doesn't add up. You're objectively doing something harder and you're still failing at it.
-
+EMBODIMENT v05
 ---

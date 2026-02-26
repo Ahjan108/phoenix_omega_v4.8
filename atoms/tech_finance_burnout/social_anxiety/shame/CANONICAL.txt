@@ -1,222 +1,101 @@
-# tech_finance_burnout / social_anxiety / shame
-# Slot type: STORY (engine)
-# Engine: shame
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: exposure risk calculation
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: pre_awareness---
 ---
-People don't know that I don't know things. I've built a reputation for competence. It's fragile. If someone were to ask me a technical question that I can't answer, they'd see through the facade. I'd be exposed as someone who doesn't actually know as much as they think I know.
-
-So I'm managing the exposure risk. I'm careful about what conversations I participate in. I'm strategic about when I engage. I'm positioning myself in conversations where I can look competent without being tested. But the positioning is exhausting. And the exhaustion is visible. And the visibility of exhaustion is itself exposing.
-
-The shame of not knowing is larger than the practical consequence of not knowing. So I'm spending enormous energy preventing revelation of something that nobody would actually judge me harshly for.
+RECOGNITION v02
 ---
 
-## STORY v02
----
-path: imposter identity ossification
-BAND: 1
-SEMANTIC_FAMILY: SF1
----
-I am not actually good at my job. I'm just good at appearing to be good at my job. The appearing is the whole thing. There's no actual competence underneath. Just appearance. And everyone believes the appearance. But if they looked closer, they'd see the absence.
-
-The belief in my own fraudulence is complete. Complete enough that I'm not trying to actually improve anymore. I'm just managing the appearance. Which is a different kind of hard. And the hardness of managing appearance is being interpreted as dedication, which is deepening people's belief in my competence, which is increasing the gap between appearance and reality.
-
-The shame is the true thing. The competence is the lie.
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: knowledge gap terror
 BAND: 2
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: pre_awareness---
 ---
-There are things I should know that I don't know. Everybody else knows them. They're just standard things. Common knowledge. But I don't have it. And the not-having is a sign of fundamental inadequacy.
-
-I should know how X works but I don't. I should be familiar with Y but I'm not. The gaps are accumulating. The accumulation is proof of my basic incompetence. And the proof is private, which means I'm carrying around the knowledge of my own inadequacy while people are treating me as adequate.
-
-The gap between how I'm seen and how I actually am is the space where shame lives.
+RECOGNITION v04
 ---
 
-## STORY v04
----
-path: privilege recognition spiraling
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-I got here partly because I was lucky. Good background. Good education. Good connections. And some of that luck might be doing more heavy lifting than my actual ability. So I don't deserve to be here. I've benefited from unfair advantages. And people would judge me if they knew how much of my success is structural rather than earned.
-
-So I'm carrying the shame of not deserving what I have. And I'm working extra hard to justify the presence that I'm not sure I deserve. And the working extra hard is being interpreted as commitment, which is increasing the respect, which is deepening the shame of not deserving the respect.
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: failure preview mortification
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: pre_awareness---
 ---
-I'm imagining the moment when I'm discovered. When someone asks me something I should know and I don't know it. The mortification is preemptive. I'm feeling the shame now, before the actual revelation. The preemptive shame is preparing me for the inevitable discovery.
-
-But the preparing is preventing the discovery by making me extra careful. So I'm creating a system where I'm mortified about something that hasn't happened yet and probably won't happen. But the mortification is real. The system is working. I'm not being discovered because I'm so focused on prevention that I'm over-prepared.
-
-But the over-preparation is itself suspicious. It's a behavior that signals anxiety. Which is suspicious. Which is part of what I'm trying to hide.
+MECHANISM_PROOF v01
 ---
 
-## STORY v06
----
-path: visibility as vulnerability
-BAND: 3
-SEMANTIC_FAMILY: SF1
----
-The more senior I become, the more visible I become. The more visible, the more exposed. The more exposed, the greater the fall if I fail. So visibility is vulnerability. And I'm becoming more visible. So the vulnerability is increasing.
-
-The path to safety is to stay small. Stay unnoticed. Stay in a role where failure doesn't matter. But that's not possible anymore. I've already been noticed. So the vulnerability is locked in. All I can do is manage the exposure.
-
-And the managing is creating its own kind of visibility. The anxiety about visibility is creating behaviors that broadcast the anxiety.
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: criticism internalization permanence
 BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-Someone gave me feedback once. Years ago. Critical feedback. I've integrated it. It's part of my story now. "I'm the person who [criticism]." The feedback was data. A single person's perspective. But I've made it identity.
-
-And now I'm defending against the feedback by proving it wrong. But the defense is the proof that the feedback stuck. The proof that I internalized it. The proof that I'm insecure about it. So the feedback was probably true if I'm so defensive about it.
-
-But it was one piece of feedback. It might have been one person's bad day. But I've carried it forward like it's gospel. Like it's proof of my actual deficiency.
+MECHANISM_PROOF v03
 ---
 
-## STORY v08
----
-path: luck vs merit attribution
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-Good things happen. I attribute them to luck. Bad things happen. I attribute them to me. The asymmetry is the shame. I'm taking responsibility for negative outcomes and denying responsibility for positive ones. Which means I'm essentially bad and just lucky sometimes.
-
-The system is consistent. It explains away success and explains into failure. It keeps me in the state of fundamental shame-worthiness. Because if the success is luck and the failure is me, then the real me is a failure that's just gotten lucky so far.
-
-But if I flipped the attribution system, I'd have to accept that I'm actually capable. And that would require giving up the shame. And the shame has become my identity.
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: effort visibility anxiety
-BAND: 5
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-If people see how hard I'm trying, they'll know it's because I don't come by it naturally. So I have to hide the effort. Hide the struggle. Make it look effortless. But the hiding is itself effort. So I'm struggling to appear unstretched.
-
-And the appearing unstretched while actually struggling is the central contradiction of the shame. I have to hide the thing that proves I'm trying. But hiding it is the only way to avoid being seen as desperate.
-
-So the shame keeps itself alive through concealment.
+MECHANISM_PROOF v05
 ---
 
-## STORY v10
----
-path: authenticity as liability
-BAND: 5
-SEMANTIC_FAMILY: SF1
----
-If I showed people who I actually am, they'd reject me. So I'm performing someone they'd accept. The performance is exhausting. And the exhaustion is showing. And the showing is making the performance less effective. So the real me is ruining the performance of the fake me.
-
-And I can't stop performing because stopping would mean being exposed. Being exposed would mean being rejected. So the shame of being exposed is larger than the shame of performing. So I keep performing. And the performance keeps failing. And the failure is proof that the real me is inadequate.
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: standards internalization
-BAND: 1
+BAND: 3
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: experimentation---
 ---
-I've internalized standards that I probably don't actually have to meet. But the meeting of them has become who I am. So failure to meet them is failure of identity.
----
-
-## STORY v12
----
-path: comparison cascade
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-Everyone around me is more competent. More confident. More sure of themselves. So I'm the weak link. The one who's gotten this far by accident. The one who's about to be found out.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: secret keeping burden
 BAND: 3
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: experimentation---
 ---
-I have knowledge of my own inadequacy that nobody else has. Keeping the secret is exhausting. The weight of the secret is the weight of the shame.
----
-
-## STORY v14
----
-path: help-seeking as confession
-BAND: 3
-SEMANTIC_FAMILY: SF1
----
-Asking for help is admitting that I don't know. Admitting that I can't do it alone. So I don't ask. I figure it out through effort. And the effort is silent. So I look like I know what I'm doing. But I'm slowly drowning under the effort.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: external validation requirement
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: experimentation---
 ---
-I need people to tell me I'm doing well or I can't believe I'm doing well. My own assessment is unreliable. So I'm dependent on external feedback for self-worth. And the dependence is shameful. So I'm ashamed of needing validation which makes the validation feel unearned.
----
-
-## STORY v16
----
-path: perfectionism as shame management
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-If everything is perfect, nobody can critique. If nobody can critique, nobody can see the failure. So I'm pursuing perfection as shame prevention. But perfection is impossible. So the pursuit is the actual failure. So the shame is self-created through pursuit of shame-prevention.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: success as imposter confirmation
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-When things go well, it feels like I've fooled everyone again. The success is not evidence of competence. It's evidence of luck. Which means the next thing could go badly and people would see through me. So success is just the time before exposure.
----
-
-## STORY v18
----
-path: vulnerability prohibition
-BAND: 5
-SEMANTIC_FAMILY: SF1
----
-I can't let anyone see me struggling. Can't show weakness. Can't ask for help. Can't admit uncertainty. The prohibition on vulnerability is total. Which means I'm isolated in the struggle. Which means the struggle is unseen. Which means I'm alone with the shame.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: undeserving certainty
-BAND: 2
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-I genuinely don't believe I deserve what I have. The belief is so complete that it doesn't feel like belief. It feels like fact. I'm undeserving. That's just true. So every good thing that happens is error. And every error will eventually be discovered.
----
-
-## STORY v20
----
-path: identity fragmentation
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-There's the me that people see and the me that I am. They're so far apart that I don't know which one is real anymore. Maybe the public me is real and I'm the fake. But that doesn't feel right either. So I'm genuinely fragmented.
+EMBODIMENT v05
 ---

@@ -1,224 +1,101 @@
-# tech_finance_burnout / social_anxiety / comparison
-# Slot type: STORY (engine)
-# Engine: comparison
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: peer trajectory divergence
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-My peer from a few years ago is now a director. I'm still an individual contributor. The divergence point was maybe three years ago when they made a move that worked out and I made a move that didn't. Or maybe the divergence was always there and I just didn't see it. Maybe they were always more ambitious. More strategic. More willing to take risks.
-
-Or maybe I was, and I chose differently. But now the difference is visible in the titles. In the salary bands. In the perceived seniority. And I'm reading the difference as: they're better than me. They saw the path and I didn't. Or I saw it and was too scared.
-
-The difference is measurable now. Before it was potential. Now it's resume. Now it's real.
+RECOGNITION v02
 ---
 
-## STORY v02
----
-path: skill inventory comparison
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-My peer can do things I can't do as quickly. They have some skill that I don't have. Or I have the skill but I'm slower. And the slowness is the deficiency. The inability to do it as fast is inability.
-
-So I'm not as good. Not on all dimensions. Not on the ones that seem to matter. And the not-being-as-good is proof of the gap. The gap is expanding because they're improving faster than I am. Or I'm not improving at all.
-
-The comparison is real. The gap is widening.
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: visible success disparity
 BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Someone I know just shipped something impressive. It's being talked about. People are impressed. It's visible success. And I haven't shipped something that impressive recently. So the comparison is: their success is public and mine is private (or nonexistent).
-
-The visibility disparity is creating perceived competence disparity. They might not actually be better. They just did something more visible. But visibility compounds. Their visible success is going to create opportunities. My invisible success is going to create nothing.
-
-So the comparison is self-reinforcing. They're being seen as successful. So they're getting better opportunities. So they're becoming more successful. And I'm becoming less visible. So I'm becoming less successful.
+RECOGNITION v04
 ---
 
-## STORY v04
----
-path: compensation benchmark anxiety
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-I know what my peer makes (approximately). They make more. Or maybe they make the same but they're about to get promoted and then they'll make more. The compensation difference is the quantified version of the competence difference. The numbers don't lie.
-
-So I'm worth less. Not in some abstract way. In actual dollars. The market has set my price and it's lower. So I'm literally less valuable. The comparison is economic and therefore real.
-
-And knowing the actual number is worse than not knowing. The knowing has made the difference irrefutable.
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: professional network breadth assessment
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-My peer knows more people. Better people. More connected people. Their network is objectively larger and higher-status. So when opportunities come up, they hear about them first. Their network advantage is becoming an opportunity advantage. Which is becoming a career advantage.
-
-And my network is smaller. The people I know are less connected. So the opportunities filter down to me slower. Which means I'm behind on opportunities. Which means I'm falling further behind.
-
-The network gap is becoming the opportunity gap is becoming the career gap.
+MECHANISM_PROOF v01
 ---
 
-## STORY v06
----
-path: intelligence perception asymmetry
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-My peer is seen as smarter. Not objectively—we've both taken tests, gotten scores, done the analysis. But the perception is smarter. People listen to them differently. Give them the benefit of the doubt differently. Assume competence differently.
-
-So the perception is creating differential treatment. Which is creating differential opportunity. Which is creating differential outcomes. And the differential outcomes are validating the original perception.
-
-So the perception has become real through the treatment it creates.
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: output velocity disparity
 BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-They ship faster. They iterate faster. They make decisions faster. The velocity difference is visible. And velocity is rewarded. Fast is good. Slow is bad. So the disparity is a direct measure of comparative worth.
-
-But I'm not slow. I'm careful. I'm thoughtful. I'm trying not to make mistakes. But "careful" is not rewarded the way "fast" is. So being careful is actually being slow. And being slow is being bad.
-
-So my virtue is my weakness in the comparative frame.
+MECHANISM_PROOF v03
 ---
 
-## STORY v08
----
-path: risk propensity divergence
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-My peer takes risks that work out. I take risks that don't. Or I don't take risks. I play it safe. The safety is reducing my upside. Their risk-taking is generating big wins. The wins are being noticed. The not-taking-risks means I'm not being noticed.
-
-So they're the risk-taker and the winner. I'm the safe player and the stagnant one. The perception has calcified. And the calcification is changing their actual outcomes versus mine.
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: visibility-outcome correlation
-BAND: 5
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-The most visible people are doing the best. They're getting promoted. They're getting good projects. They're being heard. And I'm not visible. So I'm not getting any of those things. So the visibility directly determines outcome.
-
-So I need to be more visible. But being more visible feels like self-promotion. Which feels gross. Which I'm not going to do. So I'm choosing not to be visible. Which is choosing not to win.
-
-But making the choice explicit like that is shameful. So I'm pretending the lack of visibility is accidental. But it's a choice. And the choice is me choosing the comparison to remain bad.
+MECHANISM_PROOF v05
 ---
 
-## STORY v10
----
-path: competence narrative acceptance
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-The narrative is written. They're the competent one. I'm the adequate one. They're the rising star. I'm the solid performer. The narrative has solidified. It's in people's heads. It's in the organizational structure. It's in the org chart.
-
-So the narrative is becoming reality because people are making decisions based on the narrative. They're giving the competent one the interesting work. They're giving me the maintenance work. So the competent one is getting better at interesting things. I'm getting better at maintenance.
-
-So the narrative is self-fulfilling. And the narrative said I'm not as good. So I'm not as good.
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: achievement scale mismatch
-BAND: 1
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-They're measured on a different scale. The things they accomplish are bigger. The impact is larger. So they're winning at a bigger game than I'm winning at. The comparison is inherently unequal.
----
-
-## STORY v12
----
-path: trajectory momentum gap
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-They're momentum-ing upward. I'm flat. The difference in trajectory is visible in how we're being treated. They're on the way up. I'm on the way to nowhere.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: skillset evolution divergence
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-They're learning things I'm not learning. They're evolving into more valuable forms. I'm staying still. The divergence is real. Eventually they're not going to have the same skills as me. They're going to be better at everything.
----
-
-## STORY v14
----
-path: opportunity capture asymmetry
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-When opportunities come up, they get them and I don't. The pattern is consistent. The difference is not random. So there's something about them that makes them the default choice.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: perceived potential differential
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-People see them as someone with high potential. People see me as someone who's okay. The perception of potential is self-fulfilling. So they're going to get the development opportunities that create the actual potential.
----
-
-## STORY v16
----
-path: career timeline acceleration
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-They're hitting milestones ahead of the timeline. They're on pace to do things I haven't done yet. And I'm not accelerating to keep up. So the gap is widening. So they're going to be ahead of me forever.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: success replicability observation
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-They've succeeded in multiple contexts. Multiple times. So the success is not luck. It's repeatable. It's proof of something real. And my less-consistent success suggests luck. Or inconsistency. Neither is good.
----
-
-## STORY v18
----
-path: credibility gap expansion
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-They have more credibility. More people believe in them. So when they speak, people listen. When I speak, I have to fight to be heard. The credibility difference is making the actual conversations different. So my voice has less weight.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: reference point recalibration
-BAND: 2
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-My reference point for success used to be one thing. Now that this peer is succeeding at a higher level, the reference point has moved. So what used to feel like success now feels like underperformance. The bar has moved and I'm below it.
----
-
-## STORY v20
----
-path: relative standing ossification
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-Our relative standing has become fixed in people's minds. They're the good one. I'm the adequate one. And that's where we're going to stay. The positioning is locked. So the comparison is no longer about what we might become. It's about what we've already proven we are.
+EMBODIMENT v05
 ---

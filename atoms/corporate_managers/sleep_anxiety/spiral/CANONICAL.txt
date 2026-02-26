@@ -1,205 +1,101 @@
-# corporate_managers / sleep_anxiety / spiral
-# Slot type: STORY (engine)
-# Engine: spiral
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the spiral that started at midnight
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You woke up at midnight. And your brain latched onto something. A worry. A concern. And from that thought, the spiral started. Where did I go wrong. What could go wrong. What should I have done differently. Your brain was cycling through scenarios. Through what-ifs. And you couldn't get out of the spiral. So you lay there. Spiraling. Unable to turn it off.
-
----
-
-## STORY v02
----
-path: the thought that wouldn't let go
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-There's a thought. Something you're worried about. And every time you tried to sleep, your brain would return to it. You'd be drifting off and then the thought would pull you back. And you'd start spiraling again. Around the same thing. In the same patterns. Endlessly cycling.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the replay that happened all night
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-You replayed a conversation. A meeting. Something that happened. Over and over. Looking for the moment where things went wrong. Looking for where you could have handled it better. And the replay just kept going. All night. Same conversation. Different lens each time you reviewed it.
-
----
-
-## STORY v04
----
-path: the catastrophe that was building
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-You started with a small worry. And as you spiraled, it got bigger. Catastrophe-sized. You went from concern to worst-case scenario. And once you were in the worst-case scenario, sleep was impossible. So the spiral just kept growing. Bigger. More frightening. More impossible to dismiss.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the spiral that created more problems
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-As you spiraled, you created new problems. New things to worry about. Downstream consequences of the thing you're spiraling about. And now you were spiraling about multiple things instead of one. The spiral was expanding.
-
----
-
-## STORY v06
----
-path: the night that became productive spiraling
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-You were spiraling. And your brain was problem-solving in the spiral. Working through scenarios. Planning responses. Running simulations. It felt productive. It felt like you were doing something. But you were just spiraling. And losing sleep in the process.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the moment you realized you were stuck
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-You realized you were going in circles. You'd been spiraling for hours. You were nowhere farther along. You hadn't solved anything. You were just stuck. In the spiral. Unable to get out of it. And the realization that you were stuck made the spiral worse.
-
----
-
-## STORY v08
----
-path: the evidence you were collecting
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-As you spiraled, you were collecting evidence. Evidence that the worst-case scenario was likely. Evidence that you were right to worry. You were spiraling and building a case for why the spiral was justified. So the spiral felt justified. Even though it was keeping you awake.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the spiral that became your reality
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-You spiraled so long that the spiral became real. The thing you were worrying about felt like it was already true. The consequence you were imagining felt inevitable. So the spiral wasn't about future possibility. It was about current reality. As far as your exhausted brain could tell.
-
----
-
-## STORY v10
----
-path: the layers of spiraling
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-You were spiraling about the original thing. And then you realized you were spiraling. And then you spiraled about the spiraling. Layers of spirals. Each one keeping you more awake than the last.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the spiral that changed direction but didn't stop
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-You tried to stop spiraling about one thing. So your brain switched to a different thing. And you started spiraling about that instead. The spiral didn't stop. It just changed targets. And you were still awake. Still unable to sleep.
-
----
-
-## STORY v12
----
-path: the spiral that became a pattern
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-This happens regularly now. Night spirals. Sleep interrupted by spiraling thoughts. And your brain has learned the pattern. You go to bed. Your brain starts preemptively spiraling to get ahead of sleep. It's like your brain doesn't want you to sleep.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the spiral that survived the morning
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-Morning came. You thought the spiral would stop. But it survived. It was waiting for you when you woke up. And it continued throughout the day. The spiral from the night carried over. You didn't get a break from it.
-
----
-
-## STORY v14
----
-path: the spiral that exhausted you before morning
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-You were so exhausted from spiraling that you felt hungover. Your brain was wrecked. Your body was wrecked. And you hadn't slept. You'd just spiraled. And the exhaustion was cognitive. Mental. From running the spiral all night.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the knowledge that the spiral would return
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-As evening approached, you felt the dread. Because you knew. Tonight, the spiral would probably return. And you were already preparing for it. Already anxious about the anxiety that would keep you awake.
-
----
-
-## STORY v16
----
-path: the futility of trying to think your way out
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-You tried to think your way out of the spiral. Tried to logic yourself out of it. But the spiral is not logical. It's emotional. Anxious. And thinking your way out just added another layer. More thinking. More spiraling.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the acceptance that you're trapped in the spiral
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You stopped fighting it. You accepted that when you go to bed, you're going to spiral. And that's just how it is. The spiral has become your nighttime default. And you can't change it.
-
----
-
-## STORY v18
----
-path: the question about whether the spiral is prediction
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-You wonder: is the spiral actually predicting something real. Or is it just anxiety. And you can't tell the difference anymore. So you take the spiral seriously. And you lose sleep over it. Whether it's justified or not.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the understanding that sleep requires not spiraling
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-You've realized: sleep requires not spiraling. And you're a spiraler. So sleep is incompatible with who you are now. You can't have both. You have to choose. And so far, the spiral is winning.
-
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: the permanent activation of the spiral
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-The spiral is always available. Always ready to activate. The moment you close your eyes, it's there. A thought. A worry. And then the spiral begins. And you're trapped in it until morning. And maybe not even then.
-

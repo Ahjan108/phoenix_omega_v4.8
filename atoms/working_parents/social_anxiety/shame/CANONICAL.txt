@@ -1,225 +1,101 @@
-# working_parents / social_anxiety / shame
-# Slot type: STORY (engine)
-# Engine: shame
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the_parent_i'm_not
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-I see another mom at pickup—she looks composed, together, like she's not coming off a work call and a blown deadline and the realization she forgot to pack vegetables. My kids are louder than hers. My hair is still in its 7 AM bun. I feel exposed as the person who's struggling, who doesn't have it together the way she does. The shame is that I think everyone can see what I'm failing at.
----
-
----
-
-## STORY v02
----
-path: the_professional_me,_divided
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-At work I'm competent. At home I'm barely managing. And I'm terrified that someone at work will find out how much I'm struggling with basic things—that I sometimes feed my kids whatever's fast, that I haven't mopped the floors in weeks, that I sometimes yell. If they knew, they'd know I'm not really the person I perform as. The shame is that there's a gap between who I pretend to be and who I actually am.
+RECOGNITION v02
 ---
 
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: the_admission_i_can't_make
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-My friend says she's having a rough time. I want to tell her about my roughness. But I can't say it. There's a shame in admitting I'm not okay, that I'm drowning sometimes, that I'm angry at my family for existing and needing me. So I say 'me too, but we're doing okay' and the isolation of that partial truth is shameful in itself.
----
-
----
-
-## STORY v04
----
-path: the_comparison_i_lose
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-Other parents have help. Cleaners, partners who are actually present, more flexible jobs. I'm doing this on fumes and no backup. There's shame in needing help and not having it, in being less equipped than everyone else seems to be. The shame is that I want what I don't have and that wanting is somehow a failure.
+RECOGNITION v04
 ---
 
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: story_v05
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. The real me—the one nobody sees—is not okay and would be unacceptable if anyone knew
----
-
----
-
-## STORY v06
----
-path: story_v06
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. The real me—the one nobody sees—is not okay and would be unacceptable if anyone knew
+MECHANISM_PROOF v01
 ---
 
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: story_v07
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. The real me—the one nobody sees—is not okay and would be unacceptable if anyone knew
----
-
----
-
-## STORY v08
----
-path: story_v08
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. The real me—the one nobody sees—is not okay and would be unacceptable if anyone knew
+MECHANISM_PROOF v03
 ---
 
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: story_v09
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. The real me—the one nobody sees—is not okay and would be unacceptable if anyone knew
----
-
----
-
-## STORY v10
----
-path: story_v10
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. The real me—the one nobody sees—is not okay and would be unacceptable if anyone knew
+MECHANISM_PROOF v05
 ---
 
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: story_v11
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. The real me—the one nobody sees—is not okay and would be unacceptable if anyone knew
----
-
----
-
-## STORY v12
----
-path: story_v12
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. The real me—the one nobody sees—is not okay and would be unacceptable if anyone knew
+TURNING_POINT v02
 ---
 
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: story_v13
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. The real me—the one nobody sees—is not okay and would be unacceptable if anyone knew
----
-
----
-
-## STORY v14
----
-path: story_v14
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. The real me—the one nobody sees—is not okay and would be unacceptable if anyone knew
+TURNING_POINT v04
 ---
 
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: story_v15
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. The real me—the one nobody sees—is not okay and would be unacceptable if anyone knew
----
-
----
-
-## STORY v16
----
-path: story_v16
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. The real me—the one nobody sees—is not okay and would be unacceptable if anyone knew
+EMBODIMENT v01
 ---
 
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: story_v17
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. The real me—the one nobody sees—is not okay and would be unacceptable if anyone knew
----
-
----
-
-## STORY v18
----
-path: story_v18
-BAND: 5
-SEMANTIC_FAMILY: SF3
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. The real me—the one nobody sees—is not okay and would be unacceptable if anyone knew
+EMBODIMENT v03
 ---
 
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: story_v19
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. The real me—the one nobody sees—is not okay and would be unacceptable if anyone knew
+EMBODIMENT v05
 ---
-
----
-
-## STORY v20
----
-path: story_v20
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. The real me—the one nobody sees—is not okay and would be unacceptable if anyone knew
----
-

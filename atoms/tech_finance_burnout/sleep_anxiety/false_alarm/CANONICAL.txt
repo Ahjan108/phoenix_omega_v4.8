@@ -1,230 +1,101 @@
-# tech_finance_burnout / sleep_anxiety / false_alarm
-# Slot type: STORY (engine)
-# Engine: false_alarm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: 2am heart awareness
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-My heart just did something. Did it skip? Did it beat too fast? Or did I imagine it because I was thinking about my heart? I'm lying here, 2 AM, hyper-aware of my own body. The heart is beating. It's supposed to beat. But now I'm listening to it. Listening to confirm that it's beating right. And the listening is making me aware of irregularities that might not be irregularities. Might just be normal variation that I'm paying too much attention to.
-
-If I sleep, the heart keeps doing its thing and I don't notice. I'm fine. But if I try to sleep and I'm aware of the heart, then every flutter is a potential sign. Every slight variation feels significant. And the significance might be real—arrhythmia is a thing—or the significance might be my attention creating meaning where there's just normal heartbeat variation.
-
-But I can't un-hear it now. I can't pretend I'm not listening. So I'm going to lie here listening until either I fall asleep or until I convince myself there's something actually wrong. And in the meantime, the heart is probably getting stressed by my stress about the heart, which is probably making it beat irregularly, which is confirming my suspicion that something's wrong.
-
-The body is betraying me by being a body that I'm aware of.
+RECOGNITION v02
 ---
 
-## STORY v02
----
-path: sleep debt catastrophizing
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-I've been sleeping six hours per night for three weeks. That's a deficit of seven hours per week. That's twenty-one hours of sleep debt accumulated. My body is storing this debt like interest and it's going to compound. I'm going to get sick. My immune system is going to fail. I'm going to get something serious and I'm going to understand it too late that the sleep debt is what caused it.
-
-But I also can't sleep more because I'm too wired about the sleep debt. So the anxiety about the deficit is preventing me from fixing the deficit. And knowing that makes me more anxious. The system is self-reinforcing.
-
-I could probably function on less sleep if I wasn't stressed about it. But the stress is endemic now. I've been convinced that sleep is critical and I'm not getting enough of it, so my system is in crisis mode. The crisis is self-manufactured but the symptoms are real.
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: caffeine sensitivity spiral
 BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-I had coffee at 2 PM. Now it's 10 PM and I can't sleep. The caffeine is still in my system. I did the math—the half-life of caffeine is five to six hours. So at 7 PM there was still caffeine. At 10 PM there's still some residual caffeine. So that's why I can't sleep.
-
-Or I can't sleep because I'm thinking about the caffeine. The anxiety about the caffeine is keeping me awake more than the caffeine itself. But I can't separate the two things. I can't know if I'm restless because of chemistry or because of anxiety.
-
-So I'm lying here at 10 PM, aware that I made a bad decision at 2 PM, and the decision is now untraceable in my body. The caffeine might be gone and I'm still wired from thinking about the caffeine. Or the caffeine is still there and I'm amplifying its effects with my worry. Either way, I'm not sleeping.
-
-And tomorrow I'll be tired, which will justify the coffee, which will keep me awake, which will make me more tired. The cycle perpetuates.
+RECOGNITION v04
 ---
 
-## STORY v04
----
-path: noise sensitivity threshold
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-There's a sound somewhere. Not loud. Just a presence. The heater clicking. The refrigerator humming. Some ambient sound that's always there but now I'm aware of it and the awareness is making it louder. Or the sound actually got louder because my hearing sharpens when I'm anxious.
-
-So the sound is real. The sound is interfering with sleep. I need to locate it and eliminate it. But the locating it is keeping me awake. The knowing that I can't eliminate it is making me anxious. The anxiety is probably making the sound more noticeable than it would be if I was relaxed.
-
-I could get earplugs. But earplugs feel like giving up. Like admitting that sleep is hard and I need to manage it. I want sleep to be effortless the way it was when I was younger. I'm not willing to manage it. So I'm trapped in the space between: the sound is impossible to ignore and I'm refusing to ignore it.
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: pre-sleep equation solving
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-The bed is the place where my mind most actively solves problems. I lie down and suddenly I'm aware of a problem I'd forgotten about or a pattern I hadn't seen. The mind becomes clearest right when I'm supposed to sleep. The body is tired but the mind is generating interesting thoughts.
-
-So I'm solving the problems. Running equations. Following threads. The solving is engaging. The solving feels productive. But the solving is preventing sleep. And the not-sleeping is going to destroy my ability to think clearly, which means I'm compromising tomorrow's actual work for tonight's pseudo-productive thinking.
-
-But the pseudo-productive thinking feels important. So I keep doing it. I keep lying in bed, mind racing, telling myself I'm getting value out of the sleeplessness. In reality, I'm just avoiding sleep by redefining the time as productive.
-
-By the time I'm done solving the problems, I'm too wired to sleep anyway.
+MECHANISM_PROOF v01
 ---
 
-## STORY v06
----
-path: position optimization loop
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-I need to find the position that makes sleep possible. But every position I try is slightly wrong. This angle is too much. That pillow is too firm. My neck isn't aligned. My back is tense. The position is never quite right and my system is hyper-aware of every microadjustment.
-
-So I'm moving. Constantly moving. Trying every position. And the trying every position is an activation, which is the opposite of sleep. A relaxed body would eventually settle. But a hyper-aware body is constantly searching for the right position, which means it never settles.
-
-I'm creating wakefulness by attempting to create sleep. The optimization has become the problem.
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: threat surveillance sleeping
 BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-I'm asleep but also awake. There's a part of me that's monitoring the night. Is that a sound? Is something wrong? Is someone at the door? The sleep is partial. The threat-detection system is still on. So I'm not really sleeping, I'm resting in a state of vigilance.
-
-This is exhausting because the sleep doesn't actually rest me. I'm monitoring while resting. The threat that I'm monitoring for probably isn't coming. But if I stop monitoring, that's when it'll come. So the partial sleep is the price of being safe.
-
-Except the partial sleep is degrading my ability to function, which is making me less safe. So the vigilance is the opposite of the safety it's supposed to provide.
+MECHANISM_PROOF v03
 ---
 
-## STORY v08
----
-path: nightmare probability assessment
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-I'm afraid to fall asleep because if I fall asleep I might have a nightmare. And nightmares are stressful. And being stressed about having a nightmare is preventing the sleep. So I'm awake, stressed about nightmares, which is its own kind of hell.
-
-But if I don't sleep, the sleep deprivation is going to make the nightmares more likely. So the avoiding sleep is making the thing I'm avoiding more probable. But I can't see the logic until after I've already done the avoiding.
-
-Sleep is the one place my mind isn't controlled. It's the one place that's unpredictable. And I'm trying to control an uncontrollable thing by not engaging with it. Which is obviously not working but the compulsion to control is stronger than the logic.
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: morning dread anchor
-BAND: 5
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-Tomorrow I have something stressful. A meeting. A deliverable. An evaluation. Something that requires me to be on. So tonight I'm trying to sleep enough to be on. But the trying to sleep enough is keeping me awake. The dread of tomorrow is preventing the rest that would make tomorrow manageable.
-
-So I arrive at tomorrow already exhausted. The exhaustion makes the meeting harder. The hardness of the meeting validates the dread. And that night, I'm afraid to sleep because I have another difficult day tomorrow.
-
-The cycle winds tighter every revolution.
+MECHANISM_PROOF v05
 ---
 
-## STORY v10
----
-path: burnout as insomnia
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-I'm too burned out to sleep. Sleep requires the nervous system to be quiet. My nervous system is roaring. It's been roaring for months. The body has learned that calm is dangerous—if you get calm, you miss something important. So the body stays loud even when it's trying to sleep. The insomnia is the nervous system refusing to be quiet.
-
-And the insomnia is perfect confirmation that something is wrong. Because sleep is the thing you need most when you're burned out, and I can't get it. So the problem is proving itself.
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: dark room paranoia
-BAND: 1
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-The dark room is safe but it's also a place where I can't see threats. So lying in the dark, I'm imagining them. Every sound could be something. The walls could be closing in. The room could be getting smaller. The dark is making my threat-detection system go haywire because there's no visual confirmation that it's just a room.
----
-
-## STORY v12
----
-path: temperature oversensitivity
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-The room is slightly too warm. Or too cold. Or the temperature will change in an hour. I'm trying to sleep in an environment that's not stable. Sleep requires stability. So the environmental instability is the reason I can't sleep. I need the temperature to be perfect. But perfect is impossible to achieve. So sleep is impossible.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: time pressure sleep
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-I need to sleep now because I have to be up early. The need to sleep creates pressure. The pressure creates anxiety. The anxiety prevents sleep. So the time constraint that requires sleep is what prevents sleep. It's circular and inescapable.
----
-
-## STORY v14
----
-path: fatigue distrust loop
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-I'm so tired that my body's signals are unreliable. Am I actually tired or am I anxious about being tired? Is my body really unable to sleep or am I preventing sleep by expecting it to be hard? The signals are so mixed that I don't know how to respond.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: sleep quality obsession
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Not just sleep—good sleep. Deep sleep. Restorative sleep. I'm tracking my sleep on an app now. Analyzing the data. Optimizing for quality. But the tracking and analyzing and optimizing are preventing the relaxation that would lead to good sleep. So I'm getting worse sleep by trying to improve sleep.
----
-
-## STORY v16
----
-path: weekend insomnia paradox
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-On weekdays I'm too stressed to sleep. On weekends, when I could sleep, I'm racing. Catching up on work thoughts. The relief of not working is mixing with guilt about work. So the weekends are when I'm most awake.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: dependency spiral visualization
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-I'm starting to think about sleep medication. Imagining it working. Imagining depending on it. Imagining being unable to sleep without it. The imagined dependency is almost as bad as the insomnia. So I'm avoiding the solution to the problem.
----
-
-## STORY v18
----
-path: exhaustion as status signal
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-Not sleeping is proof that I'm working hard. That I'm taking things seriously. That I care. So part of me doesn't want to sleep well because good sleep would indicate that I'm not working hard enough. The sleep deprivation is conflated with professional commitment.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: quiet mind impossibility
-BAND: 2
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-The instructions are to quiet the mind. To let thoughts pass without grabbing them. But my mind isn't quiet. It's loud. It's generating thoughts faster than I can let them pass. So I'm failing at the basic requirement for sleep.
----
-
-## STORY v20
----
-path: surrender to wakefulness
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-Maybe I should just accept that I'm not going to sleep and stop fighting it. But accepting wakefulness at 2 AM feels like giving up. Like I've lost the game. So I keep fighting. Keep trying. Keep expecting that this time will be different.
+EMBODIMENT v05
 ---

@@ -1,12 +1,9 @@
-# entrepreneurs × financial_stress × SCENE
-# Slot type: SCENE
-# Count: 30
-# Voice: second-person present tense, sensory, one detail per sentence
-# Spec: max 10 words per sensory beat, min 2 location tokens, no emotional labeling, ends on action/sensory moment
-# Location tokens: {transit_line}, {street_name}, {weather_detail}
+
+
+## SCENE v01
+---
 
 ---
-## SCENE v01
 The line of credit has been drawn. All of it.
 You're in your bedroom office, the {{weather_detail}} light merciless.
 The bank account shows a number that would have terrified you six months ago.
@@ -22,9 +19,12 @@ You open the payment app and you calculate instead of paying.
 Another week. If a payment comes in, you'll pay.
 If it doesn't, you'll calculate something else.
 You close the app and try not to think about the math.
+---
+
+## SCENE v02
+---
 
 ---
-## SCENE v02
 Personal savings are now business savings. The line has been crossed.
 You're on {transit_line}, heading nowhere because you don't know where to go.
 Six months ago you said you'd never do this. Here you are.
@@ -40,9 +40,12 @@ You don't get off. You ride past it.
 You can't go home because home costs money and you're afraid.
 You stay on the train, calculating how long you can keep moving.
 The next stop comes and you still don't move.
+---
+
+## SCENE v03
+---
 
 ---
-## SCENE v03
 The uneven months are becoming the normal month.
 You're in your bedroom office, the spreadsheet glowing like evidence.
 Last month: thirty thousand. This month: eight thousand. Next month: unknown.
@@ -58,9 +61,12 @@ On {transit_line}, people are secure in ways you've stopped being.
 You pull up the bank account again.
 The number hasn't changed since you checked it two hours ago.
 You close the spreadsheet and stare at the darkness outside.
+---
+
+## SCENE v04
+---
 
 ---
-## SCENE v04
 The tax bill arrived. The number was worse than you'd calculated.
 You're sitting in your bedroom office, the letter in your hands.
 You can pay half now and the rest in installments.
@@ -76,9 +82,12 @@ Your {{street_name}} neighborhood thinks you're doing fine.
 Your team thinks you're doing fine.
 You're not doing fine. You're not doing anything.
 You're just calculating variations on the same desperate math.
+---
+
+## SCENE v05
+---
 
 ---
-## SCENE v05
 Your biggest client is being acquired. You don't know what that means for you.
 You're on {transit_line}, trying to read between the lines of their email.
 The acquisition is good for them. It might be the end for you.
@@ -94,9 +103,12 @@ You've spent two years building this relationship.
 You've built nothing else because why would you.
 The {{street_name}} train station announces your stop but you're calculating instead of exiting.
 You miss your stop. Then the next one.
+---
+
+## SCENE v06
+---
 
 ---
-## SCENE v06
 Personal income and business income have become the same thing.
 You're in your bedroom office, the {{weather_detail}} morning bearing down.
 There's no salary. There's no separation. There's just the number.
@@ -112,9 +124,12 @@ You open your laptop to the spreadsheet of receivables.
 The money is due. It just hasn't arrived yet.
 You refresh the email. No payment notification.
 You do this every hour. The refreshing is becoming a twitch.
+---
+
+## SCENE v07
+---
 
 ---
-## SCENE v07
 You're working without a safety net and trying not to think about it.
 You're on {{street_name}}, heading to a client meeting where you'll look confident.
 One client represents sixty percent of your revenue.
@@ -130,9 +145,12 @@ The minimum is a number that means more debt.
 You're walking toward accepting debt to keep revenue.
 You're walking toward the choice you've already made.
 Your phone buzzes. They're asking if you're on your way.
+---
+
+## SCENE v08
+---
 
 ---
-## SCENE v08
 Another client is three months overdue. You can't say anything.
 You're in your bedroom office, the {{weather_detail}} afternoon heavy with the not-saying.
 They're your second-biggest client and they know they're overdue.
@@ -148,9 +166,12 @@ What matters is power and they have it.
 You open the invoice and mark it late in your system.
 But you don't call them because calling might break things.
 You close the laptop and stare at nothing.
+---
+
+## SCENE v09
+---
 
 ---
-## SCENE v09
 You're applying for a personal loan to keep the business alive.
 You're on {{street_name}}, heading to the bank appointment.
 The loan approval requires that you prove the business is viable.
@@ -166,9 +187,12 @@ On {transit_line}, the commute costs money.
 The appointment costs time. The loan costs future income.
 You're walking toward the next layer of debt.
 Your hand is already reaching for the door.
+---
+
+## SCENE v10
+---
 
 ---
-## SCENE v10
 Your partner found out about the second line of credit.
 You're in your bedroom office, the {{weather_detail}} light accusatory.
 You didn't tell them. You didn't tell them because telling them would make it real.
@@ -184,9 +208,12 @@ You have a partner who's learning to not trust you with money.
 You're sitting in the guilt and the precarity simultaneously.
 The spreadsheet is still there. The numbers are still wrong.
 You close the laptop. Opening it doesn't change anything.
+---
+
+## SCENE v11
+---
 
 ---
-## SCENE v11
 The decision is made: You have to lay off someone.
 You're in your bedroom office, the {{weather_detail}} afternoon marked by the decision.
 It's not a decision. It's a surrender to the math.
@@ -202,9 +229,12 @@ You're sitting with the decision and it feels like murder.
 It's not murder. It's just survival. That's almost worse.
 You open the calendar to schedule the conversation.
 Your hands are shaking. The decision is unmade and already permanent.
+---
+
+## SCENE v12
+---
 
 ---
-## SCENE v12
 You missed a deadline because the developer got sick.
 You're on {{street_name}}, heading to tell the client.
 The project now costs more money and takes more time.
@@ -220,9 +250,12 @@ You're going to have to ask for more money or lose the client.
 Asking for more money loses the client.
 Not asking loses the client.
 You're walking toward a meeting where you lose either way.
+---
+
+## SCENE v13
+---
 
 ---
-## SCENE v13
 The credit card that was supposed to be for emergencies is maxed.
 You're in your bedroom office, the {{weather_detail}} afternoon pressing down.
 You're using it for basic expenses now.
@@ -238,9 +271,12 @@ The savings are gone.
 You've run out of places to borrow from.
 You're sitting with the pure number now.
 The number is worse than you've allowed yourself to think.
+---
+
+## SCENE v14
+---
 
 ---
-## SCENE v14
 A client asks if you can renegotiate. They're struggling too.
 You're on {{street_name}}, taking the call, and you want to say yes.
 You can't say yes because you're drowning.
@@ -256,9 +292,12 @@ On {transit_line}, the guilt travels with you.
 You're someone who had to choose self over generosity.
 You're someone who couldn't afford to be kind.
 That choice is sitting heavy now, tomorrow, and every day after.
+---
+
+## SCENE v15
+---
 
 ---
-## SCENE v15
 You're calculating how long before you have to declare bankruptcy.
 You're in your bedroom office, the {{weather_detail}} afternoon very final.
 The spreadsheet is in front of you and it's showing the truth.
@@ -274,29 +313,12 @@ The personal loans are done.
 The savings are done.
 You're done.
 You close the laptop and stare at the wall where the solution should be.
-
-
-
-## SCENE v16
----
-You're at your desk refreshing the same dashboard.
-The numbers haven't changed since thirty seconds ago.
-Your {weather_detail} office feels like a cage right now.
-Your finger hovers over the refresh button again.
-The compulsion is stronger than logic.
-Refresh. Nothing. Refresh. Nothing.
-A pattern emerges from pure repetition.
-You're training your nervous system to need answers.
-The answers don't come from refreshing.
-The refreshing is the problem pretending to be the solution.
-Your eyes are tired from the screen.
-You stand. You pace. You return.
-The dashboard is exactly where you left it.
-You reach for the mouse again.
-The cycle continues because you fuel it.
+SCENE v16
 ---
 
 ## SCENE v17
+---
+
 ---
 You're on a conference call where you're half-present.
 Your camera is on. Your body is here.
@@ -317,6 +339,8 @@ The deterioration is happening in real-time during the call.
 
 ## SCENE v18
 ---
+
+---
 You're eating lunch at your desk again.
 The lunch is something you grabbed, not something you chose.
 The {weather_detail} makes the day feel like a marathon.
@@ -335,6 +359,8 @@ The not-knowing keeps the machinery going.
 ---
 
 ## SCENE v19
+---
+
 ---
 You're in your car in a parking lot scrolling email.
 The car is a private space for public panic.
@@ -355,6 +381,8 @@ The email wins. It always wins.
 
 ## SCENE v20
 ---
+
+---
 You're in a meeting that you don't remember volunteering for.
 The meeting is someone else's agenda.
 Your {weather_detail} attention is already allocated elsewhere.
@@ -373,6 +401,8 @@ Your body remains, deputizing your absence.
 ---
 
 ## SCENE v21
+---
+
 ---
 You're checking your business metrics at midnight.
 The checking is supposed to wait until morning.
@@ -393,6 +423,8 @@ The light from your business replaces the light of sleep.
 
 ## SCENE v22
 ---
+
+---
 You're pretending to be fine while your life is falling apart.
 The pretending is so practiced it's automatic.
 Your {street_name} smile is a professional asset.
@@ -411,6 +443,8 @@ The not-mattering of your possessions is what you carry.
 ---
 
 ## SCENE v23
+---
+
 ---
 You're working through lunch again because deadlines exist.
 The deadline is arbitrary but it's yours.
@@ -431,6 +465,8 @@ The cold food is an appropriate metaphor.
 
 ## SCENE v24
 ---
+
+---
 You're making a decision in the dark about something important.
 The darkness is literal and metaphorical.
 The {street_name} outside has functioning streetlights.
@@ -449,6 +485,8 @@ You make the decision in the dark anyway.
 ---
 
 ## SCENE v25
+---
+
 ---
 You're at the {weather_detail} gym pushing your body hard.
 The pushing is punishment for yesterday's failure.
@@ -469,6 +507,8 @@ The running feels like progress until it doesn't.
 
 ## SCENE v26
 ---
+
+---
 You're composing an email that won't send.
 The email is an apology for something that's not your fault.
 Your {street_name} guilt is expansive and irrational.
@@ -487,6 +527,8 @@ The email sits in your drafts forever.
 ---
 
 ## SCENE v27
+---
+
 ---
 You're in a relationship where you're becoming invisible.
 The invisibility is slow and then sudden.
@@ -507,6 +549,8 @@ The dailyness of the choice has become your life.
 
 ## SCENE v28
 ---
+
+---
 You're walking through your house like it's someone else's.
 The house is yours. The feeling of ownership is missing.
 The {street_name} outside is where other people are inhabiting their lives.
@@ -526,6 +570,8 @@ The moving feels like all you're capable of.
 
 ## SCENE v29
 ---
+
+---
 You're ending a day that accomplished nothing.
 The nothing is quantifiable.
 The {weather_detail} has shifted to darkness.
@@ -544,6 +590,8 @@ You'll fail that too, probably.
 ---
 
 ## SCENE v30
+---
+
 ---
 You're at the edge of a decision about your future.
 The future is real. Your readiness for it is questionable.

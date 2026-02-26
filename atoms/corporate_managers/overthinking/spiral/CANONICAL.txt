@@ -1,205 +1,101 @@
-# corporate_managers / overthinking / spiral
-# Slot type: STORY (engine)
-# Engine: spiral
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the decision that won't stop replaying
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: pre_awareness---
 ---
-You made a decision. It was a good decision. It was the right call. And now you can't stop replaying it. Going over it. Checking if there was a better option. Your brain keeps returning to the moment. The meeting where you decided. The logic you used. The information you had. And every time you replay it, you find something you could have considered differently. Something that might have changed the outcome. You can't stop the loop.
-
----
-
-## STORY v02
----
-path: the thing you said in the meeting
-BAND: 1
-SEMANTIC_FAMILY: SF3
----
-You said something. A comment. A point. It was relevant. It was accurate. And now you're replaying it. Over and over. Did it land the right way. Did people think it was condescending. Did it come across as undermining someone else's idea. You can't let it go. The comment is on loop. And every time you replay it, you interpret it a little worse.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the conversation that keeps rewinding
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You had a conversation. With someone important. With someone you wanted to impress. And it didn't go perfectly. And now you're rewinding it. What you said. What they said. What you should have said. You're trying to see if there was a moment where you could have changed the trajectory. A word choice. A different emphasis. The conversation happened hours ago. It's in the past. But your brain is still in it. Still trying to rewrite it.
-
----
-
-## STORY v04
----
-path: the feedback loop that won't quiet
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-Someone gave you feedback. Critical feedback. You heard it. You acknowledged it. And now you're spiraling around it. Over-analyzing it. Creating narratives around why they said it. Whether it's true. Whether it affects your credibility. The feedback is correct. But the spiral around the feedback is much louder than the feedback itself. You're trapped in your own analysis.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the cascade of second-guessing
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You made a decision and it led to outcomes. Good outcomes. And you're grateful for that. But now you're second-guessing the choice that led to it. What if you'd chosen differently and gotten a better outcome. What if this good outcome is actually masking a problem that better decision-making would have prevented. You can't just take the win. You have to spiral around whether it was the right win.
-
----
-
-## STORY v06
----
-path: the meeting preparation that spiraled
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-You prepared for a meeting. You thought through your points. You prepared for questions. And then you found yourself spiral-preparing. Thinking through different ways the conversation could go. Imagining challenges to your position. Preparing responses to challenges that probably won't come. You over-prepared. You trapped yourself in worst-case scenarios. And then the meeting was fine. Your spiral preparation was wasted mental energy.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the thought that spiraled into catastrophe
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-You had a thought. A small worry. A minor concern about a project. And then your brain took it. And spiraled. From minor concern to probable failure to career-impacting outcome. You went from a small thought to a catastrophic scenario in the space of a few minutes. And now you're trying to manage the anxiety of a catastrophe that doesn't exist. Your spiral created it.
-
----
-
-## STORY v08
----
-path: the pattern you can't unsee
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-You noticed something. A pattern in how people respond to you. A tone that changed. A frequency of interaction that shifted. And now you can't unsee it. Every interaction is evidence of the pattern. Every silence confirms it. Every polite response is read through the lens of the pattern. You've created a narrative and now you're collecting evidence to support it. Confirmation bias on a spiral.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the hole you dug with thinking
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-You started thinking about a problem. A legitimate problem. And you've been thinking about it so long that you've created subproblems. Problems within the problem. You've spiraled so deep into the analysis that you've lost sight of the original problem. And you're now anxious about problems that are artifacts of your own thinking. You've created a complicated mental landscape where there was just one issue.
-
----
-
-## STORY v10
----
-path: the late night spiral
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-It's midnight. Your brain won't stop. It's replaying the day. The meeting. The conversation. The email you sent. The response you didn't send. It's going through all of it. Finding all the ways it could have been better. Finding all the ways it might have been worse. Your mind is in overdrive and sleep is impossible. You're trapped in the spiral at the time when you're least resourced to interrupt it.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the analysis that created new problems
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-You analyzed a decision. You thought deeply about it. And in thinking deeply, you identified risks you hadn't seen before. Now those risks are real to you. They're in your mind. They're part of the problem space. And you're responsible for them now. Your analysis created new problems. And now you have to manage problems that wouldn't exist if you'd just made the decision and moved on.
-
----
-
-## STORY v12
----
-path: the spiral that felt like thinking
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-You told yourself you were thinking. Problem-solving. Analyzing. You were really spiraling. You were going in circles. Returning to the same thoughts. Reviewing the same scenarios. And thinking it was productive. You didn't realize until hours later that you hadn't actually solved anything. You'd just spiraled. But you'd lost the time anyway.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the morning the spiral was still there
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-You went to bed spiraling. You woke up spiraling. The spiral survived sleep. It's waiting for you in the morning. You were hoping rest would interrupt it. But your brain continued the spiral in your dreams. Now you're waking up anxious and you've already been in the spiral for twelve hours, four of them unconscious.
-
----
-
-## STORY v14
----
-path: the spiral that spiraled into self-doubt
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-You were spiraling about a decision. And the spiral became so loud that you started questioning whether you're even competent to make decisions. The spiral about the decision spiraled into a spiral about your capability. Now you're doubting your judgment across the board. The original decision is still unclear. But now your self-trust is shaken too.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the impossible choice in the spiral
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-You're in the spiral. And you realize the original problem has two bad solutions. Either choice will be imperfect. And now you're spiraling about the imperfection. You can't choose because any choice means accepting that it's not the best choice. So you're paralyzed in the spiral. Unable to move forward. Unable to stop.
-
----
-
-## STORY v16
----
-path: the spiral that made you seem indecisive
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-People noticed that you were spiraling. You were slow to decide. You were going back and forth. You were revisiting decisions. And now people think you're indecisive. Which might make you second-guess yourself more. Which might make you spiral more. The spiral is creating a reputation that might be justified, which is creating more reasons to spiral.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the moment you realized you were in the spiral
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You suddenly noticed it. You're replaying something for the hundredth time. You're going in circles. You're not adding new information. You're just repeating. And you're conscious of the spiral and yet unable to exit it. The awareness of the loop doesn't break the loop. It just adds another layer. Now you're spiraling about spiraling.
-
----
-
-## STORY v18
----
-path: the person who said it wasn't a big deal
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-Someone told you to stop spiraling. To let it go. To move on. And they're probably right. The thing isn't that big of a deal. And yet the spiral continues. The knowing that you should stop doesn't stop you. The shame of spiraling adds another layer to the spiral. Now you're spiraling about the fact that you can't stop spiraling.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the exhaustion of the endless loop
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-You're tired. Not from working. From thinking. From spiraling. Your brain has run a thousand simulations. It's examined every angle. It's created narratives and deconstructed them. And it's all led nowhere. You're in the same place you started. But drained. Exhausted. Unable to stop even though the spiral has exhausted you.
-
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: the acceptance that this is how you think
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-You've stopped fighting it. This is how your brain works. It spirals. It loops. It replays. You're not going to fix it. You're just going to keep living in it. And that's maybe the saddest acceptance. Not that the spiral will stop. That it won't. That this is the permanent state of your thinking now.
-

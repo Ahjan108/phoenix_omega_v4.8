@@ -1,225 +1,101 @@
-# corporate_managers / boundaries / false_alarm
-# Slot type: STORY (engine)
-# Engine: false_alarm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the Slack notification
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Red dot. Someone messaged. Your brain goes immediately to threat. To crisis. To something that needs your attention right now. And you open it. It's not a crisis. It's not even urgent. It's someone asking a question about a process. A normal question. A thing that could wait. But your body doesn't know that. Your body already fired up. Already prepared for emergency. And you take three minutes to come down. To realize it's false alarm. Again. The red dot. The threat it represents. The way it hijacks your nervous system. And the false alarm is becoming the normal state.
----
-
----
-
-## STORY v02
----
-path: the email subject line
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-The subject says urgent. And your brain goes into threat mode. Into emergency mode. Into the mode where you have to respond immediately. And you open it. It's not urgent. It's someone's interpretation of urgent. It's something that matters but not right now. But you're already elevated. Already in the state of emergency. And the false alarm is that you responded as if it was urgent. As if the threat was real. And now you're calibrated wrong for the next few hours. The next few messages won't feel as urgent because they're not labeled urgent. And the false alarm has shifted your baseline.
+RECOGNITION v02
 ---
 
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: the calendar notification
-BAND: 1
-SEMANTIC_FAMILY: SF3
----
-A meeting reminder. Unusual meeting. With senior leadership. And the false alarm fires. What is this about. Why am I in this meeting. This must be something significant. This must be about me. And you spiral for a moment into what the meeting could be. Bad news. Feedback. Layoff. And then the meeting happens. It's routine. It's context. It's just a meeting. But the false alarm was real while you were waiting for it to happen. The false alarm shaped your hours before the meeting. And the false alarm is becoming the way you interpret information.
----
-
----
-
-## STORY v04
----
-path: the skip level that wasn't
 BAND: 2
-SEMANTIC_FAMILY: SF4
+SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Your boss's boss wanted to skip level with you. This never happens. So the false alarm is immediate. You must be in trouble. Something must be wrong. There must be an issue. And you're walking to that meeting in a heightened state. And the meeting is fine. It's just a check-in. But the false alarm shaped what you expected. Shaped how you showed up. Shaped what you revealed because you were in confession mode instead of conversation mode.
+RECOGNITION v04
 ---
 
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: the quiet that means something
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: pre_awareness---
 ---
-Your boss is being quiet about something. Not dramatic. Just quiet. And the false alarm goes off. What is she not saying. What's the hidden thing. Why is she quiet. And you're interpreting silence as threat. And the silence might just be bandwidth. Might just be thinking time. But the false alarm is translating it into danger. And you're bracing. You're preparing for bad news that might never come. And the false alarm has shaped your week.
----
-
----
-
-## STORY v06
----
-path: the feedback that landed wrong
-BAND: 2
-SEMANTIC_FAMILY: SF5
----
-You got feedback. Constructive feedback. Small thing. Easy to fix. But the false alarm turned it into threat. Into evidence that you're not good. Into a sign that you're in trouble. And the feedback that was supposed to help you improve instead made you smaller. Made you question yourself. Made you enter into a false alarm state about your competence. And the false alarm is now shaping how you take future feedback.
+MECHANISM_PROOF v01
 ---
 
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the thing that could go wrong
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-You're in a meeting. Someone brings up a risk. A thing that could happen. A future thing. And the false alarm treats it like a present crisis. Like it's happening now. And you're responding to the present crisis. But the crisis is theoretical. The crisis is possible. The crisis is false alarm. But your body doesn't know that. Your body is in emergency mode about something that might not happen.
----
-
----
-
-## STORY v08
----
-path: the reorg that didn't happen
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-There was talk. Just talk. About a potential reorganization. And the false alarm treated it like a definite thing. Like the organization was changing right now. And you spent weeks in alarm state about a thing that was speculative. And then it didn't happen. And you're exhausted from being in alarm state about nothing. And the false alarm is teaching you to be in alarm state. All the time. Just in case.
+MECHANISM_PROOF v03
 ---
 
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the person who hasn't responded
-BAND: 3
-SEMANTIC_FAMILY: SF1
----
-Someone didn't respond to your message. And the false alarm is that something is wrong. They're upset. They're thinking about you negatively. They're in a bad mood because of you. And you're spinning. And then they respond. And it's fine. It was just delay. It was just timing. But the false alarm was real while you were waiting. The false alarm shaped your hours.
----
-
----
-
-## STORY v10
----
-path: the trend in the numbers
 BAND: 4
-SEMANTIC_FAMILY: SF2
+SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-One metric went down. Just one. Just slightly. And the false alarm is that everything is wrong. That the team is failing. That your leadership is failing. And you're responding to this crisis. Sending emails. Making plans. Changing direction. And then the metric stabilizes. And you realize it was just noise. It was just variation. But the false alarm caused action. Unnecessary action. And the unnecessary action is shaping culture.
+MECHANISM_PROOF v05
 ---
 
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the meeting that got cancelled
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-A meeting got cancelled. Suddenly. And the false alarm is that something is wrong. Someone is upset. Something is happening. And you're trying to figure out what it is. And it's probably just scheduling. But the false alarm doesn't believe that. The false alarm is certain that cancellation means threat. And you're preparing for threat. And the threat never comes. But the preparation was real.
----
-
----
-
-## STORY v12
----
-path: the pattern you're seeing
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-You're seeing a pattern. A small one. Maybe not even there. But the false alarm is finding it. Finding the evidence that something is wrong. Connecting dots. Building narrative. And the narrative goes: if this pattern continues, then that happens, then this outcome. And the outcome is bad. So the pattern must be stopped. And you're responding to stop a pattern that might not even be there. And the false alarm is in control of your response. The false alarm is in control of your story.
+TURNING_POINT v02
 ---
 
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the conversation you had
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: experimentation---
 ---
-You had a conversation. It went well. You thought. But then you replayed it. And the false alarm found the moment that sounded wrong. The word you used. The tone. Something. And the false alarm is now certain that the conversation went badly. And you're replaying it trying to fix it. Trying to interpret what they heard. What they thought. And the false alarm has convinced you that the conversation was a disaster. But you have no evidence of that.
----
-
----
-
-## STORY v14
----
-path: the message that could mean something
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-You got a message. Short. Could mean anything. Could be fine. Could be upset. The false alarm doesn't wait to find out. The false alarm interprets it as upset. The false alarm finds the threat in the ambiguity. And you're responding to the threatened version. You're being more careful. More contrite. More apologetic. For something that might not even be wrong.
+TURNING_POINT v04
 ---
 
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the decision that might be wrong
-BAND: 5
+BAND: 3
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: experimentation---
 ---
-You made a decision. It was reasonable. It had sound logic. But the false alarm is finding the ways it could be wrong. Finding the scenarios where it was the wrong call. And you're spiraling in the wrongness. Preparing your defense. Preparing your apology. Preparing for the consequence. But the decision is probably fine. The false alarm is just not accepting that.
----
-
----
-
-## STORY v16
----
-path: the liability you created
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-You said something. Did something. Sent something. And the false alarm is now certain that you've created a liability. That you've given someone ammunition. That you've exposed yourself. And you're going back. Trying to mitigate. Trying to fix what you've broken. But nothing is broken. The false alarm is just in control. And the false alarm is making you smaller. Making you more careful. Making you less likely to speak.
+EMBODIMENT v01
 ---
 
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the norm that's shifting
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-Something feels different in the organization. Something in the tone. In the way people talk. In the energy. And the false alarm is interpreting the shift as threat. As something is coming. Something bad. And you're preparing. You're tightening. You're readying for the thing that's coming. But the shift might just be normal. Might just be rhythm. The false alarm is translating it into threat.
----
-
----
-
-## STORY v18
----
-path: the competence you're questioning
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-You're questioning your competence. Based on nothing specific. Just a feeling. A false alarm. A sense that something is wrong with you. That you're not actually okay. That you're about to be found out. And the false alarm is the only evidence. But it's feeling like evidence. And you're spiraling in the questioned competence. And the spiral is feeding the false alarm. And the false alarm is feeding the spiral.
+EMBODIMENT v03
 ---
 
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the exhaustion from the false alarms
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You're tired. And the false alarms are part of why. The constant state of alert. The constant interpretation of benign things as threat. The constant preparation for crises that don't materialize. And the exhaustion is real. And the false alarms are real. But the threat is not. And you're exhausted from phantom threats. You're burned out on false alarms.
+EMBODIMENT v05
 ---
-
----
-
-## STORY v20
----
-path: the alarm you're not hearing anymore
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-There might be an actual alarm. An actual threat. An actual crisis. But you're so tired from false alarms that you might not hear it. You might dismiss it as false alarm. You might not respond because you've been in false alarm state so many times. And the false alarm system is becoming a liability. The system that was supposed to protect you is now keeping you from real protection. And you're stuck. Unable to trust your own threat detection. Unable to tell the difference anymore.
----
-

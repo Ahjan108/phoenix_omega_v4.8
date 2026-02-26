@@ -1,186 +1,101 @@
-# first_responders / boundaries / comparison
-# Slot type: STORY (engine)
-# Engine: comparison
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the peer who says yes to everything
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-There's someone on your crew who seems to never have boundaries. They work extra. They're always available. They say yes to everything. And the comparison is immediate. Look what they can handle. And here you are with limits. With needs. With boundaries that keep you smaller than them. And the comparison's narrative is that they're stronger. More committed. More capable. Better at the job. When the reality might be they're just saying yes to everything even if it's destroying them. But the comparison doesn't care about that. It just sees the yes. And measures you against it.
----
-
-## STORY v02
----
-path: the way they move through requests
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-Someone asks this peer for something. And they smile and say yes immediately. No hesitation. No checking. No weighing the cost. They just. Yes. And the comparison is using that against you. Showing you how they don't need to think about it. How they're just available. And you're paralyzed by considerations. By worry. By thinking about what you can actually handle. And the comparison is saying that's weakness. That thinking is a limit. That the right answer is what they're doing. Just yes.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the sacrifice they seem okay with
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-This peer's missing things. Work events. Family time. Rest days. But they don't seem to care. And the comparison is using that as evidence that it's fine. That everyone should be able to do this. That your need for time with family or your need for rest is overblown. That if they can sacrifice then you should too. The comparison doesn't see what the sacrifice costs. It just sees the movement. Just sees the yes. Just measures you against it.
----
-
-## STORY v04
----
-path: the validation they get
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-This peer gets recognized. Gets praised. Is seen as reliable. Dependable. Committed. And the comparison is using that as proof. Proof that their way is right. That boundaries are the wrong move. That recognition comes from being available. Always. And you want that recognition. So the comparison's telling you to do what they do. To sacrifice what they're sacrificing. To be who they're being. To get what they're getting.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the comparison to the mentor
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-There's a veteran on your crew who set the standard for your whole department. And they worked hard. Sacrificed a lot. Never had boundaries. And now they're the measuring stick. And the comparison's saying you should be like them. Should work like them. Should give like them. Never mind that they're burned out. Never mind that they have regrets. Never mind that the path they walked took something permanent from them. The comparison just sees the commitment. The consistency. The willingness to always show up. And measures you against it.
----
-
-## STORY v06
----
-path: the story of the guy who left
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-Someone left the crew. Quit. And the story that's being told is that they had boundaries. Had limits. Wouldn't push themselves. And the implication is they were weak. Couldn't handle it. Couldn't commit. And the comparison is using that story against you. Telling you that having boundaries. Making choices. Protecting yourself. That's the thing that makes people leave. That's what breaks. And you don't want to be that person. The one who couldn't stay. So the comparison is pushing you toward doing what the others are doing.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the metric of availability
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-There's an unofficial metric in your department. Of who's most reliable. Most available. Most there when you need them. And the comparison is measuring you against it. And you're not at the top. Because you have boundaries. Because you sometimes say no. Because you prioritize things beyond the job. And the comparison is saying that's a failure. That you're not as reliable as you should be. That you're falling short of the standard that's been set by people who never rest.
----
-
-## STORY v08
----
-path: the comparison that follows you home
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-You're off duty. You're with your family. And the comparison's following you. Asking what your coworker's doing right now. Probably something for the department. Probably something useful. And you're just. With your family. And the comparison's measuring that moment. Telling you that you should be doing more. That rest is a waste. That the other person's probably not resting. Probably not with family. Probably doing something that matters more. And the comparison is making it hard to be present with the people you love. Because there's always someone working harder.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the question of what defines you
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-Are you defined by how much you work. How available you are. How little you need. Because that's what the comparison's been telling you. That this peer is defined by their availability. And that's a good thing. That's something to aspire to. And the comparison's asking are you just. Someone with boundaries. Are you just. Someone who rests. Is that enough. Is that who you are. And the question is destabilizing. Because the comparison's making your identity into a lack. A failure to do what the other person's doing.
----
-
-## STORY v10
----
-path: the moment you notice what it costs
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-You're really looking at the person you've been comparing yourself to. And you're seeing what the constant availability costs. The marriage that's fragile. The kid who barely knows them. The health that's shot. The joy that's gone. And the comparison pauses. Because the thing you thought you wanted. The thing they have. It doesn't actually look that good up close. And there's a moment where you could reassess. Where you could see the boundary differently.
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the realization that they're also struggling
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-This peer that you've been comparing yourself to. They're struggling. They're burned out. They're thinking about leaving. The availability that looked like strength is actually a symptom of something else. Panic maybe. Or inability to say no. Or a different kind of boundary problem. And the comparison shifts. It's not that they're better. It's that they're drowning a different way. And knowing that changes the measurement.
----
-
-## STORY v12
----
-path: the conversation where you ask
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-You ask this person. How do you do it. How are you always available. And they tell you the truth. I don't know if I can keep doing it. I'm exhausted. I don't have a life. I've missed so much. And the comparison collapses. Because the answer isn't an inspiration. It's a warning. And you're realizing that what you thought was strength was actually unsustainability. And what you thought was weakness. The boundary. Maybe it was actually wisdom.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the moment you choose your own way
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-You decide. You're not going to compare anymore. You're not going to measure yourself against people who are burning themselves down. You're going to set boundaries. You're going to protect your time. You're going to prioritize your family. And the comparison doesn't like it. It comes back. It says you're weak. You're not committed. You're not a real responder. But you're choosing to hear it differently now. You're choosing not to follow.
----
-
-## STORY v14
----
-path: the cost becomes clear
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-You start to see what the comparison cost you. How much family time you sacrificed for something that wasn't actually better. How much of yourself you gave away trying to match someone else's burnout. How much you missed. And the grief of that is real. But so is the knowledge that you can stop now. That you can choose different. That the comparison doesn't have to run your life anymore.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: someone newer is comparing to you
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-A newer person looks at you with the same comparison that you used to do. Wondering if they can be like you. Trying to figure out if your boundaries are weakness or wisdom. And you want to tell them. The comparison's a trap. Don't do it. Choose your own way. But they have to learn it themselves. Like you did. You can just. Not run from the question. You can acknowledge it honestly.
----
-
-## STORY v16
----
-path: the freedom of not measuring
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-There's a moment where you stop comparing. And in that moment there's a lot of space. Space that was being taken up by the measurement. The constant calculation. The evaluation. And the space is actually. Quiet. And the quiet is kind of nice. And you get to just do your job. Just show up. Just be there. Without constantly evaluating whether you're doing it as much as someone else.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: building your own standard
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You start thinking about what you actually want. What actually matters to you. And you start measuring against that. Not against other people. Against yourself. Your values. Your actual needs. And the standard that emerges is different. It's personal. It's honest. It's sustainable. And it's actually. Okay.
----
-
-## STORY v18
----
-path: the peer who figures it out too
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-The person you've been comparing yourself to. They also figure out that the constant availability isn't the answer. They also set boundaries. They also choose different. And the comparison finally breaks. Because you're both doing your own thing. Both choosing your own way. Both learning that there's no universal standard for how to be a responder. Just how to be yourself as a responder.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: what you have that they don't
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-You're starting to see what you have. What your boundaries bought you. Time with family. Health. Presence. A life beyond the job. And the comparison that was making you feel small. That comparison is now showing you what you chose. What you protected. What matters to you. And it's not less. It's just different.
----
-
-## STORY v20
----
-path: the truth about the standard
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-There's no universal standard for what a responder should be. There's no one way. The comparison's been measuring you against an imaginary standard that nobody can actually meet. That nobody should have to meet. And the freedom of that. The knowledge that you don't have to be like anyone else. That your boundaries are not a failure. That your way is actually okay. That's what's left when the comparison finally ends.
+EMBODIMENT v05
 ---

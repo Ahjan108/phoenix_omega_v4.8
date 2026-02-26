@@ -1,561 +1,101 @@
-# tech_finance_burnout / burnout / overwhelm
-# Slot type: STORY (engine)
-# Engine: overwhelm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: Slack opens to 47 new messages
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You notice before you notice. That microsecond of resistance when your thumb hovers over Slack. Not fear exactly. Just a system recognizing it's about to ingest 47 new problem statements. Each one marked urgent. Each one requires a context switch your brain stopped funding three deployments ago.
-
-You're thinking about capacity graphs. Latency curves. Threshold breaches. This is how you organize experience now. Input buffer overflowing. You can measure it. You can see the queue backing up behind your eyes.
-
-It's 7 AM. The standup was 45 minutes. The on-call rotation is understaff. Someone on the team shipped code to production that didn't go through code review. No one's talking about it yet but everyone's thinking about it.
-
-You scroll. The messages are about different things but they all mean the same thing. More. Your calendar shows the same pattern. Back-to-back meetings. No gaps. You used to block Focus Time. You stopped that sometime in Q3.
-
-Your coffee is still hot. You haven't drunk it yet. You're still looking at the messages without really reading them. Your brain is already calculating. If you answer the first one, that triggers the second. If you answer the second, the third is actually a blocker. If you don't answer them in order, someone escalates.
-
-You can debug this. You could build a triage system. You could optimize the workflow. But optimization takes time. And there is no time. That's the architecture of this. That's the design pattern. That's the load you're carrying.
-
-Your finger taps the first message. You don't feel ready. You don't think you ever will.
-
+RECOGNITION v02
 ---
 
-## STORY v02
----
-path: The Jira board is on fire and you wrote none of the fires
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You're looking at the Jira board. 34 open tickets in the current sprint. You didn't create most of them. They showed up like system logs. Async errors you weren't tracking.
-
-The tickets have that color coding. The red ones are marked Critical. The orange ones are High. There's one yellow ticket from January that no one's touched. You know that ticket. You remember the conversation that created it. It was about preventing exactly what's happening now.
-
-Someone pings you. Not in the Jira thread. In a side channel. Offline. Can you take a look at the new stuff. Just a quick look. Doesn't have to be perfect.
-
-Nothing is ever perfect. But quick used to mean 15 minutes. Now quick means drop everything. Prioritize. Reschedule. Tell the other thing that's waiting that it's going to wait longer.
-
-You open the code. It's okay. Not great. But okay is actually above average for how much people have been moving. You write a comment. Three sentences. Technical. Helpful. The kind of comment that doesn't sound like you're drowning.
-
-But you are. You're drowning in input. Your brain is a system that's receiving more traffic than it's designed to handle. And the traffic is only accelerating. No rate limiting. No circuit breaker. Just more.
-
-You close the browser tab. Open a new one. The email inbox has 12 new ones. Fuck it. You're going to get coffee.
-
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: Every answer creates two more questions
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-You solve something. You feel good for approximately nine seconds. Then someone asks the next thing. Or the previous thing wasn't actually solved. It was just deferred. The bug is still there. It just moved. It's now under someone else's stack.
-
-You're thinking about exponential growth. Fibonacci sequences. How the work reproduces. You handle one thing and two more spawn. You start to feel like you're not actually working through a list. You're maintaining a probability distribution. Every action expands the possibility space.
-
-Your manager asks if you have capacity to mentor the junior. You want to say no. But saying no is also work. You have to explain why. You have to propose an alternative. You have to manage the expectation that you're not going to do this thing.
-
-So you say yes.
-
-And the mentoring is good. You're good at it. But it's another thing. It's another thread. Another context you're holding. Another person depending on you to show up at the scheduled time with your head clear.
-
-Your head is not clear.
-
-Your head is a browser with 67 tabs open. Some of them are running in the background. Some of them have encountered an error and they're just spinning. Some of them you opened three weeks ago and forgot about but they're still consuming RAM.
-
-You're not solving problems anymore. You're managing the queue. You're moving boxes on a Kanban board. You're making the work visible while the work itself expands infinitely. Every sprint closes two sprints worth of new work.
-
-You're thinking about a system approaching criticality. And then you have a meeting. You're 11 minutes late.
-
+RECOGNITION v04
 ---
 
-## STORY v04
----
-path: Your calendar has no margins
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-You look at your calendar for tomorrow and it's just color. Different colors. But no empty space. The standup is at 9. Then design review. Then one-on-one. Then architecture discussion. Then a sync with the other team. Then another sync. Then the day ends.
-
-This used to be your job. Meetings were part of the work. Now meetings are all the work. You don't have time to do anything else so you do the work in the meetings. You propose solutions in the video call. You code review on someone's screen share. You debug in real time while seven other people watch.
-
-It's efficient in a way. Everyone knows what's happening. Everything is transparent. Everyone's on the same page.
-
-And everyone's exhausted.
-
-You're thinking about Slack for a meeting that could have been an email. The email that no one reads. The system that's broken because communication is asynchronous but everything is treated as synchronous. Everything is a fire. Everything is now.
-
-You're looking at 2 PM tomorrow and you're not excited or dreadful. You're just blank. You can't remember what the meeting is about. You can see the attendees. You can see the calendar invite from six months ago. You can see the recurring event that someone never cancelled.
-
-It's not about the meeting itself. It's about the totality. It's about the fact that there is no gap between them. There's no time to breathe. There's no time to actually think. There's no time to work on the thing that's actually due in two weeks that nobody's scheduled a meeting about because it's deep work and deep work doesn't fit in the margins anymore.
-
-Because there are no margins.
-
-You're going to be tired tomorrow. You already know this. You're tired now and it's 11 PM. You have 10 hours until the standup. You're going to sleep badly.
-
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: You find yourself debugging the same bug
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You've seen this error before. You know you have. The stack trace is familiar. The symptoms are identical. The last time you fixed this, you thought about making it not happen again. You didn't. You just moved on.
-
-Now it's back. In a different service. Different repo. Same root cause that you recognized six months ago in a design doc that someone filed and everyone agreed was a good idea but no one prioritized.
-
-You search your Slack history. You find the conversation. From July. Someone asked if this was risky architecture. You said yes. Someone else said we can revisit this in Phase 2. Phase 2 is now. Except Phase 2 became three different projects and this thing just got lower priority.
-
-So you're debugging it again.
-
-It takes 45 minutes. You remember how you fixed it last time. You remember the problem. You remember that you thought about this problem and you had thoughts about fixing it systematically. But systematic fixes take time. They require a ticket. They require prioritization. They require killing something else.
-
-So you patch it. Same patch as last time. Maybe slightly cleaner. Maybe you added a test this time. Or maybe you didn't because there are three other things that are bleeding and you need to move.
-
-You write the PR. You leave a comment. Something about this being the second instance and someone should probably look at the architectural assumption. You know no one will. You know because you made the same comment last time.
-
-Someone approves your PR. They don't read the comment. They just see that it fixes the error.
-
-You're calculating the debt now. Not the technical debt exactly. The personal debt. How many times are you going to fix the same thing. How many hours of your life are going to get spent on this one architectural decision that someone made before you got here.
-
-You merge the PR. The error goes away. For now. You're pretty sure it's going to come back.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v06
----
-path: On-call rotation lands on you for the third time
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-The calendar flipped to your week and you felt it. Not a specific feeling. Just a shift in your operating parameters. You're now responsible if the system breaks. You're the one who gets paged. You're the one who has to respond at 3 AM because something in the data pipeline failed.
-
-This is the third time this rotation. You're tracking it. You know the pattern. You know the on-call schedule is supposedly fair but it's landing on you more than the others. You could check the spreadsheet. You know you won't. Checking feels like complaining. Complaining feels weak.
-
-Your sleep is different this week. You can't fully go under. You're half-awake. Your brain is listening for the Slack notification. Your phone is louder than usual. You turned the volume up.
-
-It's Tuesday. Nothing's broken yet. But you're living in that possibility. You're planning your evening around the likelihood of a page. You don't go out. You don't put your phone far away. You're here and available.
-
-This is the job. This is what you knew you were signing up for. This is the cost of working on infrastructure. You have to be there when the system fails.
-
-But you're tired of being there.
-
-You're tired of the people reaching out saying hey can you just take a quick look. You're tired of the war room calls. You're tired of the blame that shows up in those calls. Not blame directed at you. But blame floating around. Someone wrote bad code. Someone shipped something. Someone didn't run the load tests.
-
-And you're the person in the middle of the night who has to untangle it.
-
-You're trying to remember why this was ever exciting. When being the expert who could fix things in the middle of the night felt like status. Like value. Like proof that you were the one who understood the system.
-
-You understand it less and less. The system is bigger. More dependencies. More chaos. More things that can fail. You're not the one who fixed it. You're the one who happened to be awake.
-
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: You realize you have six big projects and deadline for all of them
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-You're sitting in a meeting and someone mentions the launch. Which launch. There are multiple things launching. There's the one you're leading. There's the one you're helping on. There's the one you didn't know about until now but apparently you're in the critical path.
-
-You start counting. Project A is due in three weeks. Project B is due in two weeks. Project C is due in a month but it has a dependency that's only due in one week. Project D is supposedly on hold but nobody told you that so you're still working on it. Project E just got restarted so everyone's priorities just shifted. Project F is from the old quarter and nobody's officially cancelled it.
-
-You have six things.
-
-You have eight weeks if you count the generous estimate on the furthest one. You do not have eight weeks of capacity. You have one brain. You have 40 hours a week. You are in eight hours of meetings. You have about 20 hours to actually work.
-
-Your manager says okay so you'll pick which ones you focus on. As if you have that power. As if you're the one making the decision. You're not. They're all critical. They're all urgent. They all have stakeholders.
-
-You're thinking about queuing theory now. You're thinking about Little's Law. You're thinking about the fact that more WIP makes everything slower. Adding more projects to your plate doesn't make you more productive. It makes you slower on everything.
-
-You know this. You teach this. You've debugged systems that were slow because they were trying to do too much in parallel.
-
-But you can't say that. You can't say the system is broken because the load is too high. You're supposed to be the fix for that. You're supposed to absorb it. You're supposed to be robust.
-
-You're not robust anymore. You're just operating in a degraded mode and nobody's noticing because the work is still shipping.
-
-But you're noticing.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v08
----
-path: You turn on the laptop before the coffee is done
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-It's 6:47 AM. You're not a 6:47 AM person. You're not a early-morning person. But you opened the laptop anyway. Before breakfast. Before the coffee was done brewing.
-
-There are 23 Slack messages since yesterday at 6 PM. Most of them are probably fine. Most of them are probably people asking something that isn't actually urgent. But what if one of them is actual urgent. What if the system is down and everyone's waiting for you.
-
-So you check.
-
-It's not down. But someone found a bug in the code you wrote two days ago. They're waiting for context. They want to know if you knew this was going to happen. You didn't. But now you're awake and now you're reading through the code trying to figure out what happened.
-
-It's 7:15 AM. You haven't eaten. The coffee is cold. You're still in whatever you sleep in.
-
-This is not sustainable. You know this. You say it sometimes. You've said it to your therapist. You've said it to your partner. You've said it to yourself at 3 AM during another broken sleep. This is not sustainable.
-
-But there's no alternative. If you don't check the messages, the messages pile up. If you don't respond fast, people think you're slow. If you're slow, your reliability number goes down. If your reliability goes down, you're replaceable.
-
-So you check the messages before the coffee.
-
-You're thinking about systems that don't have anyone who can be replaced. Systems that have only one person who understands the critical path. That's how you've become. Not because you wanted to. But because you were the one who was always available. You were the one who could be relied on.
-
-And now you can't stop being that person without the whole thing failing.
-
-You're going to have some days like this. You're going to have a lot of days like this.
-
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: You dream about code and wake up solving the problem
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-You're sleeping. You're not sleeping well. Your brain is still running background tasks. You're dreaming about an error message. You're dreaming about a bug. You're dreaming about the specific line of code that's causing the memory leak.
-
-In the dream you fix it. The dream-fix is elegant. It's clean. It's the way you would design it if you had time. If you had the luxury of actually thinking about the architecture instead of just bolting more pieces onto something that's already fragile.
-
-You wake up at 4 AM. You're not sure if you're awake because of the dream or if you're awake because your nervous system is just running on high alert all night.
-
-You lie there. The fix is still in your head. You're turning it over. Is it actually right. Does it actually work. Could you implement it in code.
-
-You get up. You don't turn on the lights. You go to the laptop. You open the codebase. You type out the fix. It's 4:47 AM and you're shipping code because a dream version of a problem won't let you sleep.
-
-The code works. You write a test. The test passes. You push it. You add a comment that doesn't explain why you were awake at 5 in the morning.
-
-You go back to bed. You don't sleep. You're thinking about whether this is healthy. You're thinking about whether normal people do this. You're thinking about when this became your life.
-
-Your brain is not in your head. Your brain is in the system. Your brain is distributed. You go to sleep with the problems and you wake up still carrying them.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v10
----
-path: Your code review queue has the same person's PR three times
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-You're scrolling through your code review queue. You see a PR from Dev. You see another one from Dev. You see a third one from Dev. None of them have been approved yet. Dev is blocked. Dev has been blocked for two days because you haven't looked at them.
-
-You feel guilty. Dev's waiting. Dev's working on something probably important. Dev probably has their own queue of things waiting on your review.
-
-You're about to start reading the first one when someone messages you in Slack. Can you just take a quick look at this thing. It's blocking the whole team. This thing is different. This thing is Critical.
-
-So you handle the Critical thing. You read through the code in 20 minutes. You write comments. You approve it. You move on.
-
-It's now 5 PM. Dev's PRs are still there. You're tired. Your brain is not in the mode for deep code review. Deep code review requires thinking. It requires understanding what the person was trying to do. It requires articulating the why behind a suggestion.
-
-You don't have that energy right now.
-
-You write a comment on the first one. You say something generic. You approve it without fully reading it because you trust Dev. You do the same with the second one. And the third.
-
-Two days later you get a Slack. The code from the third one has a bug. It's in production. It's a small bug. But it's there.
-
-You read the PR again. You would have caught it if you'd actually read it. The bug is obvious in context. But you approved it in a state of fatigue. You were depleted. Your review was a box-check. Not actual review.
-
-You feel like shit. You apologize to Dev. Dev says it's fine. It's a small bug. But it's not fine and you know it.
-
-You're now the person who's introducing risk because you're too tired to do your job properly. You're the weak point in the system. You're the degraded component.
-
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: You realize you answered the same question in Slack four times
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-You're searching Slack for something and you stumble on it. A question from July. You answered it. Then the same question in September from a different person. You answered it again. Same answer essentially. Then October. Someone else. Same answer again.
-
-And then last week. The same question again. You answered it a fourth time.
-
-You're not mad exactly. But you're aware of what this means. You're aware that the knowledge is not distributed. The knowledge is in your head. Whenever someone needs to know something about how this system works, they ping you.
-
-You could write documentation. You've thought about writing documentation. You opened a doc once. You wrote the title. You never finished it.
-
-You could make the knowledge systematic. You could record a video. You could leave it in a wiki. You could make it such that the next person who asks can just read something instead of waiting for you to respond.
-
-But that takes time. And you don't have time. You have four other things that are on fire.
-
-So you answer the question for the fourth time. And you're thinking about how many times you're going to answer this question. How many hours of your life are going to get spent on explaining something that doesn't change.
-
-You're becoming a documentation system for things that should be documented. You're becoming a human API. You're becoming a memory instead of a person.
-
-The crazy part is you don't mind. You actually like explaining things. You like helping people understand. But you're doing it in the cracks between other things. You're doing it when you're already depleted.
-
-You're answering while answering other things. You're fragmenting your attention into pieces.
-
+TURNING_POINT v02
 ---
 
-## STORY v12
----
-path: You know exactly when the system's going to break
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-You're in the architecture meeting and you're listening to the proposal and you know. You know exactly when this is going to fail. You can see it like you're reading a system diagram. You can see the bottleneck. You can see the cascade. You can see the point where the assumptions break.
-
-You raise your hand. You say here's the problem. You outline it clearly. You've done this a hundred times. You can communicate technical risk really well.
-
-Someone says okay that's good to know. Someone says can we keep that in mind for Phase 2. Someone says doesn't that only happen if we hit scale. And someone just nods but they're already thinking about the next thing.
-
-You know they're right and they're wrong. You know it's more subtle than they're hearing. You know that the problem you just described is going to cost more to fix now than it will to build right from the beginning.
-
-But you also know that nobody's going to prioritize fixing it. So you're going to watch it. You're going to watch it until it breaks. And then you're going to be the one who fixes it at 2 AM on a Tuesday.
-
-This is the pattern. This is how you spend your life. You see the problems before anyone else. You communicate them. They get shelved. They get expensive. They get fixed reactively.
-
-And you're tired of being right about this.
-
-You stop raising your hand in the meeting. You stop trying to prevent things. You just let them happen. You let the system do what you know it's going to do. You let it fail in the way you predicted. And then you fix it.
-
-At least when you're fixing something you know is broken, you don't have to be right. You just have to be fast.
-
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: The team's velocity hasn't changed in five quarters
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-You're looking at the burndown. You're looking at the velocity. You're looking at the trend line.
-
-The trend line is flat.
-
-Five quarters. Five sprints every quarter. That's 25 sprints of data. The velocity is 37, 38, 39, 36, 38. It's basically the same every time. Maybe slightly different. But the same order of magnitude.
-
-This is bad. This should be going up. The team's been together longer. The team should understand the codebase better. The team should be optimizing. The team should be faster.
-
-Instead the team's velocity is constant. And the team's workload is increasing. The backlog is larger. The number of things being requested is higher. The maintenance burden is growing.
-
-So velocity is constant but load is increasing. That's a diverging curve. That's stress accumulating in the system.
-
-You know why this is happening. It's because the team's spending more time in meetings. It's because the code is getting older and every new thing requires rearchitecting something old. It's because the infrastructure is creaky.
-
-But mostly it's because there's more work. There's just more.
-
-The velocity can't go up when you're drowning. The velocity stays flat when everyone's just trying not to fall behind.
-
-You're in a meeting about this and someone says we need to improve velocity. They say this like it's a thing you can just decide to do. Like you can just try harder. Like the problem is effort and not load.
-
-You say we need to reduce the amount of incoming work. You say we need to finish things before we start new things. You say the problem is not in the team, it's in the system of what the team is asked to do.
-
-Someone says that's a business decision. Someone says we can't reduce business requests. Someone says how about we hire more people.
-
-And you're thinking about Brooks's Law. More people doesn't fix this. More people makes it worse. But no one wants to hear that.
-
-So nothing changes. The velocity stays flat. The load keeps coming. And next quarter, you're going to be looking at the same chart.
-
+TURNING_POINT v04
 ---
 
-## STORY v14
----
-path: You hit send on a resignation email at 2 AM
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-You're awake. It's 2 AM. You can't sleep again. You've been awake for three hours. Your brain won't stop. Your brain is still at work. Your brain is still in the architecture decision that didn't go the way you wanted. Your brain is still in the conversation where someone dismissed the risk you outlined.
-
-You get up. You go to the laptop. You start writing.
-
-The email starts with I appreciate the opportunity. It ends with I've decided to move on. The middle is the part where you're supposed to say thank you but you don't feel thankful.
-
-You're angry. You're exhausted. You're done.
-
-You read it over. You're about to hit send. You can feel it. You can feel the moment where you step off the edge. Where you stop being responsible. Where you let the whole thing fail without you.
-
-It feels good for a second. It feels like power. It feels like you finally get to have agency.
-
-And then you don't hit send.
-
-You close the email. You don't save it. You don't even exit properly. You just close the laptop.
-
-Because you know the actual answer. You know that if you send it, you're still going to feel like this. You're going to feel like this at the next job. You're going to feel like this forever because this is how you are. You're the person who sees the problems. You're the person who tries to fix them. You're the person who gets broken by trying to hold things together.
-
-It's not the job. It's you.
-
-So you don't quit. You go back to bed. You sleep badly. You wake up at 6 AM and you answer the Slack that came in while you were trying to sleep.
-
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: You can't remember why you wanted this job
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-There was a version of this that felt different. There was a time when this was exciting. You remember the interview. You remember thinking this is important. You remember thinking you wanted to be here.
-
-What was that feeling. What were you thinking.
-
-You were thinking about the technology. You were thinking about the team. You were thinking about the impact. You were thinking about the opportunity to work on systems that mattered. You were thinking about building something.
-
-Now you're not building. You're maintaining. You're maintaining and you're drowning and you're watching everyone else also drown and you're all pretending it's fine.
-
-You have money. That was the other thing. The salary was good. The RSUs were good. You were going to be set. You were going to build something that mattered and also you were going to be set.
-
-The money's not worth it anymore. The money's not making you feel less tired. The money's not making you sleep better.
-
-You were good at this job when you started. You were the person with the answers. You were the expert. That was feeding something. That was proof of something.
-
-Now you're just tired. The expertise is still there but it's trapped. It's stuck in a system that doesn't value you being smart. It values you being available. It values you being awake and responding to Slack at 3 AM.
-
-You're not getting better. You're not learning anything new because you're too busy putting out fires to have time to actually think about anything. You're going backwards. You're forgetting things. Your brain is processing information instead of thinking about information.
-
-You wanted to matter. You wanted to be the person who solved hard problems. Now you're the person who responds to easy questions that should have been documented.
-
-You don't know when the transaction stopped being fair. You don't know when you stopped being willing to give this much.
-
-You just know that you did.
-
+EMBODIMENT v01
 ---
 
-## STORY v16
----
-path: You say yes to something you should have said no to
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-Someone asks if you can take on the new initiative. The new initiative is a new project. New project means new learning. New learning means new work. You should say no.
-
-You say yes.
-
-You know why you say yes. You say yes because saying no is harder. You say yes because if you say no, someone's going to ask why. If you say no, you're going to have to explain. If you say no, you're admitting that you're at capacity.
-
-And you're not at capacity. Capacity is a number. Capacity is something you can measure. You're not at a number. You're at exhaustion. And exhaustion is not a valid reason in meetings.
-
-So you say yes. And now you have a new project.
-
-This is the moment. This is the inflection point. This is the moment where the load goes from heavy to impossible. You know this is the moment. You feel it. You can feel the system reaching the point where it can't carry any more.
-
-But you've already said yes. You can't take it back. You can't say actually I was wrong. You can't say I'm actually drowning and this is the wave that's going to pull me under.
-
-So you're going to carry it. You're going to add it to the pile. You're going to find time that doesn't exist. You're going to reduce sleep. You're going to give up the thing you were going to do on the weekend.
-
-You're going to absorb it.
-
-And next week, someone's going to ask if you can take on one more thing. And you're going to say yes to that too. Because the system is set up to reward people who say yes. And to punish people who admit they're full.
-
-So you keep saying yes until something breaks.
-
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: You realize you've stopped leaving early
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You used to leave at 5. You used to have that boundary. You used to close the laptop and that was it. You were done.
-
-Now you're leaving at 6. 7. 8. You're leaving when the thing is done. The thing is never done.
-
-You're not even thinking about it anymore. It's just what happens. You get to 5 and there's something that needs attention. So you stay. By 5:30 you've gotten another message. By 6 you're deep in something. By 7 you've forgotten that you were supposed to leave.
-
-You're thinking about when this changed. You're thinking about the conversation. Was there a conversation. Did someone tell you that you needed to stay later. Or did it just happen incrementally.
-
-You think it just happened. You think you gradually started staying. You think you started saying yes to meetings that ran past 5. You think you started answering the last message before you closed your laptop. You think you started doing just one more quick thing.
-
-And now 5 PM is not a time when you leave. 5 PM is a time when everyone else leaves and you're still here.
-
-You're alone in the office. You're the last person. You're the one who closes the laptop at 9 PM on a Tuesday because something was broken and nobody else could fix it.
-
-This is how you work now.
-
+EMBODIMENT v03
 ---
 
-## STORY v18
----
-path: You forget your partner's birthday
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-It's Tuesday. It's a normal Tuesday. You're in a meeting. You're debugging something in another meeting. You're writing code in between.
-
-Your partner texts. Just a text. Not frantic. Just casual. Hmm.
-
-You don't see it until 8 PM. The text is from 3 PM. It says happy birthday to me I guess.
-
-You feel it then. You feel the weight of forgetting. You feel the weight of the choice you made without making a choice. The choice to not remember. The choice to be so deep in work that the actual world stops registering.
-
-Your partner's birthday was Thursday. It's Tuesday and they're reminding you that you forgot.
-
-You didn't forget on Thursday. Thursday came and went and you were too consumed to notice. You were probably in a fire. You were probably on-call. You were probably dealing with something that felt urgent.
-
-And Thursday just passed.
-
-You apologize. Your partner says it's fine. It's not fine. You both know it's not fine. This is not the first time. This is the pattern. The important things get deprioritized. The important people get deprioritized.
-
-You're choosing the work. Not actively. Not in a moment of decision. But through a thousand small choices to respond to the message. To stay in the meeting. To debug one more thing.
-
-You add the birthday to your calendar for next year. Like that's going to help. Like remembering it on your calendar is the same as actually being there.
-
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: You drink a glass of wine and cry in the kitchen
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-It's 6 PM. You've closed your laptop. You've stepped away from the work. And now you're empty.
-
-You pour a glass of wine. You're not a wine person particularly but the alcohol is just something to hold. Something to do with your hands.
-
-And you're crying. Not dramatic crying. Just tears. Just your body saying something that your brain won't say.
-
-Your partner asks if you're okay. You say yeah. You're just tired. You're just stressed.
-
-You're not okay. You know you're not okay. You know that you shouldn't be crying over a glass of wine on a random Tuesday. You know that this is your life now and this is fine and you should be able to handle it.
-
-But you can't handle it.
-
-The wine is warm. You're not tasting it. You're just existing in the moment where everything you've been holding is finally too heavy.
-
-You're thinking about the person you were before this. You're thinking about the version of you that had time for things other than work. That had energy for people. That wasn't running on fumes.
-
-You don't know when you became this person. You don't know if you made a choice or if you just slowly became someone else.
-
-The wine helps and it doesn't help. The crying helps and it doesn't help. Nothing helps. You're just going to feel like this until you sleep. And then you're going to wake up and the Slack is going to be there and you're going to answer it and you're going to do it all again.
-
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: You stop crying and go back to work
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-You finish the wine. You wipe your face. You're not crying anymore.
-
-Your laptop is still on the table. The work is still there. The Slack is still there. The email is still there.
-
-You open the laptop. You answer the message that came in while you were not working. You see that there's a deployment that needs attention. You go look at it.
-
-It's 7 PM. You're working. You're back in it.
-
-This is what you do now. You break down. You put yourself back together. You go back to work.
-
-Maybe this is sustainable. Maybe you're actually fine. Maybe you're just having a moment and tomorrow you'll feel different.
-
-But you won't. Tomorrow you'll feel the same. Tomorrow you'll carry the same weight. Tomorrow something will break and you'll fix it. Tomorrow someone will ask you for something and you'll say yes.
-
-This is not ending. This is not the moment where you finally quit. This is not the moment where you finally break. This is just the moment where you notice that you're breaking and then you go back to work anyway.
-
-You're committed to this. Not because you want to be. But because the alternative is worse. The alternative is failing. The alternative is letting people down. The alternative is admitting that you can't carry this anymore.
-
-So you carry it. You carry it tomorrow. You carry it next week. You carry it next quarter.
-
-You carry it because you don't know what else to do.
-

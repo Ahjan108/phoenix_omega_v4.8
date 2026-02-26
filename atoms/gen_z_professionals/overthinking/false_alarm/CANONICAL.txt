@@ -1,206 +1,101 @@
-# gen_z_professionals / overthinking / false_alarm
-# Slot type: STORY (engine)
-# Engine: false_alarm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the read receipt that means everything
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-I sent a message. To my manager. Three hours ago. And they've read it. But they haven't responded. And the read receipt is doing something to my brain. The read receipt means they saw it. Which means they're thinking about it. Which could mean anything. Which means everything. Which means nothing. And I'm caught in the loop of interpretation. The read receipt is a signal. But the signal is ambiguous. And the ambiguity is the false alarm. The signal that might mean there's a problem. That might mean nothing at all.
-
----
-
-## STORY v02
----
-path: the message that needs unpacking
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-My manager sent me a message. A short message. "We should talk about your performance." And I'm unpacking the message. The tone. The implied meaning. The subtext. And the overthinking is producing false alarms. Are they unhappy with me. Is this a warning. Is the conversation going to be bad. And the message is so short that there's nothing to actually parse. So I'm creating interpretations. Building narratives. And all of them are suspicious. All of them are suggesting that something is wrong.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the email I sent
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-I sent an email. And I'm rereading it. Looking for problems. For things that might be misunderstood. For tone that might be wrong. For anything that could be taken badly. And the rereading is producing false alarms. That phrase. Is that too casual. Is this word wrong. Does this sound defensive. And I'm overthinking the email I already sent. I can't change it. But the overthinking is suggesting that I should have. That I made a mistake. That the email was bad.
-
----
-
-## STORY v04
----
-path: the meeting tomorrow
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-I have a meeting tomorrow. With my manager. Just a regular check-in. Probably. And the overthinking is creating a different narrative. What if it's not a regular check-in. What if this is the beginning of a performance improvement plan. What if I'm about to be fired. And the meeting is tomorrow. So I have all night to overthink. To build false alarms. To create scenarios that probably won't happen. And the false alarm is doing the work of making me anxious about something that might not even happen.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the text that was read but not answered
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-A colleague texted me. I read it. I didn't respond immediately. And now I'm thinking about how they're thinking about me not responding. And the overthinking is creating false alarms. Are they upset. Do they think I'm ignoring them. Do they think I'm rude. And the false alarm is that I did something wrong by not responding immediately. When actually I was just busy. And the overthinking is creating a problem that doesn't exist.
-
----
-
-## STORY v06
----
-path: the feedback that was vague
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-My manager gave me feedback. It was vague. "You're doing well but there's room for improvement." And the overthinking is creating false alarms. What does that mean. Where is the room for improvement. What specifically am I doing wrong. And the feedback is so generic that it could apply to anyone. But the overthinking is treating it as specific. As targeting me. As a signal that something is wrong.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the silence in the meeting
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-I said something in a meeting. And there was silence. A few seconds where nobody responded. And the overthinking is creating a false alarm. Did I say something wrong. Did I offend someone. Was I off-topic. And the silence might have just been people thinking. But the overthinking is interpreting it as judgment. As criticism. As a signal that I shouldn't have spoken.
-
----
-
-## STORY v08
----
-path: the conversation that went differently
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-I had a conversation with a colleague. It was fine. Normal. But I'm replaying it and the overthinking is creating false alarms. Did they seem short. Were they distant. Did I say something that bothered them. And the conversation is in the past. I can't change it. But the overthinking is suggesting I should be concerned about it. That it was bad. That I need to worry.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the decision I can't stop analyzing
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-I made a decision at work. A small one. About how to approach something. And I'm analyzing the decision. Looking for problems. For signs that I chose wrong. For evidence that someone disagrees. And the overthinking is creating false alarms. What if I chose wrong. What if there's a better way. What if people think I made a mistake. And the decision is made. The consequences are already happening. But the overthinking is suggesting that I need to second-guess it.
-
----
-
-## STORY v10
----
-path: the normal thing that might be abnormal
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-Something normal happened. Someone didn't respond to a message. Someone was in a hurry. Someone gave short feedback. And the overthinking is creating a false alarm. What if these normal things are actually signals. What if they mean something is wrong. What if I'm missing something. And the normal interpretation is boring. So the overthinking is building more interesting interpretations. All of them false. All of them alarms.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the past conversation that haunts
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-I had a conversation weeks ago. Or months. And I'm still thinking about it. And the overthinking is creating new interpretations. What was that person thinking. Did I say something wrong. Did I misunderstand. And the conversation is long over. But the overthinking is suggesting that there's unfinished business. That something is wrong. That I need to worry.
-
----
-
-## STORY v12
----
-path: the pattern I'm seeing
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-I'm seeing a pattern. Or I'm creating one. My manager has been less available lately. Or maybe they're just busy. But the overthinking is seeing a pattern. A sign. An indication that something is changing. That I'm falling out of favor. That the relationship is deteriorating. And the pattern might not be real. But the overthinking is making it real. Is making it something to worry about.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the overthinking that predicts disaster
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-The overthinking is escalating. Small things are becoming big things. A short email becomes evidence of displeasure. A quiet meeting becomes evidence of disapproval. A normal interaction becomes evidence that something is wrong. And the false alarms are multiplying. Each one building on the last. Creating a narrative where disaster is coming. And the disasters are false. But they feel very real.
-
----
-
-## STORY v14
----
-path: the false alarm that creates truth
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-The false alarm is starting to create reality. Because I'm overthinking, I'm anxious. Because I'm anxious, I'm performing differently. Because I'm performing differently, people are noticing. And suddenly the false alarm was onto something. Not what I was worried about. But something. And the false alarm has become self-fulfilling. The worry created the thing to worry about.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the disaster that didn't happen
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-The thing I was worried about didn't happen. The meeting was fine. The manager wasn't unhappy. The decision was good. And the overthinking was completely wrong. The false alarm was false. And the relief is temporary. Because the overthinking is now analyzing why it was false. And creating new false alarms. And the cycle continues.
-
----
-
-## STORY v16
----
-path: the exhaustion of the alarms
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-I'm exhausted by the false alarms. By the constant interpretation. By the endless analysis of things that probably mean nothing. And the exhaustion is making it harder to distinguish between real problems and false alarms. And the exhaustion is making me more anxious. Which creates more false alarms. Which exhausts me more.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the anxiety I can't turn off
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-The false alarm is triggered and I can't turn it off. I can't just decide it's not real. I can't just move on. The anxiety lingers. The overthinking continues. And the false alarm becomes something I'm managing rather than something I'm experiencing. It becomes part of the baseline.
-
----
-
-## STORY v18
----
-path: the alarm that became background
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-So many false alarms have happened that they've become background. That's just what my brain does. It creates catastrophic narratives about normal things. And the false alarms are so frequent that I've normalized them. That I expect them. That I'm managing the constant low-level anxiety of not knowing what's real and what's overthinking.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the alarm that doesn't go away
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-At crisis, there's a false alarm that I can't shake. That I can't prove false. That I can't disprove. And the inability to resolve it is the crisis. The false alarm has gone on so long that I can't remember if it's false anymore. Can't remember if I ever knew what was real.
-
----
-
-## STORY v20
----
-path: the loss of signal and noise
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-I've lost the ability to distinguish between signal and noise. Every false alarm feels like a real warning. Every overthinking feels like intuition. And I don't know anymore if my anxiety is protecting me from something or just torturing me.
-
+EMBODIMENT v05
 ---

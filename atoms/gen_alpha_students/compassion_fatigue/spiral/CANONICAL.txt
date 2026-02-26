@@ -1,5 +1,4 @@
-# gen_alpha_students × {topic} × {engine}
-# 20 atoms: 5 recognition, 5 mechanism_proof, 5 turning_point, 5 embodiment
+
 
 ## RECOGNITION v01
 ---
@@ -11,17 +10,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
 Zoe feels the weight in her chest. The exhaustion is persistent. Nothing feels good. Getting out of bed is hard. Going to class is impossible. The motivation is gone. She moves through her day like she's underwater. Everyone else seems fine. She seems broken. Her hands are cold. The heaviness doesn't lift. She's not excited about anything. This is depression.
-
-## RECOGNITION v02
+RECOGNITION v02
 ---
-path: story_atoms/gen_alpha_students/anchored/{topic}/{engine}/recognition/micro/v02.txt
-BAND: 3
-MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 2
-IDENTITY_STAGE: pre_awareness
----
-Eli doesn't want to see people. He used to enjoy his friends. Now he doesn't. Being around people requires energy he doesn't have. He makes excuses. He isolates. His friends ask what's wrong. He doesn't know what to tell them. The depression doesn't announce itself. It just makes everything feel pointless. His throat is tight. He's alone by choice and against choice simultaneously.
 
 ## RECOGNITION v03
 ---
@@ -33,17 +23,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
 Nia should be excited about her major. She's supposed to be on a path. Instead she feels nothing. The future feels grey. Even the good things feel muted. She's going through the motions. She's supposed to be thriving. She's surviving. The gap between expectation and reality is crushing. Her shoulders drop. Nothing feels worth the effort. This is what depression feels like when you're supposed to be happy.
-
-## RECOGNITION v04
+RECOGNITION v04
 ---
-path: story_atoms/gen_alpha_students/anchored/{topic}/{engine}/recognition/micro/v04.txt
-BAND: 3
-MECHANISM_DEPTH: 1
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: pre_awareness
----
-Leo has been sad for weeks. He knows depression when he sees it. But he's ashamed. He's young. He has opportunities. He should be happy. The depression says he's broken. His mind is grey. His body is heavy. He doesn't tell anyone. The shame keeps it quiet. His jaw clenches. Depression makes you feel broken for being broken.
 
 ## RECOGNITION v05
 ---
@@ -55,17 +36,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
 Mika is depressed and she knows what that means. It means she's weak. It means she can't handle what other people handle easily. It means her brain is broken. The depression brings its own narrative. She's not just sad. She's defective. The weight in her chest confirms it. She should be able to manage. She can't. She's failing. The depression is proof.
-
-## MECHANISM_PROOF v01
+MECHANISM_PROOF v01
 ---
-path: story_atoms/gen_alpha_students/anchored/{topic}/{engine}/mechanism_proof/micro/v01.txt
-BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 4
-IDENTITY_STAGE: destabilization
----
-Cam has been depressed for two months. The bed is the safest place. The depression makes everything feel heavy. Getting up feels impossible. The shower feels impossible. Eating feels impossible. The world has become a place where Cam cannot function. The depression is not sadness. It's absence. Nothing tastes good. Nothing is funny. Cam is moving through a world with all the color drained out. The chest is so heavy.
 
 ## MECHANISM_PROOF v02
 ---
@@ -77,17 +49,8 @@ COST_INTENSITY: 4
 IDENTITY_STAGE: destabilization
 ---
 Asha is depressed and isolated. The depression makes connection feel pointless. She's not responding to texts. Her friends stop reaching out. The isolation deepens the depression. The depression deepens the isolation. She's alone in the depression. The alone is part of the depression. Her stomach is tight. Everything is heavy. She can't imagine this ending.
-
-## MECHANISM_PROOF v03
+MECHANISM_PROOF v03
 ---
-path: story_atoms/gen_alpha_students/anchored/{topic}/{engine}/mechanism_proof/micro/v03.txt
-BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: opportunity
-COST_INTENSITY: 4
-IDENTITY_STAGE: destabilization
----
-Dre is depressed and can't do the things they're supposed to do. Classes are impossible. Work is impossible. Projects are impossible. Everything requires energy Dre doesn't have. The depression is not laziness. It's a system that won't turn on. The failure to do things confirms that Dre is broken. The spiral is fast. Can't do thing. Ashamed of not doing thing. More depressed. More unable.
 
 ## MECHANISM_PROOF v04
 ---
@@ -99,17 +62,8 @@ COST_INTENSITY: 4
 IDENTITY_STAGE: destabilization
 ---
 Leo is depressed and his brain is telling him a story. The story is: this is permanent. You're always going to feel this way. The future is grey. Hope is gone. The story feels true. The depression makes it feel true. His hands are cold. The narrative is complete. He's broken forever.
-
-## MECHANISM_PROOF v05
+MECHANISM_PROOF v05
 ---
-path: story_atoms/gen_alpha_students/anchored/{topic}/{engine}/mechanism_proof/micro/v05.txt
-BAND: 4
-MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 5
-IDENTITY_STAGE: destabilization
----
-Zoe is depressed and the world is grey. Nothing brings relief. Nothing brings joy. Nothing brings hope. The depression is complete. She's not suicidal. She's just not living. She's existing in a world where nothing matters. Her chest is completely heavy. She doesn't know how to get out. She's not sure she wants to get out. The depression is taking her further.
 
 ## TURNING_POINT v01
 ---
@@ -121,17 +75,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: experimentation
 ---
 Eli talks to someone. He says: I'm depressed. The words out loud make it real. The person says: you should talk to someone professional. The suggestion doesn't fix it. But it plants something. Professional help is possible. The depression doesn't lift immediately. But there's a next step. The step is small. But it's movement. His hands warm up slightly. There's a direction.
-
-## TURNING_POINT v02
+TURNING_POINT v02
 ---
-path: story_atoms/gen_alpha_students/anchored/{topic}/{engine}/turning_point/micro/v02.txt
-BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
----
-Nia reaches out to her friend. She says: I'm not okay. The friend comes. Just shows up. The presence breaks the isolation slightly. The depression is still there. But Nia is not alone in it anymore. The shared space is different. Her shoulders drop slightly. The connection doesn't cure depression. But it interrupts the isolation that feeds it.
 
 ## TURNING_POINT v03
 ---
@@ -143,17 +88,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: experimentation
 ---
 Mika calls the counseling center. She makes an appointment. She's terrified. But she makes the call. The call is an action. The action is defiance against the depression's narrative. The depression says nothing will help. The call says maybe something will. The appointment is still days away. But the action creates a small space of possibility.
-
-## TURNING_POINT v04
+TURNING_POINT v04
 ---
-path: story_atoms/gen_alpha_students/anchored/{topic}/{engine}/turning_point/micro/v04.txt
-BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
----
-Cam does one small thing. Gets out of bed. Takes a shower. Eats something. The depression wanted to say these things are impossible. They're not. They're hard. But possible. The small action breaks the depression's narrative. The narrative was: everything is impossible. The reality is: some things are just hard. The distinction is huge. Her chest loosens slightly.
 
 ## TURNING_POINT v05
 ---
@@ -165,17 +101,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: experimentation
 ---
 Asha asks her doctor for help. The doctor listens and says: this is treatable. Not a character flaw. Not permanent. Treatable. The reframing breaks something. The depression had said Asha was broken. The doctor says: Asha's brain chemistry needs support. Different thing. Smaller thing. Fixable thing. The possibility is new. Her hands warm up. There's a path forward.
-
-## EMBODIMENT v01
+EMBODIMENT v01
 ---
-path: story_atoms/gen_alpha_students/anchored/{topic}/{engine}/embodiment/micro/v01.txt
-BAND: 2
-MECHANISM_DEPTH: 4
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: self_claim
----
-Zoe is in therapy now. The depression is still there but it's not the whole reality. She can see it. She can work with it. The work is slow. Some days better. Some days worse. But the direction is forward. Her chest is less heavy. The depression is one thing. Not everything.
 
 ## EMBODIMENT v02
 ---
@@ -187,17 +114,8 @@ COST_INTENSITY: 1
 IDENTITY_STAGE: self_claim
 ---
 Leo is taking medication. The color is slowly coming back. Not all at once. But incrementally. The future is less grey. His friends are back. The connection is real. The medication helped turn the system back on. His hands are warm. The depression is still possible. But not inevitable.
-
-## EMBODIMENT v03
+EMBODIMENT v03
 ---
-path: story_atoms/gen_alpha_students/anchored/{topic}/{engine}/embodiment/micro/v03.txt
-BAND: 2
-MECHANISM_DEPTH: 4
-COST_TYPE: opportunity
-COST_INTENSITY: 1
-IDENTITY_STAGE: self_claim
----
-Dre is doing things again. Small things. Class. Work. Projects. The energy is returning. Not fully. But returning. The depression had said the energy would never return. The depression was wrong. The body is coming back online. The world is slowly becoming possible again.
 
 ## EMBODIMENT v04
 ---
@@ -209,15 +127,5 @@ COST_INTENSITY: 1
 IDENTITY_STAGE: self_claim
 ---
 Nia is learning that depression is not identity. It's something that happens. It's treatable. It's manageable. She's learning to separate herself from the depression. She's still Nia. The depression is a condition. The distinction is everything.
-
-## EMBODIMENT v05
+EMBODIMENT v05
 ---
-path: story_atoms/gen_alpha_students/anchored/{topic}/{engine}/embodiment/micro/v05.txt
-BAND: 1
-MECHANISM_DEPTH: 4
-COST_TYPE: internal
-COST_INTENSITY: 1
-IDENTITY_STAGE: self_claim
----
-Asha knows now that getting help was the right choice. The depression isn't gone. But it's managed. She's living again. The world has color. She has energy. She has hope. The depression taught her something. Her brain needs support. So does everyone's sometimes. She's learning to accept that.
-

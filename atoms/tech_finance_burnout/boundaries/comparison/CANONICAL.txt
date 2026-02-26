@@ -1,275 +1,101 @@
-# tech_finance_burnout / boundaries / comparison
-# Slot type: STORY (engine)
-# Engine: comparison
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: Your peer handles multiple projects and you can only handle one
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Your colleague has four projects running. You have two and you're drowning. Your colleague seems fine.
-
-The comparison is immediate. What are they doing that you're not. How are they managing this.
-
-Maybe you're just not as capable.
-
+RECOGNITION v02
 ---
 
-## STORY v02
----
-path: Someone else sets a boundary and nobody minds
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You see someone turn off notifications after 6 PM. You see someone decline a meeting because they said they weren't available.
-
-And nobody's mad. Nobody's upset. People just accept the boundary.
-
-When you do it, people react differently.
-
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: Your manager stays late and you leave on time
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-You're leaving at 5. Your manager is staying. Your manager is working.
-
-You're comparing. You're thinking about the fact that maybe you should stay too. You're thinking about the fact that they might think less of you.
-
+RECOGNITION v04
 ---
 
-## STORY v04
----
-path: Someone doesn't respond and it's fine
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-Someone doesn't respond to a message for a day. Everyone's fine with it. Nobody's upset.
-
-When you don't respond for a day, people ping you.
-
-The comparison makes you think you need to respond faster than everyone else.
-
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: Your peer takes vacation and doesn't check email
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Your peer took a week off. They didn't check email. Nobody died. Everything was fine.
-
-When you take a week off, you check email. You check often. You're worried that everything's going to break.
-
-The comparison makes you think you're more essential.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v06
----
-path: Someone says no and doesn't get backlash
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-You hear someone say no to a request. You're expecting backlash. There isn't any.
-
-When you say no, there's tension. There's email. There's followup.
-
-The comparison makes you think you can't say no like they can.
-
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: Your colleague leaves work at 5 and you leave at 7
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-Same company. Same role. Same start date. Different leaving times.
-
-You're comparing. You're thinking about what the difference means.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v08
----
-path: Someone sets expectations and people respect them
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-Someone tells the team they're available 9 to 5. The team respects it.
-
-When you try to set the same expectation, people work around it. People message you anyway.
-
-The comparison makes you think you're not in a position to set boundaries.
-
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: You're comparing your boundaries to someone with more power
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-A senior person sets a boundary. Nobody questions it. Everyone respects it.
-
-You set the same boundary. People question it.
-
-The comparison makes you realize you don't have the same power.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v10
----
-path: Your peer has a hobby and you don't
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-Your colleague does photography. Your colleague invests time in it. Your colleague seems happy.
-
-You don't have a hobby. You don't invest time in yourself.
-
-The comparison makes you think you're missing something.
-
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: Someone has a family and still advances
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Someone has kids. Someone has a partner. Someone has a life outside work.
-
-And they're still advancing. They're still successful. They're still meeting expectations.
-
-You're comparing. You're wondering why you can't do that.
-
+TURNING_POINT v02
 ---
 
-## STORY v12
----
-path: Your peer works less and accomplishes more
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-You're working 50 hours a week. Your peer is working 40. Your peer is producing the same output.
-
-The comparison is painful. It's proof that your extra hours are unnecessary.
-
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: Someone delegates and you take everything on
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-Your colleague gives work to other people. Your colleague has a team. Your colleague is focused.
-
-You're doing everything yourself. You're not delegating. You're scattered.
-
-The comparison makes you think you're not as good at management.
-
+TURNING_POINT v04
 ---
 
-## STORY v14
----
-path: Your peer takes sick days and doesn't feel guilty
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-Your colleague takes a sick day. They're resting. They're not working.
-
-When you take a sick day, you're checking email. You're monitoring. You're not really resting.
-
-The comparison makes you think you're not allowed to actually be sick.
-
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: Someone says work-life balance and actually has it
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Someone says they believe in work-life balance. And they actually live it.
-
-You say the same thing. You don't actually live it. You're lying.
-
-The comparison shows the gap between the words and the reality.
-
+EMBODIMENT v01
 ---
 
-## STORY v16
----
-path: Your peer sets boundaries early and you're setting them late
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-Your peer set boundaries from the start. Nobody questioned them.
-
-You're setting boundaries now. Everyone's used to you being available. Everyone's resisting.
-
-The comparison makes you think timing matters. It makes you think you're too late.
-
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: You compare your capacity to someone with more privilege
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-Someone else has family money. Someone else has inherited time. Someone else can afford to set boundaries.
-
-You can't. You have to work. You have to be available.
-
-The comparison makes you think the boundaries are a luxury you can't afford.
-
+EMBODIMENT v03
 ---
 
-## STORY v18
----
-path: You're comparing your boundaries to what's expected
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-The expectation is 24/7 availability. The expectation is always responsive. The expectation is no boundaries.
-
-You're trying to set boundaries against the expectation. The comparison between your boundaries and the culture makes the boundaries feel impossible.
-
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: You realize everyone's drowning but some are more honest about it
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-You compare yourself to the people who seem to have it together. And you realize they're drowning too.
-
-The comparison was unfair the whole time. Everyone's struggling. Some people are just better at hiding it.
-
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: You stop comparing and start understanding what's sustainable for you
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-You're going to stop looking at what other people are doing. You're going to figure out what's sustainable for you.
-
-Some people can work 50 hours. Some people can respond immediately. Some people can be always on.
-
-You can't. And that's okay.
-

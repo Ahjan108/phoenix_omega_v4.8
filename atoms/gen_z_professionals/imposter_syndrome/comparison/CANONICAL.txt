@@ -1,206 +1,101 @@
-# gen_z_professionals / imposter_syndrome / comparison
-# Slot type: STORY (engine)
-# Engine: comparison
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the colleague who seems to have it together
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-There's someone on my team who seems completely assured. They speak in meetings without hesitation. They know what they think. They make decisions. And I'm watching them and thinking about how confident they seem. How certain. And I'm comparing my internal experience to their external presentation. And the comparison is devastating. Because internally I'm panicking. I'm second-guessing every statement I make. I'm sure I don't actually know what I'm talking about. And they're just... confident. And the comparison makes me think I've made a mistake. That I got hired and someone realized they were wrong. That the mistake is going to be discovered soon. And in the meantime I have to sit next to this person who actually knows what they're doing.
-
----
-
-## STORY v02
----
-path: the LinkedIn comparison
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-I looked at someone's LinkedIn. Someone from my cohort. Started same year as me. And their trajectory is insane. They're already a senior something. They've already switched companies twice for promotions. They're already accumulating credentials at a pace that seems impossible. And I've been at the same company doing roughly the same thing. And the comparison is that I'm behind. That I'm not ambitious enough. That I don't know how to play the game. That I should have moved companies. That I should have negotiated harder. That I made mistakes. And the comparison makes me feel like a failure. Like I should be further along. Like the hiring mistake is more obvious because the timeline shows that other people figured it out.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the person who asked the smart question
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-In a meeting, someone asked a really smart question. The kind of question that shows deep understanding. And I didn't ask it. I didn't even think of it. And the comparison is that they're smarter than me. That they have a better grasp. That they actually know what they're doing. And I'm just faking it. I'm just nodding along. I'm just hoping nobody asks me anything specific because the specificity would expose the fact that I don't actually have the depth. And the person who asked the smart question is probably also comparing. Probably also fake. But their fake seems more convincing than my fake.
-
----
-
-## STORY v04
----
-path: the junior who knows more than me
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-There's someone junior to me who knows things about the codebase that I don't know. The tools. The patterns. The history of decisions. And I'm supposed to be the senior one. I'm supposed to know more. And the comparison is that the junior person is catching up faster than I anticipated. That the gap is smaller than it should be. That maybe the junior person will eventually know more than me. And the comparison makes me feel like I need to learn faster. Like I need to catch up to people who started after me. And that panic makes it harder to actually learn.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the person who got the promotion
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-Someone got promoted. And I didn't. And I'm comparing. Are they smarter. Are they more ambitious. Did they deserve it more. Or did they just play the politics better. Or is the comparison just that I thought I would get promoted. And the fact that I didn't means I'm not at the level I thought I was. That I overestimated my capabilities. That the imposter syndrome is actually just reality. That I really am not as good as I thought.
-
----
-
-## STORY v06
----
-path: the effortless excellence
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-Some people make things look easy. They participate in meetings and it seems natural. They write code and it seems elegant. They deliver presentations and they seem calm. And the comparison is that for me everything requires effort. I have to prepare extensively. I have to rehearse what I'm going to say. I have to review my code multiple times. And the effort is exhausting. And the comparison makes me think that if I have to work this hard, then I'm probably not actually good. That the people who make it seem easy are the ones who actually know what they're doing.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the imposter among imposters
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-I learn about imposter syndrome. And I think everyone has it. And I compare my imposter syndrome to everyone else's. And the comparison is that my imposter syndrome is different. That theirs is a normal self-doubt. That mine is actually justified. That everyone else is actually competent and just has some doubt. But I'm actually not competent. And the doubt is based in reality. And the comparison with other people's imposter syndrome just confirms that I'm the real imposter.
-
----
-
-## STORY v08
----
-path: the peer who doesn't seem anxious
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-I have a peer who doesn't seem anxious. They seem relaxed. Calm. Like they're not worried about whether they belong. And the comparison is devastating. Because I'm comparing my internal anxiety to their external calm. And I'm thinking about how different we are. How maybe they actually do belong and I don't. How maybe the difference between us is just that they're actually good and I'm not. And the comparison makes me feel alone. Like everyone else figured it out and I'm the only one still pretending.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the feedback I can't hear
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-My manager gave me positive feedback. Said I did good work on a project. And the comparison is that the positive feedback is wrong. That they're being nice. That they don't want to hurt my feelings. That the truth is I did okay but I'm not as good as they're saying. And I compare the feedback to my internal experience. And my internal experience says I don't know what I'm doing. So the external feedback must be inaccurate. And the comparison makes me discount the feedback. Makes me hold onto the imposter belief instead of accepting that maybe I'm actually doing well.
-
----
-
-## STORY v10
----
-path: the mistake that proves it
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-I made a mistake. A small one. Something that got caught in review and needed to be fixed. And the comparison is that the mistake proves I'm not actually competent. That a real expert wouldn't have made that mistake. That the mistake is evidence. And the comparison makes me focus on all the past mistakes. All the things I've gotten wrong. And the pattern confirms the suspicion. That I'm not actually good. That the mistakes are proof.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the way someone explains things
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-I watched someone explain something complex and they made it sound so simple. So clear. So obvious. And the comparison is that when I try to explain things, they come out complicated. Confusing. Like I'm overcomplicating. And the comparison makes me think that the simplicity is a sign of understanding. That if I can't explain it simply, I don't actually understand it. That the complexity I'm adding is proof that I'm still learning. Still an imposter.
-
----
-
-## STORY v12
----
-path: the person who seems to know their value
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-I have a peer who knows what they're worth. They talk about their salary. They talk about their value. They negotiate. They seem to believe that they deserve what they're asking for. And the comparison is that I don't have that. I can't claim my value. I can't ask for what I'm worth because I don't think I'm worth it. And the comparison makes me envious. And the envy makes me angry at myself. Because if the imposter was real, then my inability to claim value would be justified.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the person who gets things right
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-There's someone who makes fewer mistakes than I do. Who asks better questions. Who seems to understand faster. And the comparison is that they're genuinely better. That the difference in performance is real. That it's not just in my head. And the comparison makes me feel like I'm falling behind. Like the gap is growing. Like soon the difference will be too obvious to hide.
-
----
-
-## STORY v14
----
-path: the credential comparison
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-Someone has certifications I don't have. A degree from a better school. A resume that has more impressive companies. And the comparison is that their credentials prove they're actually good. And my credentials prove that I'm not. That I took a non-standard path. That I don't have the official proof. And the comparison makes me feel like I'm always going to be a step behind. That no amount of work will catch me up to someone with better credentials.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the person who is comfortable speaking up
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-Someone contributes to meetings constantly. They're not afraid to voice opinions. They're not afraid of being wrong. And the comparison is that I'm afraid. That the fear means something. That the fear is evidence that I know I'm not good. That the confident people are actually good and the scared people are the imposters. And the comparison makes me feel like my fear is proof. That the imposter syndrome is actually just accurate self-assessment.
-
----
-
-## STORY v16
----
-path: the comparison of learning speed
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-Someone learned a new tool faster than I did. Picked it up quicker. Seemed to understand the patterns better. And the comparison is that they have better foundations. That the skill differences are real. That I'm fundamentally slower at learning. And the comparison makes me worry about being left behind. Makes me think that I should be able to keep up. That the fact that I can't is the proof that I'm not actually qualified.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the person who doesn't ask for help
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-Someone doesn't ask questions. Doesn't ask for help. Just figures it out. And the comparison is that they're independent. That they don't need help. That asking for help is a sign of weakness. A sign of not knowing. And the comparison makes me feel like my questions are weakness. That my asking for help is proof that I'm the imposter. That the people who don't ask are the ones who actually know.
-
----
-
-## STORY v18
----
-path: the comparison to my own past self
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-I compare myself to who I was when I started. And I've definitely learned things. I definitely know more. And the comparison is still that I'm not good enough. That what I've learned is the minimum. That the gap between me and a truly competent person is still enormous. And the comparison makes me discount my own growth. Makes me hold onto the belief that I still don't know anything.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the acute comparison moment
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-There's a moment when the comparison is acute. When someone does something really well. And I'm very aware of how badly I would have done it. And the gap between us is very visible. And in that moment, the imposter syndrome is acute. The belief that I don't belong is very strong. And the comparison is overwhelming. And I feel exposed.
-
----
-
-## STORY v20
----
-path: the collapse of the comparison
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-At the crisis point, the comparison has gone so far that I've decided everyone else is good and I'm the only one who's not. That the world is divided into people who know and me. That the gap is unbridgeable. And the comparison becomes the entire narrative. It's not just that I'm behind. It's that I don't belong. And the comparison has proven it.
-
+EMBODIMENT v05
 ---

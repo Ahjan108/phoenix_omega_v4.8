@@ -1,186 +1,101 @@
-# first_responders / boundaries / false_alarm
-# Slot type: STORY (engine)
-# Engine: false_alarm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the hypervigilance that follows you
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You're home. You're off duty. You should be relaxed. But your nervous system is still in dispatch mode. Still ready. Still scanning. You hear a siren and your body jumps. You see emergency lights and you're calculating response time. A car honks and you're alert. And the boundary between work and home has dissolved. Your nervous system doesn't know the difference anymore. It's treating home like a scene. Like there might be an emergency any moment. And the false alarm in that. The way your body's responding to something that's not happening. That's the thing you're starting to notice. The alarm's ringing but there's no fire.
----
-
-## STORY v02
----
-path: the room scan that's automatic
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You walk into a room and your eyes are moving. Finding exits. Assessing for danger. Looking for what could go wrong. And it's automatic. You're not thinking about it. You're just doing it. And the false alarm of that. The way your nervous system is looking for emergency in a restaurant. In a store. In your kid's school. When there's no emergency. Just normal life. And the scanning is exhausting. And the hypervigilance is becoming a way of being. And you're not sure how to turn it off anymore. The boundary between safe and dangerous has blurred. Everything's potentially dangerous in your nervous system.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the conversation that triggers it
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Someone's telling you about something that happened to them. A regular thing. And your nervous system goes into emergency mode. You start asking questions. Where were you. What happened next. Is everyone okay. And they're looking at you like why are you so alarmed. And you don't have a good answer. Because the false alarm's going off. Your system is responding to a regular story like it's a crisis. And you can't quite turn it off. The story's done. Everyone's fine. But your nervous system's still activated. Still in response mode. Still protecting against something that isn't there.
----
-
-## STORY v04
----
-path: the night you can't sleep
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-You're lying in bed and your brain won't stop. It's running scenarios. It's imagining emergencies. It's reviewing things that could go wrong. And the false alarm is constant. Your nervous system's activated. Your mind's running. And sleep won't come because the system thinks there's a threat. When there's not. When you're safe. In your bed. With your family. And the false alarm is your own system creating the emergency that isn't there.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the family that walks on eggshells
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Your family's learned to move around you carefully. They don't make sudden movements. They announce themselves coming into a room. They avoid certain behaviors because they know they'll trigger the hypervigilance. And the false alarm of that. The way your family is modifying their behavior. In their own home. Because your nervous system is in emergency mode. And they're adapting to it. Not saying anything. Just adjusting. And that's its own kind of tragedy. The false alarm is affecting everyone.
----
-
-## STORY v06
----
-path: the reaction that was too big
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-Something small happened. Your partner made a loud noise. Your kid called out. Something. And you reacted. Too fast. Too big. With an intensity that wasn't appropriate for the stimulus. And you could see the shock on their faces. And you were shocked too. At how big the reaction was. And the false alarm's explanation is that your system thought there was danger. Responded like there was danger. When there wasn't. Just life. Just normal. But the hypervigilance doesn't know the difference anymore between a call and a car door slamming.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the scanning that never stops
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-You're at the grocery store and you're assessing exits. Looking at other people. Calculating what could happen. Identifying threats that don't exist. And you're tired of it. You want to just buy milk and leave. But the hypervigilance won't let you. It's running. It's on. It's looking for something. The false alarm is constant. And it's not protecting you anymore. It's just exhausting you.
----
-
-## STORY v08
----
-path: the boundary that dissolved
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-There used to be a boundary. Shift ended and you could kind of turn it off. Get home and be home. But the boundary's gone now. The hypervigilance follows you. Leaks out. Doesn't have an off switch. The work mode and the home mode are the same now. And the false alarm is going off in both places because your nervous system doesn't recognize the difference anymore.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the sound that came from nowhere
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-There was a sudden sound. Something unexpected. And your entire body went into fight mode. Your heart jumped. Your breath caught. Your mind went immediately to threat assessment. And it took you seconds to realize. It's just. A sound. A car alarm. A construction noise. Something normal. And the false alarm of that. The way your body's responding to normal sounds like they're emergencies. That's the hypervigilance talking. That's the boundary that's been lost. The boundary between alert and emergency. Your nervous system lost it.
----
-
-## STORY v10
----
-path: the exhaustion of constant vigilance
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-You're tired. Not the good tired from hard work. But the deep tired. The kind that comes from running on high alert all the time. The nervous system that doesn't rest. The hypervigilance that doesn't turn off. And the false alarm is what's keeping you running. Your system's looking for emergency that isn't coming. And the energy cost of that is destroying you. You're burning fuel waiting for a fire that isn't there.
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the partner who's trying to understand
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Your partner's watching you scan the room. Watching your reactions. Watching the hypervigilance. And they're asking. Is something wrong. Are you okay. And you don't have a good answer. Because nothing's wrong. You're just. Stuck. In a state of false alarm. Your nervous system's activated but there's no activation that should be happening. And they're trying to understand. Trying to help. But how do you help someone whose own system is the threat.
----
-
-## STORY v12
----
-path: when the false alarm costs something
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-Your hypervigilance costs you something. You snap at someone who didn't deserve it. You make a decision based on perceived threat that isn't there. You miss something because your system was scanning for emergency. And the false alarm had real consequences. And you're seeing now that the hypervigilance isn't just a personal thing. It affects everyone around you. It affects your ability to actually be present. Actually be safe. Actually be happy.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the moment you see the pattern
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-You're starting to see it. The false alarm is constant. It's running. It's on. And it's not protecting you anymore. It's just preventing you from being. From relaxing. From being home in your own body. And you're realizing something. The job did this. The years of being alert. Of being ready. Of actually needing to be hypervigilant. Your nervous system learned that pattern. And now it can't turn it off. Even when you're safe. The false alarm is the job's legacy in your nervous system.
----
-
-## STORY v14
----
-path: someone saying it out loud
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-Someone notices and says something. Maybe your partner. Maybe a friend. You're not okay. You're always on. You're always scanning. You need to do something about this. And the words are kind. But they're also naming something you've been ignoring. The false alarm is real. The hypervigilance is real. And it's affecting your life. And you have a choice. Keep ignoring it or actually address it.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: talking to someone who understands
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-You talk to a counselor or a peer who's dealt with hypervigilance. And they're telling you something. Your nervous system learned survival mode. And survival mode was appropriate when you were in danger. But you're not in danger now. Your home's safe. Your family's safe. And your nervous system's still running the old pattern. And understanding that is the first step. The false alarm isn't about there being danger. It's about your system not knowing it's safe yet.
----
-
-## STORY v16
----
-path: learning to retrain the nervous system
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-There's work to be done. Work to teach your nervous system that you're safe. That not every sound is a threat. That home is home. Not a scene. And the work is slow. It's patient. It's noticing when the false alarm's running and choosing to breathe. Choosing to check the actual facts. Choosing not to follow the alarm to the story it wants to tell. And every time you do that. Every time you're aware that it's a false alarm. Your nervous system learns a tiny bit. Safe. Safe. Safe. It's not emergency. It's just life.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the hypervigilance that transforms
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-The false alarm's still there. Probably always will be. But it's quieter now. You've taught your system that home's not a scene. That normal sounds are normal. That you can let your guard down. And the hypervigilance is becoming something else. Awareness maybe. Readiness. But not constant alarm. And there's a difference. You can be aware without being triggered. You can be ready without being activated.
----
-
-## STORY v18
----
-path: the moment you actually relax
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-There's a moment where you're just. Home. Not scanning. Not assessing. Not looking for threats. Just present. Just being. And the false alarm's silent. And that quiet is beautiful. And it's rare. But it's possible. And the more you practice being present. The more you tell your nervous system it's safe. The more these moments happen. And the hypervigilance that took so much from you. It's starting to give back. Space. Time. Presence.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: your family notices the difference
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-Your family's noticing. They don't have to walk on eggshells anymore. They can move naturally. They can be normal. They can stop adapting to your hypervigilance. And the freedom in that. For all of you. It's like the house is actually relaxing. And your presence is actually being. Home. Not work. Not scene. Just home.
----
-
-## STORY v20
----
-path: the boundary that's being rebuilt
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-You're rebuilding the boundary. Between work and home. Between alert and emergency. Between the job's demands and your actual life. And the false alarm's still there. Your nervous system's still activated sometimes. But you know now. You can tell it's a false alarm. You can choose not to run. You can choose to come back. Back to your body. Back to your home. Back to the people who love you. The boundary's not back where it was. But it's being rebuilt. And that's the work.
+EMBODIMENT v05
 ---

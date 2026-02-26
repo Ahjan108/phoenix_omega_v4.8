@@ -1,97 +1,51 @@
-# first_responders / compassion_fatigue / overwhelm
-# Slot type: STORY (engine)
-# Engine: overwhelm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: The night the dispatch didn't stop
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Back to back. That was the shift. Seven hours of dispatch. Every time you cleared a scene there was another one queued up. Another address. Another emergency. Your nervous system was running hot but your training kicked in. You move. You respond. You don't think about how tired your body is because the next call is already happening. By hour six your mind was doing the work on fumes. Your hands still knew the protocols. Your crew still moved with precision. But something inside you was reaching for a bottom that wouldn't come.
----
-
-## STORY v02
----
-path: Too many to process in one shift
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-The variety was what got you. Usually the calls have a rhythm. The medical ones you can predict. The structure fires you've trained for. But that shift was a mixing bowl. MVA. Overdose. Welfare check that turned into a scene. Cardiac arrest. Behavioral crisis. Your brain is a filing system and you were trying to file seventeen cases simultaneously. The protocols stayed intact. The crew stayed focused. But inside, something was being overstuffed. The compartments were full and the next case had nowhere to go.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: The one that had no resolution
 BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Most calls have an ending. You treat it or you don't. You transport or you stabilize. You fight the fire or you ventilate. There's closure in the protocol. But that call didn't have one. The dispatch sent you to a situation that nobody had trained for. The victim was alive but not responsive. The family was requesting something that wasn't in the protocols. Your crew looked at each other because the usual logic didn't apply. You did what you could and left the scene without an ending. The overwhelm came from the incompleteness of it.
----
-
-## STORY v04
----
-path: The backup that never came
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-You called for mutual aid three times. The mutual aid was on other calls. You were a crew of three managing a scene that needed four. Maybe five. The protocols say you wait. Your training says you adapt. But your nervous system says you're understaffed and the call in front of you doesn't care about your staffing levels. You made it work. You always do. But the overwhelm was in knowing you were one person short and that one person could have made the difference between efficient and dangerous.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: The shift before the day off
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-The day off is supposed to be a reset. Twenty four hours to downregulate. But the shift before the day off is different. Your body knows it's coming and something in your nervous system tries to cram as much as it can into those last hours. Every call feels heavier. Every scene feels like the last one before freedom. And then the calls back up. Four pages in two hours. Your mind is already at home and your body is still responding. The overwhelm is in the contradiction. You're mentally checked out but physically still holding the weight.
----
-
-## STORY v06
----
-path: Running on empty for the third straight
-BAND: 3
-SEMANTIC_FAMILY: SF1
----
-Three shifts back to back. That's the scheduling sometimes. Your body runs on an internal timer that's designed for recovery. Forty eight hours off. But sometimes you're back in forty six. Your adrenals are pumping. Your nervous system hasn't come down. And now you're running another shift while still in the chemistry of the last one. The calls come and you respond because that's what you do. But the overwhelm is building in your system like pressure in a pressure cooker. You can't think as fast. You can't recover between calls. Everything takes more effort.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: The loss that broke the system
 BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-One of your crew went down. Line of duty. It wasn't your shift but the station is smaller now. Permanent smaller. And the calls didn't stop. The city didn't pause. You're running calls to the same areas, the same neighborhoods, the same calls that cost you a brother. The overwhelm is in the grief and the duty happening simultaneously. You're supposed to be processing loss while staying ready. Your nervous system is trying to mourn and run a scene. The overwhelm is in the collision of those two states.
----
-
-## STORY v08
----
-path: The budget cuts that meant fewer people
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-They cut three positions. The city said the numbers didn't justify the cost. But the calls stayed the same. The population grew. The incidents increased. Now your crew is doing the work of a full station with three fewer hands. It's not about missing people. It's about the math being broken. You're covering territory that needs two rigs. You're running scenes that need more bodies. And every shift you're managing the gap between what needs to happen and what you have hands for.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: The night you couldn't clear the scene
-BAND: 5
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-The call went long. Longer than it should have. The protocols were being followed. The medical decisions were sound. But the victim wasn't improving and the decision point came where you realized this scene wasn't ending the way it was supposed to. You stayed longer. You called for additional resources. You did everything right and the overwhelm came anyway because the situation didn't fit into the usual container. By the time you cleared, your next call was already delayed. Your crew was running behind schedule. The whole system was feeling the pressure of that one scene.
+MECHANISM_PROOF v05
 ---
-
-## STORY v10
----
-path: The weight that doesn't lift between shifts
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-You're supposed to leave work at work. That's what they tell you. But the overwhelm doesn't respect shift schedules. You go home and your nervous system is still running dispatch. You're still in the elevated state. You try to sleep and your body is resisting downregulation. You go back to work and you're already half tired. The overwhelm accumulates across days and weeks. The buffer that used to exist between calls has compressed. Everything feels urgent. Everything feels heavy. And the shift off doesn't actually feel like you've left.
----
-

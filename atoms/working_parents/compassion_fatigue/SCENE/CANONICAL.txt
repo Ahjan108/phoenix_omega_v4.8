@@ -1,12 +1,8 @@
-# working_parents × compassion_fatigue × scene_set
-# Slot type: SCENE
-# Count: 30
-# Voice: second-person present tense, sensory, one detail per sentence
-# Spec: max 10 words per sensory beat, min 2 location tokens, no emotional labeling, ends on action/sensory moment
-# Location tokens: {transit_line}, {street_name}, {weather_detail}
 
----
+
 ## SCENE v01 | after_third_meltdown
+---
+
 ---
 Your child has had three meltdowns today.
 The third one just ended.
@@ -24,6 +20,8 @@ You're an empty vessel.
 
 ## SCENE v02 | bedtime_ritual_mechanical
 ---
+
+---
 You're reading the same book for the hundredth time.
 Your voice is flat.
 You don't change characters.
@@ -39,6 +37,8 @@ You turn another page.
 ---
 
 ## SCENE v03 | after_bedtime_collapse
+---
+
 ---
 Finally they're asleep.
 The house is silent.
@@ -56,6 +56,8 @@ You put your head back and close your eyes.
 
 ## SCENE v04 | child_needs_comfort
 ---
+
+---
 Your child comes to you crying.
 Something hurt them at school.
 They need comfort right now.
@@ -71,6 +73,8 @@ They feel it.
 ---
 
 ## SCENE v05 | {weather_detail} day_ending
+---
+
 ---
 It's {weather_detail} and the day is finally over.
 You've said "I understand" fifteen times.
@@ -88,6 +92,8 @@ You go to bed too early.
 
 ## SCENE v06 | partner_emotional_need
 ---
+
+---
 Your partner wants to talk about something hard.
 It's important to them.
 Their face shows they need something from you.
@@ -103,6 +109,8 @@ You realize you missed most of it.
 ---
 
 ## SCENE v07 | {street_name} carride_silence
+---
+
 ---
 You're driving on {street_name}.
 Your child is asking you about their day.
@@ -120,6 +128,8 @@ You're right here but gone.
 
 ## SCENE v08 | physical_touch_exhaustion
 ---
+
+---
 Your child wants to sit in your lap.
 Your body recoils slightly.
 You didn't mean to.
@@ -135,6 +145,8 @@ You're still holding yourself back.
 ---
 
 ## SCENE v09 | morning_start_fatigue
+---
+
 ---
 You wake up and immediately feel the weight.
 The day hasn't started.
@@ -152,6 +164,8 @@ You put your feet on the floor.
 
 ## SCENE v10 | friend_venting_boundary
 ---
+
+---
 Your friend is telling you about her problems.
 Normally you'd listen fully.
 Today you can't.
@@ -167,6 +181,8 @@ You say yes and change the subject.
 ---
 
 ## SCENE v11 | performance_parenting
+---
+
 ---
 Your child has a school event.
 You're supposed to be present and involved.
@@ -184,6 +200,8 @@ You're the best imposter.
 
 ## SCENE v12 | {transit_line} crowd_overload
 ---
+
+---
 You're on {transit_line} with your child.
 The car is full.
 Everyone is touching you.
@@ -199,6 +217,8 @@ You're counting them.
 ---
 
 ## SCENE v13 | night_staring_awake
+---
+
 ---
 You're in bed but not sleeping.
 You're staring at the ceiling.
@@ -216,6 +236,8 @@ You turn over slowly.
 
 ## SCENE v14 | meal_preparation_numb
 ---
+
+---
 You're making dinner.
 It's the same thing you made last week.
 Your hands know the routine.
@@ -231,6 +253,8 @@ You keep moving because movement is all that's left.
 ---
 
 ## SCENE v15 | apology_you_don't_mean
+---
+
 ---
 You snapped at your child.
 For something small.
@@ -248,6 +272,8 @@ You're spending love on nothing.
 
 ## SCENE v16 | shower_standing_still
 ---
+
+---
 You're in the shower with the door locked.
 The water is running.
 You're not washing.
@@ -264,6 +290,8 @@ Your time is up.
 
 ## SCENE v17 | response_delay_spiral
 ---
+
+---
 Your partner texts you something during work.
 You read it.
 You don't respond.
@@ -279,6 +307,8 @@ You put the phone away.
 ---
 
 ## SCENE v18 | gratitude_impossible
+---
+
 ---
 Your partner did something nice.
 They're looking at you like they expect appreciation.
@@ -297,6 +327,8 @@ You hurt them with your emptiness.
 
 ## SCENE v19 | {weather_detail} alone_time_interrupted
 ---
+
+---
 It's {weather_detail} and you had ten minutes alone.
 You were sitting on the porch.
 Not doing anything, just being.
@@ -312,6 +344,8 @@ You won't get another gap.
 ---
 
 ## SCENE v20 | video_call_performance
+---
+
 ---
 You're on a video call with work.
 You're supposed to be sharp and engaged.
@@ -329,6 +363,8 @@ You're empty again.
 
 ## SCENE v21 | crying_that_won't_come
 ---
+
+---
 You should be able to cry.
 You're alone.
 You have the space.
@@ -344,6 +380,8 @@ You sit there.
 ---
 
 ## SCENE v22 | child_asking_again
+---
+
 ---
 Your child asks for your attention.
 You give it.
@@ -361,6 +399,8 @@ And the next.
 
 ## SCENE v23 | {street_name} autopilot
 ---
+
+---
 You're driving on {street_name}.
 You don't remember the last turn.
 Or the one before.
@@ -376,6 +416,8 @@ You stop because the car stopped.
 ---
 
 ## SCENE v24 | eye_contact_breaking
+---
+
 ---
 Your child is trying to tell you something.
 They want your eyes.
@@ -393,6 +435,8 @@ You failed them.
 
 ## SCENE v25 | satisfaction_gone
 ---
+
+---
 You finished something at work.
 Normally this feels good.
 You wait for the pride.
@@ -408,6 +452,8 @@ You keep moving.
 ---
 
 ## SCENE v26 | night_talking_surface
+---
+
 ---
 You're talking to your partner before bed.
 They're telling you about their day.
@@ -425,6 +471,8 @@ You roll over to sleep.
 
 ## SCENE v27 | physical_self_neglect
 ---
+
+---
 You're still in yesterday's clothes.
 You haven't showered in two days.
 Your hair is in the same bun.
@@ -440,6 +488,8 @@ You leave the house like this.
 ---
 
 ## SCENE v28 | child_notice_change
+---
+
 ---
 Your child looks at you and asks if you're okay.
 Kids know.
@@ -457,6 +507,8 @@ You're impossible to help.
 
 ## SCENE v29 | laughter_hollow_sound
 ---
+
+---
 Something funny happens.
 You're supposed to laugh.
 You make the sound.
@@ -472,6 +524,8 @@ You've scared them with your absence.
 ---
 
 ## SCENE v30 | moment_before_collapse
+---
+
 ---
 You've held it together all day.
 It's 8 PM.

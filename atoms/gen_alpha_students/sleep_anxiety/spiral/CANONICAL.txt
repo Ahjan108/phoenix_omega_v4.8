@@ -1,204 +1,101 @@
-# gen_alpha_students / sleep_anxiety / spiral
-# Slot type: STORY (engine)
-# Engine: spiral
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the sleep forecast spiral
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You're trying to forecast your sleep. How many hours will I get. That's six hours. That's bad. I'll be tired tomorrow. My performance will suffer. I'll fail the test. The sleep forecast spiral is the anxious calculation. It's trying to predict the future based on sleep math. The spiral assumes that if you can calculate how much sleep you'll get, you can control the outcome. But you can't. The forecast is just creating anxiety. You're spiraling through the calculation. Each one creating more dread. The forecast spiral is making sleep worse by trying to control it.
-
----
-
-## STORY v02
----
-path: the sleep quality spiral
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You're spiraling on the quality of sleep. How deep was that sleep. Did I really sleep or was I just resting. Was that sleep good sleep or bad sleep. The sleep quality spiral is trying to assess something that you can't really assess from the inside. You're judging your own sleep. You're assuming it wasn't good enough. The spiral is creating doubt about the sleep you're getting. It's making sleep feel inadequate even when it's adequate. The quality spiral is destroying your confidence in sleep.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the sleep deprivation outcome spiral
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-You're spiraling on what sleep deprivation will do to you. If I'm tired I can't focus. If I can't focus I'll fail the test. If I fail the test my GPA drops. If my GPA drops I can't get into a good college. If I can't get into a good college my future is ruined. The sleep deprivation outcome spiral is the catastrophic projection. It's taking sleep deprivation and spiraling it into life ruination. The spiral is assuming that one night of bad sleep determines the entire future. The outcome spiral is total catastrophizing.
-
----
-
-## STORY v04
----
-path: the insomnia cause spiral
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-You're spiraling on why you can't sleep. Is it the caffeine. Is it the light. Is it the temperature. Is it the noise. Is it my anxiety. Is it my schedule. The insomnia cause spiral is trying to identify the reason. But the reason might not be single or fixable. You're spiraling through causes. Looking for the one that you can control. The spiral assumes that if you find the cause you can fix it. But the causes might be multiple and interconnected. The cause spiral is making you obsess over variables that you might not be able to control.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the sleep solution search spiral
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-You're spiraling through sleep solutions. Should I take melatonin. Should I try meditation. Should I change my schedule. Should I exercise more. The sleep solution search spiral is looking for the one thing that will fix it. But there might not be one thing. The spiral is assuming that a solution exists and you just have to find it. But the problem might be structural. Might be the schedule. Might be the stress. Might be things you can't control. The solution search spiral is exhausting. It's the belief that if you try one more thing, it will work. It probably won't.
-
----
-
-## STORY v06
----
-path: the nightly ritual spiral
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-You're creating sleep rituals. Wind-down time. No screens. Meditation. The ritual spiral is trying to control sleep through behavior. You're spiraling through rituals. Adding more. Changing them. The rituals are becoming obsessive. You're spending more time on the rituals than you're sleeping. The ritual spiral is the belief that if you just get the ritual right, sleep will come. But sleep might not be about ritual. Sleep might be about the stress and the schedule. The ritual spiral is creating more anxiety. More things to do before sleep. More ways to fail at sleep.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the medication consideration spiral
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-You're spiraling on whether to take something to help you sleep. Melatonin. Prescription sleep aids. Something. The medication spiral is weighing the risk and benefit. The spiral is considering side effects. Dependency. Long-term effects. The spiral assumes that medication might be the answer. But medication might create new problems. The spiral is creating anxiety about solutions. Every solution has a potential downside. The medication spiral is paralysis. You're considering something but you're too anxious to try it.
-
----
-
-## STORY v08
----
-path: the sleep comparison spiral
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-Your friend sleeps eight hours. You sleep six. Your friend doesn't understand why you can't sleep. Your friend sleeps fine. You're spiraling through the comparison. They're doing something right that you're doing wrong. They have something that you don't have. The sleep comparison spiral is making sleep into a competition. You're losing. They're winning. The spiral is creating inadequacy. You're not sleeping enough while they're sleeping perfectly. The comparison spiral is making the problem feel permanent and personal.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the scheduling spiral
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-You're spiraling on the schedule. What if I wake up earlier. What if I go to bed earlier. What if I change my activity schedule. The scheduling spiral is trying to find the schedule that works. But the schedule might not be flexible. School starts at a fixed time. Homework takes as long as it takes. The spiral is assuming you can control time. But time might control you. The scheduling spiral is the obsession with optimization. The belief that if you just schedule better, everything will work. It might not.
-
----
-
-## STORY v10
----
-path: the fatigue spiral
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-You're exhausted and the exhaustion is creating more exhaustion. You're tired so you can't exercise so you stay tired. You're tired so you can't focus so you have to work longer so you sleep less so you're more tired. The fatigue spiral is self-reinforcing. Each consequence creates more of the problem. The spiral is the knowledge that exhaustion is creating exhaustion. That you're trapped in a cycle that feeds itself. The fatigue spiral is momentum toward total burnout.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the test anxiety sleep spiral
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-There's a test coming and you're spiraling on sleep. If I don't sleep I'll fail the test. If I fail I'll ruin my grade. I need sleep so I can pass. But thinking about the test is preventing sleep. The test anxiety sleep spiral is connecting sleep to test performance. It's making sleep about the outcome. The spiral is creating performance pressure around sleep. Sleep becomes something you have to do well. Sleep becomes something you can fail at. The spiral is making sleep a source of anxiety.
-
----
-
-## STORY v12
----
-path: the time waste spiral
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-You're lying awake and time is passing. You're spiraling on the time you're wasting. This is sleep time that's being wasted. I should be sleeping. I'm not sleeping. I'm wasting time. The time waste spiral is creating more anxiety. You're anxious about the time passing without sleep. The anxiety is making sleep harder. The spiral is creating a double loss. You're not sleeping and you're also suffering about not sleeping. The time waste spiral is the meta-anxiety. Anxiety about anxiety.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the performance degradation spiral
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-You're not sleeping so your performance is degrading. Your grades are getting worse. Your mood is getting worse. Your health is getting worse. The performance degradation spiral is the consequence of sleep deprivation. Each consequence is creating more stress which is creating more sleep deprivation which is creating more consequences. The spiral is the vicious cycle. Sleep deprivation creates problems that create more sleep deprivation. The spiral is momentum toward collapse.
-
----
-
-## STORY v14
----
-path: the system failure internalization spiral
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-The system is broken but you're spiraling as if it's your fault. The school starts at the wrong time for your biology but you're spiraling as if you're broken. You're internalizing the system failure. You're making it personal. The system failure internalization spiral is creating shame. It's making you feel like you're the problem. It's making you feel like you should be able to sleep even though the system is making sleep impossible. The spiral is internalizing systemic problems as personal failures.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the adaptation assumption spiral
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-You're spiraling on whether you can adapt to sleep deprivation. Maybe your body will adapt. Maybe you'll adjust. Maybe it will get easier. The adaptation assumption spiral is hoping that the problem will go away on its own. It probably won't. Chronic sleep deprivation doesn't get easier. It gets worse. The spiral is the false hope. The belief that if you just suffer through it, it will get better. It won't.
-
----
-
-## STORY v16
----
-path: the guilt spiral
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-You're spiraling on feeling guilty about sleep struggles. You should be able to sleep. Other people can sleep. You're broken. You're weak. You can't handle the schedule. The guilt spiral is making sleep deprivation into a personal moral failure. You're spiraling through shame. Making the problem feel worse. Making it personal. The guilt spiral is creating more anxiety. Anxiety about failure is preventing sleep.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the future trajectory spiral
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-You're spiraling on where this trajectory is headed. Sleep deprivation is going to ruin high school. High school is going to ruin college prospects. College prospects are going to ruin the future. The future trajectory spiral is imagining the long-term consequences of current sleep problems. The spiral is total catastrophizing. The spiral is creating despair about a future that's based on speculation. The future trajectory spiral is the knowledge that if things don't change, the consequences will be permanent.
-
----
-
-## STORY v18
----
-path: the solution burnout spiral
-BAND: 5
-SEMANTIC_FAMILY: SF3
----
-You've tried solutions. None of them worked. Now you're spiraling into hopelessness. Nothing works. I'll never sleep well. This is permanent. The solution burnout spiral is when you've tried so many things that you've lost hope. When you've spiraled through so many solutions that you're convinced nothing will work. The spiral is creating resignation. You're giving up. You're accepting that the problem is permanent. The solution burnout spiral is despair about the future.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the identity spiral
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-You're spiraling into seeing yourself as the person with sleep problems. Not as someone who can't sleep right now. As someone who has insomnia. As someone who's broken. The identity spiral is internalizing the problem as identity. The spiral is creating permanence. If it's who you are, it's permanent. If it's temporary, it can be fixed. The spiral is choosing permanence. Creating identity out of the problem. The identity spiral is the way the spiral becomes you.
-
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: the spiral self-awareness
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-You know you're spiraling. You can see it. You're spiraling about spiraling. You're anxious about the anxiety. The spiral self-awareness is the moment where you realize you're trapped. You're aware of the trap but you can't escape it. The spiral self-awareness is the final spiral. The spiral that knows it's spiraling. The spiral that's watching itself spiral. The self-awareness doesn't help. It just creates another layer of the same problem. You're spiraling about spiraling and it doesn't stop.

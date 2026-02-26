@@ -1,225 +1,101 @@
-# corporate_managers / imposter_syndrome / shame
-# Slot type: STORY (engine)
-# Engine: shame
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the mistake you made in the meeting
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: pre_awareness---
 ---
-You said something wrong. Not catastrophically wrong. Just wrong. You misspoke about a number or a timeline or a detail. And someone corrected you. Gently. Professionally. And the shame was immediate. You felt it in your face. You felt everyone looking at you. And you know what they were thinking. They were thinking you don't know what you're talking about. That you're faking it. That you got promoted beyond your competence. And the shame of the mistake is the shame of confirmation. It's proof. They now know what you've always known. You don't actually belong here. You're just pretending. And the mistake was the moment the pretending cracked.
----
-
----
-
-## STORY v02
----
-path: the promotion you didn't deserve
-BAND: 1
-SEMANTIC_FAMILY: SF3
----
-You got promoted. Everyone congratulated you. And you felt shame. Not pride. Shame. Because you don't deserve it. You know that. The person who got promoted is not actually qualified. You know that too. You got lucky. Someone saw something in you that you don't actually have. And now you're in a role where people expect you to know things. Where people look to you for answers. And the shame is that you don't have the answers. You're making it up. You're figuring it out as you go. And if they knew that, they'd realize the promotion was a mistake. They'd realize you're not actually competent. They'd realize you were faking the whole time. So you keep faking. You keep pretending. You keep the shame secret.
+RECOGNITION v02
 ---
 
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: what you couldn't admit in the interview
-BAND: 1
-SEMANTIC_FAMILY: SF1
----
-They asked about your experience. And you answered as confidently as you could. As if you knew what you were doing. As if you had a clear sense of your capabilities. But internally, you were ashamed. Because the honest answer is: I'm not entirely sure what I'm doing. I'm competent but I don't feel competent. I look like I know things but I'm mostly good at sounding like I know things. And the shame of the dishonesty in the interview was worth it. Because honesty would have lost you the job. And you needed the job. So you performed confidence. And you got the job. And now the shame of the performance is compounded by the shame of the job.
----
-
----
-
-## STORY v04
----
-path: the leader who knows
 BAND: 2
-SEMANTIC_FAMILY: SF4
+SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-There's someone senior who seems to actually know what they're doing. They're comfortable. They're decisive. They're in control. And the shame of watching them is the shame of knowing that you're not like that. You're fake. They're real. They have what you're pretending to have. And the shame is that you'll never be them. Because you'll always be the person who's faking. You'll always be the person who doesn't actually belong. You'll always be the person who got here through luck instead of talent. And the comparison to the real leader is the comparison that confirms the shame. You're not supposed to be here. And they're proof of what you're supposed to be but aren't.
+RECOGNITION v04
 ---
 
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: the question you couldn't answer
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: pre_awareness---
 ---
-Someone asked a direct question. About strategy. About direction. About something that a real leader would have an answer to. And you didn't have an answer. You had a deflection. You had a way to turn it into a question for them. You had a method to avoid admitting that you don't know. And the shame of the deflection was the shame of being caught not knowing. And the shame of being caught was the shame of being exposed. And the shame of being exposed was the shame that said: they now know. They now know you're faking.
----
-
----
-
-## STORY v06
----
-path: the team that believes in you
-BAND: 2
-SEMANTIC_FAMILY: SF5
----
-Your team trusts you. They look to you for direction. They believe that you know what you're doing. And the shame of their belief is acute. Because you don't know. You're making educated guesses. You're figuring it out as you go. And you're representing that as leadership. And they're believing it. And the shame of the belief is the shame of the betrayal. You're betraying their trust by not being what they think you are. You're accepting their loyalty under false pretenses. And the shame of that is worse than the shame of not knowing.
+MECHANISM_PROOF v01
 ---
 
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the feedback that stung
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-Someone gave you feedback. Constructive feedback. About your leadership. About something you could improve. And the shame was immediate. Because the feedback was accurate. And accurate feedback is proof. Proof that you're not actually good at this. Proof that your competence is limited. Proof that you were right all along. You don't belong here. And the feedback confirmed it. And the shame of the confirmation was the shame of being right about the thing you were trying to be wrong about.
----
-
----
-
-## STORY v08
----
-path: the success you can't celebrate
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-Something went well. Your team shipped something. The numbers improved. The project succeeded. And you should be happy. But you're not. You're ashamed. Ashamed that you didn't actually deserve the credit. Ashamed that the success was luck. Ashamed that everyone else thinks you're good at something when really the team is good and you just happened to be there. And the shame of the success is that you can't enjoy it. Because enjoying it would mean taking credit. And taking credit would be a lie. So you downplay it. You redirect praise. You act like it's all the team. Which it is. But also it's not. And the shame is that you can't be honest about your actual role without admitting that you're not as fraudulent as you think. And if you're not as fraudulent as you think, then you have to accept that maybe you belong. And the shame won't let you do that.
+MECHANISM_PROOF v03
 ---
 
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the gap between you and them
-BAND: 3
-SEMANTIC_FAMILY: SF1
----
-You're comparing yourself to other managers. And the gap is clear. They seem competent. They seem confident. They seem like they know what they're doing. And you don't. You're a fraud. They're real. The gap is the gap between pretending and actually being. And the shame of the gap is the shame of knowing that the gap is visible. That the difference between you and them is probably obvious to everyone. That everyone can see that you don't belong in this room with them. And the shame of the visibility of the gap is the shame that keeps you from speaking up. From taking up space. From being as visible as you need to be to actually lead.
----
-
----
-
-## STORY v10
----
-path: the compliment you couldn't accept
 BAND: 4
-SEMANTIC_FAMILY: SF2
+SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-Someone told you that you're doing a good job. That you're a good manager. That they appreciate your leadership. And instead of accepting the compliment, you deflected. You said no, the team is great, or just lucky, or I'm just doing basic stuff. And the shame of the deflection was the shame of not being able to accept that you might be good at something. The shame of being so certain that you're fraudulent that you can't hear the possibility that maybe you're not. And the shame of the deflection is the shame that tells you: you don't deserve compliments. You don't deserve to be seen as good. You need to stay invisible. You need to stay small. You need to keep confirming that you're not actually competent.
+MECHANISM_PROOF v05
 ---
 
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the person you're supposed to be
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-There's a version of you that belongs here. That's confident. That knows what they're doing. That's not faking. And the shame is that you're not that version. And the shame of not being that version is the shame that keeps you trying to be that version. It keeps you performing. It keeps you overworking. It keeps you trying to close the gap between the fraudulent you and the real you that you're supposed to be. And the gap never closes because the real you doesn't exist. It's just another version of the fake. But the shame won't accept that. The shame keeps demanding that you find the real you. That you stop faking. That you finally become what you're supposed to be.
----
-
----
-
-## STORY v12
----
-path: the mistake that could expose you
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-You made an error in judgment. A decision that wasn't optimal. That could have gone better. And the shame of the error is the shame of being exposed. This is the moment. The moment where everyone realizes. This is the mistake that proves you don't belong. And you're waiting for the consequence. Waiting for the call. Waiting for the moment when they say okay, we know now, you were fake the whole time. And the mistake is just the beginning. And the shame is that you know everyone is probably just being polite. Probably just thinking it's okay this time. But knowing that next time won't be okay. That next time is when they'll fire you. And the shame of the pending exposure is the shame that makes you work harder. Work smarter. Try to close the gap between the fraudulent you and competence. And still it's never fast enough. Never far enough. Never real enough.
+TURNING_POINT v02
 ---
 
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the documentation of your incompetence
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: experimentation---
 ---
-You looked at your work. The emails. The decisions. The direction you've given. And the shame was that it's all right there. All the evidence. All the ways that you're not actually competent. All the times you made educated guesses and presented them as strategy. All the times you redirected questions instead of answering them. All the times you sounded confident about things you didn't know. It's all there. In writing. And anyone could read it and see. Could see that you don't belong. That you don't actually know what you're doing. And the shame is that you sent those emails. Made those decisions. You created the documentary evidence of your own fraud.
----
-
----
-
-## STORY v14
----
-path: the promotion you're about to get
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-There's talk. Your boss mentioned it. Another role. More responsibility. More visibility. And the shame is immediate. Because you don't want the promotion. You want to be found out before you get the promotion. Because with the promotion, the fraud gets bigger. The scope of the fake gets wider. And you'll be exposed on a bigger stage. And the shame of the bigger stage is worse than the shame of the current stage. So you don't want the promotion. But you also can't say no. Because saying no would be admitting that you know you're not competent. So you're walking toward the promotion. Toward the bigger role. Toward the bigger exposure. And the shame of the advance is the shame of knowing that the fall will be bigger.
+TURNING_POINT v04
 ---
 
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the moment of clarity
-BAND: 5
+BAND: 3
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: experimentation---
 ---
-There's a moment when you realize that everyone is faking. That everyone in the room feels like a fraud. That everyone is pretending to know what they're doing. And the shame is still there. Because now you know that the fraud is universal. And knowing doesn't help. Because knowing that everyone is faking doesn't make you less of a fake. It just means you're a fake in a room full of fakes. And the shame of that is somehow worse. Because it means you're not special in your fraudulence. You're just normal. You're just another person who got lucky and is now pretending to deserve it. And the shame of being normal in your fraudulence is the shame that's hardest to overcome. Because at least if you were uniquely fraudulent, you could convince yourself that you're an exception. But if the fraud is universal, then you just have to accept that you're the same as everyone else. And the shame of that sameness might be the deepest shame of all.
----
-
----
-
-## STORY v16
----
-path: the recommendation you gave
-BAND: 5
-SEMANTIC_FAMILY: SF3
----
-Someone asked your advice. About their career. About a decision. And you gave them a recommendation. Confidently. As if you knew what you were talking about. And the shame of the recommendation is the shame of potentially misleading them. What if your advice is wrong. What if you've guided them toward a mistake. What if they follow your advice because they think you're competent and then they suffer the consequence of your incompetence. And the shame of that responsibility is the shame that says: you shouldn't be giving anyone advice. You're not competent enough to guide anyone's career. You're just faking your own.
+EMBODIMENT v01
 ---
 
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the person who sees the fake
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-There's someone who seems to see through you. Who seems to know that you're not actually competent. Who looks at you in a way that suggests they know. And the shame of being seen is acute. The shame of the unspoken knowing is worse than the shame of the spoken accusation. Because with the unspoken knowing, you're waiting. You're always waiting for them to say something. And the shame of the waiting is the shame of being exposed in slow motion.
----
-
----
-
-## STORY v18
----
-path: the email you rewrote five times
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-You sent a decision memo. But before you sent it, you rewrote it five times. Each time trying to sound more confident. More competent. More like you know what you're doing. And the shame of the rewriting is the shame of not being able to be authentic. Shame of having to perform competence just to send a work email. Shame that you can't just say here's the decision, here's why, here's what we're doing. You have to perform confidence. You have to hide the uncertainty. You have to present as more competent than you are. And the shame of the performance is the shame that makes you feel like a fraud. Because you are a fraud. You're performing. And the email is the evidence.
+EMBODIMENT v03
 ---
 
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the cost of the shame
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You're exhausted by the shame. Exhausted by the performance. Exhausted by trying to close the gap between the fraudulent you and the competent you. And the exhaustion is making you less competent. The shame is making you more cautious. The fraud is making you smaller. And the smaller you get, the more evidence the shame has that you were right all along. You're not competent. And the proof is that you've become even less competent from trying to prove that you're competent. The shame has created the condition it's trying to prevent. And the shame of that is the deepest shame. The shame of being a self-fulfilling prophecy of your own incompetence.
+EMBODIMENT v05
 ---
-
----
-
-## STORY v20
----
-path: the life you're not living
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-There's a version of your life where you're not ashamed. Where you take the compliment. Where you accept your competence. Where you believe that maybe you earned the role. Where you lead from confidence instead of fear. And the shame of not being that version is the shame that keeps you from becoming that version. Because accepting that you might be competent would mean accepting that you might belong. And accepting that you might belong would mean accepting the possibility that you were never actually fraudulent. And the shame won't accept that. So you stay fraudulent. You stay ashamed. You stay in the life where you're faking. And you never get to the life where you're not ashamed. And the shame is the thing that makes sure of that.
----
-

@@ -1,205 +1,101 @@
-# corporate_managers / sleep_anxiety / overwhelm
-# Slot type: STORY (engine)
-# Engine: overwhelm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the moment you realized you couldn't sleep
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You lay down. And your mind immediately filled with work. All of it. At once. The projects. The decisions. The people. The metrics. Your brain couldn't turn off. There were too many things requiring your attention. And sleep wasn't a function you could access when your brain was this full. So you lay there. Awake. Drowning in mental load.
-
----
-
-## STORY v02
----
-path: the list that kept growing
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You tried to stop thinking about work. You tried to think about something neutral. But then your brain would surface something. Another task. Another decision. Another thing that needs handling. And the list just kept growing. And you couldn't sleep because the list was infinite.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the problem-solving that wouldn't stop
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Your brain was trying to solve problems. Work problems. And it wouldn't stop. It kept cycling through scenarios. Through solutions. Through what-ifs. You were asleep but your brain was in full problem-solving mode. And you couldn't turn it off. So you weren't really asleep. You were unconsciously working.
-
----
-
-## STORY v04
----
-path: the weight that didn't lift
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-You got into bed. And the weight of everything was still there. All the responsibility. All the decisions. All the things hanging over you. It didn't lift just because you were trying to sleep. So you lay under the weight. Awake. Unable to move or rest.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the night that was just another working session
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You were supposed to be sleeping. Your body was in bed. But your mind was working. You were processing the day. Planning tomorrow. Strategizing. Analyzing. It was work. Just unconscious work. So when you woke up, you hadn't rested. You'd just worked in a different state.
-
----
-
-## STORY v06
----
-path: the mental capacity that was already full
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-Your mental capacity was at maximum during the day. And when you tried to sleep, there was no capacity left for the switching off process. Your brain couldn't wind down because it was still at capacity. Full of input. Full of processing. Unable to reduce.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the competing demands that followed you to bed
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-You have too many directs. Too many projects. Too many stakeholders. And they all followed you to bed. Every single one of them was still there. Needing something. Demanding something. And you couldn't address all of them. So they just sat there. Unresolved. Keeping you awake.
-
----
-
-## STORY v08
----
-path: the exhaustion that was too deep to sleep through
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-You were exhausted. Bone tired. And you couldn't sleep because you were too exhausted. Your nervous system was too activated. The fatigue went too deep. So you lay there. Tired but unable to sleep. Paradoxically unable to rest because of how much you needed it.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the anxiety that comes with the list
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-You were trying to sleep. And then you remembered: you have too many things. Too many things undone. Too many things pending. Too many things that are on you. And the anxiety of the overwhelm kept sleep away. Because the overwhelm is real. It's not going away in the morning. It's going to be there tomorrow too.
-
----
-
-## STORY v10
----
-path: the hyperarousal from too much
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-Your nervous system is hyperaroused. Because you're managing too much. Your body has learned to stay alert because there's always more coming. So when you try to sleep, your body won't relax. It's still waiting. Still braced. Still ready for the next thing. Sleep requires a nervous system that believes it's safe. Yours doesn't.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the night that was part of the working day
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-The day was overwhelming. And the night was too. Your brain wouldn't let go. Your body wouldn't relax. So the day just extended. It never ended. You just kept working. And when morning came, you had no rest. You were still in the middle of the overwhelm.
-
----
-
-## STORY v12
----
-path: the sleep that never came
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-You went to bed at eleven. You lay there until two AM. Nothing happened. You didn't sleep. You didn't rest. You just lay there. Under the weight. Aware of the time passing. Aware that you wouldn't get adequate rest. And unable to do anything about it.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the thought that you couldn't turn off
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-There was one thought. One thing that was more pressing than everything else. And you couldn't turn it off. You kept coming back to it. And because you couldn't turn it off, you couldn't sleep. One thing among many many things. And it was the one thing that was keeping sleep away.
-
----
-
-## STORY v14
----
-path: the resignation that sleep wasn't happening
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-Around four AM, you gave up. You accepted that sleep wasn't happening. You got up. You might as well work if you're not going to sleep. At least work would get something done. At least the overwhelm would decrease slightly if you could accomplish something. So you worked. Through the night. Because sleeping wasn't an option.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the cumulative exhaustion
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-This happens multiple times a week. Sleep that doesn't come. Rest that doesn't happen. And the exhaustion just accumulates. By Friday, you're wrecked. By Monday, you're still wrecked. There's no recovery because there's never a night where you actually sleep well.
-
----
-
-## STORY v16
----
-path: the fear of bedtime
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-You're starting to dread bed. Because bed means lying awake. Bed means being conscious of all the things you're carrying. Bed means facing the fact that you can't turn off. So you delay going to bed. You do other things. Anything to delay the inevitability of lying awake.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the desperation for sleep
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You're desperate. You need sleep so badly. And the desperation is keeping sleep away. Because desperation is anxiety. And anxiety is incompatible with sleep. So the more you need sleep, the more your body refuses to give it to you.
-
----
-
-## STORY v18
----
-path: the understanding that sleep is impossible
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-You've accepted it. Sleep is not compatible with this role. Sleep is not compatible with this level of overwhelm. And you're not sure how to fix it. Because fixing it would require reducing the overwhelm. And you don't see how that's possible.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the question about how long you can sustain
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-You're wondering: how long can you live like this. Without adequate sleep. Without adequate rest. Running on caffeine and adrenaline and whatever reserves you have left. How long before something breaks. Before your health deteriorates. Before you just can't anymore.
-
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: the acceptance that this is what the job costs
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-You're accepting it. This is what the job costs. Sleep. Rest. A nervous system that can regulate. A mind that can turn off. This is what you're trading for the salary. For the title. For the position. The cost is your ability to sleep. And maybe that's not a fair trade. But it's the trade you've made.
-

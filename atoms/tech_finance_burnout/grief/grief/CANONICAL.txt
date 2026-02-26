@@ -1,187 +1,101 @@
-# tech_finance_burnout / grief / grief
-# Slot type: STORY (engine)
-# Engine: grief
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: The fund I built is not what I wanted
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You built a fund. You had a thesis. You had a vision for what you were going to do. And the fund is not that. The fund is something else. It's a collection of companies that mostly aren't working out. It's a portfolio that's underperforming. It's not what you imagined when you started. And you're grieving the loss of the vision.
----
-
-## STORY v02
----
-path: The impact that didn't happen
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You thought you were going to change the world. You were going to fund the companies that would transform industries. You were going to be part of something big. And the impact didn't happen. Some of the companies are doing fine. Some are doing well. None of them are changing the world. And the grief is in the gap between the vision and the reality.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: The legacy that's smaller than imagined
 BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-What will you be remembered for? What companies will people remember that you backed? What impact will you have left? And the answer is smaller than you imagined. You'll be remembered for competence. For decent returns. For making money for LPs. But not for anything transformative. Not for anything that changes the world.
----
-
-## STORY v04
----
-path: The era I'm out of step with
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-The era has shifted. The market has changed. The type of investing that worked in your early days doesn't work now. And you're out of step. You're holding onto approaches that are becoming obsolete. And the grief is in the knowledge that your usefulness might be fading.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: The belief that cracked
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-You believed in venture capital. You believed in the model. You believed in the potential for outsized returns. And the belief has cracked. You see the limitations now. You see how much of it is luck. How much of it is market timing. How much of it is out of your control. And the grief is in the loss of the belief.
----
-
-## STORY v06
----
-path: The version of myself I expected to become
-BAND: 3
-SEMANTIC_FAMILY: SF1
----
-You thought you'd become a great investor. You thought you'd have an amazing track record. You thought people would know your name. And you're a competent investor with an okay track record. And people know your name but not in the way you hoped. And the grief is in the gap between the version of yourself you expected to become and the version you actually are.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: The founders I disappointed
 BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-The founders expected you to help them succeed. Expected that your capital and network would be transformative. And you weren't enough. Your help wasn't enough. Your network wasn't enough. And you let them down. And the grief is in knowing that you couldn't deliver on the implicit promise.
----
-
-## STORY v08
----
-path: The time I spent on the wrong things
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-You spent time on companies that didn't work out. You spent time on portfolios that didn't deliver. You spent years on a thesis that was wrong. And the time is gone. You can't get it back. And the grief is in the knowledge that you spent your professional life on things that didn't matter.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: The conversations I'll never have
-BAND: 5
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-There are conversations you'll never have. With founders about what could have been. With LPs about what might have been. With yourself about what you could have done differently. And the grief is in the loss of the conversations. In the loss of the understanding.
----
-
-## STORY v10
----
-path: The returns that are permanent
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-The returns are what they are. The fund performed the way it performed. And it's permanent. You can't change it. You can't redo the decisions. You can't turn back time. And the grief is in the permanence. In the knowledge that this is the outcome. This is what your career is going to be measured by.
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: The certainty that was false
-BAND: 1
+BAND: 3
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: experimentation---
 ---
-You were certain about things. Certain about which companies would work. Certain about which markets would boom. Certain about your ability to predict. And the certainty was false. And you're grieving the loss of the certainty. You have to live with doubt now.
----
-
-## STORY v12
----
-path: The thesis I believed in
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-You had a thesis. You believed in it. You shaped your entire career around it. And the thesis was wrong. Or partially wrong. Or timed wrong. And you're grieving the loss of the thesis. The loss of the structure that held your career together.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: The talent I couldn't identify
 BAND: 3
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: experimentation---
 ---
-You were supposed to be good at identifying talent. At picking founders. At spotting winners. And you missed some. You passed on some that worked out. You backed some that didn't. And the misses are grieving opportunities. The loss of the future you didn't create.
----
-
-## STORY v14
----
-path: The market timing that was off
-BAND: 4
-SEMANTIC_FAMILY: SF5
----
-Timing is everything in venture. And your timing was off. You were early on some things. Late on others. And the timing is not something you can control. And the grief is in the powerlessness. In the knowledge that luck matters more than you want to admit.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: The fund I'm managing toward zero
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-Your fund is burning through capital. The companies aren't returning. The runway is getting shorter. And you're managing toward zero. And the grief is in the knowledge that the fund is going to fail. That your career is ending.
----
-
-## STORY v16
----
-path: The LPs I let down
 BAND: 3
-SEMANTIC_FAMILY: SF2
+SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-The LPs trusted you with their money. They trusted you to generate returns. And you didn't. And the grief is in letting them down. In knowing that you took their capital and didn't deliver.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: The partners I disappointed
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-Your partners expected you to deliver. Expected the fund to perform. Expected the returns to come. And they didn't. And the grief is in disappointing your partners. In knowing that you let the team down.
----
-
-## STORY v18
----
-path: The future I don't see
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-You can't see the future anymore. You don't know what comes next. You don't know if you're going to stay in venture. You don't know if you're going to try again. And the grief is in the uncertainty. In the loss of the clear path forward.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: The identity that's being stripped away
-BAND: 2
+BAND: 1
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: self_claim---
 ---
-You were an investor. That was your identity. That was what you were. And now you're becoming something else. Someone else. And the grief is in the loss of the identity. In the knowledge that who you were is being stripped away.
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: The story of my career
-BAND: 5
-SEMANTIC_FAMILY: SF1
----
-Your career is a story. It's a story about someone who had a vision for changing the world through venture capital. It's a story about someone who wanted to back great founders. It's a story that's ending. And it's not the ending you imagined. And the grief is in the loss of the story. In the knowledge of how it actually ends.
----
-

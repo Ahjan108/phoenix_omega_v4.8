@@ -1,186 +1,101 @@
-# first_responders / boundaries / shame
-# Slot type: STORY (engine)
-# Engine: shame
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: saying no feels wrong
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Someone asks you to work extra. To cover a shift. To do something. And you want to say no. But the shame comes. What if they need you. What if someone else can't cover. What if your no causes a problem for the department. And the shame is saying that saying no is selfish. That your need to rest or be with family is less important than the job's needs. That the right answer is always yes. And so you say yes. And the resentment comes. And the exhaustion comes. But the shame won. The shame convinced you that your boundary is selfish. That protecting yourself is wrong.
----
-
-## STORY v02
----
-path: taking time off feels like abandonment
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You have time off scheduled. Days you're supposed to be off. And someone gets sick. Someone needs coverage. And the shame comes. You're supposed to be there. The job is supposed to come first. Your family's schedule shouldn't matter. Your rest shouldn't matter. And the shame is saying that taking the time you're entitled to is abandoning your crew. Is selfish. Is not being a team player. And you start questioning whether you should stay scheduled off. Whether you should trade it away. Give it up. Be available. The shame's saying that having boundaries is not being a good responder. And the good responder doesn't have boundaries.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the request you can't refuse
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Someone asks you for something personal. Help with something off-duty. Advice. Time. Attention. And you don't want to do it. But the shame's there. They're vulnerable. They're asking. The shame's saying it's selfish to say no. That you should be there for them. That protecting your own time or space is not being a good person. And so you do it. And you resent it. And you're exhausted. And the shame wins because you've convinced yourself that having boundaries is cruel.
----
-
-## STORY v04
----
-path: the boundary that broke
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-You had a boundary. And someone crossed it. And the shame came immediately. Did they cross it because it wasn't real. Was it too much to expect. Were you wrong to have it. The shame's reframing the boundary as unreasonable. As something you shouldn't have had in the first place. And you let the boundary go. And you feel smaller. But the shame's quieter because you've accepted the narrative that the boundary was your fault.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the people who never said no
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-There are people on your crew who seem to never need boundaries. Who are always available. Who say yes to everything. And the shame is comparing you to them. Telling you that you're weaker. That you need things they don't need. That your need for rest or space or family time is a character flaw. And the shame's using them as the measuring stick. And by that measure you're failing. You have needs and they don't seem to. So something's wrong with you for having them.
----
-
-## STORY v06
----
-path: the family time you missed
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-There was something. A school event. A family dinner. A moment. And you worked instead. And the shame's attached to it. You should have been there. Your kid needed you. Your partner needed you. And you chose work. The shame's saying you're a bad partner. A bad parent. That your absence is evidence of not caring. When the reality is the job was demanding. Or someone needed coverage. Or the system was tight. But the shame is making it into a character thing. Making it about you choosing wrong.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the conversation you weren't present for
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-Your partner tried to talk to you about something. Something important. And you weren't there. Physically or mentally. You were tired. You had something else. You couldn't be present. And the shame came. You should have been able to give that. Should have had the capacity. Should have made the space. And the shame's saying that your inability to show up for that conversation is proof that you're selfish. That you don't love them enough. That if you really cared you could have found the energy. But the shame doesn't account for the real exhaustion. The real depletion. The real limits.
----
-
-## STORY v08
----
-path: the way the shame isolates
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-The shame is keeping you from telling people about your needs. About your limits. About the fact that you can't give everything all the time. And the isolation of that. The secrecy. The way you're pretending you can do it all while drowning. And the shame's the thing keeping you from asking for help. Keeping you from being honest. Keeping you small.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the standard you hold yourself to
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-You have standards for how much you should give. How available you should be. How selfless you should be. And the standards are impossible. Nobody could meet them. But the shame is making you try. Making you feel like every failure to meet the impossible standard is proof of your moral failure. And the shame is actually the thing making the standards. And the shame is never satisfied with what you do. There's always more you could have given. Always more you could have sacrificed.
----
-
-## STORY v10
----
-path: the discomfort of saying yes when you mean no
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-You say yes. But you mean no. And the internal conflict is creating so much discomfort that it almost feels like the yes was the wrong choice. But you can't go back. You've committed. And now you're doing something you didn't want to do. And resenting it. And the shame's saying that your resentment proves you're selfish. That you shouldn't feel bad about helping. That if you were good you'd help without resentment. And the shame is making the internal experience worse than the external demand would have been.
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the person who asks too much
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-There's someone who asks you for more and more. And every time you're supposed to say no but the shame won't let you. So you keep saying yes. And the demands escalate. And the shame's escalating too. Each time you can't say no. Each time you agree to something you don't want to do. And you're becoming resentful. And the shame's making the resentment into proof that you're a bad person. That you want to help but you're too selfish. When the reality is the other person's boundaries are not your fault.
----
-
-## STORY v12
----
-path: the moment you break
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-There's a moment where the boundary breaks you. You can't do one more thing. You can't say yes one more time. You can't be available one more time. And you break. Not gently. But completely. And the shame comes in the breaking. You feel like you failed. Like you should have been able to keep going. Like everyone else manages to have boundaries that don't destroy them when they enforce them. But you don't. Your boundary feels like a collapse.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the question someone asks when you finally say no
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-You finally say no. And someone asks. Is everything okay. Are you sure. You're usually so available. And the shame comes because you've taught people that you'll always say yes. And now they're confused. And you're having to be okay with them being confused. Having to accept that saying no will surprise people. That it will disappoint people. And the shame is saying that's wrong. That you should have stayed available.
----
-
-## STORY v14
----
-path: the family that doesn't understand the boundary
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-Your family doesn't get it. Doesn't understand why you can't be more available. Why you can't handle a little more. Why you need your time off. And the shame is empathizing with them. They're right. You should be able to do more. You should be able to show up for them completely. The shame is siding with them. Against you. And you're feeling the pressure to abandon the boundary. To go back to saying yes. To being the person they need you to be.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the conversation where you might break the silence
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Someone's asking you what's going on. Why you're different. Why you're protecting your time. And the shame is making you want to hide it. To say nothing's wrong. To pretend you're fine. But there's an opportunity here. A possibility that if you're honest about the boundary you could get support. And the shame is fighting that. Telling you that admitting you need a boundary is admitting weakness. Is admitting failure. Is exposing something that should be hidden.
----
-
-## STORY v16
----
-path: the person who supports the boundary
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-Someone actually supports the boundary. Says you should have time. You should rest. It's good to take care of yourself. And the shame is fighting against the support. Telling you the support is wrong. That the person's enabling your selfishness. That if they really cared they'd ask you to sacrifice more. And the shame is almost more powerful than the support because the shame's been reinforced for so long.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the boundary that holds
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You set a boundary. And you keep it. And the shame's there. The guilt. The question of whether you're being selfish. But you keep it anyway. And nothing catastrophic happens. The department keeps running. Your crew keeps functioning. And you get to have what you need. And the evidence starts building. The boundary is actually okay. Actually fine. Actually necessary. And the shame quiets a little. Not gone. But quieter.
----
-
-## STORY v18
----
-path: the shame that's becoming clarity
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-The shame is starting to look different. Instead of evidence of selfishness it's starting to look like fear. Like anxiety about what will happen if you protect yourself. And the clarity of that changes something. The shame's not the truth. It's the fear. It's the worry. And you can see it now. Can name it. Can choose not to follow it.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: supporting someone else's boundary
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-Someone else on your crew sets a boundary. And you're seeing it differently now. You're not judging them. You're respecting them. You understand. And the respect you're feeling for them. The support you're offering. That's what you deserved too. That's what you're learning to give yourself. The shame made you believe boundaries are selfish. But seeing them in someone else you respect. That's changing the story.
----
-
-## STORY v20
----
-path: the person you're becoming
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-You're building boundaries. Real ones. And the shame's still there sometimes. But you're not running your life based on it anymore. You're available. You help. You show up. But you also rest. You also have family time. You also take care of yourself. And you're learning that being a good responder doesn't mean sacrificing everything. It means showing up fully. And you can't show up fully if you're depleted. And the shame that tried to convince you that protecting yourself was wrong. That shame's becoming quieter. Because the evidence is clear. You're better at everything when you have boundaries. You're more present. More capable. More human. And that's what the shame was supposed to prevent. But it was wrong.
+EMBODIMENT v05
 ---

@@ -1,206 +1,101 @@
-# gen_z_professionals / financial_anxiety / spiral
-# Slot type: STORY (engine)
-# Engine: spiral
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the what if at 2 AM
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-I'm awake at 2 AM thinking about money. This is how the spiral starts. With a what if. What if I lose my job. What if the company downsizes. What if the economy shifts and my entire industry evaporates. And the what if leads to another what if. What if I can't find another job. What if I can only find contract work. What if I can't make the payments. And by 3 AM I've calculated the exact timeline of my financial collapse. Unemployment of six months. Depletion of savings. Credit card debt. Eviction. And it all seems very real at 3 AM. Very possible. Very likely. And I can't turn it off. The spiral keeps spinning.
-
----
-
-## STORY v02
----
-path: the research rabbit hole
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-I start researching. What's the average cost of living in a cheaper city. How much money do I need to move. What jobs are available there. And the research leads to more research. Articles about the housing crisis. News about the job market. Statistics about what people my age are supposed to have saved by now. And the more I research, the worse it gets. Because the articles confirm that the situation is bad. That I'm not just paranoid. That other people are struggling too. And the confirmation is somehow worse than the paranoia. At least paranoia might be wrong.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the worst case scenario plan
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-I start making plans. For the worst case. What I would do if I lost my job. Where I would move. How I would survive. And the planning is supposed to help. It's supposed to feel like control. Like if I've thought through the worst case, it won't happen. But instead the planning just makes the worst case feel more real. More possible. And I'm not actually planning. I'm spiraling. I'm imagining scenarios that get worse and worse. And each scenario feels like it could actually happen.
-
----
-
-## STORY v04
----
-path: the comparison cascade
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-I look at someone else's financial situation and it spirals. They're the same age. They make about the same money. But they have savings. They have a down payment. They have a plan. And I start the comparison. How did they do that. What did I miss. What choice did I make wrong. And the comparison leads to a cascade. I look at their job. Their education. Their location. And somehow I've decided that I'm failing in comparison. That I'm behind. And the spiral keeps going because there's always someone ahead. Always someone doing it better.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the debt snowball math
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-I calculate how long it will take to pay off the credit card debt. At the minimum payment. And the timeline is insane. Like five years. And the interest I'll pay is almost as much as the original debt. And the calculation spirals. I think about paying more. But if I pay more, then I can't save. And if I don't save, then I'm vulnerable to emergencies. And if I'm vulnerable to emergencies, then I'll get into more debt. And the spiral shows me that the debt is inescapable. That the system is designed so that I can never actually get out of it.
-
----
-
-## STORY v06
----
-path: the income projection spiral
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-I think about raises. When I'll get one. How much it will be. Whether it will be enough. And the projection spirals. I think about the best case. What if I get a big raise. And I calculate what I could do with it. Pay down debt. Save more. And then I think about the worst case. What if I don't get a raise. What if I get laid off instead. What if the industry crashes. And the worst case feels more likely than the best case. And the spiral continues because there are infinite variations. Infinite possible futures. All of them slightly uncertain.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the sunk cost spiral
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-I think about the money I've already spent. On school. On debt. On all the things that seemed necessary at the time. And I calculate what I could have if I hadn't spent that money. If I'd invested it instead. If I'd made different choices. And the spiral is about the impossibility of undoing the past. About the fact that the money is gone. That the choices are made. That there's no way to recalculate. The past is fixed. And the spiral goes nowhere because you can't change the past.
-
----
-
-## STORY v08
----
-path: the career earnings spiral
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-I calculate my lifetime earnings. What I'll make over forty years. And I subtract all the costs. Taxes. Healthcare. Housing. Retirement. And the spiral is about realizing that the number left over is very small. Like maybe I'll have a small amount of discretionary money but that's it. My entire life is accounted for. Every dollar is already spoken for. And the spiral continues as I realize that this is the entire game. That all the effort is just to keep the equation balanced. Not to get ahead. Just to survive.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the privilege spiral
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-I spiral about the fact that I'm privileged to even be anxious about this. That people are homeless. That people can't access healthcare. That people are actually starving. And I'm anxious about money when I have money. And the guilt of the privilege spirals. I shame myself for complaining. I try to feel grateful. And the gratitude spirals because I can't actually feel grateful when I'm terrified about the future. And the two emotions conflict. And the spiral has no resolution because you can't be grateful and terrified simultaneously.
-
----
-
-## STORY v10
----
-path: the generational wealth spiral
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-I think about generational wealth. How some people start with money. How their parents' and grandparents' decisions mean they start the game with money already in their account. And I didn't. And I think about the future and whether I'll ever have enough to give to my children. And the spiral is about intergenerational debt. About the fact that I'm perpetuating a cycle. That my children might start in the same position I did. And I feel responsible for breaking the cycle. But the spiral shows me that I won't. That I don't have enough to change the trajectory.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the system blame spiral
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-I blame the system. Which is true. The system is rigged. The math doesn't work. And the spiral is about the fact that blaming the system doesn't help. Because I'm still stuck in the system. And the system is not going to change for me. And my blame is just words. And the words don't change anything. So the spiral continues. I blame the system. I realize the blame is useless. I spiral deeper into the knowledge that I'm trapped in an unjust system with no way to escape it.
-
----
-
-## STORY v12
----
-path: the optimization spiral
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-I think about optimizing. What if I cut expenses even more. What if I did a side gig. What if I moved to a cheaper place. And the spiral is about the endless possibilities. The endless ways I could theoretically improve the situation. And the spiral is also about the desperation. That I'm willing to consider living in increasingly worse situations if it means the math might work. And the further I get in the spiral, the worse the proposed solutions become. And I realize that I'm spiraling into inhumane territory. Into considering things that would actually hurt me.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the timeline spiral
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-I create a timeline. If I save this much per month. If I get raises on this schedule. If I don't have emergencies. Then by this date I'll have enough to do that thing. And the timeline spirals. I calculate when I could have a down payment. When I could retire. When I could be financially independent. And the dates keep getting pushed further and further into the future. And at some point the date passes my death date. And I realize the timeline is impossible. That I'm calculating something that won't happen in my lifetime.
-
----
-
-## STORY v14
----
-path: the comparison to history spiral
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-I think about my parents' generation. And their financial situations. How affordable things were. How much faster they could save. How much easier the timeline was. And the spiral is about the unfairness. That they had an easier game. And I have a harder game. And nobody is going to acknowledge that. Nobody is going to adjust for it. I'm just supposed to succeed at a harder task without additional resources. And the spiral continues as I realize that the difficulty is by design. That the system has gotten worse.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the assumption spiral
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-I assume I'm going to fail. Based on the math. Based on the timeline. Based on the trajectory. And the spiral is about acting on the assumption. I stop trying. I stop optimizing. I stop planning. Because what's the point. And the spiral continues because the non-effort becomes a self-fulfilling prophecy. I fail because I've already decided I would fail. And the spiral shows me that the assumption is poisonous. That it creates the failure it predicts.
-
----
-
-## STORY v16
----
-path: the security spiral
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-I think about security. What it would take to feel secure. And the number keeps growing. I'd need more savings. More income. More buffer. And the spiral is about the impossibility of ever feeling secure. Because security is defined as the absence of risk. And risk is inherent in human existence. So security is impossible. And I'm spiraling toward a goal that can't be achieved.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the future self spiral
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-I think about my future self. Who is older and hopefully more stable. And I spiral about whether I'm making the right decisions for her. Whether I'm saving enough. Whether I'm investing right. And the spiral is about the pressure. That my current decisions are going to determine the quality of my entire future life. And the pressure spirals because the decisions are made under uncertainty. I don't know what the future will look like. I don't know what will matter. But I'm supposed to decide now.
-
----
-
-## STORY v18
----
-path: the cycle spiral
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-I realize that the spiral is a cycle. That I spiral every month. Every time I do the budget. Every time I think about the future. And the recognition of the cycle spirals. I'm trapped in a repeating pattern. The same thoughts. The same anxiety. The same conclusions. And the cycle is inescapable because the fundamental situation hasn't changed. Until the situation changes, the spiral will repeat.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the desperate measures spiral
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-At the crisis point, the spiral reaches the desperate measures. I think about things I would never normally consider. Crypto. MLM. High risk investments. Anything that might solve the problem quickly. And the spiral is accelerating. I'm grasping at ideas that are worse and worse. And I can see myself doing it. Can see how the desperation would lead me to make terrible decisions. And the spiral shows me a version of myself I don't want to become.
-
----
-
-## STORY v20
----
-path: the collapse spiral
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-And then the spiral spirals beyond anxiety into despair. Into the realization that the spiral never ends. That the anxiety is permanent. That I'm going to spend my entire life spiraling. That there's no point at which the math resolves. No point at which I can relax. No point at which I actually made it. And the collapse is the recognition that the spiral has consumed me. That the anxiety about money has become more real than money itself. And I'm not sure anymore whether the problem is actually the money or just the spiraling.
-
+EMBODIMENT v05
 ---

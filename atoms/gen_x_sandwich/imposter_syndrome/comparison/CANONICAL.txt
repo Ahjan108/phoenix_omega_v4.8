@@ -1,225 +1,101 @@
-# gen_x_sandwich / imposter_syndrome / comparison
-# Slot type: STORY (engine)
-# Engine: comparison
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: The colleague who's actually good
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Your colleague did a presentation and it was flawless. Poised. Confident. Smart. And you're comparing yourself to them and coming up short. They're the real version. You're the thing trying to imitate them. They belong in this room. You're here by accident. And the comparison is making you smaller. You're watching them and thinking about all the ways you're not like them. All the ways you're less capable. All the ways you're getting away with something they would never get away with.
----
-
----
-
-## STORY v02
----
-path: The work that's better
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-Someone else did similar work to what you did. And theirs is better. Cleaner. More insightful. More thorough. And you're comparing. And you're losing. They got it right. You got it almost right. They understood the problem at a deeper level. You understood it surface level. The comparison is making the quality of your work feel poor. Making you feel poor. Making you wonder why anyone would take you seriously when people like them exist.
+RECOGNITION v02
 ---
 
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: The person who moves up faster
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Someone at your level is getting promoted. They're moving up faster than you. And you're comparing trajectories. Theirs is ascending. Yours is plateauing. They're going places. You're staying here. And the comparison is telling you that the difference is that they're actually good and you're not. You're both at the same place but they're leaving. And that means they were always better. You're just now seeing it clearly.
----
-
----
-
-## STORY v04
----
-path: The someone who was never scared
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-You're watching someone present. Speak up in meetings. Take risks. And they look confident. Like they're never scared. Like they know they belong. And you're comparing your internal experience to their external presentation. And you're losing. You're always scared. You're always doubting. You're always wondering if this is going to be the moment they figure out you don't belong. And they look like they've never wondered that once. So they must be different. They must be actually good.
+RECOGNITION v04
 ---
 
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: The experience that shows
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-Someone has been doing this longer. Or they went to a better school. Or they had better mentors. Or they had more time to develop. And you can see it. The depth of their knowledge. The ease of their movement through problems. And you're comparing your shorter history to their longer one. And the comparison says that the gap is your fault. You should be further along. You should know more. You should have used your time better. The comparison is making you feel behind.
----
-
----
-
-## STORY v06
----
-path: The natural talent
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-Someone seems to be naturally good at this. Things come easily to them. They're not struggling the way you're struggling. And the comparison is telling you that they have something you don't. Natural talent. Natural competence. Natural belonging. And you're trying. You're working hard. And it's not coming easily. So the comparison says that you don't have what it takes. You're working for what they have naturally. That's the difference. That's why they belong and you don't.
+MECHANISM_PROOF v01
 ---
 
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: The one who didn't struggle
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-Someone got this job and they seem comfortable. At home. Like they've never had a moment of doubt. And you're comparing your doubt to their comfort. And you're losing. You're full of doubt. Full of questioning. Full of wondering if you deserve this. And they look like they've never wondered. So maybe they do deserve it. Maybe they actually are good at this. And you're the one who got lucky. The comparison is making you more convinced of your own fraudulence.
----
-
----
-
-## STORY v08
----
-path: The person who gets it first
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-Someone understands a concept or a problem before you do. They get it faster. And you're comparing speed to understanding. And the comparison is telling you that speed means intelligence. That getting it first means you're smarter. So if they're getting it first, they're smarter than you. And if they're smarter than you, then your previous achievement wasn't actual achievement. It was luck. You were lucky they didn't notice you were slower than them.
+MECHANISM_PROOF v03
 ---
 
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: The one with the pedigree
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-Someone went to an Ivy. Or they have degrees. Or they have the right background. And you're comparing credentials. And you're losing. You feel like you're trying to compete without the right equipment. Without the right starting point. And the comparison is telling you that they earned their place. They have the qualifications. You're just trying to pretend. You're taking space that someone with credentials should be taking.
----
-
----
-
-## STORY v10
----
-path: The pattern of comparison
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-You've noticed a pattern. You compare yourself to whoever's doing the best work in the room. And you always find yourself coming up short. You compare and you lose. Every time. And the pattern is making you believe that the comparison is accurate. That you really are less capable. That you really don't deserve this. The pattern of losing the comparison is feeling like proof. Like evidence. Like the comparisons are just reflecting reality.
+MECHANISM_PROOF v05
 ---
 
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: The comparison that feels objective
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-You're not being emotional about the comparison. You're being objective. You're looking at the facts. They have more experience. They have a better understanding. They produce better work. These are facts. And the facts say that they're better than you. The comparison feels like it's not about feeling bad about yourself. It's about being honest about the difference. But the honesty is crushing. The objective comparison is making you see yourself as objectively less than.
----
-
----
-
-## STORY v12
----
-path: The someone who's moving past you
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-Someone started at the same time you did. And now they're ahead. You're comparing your trajectory to theirs. And the comparison is showing you that they're winning and you're not. That they figured something out that you didn't. That they're moving faster. And the comparison is making you feel stuck. Stuck behind. Stuck trying to catch up. Stuck watching them move ahead while you're still here.
+TURNING_POINT v02
 ---
 
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: The person who's comfortable with authority
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Someone speaks to authority with ease. They disagree with their boss. They push back. They're confident in their opinion. And you're comparing their comfort with authority to your fear of it. And the comparison is telling you that the difference is that they know they belong. They know they're good enough to push back. You don't. You know you're not. So you don't push back. You comply. You disappear. Because you don't have the right to take up that kind of space.
----
-
----
-
-## STORY v14
----
-path: The other version of you
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-You're comparing yourself to an imagined version. The version of you who is confident. Who knows what she's doing. Who belongs here without question. And you're comparing to that imagined version and you're losing. The version that could be you is better than the version that you are. And the comparison is making you feel like you're failing at being yourself. Like the real you is a poor substitute for the possible you.
+TURNING_POINT v04
 ---
 
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: The comparison that reframes failure
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-You failed at something. And you're comparing your failure to their success. And the comparison is telling you that the difference is real. That they're actually good and you're actually not. That your failure isn't just circumstance. It's evidence. It's proof of what you suspected. That you're not actually capable. The comparison has reframed your failure from a learning moment to a piece of evidence about your fundamental inadequacy.
----
-
----
-
-## STORY v16
----
-path: The impossible standard
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-You've set yourself against the best person in the room. You're comparing yourself to the highest standard. And you're not meeting it. And the comparison is telling you that you should be able to. That if you were actually good you would be. But you're not. So you're not actually good. The comparison has created a standard that's crushing you. An impossible standard. And you're measuring yourself against it constantly.
+EMBODIMENT v01
 ---
 
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: The person who seems immune to doubt
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-Someone does not seem to doubt themselves. They move through problems with certainty. And you're comparing their certainty to your doubt. And the comparison is telling you that the difference is fundamental. They have something you lack. Confidence. Certainty. A fundamental belief in their own capability. And you lack it. And maybe you always will. So the comparison has become about more than work. It's about a fundamental difference in your essence.
----
-
----
-
-## STORY v18
----
-path: The comparison that becomes identification
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-You're comparing yourself to someone so much that you've started to identify as their opposite. Whatever they are, you're not. If they're confident, you're doubtful. If they're competent, you're fraudulent. If they're capable, you're incompetent. The comparison has become your identity. You're defined now by being less than them. And that's becoming how you see yourself. Not just in this moment. But fundamentally. You're the less version.
+EMBODIMENT v03
 ---
 
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: The comparison that won't stop
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-You've been comparing yourself for so long that you're not sure how to see yourself without a comparison anymore. You see yourself in relation to others. You see your competence through the lens of how much better or worse they are. You've lost the ability to assess yourself on your own terms. The comparison has become the way you relate to yourself. And it's making you smaller. Every comparison is making you smaller.
+EMBODIMENT v05
 ---
-
----
-
-## STORY v20
----
-path: The comparison that defines reality
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-You believe the comparisons now. You're not questioning them anymore. You're not wondering if they're fair or accurate. You're just accepting them as truth. The truth is that you're less capable. The truth is that you don't belong. The truth is that others are actually good and you're not. The comparison has become the way you understand reality. And reality is that you're fraudulent. The comparison has become your truth. And you're living inside it now.
----
-

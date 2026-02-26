@@ -1,186 +1,101 @@
-# entrepreneurs / burnout / grief
-# Slot type: STORY (engine)
-# Engine: grief
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the company you didn't build
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You remember the vision you had when you started. The place you were going to create. The way it was going to feel to work there. The impact you were going to have. Then reality happened. Funding constraints. Team departures. Market shifts. You adapted. You pivoted. You did what you had to do. And somewhere in the adapting, the original vision got smaller. You notice this in quiet moments. You're not grieving yet. You're just noticing that the thing you're building isn't the thing you imagined. It's probably better. It's probably more sustainable. But it's not what you dreamed.
----
-
-## STORY v02
----
-path: the people who are no longer there
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You remember hiring them. You remember believing they would be there forever. They had skills you needed. They had energy you wanted. You built something together. Then the company changed and they didn't want to change with it. Or the company couldn't afford them anymore. Or they found something that fit better. One by one they left. You were happy for them. You made the decisions to part ways. But there's a grief underneath the happiness. A grief for the team you were building. A grief for the version of the company that had room for all of them. The mechanism is starting to show.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the cost you didn't anticipate
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-You built a company and you sacrificed things to build it. Your time. Your relationships. Your health. You told yourself it was temporary. Temporary until we hit product-market fit. Temporary until the Series A. Temporary until the company can run without you. You're starting to see that temporary meant something different than you thought. You've missed weddings. You've missed births. You've missed funerals. You've missed the day-to-day of being present in people's lives. You can't get those back. The grief isn't loud yet. It's the quiet realization that you can't have both. You made a choice. The choice had costs.
----
-
-## STORY v04
----
-path: the version of yourself that existed before
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-There was a you before the company. You remember her vaguely. She had different priorities. She had hobbies. She had a capacity for joy that didn't depend on metrics. You're not her anymore. You became something else. Something more focused. Something harder. Something that knows how to move fast and hold complexity. That's a good thing. That version of you was needed to build this. But she's gone. And you're mourning her while you're also proud of what she became. It's complicated. The turning point is arriving.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the dream that downsized
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-You were going to change the world. You were going to build something that mattered on a scale that would reshape an industry. That was the dream. Now the dream is smaller. Now it's about building a solid business. A business that serves customers well. A business that your team believes in. It's a good dream. It's a real dream. But it's not the dream you started with. And you have to mourn the larger dream while you celebrate the smaller one. You can hold both. The weight of both is settling on your chest.
----
-
-## STORY v06
----
-path: the time you lost
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-You're 37. You didn't have kids because the timing was never right. You didn't travel because you couldn't leave. You didn't learn that thing you wanted to learn because there were no hours left. Those decisions made sense in the moment. They still make sense now. But somewhere in between the startup and the present there's five years you'll never get back. Not wasted. You don't believe they were wasted. Just redirected. Just spent on something other than the life you might have lived. The noticing is quiet. You're not angry yet. You're just watching the calendar and understanding what you chose.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the friendship that didn't survive
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-You used to be close. You'd make plans and you'd keep them. You'd text and you'd show up. Then the company got demanding and the plans got cancelled. First once. Then regularly. Your friend understood. Or said they did. They also got tired of being a second priority. You don't blame them. You wouldn't wait for you either. Now you don't make plans. It's easier. They moved on. You moved forward. Both are true. The grief is that you didn't have to lose them. You just didn't know how to keep them while building the company.
----
-
-## STORY v08
----
-path: the partner who watched from the side
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-They wanted to support you. They thought this would be temporary. They thought once you got the company stable you'd come back. But you didn't come back. You couldn't come back. There's no switching off the founder mind. There's no day where you're fully present because you've finally solved all the problems. So they watched you be somewhere else while you were physically at home. They watched you choose the company over date night. Over anniversary dinner. Over being a partner in the way they needed. The grief is that you love them and you can't give them what they need and you don't know how to change that.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the team you let go
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-You hired them when you believed you could take them all the way. You built culture with them. You celebrated wins together. Then the runway got short and you had to make the call. It was the right call. It was the one that saved the company. But you had to let them go. You watched them pack their desks. You watched them process the termination. You watched them figure out what comes next. And you grieved them while you celebrated the company's survival. You did what you had to do. The mechanism is fully visible now. Leadership sometimes requires loss. And loss always requires grief.
----
-
-## STORY v10
----
-path: the feature that will never exist
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-You had plans for the product. Big, ambitious plans. Plans that would have made the company singular. But the market didn't move that direction. Funding constraints forced priorities. You had to choose and you chose other things. The feature lives in your head now. It's perfect in your head. It would have changed everything. It would have been beautiful. Someone else will probably build something like it eventually. You'll watch them do it and you'll know it started in your head first. The grief is for the road not taken. The grief is for the version of the company that exists only in imagination.
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the investor that became a problem
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-You were grateful for the investment. They believed in you when you weren't sure anyone would. Then they believed in you in a specific direction. They pushed for scale. They pushed for metrics. They pushed for a version of the company that didn't match your vision. You could fight them. You chose not to. You adapted instead. And every adaptation moved you further from the original dream. You're grateful for the money and you're grieving the loss of autonomy. You can't have both. You chose correctly. The cost of choosing correctly is mourning what you lost.
----
-
-## STORY v12
----
-path: the burnout that was the price
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-You paid for the company with your body. That was the deal. That's what building required. You knew the terms and you accepted them. You got the product out. You got the traction. You got the validation. And you lost the sleep. You lost the health. You lost the capacity to be fully human outside of the company. You're starting to understand what you paid. The cost is becoming visible. You can see the toll on your face when you look in the mirror. You can feel it in how you move. The business worked. Your body paid the price.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the moment you realized you weren't going back
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-There was a moment when you understood: the person I was before this company doesn't exist anymore and I'm not getting her back. Not because you killed her. Because you became something else. Something new. The transformation was real. The cost of transformation is the death of what came before. You're not sad about it. You're not angry. You're just grieving the past tense. The version of you that could take a vacation and leave work at work. The version of you that didn't wake up at 3am thinking about growth rates. That person was real. That person is gone. This person is better equipped. This person is also more alone.
----
-
-## STORY v14
----
-path: the relationship that became secondary
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-They're still there. You're still together. But the relationship isn't the center anymore. The company is the center and they're orbiting it. They know this. You know this. You've both accepted it. Except acceptance doesn't erase grief. You're mourning the relationship that could have been if you'd had the capacity to put it first. You could have. You chose not to. It was the right choice for the company. It was a loss for the relationship. The turning point is that you can see both truths at the same time.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the sacrifice that didn't get recognized
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-Nobody celebrates the things you gave up. They celebrate the wins. They celebrate the company. But the cost is invisible. The people you didn't see. The time you didn't spend. The parts of yourself you hibernated to survive. Nobody acknowledges that. Nobody says thank you for sacrificing that. So you grieve alone. The grief is that success doesn't feel like success because you can't feel what you gave up to get here. The company is working. You're just not sure what else isn't working because you haven't checked.
----
-
-## STORY v16
----
-path: the mentor you became for others
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-Young founders reach out. They want your advice. You tell them how to build. You don't tell them what it costs. You're not protecting them. You're protecting yourself. You're not ready to say out loud that you paid a price that might not have been worth it. So you tell them about the wins and you quietly grieve the fact that you're not warning them. You're passing down the path instead of helping them find a different one. You could. You don't. The grief is that you're becoming what you needed to avoid.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the identity that fused and wouldn't separate
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-You are the company. The company is you. That was supposed to be temporary. Now it's permanent. You can't separate yourself from it to see yourself. You can't imagine a future where you're not building this. Even if the company ends, you're not sure who you'd be without it. You've grieved all the specific things. Now you're grieving something bigger. You're grieving the person you might have been if you hadn't fused your identity with something external. You're mourning autonomy. You're mourning the capacity to choose something else.
----
-
-## STORY v18
----
-path: the years that became The Years
-BAND: 5
-SEMANTIC_FAMILY: SF3
----
-Five years. Seven years. Ten. The years blend together because they were all the same intensity. All the same priority. All the same company. You can't remember what you did last year because you were just doing the company. The years feel like one long moment of building. When you try to remember something from year three you get confused about which year it was. Time moved differently. Time was currency. You spent it all on the company. Now you're grieving time as a finite resource that you treated like it was infinite.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the family you didn't have
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-You wanted kids. Your partner wanted kids. The timing was never right. Year three would have been too chaotic. Year five you were raising funds. Year seven there was finally stability but by then maybe you'd waited too long. You didn't consciously decide not to have kids. You just never had the bandwidth to decide to have them. Now you're in your forties and you're grieving a version of your life that depended on choices you never actually made. You just didn't make the other choice. And time kept moving.
----
-
-## STORY v20
----
-path: the version that could have been
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-There's a parallel universe where you took the job at the big tech company. Where you stayed a normal person with a normal life. Where you didn't fuse your identity with a company. Where you had time. You know that version isn't real but you grieve her anyway. The version of you that could have had it all. The version that didn't have to choose. In this universe you chose. You chose the company. The company worked. But you're mourning the person who didn't have to live with what choosing costs. You built something real. You lost something real. Both things are true.
+EMBODIMENT v05
 ---

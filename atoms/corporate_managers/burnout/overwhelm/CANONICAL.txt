@@ -1,225 +1,101 @@
-# corporate_managers / burnout / overwhelm
-# Slot type: STORY (engine)
-# Engine: overwhelm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: inbox at five a.m.
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You wake before the alarm. The reports will be online by six. There's the restructure email to compose. There's the Q4 planning meeting at eight where you need to sound like you have capacity for one more headcount reorg. You lie there calculating: seven direct reports, three matrix relationships, two escalations from last week still pending your decision. The thing is, you're fine. You're managing it. The Slack at 3 a.m. was just a peer in London working through their morning. You didn't need to read it. You didn't need to respond. But you did, because when you're the one holding the team together, responsiveness looks like care. You tell yourself this. You almost believe it. The ceiling is still dark. You calculate again. Seven, three, two. You can fit one more.
----
-
----
-
-## STORY v02
----
-path: nod through the skip level
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-Your boss is asking if the team is overloaded. You're half present, thinking about the code review backlog and the one-on-one you pushed to next week because the client call ran long. She's watching you. You say no, they're good. You say morale is strong. You say you're building bench strength. These are things you believe when you say them. They become true because you're saying them. The alternative is admitting that you're three bodies short and somehow you've made it work anyway, and she'll say the headcount isn't available, or she'll say it's your problem to solve through better process. You've heard both before. So you say they're good. You nod at the right moments. You smile like someone who has decided to be fine. She seems satisfied. You feel the lie settle into your shoulders.
+RECOGNITION v02
 ---
 
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: sprint planning, seventh hour
-BAND: 1
-SEMANTIC_FAMILY: SF3
----
-The board is full. Everyone is quiet now, tired. You're pointing at story cards and asking who can take what. One of them raises a hand slowly, says they're already carrying two critical path items. You nod. You know. You move to the next card. No one volunteers. You can feel the pressure in the room, the unspoken thing: you'll assign it. You always do. You'll solve it by staying late, or by letting something else slip, or by telling someone it's actually not as complex as it looks. You've gotten good at that last one. By the time you leave the room, everyone has a plan. No one looks happy. But there's a plan. You'll review it tonight. You'll adjust. You'll make it make sense. This is what management is. This is what you're good at.
----
-
----
-
-## STORY v04
----
-path: the meeting that created three problems
 BAND: 2
-SEMANTIC_FAMILY: SF4
+SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-You made a call in the budget meeting. You said the team could absorb one of the cuts. You didn't say we're already thin. You didn't say I haven't approved time off since June. You said yes because the senior director was watching the numbers, and you're the kind of manager who solves problems instead of surfacing them. Now you're looking at your team's calendar. The deadline hasn't moved. The scope hasn't moved. One person just got smaller. You could go back to your boss, but she'd see it as either poor planning or poor confidence in your team. Both are bad for you. So you don't. Instead, you start thinking about who's carrying the least burden right now. How you could redistribute without it looking like redistribution. You do the math in your head for the hundredth time this week. This is the cost of being reliable.
+RECOGNITION v04
 ---
 
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: message from a report at midnight
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-It's a question about a Jira ticket. Not urgent. But they sent it at midnight, which means they were thinking about work at midnight. You respond in three minutes because you're already awake, already checking email. You don't ask why they're awake. You just answer the question clearly and efficiently. In the morning, you note that response time is something you track about yourself. Under five minutes, even at midnight, means you're accessible. You tell yourself that's leadership. You don't think about what it means that your team might feel obligated to chase questions into the small hours because their manager answered one. You don't think about the message you're sending by being available for it. You're just solving the problem. You're just being responsive. You're fine.
----
-
----
-
-## STORY v06
----
-path: the one who quit
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-She was good. Not perfect, but stable. And now the role is open and there's hiring freeze language floating around and you're supposed to just divide her work among the team. You thought about asking her to stay. You could have offered something. More flexibility. A different project. But you didn't, because showing that you could offer her anything meant admitting you'd been holding things back. If she knew flexibility was possible, what else might they ask for? So she left, and now you're recalibrating. Her work is not complex. It's distribution that matters. You're very good at distribution. By Thursday, you've assigned the pieces. By Friday, you're monitoring the strain. It's there, but it's manageable. It's a story you'll tell about succession planning if this comes up in a review. That you grew the team. That you built capacity. What you won't say is that you're now the backup plan for three different functions.
+MECHANISM_PROOF v01
 ---
 
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: what you stopped doing
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-You used to ship code. You were good at it. Now you don't remember the last time you reviewed a pull request with real attention. You attend meetings about meetings. You validate other people's decisions. You read emails about direction. You send updates about progress. You spend forty percent of your time in meetings where you're not actually deciding anything. You're just representing that your team exists in the org structure. You tell yourself this is leverage. That being in the right meetings means protecting your people. But you also know that if you sat out, nothing would change except that you'd have one less status update to attend. The code would still ship. The team would still function. What would change is that you'd have time to think. To actually lead instead of just manage load. You haven't sat out. You're too afraid of what you'd miss.
----
-
----
-
-## STORY v08
----
-path: the unread Slack channel
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-There's a channel where your peers talk about the real work. The strategic stuff. The decisions being made before they're decisions. You're not in it. You know this because someone mentioned it in passing, and you thought maybe it was nothing, but then you noticed the lack of surprise in some rooms. The conversations were already half finished when you arrived. You could ask to join. You could say hey, I should be in that thread. But that's an admission that you don't have the time to keep up, and time is currency at your level. If you're asking for access to catch up, you're admitting you're behind. So you don't ask. You just work faster. You respond more quickly to the messages you do see. You make yourself indispensable in the channels that matter to you. It's a different game now. You're not sure you're winning.
+MECHANISM_PROOF v03
 ---
 
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: burn rate
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-There's a spreadsheet in your head. It's not written down, but it's very precise. Hours per person. Utilization rate. The point at which someone will start looking for another job. You know your team's numbers. Sarah is at eighty-five percent utilization and she has a side project. That's your worry. Marcus is fine at seventy-five but he's got aging parents. That's context you carry. Jackson's at ninety but he's junior and building skills. That's acceptable. You balance these equations constantly. It's not mathematical, exactly. It's intuition plus data plus the weight of knowing that if you miscalculate, someone quits, and then everyone's number goes up, and then it accelerates. You've seen it happen. You've been the person it happened to, years ago. Now you're trying to keep your team out of that spiral. But the numbers don't move. The deadlines don't move. So you just manage the burn and hope you're reading the smoke right.
----
-
----
-
-## STORY v10
----
-path: approved at cost
 BAND: 4
-SEMANTIC_FAMILY: SF1
+SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: destabilization---
 ---
-You approved the promotion. The person deserved it. Talented, ready. But now there are four of you doing the work of five, and the budget won't expand until next fiscal. You knew this when you approved it. That's why you approved it. Because if you don't invest in your team, they leave. And if they leave, you start over. So you absorb the gap. You tell your boss the team is strong and we're learning to do more with less, which is the language of leadership. What you mean is that everyone is working seventy hours now, and I'm working eighty. What you mean is that something will slip, and I'll take it on. You thought about delaying it. You almost did. But that would have been visible, and visible pressure is the thing you're trying not to create. So you approved, knowing it was approval of a temporary debt that your team would pay on your behalf. You can live with that. You do live with that. Every day.
+MECHANISM_PROOF v05
 ---
 
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the question nobody asks
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: experimentation---
 ---
-In the one-on-ones, nobody asks how you're doing. They bring problems and ideas and frustrations, and you listen and validate and coach them toward solutions. And you're glad of that. But sometimes one of them starts to ask, actually, how are you holding up, and you sense it coming and you deflect. You make a joke. You ask them something about their life. You turn it around because you're the stable one. If you start talking about the load, they'll worry. They'll think you're struggling to lead them. They'll wonder if you're okay to make decisions. So you stay intact. You stay fine. You're the only person in the organization who knows how thin the margin is. And you keep knowing it alone. There's something efficient about that. Something clear. The cost is just that you're managing the version of yourself that's always fine, and that version is getting quieter.
----
-
----
-
-## STORY v12
----
-path: the meeting after the meeting
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-After the town hall, you had to explain why the decision was actually good even though your team heard it as bad. You spent thirty minutes translating. Reframing the layoff language. Finding the silver lining in the reorganization. You did this skillfully. You told yourself you were protecting them from the anxiety of the truth. You told yourself that hope was more useful than clarity. You told yourself this is what a good leader does. But you also know that you were protecting yourself. Because if they panicked, they'd ask hard questions. They'd want to know about stability. And you'd have to admit that you don't have answers to those questions. You're managing the same uncertainty they are. You're just not showing it. So you translate instead. You soften the edges. You make it sound like a plan instead of a response. It works. They seem steadier. And you feel something else. Something like erosion.
+TURNING_POINT v02
 ---
 
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the other manager's secret
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: experimentation---
 ---
-You overheard her on a call. She said her team was demanding better outcomes without more time. She said it like a problem she was solving, not a pressure she was absorbing. You realized in that moment that maybe you're doing it wrong. Maybe you're supposed to push back more. Demand more resources. Make it your boss's problem instead of your team's. But you also know that's not how you were built. You were built to solve. To adapt. To be reliable. If you started demanding things, you'd be visible as the person who couldn't handle the scope. And then you wouldn't be the person they call when something needs to not fall apart. So you don't change. You just feel the shift in the game. You're not competing anymore. You're managing two different versions of management, and you're the one doing the harder one.
----
-
----
-
-## STORY v14
----
-path: Sunday afternoon, the planning
-BAND: 4
-SEMANTIC_FAMILY: SF5
----
-You spend two hours on Sunday thinking through the week. Which meetings are non-negotiable. Which problems will probably surface. Which person is likely to need support and how you'll fit it in. You do this every Sunday. You don't plan your own week so much as you plan everyone else's week and then figure out where you fit. It's not resentful, exactly. It's just how you've learned to move. You map the load, adjust for known stress points, try to create space for the human moments. You're very good at this. You can almost feel when someone is about to break. You can stretch a deadline by three days if you communicate it right. You can make something feel less heavy just by acknowledging that it's heavy. These are skills. But you're also doing this every Sunday, in your spare time, in the quiet, preparing for a week that will demand everything you haven't given it yet.
+TURNING_POINT v04
 ---
 
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the capacity you're holding
-BAND: 5
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-You stop. You just stop. Not consciously. Your body stops. It's after a meeting where you had to defend a decision that's already gone wrong, and you're in your office with the door closed, and you realize that you haven't blinked in maybe thirty seconds. Your chest is tight in a way that's not new. It's been tight since Tuesday. You notice that you can't actually feel your shoulders. You think about calling your doctor. You think about telling your boss that you need to talk about capacity. You think about stepping back from something. Any of those thoughts feels more dangerous than just staying still. So you open a new email. You respond to three things. You schedule the next meeting. You get back on the call. But something is different now. You know what the cost is. You're paying it in real time. You can feel yourself doing it. And you still don't know how to stop.
----
-
----
-
-## STORY v16
----
-path: what you won't say in the review
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-The feedback is good. Strong performer. Good people leader. Growing into the role. What won't go in the review is that you're managing on fumes. That you've made three decisions that might be career-limiting and you're hoping nobody notices. That you have a template email response for when you need to say no to anything personal. What won't go in the review is that you're the performance, now. You're not a person managing a team. You're a function. A load balancer. A decision maker who doesn't actually know if the decisions are right anymore. You just know if they reduce immediate pressure. The review says you're developing good judgment. What you know is that judgment requires rest, and you haven't rested since you took this job. You sign off on the feedback. You smile. You thank them for the opportunity. You mean it. You also mean that you're running out of road.
+EMBODIMENT v01
 ---
 
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the escalation nobody makes
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-You wait for someone to escalate. You wait for someone to say we can't do this. You wait for someone to break. It would actually help. It would give you permission. It would be a problem you could surface instead of manage alone. But your team won't do that. They're good. They see you doing it. They match the load. They stay professional. They trust that you know what you're doing. So nobody escalates. Nobody breaks. You all just get quieter together. And you're holding the space for that quietness. You're the one who keeps it from becoming a scream. But you're also getting tired of holding it. You're getting tired of needing to hold it. And you don't know what happens if you stop.
----
-
----
-
-## STORY v18
----
-path: the metric that matters
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-Attrition is still flat. That's the thing that matters. That's what you'll be measured on. You've succeeded. Your team stayed. You kept them productive. You kept them believing in the work. You did this by being the shock absorber. By managing the load so they didn't have to. By being the person who was fine. The metric that matters to you, though, the one nobody is tracking, is how long you can do this. You know it has a number. You know there's an end point. You just don't know where it is. You're past the halfway point. You know that by how quiet you've become, even to yourself. You know that by the dreams where you're still in meetings after you wake up. You know that by how long you stare at the email before you send it, checking for the cracks in your professional voice. The metric that matters is when someone notices. Not if. When.
+EMBODIMENT v03
 ---
 
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the person you were
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: self_claim---
 ---
-You remember having ideas. Strategic ideas. Observations about the code, about the direction, about what was possible. You remember walking into rooms and having something to contribute besides "yes, we can handle that." You remember reading articles. You remember side projects. You remember thinking about your own growth. Now you consume information like fuel, just enough to keep moving. You don't remember the last conversation you had that wasn't transactional. You don't remember when you stopped expecting that conversations could be anything else. The person you were made space for discovery. The person you are now makes space for everything else. And you're not sure you can get back. You're not sure you want to try. Because trying would mean acknowledging that you've traded something. And you're not ready to do that math.
+EMBODIMENT v05
 ---
-
----
-
-## STORY v20
----
-path: the email draft that never sends
-BAND: 5
-SEMANTIC_FAMILY: SF1
----
-You write: "I'm at capacity. I can't absorb another project without dropping something. Here's what will suffer." You write this very clearly, with data. With the spreadsheet that lives in your head, finally on paper. You sit with it for an hour. You feel lighter just having written it. Then you think about what happens next. Your boss will have to make a hard decision. Or she'll say that you're supposed to figure out how to do it. Or she'll say that this is the job. And you'll feel smaller for asking. So you delete it. You write instead: "We're excited about the new initiative. Here's how we'll prioritize." You send that one. And you feel the weight settle back. You're good at this. You're so good at this. And you have no idea how to stop being good at it. So you don't try.
----
-

@@ -1,187 +1,101 @@
-# entrepreneurs / self_worth / shame
-# Slot type: STORY (engine)
-# Engine: shame
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: The people I let down
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-There are people who believed in you. People who gave you money. People who gave you time. People who gave you their careers. And you didn't deliver. You didn't build what you promised. You didn't hit the metrics you said you'd hit. You didn't create the future you said you'd create. And they're living with that loss. And you're the person who put them in that position. And the shame is so specific. It's not general inadequacy. It's specific failure. Specific people. Specific broken promises.
----
-
-## STORY v02
----
-path: The startup story I can't tell anymore
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You used to tell the story with pride. You started a company. You built something. You made a thing. And now you can't tell that story. Because the story doesn't have the ending you wanted. Because the story is about something that didn't work. And you're ashamed to tell it. So you don't. So you stay quiet. And the silence is the shame.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: The decision that was wrong
 BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-There was a decision. A big one. Maybe you moved too fast. Maybe you pivoted too late. Maybe you held on too long. Maybe you let go too soon. And it was wrong. And you know it was wrong. And everyone else knows it was wrong. And you can replay it a hundred times and still come to the same conclusion—you made the wrong call. And someone else could have been the founder and they would have made the right call. But you were the founder and you made the wrong one.
----
-
-## STORY v04
----
-path: The money that was wasted
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-Money was invested. Real money. People's savings. People's retirement funds. People's faith. And some of that money was spent on things that didn't matter. Hiring the wrong person. Building the wrong feature. Pursuing the wrong market. And you wasted it. Not on purpose. Not maliciously. But it's wasted nonetheless. And the investors are living with that loss. And you're living with the knowledge that you wasted it.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: The team that suffered for your vision
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-Your team worked hard. They sacrificed. They believed in you. And they paid the price. One of them burned out. One of them never recovered. One of them is still healing from the cost of believing in your vision. And the shame is that you asked them to pay that price. You extracted that cost. You were the one who convinced them it was worth it. And it wasn't.
----
-
-## STORY v06
----
-path: The success that would have been
-BAND: 3
-SEMANTIC_FAMILY: SF1
----
-If you'd made different decisions. If you'd pivoted earlier. If you'd gone bigger. If you'd been faster. It could have worked. Maybe. You can see the path where it worked. And you're on the other path. The path where it didn't. And the path where it could have worked was so close. And you chose the other path. Or you stumbled onto the other path. And now you're living with the knowledge that success was possible. That it was there. And you didn't get it.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: The person who believed in me most
 BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-There was someone. Maybe an investor. Maybe a co-founder. Maybe a family member. Someone who believed in you more than anyone else. Who really believed. Who staked something on that belief. And you let them down. And you see it in their face. The moment when the belief cracked. The moment when they started to doubt. And you're the one who did that. You're the one who broke the faith.
----
-
-## STORY v08
----
-path: The doubt that now makes sense
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-There were people who doubted. People who said "are you sure about this?" People who expressed skepticism. And you defended yourself. You asserted your belief. You pushed back against the doubt. And now you realize the doubt was justified. The skeptical person was right. The doubter saw something that you didn't want to see. And the shame is in knowing that they were right.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: The competence you faked
-BAND: 5
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-You performed competence. You walked into rooms and acted like you knew what you were doing. You made decisions like you'd thought them through carefully. You spoke with authority about things you weren't sure about. And people believed the performance. They trusted the act. And the shame is that you fooled them. You deceived them into thinking you were more capable than you actually were.
----
-
-## STORY v10
----
-path: The fraud I actually am
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-Imposter syndrome was the word for it when you were winning. But now that you're not, it just feels like the truth. You were a fraud. You were pretending to be a founder when you were just someone with an idea. You were pretending to be a leader when you were just someone making it up. And now everyone can see it. And the shame is in knowing that you knew all along.
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: The investors I'm avoiding
-BAND: 1
+BAND: 3
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: experimentation---
 ---
-There are investors you don't return calls from. People you pass on the street and pretend not to see. People you used to have coffee with and now you don't. Because you have to face them. You have to tell them that the money is lost. Or the company is shutting down. Or it's not working. And the shame of that conversation is so big that you're just not having it. You're ghosting investors. And the ghosting is proof of the shame.
----
-
-## STORY v12
----
-path: The pitch deck I don't believe in anymore
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-You have a pitch deck. You built it to convince people. And you used it. And it worked. People got convinced. People gave you money based on that deck. And now you don't believe the deck anymore. The market has changed or your understanding has changed or the reality has become clear. And the deck is a monument to the things you said that turned out not to be true. And the shame is in having convinced people with something you don't believe in anymore.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: The person who saw through me
 BAND: 3
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: experimentation---
 ---
-There was someone who could see through the performance. Someone who saw the doubt underneath the certainty. Someone who knew you were making it up. And they tried to tell you. And you didn't listen. Because you didn't want to know. And now they're gone. And you're alone with the knowledge that someone tried to warn you and you ignored it.
----
-
-## STORY v14
----
-path: The culture I built
-BAND: 4
-SEMANTIC_FAMILY: SF5
----
-You built a culture. You were intentional about it. And the culture you built was the culture you then lived in. A culture of pressure. A culture of urgency. A culture where wellbeing comes last. A culture where burnout is a badge of honor. And that culture affected people. And the shame is that you created the conditions. You set the tone. You made it acceptable to destroy yourself for the mission. And people did. They destroyed themselves. And you watched.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: The equity I promised
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-You promised equity. You said "this is going to be worth something." You said "stick with me and you'll be rewarded." You said it to early employees. You said it to co-founders. And the equity isn't worth anything. Or it's worth so little that it doesn't matter. And the promise is broken. And people are living with the worthlessness. And you're living with having promised something you couldn't deliver.
----
-
-## STORY v16
----
-path: The advice I gave that was wrong
 BAND: 3
-SEMANTIC_FAMILY: SF2
+SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-Someone asked for your advice. They asked "should I join your company?" They asked "should I make this move?" They asked "should I take this risk?" And you encouraged them. You said "yes, do it." And it was wrong advice. It didn't work out. And they're regretting it. And the shame is in knowing that you influenced a decision that turned out badly.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: The person I became
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-You became someone you don't like. Someone harder. Someone colder. Someone who could make the hard calls without feeling them. Someone who could lay off people and move on. Someone who could disappoint people and keep working. And you're ashamed of that person. You're ashamed that the company turned you into someone you despise.
----
-
-## STORY v18
----
-path: The time that was wasted
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-Years. You spent years on this. People spent years on this. Years that could have been spent elsewhere. Years that could have been spent building something that worked. Years that could have been spent on something that mattered. And you wasted those years. Not on purpose. But the waste is real.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: The lie I'm still telling
-BAND: 2
+BAND: 1
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: self_claim---
 ---
-People ask how it's going. And you say "it's going." You say "we're working on some things." You say "we're optimistic." And all of these things are lies. Or they're partial truths that you're framing as full truths. And the shame is in the lying. You're still trying to manage the narrative. You're still trying to look good. You're still performing when you should just admit failure.
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: The founder I'm not
-BAND: 5
-SEMANTIC_FAMILY: SF1
----
-You're not the founder you wanted to be. You're not the founder you pretended to be. You're the founder who's failing. And the shame is in the gap between the image and the reality. The image was so clear and now the reality is so different. And you have to live in that gap. And the gap is full of shame.
----
-

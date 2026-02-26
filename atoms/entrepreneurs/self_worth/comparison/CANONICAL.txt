@@ -1,187 +1,101 @@
-# entrepreneurs / self_worth / comparison
-# Slot type: STORY (engine)
-# Engine: comparison
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: The founder who raised more
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You're in a room with another founder. You know their story because you know their metrics. You know how much they raised. You know their valuation. You know their user count. And theirs is bigger. Their Series A was bigger. Their valuation is bigger. Their growth is faster. And in that moment, your company becomes smaller. Not actually smaller, but smaller in your mind. Because comparison is the thief of joy and it's also the measurement of worth. And your worth, in that moment, is measured against theirs. And you're coming up short.
----
-
-## STORY v02
----
-path: The metric that matters
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-MRR is your metric. Monthly recurring revenue. That's the number that matters. That's the number that tells you if you're succeeding. And every month, you're checking it. Is it up? Is it growing? Is it growing fast enough? Is it growing faster than some other company? And the worth you attach to yourself is directly tied to that number. If the number is up, you're winning. If the number is flat, you're failing. If the number is down, you're a failure. And the number is just a number. But it feels like it's the measure of your entire life.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: The comparison you make every day
 BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-You read Hacker News and you see what other founders are building. You read Twitter and you see what other founders are shipping. You compare your progress to theirs. You compare your speed to theirs. You compare your traction to theirs. And theirs is always slightly ahead. And your brain has learned that this means you're slightly behind. That you're slightly worse. That you're not moving fast enough. That you're not good enough.
----
-
-## STORY v04
----
-path: The market timing excuse
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-The other founder got lucky with timing. The market was ready for their product. They rode a wave. And you're still pushing your boulder up the hill. But that excuse—the timing thing—it doesn't actually make you feel better. Because the other founder still has the wave. Still has the success. Still has the validation. And you're the one pushing the boulder. And even though you know timing matters, it doesn't change the fact that they're winning and you're... not.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: The revenue comparison
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-You hit 100K MRR. That was the goal. You hit it. And then you heard about another founder who hit 1M MRR. And suddenly your 100K doesn't feel like an achievement anymore. It feels like a starting point. It feels like the bare minimum. And your worth deflates. Because you're not measuring yourself against where you started. You're measuring yourself against what's possible. And what's possible is always bigger than what you've achieved.
----
-
-## STORY v06
----
-path: The founder who exited
-BAND: 3
-SEMANTIC_FAMILY: SF1
----
-A founder you know got acquired. The company sold. They're done. They're rich. They're moving on to the next thing. And you're still grinding. You're still trying. You're still in the daily work. And the comparison is painful because it's not about metrics anymore. It's about outcomes. They've already won. You're still playing.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: The speed of the competitor
 BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-Your competitor is moving faster. They're shipping features faster. They're acquiring customers faster. They're growing faster. And the speed is scary because speed is often an indicator of fitness. If they're moving faster, maybe they're better. Maybe they're smarter. Maybe they understand the market better. And your slower speed is evidence of your inadequacy.
----
-
-## STORY v08
----
-path: The investors who funded them and not you
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-The investor you pitched to just invested in another startup. In a competitor. In someone doing something similar but with a different twist. And the investor said yes to them and no to you. And that's a very clear signal about your relative worth. The investor looked at both of you and chose them. And you have to live with that. You have to accept that judgment and keep going.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: The press that went to them instead of you
-BAND: 5
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-The journalist was supposed to cover your story. And then they covered the competitor's story instead. The competitor got the press. The competitor got the exposure. The competitor got to tell their story to thousands of people. And you didn't. And the absence of press is the evidence that you're not interesting enough. That your story isn't compelling enough. That the world doesn't care about what you're building.
----
-
-## STORY v10
----
-path: The peer group that's moving past you
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-Your peer group—the cohort of founders you started with—is fragmenting. Some of them are taking off. They're raising big rounds. They're getting attention. They're on podcasts. And the ones who are moving on without you are the ones you used to be equal to. And now you're not equal anymore. Now they're ahead and you're behind. And the gap is growing.
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: The product that was copied
-BAND: 1
+BAND: 3
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: experimentation---
 ---
-Someone bigger than you built something similar to what you built. They saw your product and they decided they could do it better. They had more resources. They moved faster. And now their version is better. And the comparison is devastating because you had it first. You were the original. And now the copy is better than the original. And that says something about your product. Or about you.
----
-
-## STORY v12
----
-path: The accolades they got
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-The other founder was named on a "30 Under 30" list. They got the award. They got the recognition. They got the validation from the world that they're special. And you didn't. And every time you see that list, every time you see that award, you're reminded that you weren't chosen. That you weren't special enough. That the world doesn't think you're remarkable.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: The networking advantage
 BAND: 3
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: experimentation---
 ---
-The other founder knows the right people. They have the network. They can make a call and get a meeting. They can make a call and get an introduction to a customer. They can make a call and get a job done. And you don't have that network. You're making cold emails. You're making cold calls. You're starting from scratch with every relationship. And the network is the moat. And you don't have it.
----
-
-## STORY v14
----
-path: The credibility gap
-BAND: 4
-SEMANTIC_FAMILY: SF5
----
-When the other founder talks, people listen. When they say they're going to do something, people believe them. People invest in them. People buy from them. People believe in them. And when you talk, people want proof. They want validation. They want to see traction before they commit. And the gap between "I'm going to do X" and "I've done X" is huge. And you're living in that gap. You're living in the space between promise and delivery.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: The board member who chose them
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-A major board member wanted to join your board. Or you thought they did. And then they joined the other founder's board instead. Or they chose to invest in them. Or they chose to work with them. And the rejection—it lands as evidence that they're more promising than you are. That they picked the better bet.
----
-
-## STORY v16
----
-path: The customer who left for the competitor
 BAND: 3
-SEMANTIC_FAMILY: SF2
+SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-Your customer switched. They moved from your product to the competitor's product. And they were happy to tell you why. Better features. Better price. Better support. And you hear the reasons and you think "I could fix that." But the customer didn't wait. They didn't give you the chance to fix it. They just left. And every customer that leaves is evidence that the competitor is better. That the competitor is winning.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: The parity that feels like losing
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-You're at parity with the competitor. The features are equivalent. The price is equivalent. The market position is equivalent. And being at parity feels like losing. Because if you were better, you'd be winning. But you're not winning. You're just matching. And matching—in a competitive market—is the same as losing.
----
-
-## STORY v18
----
-path: The trajectory that's slightly steeper
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-The competitor's trajectory is slightly steeper. Their growth curve is slightly more aggressive. Their adoption is slightly faster. And the "slightly" doesn't matter. What matters is that they're pulling away. What matters is that they're moving into the distance. And you're watching them go.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: The proof you're not good enough yet
-BAND: 2
+BAND: 1
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: self_claim---
 ---
-You're not the market leader. That's proof that you're not good enough yet. You're not the fastest growing. That's proof that you're not execution good enough yet. You haven't raised the biggest round. That's proof that you're not attractive enough yet. And the "yet" is supposed to be comforting. You're not good enough yet, but you could be. But the "yet" also feels like a life sentence. Like you'll never be good enough. Like you'll always be not quite there.
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: The worth that's tied to the win
-BAND: 5
-SEMANTIC_FAMILY: SF1
----
-Your worth is tied to your company's success. Your company's success is measured against the competitor. And the competitor is winning. So your worth is in question. And the only way to fix that is to win. But winning is hard. And the worth question is staying with you. And it's eating at you. And it's changing how you work. And it's changing who you are.
----
-

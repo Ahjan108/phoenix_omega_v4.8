@@ -1,225 +1,101 @@
-# working_parents / social_anxiety / false_alarm
-# Slot type: STORY (engine)
-# Engine: false_alarm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the_group_chat_misread
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-I send a joke in the group chat. Nobody responds for an hour. Did I miss the tone? Was it mean? Now I'm rereading it obsessively, convinced I've offended someone. By the time someone responds with a laugh-emoji, I've already written an apology in my head and decided I'm the kind of person who says the wrong thing.
----
-
----
-
-## STORY v02
----
-path: the_parent-teacher_conference_echo
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-The teacher said my daughter is 'spirited.' I heard: difficult. For a week I'm convinced there was something critical in that word, some coded message about my parenting. I replay the five-minute conversation repeatedly, reconstructing intent. Finally I text another parent: 'did your kid's teacher say anything about [daughter]?' and learn she uses 'spirited' for kids she likes. The relief is real. The embarrassment lingers.
+RECOGNITION v02
 ---
 
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: the_work_comment_that_haunts
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-In the meeting, someone didn't laugh at my comment. I said something intended to be light and it landed flat. I've replayed it fifty times. Was I trying too hard? Did I miss the cultural reference? Am I now that person? For three days I'm certain everyone noticed and judged me. Probably nobody did.
----
-
----
-
-## STORY v04
----
-path: the_invitation_that_might_not_be
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-A work friend mentions a happy hour 'with the team.' Does that include me? Why wasn't I explicitly invited? I spend the afternoon in a low-grade panic about whether I've been silently excluded. Then I realize nobody explicitly invites me to anything—we all just show up. My anxiety invented a rejection that doesn't exist.
+RECOGNITION v04
 ---
 
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: story_v05
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm certain something's wrong, convinced by evidence that probably doesn't exist
----
-
----
-
-## STORY v06
----
-path: story_v06
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm certain something's wrong, convinced by evidence that probably doesn't exist
+MECHANISM_PROOF v01
 ---
 
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: story_v07
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm certain something's wrong, convinced by evidence that probably doesn't exist
----
-
----
-
-## STORY v08
----
-path: story_v08
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm certain something's wrong, convinced by evidence that probably doesn't exist
+MECHANISM_PROOF v03
 ---
 
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: story_v09
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm certain something's wrong, convinced by evidence that probably doesn't exist
----
-
----
-
-## STORY v10
----
-path: story_v10
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm certain something's wrong, convinced by evidence that probably doesn't exist
+MECHANISM_PROOF v05
 ---
 
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: story_v11
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm certain something's wrong, convinced by evidence that probably doesn't exist
----
-
----
-
-## STORY v12
----
-path: story_v12
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm certain something's wrong, convinced by evidence that probably doesn't exist
+TURNING_POINT v02
 ---
 
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: story_v13
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm certain something's wrong, convinced by evidence that probably doesn't exist
----
-
----
-
-## STORY v14
----
-path: story_v14
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm certain something's wrong, convinced by evidence that probably doesn't exist
+TURNING_POINT v04
 ---
 
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: story_v15
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm certain something's wrong, convinced by evidence that probably doesn't exist
----
-
----
-
-## STORY v16
----
-path: story_v16
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm certain something's wrong, convinced by evidence that probably doesn't exist
+EMBODIMENT v01
 ---
 
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: story_v17
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm certain something's wrong, convinced by evidence that probably doesn't exist
----
-
----
-
-## STORY v18
----
-path: story_v18
-BAND: 5
-SEMANTIC_FAMILY: SF3
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm certain something's wrong, convinced by evidence that probably doesn't exist
+EMBODIMENT v03
 ---
 
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: story_v19
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm certain something's wrong, convinced by evidence that probably doesn't exist
+EMBODIMENT v05
 ---
-
----
-
-## STORY v20
----
-path: story_v20
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm certain something's wrong, convinced by evidence that probably doesn't exist
----
-

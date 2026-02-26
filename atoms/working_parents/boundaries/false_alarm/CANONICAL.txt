@@ -1,206 +1,101 @@
-# working_parents / boundaries / false_alarm
-# Slot type: STORY (engine)
-# Engine: false_alarm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the symptom that seemed like emergency
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Your child coughed. Not a normal cough. A symptom cough. You immediately spiraled. Is it the flu. Is it COVID. Is it something serious. You called the doctor. They said it was probably nothing. A normal cough. But in your mind it was already an emergency. It was already hospital. It was already worst case. The cough resolved. It was nothing. And you feel foolish for the panic. But tomorrow there will be another symptom. And you'll panic again. You can't seem to calibrate normal from emergency. Everything feels dangerous.
-
----
-
-## STORY v02
----
-path: the work email that felt like crisis
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You got an email. From your boss. Subject line was vague. You immediately panicked. Are you fired. Is there a problem. Is something wrong. You read the email. It was a normal update. Nothing wrong. Nothing urgent. It was routine. But your nervous system already activated. You already felt the panic. You already imagined the worst. The email was benign. But your body doesn't know that. Your body is in crisis mode over a normal email.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the missed call that must be bad news
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-The school called and you missed it. Immediately your mind went to bad places. What happened. Is your child hurt. Is there an emergency. You called back with your heart pounding. Everything is fine. It was a routine call about something normal. But you were in full panic mode. Your body thought there was an emergency. Your adrenaline was up. Your chest was tight. And it was nothing. But it felt like something for that long minute when you didn't know.
-
----
-
-## STORY v04
----
-path: the 3am panic about something that didn't matter
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-You woke up at 3am and thought about the thing. The email you sent. The comment you made. The mistake you might have made. And in the darkness it became an emergency. An actual crisis. Your career was over. People would find out. You'd be fired. By dawn you realized it was nothing. Nobody cared about the email. The comment was fine. There was no mistake. But you'd spent three hours in a panic about something that didn't matter. Your nervous system doesn't discriminate between real and imagined threats.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: too many alarms that cry wolf
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You're constantly in emergency mode. Every symptom. Every email. Every missed call. Everything is treated like a potential crisis. Your nervous system is always on high alert. And because you're in crisis mode constantly you're also numb to actual crises. You can't tell the difference anymore between the real emergencies and the false alarms. You're hypervigilant about everything so everything feels equally urgent. The boy who cried wolf has become you. And you can't hear your own alarms anymore.
-
----
-
-## STORY v06
----
-path: the health anxiety that invents emergencies
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-Your child has a headache. It's probably nothing. But what if it's serious. What if it's a tumor. What if it's something rare. You start researching. You spiral. You convince yourself it's something terrible. Your child's normal headache has become a potential medical emergency in your head. You're googling. You're panicking. You're one step away from the ER. And it's just a headache. But you can't seem to believe that. You can't calibrate normal from dangerous.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the hypervigilance that consumes your energy
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-You're watching everything. Your kids for signs of illness. Your work for signs of criticism. Your partner for signs of resentment. Your bank account for signs of disaster. You're constantly scanning for danger. Constantly looking for the thing that will go wrong. And this hypervigilance is exhausting. You're using so much energy to look for problems that you have no energy for anything else. But you can't stop. Because the dangers feel real. Because some day something might go wrong.
-
----
-
-## STORY v08
----
-path: the activation from a normal Tuesday
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-It's a normal day. Nothing is happening. Nothing is wrong. But you're in crisis mode anyway. Your heart is racing. Your mind is spiraling. You're thinking about disasters. You're thinking about worst cases. And there's nothing happening. There's no actual emergency. Your nervous system just activates. Without reason. Without trigger. You're in flight or fight mode and everything is fine. But your body doesn't believe that. Your body thinks you're under threat.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the inability to distinguish real from imagined
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-You've lost the ability to tell the difference. Your child coughs and your mind immediately goes to serious illness. An email arrives and you assume it's bad news. A phone call comes and you expect disaster. You're not being paranoid. You're being sensitized. Your nervous system has been trained to treat everything as a threat. So everything is a threat in your perception. Even when it's not. Even when there's no danger. You feel danger. You feel emergency. You feel like something bad is happening even when it isn't.
-
----
-
-## STORY v10
----
-path: the false alarm that proved true once
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-One time you panicked and it was real. Your child had something that actually was serious. Your catastrophizing was justified once. And now you can't stop. You can't dismiss any alarm because one time the alarm was real. One time the disaster happened. So now every alarm might be the real one. Every symptom might be the sign. Every red flag might be accurate. You're stuck in the hypervigilance because once you were right. And you can't risk being wrong.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the constant state of red alert
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-You're always in red alert. Your baseline is emergency. Anything less than calm is panic. You can't remember what it feels like to just be normal. To not expect something to go wrong. To not scan for threats. Red alert is your normal now. And because it's normal you think this is how everyone lives. But it's not. This hypervigilance. This constant threat detection. It's not normal. And it's destroying you. But you can't seem to step out of it.
-
----
-
-## STORY v12
----
-path: the alarm that goes off for nothing over and over
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-The alarm keeps going off. For nothing. You're running to respond and there's nothing there. Over and over. But eventually you'll stop believing the alarm. Eventually you'll ignore it. And then when something real happens the alarm will go off and you won't respond because you've been conditioned not to. The false alarms are training you to ignore real danger. Your nervous system is sabotaging itself. With every false alarm you're becoming less able to respond to real threats.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the hypervigilance that's costing you
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-You're in constant panic. About finances. About health. About career. About relationships. About everything. You're always watching for disaster. Always expecting the worst. And it's costing you. It's costing you peace. It's costing you presence. It's costing you the ability to enjoy anything because you're too busy waiting for it to fall apart. You're in a state of constant anxiety and it's not proportional to the actual threats. Most of what you're worried about will never happen. But you're suffering now. Real suffering. For imaginary threats.
-
----
-
-## STORY v14
----
-path: the belief that if you don't worry it'll happen
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-You believe on some level that if you stop worrying something bad will happen. That the worry is protecting your family. That your hypervigilance is a defense. That if you relax for one second something will go wrong. So you can't relax. You can't stop worrying. You can't stop scanning for danger. Because the moment you do the bad thing will happen. You've linked your anxiety to safety. So anxiety feels necessary. Feels like the thing keeping everyone alive.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the panic that wakes you up at night
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-You wake up in the night in a panic. Your child. Something is wrong with your child. You run to check. They're asleep. They're fine. Nothing is wrong. But your nervous system disagrees. It activated. It sent the alarm. There's danger. There's emergency. There's something wrong. You were sound asleep and your own nervous system attacked you. With false information. False alarms. False emergencies. And now you're awake and anxious and there's nothing wrong.
-
----
-
-## STORY v16
----
-path: the medical appointments for false alarms
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-You've taken your child to the doctor so many times for things that turned out to be nothing. The rash that was normal. The cough that was fine. The bump that was harmless. You're doing the responsible thing. Getting things checked out. But part of you worries the doctors see you as overprotective. As anxious. As a parent who cries wolf. But you can't stop. Every symptom might be the one. Every sign might be the real emergency. So you keep showing up. To doctor's appointments. For false alarms.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the exhaustion of constant threat detection
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You're exhausted. Not from anything real. Just from the constant threat detection. Your nervous system is working overtime to find dangers that mostly don't exist. You're running on adrenaline. On cortisol. On the chemicals of fear. And there's nothing to be afraid of. But your body doesn't know that. Your body thinks danger is constant. So you're constantly activated. Constantly in fight or flight. And the exhaustion is bone-deep. This isn't the exhaustion of doing things. It's the exhaustion of being afraid. All the time.
-
----
-
-## STORY v18
----
-path: the knowledge that you're stuck in the false alarms
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-You know you have a problem. You know you're hypervigilant. You know most of your alarms are false. But you can't stop. You can't dial it down. You can't relax. You're stuck in the cycle. False alarm. Panic. Realization it was false. Relief. Then the next false alarm. You're trapped. In the pattern. In the hypervigilance. In the constant threat detection. And you don't know how to get out.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the isolation from the constant fear
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-You're isolated in your fear. People around you don't understand. They seem calm. They seem fine. They don't seem to be constantly alert to danger. They don't seem to panic at every symptom. So you don't tell them. You keep the fear private. You suffer in silence. And the silence makes it worse. The fear grows in the dark. The false alarms multiply. You're alone with the constant threat detection. And loneliness makes it all harder.
-
----
-
-## STORY v20
----
-path: the surrender to the hypervigilance
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-You've stopped fighting it. The hypervigilance. The false alarms. The constant threat detection. You've just accepted that this is your life now. You wake up anxious. You move through the day scanning for danger. You go to bed anxious. Waiting for the next panic. Waiting for the next false alarm. You've surrendered to it. Because fighting it is exhausting. Because you can't seem to stop. Because one time the alarm was real and that one time has taken your entire peace. You're living in a state of false emergency. And you don't know how to leave.
-
+EMBODIMENT v05
 ---

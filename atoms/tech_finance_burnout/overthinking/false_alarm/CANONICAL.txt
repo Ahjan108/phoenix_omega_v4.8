@@ -1,242 +1,101 @@
-# tech_finance_burnout / overthinking / false_alarm
-# Slot type: STORY (engine)
-# Engine: false_alarm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: notification dread cycle
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-The Slack notification just hit. My nervous system already spiked before I could read it. A message from my director. The spike happens first—the adrenaline, the tightness in my chest—and then I read the message. It says: "Great work on the quarterly review, very solid foundation." Relief. But the relief comes after the spike, after my body has already decided that disaster was incoming. So I'm experiencing the anxiety first and the actual content second. And the anxiety is real—the physical symptoms are real—even though there's nothing actually wrong.
-
-This is the pattern now. Something arrives and my system treats it as emergency-level. By the time I've processed it and understood it's not an emergency, I've already pumped cortisol into my bloodstream. By the time I'm reading good news, my body is exhausted from processing threat that wasn't there.
-
-The problem is that sometimes the notification IS bad news. So I can't trust my alarm system to tell me the difference. I've conditioned myself to threat-detect on everything, which means I'm always in a state of pre-emptive panic. By the time the content arrives, I'm too flooded to process it clearly.
-
-My director is probably going to stop sending me good news in Slack because getting positive feedback shouldn't cause someone to have a panic response.
+RECOGNITION v02
 ---
 
-## STORY v02
----
-path: error message cascade
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-A service is down. Not my service. But I get an alert. My system is integrated with their system, so technically I'm affected. The alert is a warning that I should expect problems. But the problems haven't manifested yet. The service might come back online immediately. The problems might be negligible.
-
-But my mind has already escalated to worst case. If their service is down, my service is vulnerable. If my service is vulnerable, the whole pipeline is at risk. If the pipeline is at risk, I'm at risk. If I'm at risk, then everything I've built is fragile and I'm about to get exposed as someone who built on a foundation that was never stable.
-
-The service comes back online. Problem solved. No actual damage. But I've already spent forty-five minutes running disaster scenarios. My stress response is calibrated to something that never actually happened. And now I'm waiting for the real one. Because that level of anxiety without the proportionate threat—it means the real threat must be coming.
-
-Or it means I've broken my own threat-detection system by overusing it.
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: email ambiguity bomb
 BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-An email came through that's slightly unusual in tone. Not obviously wrong. Just slightly off. Slightly more formal than usual. Slightly shorter. The director said they'd get back to me about something yesterday and now it's today and they're getting back to me, but the tone is different from usual getting back to me.
-
-So something's different. Either the content of what they're getting back to me about is bad, or something else is different—they're busy, they're annoyed, they're preoccupied, they're setting a boundary. The email is genuinely ambiguous. My system doesn't like ambiguity. My system prefers catastrophe because catastrophe is at least definite.
-
-So I'm reading the email like it's a threat. The slight formality becomes evidence of distance. The brevity becomes evidence of annoyance. The fact that they got back to me quickly becomes evidence that they're rushing me because I'm about to get bad news delivered rapidly.
-
-I ask a clarifying question. I'm trying to get them to give me more information so I can stop interpreting the ambiguity. But a clarifying question also signals that I'm anxious. Which might make them more distant. Which confirms that they're annoyed. It's a feedback loop where trying to resolve the ambiguity creates more ambiguity.
-
-I'm going to obsess over this until I can see them in person and read their face. Then I'll know if the tone was really different or if I invented it. But I probably invented it. That's the more likely scenario. But I can't assume that until I have evidence.
+RECOGNITION v04
 ---
 
-## STORY v04
----
-path: system health paranoia
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-The platform is running normally. All metrics are green. No errors. No anomalies. But I keep checking. Checking the dashboards, checking the logs, looking for the problem I haven't found yet. Because green metrics feel like they're lying. They feel like the calm before something breaks. The best systems fail without warning, so the absence of warning is actually a warning.
-
-I check again. Still green. So either everything is actually fine—which feels impossibly unlikely—or the problem is deeper than my monitoring can detect. So I'm waiting for the failure. I'm checking the system like I'm trying to catch it in the act of failing. And the waiting is wearing me out more than the actual failure would.
-
-Someone told me once that my hypervigilance is killing me. That I'm causing the stress by looking for problems that don't exist. But that's easy to say when you're not the one who has to deal with the cascade when the problem finally does surface. That's easy to say if you haven't built something that feels fragile enough that it could break at any moment.
-
-So I'll keep checking. And I'll keep finding nothing. And that nothing will keep feeling like a threat.
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: code smell detection anxiety
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-I'm reviewing code and I see something that looks okay but feels wrong. There's no bug. The logic is sound. The tests pass. But there's something about the implementation that sets off my spider-sense. It's too clever. Or not clever enough. Or it's solving the problem in a way that's going to bite us later.
-
-So I flag it. And now the developer is explaining why the implementation is fine and they're right, it probably is fine. But fine code today is technical debt tomorrow if the requirements shift. And requirements always shift. So I'm being preventative. I'm seeing a problem that doesn't exist yet and trying to prevent it.
-
-But when you start seeing problems that don't exist yet, you lose credibility with the people who don't see them yet either. So I look paranoid. Or overly cautious. Or like I don't trust the developers. Which is actually: I don't trust the system I've built to be robust to change. So I'm trying to predict every way it could fail and prevent it in advance.
-
-Someone's going to tell me to let go of that control. But the letting go is what gets people surprised when the system breaks in a way they should have seen coming.
+MECHANISM_PROOF v01
 ---
 
-## STORY v06
----
-path: stakeholder mood reading
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-The stakeholder seemed less enthusiastic than usual about the project. I'm reading signals that probably don't exist. A slight shift in their body language. A question phrased a certain way. Maybe they're not fully bought in. Maybe they're starting to regret the project. Maybe they're thinking about cutting budget.
-
-So I'm planning counter-arguments for the case they haven't made yet. I'm gathering evidence for why the project is still worthwhile. I'm preparing a pitch for something they haven't asked me to defend. And in doing all of that, I'm broadcasting insecurity. Which makes them think there's actually something to be insecure about. Which makes them less enthusiastic. Which I then interpret as evidence that I was right to be worried.
-
-I'm creating the threat I'm trying to prevent.
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: metric misinterpretation rabbit hole
 BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-A metric ticked down slightly. One data point. Could be noise. Probably is noise. But I'm treating it like a signal. I'm looking for the cause. I'm looking for the trend. I'm assuming that this one data point is the beginning of something bigger. And I'm trying to catch it before it becomes obvious.
-
-But the more I look for the trend, the more I convince myself that it's there. Confirmation bias on steroids. I see the down tick and I re-examine everything leading up to it, looking for the cause that justifies my concern. And there's always something that looks like a possible cause if you're looking for it hard enough.
-
-So I'm going to change something. Something that was working fine before I became convinced that one data point proved it was broken. And the change might actually break it.
+MECHANISM_PROOF v03
 ---
 
-## STORY v08
----
-path: success pattern disruption watch
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-The project is going too well. Three weeks in, ahead of schedule, under budget. This is the pattern before catastrophic failure. This is the calm. This is the moment when you think you're doing great and you're actually blind to the thing about to go wrong. So I'm looking for what I'm missing. I'm looking for the failure I'm not seeing yet.
-
-And the irony is that my looking for the failure is what's going to bring it into existence. Because I'm going to suggest changes or precautions that introduce risk where there wasn't risk before. I'm going to see dangers that weren't real. And I'm going to react to those dangers and actually create the failure I was paranoid about.
-
-But I can't not look. I can't not see. The alarm system is too active.
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: cascade failure imagination
-BAND: 5
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-One thing goes wrong. I can immediately see how that triggers five other things. Those five things trigger twenty others. Suddenly I'm in a full cascade. The whole system is down. The whole company is down. I'm responsible. It's all gone.
-
-This is a standard thought process for me at this point. I see one problem and I immediately imagine the fifth-order effects. The catastrophe is vivid. The catastrophe is real enough that I'm already stressed about it. Even though the original problem is still just a possibility, not actual reality.
-
-I'm living in the disaster before the disaster happens. And the living in the disaster is the real suffering, not the disaster itself. Because the disaster might never happen.
-
-But it might. So I have to stay vigilant.
+MECHANISM_PROOF v05
 ---
 
-## STORY v10
----
-path: silence as communication
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-Someone didn't respond to my message yet. It's been three hours. The silence means something. The silence means they're upset. The silence means they're deciding whether to address the problem I apparently created. The silence is a time bomb.
-
-Or they're in a meeting. Or they're busy. Or they didn't see the message. Or they saw it and they're formulating a thoughtful response. But my system goes straight to worst case. The silence equals abandonment equals I've damaged something I can't repair.
-
-I check for a response again. Still no response. So the time bomb is still ticking.
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: false alert fatigue
-BAND: 1
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-I'm exhausted by my own alarm system. The alarm goes off constantly. Most of the time it's nothing. But the time it's something, I need to be ready. So I can't turn the alarm off. I can't ignore it. I'm trapped in this state of perpetual low-grade panic about the disaster that probably isn't coming but might be.
----
-
-## STORY v12
----
-path: good news distrust
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-When good things happen, I don't trust them. Good things feel like setup for bad things. The good news is too good. Something's wrong with it. There's a catch. There's always a catch. So I'm looking for the catch. And the looking for the catch is exhausting.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: escalation anxiety routine
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Every minor issue gets escalated in my mind to major issue. The small problem is the symptom of a bigger problem. The bigger problem is the symptom of a systemic failure. So the small thing requires immediate attention because it's not actually small. It's the canary in the coal mine.
-
-And I can never be sure if I'm being appropriately vigilant or inappropriately paranoid.
----
-
-## STORY v14
----
-path: data distortion for fit
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-I'm looking at data and I'm interpreting it to fit my hypothesis that something is wrong. I'm being a researcher, but not a good one. I'm seeing what I expect to see. And the confirmation feels like evidence.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: prepared for catastrophe
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-I'm always prepared for disaster. I've war-gamed the failures. I've planned the responses. I'm ready. And the readiness is actually just anxiety with better organization.
----
-
-## STORY v16
----
-path: second-guessing the data
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-The system says everything is fine. I don't believe it. I double-check. Triple-check. The system is still saying everything is fine. But I don't believe the system. So am I distrusting the system appropriately, or am I just paranoid?
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: waiting for the real problem
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-The false alarms are so frequent that I'm convinced the real one is coming. I'm waiting for it. It's getting closer. It's going to be worse because I've been wrong so many times. So the consequence will be proportionate to the accumulated anxiety.
----
-
-## STORY v18
----
-path: threat horizon expansion
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-The threats I'm worried about keep expanding. New categories of possible failure appearing all the time. The vigilance required to prevent all possible failures is becoming impossible. So I'm definitely going to miss something. So the failure is already assured.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: isolation through hypervigilance
-BAND: 2
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-I'm so focused on watching for threats that I'm not present with people. They sense my absence. They pull back. Now I'm isolated and vindicated that the world is dangerous and I was right to be vigilant.
----
-
-## STORY v20
----
-path: alarm normalization
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-The alarm system is always on. My baseline is panic. This is normal for me now. Anything less than panic feels weird. So I'm suspicious of moments that aren't stressful. That's when something's really wrong.
+EMBODIMENT v05
 ---

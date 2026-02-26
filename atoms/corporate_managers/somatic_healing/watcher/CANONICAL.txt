@@ -1,205 +1,101 @@
-# corporate_managers / somatic_healing / watcher
-# Slot type: STORY (engine)
-# Engine: watcher
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: watching your body tense
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You notice your body tensing. You're watching it happen. You can see the shoulders rise. You can feel the chest tighten. And you're observing it. From somewhere. Noticing that your body is responding to something. But you're not quite in your body. You're watching your body tense from a distance.
-
----
-
-## STORY v02
----
-path: observing the physical response
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-Something happens. Your body responds. Heart racing. Stomach tightening. And you're watching the response happen. You're aware of it. You can narrate it. But you're not in it. The response is happening and you're the audience.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the breath you're aware of but not controlling
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Your breath is shallow. You notice it. And then you try to deepen it. And then you're watching yourself try to deepen it. The breath and the attempt to control the breath are both being observed. You're not actually breathing. You're watching the breathing happen.
-
----
-
-## STORY v04
----
-path: the body you're not quite in
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-This is your body. But you're not really in it. You're observing it from slightly outside. You can feel things happening. But there's a lag. A distance. Between you and the sensation. You're watching your body have sensations instead of having them.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the pain you're aware of
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-There's pain. In your neck. Your shoulders. And you're aware of it. You can describe it. You can locate it. But you're not quite feeling it. You're watching it. Noticing it exists. But there's distance between you and the pain.
-
----
-
-## STORY v06
----
-path: the sensation that's muted
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-You're touched. Someone touches you. And you feel it. But it's muted. Like it's happening to someone else. You're aware it's happening. But you're not fully receiving it. There's a buffer between the sensation and you.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the hunger you're observing
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-You're hungry. Your body is telling you. And you're aware of the signal. You notice it. And then you ignore it. You're watching yourself ignore the hunger signal. You're aware of the hunger but not connected to it enough to respond.
-
----
-
-## STORY v08
----
-path: the tiredness you're narrating
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-You're tired. You can observe that. You can say: I'm tired. But you're not actually in the tiredness. You're watching the tiredness happen. You're narrating: my body is tired. But you're not experiencing the tired.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the signals you're ignoring
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-Your body is sending signals. Hunger. Thirst. The need to move. The need to rest. And you're watching the signals be sent. And you're choosing to ignore them. You're aware of them. But you're continuing as if they're not there.
-
----
-
-## STORY v10
----
-path: the sensation that was buried
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-There's a sensation. Something in your body trying to be felt. And you're observing it trying to surface. And then you're watching yourself push it back down. Burying it. The sensation and the burial are both being observed.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the numbness that's spreading
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Your body is becoming numb. Not all at once. Gradually. And you're watching it happen. Parts of you are losing sensation. And you're observing the loss. Noticing the absence. But you're not inhabiting the numbness. You're watching it from outside.
-
----
-
-## STORY v12
----
-path: the disconnection from your own skin
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-Your skin is yours. But it doesn't feel like it. You're watching your skin exist. You're aware of where it is. But you're not in it. There's a gulf between you and your physical boundary. You're on one side. Your body is on the other.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the moment your body stopped being home
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-Your body used to feel like home. Like a place you inhabited. And then it became something else. A thing you're observing. A vehicle you're riding in. But not a home. And you realize you don't know where home is anymore.
-
----
-
-## STORY v14
----
-path: the dissociation that's becoming familiar
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-You're dissociated. You know the word. You know what it means. You're watching your body from outside. And it's becoming familiar. This is how you operate now. From the outside. Observing. Narrating. But not inhabiting.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the body you're managing
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Your body is something you manage. You make it move. You make it go to work. You make it function. But you're not in it. You're managing it from outside. Like a puppeteer. You're pulling the strings. But you're not the puppet.
-
----
-
-## STORY v16
----
-path: the fear of losing the body completely
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-You're afraid. What if you keep disconnecting. What if eventually there's no body at all. What if you become pure observer. With nothing to observe. The fear is that the distance will become infinite.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the attempt to come back into your body
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You try. You try to inhabit your body. To feel it from the inside. To step back into it. And you can't quite make it happen. You step toward it and then you step back. The distance is too great. Or you're too afraid. Or both.
-
----
-
-## STORY v18
----
-path: the acceptance that you're watching
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-You accept it. This is how you are now. The watcher. The observer of your own body. The narrator of your own sensations. You're not inhabiting. You're narrating. And maybe that's just who you are now.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the grief of the lost body
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-You grieve. The body you used to inhabit. The sensations you used to feel. The presence you used to have in your own skin. It's gone. And you're watching it be gone. And you're grieving from the outside.
-
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: the understanding that healing requires return
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-You understand: healing requires coming back. Returning to your body. Inhabiting it. Feeling it from the inside. But you don't know if you can. You don't know how to make the return. You're stuck watching from the outside. Waiting for something to bring you back.
-

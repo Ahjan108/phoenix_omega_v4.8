@@ -1,225 +1,101 @@
-# gen_x_sandwich / self_worth / shame
-# Slot type: STORY (engine)
-# Engine: shame
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the_divided_me
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-At work I'm competent and together. At my mother's house I'm the overwhelmed daughter. With my kids I'm the distracted parent. I'm different people in different contexts and I'm ashamed of the gaps between them. There's the person I present and the person I actually am—tired, resentful sometimes, not enough for anyone. The shame is that everyone would judge the real version.
----
-
----
-
-## STORY v02
----
-path: the_admission_i_can't_make
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-My friend asked how I'm doing and I said 'fine.' I'm not fine. I'm carrying my mother's health crises and my daughter's anxiety and a job that demands more than I have to give. But I can't say that. Gen X doesn't do that. So I hide. The shame is that I'm pretending while drowning.
+RECOGNITION v02
 ---
 
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: the_generational_failure
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-My mother raised me to be self-sufficient, not to need help. I'm raising my kids the same way but with more visibility. They can see my exhaustion. I'm ashamed that I can't hide it better. I'm ashamed of failing the independence I was taught to value. I'm ashamed of the gap between the capable-looking person and the person falling apart.
----
-
----
-
-## STORY v04
----
-path: the_privilege_and_ungratefulness
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-I have more than my mother did. I should be grateful. I should have more capacity. The fact that I'm overwhelmed feels like shame because I should be able to handle this. The shame is that I'm complaining about privilege and that makes me feel like a bad person for not being grateful enough to also be capable.
+RECOGNITION v04
 ---
 
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: the_invisible_burden
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-Nobody knows what I'm managing. That's good because it means nobody knows I'm struggling. That's bad because it means the struggle is invisible even to people who love me. The shame is the isolation of managing this alone and not being able to admit it.
----
-
----
-
-## STORY v06
----
-path: the_resentment_i_can't_say
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-I resent my mother sometimes for needing me. I resent my kids for existing. I resent my job for demanding presence. I can't say any of that. The shame is having these feelings and being convinced they make me a bad person for thinking them.
+MECHANISM_PROOF v01
 ---
 
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the_efficiency_i'm_losing
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-I used to be efficient. Now I'm struggling to manage basic things. The shame is failing the competence that was my baseline.
----
-
----
-
-## STORY v08
----
-path: the_version_of_self_that's_hidden
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-There's a version of me that's desperate and afraid and alone. She's completely hidden. The shame is that version existing and nobody knowing.
+MECHANISM_PROOF v03
 ---
 
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the_failure_to_be_the_person_i'm_pretending_to_be
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-I'm pretending to be more capable than I am. The shame is that I'm failing even at the pretending sometimes.
----
-
----
-
-## STORY v10
----
-path: the_gap_i'm_hiding
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-Everyone sees the functioning me. Nobody sees the drowning me. The shame is having two completely separate internal and external realities.
+MECHANISM_PROOF v05
 ---
 
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: shame_about_needing_help
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-I need help. I won't ask for it. The shame is around the need itself.
----
-
----
-
-## STORY v12
----
-path: the_role_i_can't_drop
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-I'm the responsible one. I can't show the other parts. The shame is that the other parts exist.
+TURNING_POINT v02
 ---
 
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the_burden_that's_mine_alone
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Everyone thinks I chose this. They don't see how much obligation came with it. The shame is hiding the lack of choice.
----
-
----
-
-## STORY v14
----
-path: shame_about_my_thoughts
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-I think unkind things about my mother sometimes. I think angry things about my role. The shame is what I'm allowing myself to think.
+TURNING_POINT v04
 ---
 
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the_person_i'm_becoming
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-I'm becoming someone harder, someone less available. The shame is watching it happen and feeling unable to stop it.
----
-
----
-
-## STORY v16
----
-path: the_failure_at_presence
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-When I'm with people I love, I'm not fully there. The shame is showing up physically but not emotionally.
+EMBODIMENT v01
 ---
 
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the_secrets_i_keep
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-There are things I think and feel that would make people judge me. The shame is keeping those secrets.
----
-
----
-
-## STORY v18
----
-path: the_anger_underneath
-BAND: 5
-SEMANTIC_FAMILY: SF3
----
-There's anger I'm not expressing. The shame is having the anger.
+EMBODIMENT v03
 ---
 
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the_voice_i_suppress
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-There's a version of me that has things to say. She's completely suppressed. The shame is silencing her.
+EMBODIMENT v05
 ---
-
----
-
-## STORY v20
----
-path: the_self_i've_betrayed
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-I've had to betray who I am to survive. The shame is what I've sacrificed.
----
-

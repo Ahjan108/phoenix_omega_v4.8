@@ -1,187 +1,101 @@
-# millennial_women_professionals / sleep_anxiety / false_alarm
-# Slot type: STORY (engine)
-# Engine: false_alarm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the body misreads darkness
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: pre_awareness---
 ---
-I'm lying in bed and I notice that my heart is beating slightly faster than normal. And immediately, my system flags this as a threat. Something is wrong with my heart. I'm having a problem. I need to be awake to monitor it. I need to stay alert in case this becomes an emergency. And so my body, which was tired, is now in mobilization mode. My heart is faster now because I'm anxious about it being fast. And the threat I'm creating is becoming real. I've talked myself into the very thing I was afraid of.
----
-
-## STORY v02
----
-path: false alarm at bedtime
-BAND: 1
-SEMANTIC_FAMILY: SF3
----
-I'm trying to fall asleep and I feel my body relax into the process. Muscles softening. Mind quieting. And then I get a spike of fear. Like something bad is about to happen. Like sleep is dangerous. Like I need to stay vigilant. Like lowering my guard would allow something to harm me. And I snap back to alertness. And my body is confused because it was doing something good and I just interrupted it with panic.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the body attacks itself
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: pre_awareness---
 ---
-I was almost asleep and my leg twitched. Just a normal sleep start. A hypnic jerk. And my body interpreted it as a warning sign. Something neurological is wrong. Something is happening. I need to wake up and investigate. And I woke up. Heart racing. Alert. And now I can't sleep because my system is convinced something is medically wrong. And I'll lie awake trying to prove to my body that the twitch was normal. That there's nothing to fear.
----
-
-## STORY v04
----
-path: threat in darkness
-BAND: 1
-SEMANTIC_FAMILY: SF5
----
-It's dark and I'm lying there and my mind makes a connection. If something bad happens at night, I won't see it coming. I won't be prepared. And so my system stays awake to watch. Stays awake to be vigilant. Stays awake to ensure that nothing bad happens in the dark. And the darkness feels dangerous even though nothing has ever happened in the darkness. Even though the darkness is the same as any other darkness. But my threat detection doesn't understand that.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: false alarm escalates
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-I couldn't fall asleep so I got up and started researching sleep. And the more I researched, the more I found things that seemed wrong with me. Sleep apnea. Insomnia. Hyperarousal. And I started to believe that maybe this is it. Maybe I have something. And the anxiety about maybe having something kept me awake. And being kept awake because of anxiety about sleep disorders is now evidence that something is wrong. The false alarm has created the very thing it was detecting.
----
-
-## STORY v06
----
-path: the cycle begins
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-I've been staying up late because I'm anxious about sleep. Which is creating actual sleep deprivation. Which is making me more anxious. Which is keeping me up later. And at this point I can't tell if the original threat was real or not. The threat has become secondary. The threat is now the fact that I'm not sleeping. And I'm lying there at 3 AM completely aware of the loop I'm in and unable to break it. Aware that my anxiety about sleep is what's preventing sleep. Aware and still unable to sleep.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: physical panic
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-I was drifting off and suddenly my nervous system spiked. Fight or flight. For no reason. There's no threat. There's no danger. There's just my system deciding that sleep is the moment to mobilize. To be alert. To be ready. And once the adrenaline is flowing, sleep is impossible. I'm lying there flooded with cortisol and adrenaline and my body is convinced that something is happening. Even though nothing is happening. Even though I'm safe. Even though I know this is a false alarm.
----
-
-## STORY v08
----
-path: the mind catastrophizes
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-I couldn't sleep last night and I'm convinced that this is the beginning of chronic insomnia. That I'm never going to sleep again. That this will destroy my health, my job, my relationships. That I'm in the early stages of a serious problem. And I'm treating it like that. I'm treating one bad night like it's a crisis. I'm treating a false alarm like it's a real fire. And my fear is making it worse. My catastrophizing is fueling the very insomnia I'm afraid of.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: trust the threat
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: destabilization---
 ---
-Part of me believes that I need to stay awake. That sleep is where something bad happens. That if I lower my guard, if I let go of consciousness, something will happen to me. And I know this isn't logical. But the feeling is so strong. The threat is so real in my body. That I find myself unconsciously fighting sleep. Unconsciously keeping myself in a state of vigilance. And I'm sabotaging my own rest because something in me believes it's dangerous.
----
-
-## STORY v10
----
-path: checking for danger
-BAND: 3
-SEMANTIC_FAMILY: SF1
----
-I'm monitoring my sleep. Checking my sleep tracker. Seeing that I'm getting less sleep than I should. And the checking is creating more anxiety about sleep. And the anxiety is creating worse sleep. And the worse sleep is creating more checking. And I'm stuck in this loop where my attempt to measure and understand the problem is actually creating the problem. My hypervigilance about sleep quality is degrading my sleep quality.
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the body at war with itself
 BAND: 3
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: experimentation---
 ---
-My nervous system is treating sleep like it's a threat. And my conscious mind knows this is wrong. Knows that sleep is restorative. Knows that I need sleep to function. But the alarm is firing anyway. The body is mobilized. The system is running. And the disconnect between what I know and what my body believes is creating this internal struggle. I'm fighting my own biology. I'm at war with my own system. And I'm losing.
----
-
-## STORY v12
----
-path: the detection becomes damage
-BAND: 3
-SEMANTIC_FAMILY: SF3
----
-I skipped coffee yesterday to help with sleep and I was so tired today that I was anxious. Anxious about the tiredness. About what it meant. About whether I'm actually getting enough sleep. And the anxiety was the only thing keeping me awake. So I made myself more tired by being anxious about being tired. And tonight I won't sleep because tonight I'll be anxious about the tiredness from today.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the spiral of checking
 BAND: 3
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: experimentation---
 ---
-I'm checking my heart rate while I'm trying to sleep. Checking my breathing. Checking to see if my mind is still too active. And the checking is keeping me awake. The monitoring is preventing the very thing I'm monitoring for. The vigilance is the problem. But I can't stop because what if I stop checking and something bad happens? What if I miss a warning sign?
----
-
-## STORY v14
----
-path: can't distinguish real from false
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-I don't know anymore if my insomnia is real or if it's the false alarm creating the insomnia. I don't know if there's actually something wrong with my sleep or if the threat detection about sleep is what's keeping me awake. And the not knowing is paralyzing. Because either way I need to address it. Either way I need to figure out how to sleep. And the pressure of figuring it out is keeping me awake.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the false alarm dominates
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-I've been awake for most of the night and now I'm in a state of panic. My body is flooded with cortisol. My mind is running through worst-case scenarios. And the false alarm that started this, the one about maybe being sick or something being wrong, that alarm is now so loud that I can barely think. The alarm has become the actual emergency. The worry about sleep has become more disruptive than the inability to sleep.
----
-
-## STORY v16
----
-path: physical crisis from false alarm
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-I'm sleep-deprived now from multiple nights of anxiety-driven insomnia. And sleep deprivation creates its own physical symptoms. Dizziness. Weakness. Cognitive issues. And my system is interpreting these symptoms as confirmation of danger. As proof that something is medically wrong. But the danger is the insomnia itself. The false alarm created conditions that now produce real symptoms that validate the false alarm.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: desperation peaks
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-I'm desperate to sleep. I'm trying everything. Sleep hygiene. Supplements. Medication. White noise. Darkness. And none of it's working because the problem isn't actually sleep. The problem is the threat detection. The problem is the false alarm firing all night. And I'm treating the symptom while the system is still running in alarm mode. And the desperation is adding another layer of anxiety. Now I'm anxious about not being able to fix the anxiety.
----
-
-## STORY v18
----
-path: the system in crisis
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-My husband is concerned because I'm exhausted. Because I'm not sleeping. Because I'm clearly struggling. And his concern is making me more anxious. Because now it's not just my anxiety, it's also his worry. And the fact that he's worried is evidence that something is actually wrong. So the false alarm has created social proof of danger. Has created evidence in the outside world that matches the internal threat the system is detecting.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: reaching the limit
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: self_claim---
 ---
-I've been awake for four days. Not completely awake. But not sleeping either. Just drifting in this state between consciousness and exhaustion. And I'm not sure how much longer I can function like this. The threat detection has completely overtaken my ability to rest. And I'm afraid. Afraid of what this is doing to my body. Afraid of what happens if I can't find a way to sleep. Afraid that the false alarm has created a real emergency.
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: crisis of the alarm
-BAND: 5
-SEMANTIC_FAMILY: SF1
----
-I called my doctor because I can't sleep and I'm losing it. And she's going to help but the help will take time. And in the meantime I'm here. Awake. Terrified. Being kept awake by the very thing I'm most afraid of. The false alarm about something being wrong has now created something actually wrong. And I don't know if I can recover from this. If my system can learn to trust sleep again. If I can ever feel safe lying down in darkness without my whole body mobilizing in fear.
----
-

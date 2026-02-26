@@ -1,205 +1,101 @@
-# corporate_managers / sleep_anxiety / false_alarm
-# Slot type: STORY (engine)
-# Engine: false_alarm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the email that woke you up
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You were asleep. Your phone dinged. An email from work. And immediately you were awake. Heart racing. Your brain went into crisis mode. Something's wrong. Something needs immediate attention. You grabbed the phone. And the email was a scheduling question that could wait until morning. But now you're awake. And your nervous system is activated. And sleep is gone.
-
----
-
-## STORY v02
----
-path: the notification about the metric
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You got a notification. A metric update. A number that's slightly off. And your brain immediately interpreted it as threat. The project is at risk. The team is underperforming. There's a problem. You got out of bed. You checked the full dashboard. The number is normal. It's the normal variation. But you're awake now. Wide awake. Heart still racing.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the thought that came at midnight
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-You were sleeping fine. And then a thought. A concern. Something you'd forgotten about. And suddenly you're conscious. And your brain is running with it. The meeting you didn't confirm. The email you didn't send. The thing you forgot to do. And now you're lying in bed thinking about it. Trying to remember if it was actually important.
-
----
-
-## STORY v04
----
-path: the silence from your director
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-Your director didn't respond to your email. And you went to bed thinking about it. And at three AM, you're awake, worrying. Maybe something's wrong. Maybe she's upset. Maybe the email was taken the wrong way. And now you're catastrophizing at three AM about a response that probably just hasn't come yet.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the physical symptom that felt like emergency
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You woke up with chest tightness. Your heart was racing. And immediately: is something medically wrong. Or is it stress. And you spent an hour trying to determine if you were having a cardiac event or an anxiety attack. You got up. You tried to calm down. By the time you realized it was anxiety, it was four AM. And sleep was done.
-
----
-
-## STORY v06
----
-path: the dream that was warning
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-You had a dream. A nightmare about work. You were in a meeting and you couldn't answer a question. And you woke up. And your brain said: that was a warning. That's going to happen. You have the meeting tomorrow and you're going to fail. And now you're awake at two AM preparing for a nightmare that probably won't happen.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the thing you remembered you forgot
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-You were asleep. Your brain was processing. And it surfaced something. Something you forgot. Something from weeks ago that suddenly felt urgent. And you couldn't go back to sleep. Because you remembered and now your brain won't stop running with it. It's probably fine. It's probably been handled. But you can't get back to sleep.
-
----
-
-## STORY v08
----
-path: the early morning spiral
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-You woke up at five AM. Early. Too early. And you couldn't go back to sleep. Your brain just started spinning. Problems. Solutions. Concerns. Worries. All the things that are usually manageable in the day are urgent at five AM. And you can't turn your brain off. And you can't get back to sleep.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the night you kept checking your phone
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-You slept restlessly. Every time you woke up, you checked your phone. Looking for emails. Looking for messages. Looking for something to confirm that the crisis that woke you up was real. And each time, there was nothing. But the checking kept you awake. The waiting kept you alert.
-
----
-
-## STORY v10
----
-path: the physiological response to nothing
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-Your body responded to a false alarm. Your cortisol spiked. Your adrenaline activated. And there was no actual threat. Just your brain telling your body something was wrong. And now you're stuck with the activated nervous system. Sleep is impossible when your body is in crisis mode over something that isn't actually a crisis.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the worry that kept recurring
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-There was a worry. A small one. And every time you started to fall back asleep, it returned. Your brain kept circling back to it. Over and over. And each time it seemed more urgent. More real. More like something you should be doing right now instead of sleeping.
-
----
-
-## STORY v12
----
-path: the false alarm cycle
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-You had a false alarm. You woke up in crisis mode. You realized there was no crisis. You tried to go back to sleep. But your nervous system was already activated. And the activation made sleep impossible. So you lay there. Activated. Waiting for the crisis that wasn't coming.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the morning when you realized it was fine
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-Morning came. You checked the thing you worried about. It was fine. It didn't need your attention. The crisis was imaginary. But you'd lost the night. You'd lost sleep. And you were exhausted. The false alarm had real consequences.
-
----
-
-## STORY v14
----
-path: the pattern of alarms
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-This happens regularly now. Alarms in the night. Most of them false. But your body responds to each one like it's real. And your sleep is fractured. Interrupted. And you're always tired. Because your nervous system won't settle. It's waiting for the real threat. But it keeps treating imaginary threats like they're real.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the medication consideration
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-You're thinking about it. Sleep aids. Something to knock you out hard enough that you don't wake up to every possible alarm. Because your own nervous system has become unreliable. It's activating you for things that don't need activation. And you're considering chemical intervention just to get sleep.
-
----
-
-## STORY v16
----
-path: the exhaustion that's becoming dangerous
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-You're tired. Sleep-deprived tired. And the sleep deprivation is affecting everything. Your decision-making. Your mood. Your ability to manage stress. And most of the sleep loss is because of false alarms. Because your nervous system is treating non-emergencies like emergencies.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the moment you realized you can't turn it off
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You tried. You tried to convince yourself that everything was fine. That there was no crisis. That you could sleep. And you couldn't. The alarm was activated and your body wouldn't believe that it was false. It took hours to down-regulate. Hours you should have spent sleeping.
-
----
-
-## STORY v18
----
-path: the fear of the alarms themselves
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-Now you're afraid of sleep. Because sleep is when the alarms come. Sleep is when your brain activates you for things that don't matter. And you're dreading bed. Because you know you're going to wake up in crisis mode again. Probably for nothing. But you won't know until you're already awake and already activated.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the understanding that it might not stop
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-You understand: this might be permanent now. Your nervous system might be permanently activated. Your sleep might always be interrupted by false alarms. You might not get to have uninterrupted sleep anymore. You might not get to have the kind of rest that actually restores.
-
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: the acceptance of permanent vigilance
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-You're accepting it. The alarms. The interrupted sleep. The false emergencies. This might just be how you are now. Permanently alert. Permanently on guard. Sleeping in fragments because your nervous system won't believe that anything is actually safe.
-

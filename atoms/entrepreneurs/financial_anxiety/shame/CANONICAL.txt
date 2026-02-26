@@ -1,186 +1,101 @@
-# entrepreneurs / financial_anxiety / shame
-# Slot type: STORY (engine)
-# Engine: shame
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the pitch you have to repeat
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You pitched to an investor last month. You told them you were confident. You told them the numbers were strong. You told them you were on track for profitability. Now you're pitching to a different investor and you have to tell them the same thing. Except the numbers got worse. Except you're not as confident. Except you're worried about profitability. So you're in the position of repeating a story that you no longer believe. You know it's not a lie because the situation was accurate when you said it. Now it's inaccurate and you have to decide whether to tell a new story or repeat the old one.
----
-
-## STORY v02
----
-path: the money that was supposed to be enough
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You raised money six months ago. It was supposed to be enough. You did the math and you presented the math and everyone agreed it would be enough. Now you're doing the math again and it's not enough. Either you were bad at math or you were bad at predicting the future. Both might be true. You feel shame about this. You feel like you let everyone down. You feel like you made a promise you can't keep. The shame is quiet. It's just a noticing that you're not as competent as people thought you were.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the hire you regret
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-You hired someone to help with costs. To divide the load. To bring expertise. They're good. But they cost more than you anticipated. In retrospect, you made a hire based on what you needed emotionally, not what you could afford operationally. You should have waited. You should have been more careful. Now you're paying for a lesson about hiring. The shame is that you made the mistake and the team has to absorb the consequence. The person you hired has to absorb the consequence. You have to pay them while you're worried about the money.
----
-
-## STORY v04
----
-path: the loss you can't explain
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-You lost money that you should have made. There was a deal that was supposed to close in Q1. It didn't close until Q2. The delay cost you 15k in burn that you didn't plan for. You feel shame about this. Not because it was your fault necessarily. But because you're the person who's supposed to manage this. You're the captain and the ship lost money and that's on you. The turning point is arriving. The shame is mixing with responsibility and you're not sure which is which.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the conversation with your co-founder
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-Your co-founder is asking about the cash position. They trust you to know. You know. You just don't want to know. You don't want to say the number out loud because once you say it, it becomes more real. Once you say it, your co-founder is going to look at you in a particular way. A way that says: I trusted you to manage this. You managed it wrong. The shame is that you're the operations person or the finance person or the CEO and the numbers aren't what they should be and it's your job to make them better. You're failing at your job.
----
-
-## STORY v06
----
-path: the burn rate you didn't disclose
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-When you talked to the investor three months ago you used a burn rate number. You were confident in that number. You believed it was accurate. Now you know you were off by 10 percent. The investor is going to find out eventually. They look at the monthly financials. When they do, they're going to see that the burn rate is higher than you told them. You have to decide whether to proactively tell them or wait for them to notice. Both feel like shame. Both feel like failure.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the customer you didn't close
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-There was a customer that was supposed to close. You told people it would close. You counted on it in your financial model. It didn't close. Now you feel like you misrepresented the situation. You feel like you promised something that you couldn't deliver. You feel like people believed you and you let them down. The customer is still interested. The customer will probably close eventually. But you've created shame in the present by making promises about the future you can't guarantee. The mechanism is visible. You promised to prove you're competent by closing the deal. You haven't. The shame is that you failed to prove it.
----
-
-## STORY v08
----
-path: the margin that's smaller than you thought
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-You calculated the margin on your product. You thought it was 65 percent. You discovered it's actually 52 percent because you weren't accounting for full costs. The margins are still okay but they're not what you've been telling people. You've been telling people you have great unit economics. Great unit economics is what justifies the burn. Now the unit economics are less great and the burn seems less justified. You feel shame about this because it suggests you don't understand your own business. It suggests you're not as competent as you're supposed to be.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the decision you can't defend
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-You made a spending decision that didn't work out. It seemed smart at the time. It was for something that was supposed to drive growth. It didn't drive growth. It just burned cash. Now you have to explain it to your co-founder. You have to explain it to your investors if they ask. You have to defend a decision that you can't actually defend because it didn't work. The shame is that you made the decision and the decision was wrong and there's no version of this where you get to seem like you knew what you were doing. The mechanism is fully visible. You're a decision-maker and some decisions are bad.
----
-
-## STORY v10
----
-path: the round that didn't happen
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-You were going to raise money in Q2. You told people you were going to raise in Q2. You didn't. The market changed. The timing wasn't right. The investor appetite wasn't there. None of it was really your fault. But you set an expectation and the expectation didn't happen and people are disappointed. You're disappointed in yourself. You feel shame about not delivering on the promise. The promise was based on optimism that didn't survive contact with reality. You're learning that optimism is shame in waiting.
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the team that's waiting for good news
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-Your team is optimistic. They believe in the company. They believe in you. They believe that the fundraising is going well or the deal is going to close or the numbers are improving. You know more than they know. You know the deal is stuck. You know the numbers aren't what you hoped. You know the fundraising is slower than you wanted. So you're in the position of being the person who knows the bad news but is supposed to project confidence. The shame is that you can't be honest with the people who are depending on you because honesty would be terrifying.
----
-
-## STORY v12
----
-path: the feedback that confirmed the fear
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-An investor told you something. They said the math doesn't quite work. They said they were concerned about the unit economics. They said they wanted to see more traction before they committed. You already knew these things but hearing them from an investor made them real. Made them shameful. Made them proof that you're not as competent as you need to be. The feedback was helpful. The feedback was also humiliating because the feedback meant that you made a pitch that revealed your incompetence. You went in thinking you could convince them. You came out knowing that you couldn't.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the privilege that's showing
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-You think about all the ways you've been lucky. Access to capital. Access to a network. Access to a safety net that other founders don't have. You think about founders who don't have those things. Founders who are building in harder circumstances. And you feel shame that you're struggling with a situation that others would kill to be in. Shame that your privilege isn't translating into success. Shame that the advantages you have aren't enough. The shame is that you're supposed to be winning and you're worried about making payroll.
----
-
-## STORY v14
----
-path: the story you tell yourself
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-You tell yourself a story about how you're on track. How the situation is under control. How you're executing. The story has some truth in it. The story is also a defense against admitting that you're not in control. That the situation is precarious. That you're executing a plan that might not be working. You tell the story to yourself and to others and the story becomes a thing you have to defend. The shame is that you're invested in the story more than you're invested in the truth.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the ask you have to make
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-You need help. Financial help. More time. More money. More patience from investors. You have to ask for it. The ask is humiliating because asking means admitting that you can't do it alone. That you miscalculated. That you're not as capable as you presented yourself to be. The shame is that asking is the right move but it feels like failure. It feels like weakness. It feels like proof that everyone who doubted you was right. You're going to make the ask. You're just going to feel ashamed doing it.
----
-
-## STORY v16
----
-path: the party where you feel like a fraud
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-You're at a founder event. Everyone is talking about their companies. Everyone is succeeding. Or everyone seems to be succeeding. You're listening and you're thinking about your cash position and you feel like a fraud. Like you don't belong here. Like the people in this room know something that you don't. Like everyone is executing and you're barely surviving. You could tell them the truth but the truth would make you visible as the person who's struggling. So you tell the story. You tell the narrative. You play the part. The shame is that the part is becoming harder to play.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the mirror that shows what you've done
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-You took money from people who trusted you. You took money from investors who believed you were going to build something great. You took money from a team who trusted that you'd manage it responsibly. The money is running out faster than you promised. You're a steward of other people's capital and you're burning through it. The shame is visceral. You feel it in your stomach. You feel it when you check the bank balance. You feel it when someone on your team asks about headcount expansion. You're responsible for the money and the money isn't where you want it to be.
----
-
-## STORY v18
----
-path: the person you promised to be
-BAND: 5
-SEMANTIC_FAMILY: SF3
----
-You promised to be a successful founder. You promised to be someone who could build something great and manage it well. That promise is alive in your head and in the heads of the people who know you. The promise is becoming harder to keep. You're starting to look like someone who made a promise they couldn't deliver on. The shame is that the person you promised to be doesn't match the person you are. And the gap is growing.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the fear that everyone sees you
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-Everyone can probably tell that you're stressed. Everyone can probably see that the situation is tight. Everyone can probably read the anxiety in your body. You feel like you're transparent. Like everyone in every room can see the shame underneath the confident exterior. The fear is that the shame is visible and everyone is just being polite about it. They see it. They know it. They're not saying anything. The shame is that you thought you could hide it and you're starting to understand that you can't.
----
-
-## STORY v20
----
-path: the reckoning that's coming
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-There's going to be a moment when the story meets reality. When the fundraising either works or it doesn't. When the customer either commits or they don't. When the numbers either improve or they don't. At that moment there's going to be a reckoning. You're either going to be right about the path forward or you're going to be wrong. If you're wrong, the shame is going to be complete. Not the quiet shame of knowing you've made mistakes. The loud shame of being proven wrong publicly. And you're starting to understand that you can't prevent that moment. You can only prepare for it.
+EMBODIMENT v05
 ---

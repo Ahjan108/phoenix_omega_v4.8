@@ -1,225 +1,101 @@
-# gen_x_sandwich / financial_anxiety / shame
-# Slot type: STORY (engine)
-# Engine: shame
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: Not being able to just give
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Your daughter asks if you can help with a club fee. It's forty dollars. You can pay it. But forty dollars means a choice. It means you're taking it from somewhere else in the budget. And she asks so casually, like it's nothing, because to her it probably is. To other families it is nothing. And the shame lands. The shame of needing to think about forty dollars. The shame of not being able to just say yes without calculating. You pay it but you feel the shame sitting in your chest while you do.
----
-
----
-
-## STORY v02
----
-path: The college conversation
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-Your son asks about college. Where he'll go. What it'll cost. And you realize you don't have an answer. Not because you haven't thought about it but because the answer is complicated and not great. And the shame is immediate. You're supposed to have this figured out by now. You're supposed to be saving. You're supposed to have a plan. And instead you have a worry and an insufficient savings account. The shame of not being the parent who can plan ahead.
+RECOGNITION v02
 ---
 
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: The question you can't answer
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Your mom asks if your dad can have the medication that costs more. The one that works better. And you know the answer is yes, he should have it. But the cost is high. And you hesitate. And that hesitation carries shame. The shame of hesitating before saying you can help your own parents. The shame of having to think about whether you can afford to help them. The shame of the calculation that happens in your head.
----
-
----
-
-## STORY v04
----
-path: The lifestyle that doesn't match
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-You work in an office where people talk about things you can't afford. Weekend trips. New cars. Home renovations. You're nodding along pretending these are within the realm of normal conversation but they're not normal for you. And the shame is that you're failing to be at the level people assume you're at. You're all the same age, same job level. But you're behind. And you're hiding it. The shame of the hiding.
+RECOGNITION v04
 ---
 
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: The debt that nobody talks about
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-You have debt. Not unusual debt. Reasonable debt. But you're carrying shame about it anyway. You're carrying shame about the student loans and the mortgage and the credit card that isn't paid off. The shame is that you feel like you should be further along. Like having debt at this age means you failed at something. No one's judging you. But you're judging yourself. And the shame is the loudest voice in the room.
----
-
----
-
-## STORY v06
----
-path: The financial conversation that didn't happen
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-Your partner asked about the credit card balance and you deflected. You didn't want to say the number because saying it means admitting it. And admitting it means admitting that you're carrying more debt than you said you were. And that's shameful. So you change the subject. You make it seem like it's under control. And the shame of the lying sits with you. The shame of not trusting your partner with the truth. The shame of the truth itself.
+MECHANISM_PROOF v01
 ---
 
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: The inheritance that didn't happen
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-You're thinking about what would happen if your parents left you a substantial inheritance. And the thought is immediately followed by shame. Shame at wanting your parents' death to be financially beneficial. Shame at even calculating what that might be. Shame at the desperate hope that it might solve some of this. You're not a bad person. But the hope feels shameful. The need feels shameful. The fact that you're calculating it at all feels shameful.
----
-
----
-
-## STORY v08
----
-path: The thing you didn't tell your friends
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-Your friends are talking about their retirement accounts. About how much they have saved. And you're not sharing your number. You're deflecting. You're pretending you have what they have. And the shame of the pretending is heavy. You should be able to be honest. You should be able to say that you're behind. But the shame of saying it out loud to people who are ahead feels impossible. So you stay silent. The silence carries shame.
+MECHANISM_PROOF v03
 ---
 
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: The small luxury you feel guilty about
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-You buy yourself something small. A coffee. A book. A shirt. Something that costs thirty dollars. And immediately you feel guilty. Immediately you're ashamed. Because thirty dollars could go toward the debt. Could go toward savings. Could go toward being more responsible. And you're spending it on yourself. The shame of self-care when there's still debt. The shame of the luxury when there's still work to be done.
----
-
----
-
-## STORY v10
----
-path: The budget that shows the deficit
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-You've made a budget and it shows clearly that you're spending more than you have or you're not saving enough or you're in perpetual triage. The numbers are there in black and white. You should feel motivated to change them. Instead you feel ashamed. Ashamed that this is where you are. Ashamed of the deficit. Ashamed of the bad planning or the bad luck or whatever combination of things created this. You close the budget. The shame follows.
+MECHANISM_PROOF v05
 ---
 
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: The retirement conversation you avoid
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-Your coworker asks when you're retiring. And you don't know how to answer. The truth is you're not sure. You might have to work much longer than you planned. And saying that is shameful. It suggests you haven't managed your money well. It suggests you've failed at something everyone else seems to have figured out. So you deflect. You laugh it off. And the shame of not being honest sits there.
----
-
----
-
-## STORY v12
----
-path: The help you should be giving but can't
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-Your sibling is going through something and could use financial help. And you can't. You don't have it to give. And the shame is crushing. The shame of not being generous. The shame of not being able to help family. The shame of saying no. The shame of having to explain that you're not in a position to help. The shame colors the relationship. You want to help. You can't. The shame of that sits between you.
+TURNING_POINT v02
 ---
 
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: The college tour you didn't take
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Your daughter wants to visit colleges. You could probably afford one trip. But you're ashamed at the thought of only being able to afford one trip. Ashamed at the thought of going with her and not being able to take every tour. Ashamed at the implicit limitation of your resources. So you're hesitant. And your hesitation is shameful. You should want to do this for her. You do want to. But the shame of the limitation makes it hard.
----
-
----
-
-## STORY v14
----
-path: The debt that people don't know about
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-You're carrying debt that nobody knows about. Debt that feels particularly shameful for some reason. Maybe it's medical debt. Maybe it's from helping family. Maybe it's from a job loss. Whatever the reason, it carries a specific shame. A shame that feels deeper than the normal financial struggle. You're keeping it secret. Which means you're carrying it alone. Which means the shame gets bigger.
+TURNING_POINT v04
 ---
 
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: The moment you realized you were failing
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-There was a moment when it became clear that you weren't going to be the person you thought you'd be financially. That you weren't going to reach the goals you'd set. That you were going to be dealing with constraint and limitation for longer than you'd planned. And the shame of that moment was distinct. Not gradual. But a specific moment of failure. A moment when you understood that you weren't going to win. You were going to have to accept the limitation. And the shame of accepting it is still there.
----
-
----
-
-## STORY v16
----
-path: The hiding from your partner
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-You're not being fully honest with your partner about the financial situation. You're minimizing. You're hiding the worst parts. You're managing the shame by not letting him fully see it. And the shame of the dishonesty compounds the shame of the situation. You should be able to be honest with the person you share your life with. But the shame is so thick that you can't seem to. So you hide. And the hiding makes it worse.
+EMBODIMENT v01
 ---
 
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: The shame of your own anxiety
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-You're ashamed of how anxious you are about money. You're ashamed that you can't just calm down about it. You're ashamed that you can't be more pragmatic. You're ashamed that you spiral and worry and can't seem to get over it. And the shame of the anxiety becomes its own thing. You're not just anxious. You're anxious about being anxious. The shame about not managing your emotional response adds another layer.
----
-
----
-
-## STORY v18
----
-path: The comparison trap
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-You're comparing yourself to people who have more and feeling shameful for not having reached what they've reached. And then you're comparing yourself to people who have less and feeling shameful for not appreciating what you have. There's nowhere to go that doesn't activate shame. You're failing upward and failing downward and the shame is the common denominator. It doesn't matter which direction you look. The shame is there.
+EMBODIMENT v03
 ---
 
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: The shame you're teaching your kids
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-You're worried that your kids are learning financial shame from you. That they're internalizing your anxiety and shame about money. That they'll grow up with a complicated relationship to resources because of how you modeled it. And the shame of passing that on is particular. The shame of potentially harming them with your own financial stress. You don't want this for them. But you're not sure how to stop modeling it.
+EMBODIMENT v05
 ---
-
----
-
-## STORY v20
----
-path: The deep shame of inadequacy
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-You're ashamed. Not of a specific thing. But of the fundamental sense that you're not adequate. Not earning enough. Not managing well enough. Not planning ahead well enough. Not being responsible enough. Not being enough. The shame is pervasive. It colors everything. And it's not something you can fix with a budget or an extra paycheck. The shame is deeper. It's the shame of feeling like you've failed at the basic task of becoming an adult with resources. And you don't know how to live with that.
----
-

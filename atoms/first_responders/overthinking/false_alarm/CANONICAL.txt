@@ -1,97 +1,51 @@
-# first_responders / overthinking / false_alarm
-# Slot type: STORY (engine)
-# Engine: false_alarm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: The hypervigilance that won't turn off
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You're home and your nervous system thinks you're still on the job. The porch light flickers. That's suspicious. The neighbor's car is parked at an angle. That's wrong. Someone knocked on the door at an unusual hour. That's an emergency. Your mind is running dispatch on your own life. Scanning for threats. Categorizing normal things as abnormal because the job has taught your nervous system that normal can hide danger. You're thinking too much about things that don't need the processing power.
----
-
-## STORY v02
----
-path: The night sounds that trigger thinking
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You're in bed and there's a sound. A car door. A dog barking. Something outside. And your mind is already in overdrive. Is that a call coming in? Is someone in distress? You're running through scenarios. Running through responses. Your breathing shifts. Your alertness spikes. By the time you've intellectually recognized it's just a neighbor, your nervous system has already gone into dispatch mode. The false alarm in your home is training your body to stay hypervigilant. To keep thinking. To keep scanning.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: The family member who stopped asking
 BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Your kid has a fever. You're immediately catastrophizing. Running through worst case scenarios. Playing out the hospital visit in your head. Calculating outcomes. Your partner gently suggests you're overthinking it. That it's just a fever. That kids get fevers. But your mind is already in emergency mode. You've responded to enough calls where normal became abnormal that you can't quite let normal be just normal anymore. The false alarms in your thinking are becoming background noise to your family.
----
-
-## STORY v04
----
-path: The planning that never settles
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-You're trying to plan a vacation but your mind keeps running scenarios. What if the car breaks down on the way? What if someone gets injured? What if something happens at home while you're away? The overthinking is constant. You're running contingencies for contingencies. Your family is trying to be excited about the trip but you're still in dispatch mode. Still scanning. Still planning for false alarms that probably won't happen. The job has trained your brain to assume the worst. The false alarms in your thinking are eating the present.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: The worry that masquerades as preparation
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-You're checking the locks three times before bed. Checking the stove twice. Checking that the windows are locked. You're not sure if this is preparation or paranoia. The false alarms in your thinking have created behaviors that feel necessary even though you know they're not. The overthinking is trying to prevent something. But prevent what? Something that's never happened. Something that might never happen. The job has taught your mind that prevention is possible if you just think hard enough.
----
-
-## STORY v06
----
-path: The scenario planning at 2am
-BAND: 3
-SEMANTIC_FAMILY: SF1
----
-You're awake in the middle of the night. Someone's car alarm went off. Your mind immediately went to dispatch mode. But the car alarm is gone now and you're still awake. Still thinking. Running through scenarios. What if that alarm was a sign of a break in? What if someone's trying to get into the neighborhood? Your false alarm nervous system is still running shift while you're in bed. The overthinking is relentless. The mental processing won't stop because the job taught it to never stop.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: The relationship strain of constant worry
 BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-Your partner wants to go to the park. You're thinking about all the ways that could go wrong. Dehydration. Accidents. Crowds. Your mind is running through false alarms while they're just trying to have a nice afternoon. The overthinking is becoming a wall between you and normal life. The job has made you a professional disaster planner and that skill is bleeding into your civilian hours. Your family is starting to recognize the pattern. They're starting to protect themselves from your false alarm scenarios.
----
-
-## STORY v08
----
-path: The traffic incident that spirals
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-Someone honks at you on the road. Your mind immediately goes to worst case. They're road raging. They might pull over. You might need to respond. Your heart rate spikes. Your overthinking is running a scene before anything has actually happened. The false alarm is entirely internal but it feels completely real. You're sweating. Your hands are tight on the wheel. By the time the traffic incident is actually resolved, your nervous system is exhausted from processing a scenario that was never real.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: The false alarm that finally triggered something real
-BAND: 5
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-You were overthinking. Running false alarms in your mind. Convinced that something was about to happen. And for once, something actually did. Not what you were expecting. But something. And now the false alarms feel justified. The overthinking feels like preparation. The constant vigilance feels like it saved the day. But it also means your nervous system is going to amplify the false alarms even more now. Because the one time you were right has convinced you that constant vigilance works.
+MECHANISM_PROOF v05
 ---
-
-## STORY v10
----
-path: The cost of always being ready
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-You can't turn off the dispatch mode. You can't stop the false alarm thinking. You're exhausted from the mental processing. Your body is permanently elevated. Your nervous system is convinced that if you stop thinking the bad thing will happen. So you keep thinking. You keep planning for false alarms. You keep running scenarios that will never occur. And the cost is that you've lost the ability to relax in your own life. The job has trained you well for emergencies. It's trained you too well to imagine emergencies where none exist.
----
-

@@ -1,204 +1,101 @@
-# gen_alpha_students / social_anxiety / comparison
-# Slot type: STORY (engine)
-# Engine: comparison
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the follower count awareness
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Your friend has more followers than you. More likes on their posts. More comments. More people are engaging with them than with you. The follower count awareness is the measurement of social worth. The number is the proof. They're more socially valuable than you. They're more interesting. More likeable. More worth engaging with. The comparison is public. It's quantified. It's visible. Everyone can see that your friend has more followers. Everyone can see that people like them better. The follower count awareness is the social measurement that's making you less-than.
-
----
-
-## STORY v02
----
-path: the group dynamic awareness
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You're in a group of friends. You notice who gets laughed at most. Who makes the jokes that land. Who's the center of attention. It's not usually you. Your friend makes a joke and everyone laughs. You make a joke and it lands flat. The group dynamic awareness is the constant measurement. Who's socially skilled. Who's likeable. You're not the best. You're not even in the middle. You're on the edges. The group dynamic awareness is the evidence that you don't fit the group as well as your friends do.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the conversation skill comparison
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Your friend is good at talking. They're confident. They're easy. They make conversation look natural. You're self-conscious. You're thinking about what to say. You're worried about sounding stupid. The conversation skill comparison is the difference in ease. They're doing it naturally. You're doing it with effort. The comparison is creating the belief that you're socially awkward. That you don't have the skill. That you're doing it wrong. The conversation skill comparison is the evidence of your social inadequacy.
-
----
-
-## STORY v04
----
-path: the dating situation comparison
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-Your friend is dating someone. You're not. Or your friend is more successful at dating. Your friend is confident asking people out. You're terrified. The dating situation comparison is the measurement of romantic desirability. Your friend is desired. You're not. The comparison is creating the belief that you're not attractive. Not interesting. Not worth pursuing. The dating comparison is the evidence of your social failure.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the party inclusion comparison
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-Everyone's getting invited to parties. Your friend is invited to many. You're invited to some. Or you find out about a party after the fact. You weren't invited. The party inclusion comparison is the measurement of social worthiness. People want your friend there. They don't want you there. Or they forgot about you. The party comparison is the evidence that you're not a priority. That you're not as fun. That people would rather spend time with your friends.
-
----
-
-## STORY v06
----
-path: the friend group status comparison
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-Your friend is the popular one in the group. Everyone gravitates toward them. You're just... there. You're part of the group but you're not the center. The friend group status comparison is the measurement of who's really wanted. Who's really the core of the group. You're peripheral. Your friend is central. The comparison is creating the belief that you're not really part of the group. That you're a secondary member. That people tolerate you but they really want your friend.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the inside joke exclusion
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-There's an inside joke in the group and you're not in on it. Everyone's laughing and you don't get it. Your friend is in on it. You're not. The inside joke exclusion is the measurement of belonging. The people in on the joke are the real group members. You're not. You're the outsider. The inside joke comparison is creating the belief that you don't really belong. That you're on the edges. That the real friendship is happening without you.
-
----
-
-## STORY v08
----
-path: the status symbol comparison
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-Your friend has things that signal status. Better clothes. Nicer stuff. More impressive activities. The status symbol comparison is the measurement of social value. Your friend's stuff signals that they're worth something. Your stuff signals that you're not. The comparison is creating the belief that social value is material. That you're worth less because you have less. The status symbol comparison is making social anxiety about money and appearance.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the confidence level gap
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-Your friend is confident in social situations. They're not worried about judgment. They're not scared of being rejected. You are. The confidence level gap is the measurement of social security. Confident people are safe. Anxious people are threatened. You're threatened. Your friend isn't. The confidence comparison is creating the belief that confidence is a measure of actual social capability. That your friend is actually good at socializing and you're not. The comparison is creating the anxiety.
-
----
-
-## STORY v10
----
-path: the attention magnet comparison
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-Your friend walks in a room and people notice. You walk in and no one particularly cares. The attention magnet comparison is the measurement of magnetism. Who draws attention. Your friend does. You don't. The comparison is creating the belief that you're not interesting. That you don't have anything to offer. That you're boring. The attention magnet comparison is the evidence of your social unimportance.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the eye contact comparison
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-Your friend makes eye contact naturally. You're uncomfortable with eye contact. You look away. The eye contact comparison is the measurement of social comfort. Comfortable people make eye contact. You're uncomfortable so you don't. The comparison is creating the belief that you're anxious and that shows. That everyone can see that you're uncomfortable. The eye contact comparison is creating shame about your anxiety.
-
----
-
-## STORY v12
----
-path: the social recovery comparison
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-You say something awkward and you spiral in embarrassment. Your friend says something awkward and they laugh it off. The social recovery comparison is the measurement of resilience. Your friend bounces back. You don't. The comparison is creating the belief that you're too sensitive. That you're too self-conscious. That you can't recover from social mistakes like normal people do. The recovery comparison is creating shame about your shame.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the spontaneity comparison
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Your friend is spontaneous. They say random things. They do impulsive things. You're careful. You think before you speak. The spontaneity comparison is the measurement of social naturalness. Spontaneous people are natural. You're controlled. The comparison is creating the belief that you're stiff. That you're not relaxed enough. That you're trying too hard. The spontaneity comparison is creating the belief that natural socializing is something that comes easily to others but not to you.
-
----
-
-## STORY v14
----
-path: the group text activity comparison
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-The group text is active. People are messaging constantly. Your friend is in on the conversations. You're reading the messages but not contributing. Or you're contributing less. The group text comparison is the measurement of participation. Involved people are contributing. You're not as involved. The comparison is creating the belief that you're not as part of the group. That the group is closer without you.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the humor success rate comparison
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-Your friend makes jokes and people laugh. You make jokes and people don't. The humor success rate comparison is the measurement of charm. Your friend is charming. You're not. The comparison is creating the belief that humor requires a quality you don't have. That people naturally like your friend's humor and naturally don't like yours. The humor comparison is creating shame about your jokes.
-
----
-
-## STORY v16
----
-path: the conflict handling comparison
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-There's conflict in the group. Your friend handles it gracefully. They navigate the tension. You're uncomfortable. You avoid. The conflict handling comparison is the measurement of social maturity. Mature people handle conflict. You're immature. You hide. The comparison is creating the belief that you're emotionally underdeveloped. That you can't handle social complexity like your friend can. The conflict comparison is creating shame about your anxiety.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the introduction comparison
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-Your friend is good at introducing themselves. At making conversation with new people. You're awkward. You don't know what to say. The introduction comparison is the measurement of first-impression ability. Your friend makes good first impressions. You make awkward ones. The comparison is creating the belief that people's first judgment of you is negative. That you're starting from behind socially. That you have to overcome their initial bad impression. The introduction comparison is creating social anxiety before the interaction even starts.
-
----
-
-## STORY v18
----
-path: the peer hierarchy internalization
-BAND: 5
-SEMANTIC_FAMILY: SF3
----
-You're internalizing a social hierarchy. Your friend is at the top. You're below. The peer hierarchy internalization is the comparison creating a structure. Once the hierarchy is internalized, you start acting according to it. You defer to your friend. You value their opinions more. You make yourself smaller. The internalization is making the comparison real. The hierarchy is becoming your social reality.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the permanent social positioning
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-The comparison has positioned you permanently. You're the shy one. Your friend is the outgoing one. The positioning is becoming identity. You're not just shy in this moment. You're the shy person. Your friend is not just outgoing. They're the outgoing person. The permanent social positioning is making the comparison into identity. The hierarchy is becoming who you are.
-
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: the comparison entrenchment
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-The comparison has become entrenched. You're constantly comparing. Constantly measuring. Constantly finding yourself lacking. The comparison is not a moment anymore. It's a pattern. It's a habit. It's the way you see social situations. The comparison entrenchment is the way the comparison becomes permanent. The way you lose the ability to see yourself outside of comparison. The way you become defined by how you measure up to others.

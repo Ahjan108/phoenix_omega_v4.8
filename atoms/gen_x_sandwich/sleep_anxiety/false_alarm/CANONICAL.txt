@@ -1,225 +1,101 @@
-# gen_x_sandwich / sleep_anxiety / false_alarm
-# Slot type: STORY (engine)
-# Engine: false_alarm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the_breath_that_feels_wrong
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-I'm lying down and suddenly aware of my breathing. It feels shallow? Different? I start monitoring it. Am I getting enough oxygen? Is this sleep apnea? I spend the night listening to myself breathe, convinced something's wrong. In the morning, the doctor would say nothing's wrong. But the night was still lost to a false alarm my mind created.
----
-
----
-
-## STORY v02
----
-path: the_ache_i'm_watching
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-My chest feels tight. Not painful, but tight. I'm now convinced it's cardiac. I consider waking my partner. I consider going to the ER. Hours of monitoring a sensation that's probably just anxiety, but the false alarm has rendered sleep impossible.
+RECOGNITION v02
 ---
 
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: the_noise_that_meant_something
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-I heard a sound outside. A car? An animal? I'm awake now, hyperalert, listening for repetition. By the time I convince myself it's nothing, my nervous system is activated and sleep is three hours away. The false alarm was probably nothing but the cost was real.
----
-
----
-
-## STORY v04
----
-path: the_medication_i_misread
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-I took something for a headache and suddenly remember an article about side effects. Was one of them insomnia? Am I about to have an adverse reaction? I spend the night waiting for symptoms that probably won't come. The false alarm costs me sleep I actually needed.
+RECOGNITION v04
 ---
 
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: the_heart_rate_alarm
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-I notice my heart is beating. Hard? Fast? Different? I start counting. 78 beats per minute. That's normal. But now I'm monitoring it. What if it spikes? What if I'm having an arrhythmia? All night, listening to my own heartbeat. The false alarm is keeping me awake.
----
-
----
-
-## STORY v06
----
-path: the_swallow_that_was_wrong
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-When I swallow, something feels different. Blocked? Tight? I swallow again. Something's definitely wrong. I'm now afraid to fall asleep because what if the blockage gets worse? What if it's cancer? By 2 AM, I'm scrolling medical websites. It was just a tight throat.
+MECHANISM_PROOF v01
 ---
 
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the_leg_cramp_that_might_be_a_clot
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-My leg cramped. Just a cramp. But suddenly I'm worried: is it a blood clot? The pain is gone but I'm still awake, monitoring the leg, certain something's wrong. Morning comes with no deep vein thrombosis, but sleep was lost to the false alarm.
----
-
----
-
-## STORY v08
----
-path: the_dizzy_spell_at_night
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-I turned too fast and felt momentarily dizzy. That's normal. But now I'm afraid to sleep because what if I'm having a neurological event? What if it happens when I'm asleep? I'm awake all night, afraid of my own body.
+MECHANISM_PROOF v03
 ---
 
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the_temperature_check
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-I felt warm. Maybe a fever? I get up and take my temperature. 98.2. But it felt warmer. Am I getting sick? Is my immune system failing? The false alarm about my health is keeping me awake.
----
-
----
-
-## STORY v10
----
-path: the_digestion_sound
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-My stomach made a sound. That's normal. But it was strange. What if something's wrong? What if my gut is rebelling? I'm listening to my own digestion now, convinced something's wrong. Sleep is impossible when you're monitoring your organs.
+MECHANISM_PROOF v05
 ---
 
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the_eye_flutter
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-My eye fluttered. Just a spasm. But now I'm afraid it's a sign of something neurological. I'm checking both eyes, afraid to close them, afraid to fall asleep. The false alarm has me awake and afraid.
----
-
----
-
-## STORY v12
----
-path: the_numb_arm
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-I woke up with my arm asleep. That's normal. But what if it's something more? What if my circulation is failing? The false alarm has me checking both arms, concerned about stroke risk, unable to sleep.
+TURNING_POINT v02
 ---
 
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the_dark_spot
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-I thought I saw something in my vision. A spot? A floater? Now I'm afraid I'm going blind or that something's seriously wrong. I'm keeping my eyes open, monitoring my vision, afraid to sleep in case something happens.
----
-
----
-
-## STORY v14
----
-path: the_joint_pain
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-My knee hurts. Probably just from activity. But what if it's arthritis? What if I'm deteriorating? What if I'm aging too fast and my body is breaking down? The false alarm has me lying awake, taking inventory of my failing body.
+TURNING_POINT v04
 ---
 
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the_memory_lapse
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-I couldn't remember something simple. That's normal. But what if it's early dementia? What if my brain is failing? The false alarm has me testing my memory, unable to sleep, afraid of my own mind.
----
-
----
-
-## STORY v16
----
-path: the_throat_sensation
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-My throat feels tight. Probably nothing. But what if I'm allergic to something? What if it closes up? I'm terrified to sleep in case my airway closes. The false alarm has me awake and afraid, monitoring my own breathing.
+EMBODIMENT v01
 ---
 
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the_skin_thing
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-I noticed a patch of skin that looks different. It's probably nothing. But what if it's melanoma? What if I have cancer and didn't know? The false alarm has me unable to sleep, afraid of what I might have.
----
-
----
-
-## STORY v18
----
-path: the_balance_check
-BAND: 5
-SEMANTIC_FAMILY: SF3
----
-I felt slightly off balance. Just tired. But what if I have an inner ear problem? What if I have a tumor? The false alarm has me getting up to test my balance, unable to sleep.
+EMBODIMENT v03
 ---
 
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the_night_sweat
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-I woke up slightly sweaty. The room is warm. But what if I'm sick? What if it's a fever I don't know about? The false alarm has me checking my temperature, unable to sleep, afraid of illness.
+EMBODIMENT v05
 ---
-
----
-
-## STORY v20
----
-path: the_muscle_twitch
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-My leg twitched. Probably nothing. But what if it's a neurological condition? The false alarm has me monitoring my muscles, unable to sleep, convinced something's seriously wrong.
----
-

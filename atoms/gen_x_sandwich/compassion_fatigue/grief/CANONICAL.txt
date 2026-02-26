@@ -1,225 +1,101 @@
-# gen_x_sandwich / compassion_fatigue / grief
-# Slot type: STORY (engine)
-# Engine: grief
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: mourning_my_capacity
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-I used to have infinite empathy. I used to feel things fully. That version of me is gone. I'm mourning the person I used to be—the one who could feel everyone's pain and still stay whole. That person is dead, replaced by someone more defended.
----
-
----
-
-## STORY v02
----
-path: the_relationships_that_atrophied
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-My friendships aren't as deep as they used to be. I'm too tired for reciprocal emotional intimacy. I'm grieving the friendships that required my presence in a way I can no longer provide. The loss is quiet but real.
+RECOGNITION v02
 ---
 
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: goodbye_to_unconditional_presence
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-I used to be able to just be with people. Now I'm calculating: do I have the emotional energy for this conversation? The grief is for the capacity I've lost, the spontaneity, the ability to just show up fully. That's gone now.
----
-
----
-
-## STORY v04
----
-path: the_version_of_myself_i_lost
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-I grieve the woman who could manage all this and stay connected to herself. I grieve the daughter who could be present for her mother without resentment. I grieve the partner who could show up without exhaustion coloring everything. These versions of me are gone.
+RECOGNITION v04
 ---
 
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: the_compassion_that_died
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-There was a time when I felt everyone's pain as my own. Now I feel protected from it. The grief is for the loss of that openness. Something in me has hardened to survive.
----
-
----
-
-## STORY v06
----
-path: grieving_the_cost_of_survival
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-To survive all this, I've had to become someone else. I've had to kill off parts of myself. The grief is for the parts that died.
+MECHANISM_PROOF v01
 ---
 
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the_caregiver_i_killed
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-The person who could care unconditionally is dead. I killed her to survive. The grief is complicated—I had to do it but I mourn her.
----
-
----
-
-## STORY v08
----
-path: saying_goodbye_to_my_former_self
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-The version of me that had capacity for infinite empathy is gone. I'm grieving her.
+MECHANISM_PROOF v03
 ---
 
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the_loss_of_feeling
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-I used to feel things deeply. That capacity has been damaged. The grief is for the loss of depth.
----
-
----
-
-## STORY v10
----
-path: mourning_the_relationships_i've_damaged_with_distance
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-I've created distance that I can't undo. The people I love know they're not getting my full presence. The grief is for the relationships that are diminished by my protection.
+MECHANISM_PROOF v05
 ---
 
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the_caregiver_guilt_that's_also_grief
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-I'm guilty for withdrawing and also grieving the necessity of it.
----
-
----
-
-## STORY v12
----
-path: sorrow_for_those_i'm_failing
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-The people I'm supposed to care for most are getting the least of me. The grief is for them and for what they're not getting.
+TURNING_POINT v02
 ---
 
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the_death_of_innocence_about_care
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-I thought I could care for everyone forever. I was wrong. The grief is for that innocence.
----
-
----
-
-## STORY v14
----
-path: mourning_the_future
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-I'll never get back the capacity I've lost. The grief is anticipatory—it will always be this way now.
+TURNING_POINT v04
 ---
 
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the_child_version_of_me
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-I used to have empathy that children have. That openness is dead. The grief is for the loss of that innocence.
----
-
----
-
-## STORY v16
----
-path: the_end_of_reciprocal_love
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-Love used to be mutual. Now I'm giving without being filled. The grief is for the loss of reciprocity.
+EMBODIMENT v01
 ---
 
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: grieving_the_isolation
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-To protect myself, I've had to isolate. The grief is for the isolation that survival required.
----
-
----
-
-## STORY v18
----
-path: the_ache_of_diminished_connection
-BAND: 5
-SEMANTIC_FAMILY: SF3
----
-My connections are real but diminished. The grief is for what they could have been.
+EMBODIMENT v03
 ---
 
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the_quiet_sorrow
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-There's a quiet grief I carry about all of this. It's not acute but it's constant.
+EMBODIMENT v05
 ---
-
----
-
-## STORY v20
----
-path: goodbye_to_the_version_of_me_with_reserves
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-I used to have reserves. Now I'm operating from a place of chronically empty. The grief is for the loss of reserves.
----
-

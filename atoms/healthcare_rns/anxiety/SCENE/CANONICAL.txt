@@ -1,13 +1,9 @@
-# healthcare_rns × anxiety × charting before administration
-# Slot type: SCENE
-# Count: 30
-# Voice: second-person present tense, sensory, one detail per sentence
-# Spec: max 10 words per sensory beat, min 2 location tokens, no emotional labeling, ends on action/sensory moment
-# Location tokens: {transit_line}, {street_name}, {weather_detail}
 
----
 
 ## SCENE v01
+---
+
+---
 You pull up the patient's vitals on the medication room screen.
 The fluorescent light hums above you—constant, unforgiving.
 Rain streaks the hallway window along Third Avenue.
@@ -23,10 +19,12 @@ You cross-reference against the printed protocol sheet.
 The med room's plastic bottles line three shelves behind you.
 Your breath feels shallow in the climate-controlled air.
 You reach for your charge nurse's voice through the doorway.
-
 ---
 
 ## SCENE v02
+---
+
+---
 The 8am shift handoff echoes in your ears as you chart alone.
 Medication times must match the digital log exactly.
 You've already checked patient room 412 three times.
@@ -41,10 +39,12 @@ Fluorescent panels reflect off your badge and name tag.
 The medication room door clicks shut behind you.
 Linoleum tiles blur under your gaze as you walk toward the station.
 You dial the hospitalist's extension.
-
 ---
 
 ## SCENE v03
+---
+
+---
 Prepping insulin draws at the med cart feels different today.
 The needle's bevel catches light as you check the vial date.
 Outside room 505, you hear the ventilator's rhythmic cycle.
@@ -59,10 +59,12 @@ The ER census board shows beds filling on Fifth Street side.
 Your badge scanner reflects the screen's blue light back at you.
 The medication room temperature reads exactly 68 degrees on the thermostat.
 You place the insulin on the tray.
-
 ---
 
 ## SCENE v04
+---
+
+---
 The printed physician order sits beside your keyboard in the med room.
 Charting feels slower when you're uncertain of the exact timing.
 You've worked twelve hours; one more hour remains.
@@ -77,10 +79,12 @@ You screenshot the order confirmation code.
 The med room light flickers—once, twice—then stabilizes.
 Your phone buzzes with a text about overtime availability.
 You pull the medication bottle from the locked refrigerator.
-
 ---
 
 ## SCENE v05
+---
+
+---
 Calculating the drip rate for the vasopressor takes your full attention.
 The bedside monitor's alarm chimes once, then stops.
 You're standing in the med room on Elm Street's north wing.
@@ -95,10 +99,12 @@ The pharmacy label confirms: prepared 06:44, expiration 12:44.
 Your watch shows 10:13am.
 Sleet pelts the medication room window harder now.
 You both initial the log simultaneously.
-
 ---
 
 ## SCENE v06
+---
+
+---
 The morning shift starts at 7am; it's currently 6:37am.
 You're reviewing the night nurse's charting for discrepancies.
 The patient in 309 received an extra 2L fluid last night.
@@ -114,10 +120,12 @@ You pull up the patient's previous blood glucose logs.
 The pattern shows 180s consistently before breakfast.
 Your finger stops on today's 6am reading: 312.
 You reach for the phone to call the covering physician.
-
 ---
 
 ## SCENE v07
+---
+
+---
 The transit schedule shows your bus leaves the garage at 7:15am.
 You'll be charting medication until 6:58am at minimum.
 The patient requires two medications via IV push in sequence.
@@ -131,10 +139,12 @@ You turn the bottle toward the light to read smaller print.
 The ER hallway becomes suddenly very quiet.
 You compare the NDC number digit by digit.
 Your hand trembles slightly as you dial the pharmacist's direct line.
-
 ---
 
 ## SCENE v08
+---
+
+---
 Forty-five minutes remain in your shift on a Wednesday morning.
 You have four patients, two requiring medication administration.
 The med room is empty except for you and fluorescent buzz.
@@ -150,10 +160,12 @@ The policy manual lives in a binder on the bottom shelf.
 You slide it out and flip to "Prepared Medications."
 The rule states 24-hour window from prep time to administration.
 You reach for the phone mounted on the med room wall.
-
 ---
 
 ## SCENE v09
+---
+
+---
 The ventilator patient in 502 requires an adjustment to sedation.
 You've checked the order three times against the protocol.
 The dose seems high compared to the patient's weight.
@@ -168,10 +180,12 @@ You can hear the ICU alarms in the distance.
 Your finger hovers over the "Call" button on your phone.
 The medication sits in the syringe, ready.
 You wait.
-
 ---
 
 ## SCENE v10
+---
+
+---
 You arrive at the med room at 08:15 for the 8:30 medication pass.
 The overnight nurse's notes mention a patient became combative at 06:00.
 That patient now requires restraint medication verification before administration.
@@ -186,10 +200,12 @@ You look toward the hall; one nurse is charting at the station.
 Your pager remains silent.
 The medication refrigerator cycles on with a quiet mechanical hum.
 You pull the midazolam vial and place it on the counter.
-
 ---
 
 ## SCENE v11
+---
+
+---
 The attending physician ordered a new antibiotic at 06:15 this morning.
 You're now at 08:47, reviewing the order for the first time.
 The medication name is unfamiliar—a newer-generation cephalosporin.
@@ -204,10 +220,12 @@ You screenshot the allergy alert from the system.
 Your fingers move toward the phone very slowly.
 The hospital's main line connects to physician pages.
 You wait before dialing, reading the alert once more.
-
 ---
 
 ## SCENE v12
+---
+
+---
 The medication administration window for the morning insulin closes at 09:00am.
 Your clock shows 08:47; you have thirteen minutes.
 The patient in room 601 is asleep—you saw him three minutes ago.
@@ -222,10 +240,12 @@ The hallway outside fills with morning activity and voices.
 Your heart rate accelerates slightly as the clock ticks forward.
 The medication room suddenly feels smaller than before.
 You step toward the hallway to find the verification nurse.
-
 ---
 
 ## SCENE v13
+---
+
+---
 You stand in the med room doorway holding a syringe of fentanyl.
 The order came through forty minutes ago for pain management.
 The patient's pain score was 8/10 when you assessed fifteen minutes prior.
@@ -240,10 +260,12 @@ The fluorescent lights overhead flicker once, twice.
 You read the vial label again: 50mcg/mL concentration.
 The patient's respiratory rate on the monitor shows 16.
 You turn and walk back toward the patient's room.
-
 ---
 
 ## SCENE v14
+---
+
+---
 The med room's locked drawer contains the controlled substance log.
 You pull it open and review the fentanyl count from the previous shift.
 The number should be 47; you count 46.
@@ -258,10 +280,12 @@ The log indicates usage but doesn't specify which patient received it.
 You place the vial back and close the drawer.
 Your fingers move to the phone on the wall.
 The charge nurse extension rings three times before answering.
-
 ---
 
 ## SCENE v15
+---
+
+---
 You've been a nurse for eight years; anxiety is not your normal state.
 The med room becomes a space you need to escape but can't yet.
 The patient in 507 requires three medications in precise sequence.
@@ -276,10 +300,12 @@ The med room's temperature feels either too warm or too cold.
 Your badge ID number is logged electronically with each action.
 The clock shows 09:23; the administration window opens at 09:30.
 You stand motionless, holding both syringes.
-
 ---
 
 ## SCENE v16
+---
+
+---
 The near-miss from last Tuesday still occupies mental space today.
 You gave the correct medication but documented the time incorrectly.
 The overnight audit caught it during the 06:00 count.
@@ -294,10 +320,12 @@ The fluorescent light casts your shadow on the med cart.
 Your fingers move slowly through each button press.
 The timestamp updates automatically in the system.
 You prepare the IV line access site with alcohol wipe.
-
 ---
 
 ## SCENE v17
+---
+
+---
 The charge nurse paged you at 07:45 asking about medication reconciliation.
 Three patients transferred from the ICU this morning.
 Each transfer brings medication questions that require clarification.
@@ -311,10 +339,12 @@ Your throat tightens slightly as you locate the attending's office number.
 The med room door remains locked from the inside.
 You hold three patient folders against your chest.
 Your free hand trembles as it reaches for the phone.
-
 ---
 
 ## SCENE v18
+---
+
+---
 The 12-hour shift extends into hour thirteen because of medication preparation delays.
 The arriving shift nurse is caught in traffic on Route 94.
 You remain in the med room, unable to leave until handoff occurs.
@@ -329,10 +359,12 @@ The fluorescent light has caused a tension headache behind your eyes.
 The arriving nurse texts that she's five minutes away.
 You place the medication log on the counter.
 Your fingers grip the edge of the cabinet.
-
 ---
 
 ## SCENE v19
+---
+
+---
 You prepared the vasopressor infusion at 06:15 this morning.
 The patient received it at 06:23.
 The infusion rate documentation now shows 08:47 as the last recorded time.
@@ -347,10 +379,12 @@ Your hands rest on the keyboard.
 The time stamp on each entry reads clearly.
 You close the chart window and sit back in the chair.
 Outside, a nurse walks past the med room door without stopping.
-
 ---
 
 ## SCENE v20
+---
+
+---
 The medication cart's organization system changed last week without clear notification.
 You stand in the med room searching for a medication you need.
 The layout no longer matches your muscle memory.
@@ -365,10 +399,12 @@ Your finger traces the label: "A" for amoxicillin is present.
 The medication appears in its correct location.
 You grasp the vial and turn back toward the cart.
 Your breath slows as you walk away from the cabinet.
-
 ---
 
 ## SCENE v21
+---
+
+---
 The patient's medication list contains seventeen different medications across three shifts.
 You're currently reviewing the evening shift medications before charting your 8am pass.
 The med room screen displays each drug in a timeline.
@@ -383,10 +419,12 @@ The timestamp shows administration at 02:15.
 Your administration is marked as pending for 08:15.
 The med room temperature feels suddenly warm.
 You call the night nurse's number for clarification.
-
 ---
 
 ## SCENE v22
+---
+
+---
 You stand at the medication cart holding a syringe of metoprolol.
 The patient in 612 has a heart rate of 82.
 The order specifies administration if heart rate exceeds 85.
@@ -401,10 +439,12 @@ Your hand hovers near it, not touching.
 The heart rate climbs: 83, 84, 85.
 The threshold has been met.
 You move toward the patient's room.
-
 ---
 
 ## SCENE v23
+---
+
+---
 The attending physician rounds at 09:30 every weekday without exception.
 It's currently 09:23, and you have a medication concern.
 The medication was ordered, but the timing seems inconsistent with clinical presentation.
@@ -419,10 +459,12 @@ The patient's chart is open on the nearby computer.
 The clinical notes from 08:00 show a change in status.
 You press the page button and wait.
 The med room becomes very quiet.
-
 ---
 
 ## SCENE v24
+---
+
+---
 The medication room lock has jammed twice this week.
 Today, when you insert your badge, the lock resists.
 Your hand turns the badge reader again—no response.
@@ -437,10 +479,12 @@ Your badge hangs from a lanyard around your neck.
 You close the door behind you and reset the lock.
 The ambient buzz of the fluorescent lights fills the space.
 You move toward the medication cabinet.
-
 ---
 
 ## SCENE v25
+---
+
+---
 Two patients require medications that interact with each other.
 The medication for patient A is contraindicated in patient B's current regimen.
 You stand in the med room with both charts open.
@@ -455,10 +499,12 @@ The decision to contact requires admission of the error.
 Your throat becomes tight as you hold the phone.
 The fluorescent light seems to intensify above your head.
 You dial the first digit of the physician's extension.
-
 ---
 
 ## SCENE v26
+---
+
+---
 The medication cabinet's narcotics drawer lock sticks occasionally.
 Today it sticks when you're retrieving a pain medication dose.
 Your hands pull with more force than necessary.
@@ -473,10 +519,12 @@ Your hands close the narcotic drawer with controlled pressure.
 The lock mechanism engages with a solid click.
 You turn away from the cabinet.
 Your breath releases slowly as you walk back to the med cart.
-
 ---
 
 ## SCENE v27
+---
+
+---
 The charge nurse asked you to verify a medication you've never seen before.
 The medication arrived from pharmacy with a new formulation.
 The med room has no reference materials for this particular drug.
@@ -491,10 +539,12 @@ The med room's air feels stale as you read further.
 You call pharmacy directly and ask to speak with the pharmacist.
 The pharmacist confirms the medication is correct.
 You place the new medication on the cart.
-
 ---
 
 ## SCENE v28
+---
+
+---
 Your shift began twelve hours ago; you're counting the minutes until departure.
 The final medication administration window is closing in seven minutes.
 One patient requires their evening medication during this window.
@@ -509,10 +559,12 @@ The clock shows 20:22; you're off at 20:30.
 Your badge is already packed in your locker.
 The fluorescent light flickers twice above your head.
 You stand and move toward the patient's room.
-
 ---
 
 ## SCENE v29
+---
+
+---
 The medication wasn't delivered by pharmacy when scheduled.
 The patient's medication window closes in fifteen minutes.
 The med room houses no backup supply of this medication.
@@ -527,7 +579,6 @@ Your shoulder muscles tense as the deadline approaches.
 The pharmacy tech finally arrives with the medication at the med room door.
 You receive the vial and check the expiration time.
 You turn toward the patient's room without hesitation.
-
 ---
 
 ## SCENE v30
@@ -545,3 +596,8 @@ The snow-covered concrete crunches beneath your shoes.
 Your car's interior is cold; the heater will require time.
 The transit bus schedule shows your commute delay due to weather.
 You turn the key in the ignition.
+---
+
+---
+
+---

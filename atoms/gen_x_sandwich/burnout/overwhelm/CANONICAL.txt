@@ -1,225 +1,101 @@
-# gen_x_sandwich / burnout / overwhelm
-# Slot type: STORY (engine)
-# Engine: overwhelm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: Tuesday morning hits different
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Your phone buzzes at 6:47 AM. Dad's cardiologist wants to move up the appointment. Before you can process that, a text from your son's school: late start today, pickup is earlier. And your calendar shows the quarterly review prep due by noon. You're not panicking yet. You're just noticing how three separate things arrived at once, all demanding attention, all requiring you to be in different places with different people. You make coffee. You stand at the counter thinking through the logistics. It's manageable. Probably. You've done harder things. But your shoulders feel tight already.
----
-
----
-
-## STORY v02
----
-path: The calendar doesn't know it's impossible
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You've learned to color-code. Mom's appointments in blue. Kids' schedules in green. Work in black. The calendar looks like a bruise now. Three colors pressing against each other with no gaps. You've blocked time for grocery shopping on a Tuesday afternoon, but you forgot to account for traffic after the parent-teacher conference. You're not missing anything yet. Nothing's fallen through. But the math doesn't work. You can see that clearly. The hours don't add up to the day. You keep double-checking, hoping you'll find a slot you missed. There isn't one.
+RECOGNITION v02
 ---
 
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: The voice on the phone
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Your sister calls while you're at the store. Your mom fell. She's fine, probably fine, but they're going to the ER to check. Could you call when you get a moment. You're standing in the produce section. You have six items in your basket. You have to be at the school gym in forty minutes. You put the phone down and finish your shopping because stopping feels worse than continuing. You can manage this. You manage everything. But something in your chest tightens in a way that doesn't go away. You drive faster than you should.
----
-
----
-
-## STORY v04
----
-path: Noticing the noticing
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-Your daughter asks if you're okay while you're helping her with homework. You say yes automatically. But you notice yourself checking your phone every few minutes. You're not scrolling. You're just checking. Like something might have changed since you looked two minutes ago. Like you might have missed the thing that tips everything over. You close the phone and try to focus on the algebra problem in front of you. It takes longer than usual. You're not overwhelmed yet, you tell yourself. You're just keeping track of a lot of moving pieces. That's normal. That's just life.
+RECOGNITION v04
 ---
 
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: The morning that doesn't start
-BAND: 1
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-You wake up and your brain is already running. Dad's doctor said to watch for swelling. Your son mentioned a permission slip. There's a work deadline. You've integrated this. You've learned to let the tasks run in the background of your consciousness while you make breakfast and shower and get dressed. It's not stress exactly. It's just the way your thoughts move now. Everything arrives in parallel. Nothing has your full attention. This is manageable, you think. This is just how it is when you're in the middle. No one warned you it would feel like this, but here you are anyway.
----
-
----
-
-## STORY v06
----
-path: Doing the math on the drive
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-You're in traffic and your brain is calculating. If you skip lunch and go straight from work to your mom's place, you can be there by 3:30. Your daughter's activity ends at 4:15. That gives you time to ask your mom about her medications, but not time to sit with her like you meant to. Not time to ask how she's really doing. And you're still missing the window to respond to work emails. You've done this math a hundred times. Different variables. Same shortage. You can optimize but you cannot solve it. You keep optimizing anyway because stopping feels like admitting defeat.
+MECHANISM_PROOF v01
 ---
 
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: The list in your head
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-You're lying in bed and the list is there. Mom's blood pressure medication might be running low. Your son's teacher wants to talk about concentration issues. The car is making a noise. Your work laptop needs an update. Your daughter needs new shoes. The mortgage payment isn't due yet but you should verify it processes on time. You're not actively anxious about any single thing. But the inventory is there, running. You've stopped writing things down because the written list gets longer and somehow the mental list doesn't. The mental list just stays, persistent, a constant hum underneath everything.
----
-
----
-
-## STORY v08
----
-path: The impossible equation
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-Your boss asks for the report by Thursday. Your dad calls that same Thursday because his medication needs to be refilled and he can't figure out the pharmacy. Your daughter has a soccer game that evening. You do the math differently now. You know which thing will wait and which thing cannot wait. You know that the report can be done Friday morning even though Thursday was the deadline. You know your dad cannot figure out the pharmacy himself and that matters more than the office timeline. You're managing but you're managing through constant triage. Every day is choosing what fails to meet its deadline.
+MECHANISM_PROOF v03
 ---
 
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: The text that interrupts
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-You're in a meeting when the text comes through. Your mom's neighbor is concerned about something she noticed yesterday. It's probably nothing. It's probably fine. But now you're split. Half of you is in the meeting. Half of you is replaying yesterday, looking for the thing you might have missed. You excuse yourself to call your mom. Everything's fine. But the rest of the meeting is contaminated now. You can't focus because you were split and now you're trying to reassemble. This is normal, you think. Everyone multitasks. But it doesn't feel normal. It feels like drowning in slow motion.
----
-
----
-
-## STORY v10
----
-path: The second shift
-BAND: 2
-SEMANTIC_FAMILY: SF5
----
-Work ends at 5 PM and that's when things accelerate. You're picking up your daughter from after-school care. You're buying groceries because dinner isn't planned and you're out of time to plan it. You're stopping by your mom's because she mentioned something needing to be fixed and you don't want to wait. You're home by 7:30, making dinner, helping with homework, doing a load of laundry. Your partner is managing the other half but there is no other half that's equal. Everything is happening at once. Everything is happening after dark. You can feel the weight of it pressing down. Not panic. Just weight. Steady, relentless weight.
+MECHANISM_PROOF v05
 ---
 
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: The day that bleeds into the next
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-Monday's loose ends are still unresolved Tuesday morning. The conversation you meant to have with your mom didn't happen. The email you were supposed to send is still unwritten. Your son still needs new sneakers. The house is messier than you'd like. But Tuesday has its own demands. You can't go back and fix Monday because Tuesday is arriving with its own weight. You're not behind. You're just not caught up. And you're starting to understand that caught up isn't a state you'll reach anymore. There will always be something trailing behind you. You're learning to accept that. Mostly.
----
-
----
-
-## STORY v12
----
-path: The pattern that doesn't change
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-This is week fourteen of this schedule and you can see the pattern now. Mondays are reactive. You're putting out fires from the weekend. Wednesdays are when someone usually gets sick or needs something urgent. Fridays are when you realize you didn't do the thing you meant to do on Monday. The pattern is reliable. You can predict it. You could almost schedule a breakdown, except you don't have time for breakdowns. So you build your expectations around the chaos. You plan for things to not work out the way you wanted. You've become very good at executing plan B. Plan C. Plan D. You're not sure you remember plan A anymore.
+TURNING_POINT v02
 ---
 
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: The conversation that doesn't happen
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Your partner asks how you're doing and you say fine. Fine is a lie but it's a necessary lie. The truth is complicated. The truth is you're stretched across four different directions and none of them are getting the best version of you. The truth is you're tired in a way that sleep doesn't fix. The truth is you're not sure you're actually handling this well and that maybe you're just numb to the failure now. But saying all that takes time and you don't have time and it would worry him and you don't want to worry anyone else. So fine. You say fine and you keep moving.
----
-
----
-
-## STORY v14
----
-path: The body keeps score
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-Your jaw hurts when you wake up. You've been clenching your teeth at night. Your neck has knots that a massage can't touch because they come back three days later. You're eating lunch at your desk while handling emails. You're forgetting to drink water. You realize at 8 PM that you haven't eaten anything since breakfast. Your body is sending messages you're not reading carefully enough. You know this is unsustainable. Some part of you has known this for a while. But sustaining it is what's happening. So you ignore the signals and keep moving. There will be time to address it later. Later. There's always a later.
+TURNING_POINT v04
 ---
 
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: The math you're not writing down
 BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-You've calculated how many years until your youngest is eighteen. You've calculated how many years until your parents realistically need round-the-clock care. The math doesn't align well. The hard years ahead are the years when you're supposed to be building your own security, your own retirement, the things you pushed aside during the earlier years of intensive parenting. You're not writing this down. You're just carrying it. A parallel calculation running underneath everything. You know what this configuration costs. You're living the cost. You're not sure you have a plan for what happens next.
----
-
----
-
-## STORY v16
----
-path: The point where urgency is normal
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-You're operating in crisis mode so consistently that you don't notice it anymore. Every day has something that needs to be done right now. Not eventually. Now. This has become your baseline. You wake up expecting the urgent. You're almost disappointed if the day is quiet because quiet feels wrong. You're not equipped for quiet anymore. Your nervous system expects the next thing. There's a specific kind of exhaustion that comes from this. You can feel it in how you hold your shoulders. You can feel it in how quickly you snap at your kids over nothing. You can feel it in how you've stopped expecting anything from your own life.
+EMBODIMENT v01
 ---
 
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: The impossible priority
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-Your mom's health is deteriorating and your son's school is suggesting testing for ADHD and your work is asking you to mentor a junior employee and you cannot do all of this. You cannot do even three of these well. You pick the thing that cannot wait and you do that. The other things get partial attention. You're splitting yourself into smaller and smaller pieces trying to cover everything. And the pieces are getting too small. You're losing track of which piece is which. You're losing track of who you're supposed to be when you're just managing, just surviving, just getting through. The overwhelm isn't future. It's now.
----
-
----
-
-## STORY v18
----
-path: The call at 2 AM
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-Your phone rings and it's your sister. Something's wrong with your dad. His breathing seems off. Should she call an ambulance. You're awake instantly despite needing sleep desperately. You're trying to assess through her voice whether this is real emergency or worry emergency. You're telling her to call 911. You're getting dressed. You're calling your mom. You're texting your partner. You're making arrangements for your kids tomorrow morning. It's 2 AM and suddenly all the background worries become immediate and real and you're sprinting toward an ER you hoped not to see. This is what you've been afraid of. This is the thing all the stress has been rehearsing you for.
+EMBODIMENT v03
 ---
 
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: The request you cannot refuse
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-Your boss wants to know if you can take on a bigger project. It would mean advancement. It would mean financial security. It would mean everything is harder. You're already drowning. You know this clearly. But advancement doesn't come to people who say no. Stability doesn't come to people who stay small. So you say yes. You say you can do this. You can figure it out. You're good at figuring it out. You commit to something you don't have time for because refusing also has a cost. You add it to the list. The list is approaching critical mass. You're approaching critical mass. But you say yes anyway.
+EMBODIMENT v05
 ---
-
----
-
-## STORY v20
----
-path: The place where overwhelm lives
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-You are not sleeping well. You are not eating well. You cannot remember the last time you did something for yourself. You are managing your parents' health, your children's needs, your work expectations, and a house that is falling apart piece by piece. You are doing this alone because asking for help feels like admitting you're not capable and admitting you're not capable feels like the thing that will break you. Everything is a crisis. Nothing is really improving. You're running on fumes and you know it. But fumes are what you have. So you keep running. This is what it feels like to be completely overwhelmed and still getting up every morning. This is the stage where collapse is waiting.
----
-

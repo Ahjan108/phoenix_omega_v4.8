@@ -1,225 +1,101 @@
-# working_parents / overthinking / spiral
-# Slot type: STORY (engine)
-# Engine: spiral
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: morning_worry_loop
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-I check the clock: 5:47 AM. Already running through the day before it starts. Did I sign the permission slip? Is the email I sent to my boss going to be misconstrued? Did I sound impatient with the kids last night? My mind spirals backward into the evening—the moment I snapped about the spilled juice—and forward into tomorrow's meeting. Each thought pulls three others in its wake. I'm supposed to be sleeping. I need to sleep. The fact that I'm not sleeping becomes another worry. The night stretches with my thoughts picking up speed, accelerating into territory I've already covered twice. My chest tightens. This spiral has a gravity now. I keep falling back into the same grooves, the same doubts, the same impossible calculations about whether I'm doing enough.
----
-
----
-
-## STORY v02
----
-path: spreadsheet_in_my_head
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-I'm mentally organizing: work deadlines, school projects, the car appointment, what's in the fridge, whether my mother needs to be called, what the kids need for the field trip. My thoughts arrange themselves into a spreadsheet that never balances. Add another task and the whole system wobbles. I'm trying to pack lunch while the spiral begins—did I remember to pay the bill, is the house too cold, am I failing something—and the mental multiplication starts, each worry multiplying before I can finish thinking it.
+RECOGNITION v02
 ---
 
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: at_the_traffic_light
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Stopped at red. Three minutes to get the kids to school. My mind has already raced ahead to the afternoon—will I make the appointment, can I fit in a work call, what am I defrosting for dinner—and backward to this morning's argument with my partner about who's doing more. The light is still red. My thoughts don't care about traffic. They spiral through versions of today that haven't happened yet, each one slightly worse than the last.
----
-
----
-
-## STORY v04
----
-path: the_3_am_spiral
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-I wake at 3:06 AM with a thought fully formed: did I confirm the after-school pickup coverage for Friday? The spiral unfolds from there. If I didn't confirm, then nobody's picking them up, which means they're waiting alone, which means I'm the kind of parent who forgets. My heart pounds. I scroll through emails in the dark, searching for proof that I'm not failing. By 3:47 AM, I've replayed the whole day and planned the next week. Sleep is now impossible.
+RECOGNITION v04
 ---
 
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: story_v05
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm thinking in circles about how this situation spirals from one worry into another
----
-
----
-
-## STORY v06
----
-path: story_v06
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm thinking in circles about how this situation spirals from one worry into another
+MECHANISM_PROOF v01
 ---
 
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: story_v07
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm thinking in circles about how this situation spirals from one worry into another
----
-
----
-
-## STORY v08
----
-path: story_v08
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm thinking in circles about how this situation spirals from one worry into another
+MECHANISM_PROOF v03
 ---
 
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: story_v09
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm thinking in circles about how this situation spirals from one worry into another
----
-
----
-
-## STORY v10
----
-path: story_v10
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm thinking in circles about how this situation spirals from one worry into another
+MECHANISM_PROOF v05
 ---
 
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: story_v11
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm thinking in circles about how this situation spirals from one worry into another
----
-
----
-
-## STORY v12
----
-path: story_v12
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm thinking in circles about how this situation spirals from one worry into another
+TURNING_POINT v02
 ---
 
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: story_v13
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm thinking in circles about how this situation spirals from one worry into another
----
-
----
-
-## STORY v14
----
-path: story_v14
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm thinking in circles about how this situation spirals from one worry into another
+TURNING_POINT v04
 ---
 
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: story_v15
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm thinking in circles about how this situation spirals from one worry into another
----
-
----
-
-## STORY v16
----
-path: story_v16
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm thinking in circles about how this situation spirals from one worry into another
+EMBODIMENT v01
 ---
 
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: story_v17
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm thinking in circles about how this situation spirals from one worry into another
----
-
----
-
-## STORY v18
----
-path: story_v18
-BAND: 5
-SEMANTIC_FAMILY: SF3
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm thinking in circles about how this situation spirals from one worry into another
+EMBODIMENT v03
 ---
 
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: story_v19
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm thinking in circles about how this situation spirals from one worry into another
+EMBODIMENT v05
 ---
-
----
-
-## STORY v20
----
-path: story_v20
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-I'm a working parent, juggling fragmented attention, guilt, survival mode. I'm thinking in circles about how this situation spirals from one worry into another
----
-

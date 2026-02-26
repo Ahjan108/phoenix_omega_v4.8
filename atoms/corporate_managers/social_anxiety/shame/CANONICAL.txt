@@ -1,205 +1,101 @@
-# corporate_managers / social_anxiety / shame
-# Slot type: STORY (engine)
-# Engine: shame
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the moment you said the wrong thing
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You said something in a meeting. And immediately you knew it was wrong. And everyone heard it. And now they know you're not as competent as you pretend. They know you don't have your thoughts together. The shame hit immediately. And it's still there.
-
----
-
-## STORY v02
----
-path: the laugh that was meant to be confidence
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You laughed. You were trying to look confident. Like you could laugh at yourself. Like you weren't anxious. And the laugh came out awkward. Forced. And everyone heard the fakeness in it. And the shame of the failed performance was worse than the anxiety would have been.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the visible nervousness
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-People could see that you were nervous. You couldn't hide it. Your hands shook. Your voice wavered. And everyone saw. And the shame of being visibly anxious was acute. You couldn't perform competence when your body was betraying you.
-
----
-
-## STORY v04
----
-path: the moment you realized they were judging
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-You realized in the middle of speaking that people were judging you. You could see it on their faces. The skepticism. The doubt. And you felt the shame rise. You're exactly what they think you are. Incompetent. Not belonging. A fraud.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the conversation that was humiliating
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You were in a conversation. And someone said something that exposed you. Exposed your lack of knowledge. Exposed your weakness. And it was humiliating. And everyone witnessed it. The shame was so intense you wanted to leave the room.
-
----
-
-## STORY v06
----
-path: the way people looked at you after
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-After something happened. Something you said or did wrong. People looked at you differently. There was pity maybe. Or judgment. Or both. And you felt the shift. And the shame of being seen differently. Being seen as less.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the reputation you're building
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-You're building a reputation. Not the one you wanted. The reputation of someone who's anxious. Who doesn't quite fit. Who's trying too hard. And the shame of that reputation is sinking in. You're becoming known as the anxious person. And you can't undo it.
-
----
-
-## STORY v08
----
-path: the moment you withdrew
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-You withdrew from a social situation. You couldn't face it. The shame was too much. So you made an excuse. You left. And the shame of withdrawing was layered on top of the shame that made you withdraw in the first place.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the secret you're keeping
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-You're keeping a secret. That you're anxious in social situations. That you don't feel like you belong. That you're scared. And the secret is isolating. And the shame of having the secret is layered on top of the anxiety. You're alone in what you know about yourself.
-
----
-
-## STORY v10
----
-path: the performance that everyone can see through
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-You're performing confidence. And you know people can see through it. They can see the anxiety underneath. They can see you trying. And the shame of the visible performance is intense. You're not even doing a good job of hiding who you are.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the social situation that became humiliating
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-You were in a social situation. And something happened that made it humiliating. You made a mistake. You said the wrong thing. You were excluded. Something. And the shame is ongoing. Every time you think about it, the shame reignites.
-
----
-
-## STORY v12
----
-path: the way you've started to hate yourself
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-You've started to hate the part of you that's anxious. The part that's awkward. The part that doesn't fit. And the shame of that self-hatred is profound. You're ashamed of your shame. You're ashamed of your anxiety. It's layers of shame.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the deep belief that you're defective
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-You believe something fundamental about yourself. That you're defective. That you don't fit. That you're not okay socially. And the belief is so deep that it feels like truth. And the shame of being defective is constant.
-
----
-
-## STORY v14
----
-path: the moment you accepted the shame
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-You stopped fighting the shame. You accepted it. This is who you are. An anxious person. Someone who doesn't fit. Someone who's awkward socially. And the acceptance was like a death. The death of the hope that you could be different.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the isolation that comes with shame
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-You're isolated. Because you can't tell anyone how you really feel. You can't admit that you're struggling. You have to keep performing. And the isolation of keeping the secret while surrounded by people is profound.
-
----
-
-## STORY v16
----
-path: the shame that's become your identity
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-Shame is who you are now. The anxious person. The person who doesn't fit. And you don't know how to be anything else. The identity has solidified around the shame.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the moment you realized people might pity you
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You realized: people might pity you. They might see how hard you're trying and feel sorry for you. And that's almost worse than judgment. Pity is humiliating.
-
----
-
-## STORY v18
----
-path: the understanding that the shame might be permanent
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-You understand: the shame might not go away. Even if you get better. Even if you become more confident. The shame might be permanent. A permanent part of who you are.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the exhaustion of carrying the shame
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-You're exhausted. From hiding. From performing. From carrying the shame. It's wearing you down. And you don't know if you can keep carrying it.
-
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: the acceptance of being ashamed
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-You've accepted it. You're going to feel ashamed in social situations. You're going to worry that people are judging you. You're going to feel like you don't fit. And maybe that's just who you are. And maybe you have to accept it.
-

@@ -1,230 +1,101 @@
-# tech_finance_burnout / overthinking / spiral
-# Slot type: STORY (engine)
-# Engine: spiral
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: code review loop self-doubt
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-I'm sitting with my code review open. Fourteen minutes I've been staring at this pull request I submitted. The logic is solid—I've traced through it, the tests pass, but there's this moment where I think: what if I'm not actually as sharp as I think? What if this looks obvious to everyone else and I'm just... slow? The function could probably be more elegant. I could refactor it. But then again, premature optimization is the root of all evil, right? That's what the senior engineer said three years ago. Or was it different context? I should probably check the Slack history. No, that's insane.
-
-Now I'm wondering if my uncertainty is reasonable caution or impostor syndrome talking. Because I definitely have impostor syndrome—I've diagnosed that pretty thoroughly at 2 AM on multiple occasions. The diagnostic criteria fit. I meet at least six of them, probably all seven if I think about it harder. The thing is, I've shipped working code before. I have delivered value. The numbers don't lie. But this particular function—it's just clean enough that it makes me wonder if I'm actually clean or if I'm hiding complexity I don't see yet.
-
-Fourteen minutes. The ping notification just lit up.
+RECOGNITION v02
 ---
 
-## STORY v02
----
-path: quarterly review numbers spiral
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-The OKR meeting isn't for three days. I have the results already—I hit 87% on the main objective. That's decent. That's accomplishment. But "decent" and "87%" means 13% didn't happen, and suddenly I'm dividing up that 13% into subcategories of failure. Was it external blockers? That would be fine—I could frame that. But it wasn't all external. Some of it was me not pushing hard enough on the vendor relationship in week two.
-
-If I had worked that training day, I would've hit 91%. Maybe 93%. The gap between 87% and 93% is six percentage points. Six points that represent either reasonable work-life boundary or professional mediocrity, and I can't actually determine which one. By the time I'm in the meeting, someone's going to see "87%" and do the quick mental math the same way I did.
-
-It's possible I'm overthinking this. It's also possible that "overthinking" is just the term high performers use for appropriate seriousness. I open the OKR doc again.
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: syntax error in thought pattern
 BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-The refactoring I did yesterday is still bothering me. I made a good choice—consolidated three utility functions into one, reduced duplication, improved readability. It's clean. It shipped. But there's this one edge case I'm thinking about. Not one I tested—that's handled. Not one in the requirements—those are met. It's an edge case I'm inventing.
-
-And if they do, my code would handle it gracefully. Return an empty array. No crash. No data corruption. It's fine. But what if there's a version of handling it that's better than fine? What if there's an approach where I intercept the weird input earlier, log something, return a more specific response? What if someone using this function ten months from now will see my code and think, "okay, they handled the edge case but they missed the opportunity to make this more robust?"
-
-I could add the extra handling. I could go back. But the PR is merged. I'd be opening a second PR for something that's already working. That looks like what? Perfectionism? Second-guessing myself publicly? My manager will think I'm not confident in my own code. Or not focused. Or looking for work that doesn't need to exist.
-
-I'm stuck in a loop or if the loop is actually the appropriate level of rigor.
+RECOGNITION v04
 ---
 
-## STORY v04
----
-path: email assessment cycle
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-There's an email I sent this morning. A response to my director's question about the project timeline. I answered clearly, provided the data, suggested a revised date. That was good communication. Now I'm wondering if I should have added more context. The revised date is good—it's realistic—but without more explanation, it might look like I'm being defensive about the original estimate.
-
-But more explanation might look like I don't trust them to understand the data I already gave. I open the email thread. Read my response again. It's fine. It's actually fine. Unless "fine" is what people say when they're being diplomatic about unclear communication. I could send a follow-up. One line. But then I've sent two emails about the same message, which looks scattered.
-
-They probably didn't even notice anything. They probably read it, accepted the date, moved on. That's the most likely scenario. Except I do analyze tone. So maybe my director, who probably also optimizes systems for a living, is reading my email the same way I write emails—extracting signals from every word choice, every structure. I close the email. Open it again. It's fine. It needs one more sentence. I delete the sentence I'm imagining.
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: presentation slide logic loop
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Building the investor deck. Slide seven has a metric that's actually strong. Growth trajectory is clear, real, defensible. But between that metric and my company's valuation, there's an implied narrative. The narrative says: "this growth trend plus market size equals these market-cap assumptions." The assumptions are reasonable. Industry standard for this stage.
-
-Except what if the investor is thinking differently? What if they see the same growth and think: "that's promising but it plateaus against these market constraints that I see but the founder doesn't?" What if they're right and I'm in the valley of projection where I can't see the valley floor? The numbers don't lie. But the numbers might not tell the whole story.
-
-I could add more context. Explain market saturation resistance. But that looks like I'm defending against a concern nobody's raised, which signals that I've been thinking about it, which signals uncertainty. If I'm uncertain, they'll sense it. I move the slide to the end. No, it belongs in the middle. The deck is ready. The deck is missing critical context. The deck is ready. I close it and open the company Slack, where somebody just shipped a feature my team hasn't even started thinking about yet.
-
-Which means they're moving faster. Which means they see something about the market I don't. I open the deck again.
+MECHANISM_PROOF v01
 ---
 
-## STORY v06
----
-path: architectural decision weight game
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-We chose the wrong database strategy two years ago. Not catastrophically wrong. It still works. But as we've scaled, there are moments where I can feel the constraints—the queries are slower than they should be, the schema migrations take longer, the team has to work around the limitations. I'm responsible for that original choice. I had the data, the frameworks, the authority to choose differently. And I didn't.
-
-So either I was genuinely unable to see the right path with the information I had—in which case, I'm not as good at systems design as I think I am. Or I made a reasonable call at the time and the world changed—in which case, I'm not as prescient as I need to be to stay ahead of scale. Either way, there's a failure embedded in my decision-making that I can now clearly see.
-
-I could propose the migration. Own it. Fix it. That's responsible leadership. But that also broadcasts: "I was wrong two years ago and it took two years for me to notice." Someone will trace that back to the moment I made the decision. They'll wonder what else I'm wrong about that I just haven't noticed yet. The database is working. It's inefficient, but it's working. I start the migration proposal document. I delete it. I start it again. There's probably a right time to surface this that makes me look forward-thinking instead of belated.
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: feedback calibration without ground truth
 BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-I got feedback from a peer that was kind but specific. "Your communication style in meetings sometimes comes across as dismissive." Not anger. Not attack. Just an observation. Now I'm in a cascade. How many meetings? Which ones? Did I actually dismiss or did I disagree clearly and they read it as dismissal?
-
-I'm thinking about the last five meetings. Parsing every statement I made. Looking for the moment of dismissal. Here's the thing: I can construct a reading of each interaction where I was dismissive. I can also construct a reading where I was analytically direct, which is necessary in technical conversations. But which reading is true? The peer said dismissive. So their reading is dismissive. But people's perceptions are also shaped by timing, mood, sleep. Perception isn't ground truth. Yet perception is all anyone has.
-
-So I need to change. I need to add softening language. But adding softening language to technical disagreement is dishonest. It suggests consensus doesn't exist when it doesn't. Unless it's not dishonest. Unless it's just good communication design. I'm going to the next meeting and I'm going to be different. And people are going to notice I'm different, and they're going to wonder what happened. The feedback was true. The feedback was a snapshot of mood. Both things are true. I can't hold both things at once while also being functional. So I will choose. And I will wonder if I chose wrong.
+MECHANISM_PROOF v03
 ---
 
-## STORY v08
----
-path: capability ceiling internal audit
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-I'm thinking about my own limits. Not the technical limits—I can usually push through those. I'm thinking about the limits of my thinking. What if there's a whole category of problems I'm neurologically unsuited to solve? What if I keep selecting for problems I'm good at and I'm actually terrible at the ones I've never tried?
-
-I've built a career on certain kinds of optimization. Speed-to-market, system efficiency, capital deployment. I'm good at those. But that might just mean I've been selecting for them, building an identity around them, and I've never seriously attempted a problem that required different cognitive architecture. Like, what if I'm actually bad at dealing with ambiguity? I keep saying I'm uncomfortable with ambiguity, but that's framed as a preference. What if it's a deficit?
-
-The problem is I can't test this. I can't know if I'm actually bad at ambiguity or if I just prefer clarity. The test would require me to be bad at ambiguity for long enough to know that's what's happening. But by then I've already failed. So either I'm thinking strategically about my own growth, or I'm catastrophizing about limitations that don't exist. Both interpretations feel correct. I'll stay in clarity. And I'll never know.
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: success pattern dependence
-BAND: 5
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-I built something. It shipped. It worked. I did the same thing again with different parameters. It worked again. Now I'm convinced that if I deviate from the pattern, it won't work. But I'm also convinced that if I keep using the same pattern, I'm being rigid and uncreative. So there's no move that doesn't carry existential risk.
-
-Use the pattern: proven but uncreative, potentially scaling poorly to new contexts. Deviate from the pattern: innovative but untested, potentially catastrophic. I keep running the same play because it works, which means I'm not learning, which means I'm brittle. I try something new, it fails, and now I have evidence that I should have kept the pattern, and also evidence that I should have trusted the deviation.
-
-I'm paralyzed between the version of myself that's disciplined and the version that's adaptive, and both versions are necessary. So I'm neither. I'm stuck in the handoff moment between two patterns of action, unable to commit to either one. The decision needs to happen. I've spent six hours in this space. I'll do it the proven way. That's defensible. But I've just guaranteed that I didn't learn anything except that I'm risk-averse. I open the ticket. I don't know if I'm being smart or afraid.
+MECHANISM_PROOF v05
 ---
 
-## STORY v10
----
-path: asymmetric knowledge burden
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-I know something about the company that most people don't. It's not secret. It's just the kind of thing you notice when you're in a certain role, when you're paying attention, when you've been here long enough to see patterns. The pattern is: we're not as stable as we appear. Not crisis-level. But there's a fragility underneath the operational excellence. There's a concentration of dependency on one vendor relationship. There's a customer segment that's larger than it should be.
-
-None of this is my job to fix. I've said something about the vendor dependency and I was thanked and it was noted. But nothing's actually changed. I keep thinking about it. I keep running scenarios. I keep thinking about the moment when it becomes obvious to everyone else. Either I'm complicit in a future failure, or I'm a personality problem who doesn't trust the leadership. I'm carrying information that makes me feel responsible for an outcome I don't have authority to change. And I can't not know it.
-
-I could stop paying attention. Stop running the scenarios. Assume the adults in the room are handling it. But I've already seen it. I can't unsee it. So I'm choosing between two kinds of complicity. Both make me responsible. Neither gives me the information I need. I send another message. Softer. More collaborative. It accomplishes nothing. I think about it more.
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: self-model revision vertigo
-BAND: 1
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-I used to think I was someone who handled complexity well. That was my identity. Complex problem, I thrive. Linear task, I get bored. But now I'm noticing that complexity I've been calling "thriving in" might actually be "inability to simplify," and that's different. I build complex solutions. I frame it as comprehensive. But what if it's actually that I can't stop adding parameters until something fails? What if my relationship to complexity is compulsive, not strategic? And if that's true, then I've been misunderstanding myself for years. The whole self-narrative is potentially wrong. Which means I don't actually know myself. Which means the decisions I make based on my own story might be actively wrong. This is disorienting. I want to go back to just believing my own story. But I can't unsee the other possibility.
----
-
-## STORY v12
----
-path: value proposition internal doubt
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-My whole career is built on being good at something. That something has value. I'm paid well for it. But what if the value is overstated? What if the problem I solve is not actually as important as the market is paying for? What if I've built a career on solving a problem that matters to certain people, in certain contexts, and I've been treated as if it matters universally? What if I've been the beneficiary of market inefficiency, not genuine expertise? If the market corrects, I'm exposed. This thought loops all day. My compensation is tied to something I'm not sure is real.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: decision tree infinite branches
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-The bigger the decision, the more branches I see. Each branch has consequences I can't predict. Each consequence has second-order effects. The tree gets too deep to evaluate. So I pick a branch based on what? Feeling? Randomness? And I call it "good judgment." But it's not judgment if the branching is infinite. It's just choosing and hoping. Every major decision of my career has been made this way. I'm calling it intuition. Maybe it's just surrender dressed in fancy language.
----
-
-## STORY v14
----
-path: professional mask authenticity slippage
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-At work, I'm someone. I have a persona. It's functional. People respond to it. But sometimes I catch myself and think: is this me or is this a performance that's become so integrated that I've forgotten there's a difference? And if it's been integrated that long, does the difference matter? Which version is real? Both? Neither? The mask works so well that I've become the mask. That's either healthy development or complete fragmentation, and I can't tell which.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: imposter identity fugue
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Every accomplishment I have is real. I have evidence. I have results. But every accomplishment also feels like a thing that happened while I was performing competence that I don't actually possess. The evidence and the feeling are both true. So I'm either experiencing appropriate humility or chronic self-deception, and I genuinely cannot distinguish. The ambiguity has become the only certainty.
----
-
-## STORY v16
----
-path: causal inference regression anxiety
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-I did something. Good outcome. I'm attributing it to my decision. But what if the good outcome was inevitable? What if I was just the instrument? I take credit for luck. That makes me dishonest. But if I attribute everything to luck, I'm denying my own agency. That makes me helpless. Both feel wrong simultaneously. I'm stuck between the extremes with no path that doesn't feel like a lie.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: growth ceiling speculation
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-I've hit plateaus before. I've always broken through them. But what if this plateau is the one I don't break through? What if I've been riding momentum and I'm about to realize I'm not actually as capable as everyone thinks? What if the breakthrough doesn't happen this time? This thought arrives at 3 AM and I can't send it back to wherever it comes from.
----
-
-## STORY v18
----
-path: competence threshold anxiety
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-The role requires a level of competence I'm not sure I have. I'm performing it successfully. But the success might just mean that the role hasn't required me to be tested at my limits yet. I'm waiting for the moment someone notices. The waiting is its own kind of exhaustion.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: system design paradox recursion
-BAND: 2
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-The more I think about how I think, the worse I think. Thinking about thinking is a system that breaks systems. I can't unsee that. And now I can't think about not thinking about it, which is its own loop. I'm locked in recursive self-doubt.
----
-
-## STORY v20
----
-path: expertise shelf life questioning
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-I've been right about enough things that people trust my judgment. But expertise has a decay rate. The market changes. Technologies shift. Am I staying current or am I coasting on old knowledge? I can't tell from inside the system. The uncertainty is calcifying.
+EMBODIMENT v05
 ---

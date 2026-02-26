@@ -1,206 +1,101 @@
-# gen_z_professionals / sleep_anxiety / spiral
-# Slot type: STORY (engine)
-# Engine: spiral
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the what if about tomorrow
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-I'm lying in bed and I have a what if. What if I can't sleep tonight. And the what if spirals. What if I don't sleep and tomorrow is bad. What if I'm exhausted and I perform poorly at work. What if I mess up something important. What if the mess up has consequences. And by the time the spiral ends, I'm convinced that not sleeping tonight will lead to disaster tomorrow. Which creates anxiety. Which prevents sleep. Which creates the disaster I was afraid of.
-
----
-
-## STORY v02
----
-path: the calculation spiral
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-I calculate how many hours I've slept this week. And the spiral is about what the number means. If I've only slept twenty hours, what does that mean for my health. My function. My future. And the spiral is about extrapolating from the past into a catastrophic future. If I've only slept twenty hours this week, what will I have slept in a month. A year. And the calculation spiral leads to a dark place.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the past night spiral
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-I think about last night. I slept poorly. And the spiral is about whether it will happen again. If it happened last night, it might happen tonight. And if it happens tonight and tomorrow, then I'm in a pattern. And if I'm in a pattern, then I'm stuck in this forever. And the spiral has gone from last night to forever.
-
----
-
-## STORY v04
----
-path: the symptom spiral
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-I notice a symptom. I'm tired. Or my eyes are sore. Or my mood is off. And the spiral is about what the symptom means. Is this sleep deprivation. Is something wrong with my health. What's causing this. And the spiral of interpretation leads to anxiety. Which makes sleep harder.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the comparison spiral
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-I think about how much sleep other people get. And the spiral is comparing. They're sleeping eight hours. I'm sleeping four. And the comparison spirals. They're more functional than me. They're healthier. They're doing better. And the comparison feeds the anxiety about my sleep.
-
----
-
-## STORY v06
----
-path: the research rabbit hole
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-I research sleep deprivation. Looking for solutions. And the spiral is that every article is more alarming than the last. Sleep deprivation causes health problems. Cognitive decline. Mood disorders. And the more I research, the more convinced I am that my sleep problem is serious. Which creates more anxiety. Which makes sleep worse.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the solution spiral
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-I try a solution. A sleep hack. A meditation. A supplement. And the spiral is about whether it will work. And if it doesn't work, what then. And if it doesn't work, am I trapped forever. And the spiral creates pressure on the solution. The pressure means the solution won't work.
-
----
-
-## STORY v08
----
-path: the time spiral
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-I'm watching the clock. And the spiral is about time passing. Each hour that passes is sleep I'm not getting. And the spiral creates awareness of each minute. Which makes the minutes feel longer. Which makes the anxiety worse.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the self-blame spiral
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-I'm not sleeping and I blame myself. If I just didn't think so much. If I just relaxed. If I just let it happen. And the spiral is that the sleep problem is my fault. And if it's my fault, then I should be able to fix it. And if I can't fix it, then I'm broken. And the spiral has gone from a symptom to identity.
-
----
-
-## STORY v10
----
-path: the dependency spiral
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-I consider medication or supplements. And the spiral is about dependency. If I start using something, will I become dependent. Will I be able to sleep without it. What if the solution becomes another problem. And the spiral prevents me from trying the solution.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the pattern prediction spiral
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-I notice a pattern. I sleep badly when I'm anxious. And the spiral is predicting the future. If tomorrow I'm anxious, I'll sleep badly. Which will create more anxiety. Which will create worse sleep. And the spiral has predicted an inevitable decline.
-
----
-
-## STORY v12
----
-path: the physiological spiral
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-My body has a physical response. My heart races. My muscles tense. And the spiral is interpreting the response. What's causing it. Is something wrong. Is this a symptom. And the spiral feeds the physical response. The anxiety creates more tension. More racing heart.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the consequence spiral
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-I'm not sleeping and the consequences are spiraling. Tomorrow I'll be tired. The tiredness will affect my work. The work will suffer. The suffering will be noticed. I'll be fired. I'll lose my income. I'll lose my housing. And the spiral has gone from not sleeping to homelessness.
-
----
-
-## STORY v14
----
-path: the self-fulfilling spiral
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-The spiral predicts insomnia. And the prediction creates the insomnia. Because now I'm anxious about not sleeping. Which creates the condition for not sleeping. And the spiral becomes self-fulfilling. The prophecy creates the reality.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the healthcare spiral
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-I think about seeing a doctor about the sleep. And the spiral is about what that means. If I need to see a doctor, there must be something wrong. Something medical. Something that can't be fixed by just trying harder. And the spiral suggests I have a serious problem.
-
----
-
-## STORY v16
----
-path: the identity spiral
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-I'm not just someone who has sleep problems. I'm an insomniac. And the spiral is about what that identity means. I'll always be like this. This is permanent. This is who I am now. And the spiral has taken a symptom and made it an identity.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the time horizon spiral
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-The sleep problem has been going on for months. And the spiral is about the future. How many more months. How many years. Will I ever sleep normally again. And the spiral stretches the problem into an endless future.
-
----
-
-## STORY v18
----
-path: the exponential spiral
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-One sleep problem becomes many. The insomnia creates fatigue. The fatigue creates more anxiety. The anxiety creates more sleep problems. And the spiral is exponential. Each element making the others worse. The multiplication is terrible.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the spiral at crisis
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-At crisis, the spiral has become the entire narrative. I'm not thinking about actual sleep solutions. I'm just spiraling. Predicting disaster. Creating catastrophes. The spiral is consuming all the mental energy.
-
----
-
-## STORY v20
----
-path: the infinite spiral
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-The spiral never stops. It just keeps going. Deeper into anxiety. Further into catastrophe. More certain that this is permanent. And the infinite spiral is what insomnia feels like at crisis. Not the absence of sleep. But the presence of endless spiraling.
-
+EMBODIMENT v05
 ---

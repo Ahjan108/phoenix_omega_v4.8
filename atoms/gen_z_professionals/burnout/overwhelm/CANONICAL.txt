@@ -1,206 +1,101 @@
-# gen_z_professionals / burnout / overwhelm
-# Slot type: STORY (engine)
-# Engine: overwhelm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the notification at 11 PM
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-There's a Slack message waiting. I know this without checking. It's 11 PM and my phone has been silent for exactly seventeen minutes. That silence is the problem. Somewhere in the office, someone is still working. They're going to need something. A clarification. A decision. A timeline they didn't get. And because it's after hours, it means it's urgent. It means it's the kind of thing that can't wait until morning. My chest gets tight just opening the app. The message is from someone in Singapore. Not actually urgent. Just the regular pace of work that now operates on a global, asynchronous schedule where there is no actual after hours. There's just the illusion of time off while the phone sits there, ready to interrupt. And I've learned that checking the message and responding is sometimes faster than the anxiety of not checking it. So I respond at 11:03 PM. Back to the team by morning. But also unable to sleep. Because my brain is now in work mode.
-
----
-
-## STORY v02
----
-path: the always-on self
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-I don't remember what I'm like when nobody expects anything from me. I've been online for so long. My email is work email. My Slack is work Slack. My calendar is synced. Even on vacation, there's the understanding that I might need to jump in. It's become such a normal part of the job description that nobody even talks about it. The expectation is just embedded in the role. And my brain has adjusted to treat every notification as potential threat. A message could be praise or criticism or just information I need to respond to. But it could also be the moment when someone realizes I made a mistake. When the project falls apart. When I'm exposed as not actually competent. So I stay available. Not because I'm ambitious. But because the alternative is worse. The alternative is the anxiety of not knowing.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: always composing the email
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Part of my brain is always in draft mode. Composing the response to the message that hasn't arrived yet. Rehearsing the explanation for the timeline miss. Editing the status update. Preparing the excuse for why the deliverable is going to be late. Even in meetings, I'm composing. Thinking through what I'm going to say. How I'm going to phrase it so it doesn't sound defensive. So it doesn't expose the fact that I don't actually know what I'm doing. So I seem like I have it together. And the composition never stops. Even on weekends. Even in my sleep. I have conversations with my manager in my dreams. Dreams where I'm trying to explain something and the words keep getting tangled. And I wake up with the feeling that I've failed at something I can't quite remember.
-
----
-
-## STORY v04
----
-path: the ecosystem of constant input
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-It's not just the work messages. It's the industry news I need to stay on top of. The Twitter threads about emerging skills I should probably learn. The podcasts about productivity and management and career development. The newsletter about the market shifts that might affect my role. The blog posts about the career path I'm supposedly on. The books about how to manage up. The articles about how I'm definitely burnt out but here's the life hack that will fix it. It's all just constant input. The fear of falling behind. Of being the person who didn't know about the important thing. Who was out of touch. Who didn't anticipate the shift. So I consume. I scroll. I listen while I shower. I read while I eat. And none of it ever actually makes me feel less overwhelmed. It just adds more things to worry about.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the meeting that creates more meetings
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-I was in a meeting to plan the meetings for next week. Six people sitting in a room to talk about the architecture of future communication. And instead of being ironic, it was completely normal. This is just how things work now. There are the meetings to discuss the project. And then the meetings to align on what came out of the meetings. And then the meetings to make decisions about the meetings. And all of them are urgent because they're on the calendar and the calendar is the truth. The calendar is full. So therefore I must be swamped. And because the calendar is full, I have no time to do the actual work. So the actual work becomes a crisis that happens at midnight when I finally have space to think. And that midnight work gets put in the schedule for next week. Because it needs to be tracked. And the cycle continues. The meetings create the overwhelm that necessitates more meetings to process the overwhelm.
-
----
-
-## STORY v06
----
-path: notification
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-The worst part isn't the actual messages. It's the notification itself. The little red badge that says you have a new thing to deal with. Even if the message is just information. Even if it doesn't require a response. Even if it's something nice. The notification is still a tiny interruption to whatever I was doing. A small redirect of attention. But it happens all day long. Dozens of times. And each one is a microsecond of stress. The pattern recognition that says maybe this is the one. The one that changes something. And I know that I'm trained to respond to notifications. That my brain has formed associations. Notification equals attention equals survival. So I'm always half here. Always ready to pivot. Always anticipating the next demand. And I'm tired.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the tyranny of the open door policy
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-We have an open office. Which means there's no actual privacy. And the theory is that this creates collaboration. And maybe it does. But what it also creates is constant availability. Someone needs something they just come ask. They don't think about whether they're interrupting. They don't check whether I'm in the middle of something. They just ask. And you're supposed to be helpful. You're supposed to drop what you're doing. Because that's the culture. Helpful. Collaborative. Not territorial about time. And so I've learned to never actually be in the middle of something important. To always have an interruption-friendly task open. Something I can pause. Something that doesn't require the kind of focus that gets broken. And the real work happens in the hidden spaces. In the gaps. In the early morning or late evening when nobody is going to ask for anything. And I'm exhausted by the performance of being available.
-
----
-
-## STORY v08
----
-path: the invisible load
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-Nobody asks you to manage it. The system doesn't officially ask. But it's clear that you're supposed to keep track of everything. All the balls in the air. All the projects. All the deadlines. All the updates. All the dependencies. And when one thing drops, it's your failure. Not the system's failure for being unsustainable. Your failure for not managing well enough. And that's the thing nobody talks about in the glossy articles about productivity. They talk about time management. But the actual overwhelm isn't about time. It's about the invisible cognitive load of managing multiple complex projects while also pretending you have it together. Of remembering the details that matter. Of keeping track of what you said to whom and when. Of maintaining the fiction that this is all normal and fine.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the crisis of capacity
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-There was a point when I could do this. Two jobs. Three projects. Constant context switching. It was fine. Not great. But sustainable. But something changed. And now it's not. I started saying no to things. And the no's made me feel irresponsible. So I started saying yes again. And now I'm back to being overwhelmed. And I don't know what changed. I don't know if it's that my capacity actually decreased. Or if I'm just less able to pretend that this is fine. Or if the system got worse. Or if I've just been here long enough to see that it was always unsustainable. And nobody wants to hear that the system is unsustainable. Because then everyone has to admit they're living in an impossible situation. So we all just pretend. And get more overwhelmed. And try to optimize our way out of it. And fail.
-
----
-
-## STORY v10
----
-path: the haunted future
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-I have a calendar three months out and every single day is blocked. And the blocking is done by other people. Meetings scheduled to deal with the outcome of the previous meetings. And I can already feel the overwhelm that's coming. I can see the day when I'm going to be in back-to-back meetings and there's a crisis that needs immediate attention and there's simply no time. And the crisis will get postponed. And then it will become a bigger crisis. And I'll have to handle it in the gaps. And the system will treat that as normal. As just the way work is. And I'll apologize for not being able to handle it gracefully. And my manager will understand. They're overwhelmed too. Everyone is. And we've all normalized the unsustainable. So I sit here looking at the calendar three months out and I'm already exhausted.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the fragmented self
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-I can't actually focus anymore. Not in the way I used to. I sit down to work on something and my brain is already scattered. Thinking about the meeting in thirty minutes. The message I need to send. The project that's over deadline. The conversation I'm going to have later. And none of these thoughts are intentional. I'm not deliberately choosing to think about them. My attention is just automatically fractured. And the research on this is clear. Context switching is bad for the brain. Switching back and forth destroys deep focus. But the job demands the context switching. And my brain has adapted by becoming unable to focus. Which makes everything harder. Which makes me more overwhelmed. Which requires more context switching. It's a feedback loop.
-
----
-
-## STORY v12
----
-path: the guilt of inefficiency
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-I used to be efficient. Or I thought I was. I'd sit down and do a thing and finish it. But now I can spend six hours at my computer and produce almost nothing. Because I'm interrupted. Or I'm anticipating interruption. Or I'm trying to manage all the fragments. And then I feel like I'm bad at my job. Like if I were actually competent, I could handle this load. Like other people manage to do it. They're not complaining. They just get it done. And so I blame myself. Instead of blaming the system. And I try to work faster. More efficiently. And that just makes me more anxious. More focused on the performance of productivity rather than the actual productivity. And nothing actually changes except the amount of judgment I'm directing at myself.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the sleep math
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-I've started doing the math on my sleep. How many hours until I need to be back at work. How many hours if I go to bed now. How many hours if I stay up to finish this. And the math is always the same. Not enough. There's never enough sleep to feel recovered. There's never enough time. So I've accepted the deficit. I'm running on a permanent sleep debt. And the body adapts to that for a while. And then it stops adapting. And the exhaustion becomes the baseline. And I forget what I felt like when I was actually rested. When a day didn't require a strategic plan to survive it.
-
----
-
-## STORY v14
----
-path: the crisis cascade
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-One thing falls behind and suddenly everything is cascading. The project is late which means the update meeting is going to be difficult which means I need to prepare an explanation which means I'm working at midnight on something that should have been done weeks ago. And it will be done. But the doing of it will require me to drop something else. Which will fall behind. Which will cascade. And the system doesn't care. The system just assigns more. Assumes that I can compress time. Can work faster. Can somehow absorb the impossible deadlines and produce the impossible results. And the overwhelm isn't about being busy. It's about the constant crisis. The feeling that I'm always one mistake away from the whole thing falling apart.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the fantasy of rest
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-I have a fantasy about taking a week off. Just sitting somewhere without the notifications. Without the need to check email. And in the fantasy, I finally relax. I finally sleep. I finally feel like myself again. But I know what actually happens when I take time off. The work piles up. And the anxiety of the pile-up is often worse than the actual time off is restful. I come back to a disaster. Or I check my email while I'm supposed to be relaxing. And the break doesn't actually break the pattern. So I've stopped planning real time off. I just schedule regular life around the work. Because the work is the constant. Everything else is what fits in the gaps.
-
----
-
-## STORY v16
----
-path: the weight of expectation
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-There's an unspoken expectation that I'll figure it out. That I'll somehow absorb the load without breaking. That I'll optimize. That I'll find the life hack that makes this sustainable. And the failure to do that is on me. Not on the fact that the load is unsustainable. But on my inability to manage it. And so I carry the weight of the expectation. And the actual weight of the work. And the weight of the judgment about not being able to handle it. And all of that together is what makes me feel like I'm drowning.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the performance of competence
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-In meetings I look fine. I sound fine. I'm prepared. I have answers. I seem like I have it together. And the performing of that is exhausting. Because internally I'm panicking about the three things I forgot to prepare for. And the message I haven't responded to. And the project that's falling apart. But externally I'm just a person who calmly answers questions. And that performance takes everything I have. So by the time I leave the meeting, I'm completely empty. And then there's another meeting. And I have to perform again.
-
----
-
-## STORY v18
----
-path: the infrastructure of overwhelm
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-All the tools that are supposed to make us more productive somehow just increase the surface area of overwhelm. More apps to check. More statuses to update. More ways to be reached. More mediums for the constant communication. And the promise is that these tools will make things easier. But they just make the overwhelm more efficient. The system can now reach me faster. Demand things from me with less friction. And my response time is expected to be faster too. So the cycle gets tighter. And the overwhelm becomes the infrastructure. It's the operating system.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the accumulation
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-This is what it feels like at the crisis point. When the overwhelm has been accumulating for so long that I can't actually remember what it felt like to not feel this way. When I've been running at this pace for so long that this pace is normal. And I don't notice anymore that it's not sustainable. I just notice that I'm tired. That I'm irritable. That I'm forgetting things. That my body feels like it's made of lead. And I know at some level that this isn't fine. But I've adapted so much that I don't know what different would even feel like.
-
----
-
-## STORY v20
----
-path: the total system failure
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-And then there's the day when I simply cannot. When I come to work and something in me says no. Not in a principled way. Not in a way where I'm taking a stand or setting a boundary. Just a complete system failure. I can't access the email. I can't think about the meetings. I can't pretend. And I sit at my desk and stare at the screen and there's nothing there. Just a complete absence of capacity. And I know I'm supposed to push through. To have some resilience. Some coping mechanism. But there is nothing. The system has consumed everything. And I'm sitting in the middle of the overwhelm with no way to process it or manage it or escape it.
-
+EMBODIMENT v05
 ---

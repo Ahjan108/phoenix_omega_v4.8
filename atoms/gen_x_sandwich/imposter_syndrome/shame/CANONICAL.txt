@@ -1,225 +1,101 @@
-# gen_x_sandwich / imposter_syndrome / shame
-# Slot type: STORY (engine)
-# Engine: shame
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: The promotion you didn't deserve
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: pre_awareness---
 ---
-You got promoted. And immediately you knew it was a mistake. You didn't interview better than anyone else. You just got lucky. Someone made an error in hiring you. And the shame of taking the job when you know you don't actually deserve it is heavy. You're walking into the new role as a fraud. You know you're going to be found out. Your colleagues are going to figure out that you're not actually qualified. And when they do, you deserve to be humiliated. Because you took a job you didn't earn.
----
-
----
-
-## STORY v02
----
-path: The skill that everyone assumes you have
-BAND: 1
-SEMANTIC_FAMILY: SF3
----
-People assume you know how to do something. A skill. A process. A technology. And you don't. Not really. You know enough to fake it in meetings. But you don't actually know it well. And the shame of the fake knowing is sharp. You should know this. Everyone at your level knows this. And if people find out that you don't, you're done. So you stay silent. You nod in meetings. And you go home and panic about when you're going to be found out.
+RECOGNITION v02
 ---
 
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: The credit you shouldn't be getting
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You presented work in a meeting. And your boss praised you for it. And you knew that you'd gotten help. That you didn't do it alone. That someone else had done a significant portion and you were just the one in the room when it was presented. And the shame of taking credit is immediate. You should have said something. You should have made it clear that this wasn't all you. But you didn't. You took the praise. And the shame of that is sitting with you.
----
-
----
-
-## STORY v04
----
-path: The question you can't answer
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-Someone asks you a technical question in a meeting. Something about your own work. And you don't know the answer. And the shame is immediate. The shame of not knowing something about work that's supposed to be yours. The shame of hesitating. The shame of having to say you'll get back to them. Everyone's going to know. Everyone's going to figure out that you don't actually understand your own work. The shame sits in your throat.
+RECOGNITION v04
 ---
 
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: The imposter in the room
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-You're in a room with people who clearly know what they're doing. And you're the imposter. You got here by luck or accident. You don't belong. And the shame of being there when you don't belong is overwhelming. You're trying to look like you know what's happening. You're trying to contribute something intelligent. But inside you're aware that everyone can see that you're fake. You don't belong in this room. And they're going to figure that out soon.
----
-
----
-
-## STORY v06
----
-path: The work that took you twice as long
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-You did a project. And it took you twice as long as it should have. You know what the normal timeline is because your colleagues do it faster. And the shame of your slowness is crushing. You must not be as competent as them. Or you're lazy. Or you're not actually qualified. If you were good at this, it wouldn't take you twice as long. So the shame is sitting in the work. The work that proves you're not actually good at your job.
+MECHANISM_PROOF v01
 ---
 
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: The help you needed but didn't ask for
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-You could have asked for help. You could have asked for clarification. You could have asked someone more experienced. But you didn't. Because asking would have meant admitting that you didn't know. And admitting you didn't know would have confirmed what you already suspect. That you're not qualified. So you didn't ask. You did the work wrong. Or took too long. Or missed something. And the shame of the consequence sits with you. The shame of being too proud or too scared to ask.
----
-
----
-
-## STORY v08
----
-path: The fake confidence
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-You're performing confidence. You're speaking like you know what you're talking about. You're making decisions like you're qualified to make them. You're acting like you belong. And the shame is that it's an act. The real you doesn't feel confident. The real you is terrified. The real you thinks you're a fraud. But you've learned to hide that. So now you're ashamed of the hiding too. The shame of the performance. The shame of the mismatch between what you're projecting and what you're feeling.
+MECHANISM_PROOF v03
 ---
 
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: The mistake that proves it
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-You made a mistake at work. A real mistake. Something tangible that had consequences. And the shame of the mistake is compounded by the feeling that this is the proof. This is what everyone suspected. This is the moment when they figure out you're not actually qualified. The mistake isn't just a mistake. It's confirmation. It's evidence. It's the thing that was always waiting to happen.
----
-
----
-
-## STORY v10
----
-path: The gaps in your knowledge
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-You're aware of the gaps. Things you don't know. Concepts you don't fully grasp. Skills you haven't developed. And the shame of the gaps is pervasive. You should know these things by now. Everyone at your level knows these things. And if you don't, it's because you're not actually at this level. You're an imposter. And the gaps are the proof. So you're constantly trying to fill them. Constantly feeling shameful about the existence of them.
+MECHANISM_PROOF v05
 ---
 
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: The overqualification narrative
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-You're telling yourself a story. You got this job because you were overqualified or because the market was weird or because of luck. Anything but the reality that you might actually be competent. The shame of claiming competence is too big. It feels like lying. So you externalize it. You blame the circumstances that got you here. You minimize what you actually brought. The shame of owning your own capability is worse than the shame of being an imposter.
----
-
----
-
-## STORY v12
----
-path: The success that doesn't feel earned
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-You succeeded at something. A project went well. A presentation was received positively. And you're ashamed of the success. Because you know it wasn't all you. Or you were lucky. Or someone else did the real work. The success doesn't feel real. And the shame of accepting it feels worse than the shame of failure. At least with failure you know where you stand. With success you're left wondering if you actually did anything or if it was an accident.
+TURNING_POINT v02
 ---
 
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: The comparison that lands heavy
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-You're watching a colleague do something well. Something you struggle with. And the shame is immediate. They're the real version. You're the fake. They deserve the job. You don't. The comparison isn't making you motivated. It's making you ashamed. Ashamed that you're not like them. Ashamed that you struggle with things that seem easy for them. Ashamed that you're taking up space that someone more qualified could be using.
----
-
----
-
-## STORY v14
----
-path: The promotion you said yes to
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-They offered you the promotion and you said yes. But immediately you wanted to take it back. Because you don't deserve it. And the shame of saying yes to something you don't deserve is sitting with you. You should have turned it down. You should have been honest that there are more qualified people. But you said yes. So now you're living with the shame of accepting something that was never actually yours to accept.
+TURNING_POINT v04
 ---
 
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: The invisible effort
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-You work harder than everyone else. You know this. You put in hours. You study. You prepare. You're constantly trying to bridge the gap that you feel. And the shame is that nobody sees the effort. They just see the results. So they think you're naturally talented. They think you're competent. They don't know that you're working twice as hard as them just to appear capable. And the shame of that invisible effort is that it has to stay invisible. If anyone knew how hard you were trying, they'd know you're not actually good at this.
----
-
----
-
-## STORY v16
----
-path: The secret you're keeping
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-You're keeping a secret about your qualifications. Not lying exactly. But not telling the truth either. And the shame of the secret is heavy. You carry it every day. Every interaction at work is colored by the knowledge of the secret. Every compliment feels like it's given to someone who isn't actually you. Every piece of positive feedback is for the version you're projecting, not the version that exists. The shame of the secret is exhausting.
+EMBODIMENT v01
 ---
 
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: The role you can't fill
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-You're in a role and you're not filling it the way it should be filled. You know there's someone else who could do this better. Someone more qualified. Someone who actually belongs. And the shame of taking up space in a role that someone else should have is heavy. You're preventing someone more qualified from getting the opportunity. And you're not even doing it particularly well. The shame of that sits with you.
----
-
----
-
-## STORY v18
----
-path: The moment of being questioned
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-Someone questions your decision or your approach or your competence. And the shame is instant. You knew they would eventually. You knew someone would see that you don't actually know what you're doing. And this is the moment. And you're trying to defend yourself but your defense sounds hollow. Because on the inside you agree with them. You're not qualified. You don't belong. And now they might see it too.
+EMBODIMENT v03
 ---
 
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: The aspiration that feels fraudulent
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-You have a goal. Something you want to work toward. Something you want to become. And the shame of the goal is immediate. Who do you think you are. You're not the person who gets to have that goal. That goal is for people who are actually qualified. People who belong. You're a fraud. So the aspiration feels like lying. The shame of wanting more when you don't deserve what you have sits heavy.
+EMBODIMENT v05
 ---
-
----
-
-## STORY v20
----
-path: The core shame of unworthiness
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-You are ashamed at the core. Not of specific things. But of the fundamental sense that you're not worthy of the space you're taking up. Not worthy of the role. Not worthy of the salary. Not worthy of the respect. You're occupying space that a more qualified person should be occupying. And everyone is going to figure out eventually that you don't belong here. The shame is the baseline. It colors everything. It defines how you move through your work. It defines how you see yourself. And you're not sure you can ever convince yourself of anything different.
----
-

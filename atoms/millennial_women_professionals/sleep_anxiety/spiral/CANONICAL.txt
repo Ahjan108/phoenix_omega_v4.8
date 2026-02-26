@@ -1,187 +1,101 @@
-# millennial_women_professionals / sleep_anxiety / spiral
-# Slot type: STORY (engine)
-# Engine: spiral
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the thought before bed
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-I'm lying down and I think about the fact that I have to be up at 6 AM. And if I fall asleep now, I have seven hours. Seven hours is decent sleep but not optimal. Optimal is eight. And being under optimal sleep means I'll be slightly foggy tomorrow. Which means I won't perform as well. Which means I might miss something. Which means something might fall through the cracks. And I should just stay up and work instead because if I'm not going to sleep well anyway, at least I could use the time productively. So I get up.
----
-
-## STORY v02
----
-path: the math of sleep
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-I'm calculating how many hours I'll have left if I go to bed now. Seven hours. Minus time to fall asleep. Maybe six and a half. And I need eight. So I'm already short. And if I don't sleep well, I could be even more short. So tomorrow will be impacted. And Friday will be impacted if tomorrow is impacted. And the whole week could be compromised because I went to bed seven minutes too late. And the more I calculate, the more I think I should just get up.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the spiral begins
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-I got into bed and the thought appeared: what if I can't fall asleep? And once the thought appears, I'm now thinking about sleep. And thinking about sleep is the opposite of sleep. So I'm now in a loop where the fear of not falling asleep is preventing me from falling asleep. And I can feel the loop. Can notice it happening. And noticing it makes it worse.
----
-
-## STORY v04
----
-path: the hour passes
-BAND: 1
-SEMANTIC_FAMILY: SF1
----
-An hour has passed and I'm still awake and now the calculation is different. If I fall asleep right now, I have six hours. Six hours is not great. Six hours is the minimum. And if I don't fall asleep immediately, it'll be less. And less than six hours is bad. Is actually bad. And now I'm panicked about the decreasing window. And the panic is making it even harder to sleep. And the window is closing while I'm panicking about the window closing.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the spiral tightens
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: pre_awareness---
 ---
-Two hours have passed. And I've moved from trying to sleep to calculating that it's hopeless. I have five hours. But five hours with my mind this active will be broken sleep. I'll wake up multiple times. And broken sleep is worse than no sleep. So I'm almost at the point where I should just give up on sleep. Where I should accept that tonight is a loss. Where I should just stay up and get an early start tomorrow. But giving up on sleep means admitting defeat. Means acknowledging that I can't even do the basic thing of falling asleep.
----
-
-## STORY v06
----
-path: the return of the thought
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-My mind just jumped to tomorrow. If I don't sleep tonight, tomorrow will be a disaster. I have a meeting at 9. I have a presentation at 11. I need to be sharp. And I won't be sharp. And the presentation will be mediocre. And that mediocre presentation will affect how people see me. And by next week people will be talking about the mediocre presentation. And by the project deadline, they'll be remembering that I delivered a mediocre presentation. And all of that starts here. With me not sleeping. With me lying awake and unable to perform the basic function of sleeping.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: branching consequences
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-If my presentation is mediocre tomorrow, I'll lose credibility. And losing credibility means they won't promote me. And not getting promoted means I'll be stuck at this level. And being stuck here means I'm not advancing my career. And not advancing my career means I'm falling behind my peers. And falling behind my peers means I failed. And all of this is happening right now in the dark because I can't sleep. The entire trajectory of my career is being determined in this moment by whether I can close my eyes and stop thinking.
----
-
-## STORY v08
----
-path: the spiral deepens
-BAND: 2
-SEMANTIC_FAMILY: SF5
----
-Three hours have passed. And I'm now in full spiral. The thought is spiraling. The what-ifs are spiraling. The consequences are spiraling. And each layer feeds the next. And I'm lying there aware of every single layer. Aware that I'm spiraling. Aware that the spiraling is the problem. Aware that being aware of the spiraling is making it worse. And I can't escape it because to escape it I would need to sleep and I can't sleep.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the body can't rest
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-My muscles are tense. My jaw is clenched. My shoulders are up by my ears. And I'm trying to relax but the trying to relax is tensing me more. Because trying requires effort. And effort is the opposite of relaxation. So I'm now in a loop where my attempt to fix the problem is the problem. And my body is in fight-or-flight mode because the threat is the future consequences of not sleeping. And no amount of deep breathing is going to lower the alarm when the alarm is about something that might actually happen tomorrow.
----
-
-## STORY v10
----
-path: the certainty grows
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-I'm now absolutely convinced that I won't sleep tonight. That this is it. That I'm going to lie awake until my alarm goes off. And the conviction is almost a relief because at least the uncertainty is gone. At least I know what's happening. I'm not sleeping. And I need to prepare for that. I need to figure out how to function on no sleep. I need to think about caffeine. About how to hide the fact that I haven't slept. And the active problem-solving is keeping me awake as much as the spiraling was.
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the night elongates
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Four hours have passed. The night is moving so slowly. Each hour that passes is an hour less sleep I'll get. And each hour takes forever. And the slowness is part of the torture. That I'm losing sleep so slowly. That I have to experience every minute of the loss. That I can't even be unconscious for the bad part. I have to be awake and aware and spiraling through all of it.
----
-
-## STORY v12
----
-path: new spirals appear
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-Now I'm spiraling about the fact that I was spiraling. About the fact that I let the spiral take over. About the fact that I have a therapy tool for this and I didn't use it. Or I used it and it didn't work. And either way, I failed at the thing I'm supposed to be able to do. Which is manage my own mind. And I'm lying here aware that I have the capacity to handle this and I'm choosing not to use it. Or I'm unable to use it. Either way it's a failure.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the tower builds
 BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-The spiral has built this tower now. Sleep deprivation leads to bad presentation leads to lost credibility leads to no promotion leads to career stall leads to falling behind leads to regret about this moment. And I'm looking at the tower I've built. And I'm responsible for every floor of it. Because it all started with my inability to simply close my eyes and rest. And the responsibility weighs so much that it's crushing any possibility of sleep.
----
-
-## STORY v14
----
-path: desperation peaks
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-I'm five hours in. It's 4 AM. And I'm desperate. I'm desperate to sleep. Desperate to make the spiral stop. Desperate to believe that somehow this will work out. But the desperation is its own form of anxiety. And anxiety is incompatible with sleep. So I'm using desperation to try to achieve something that desperation prevents. I'm in a bind. The solution requires the opposite of what I'm doing. And I can't stop doing it.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: reaching crisis
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: experimentation---
 ---
-I gave up. I got out of bed. I'm sitting on the couch in the dark. And the giving up was also a form of failure. Because not fighting the spiral means surrendering to it. But fighting the spiral is what created it. So I'm failing either way. And the failure is real now. It's not hypothetical. It's 4:30 AM and I haven't slept and in five and a half hours I have to be at work.
----
-
-## STORY v16
----
-path: the spiral expands
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-I'm on the couch and now I'm spiraling about a different thing. About the fact that I got out of bed. About whether that means I've accepted that tonight is lost. About whether I should try again. About whether trying again will make it worse. About the fact that I'm still spiraling even though I'm not in bed anymore. About the fact that the spiral isn't about the bed. The spiral is about me.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the consequences materialize
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-My alarm is going to go off in a few hours and I'm still not asleep. The hypothetical consequence is now becoming the actual consequence. The thing I was spiraling about is now real. And the spiral doesn't stop. Instead it intensifies. Because now the danger is real. Now the thing I was afraid of is actually happening. And the spiral that was warning me about the danger is now confirmed as justified.
----
-
-## STORY v18
----
-path: the cascade begins
-BAND: 4
-SEMANTIC_FAMILY: SF5
----
-I'm tired now. Finally tired. But too tired to sleep now. My body is past the window. I've spiraled so long that now I'm in exhaustion mode. And exhaustion is not the same as sleepiness. Exhaustion is a different state. And it's almost worse because now I'm tired and I have to function. And functioning while exhausted is a skill that requires I don't spiral. But I've been spiraling for hours. The practice for handling this is gone.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the day begins
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-My alarm went off. I haven't slept. The thing I was spiraling about all night has arrived. It's real. And I'm here. Exhausted. Foggy. Unable to stop the spiral even though the thing that started the spiral is now happening. And I have to go to that meeting. Have to give that presentation. Have to be professional and sharp and present while my brain is broken from spiral and sleep deprivation.
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: the consequence realized
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-The presentation is today and I'm watching myself give it. I'm foggy. I'm not sharp. I'm probably not as mediocre as I feared but I'm definitely not my best. And I'm watching people notice. And the spiral was right. The spiral predicted this. But being right about the catastrophe doesn't make it better. It makes it worse. Because now I'm living in the actual catastrophe that I created by spiraling all night about the catastrophe.
----
-

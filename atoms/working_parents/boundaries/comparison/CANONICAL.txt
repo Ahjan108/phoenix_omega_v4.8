@@ -1,206 +1,101 @@
-# working_parents / boundaries / comparison
-# Slot type: STORY (engine)
-# Engine: comparison
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the colleague with clear work hours
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Your colleague leaves at 5pm every day. Period. You're still there at 7pm. She has boundaries. Clear ones. She protects them. And she's fine. She's still successful. Still respected. She just has limits. You don't have limits. You're available all the time. You're responsive. You're the one they call. And you're burning out. She has the boundary and she's thriving. You don't have the boundary and you're drowning. She figured out something you haven't. How to have limits and still succeed.
-
----
-
-## STORY v02
----
-path: the mother who says no to the extra activities
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-There's a mother in your circle who says no. Her kid wants to do four activities. She says her kid can do one. That's it. And she sticks to it. You can't do that. Your kids ask and you say yes. Because you feel guilty. Because they deserve it. Because you're not a good parent if you say no. This mother is different. She has boundaries about what she'll manage. And she seems peaceful. And your kids are always scheduled to the point of chaos. And you're exhausted. She said no and her life is better. You said yes and you're drowning.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the partner who maintains their hobbies
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Your partner goes to their hobby. Once a week. No matter what. They protected it. You don't have a hobby. You gave yours up for logistics. You gave it up because you felt like you couldn't ask someone to watch the kids while you went to do something for yourself. Your partner didn't have those boundaries issues. They maintained the boundary. And they have something outside of work and parenting. Something that's theirs. You don't. You're comparing their self-care to your self-sacrifice and theirs looks healthier.
-
----
-
-## STORY v04
----
-path: the friend who doesn't answer work emails at night
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-Your friend doesn't read work emails after 6pm. You do. You're constantly checking. Constantly available. Your friend is probably less anxious than you are. More present with their family. More relaxed. You're comparing her clear boundary to your lack of boundary and her life looks better. She's protected her evenings. You haven't. And the cost is you're always on. Always working. Always in two places at once.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the parent who has childcare help
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-There's a parent who has a nanny. Or family help. Or can afford after-school care. They have boundaries because they have help. When they say they need time they have someone to cover. You don't have that. You have to be available because nobody else is going to be. You're comparing their situation to yours and it seems unfair. They can have boundaries because they have resources. You can't have boundaries because you're it. You're the only one. They have help. You have nobody.
-
----
-
-## STORY v06
----
-path: the person who prioritizes their marriage
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-There's a couple who has date nights. Protected. Every other week. They have a boundary about their marriage. They won't let parenting and work consume it. You and your partner haven't had a date in months. You can't find time. You can't find energy. You're comparing their intentional marriage to your neglected one and theirs looks better. They have the boundary and they're protecting something. You don't have the boundary and something is deteriorating. You're watching their relationship stay strong because they protected it.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the person who says no to family drama
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-There's a person who sets boundaries with their family of origin. They don't engage in the drama. They don't help with every problem. They have limits. You can't do that. Your mother calls and you answer. Your father needs something and you help. You can't say no. Your friend has the boundary. Their family learned to respect it. Your family learned that you'll always help. So they keep asking. Your friend has peace because they said no. You have endless obligations because you said yes.
-
----
-
-## STORY v08
----
-path: the person who lets things go undone
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-There's a person whose house is messy. Whose laundry piles up. Who lets some things slide. And they seem okay with it. They have a boundary about what they'll manage. You can't do that. You do the laundry. You clean. You manage everything. Your house is controlled. But you're exhausted. They let things go and they're peaceful. You control everything and you're burned out. They chose boundaries about what they'll do. You chose to do everything. And you're paying the price.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the boss who respects boundaries
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-Your colleague has a boss who respects their boundaries. Doesn't demand extra. Doesn't expect weekend work. Respects the off hours. Your boss is different. Your boss expects you to be available. Expects you to deliver. Expects extra. The difference is their boss respects the boundary. Your boss challenges it. So your colleague can protect their time. And you can't. You're comparing the bosses and yours is worse. But the real difference is that your colleague's boss set the tone. Your boss set a different tone.
-
----
-
-## STORY v10
----
-path: the person who has rules and enforces them
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-There's a person who has rules for their kids. Bedtime is bedtime. No screens after 7. These are the rules and they're enforced. Your rules are suggestions. Your kids negotiate. You cave. You're comparing their clear structure to your fluid chaos and their kids seem more secure. Their kids know what to expect. Your kids are negotiating. Pushing. Testing. Because you won't hold the boundary. They have a firm boundary. You have none.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the person who knows what they can handle
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-There's a person who knows what they can handle. They know their capacity. They know when they're at limit. They say no. You don't know your capacity. You don't recognize the limit until you've passed it and fallen apart. They have a boundary based on self-knowledge. You have no boundary because you don't know yourself. You're comparing someone who knows themselves to someone who doesn't and the difference is huge. They protect themselves because they understand what they can manage. You don't understand yourself.
-
----
-
-## STORY v12
----
-path: the person whose partnership shares the load
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-There are partners who split things equally. One person manages the kids. One manages the house. It's divided. There's a boundary about who does what. Your partnership doesn't work that way. You do most things. You manage most things. There's no boundary about division. So you carry more. Your partners are comparing to someone whose partnership has boundaries and structure. Yours doesn't. So you're exhausted. They're balanced.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the gap between protected and unprotected time
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-You're looking at someone who has protected time. Time that's theirs. Time that they use for themselves. Time that nobody interrupts. And you don't have that. Every time you try to protect time someone violates the boundary. Your kid needs you. Your work calls. Your partner asks for something. The gap between their protected time and your invaded time is massive. They have boundaries that hold. You have boundaries that crumble. The difference is visible. They have peace. You have chaos.
-
----
-
-## STORY v14
----
-path: the person who recovered from burnout
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-Someone you know was burned out. They set boundaries. They said no. They protected themselves. And they recovered. They're better now. They have energy again. They're present again. They're okay. You're burned out. You haven't set boundaries. You haven't said no. You haven't protected yourself. You're watching them recover and you're wondering why you can't. The difference is they set boundaries. You haven't. They saved themselves. You're still drowning.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the person whose boundary cost something but was worth it
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Someone set a boundary. It cost them something. Maybe a job opportunity. Maybe a relationship. Maybe a specific outcome. But they said it was worth it. They needed to protect themselves more than they needed that thing. You're comparing their willingness to sacrifice something to your unwillingness. They chose themselves. You choose everything else. They lost something concrete to gain peace. You're not willing to make that trade. So you keep both the thing and the suffering. They protected the boundary even though it cost. You won't protect the boundary because it might cost.
-
----
-
-## STORY v16
----
-path: the person who accepted a smaller life to have boundaries
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-Someone accepted a smaller career. Less advancement. Less income. To have boundaries. To have time. To have peace. They made the calculation and decided it was worth it. You're looking at their smaller life but you're noticing their peace. And you're comparing it to your bigger life but smaller peace. They have boundaries. You have everything. They're happy. You're exhausted. The comparison makes you wonder if you made the wrong choice. They accepted smaller to have boundaries. You're holding onto bigger and losing yourself.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the gap between your boundaries and what's needed
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You're beginning to see the gap. Between the boundaries you have and the boundaries you need. You need more protection. You need bigger boundaries. But you're watching people with bigger boundaries and they seem selfish. Ungrateful. Like they're not giving enough. But they're happy. They're intact. They're not breaking. And you're giving everything and you're breaking. The gap between what you have and what you need is the gap between survival and thriving. You're comparing and finally seeing that the gap is real.
-
----
-
-## STORY v18
----
-path: the realization that boundaries aren't selfish
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-You're starting to see that the people with boundaries aren't selfish. They're healthy. They're protecting something real. They're not being selfish by saying no. They're being wise by recognizing their limits. And you're comparing their healthy limits to your destructive lack of limits and finally seeing which is which. The person with boundaries isn't the problem. You are. You've crossed over into harm. And they've protected themselves into wellness. The comparison is finally showing you the truth.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the person who modeled what's possible
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-There's someone who showed you what's possible. Someone with boundaries who's also successful. Who also cares about people. Who also shows up. But who also has limits. They're proof that you can have both. Boundaries and meaningful work. Boundaries and good parenting. Boundaries and a strong relationship. They're the model. And you're comparing yourself to them and finally seeing that you don't have to give up everything to be a good person.
-
----
-
-## STORY v20
----
-path: the knowledge that you're comparing the wrong things
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-You finally see it. You've been comparing your capacity to theirs. Your limits to their limits. Your willingness to sacrifice to their boundaries. But you're comparing the wrong things. You should be comparing your peace to their peace. Your sustainability to their sustainability. You can't compare someone with boundaries to someone without them on the axis of how much they give. You need to compare them on how long they can keep giving. They can keep going forever because they have boundaries. You can't. You're comparing wrong and it's costing you.
-
+EMBODIMENT v05
 ---

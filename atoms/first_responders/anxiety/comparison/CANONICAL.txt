@@ -1,5 +1,4 @@
-# first_responders × anxiety × comparison
-# 20 atoms: 5 recognition, 5 mechanism_proof, 5 turning_point, 5 embodiment
+
 
 ## RECOGNITION v01
 ---
@@ -11,17 +10,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
 Kyle watches Dex in the station. Same call that just came in. Kyle's heart is elevated. His hands feel shaky. Dex is reading. Casually reading. Like the call was nothing. Kyle thinks: he's been doing this longer. He's fine with it. So I should be fine with it. But Kyle's not fine. His stomach is tight. His throat is closing. He's comparing himself to Dex and losing. The comparison tells Kyle something must be wrong with him. Everyone else is handling the thing that's destroying his nervous system.
-
-## RECOGNITION v02
+RECOGNITION v02
 ---
-path: story_atoms/first_responders/anchored/anxiety/comparison/recognition/micro/v02.txt
-BAND: 3
-MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: pre_awareness
----
-Renata watches another captain handle a difficult situation with apparent ease. The captain is calm. Clear. She doesn't seem to be running the call through her body. Renata's chest is tight just listening to the debrief. She thinks: I should be like that by now. Thirty-nine years old. Experienced. But she's more activated, not less. The comparison is constant. She measures herself against the captain who seems unbothered. She always comes up short.
 
 ## RECOGNITION v03
 ---
@@ -33,17 +23,8 @@ COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
 Sofia notices another firefighter never seems rattled. This firefighter runs calls with ease. Calm. Solid. Sofia's hands shake after calls. Her stomach is tight. She's comparing her inside to the other woman's outside. Sofia doesn't know what's happening inside the other woman. But the comparison tells Sofia she's the only one struggling. So she hides it. She's ashamed that she can't be like the unshakeable firefighter.
-
-## RECOGNITION v04
+RECOGNITION v04
 ---
-path: story_atoms/first_responders/anchored/anxiety/comparison/recognition/micro/v04.txt
-BAND: 2
-MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: pre_awareness
----
-Heather is a sergeant. She's supposed to be calmer than her unit. But her anxiety is climbing. She watches the rookies and they're joking. They're fine. She's the one holding the tension of the shift. The comparison is that she's supposed to be the stable one. And she's the one barely holding it. She realizes the cops are looking to her for steadiness. The comparison means she can't let anyone know she's anything other than solid.
 
 ## RECOGNITION v05
 ---
@@ -55,17 +36,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
 Brianna is new. She's two years on the job. She watches the veterans. They don't seem anxious about calls. They don't seem to activate the way she does. The comparison tells her: I'm not cut out for this. I'm too anxious. I'm not hardened enough. The comparison is constant. Every shift, she's measuring her anxiety against their apparent steadiness. And every shift, she comes up short. Which means she's failing at the fundamental requirement of the job.
-
-## MECHANISM_PROOF v01
+MECHANISM_PROOF v01
 ---
-path: story_atoms/first_responders/anchored/anxiety/comparison/mechanism_proof/micro/v01.txt
-BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: identity
-COST_INTENSITY: 4
-IDENTITY_STAGE: destabilization
----
-Kyle is becoming hypervigilant about how he's doing compared to Dex. He's watching to see if he looks more anxious. He's comparing his behavior. He's trying to perform steadiness. When Dex looks at him, Kyle forces a casual expression. When a call comes, Kyle's body activates but he's also monitoring: am I showing it? Does Dex notice? The anxiety is doubled now. There's the anxiety about the call. And the anxiety about whether his anxiety is visible. The comparison has created a performance state. He's performing recovery before he's even processed the activation.
 
 ## MECHANISM_PROOF v02
 ---
@@ -77,17 +49,8 @@ COST_INTENSITY: 4
 IDENTITY_STAGE: destabilization
 ---
 Renata is now constantly measuring herself against the other captain. The captain seems unbothered. So Renata performs unbothered. She smiles more. She jokes more. She's performing the appearance of steadiness while her inside is running. The comparison has created a gap. She's split. Outside: calm. Inside: activated. The anxiety is about being found out. Someone noticing that she's not actually like the other captain. The comparison means she can never relax. She's always performing the right version.
-
-## MECHANISM_PROOF v03
+MECHANISM_PROOF v03
 ---
-path: story_atoms/first_responders/anchored/anxiety/comparison/mechanism_proof/micro/v03.txt
-BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 4
-IDENTITY_STAGE: destabilization
----
-Sofia has started asking the other firefighter subtle questions. How do you handle stress? What do you do after hard calls? She's fishing for the secret. The secret that explains how the other woman isn't anxious like Sofia is. The other woman gives generic answers. That makes Sofia more anxious. Maybe there's no secret. Maybe the other woman is just better at this. The comparison has become an obsession. Sofia's mind is running constant calculations: what's she doing that I'm not? Why is she okay when I'm not okay?
 
 ## MECHANISM_PROOF v04
 ---
@@ -99,17 +62,8 @@ COST_INTENSITY: 4
 IDENTITY_STAGE: destabilization
 ---
 Heather is comparing herself to the image she thinks she should be. She's a sergeant. Sergeants are stable. So she performs stability. But inside, her anxiety is increasing because she's not actually stable. She's maintaining the appearance. The comparison is between who she is and who she's supposed to be. The gap is getting wider. She can't admit that she's struggling because admitting it means admitting she's not who she's supposed to be. The anxiety is now about being exposed.
-
-## MECHANISM_PROOF v05
+MECHANISM_PROOF v05
 ---
-path: story_atoms/first_responders/anchored/anxiety/comparison/mechanism_proof/micro/v05.txt
-BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: destabilization
----
-Brianna is comparing herself to every veteran at every moment. They handle calls. She handles calls. They're fine. She's anxious. The comparison means she's fundamentally different. Wrong. The anxiety is now about belonging. Do I belong here? The veterans don't seem to belong in the way I have to force belonging. The comparison has convinced her that everyone else got the manual for how to not be anxious. She didn't. She's doing something wrong.
 
 ## TURNING_POINT v01
 ---
@@ -121,17 +75,8 @@ COST_INTENSITY: 4
 IDENTITY_STAGE: experimentation
 ---
 Kyle talks to Dex. Not about anxiety. Just: how do you stay so calm? Dex looks at him. He says: I'm not calm. I just don't show it. I go home and I'm a wreck. I have a partner who helps me process. I've been doing this for fifteen years. I earned the ability to seem calm. Kyle realizes: Dex is not actually unbothered. He's just older. The comparison collapses. What Kyle thought was effortless performance is actually practiced presence. That changes things. Kyle's anxiety hasn't changed. But the comparison has lifted because he knows Dex's baseline too.
-
-## TURNING_POINT v02
+TURNING_POINT v02
 ---
-path: story_atoms/first_responders/anchored/anxiety/comparison/turning_point/micro/v02.txt
-BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
----
-Renata is having coffee with the other captain. They're talking. And the other captain mentions: I've been on medication for anxiety for ten years. Renata's entire framework collapses. The captain—the unbothered one—is medicated. The comparison was based on a lie. The captain isn't naturally calm. She's working with the same tools as Renata. She just talked about it. The conversation changes everything. Renata realizes: the comparison wasn't real. I was comparing my reality to an imagined version of her.
 
 ## TURNING_POINT v03
 ---
@@ -143,17 +88,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: experimentation
 ---
 Sofia asks the other firefighter directly: are you actually this calm or are you pretending? The firefighter laughs. She says: pretending. This job makes me anxious as hell. I go to the bathroom sometimes just to let my face relax. Sofia realizes the comparison was fiction. The other woman was performing just like Sofia was performing. The comparison collapses and Sofia stops the performance. She lets her face relax. The firefighter sees the real Sofia and smiles. You're okay. You're just real about it.
-
-## TURNING_POINT v04
+TURNING_POINT v04
 ---
-path: story_atoms/first_responders/anchored/anxiety/comparison/turning_point/micro/v04.txt
-BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: identity
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
----
-Heather stops comparing herself to the version she thinks she should be. She's a sergeant who feels anxiety. That's the fact. She starts leading from that fact instead of against it. She tells her unit: I'm going to be clear about something. I get anxious about calls. So I focus. That's what I do. The unit doesn't fall apart. In fact, they relax a little. They know why she's careful. The comparison dissolves because she stops pretending to be something she's not.
 
 ## TURNING_POINT v05
 ---
@@ -165,17 +101,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: experimentation
 ---
 Brianna stops looking at the veterans to see how she's different. Instead, she observes them carefully. One veteran shakes his hands after a call. Another gets quiet. A third goes straight to the gym. They're all anxious. They all have methods. The comparison shifts. Instead of: I'm the only one anxious. The new comparison is: I'm anxious like everyone else. I'm just finding my method. Which is completely different.
-
-## EMBODIMENT v01
+EMBODIMENT v01
 ---
-path: story_atoms/first_responders/anchored/anxiety/comparison/embodiment/micro/v01.txt
-BAND: 1
-MECHANISM_DEPTH: 4
-COST_TYPE: identity
-COST_INTENSITY: 2
-IDENTITY_STAGE: self_claim
----
-Kyle stops comparing himself to Dex and just observes the calls. His anxiety is his. Dex's steadiness is his. They're different people with different resources. Kyle's resources are: twenty-seven years old, new to the job, and a capacity for learning. He uses those. He doesn't need to be like Dex. He needs to be Kyle, who is anxious and functional.
 
 ## EMBODIMENT v02
 ---
@@ -187,17 +114,8 @@ COST_INTENSITY: 2
 IDENTITY_STAGE: self_claim
 ---
 Renata leads her unit now without the performance. She's a sergeant who manages anxiety with care and presence. The unit respects her more because they're not guessing about her state. She's clear. She's real. The comparison to the other captain is over. Renata is building her own model of leadership. One that includes her actual experience.
-
-## EMBODIMENT v03
+EMBODIMENT v03
 ---
-path: story_atoms/first_responders/anchored/anxiety/comparison/embodiment/micro/v03.txt
-BAND: 2
-MECHANISM_DEPTH: 4
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: self_claim
----
-Sofia is just another firefighter now. Not comparing. Not measuring. She handles calls with her presence. Sometimes anxious. Always real. Her crew knows her. They trust her. The comparison trap is over. She's solid in her own skin.
 
 ## EMBODIMENT v04
 ---
@@ -209,14 +127,5 @@ COST_INTENSITY: 2
 IDENTITY_STAGE: self_claim
 ---
 Heather is learning that strength isn't the absence of anxiety. Strength is managing anxiety while still showing up. She's rebuilding her identity. A sergeant who is strong because she feels things and acts anyway.
-
-## EMBODIMENT v05
+EMBODIMENT v05
 ---
-path: story_atoms/first_responders/anchored/anxiety/comparison/embodiment/micro/v05.txt
-BAND: 2
-MECHANISM_DEPTH: 4
-COST_TYPE: social
-COST_INTENSITY: 2
-IDENTITY_STAGE: self_claim
----
-Brianna belongs. The veterans were always anxious. She's just new to the team. The comparison that was holding her out is gone. She's part of the unit now. Running calls. Anxious. Human. Same as everyone else.

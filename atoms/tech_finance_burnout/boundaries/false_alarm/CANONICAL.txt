@@ -1,271 +1,101 @@
-# tech_finance_burnout / boundaries / false_alarm
-# Slot type: STORY (engine)
-# Engine: false_alarm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: You panic about a message that was nothing
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Your manager sends you a message. The message is brief. The message doesn't say what it's about.
-
-Your heart races. You're thinking about the worst things. You're thinking about being fired. You're thinking about something you did wrong.
-
-You read the message. It's nothing bad. They just wanted to schedule a meeting.
-
-But the panic was real. The panic was about a non-crisis.
-
+RECOGNITION v02
 ---
 
-## STORY v02
----
-path: You assume the meeting is bad news
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-Your manager schedules a meeting. No topic. Just calendar invite.
-
-You panic. You're assuming the meeting is about your performance. You're assuming you're in trouble.
-
-The meeting is probably fine. The meeting is probably routine.
-
-But you've already panicked. You've already imagined the worst.
-
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: You interpret silence as disapproval
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-You shipped code. Nobody says anything. The silence feels significant.
-
-You're interpreting silence as disapproval. You're interpreting the absence of feedback as negative feedback.
-
-But the silence might just be silence. The silence might not mean anything.
-
+RECOGNITION v04
 ---
 
-## STORY v04
----
-path: You get a notification and assume crisis
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-Your phone buzzes. It's 7 PM. You're not working.
-
-You jump. Your heart rate spikes. You're assuming it's an emergency. You're assuming the system is down.
-
-You check. It's a regular notification. It's not a crisis. It's just work.
-
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: You respond to email immediately because you're afraid
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Email comes in. You respond in minutes. You're not responding because it's urgent.
-
-You're responding because you're afraid. You're afraid that if you don't respond fast, something will happen. Something will go wrong.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v06
----
-path: You can't turn off notifications because of catastrophe fears
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-You want to turn off notifications. You want to rest. You can't.
-
-You're afraid that something will happen. Something will break. You'll miss it.
-
-The fear is not based on history. But the fear keeps you vigilant.
-
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: You assume feedback means you're doing badly
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-Your manager gives you feedback. The feedback is constructive. The feedback is normal.
-
-You assume it means you're doing badly. You assume it means you're in trouble.
-
-You're interpreting feedback as threat.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v08
----
-path: You panic about a future scenario that's unlikely
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-What if the deployment fails. What if the server goes down. What if the customer is upset.
-
-These things might happen. But they're not happening right now. You're panicking about a scenario that's unlikely.
-
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: You mobilize for a crisis that doesn't exist
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-You're standing by. You're ready. You're prepared for the emergency.
-
-But there's no emergency. There's no crisis. You're ready for nothing.
-
-And you're exhausted from the readiness.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v10
----
-path: You can't relax because something might happen
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-You're trying to relax. You're trying to rest. You can't.
-
-Something might happen. Not something that's actually likely. But something. The possibility is keeping you vigilant.
-
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: You hear about someone getting fired and assume it's coming for you
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Someone at another company got fired. It wasn't related to you. It doesn't affect you.
-
-But you're panicking. You're assuming it's a sign. You're assuming it could happen to you.
-
+TURNING_POINT v02
 ---
 
-## STORY v12
----
-path: You mistake routine communication for emergency
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-A meeting gets scheduled. A message comes in. A deployment is happening.
-
-These are routine. These are normal. You're treating them like emergencies.
-
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: You're on high alert for a threat that never comes
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-You've been hypervigilant for months. You've been ready. You've been waiting.
-
-Nothing has happened. The threat never came. The crisis never occurred.
-
-But you're still in crisis mode.
-
+TURNING_POINT v04
 ---
 
-## STORY v14
----
-path: You're exhausted from false alarms
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-You've panicked a hundred times. Ninety nine of those times it was nothing.
-
-But the one time it was real, you were ready. So the false alarms feel necessary.
-
-But the exhaustion is real.
-
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: You can't distinguish real threats from false alarms
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Your threat detection system is broken. Everything feels like a threat. Actual threats feel the same as false alarms.
-
-You can't calibrate. You can't tell what's important. You're treating everything as critical.
-
+EMBODIMENT v01
 ---
 
-## STORY v16
----
-path: You mobilize and then feel foolish when it's nothing
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-You panicked. You got ready. You mobilized. Nothing happened.
-
-Now you feel foolish. You feel like you overreacted. You feel like you're being irrational.
-
-But you're going to do it again the next time.
-
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: Your nervous system doesn't believe it's safe
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-Nothing bad is happening. The company is stable. Your job is secure. The system is fine.
-
-Your nervous system doesn't believe it. Your nervous system is in threat mode. Your nervous system keeps finding danger.
-
+EMBODIMENT v03
 ---
 
-## STORY v18
----
-path: You realize you're living in a state of false emergency
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-You're living like it's always a crisis. You're living like something's about to break. You're living in perpetual false alarm mode.
-
-And the constant alert is destroying you.
-
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: You can't tell if your boundaries are protecting you or trapping you
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-You set a boundary. You stay available anyway. You monitor even when you said you wouldn't.
-
-The false alarm is about whether the boundary will work. Whether you'll be safe if you actually set it.
-
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: You decide to calibrate your threat detection
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-You're going to recalibrate. You're going to learn what's actually a threat and what's a false alarm.
-
-The threat detection will never be perfect. But it doesn't have to keep firing at nothing.
-
-You can survive real threats. Most of the alarms are false.
-

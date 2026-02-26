@@ -1,225 +1,101 @@
-# gen_x_sandwich / sleep_anxiety / overwhelm
-# Slot type: STORY (engine)
-# Engine: overwhelm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: too_much_to_hold_at_night
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-I get into bed and my brain is a to-do list without borders. Mom's physical therapy appointment, my son's college essay deadline, the work presentation, the roof that might leak, the parent-teacher conference I forgot, the fact that I haven't had time for myself in months. It's all there at once and my brain won't quiet down because there's genuinely too much.
----
-
----
-
-## STORY v02
----
-path: the_full-to-bursting_night
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-By bedtime I'm saturated with the day and the week and the year. Everyone has needed something. I'm out of reserves. Sleep should be relief but I'm too full to rest. The overwhelm is somatic—my body is braced for more, too activated to settle.
+RECOGNITION v02
 ---
 
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: holding_three_lives_at_once
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-I'm tracking mom's health, my kids' development, my job responsibilities. All three require attention tonight. But sleep requires me to stop tracking. I can't. The overwhelm is that I'm responsible for three different people's wellbeing and I can't put it down, even at night.
----
-
----
-
-## STORY v04
----
-path: the_bed-time_cascade
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-I lie down and everything I didn't process during the day comes flooding in. There's the conversation with my mother that felt inadequate, the text my daughter sent that needs a thoughtful response, the review meeting I'm unprepared for. It's all arriving at once. The overwhelm is that my sleeping mind is supposed to process what my waking hours couldn't accommodate.
+RECOGNITION v04
 ---
 
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: too_many_people_need_me
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-My mother needs medical management. My daughter needs emotional support. My son needs guidance. My work needs my presence. My partner needs connection. I'm one person. By bedtime, the overwhelm of their needs is palpable. Sleep requires me to stop being needed, which I don't know how to do.
----
-
----
-
-## STORY v06
----
-path: the_accumulated_fatigue
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-It's not just today's fatigue. It's months of it. Years of it. I'm carrying the accumulated weight of managing multiple people's lives and my own. By bedtime, the weight is physical. Sleep should help but I'm too weighted down to rest.
+MECHANISM_PROOF v01
 ---
 
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: everything_demanding_simultaneously
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-Email from work. Text from my mother. Thought about my son's future. Awareness of my own declining health. Worry about my marriage. It's all demanding attention right now at 11 PM. The overwhelm is the simultaneity of it all.
----
-
----
-
-## STORY v08
----
-path: the_mental_traffic_jam
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-There are too many threads running through my head. Each one is important. Each one needs processing. But I can't process all of them at once. The overwhelm is that my brain doesn't have the bandwidth for this much complexity.
+MECHANISM_PROOF v03
 ---
 
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: holding_everyone's_emotional_weather
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-My mother is anxious. My daughter is stressed. My son is frustrated. My partner is disappointed. I'm absorbing all of it. By bedtime, I'm carrying five people's worth of emotional weather. The overwhelm is the emotional weight of it all.
----
-
----
-
-## STORY v10
----
-path: the_time_crunch
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-There are too many things that need to happen and not enough time to do them. I need sleep but also need to prep for tomorrow. I need to call my mother but also need to be present with my kids. The overwhelm is the chronic time crunch that never resolves.
+MECHANISM_PROOF v05
 ---
 
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: too_much_to_think_about
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-If I think about my mother's health, I get anxious. If I think about my kids' futures, I get anxious. If I think about my job, I get anxious. If I think about my own aging, I get anxious. There is no safe thought. The overwhelm is cognitive—there's nowhere to rest mentally.
----
-
----
-
-## STORY v12
----
-path: the_uncompleted_tasks
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-There are things I said I'd do that I didn't do. There are things I should have done that I didn't. There are things I'm supposed to be doing that are undone. By bedtime, the list of incompletions is overwhelming.
+TURNING_POINT v02
 ---
 
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: capacity_is_breached
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-I have normal capacity. Everyone is asking for more than normal capacity. The gap between what's needed and what I can give is the fundamental overwhelm.
----
-
----
-
-## STORY v14
----
-path: the_weight_of_maturity
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-I'm the adult now. I'm supposed to know how to handle this. I don't. The overwhelm is that I'm expected to manage and I'm over my head. The weight of that expectation is crushing at bedtime.
+TURNING_POINT v04
 ---
 
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: holding_too_many_threads
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-Work thread, mother thread, daughter thread, son thread, marriage thread, self-care thread (which is basically nonexistent). The overwhelm is managing all of them and keeping them from tangling into something worse.
----
-
----
-
-## STORY v16
----
-path: the_unrelenting_demand
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-Sleep is the only time I get to stop. But sleep requires me to be still while my mind demands to solve everything at once. The overwhelm is my mind's refusal to rest.
+EMBODIMENT v01
 ---
 
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: everything_matters_equally
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-Everything has importance. Nothing can wait. Nothing can be deprioritized. The overwhelm is that I can't make trade-offs because everything is critical.
----
-
----
-
-## STORY v18
----
-path: the_biological_impossibility
-BAND: 5
-SEMANTIC_FAMILY: SF3
----
-I need to sleep but also need to process, plan, and problem-solve. Sleep and vigilance are opposite states. The overwhelm is trying to exist in both simultaneously.
+EMBODIMENT v03
 ---
 
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: too_much_self-awareness
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-I'm aware of how much I'm managing. I'm aware of the impossibility. I'm aware that I'm drowning. The self-awareness doesn't help me sleep; it prevents it. The overwhelm is compounded by being too aware of the overwhelm.
+EMBODIMENT v05
 ---
-
----
-
-## STORY v20
----
-path: the_night_is_when_it_catches_up
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-During the day, I can push through. At night, everything I pushed through catches up. The overwhelm is deferred during the day and then compounds at night.
----
-

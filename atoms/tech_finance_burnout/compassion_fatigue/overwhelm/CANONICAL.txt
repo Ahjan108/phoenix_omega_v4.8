@@ -1,187 +1,101 @@
-# tech_finance_burnout / compassion_fatigue / overwhelm
-# Slot type: STORY (engine)
-# Engine: overwhelm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: The portfolio that's too big
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You have too many companies. More than you can really track. More than you can really help. And you're managing them like you're managing a spreadsheet. You have metrics. You have status updates. You have quarterly check-ins. But you don't have presence. You don't have the capacity to actually be useful to any individual company. You're overwhelmed by the sheer number of systems you're holding in your head.
----
-
-## STORY v02
----
-path: The data that never stops coming
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-The companies send you dashboards. They send you metrics. They send you updates. And the data is relentless. Every day. Every week. Every month. And you're supposed to consume all of it. You're supposed to make sense of it. You're supposed to extract signal from noise. And the overwhelm is in the volume. It's in the constant stream of information that never stops.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: The founders who need you
 BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Each founder thinks their company is the most important. They want your attention. They want your time. They want your advice. And you can't give it to all of them equally. So you have to triage. You have to decide who gets your time and who doesn't. And the overwhelm is in the knowledge that you're choosing winners and losers. That you're deciding which companies get your help and which ones are on their own.
----
-
-## STORY v04
----
-path: The decisions that require trade-offs
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-Every decision you make affects something. Lead or don't lead the next round. Introduce the founder or don't. Give advice or let them figure it out. And the decision tree is massive. The number of possible outcomes is overwhelming. And you're trying to optimize across all of them. You're trying to make the best decision in each case but also make decisions that are consistent with each other.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: The meetings that multiply
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-One founder meeting becomes two becomes five becomes twenty. And then there are board meetings. And investor meetings. And mentor meetings. And the days are just back-to-back meetings. And you're not solving problems. You're just discussing problems. And the overwhelm is in the meta-problem: you don't have time to actually work on anything because you're too busy talking about everything.
----
-
-## STORY v06
----
-path: The emails that never end
-BAND: 3
-SEMANTIC_FAMILY: SF1
----
-The emails are infinite. Founders asking for intros. Founders asking for advice. Founders asking for capital. Other investors asking your opinion. And each email deserves a thoughtful response. But there are hundreds of them. And the overwhelm is in the expectation. The expectation that you'll respond to everything thoughtfully. That you'll be available. That you'll be helpful.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: The thesis work that never happens
 BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-You have a job to do. You have to think about the market. You have to develop theses. You have to predict trends. You have to do deep analysis. But you don't have time. You're too busy with operational stuff. Too busy managing the portfolio. Too busy with immediate crises. And the overwhelm is in knowing that the important work isn't happening. That you're managing instead of thinking.
----
-
-## STORY v08
----
-path: The problems that are too big
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-Some of the problems the founders are facing are too big. They're not solvable with an introduction or a piece of advice. They're systemic. They're market problems. They're team problems. And you're trying to apply small fixes to big problems. And the overwhelm is in the inadequacy. You can't fix it. Nobody can fix it. You're just going through the motions.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: The future that's too uncertain
-BAND: 5
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-You're trying to predict the future. You're trying to understand market trends. You're trying to forecast outcomes. And the future is too uncertain. The variables are too many. The interactions are too complex. And the overwhelm is in the knowledge that your predictions are probably wrong. That you're making decisions based on forecasts that are essentially guesses.
----
-
-## STORY v10
----
-path: The systems that are broken
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-Your systems are breaking down. The spreadsheets are outdated. The processes are inefficient. The workflows are broken. And you know you should fix them. But you don't have time. Because you're too busy managing the portfolio. And the overwhelm is in the awareness that your broken systems are adding to the overwhelm. That you're creating more work for yourself by not fixing them.
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: The information I can't process
-BAND: 1
+BAND: 3
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: experimentation---
 ---
-There's too much information. More than you can actually process. More than your brain can hold. And you're trying anyway. You're trying to remember context. You're trying to track trends. You're trying to connect dots. And your brain is overloaded. The overwhelm is cognitive. It's the physical sensation of too much information moving too fast.
----
-
-## STORY v12
----
-path: The context switching that's killing you
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-You switch contexts constantly. From one company's problem to another's. From financial analysis to people management. From strategy to tactics. And the cost of context switching is real. Every switch costs energy. Every switch loses focus. And the overwhelm is in the accumulation of those costs.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: The accountability that's distributed
 BAND: 3
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: experimentation---
 ---
-You're accountable for the portfolio. But the founders are accountable for their companies. So nobody is fully accountable for anything. And the overwhelm is in the ambiguity. You're supposed to help but you're not responsible. You're supposed to have leverage but you're not in control.
----
-
-## STORY v14
----
-path: The network that exhausts
-BAND: 4
-SEMANTIC_FAMILY: SF5
----
-You have to maintain relationships. With founders. With other investors. With potential partners. And every relationship requires energy. Requires maintenance. Requires you to be present and helpful. And the overwhelm is in the relational burden. In knowing that every relationship is something you have to manage.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: The unknowns that keep growing
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-The more you know, the more you realize you don't know. The more you look at the market, the more you see the complexity. The more you understand the systems, the more you understand how much you don't understand. And the overwhelm is in the expanding unknown. In the knowledge that your ignorance is actually growing.
----
-
-## STORY v16
----
-path: The pattern recognition that's exhausting
 BAND: 3
-SEMANTIC_FAMILY: SF2
+SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-Your job is to see patterns. To recognize when something is working or not working. To predict based on what you've seen before. And pattern recognition is exhausting. It requires constant attention. It requires you to be mentally present for everything. And the overwhelm is in the relentlessness of it.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: The responsibility that doesn't stop
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-The founders are counting on you. The fund is counting on you. The LPs are counting on you. And the responsibility is constant. It doesn't go away on weekends. It doesn't go away on vacation. It doesn't go away ever. And the overwhelm is in the permanence of it.
----
-
-## STORY v18
----
-path: The time that's too finite
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-You have 24 hours a day. You have a limited amount of energy. You have a limited amount of attention. And the demand exceeds the supply. There's more work than you can do. There are more companies than you can help. There are more emails than you can answer. And the overwhelm is fundamental. It's baked into the structure. There's no solution except to have fewer companies or more time.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: The metrics that keep moving
-BAND: 2
+BAND: 1
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: self_claim---
 ---
-Every day the metrics change. ARR is up or down. Churn is improving or getting worse. Growth is accelerating or slowing. And you're trying to track all of them. And they're all moving in different directions. Some companies are doing well. Some are struggling. Some are crashing. And the overwhelm is in the constant volatility.
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: The weight of the capital
-BAND: 5
-SEMANTIC_FAMILY: SF1
----
-You're responsible for other people's money. You're supposed to generate returns. You're supposed to make it grow. And the capital is heavy. It's a weight. It's a responsibility that never goes away. And the overwhelm is in the knowledge that you're accountable for something you can't fully control.
----
-

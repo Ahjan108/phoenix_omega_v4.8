@@ -1,187 +1,101 @@
-# entrepreneurs / compassion_fatigue / watcher
-# Slot type: STORY (engine)
-# Engine: watcher
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: The emotional shutdown of running the operation
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You're running the company from behind glass. You can see everything. You see the struggles. You see the breaking points. You see what's working and what's about to fail. But you're not really there. You're not present with it. You're observing it. You're managing it. You're steering it from a distance. Because if you actually felt everything you see, you'd break. So you've learned to wall it off. To look at human problems as operational problems. To see people as nodes in a system. To treat your own needs as irrelevant to the functioning of the system. This used to feel like strength. Like the ability to make hard calls without being derailed by emotion. Now it just feels like being a ghost. You're watching your own company the way someone watches a movie. You know the plot. You can see what's coming. But you're not actually in it. And the people in it are starting to notice that you're not really here.
----
-
-## STORY v02
----
-path: The strange detachment when someone you care about is suffering
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-Your engineer—who you respect and have mentored—is clearly drowning. They're making mistakes. They're missing deadlines. They're emailing late at night. They're not responding to the team. You can see all of this. And you also see that their work is affecting the business. So you need to address it. But when you call them into the office, you don't feel anything. You feel clinical. You're running through the checklist. Are they overloaded? Yes. Is the work sustainable? No. What are the options? They can reduce scope or we can hire help. You present these options without the empathy that you think you should feel. And they notice. They can tell that you're not actually concerned about their wellbeing. You're concerned about the operation. And you are concerned about their wellbeing. But you can't feel it. You can only think it. So the conversation feels cold.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: The numb decision-making
 BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-You're laying someone off. The decision was necessary. The role wasn't working out. And you're doing it well—you're clear, you're direct, you've prepared the severance package, you've thought through the logistics. But you're not feeling anything. Their life is about to change. They're going to be scared. They're going to have to update their resume and interview and navigate uncertainty. And you're feeling none of that. You're feeling the efficiency of the decision. You're feeling the slight sense of relief that you've addressed a problem. You're not feeling their fear. You're not connecting to the disruption you're creating. And after they leave, you go back to your computer and move on. You've been awake for a very long time. Or your heart's been asleep for a very long time. You're not sure which.
----
-
-## STORY v04
----
-path: The performance of caring
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-You've learned the words. You know what a leader is supposed to say. "I really value you." "Your wellbeing matters to me." "We're all in this together." These statements come out naturally now because you've said them so many times. But you don't feel them. You say them and you mean them intellectually. You've internalized that leaders should care about their team. But the feeling isn't there. So you've developed a kind of performance. You say the right things. You listen to people's concerns. You ask about their families. You remember the details they told you two months ago. And it seems like you care. But you're running on pattern-matching. You're executing the role of "founder who cares" without actually being a founder who feels. And some people believe the performance. Some people don't. The ones who don't can sense the hollowness. They can feel that something is missing.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: The inability to be present even when you're present
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-You're in a one-on-one with someone. They're telling you about something that's bothering them. And you're hearing the words. Your brain is processing the information. You're even responding appropriately. But you're not actually with them. You're running the simulation of the company in the background of your mind. You're thinking about three other things that need to happen today. You're checking email in the gaps of the conversation. You're not here. And they know. They can feel it. They can feel that your presence is partial. That you're doing the one-on-one because it's on the calendar, but you're not actually invested in understanding their problem. So they hold back. They don't tell you the real thing. They tell you the acceptable thing. The thing that's not too much of a burden. And the real problems stay hidden.
----
-
-## STORY v06
----
-path: The cost of being the steady one
-BAND: 3
-SEMANTIC_FAMILY: SF1
----
-People need you to be steady. They're scared and they need to believe that you know what you're doing. So you perform steadiness. You walk into rooms and you project certainty even when you're uncertain. You email like you have clarity even when you don't. You make decisions like you've thought them through carefully even when you're making them in real time. And it works. People calm down. They trust you. They follow. But the steadiness is a performance. It's a mask. And wearing a mask all the time is exhausting. So you've learned to stay numb. Because if you actually felt the uncertainty that you're hiding, the performance would crack. The steadiness would break. So you feel nothing. You become the mask. And when you're with people, you're not actually with them. You're maintaining the performance.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: The alienation from your own success
 BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-The company is growing. By any metric, you're winning. Revenue is up. Team is bigger. You're in conversations with serious investors. You should be thrilled. But you're watching this success like you're watching someone else's success. It's happening. You're making it happen. But you're not experiencing the joy of it. You're not experiencing the satisfaction of building something real. You're just tracking the metrics. You're noticing that the thing is working. And it's working in a kind of empty way. Like you've optimized for success without knowing what you're optimizing toward. So you have the thing you said you wanted and you don't feel anything about it.
----
-
-## STORY v08
----
-path: The disconnection from your own company
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-This company used to feel like yours. Like a reflection of your vision and your values. Now it feels like a thing you're managing. It's not yours anymore. It's become something separate. You've detached from it so completely that you can see it clearly. You can see its strengths and its weaknesses. You can see where it's going. But you're not connected to it. You don't love it. You don't feel protective of it. You see the problems and you think strategically about solutions without feeling any sense of stakes. Like all this matters and also none of it matters at all.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: The guilt of being untouched when others are breaking
-BAND: 5
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-Your team is struggling. They're stressed. They're anxious. They're making mistakes because they're so wound up. And you're the only one who seems stable. You're the only one who seems unaffected. And you feel guilty about it. You feel like you should be suffering too. You should be breaking. You should be carrying the weight the way they're carrying it. But you're not. You're numb to it. You're watching it happen from a distance. And that feels wrong. It feels like you're not actually a member of the team. You're just the operator of the machine. And you're beginning to suspect that your numbness is the thing that's killing the team. Your steadiness is actually absence. Your stability is actually disconnection. And they're responding to that. They're drowning in the wake of your detachment.
----
-
-## STORY v10
----
-path: The strange loneliness of being the one in control
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-You're the person everyone looks to. You're the one with the answers. You're the one who can solve problems. And that means you're the one who can't break. You can't be vulnerable. You can't admit that you don't know what you're doing. You can't cry at work. You can't show weakness. So you've learned to not feel anything. Because feelings are weakness. Feelings are vulnerability. So you've built this wall and now you're behind it and you're so alone. You're alone in the room with eight people. You're alone in the meeting with your investors. You're alone in your office at 2 AM. The company is full of people and you've never felt more isolated. And you can't reach out because reaching out would admit that you're not actually okay. And if you're not okay, the whole thing falls apart.
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: The team that used to believe
-BAND: 1
+BAND: 3
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: experimentation---
 ---
-When you started, your team believed in you. They believed in the vision. They believed in the person leading them. And you felt that belief. It mattered to you. It made you want to do better. But over time, something shifted. You started managing the belief instead of feeling it. You started performing as the person they believed in instead of being that person. And they started to notice. They started to see the performance. They started to doubt. They're still here. They're still doing their work. But the belief is gone. They're following you not because they believe in the vision but because they need the job. And you're managing that. You're managing their job security. You're managing their expectations. You're not leading them anymore. You're just operating them.
----
-
-## STORY v12
----
-path: The price of separation
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-You've created this wall between yourself and the people you work with. The wall lets you make hard decisions without being derailed by emotion. The wall lets you see clearly. The wall lets you survive. But the wall also means you're not actually in relationship with these people. You're in transaction with them. You're getting something from them (their work) and you're giving them something (money, direction, opportunity). But you're not with them. And the lack of connection is slowly hollowing you out. You're realizing that some of the best moments of leadership are the moments where you let the wall down. Where you actually feel with someone. Where you connect. And those moments are getting rarer because you've learned to keep the wall up. So you're becoming more effective and less human.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: The watching instead of living
 BAND: 3
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: experimentation---
 ---
-You're watching the company grow. You're watching people struggle. You're watching the market shift. You're watching everything like it's a TV show and you're the narrator. This is how you've learned to handle it. This is how you've learned to survive. But you're also not living it. You're not experiencing it. You're not actually in the story. You're just observing the story. And life is happening without you in it. Your life is happening without you in it. You're awake but you're not here. You're present but you're not participating.
----
-
-## STORY v14
----
-path: The numb crisis that should be urgent
-BAND: 4
-SEMANTIC_FAMILY: SF5
----
-Something critical breaks. And you should feel panic. You should feel urgency. But instead you feel clarity. Calm. You're already running through the solutions before anyone even realizes there's a problem. And your team watches you stay cool and they calm down too. And the crisis is averted. And everyone says "good leadership." But what it actually was is numb management. You didn't feel the stakes. You just saw the problem and solved it. And that works until it doesn't. Until the numbness means you miss something. Until the lack of fear means you take a risk you shouldn't take. Until the coldness means you cut something that mattered.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: The stranger who used to be your friend
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-You had someone on the team who was a real friend. Someone you did things with outside of work. Someone you could be yourself with. And as the company grew and the demands got bigger, you pulled away. You had to. You couldn't have real friendships with people who worked for you. You had to maintain the wall. You had to be the leader. So you became more formal with them. You brought less of yourself to the relationship. And they felt it. And they tried to push back. They tried to break through the wall. But you couldn't let them. You had to stay behind the wall. So now you work with a stranger. Someone who used to know you. And you see the hurt in their face sometimes when you're being especially cool or distant. And you can't explain it. You can't tell them that you had to choose the company over the friendship. So you just keep watching them from behind the wall.
----
-
-## STORY v16
----
-path: The mirror you avoid looking in
 BAND: 3
-SEMANTIC_FAMILY: SF2
+SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-You've turned into someone you don't recognize. And you know this. You see it. But you're not going to look too closely at it. Because if you look closely, you have to feel something about it. You have to grieve the person you used to be. So you don't look. You keep your head down. You keep running. You keep building. And you tell yourself that this is just what founders do. You tell yourself that this is the price of success. You tell yourself that you'll get back to being yourself once the company is stable. But the truth is that the wall you've built has become permanent. The numbness has become your baseline. And the person you used to be is getting smaller and smaller in your rearview mirror.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: The meetings where nothing real happens
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-You're in a room with smart people who care about this company. They're trying to problem-solve. They're trying to figure things out. But you're not really there. You're running your simulation of the company while they talk. You're three steps ahead of the conversation. You already know what's going to happen. And so you disengage. You let the conversation happen without you. And they notice. They sense that you're not actually engaged. So they stop actually engaging too. The meetings become performative. Everyone saying what they're supposed to say. No one actually thinking together. Because the person who's supposed to be thinking with them isn't really there.
----
-
-## STORY v18
----
-path: The cost of being reliable when you're dead inside
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-You're the reliable one. The one people can count on. The one who doesn't break. The one who shows up. And it's a kind of integrity. It's a kind of strength. But it's also a prison. Because it means you can never admit that you're not okay. You can never ask for help. You can never show the cracks. You can never be human. So you keep showing up. You keep being reliable. You keep being the person everyone depends on. And inside you're becoming smaller. Your life is becoming smaller. Your world is becoming smaller. But nobody sees it because you're still showing up.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: The moment you can't remember why
-BAND: 2
+BAND: 1
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: self_claim---
 ---
-Someone asks you why you started this company. And you realize you can't remember. You can recite the origin story. You can tell them about the problem you were trying to solve. But you can't remember the feeling. The feeling that made you want to do this. The passion. The vision. The hope. It's all gone. It's been replaced by efficiency and strategy and numbers. And you're not sure when the switch happened. You're not sure when it changed from something you wanted to do to something you have to do. But it's gone. The spark is gone. And you're just running on momentum now.
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: The company that has become your only world
-BAND: 5
-SEMANTIC_FAMILY: SF1
----
-You don't do things anymore. You don't read for pleasure. You don't have hobbies. You don't spend time with friends outside the company. You don't have relationships that aren't transactional. The company is your entire world. And you're not even present in the company. So your entire world is something you're observing from behind glass. You're not actually in your own life. You're watching it happen. And you're waiting for something to change. You're waiting to feel something. You're waiting to come back. But you don't know how to come back. You don't know how to be present again. You don't know how to feel again. So you just keep watching.
----
-

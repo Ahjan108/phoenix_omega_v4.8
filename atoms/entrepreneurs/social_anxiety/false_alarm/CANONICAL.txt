@@ -1,210 +1,101 @@
-# entrepreneurs / social_anxiety / false_alarm
-# Slot type: STORY (engine)
-# Engine: false_alarm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: investor interest signal misread
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-The investor said they wanted to meet again. They said it without huge enthusiasm. Just normal "we should meet again to discuss." I'm reading the lack of enthusiasm as lack of interest. So they're not interested. So the investment is unlikely.
-
-But the normal-tone meeting request might just be normal professional communication. It might not indicate anything about their interest level. But in the absence of explicit enthusiasm, I'm reading absence as negativity.
-
-So I'm now convinced the investor is not interested. So I'm adjusting my expectations downward. So I'm probably going to underperform in the next meeting because I'm expecting rejection. So the rejection might be self-fulfilling.
+RECOGNITION v02
 ---
 
-## STORY v02
----
-path: pitch room energy interpretation
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-I presented the pitch. The room was quiet. The quietness felt like non-interest. But quietness might mean people are listening intently. Or might mean they're tired. Or might mean they're processing. The quietness is ambiguous.
-
-But I'm reading the ambiguity as negative. So the pitch was bad. So the investors weren't impressed. So the funding is unlikely. The reading is creating the outcome through my own behavior in response to the reading.
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: customer tone inference
 BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-The customer's email was brief. Shorter than usual. The brevity felt cold. Cold feels like dissatisfaction. So the customer is dissatisfied.
-
-But brief emails are often just efficient. The customer might be busy. The brevity might have nothing to do with my product or my performance. But I'm reading the brevity as signal. So I'm now anxious that the customer is about to churn.
----
-
-## STORY v04
----
-path: competitor acknowledgment dread
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-A well-known person in the industry mentioned my competitor. Mentioned them positively. The mention felt like an endorsement. The endorsement felt like they're backing the competitor over me.
-
-But the mention was probably just professional acknowledgment. It's not necessarily a personal preference. But I'm reading it as preference. So I'm now convinced that influencers prefer my competitor. So my position is weaker.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: employee attention shift
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-A key employee has been quiet in meetings. They've been less engaged. The disengagement feels like dissatisfaction. So they're about to leave.
-
-But the quiet might be because they're focused on deep work. The less-engagement might be temporary. But I'm reading it as the beginning of departure. So I'm now going to treat them differently. So they're probably actually going to leave because of my treatment.
----
-
-## STORY v06
----
-path: board member skepticism signal
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-The board member asked a challenging question. The challenge felt like skepticism. So they're skeptical of the direction. So the direction is wrong. So the board doesn't support it.
-
-But challenging questions are what board members do. Questions don't mean skepticism. They might mean engagement. But I'm reading the questions as doubt. So the doubt is now my belief about the direction.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: press inquiry interpretation
 BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-A journalist reached out. They wanted to cover the company. The coverage feels like validation. But the journalist might be covering the competitor. The journalist might be doing a "this space is hot" piece that's not specifically about my company.
-
-So the interest might not be real interest. It might be formulaic journalist reach-out. But I'm reading it as real interest. So I'm now preparing for press and assuming attention that might not come.
-
-So the false alarm is creating expectations that might not be met.
+MECHANISM_PROOF v03
 ---
 
-## STORY v08
----
-path: partnership stall interpretation
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-The partnership negotiation has slowed. The slowness feels like waning interest. So the partner is probably going to bail. So the partnership is probably dead.
-
-But negotiation slowness might just be slowness. The partner might be busy. The partnership might still happen. But I'm reading the slowness as signal of failure.
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: community perception assumption
-BAND: 5
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-The community knows about my company. The community might be judging. The judgment might be negative. The negative judgment might be common knowledge.
-
-But I have no evidence of negative judgment. The assumption is pure speculation. But the speculation feels real. So I'm now afraid of the community. So I'm withdrawing from community. So the community is now unaware that I've withdrawn. So the withdrawal is invisible and unnecessary.
----
-
-## STORY v10
----
-path: customer review catastrophizing
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-A customer left a mediocre review. Not bad. Mediocre. Three stars. The three stars feel like failure. The mediocrity feels like evidence that the product isn't great.
-
-But one review is one opinion. It doesn't reflect the product quality. But the review is creating doubt. The doubt is creating anxiety. The anxiety is making me want to fix things that probably don't need fixing.
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: social media silence interpretation
-BAND: 1
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-The community is quiet on my posts. Not engaging. The quiet feels like disinterest.
----
-
-## STORY v12
----
-path: introduction request hesitation
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-I asked someone for an introduction. They said they'd help but haven't followed through. The slowness feels like reluctance.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: conference speaking offer doubt
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-I was asked to speak at a conference. The invite was polite but brief. The brevity feels like they're not enthusiastic about having me.
----
-
-## STORY v14
----
-path: advisor engagement shift
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-The advisor has been less responsive. The slow responses feel like waning interest.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: customer success check call
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-The customer success call felt surface level. The customer seemed less connected. The disconnection feels like they might be leaving.
----
-
-## STORY v16
----
-path: investor pipeline questions
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-The investor asked detailed questions about the pipeline. The questions felt skeptical. So they're skeptical about the growth.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: team member career conversations
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-A team member asked about career growth. The asking feels like they're preparing to leave.
----
-
-## STORY v18
----
-path: mentor office hours cancellation
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-The mentor cancelled office hours. The cancellation feels like they're losing interest in the company.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: customer feature request absence
-BAND: 2
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-Customers used to ask for features constantly. Now they're quiet. The quiet feels like they've stopped caring about the product.
----
-
-## STORY v20
----
-path: industry insider acknowledgment
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-An industry person didn't mention my company in a recent piece. The omission feels like non-recognition.
+EMBODIMENT v05
 ---

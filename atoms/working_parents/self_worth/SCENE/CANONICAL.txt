@@ -1,12 +1,8 @@
-# working_parents × self_worth × scene_set
-# Slot type: SCENE
-# Count: 30
-# Voice: second-person present tense, sensory, one detail per sentence
-# Spec: max 10 words per sensory beat, min 2 location tokens, no emotional labeling, ends on action/sensory moment
-# Location tokens: {transit_line}, {street_name}, {weather_detail}
 
----
+
 ## SCENE v01 | parent_teacher_conference
+---
+
 ---
 You sit across from the teacher.
 Your child's performance is fine.
@@ -24,6 +20,8 @@ You nod and say thank you.
 
 ## SCENE v02 | comparing_child_to_peers
 ---
+
+---
 You see another child.
 They're more advanced.
 They read earlier.
@@ -39,6 +37,8 @@ You drive home quiet.
 ---
 
 ## SCENE v03 | {street_name} messy_kitchen_evening
+---
+
 ---
 It's 8 PM on {street_name}.
 Your kitchen is chaos.
@@ -56,6 +56,8 @@ You close the app and do nothing.
 
 ## SCENE v04 | work_meeting_contribution
 ---
+
+---
 You're in a work meeting.
 You have a thought.
 You hold it.
@@ -71,6 +73,8 @@ You don't contribute again.
 ---
 
 ## SCENE v05 | {weather_detail} mirror_moment
+---
+
 ---
 You're getting ready and it's {weather_detail}.
 You're trying to make yourself look pulled together.
@@ -88,6 +92,8 @@ You get in the car anyway.
 
 ## SCENE v06 | child_asks_about_job
 ---
+
+---
 Your child asks what you do at work.
 You try to explain it.
 They lose interest.
@@ -103,6 +109,8 @@ You go back to work tomorrow.
 ---
 
 ## SCENE v07 | partner_achievement_envy
+---
+
 ---
 Your partner got a promotion.
 You're genuinely happy for them.
@@ -120,6 +128,8 @@ You tell them congratulations and mean it.
 
 ## SCENE v08 | {transit_line} invisibility_recognition
 ---
+
+---
 You're on {transit_line} heading to work.
 No one knows who you are.
 You're not anyone special.
@@ -135,6 +145,8 @@ You get off at your stop.
 ---
 
 ## SCENE v09 | achievement_that_doesn't_count
+---
+
 ---
 You managed everything today.
 Everyone was on time.
@@ -152,6 +164,8 @@ This is the minimum.
 
 ## SCENE v10 | child_prefer_other_parent
 ---
+
+---
 Your child wants the other parent.
 For comfort.
 For playing.
@@ -167,6 +181,8 @@ You're not enough.
 ---
 
 ## SCENE v11 | professional_dismissal
+---
+
 ---
 You say something in a professional context.
 Your idea.
@@ -184,6 +200,8 @@ You don't speak.
 
 ## SCENE v12 | messy_house_hosting
 ---
+
+---
 People are coming over.
 Your house shows who you are.
 It shows you're overwhelmed.
@@ -199,6 +217,8 @@ You still feel exposed.
 ---
 
 ## SCENE v13 | success_feeling_empty
+---
+
 ---
 You accomplished something at work.
 It was real.
@@ -216,6 +236,8 @@ You go back to work.
 
 ## SCENE v14 | {weather_detail} body_not_yours
 ---
+
+---
 It's {weather_detail} and you're looking at your body.
 You don't recognize it.
 It's been borrowed by everyone.
@@ -231,6 +253,8 @@ You look away.
 ---
 
 ## SCENE v15 | younger_mother_envy
+---
+
 ---
 You see a young mother.
 She looks like she has it together.
@@ -248,6 +272,8 @@ You let her have it.
 
 ## SCENE v16 | morning_exhaustion_default
 ---
+
+---
 You wake up tired.
 Every morning.
 This is the default now.
@@ -263,6 +289,8 @@ You keep moving.
 ---
 
 ## SCENE v17 | decision_nobody_wants
+---
+
 ---
 Someone has to make a hard decision.
 You say you'll do it.
@@ -280,6 +308,8 @@ You make the decision anyway.
 
 ## SCENE v18 | capability_questioned_softly
 ---
+
+---
 Someone questions your decision softly.
 "Are you sure that's right?"
 You doubt yourself immediately.
@@ -295,6 +325,8 @@ You just change the subject.
 ---
 
 ## SCENE v19 | {street_name} errand_identity
+---
+
 ---
 You're running errands on {street_name}.
 This is who you are now.
@@ -312,6 +344,8 @@ You stop at the grocery store.
 
 ## SCENE v20 | intimate_moment_awkwardness
 ---
+
+---
 Your partner initiates something intimate.
 You freeze.
 You don't remember how to be wanted.
@@ -327,6 +361,8 @@ You say you're tired.
 ---
 
 ## SCENE v21 | friend_success_comparison
+---
+
 ---
 Your friend got the job.
 The one she wanted.
@@ -345,6 +381,8 @@ You drive home quietly.
 
 ## SCENE v22 | child_reflection_painful
 ---
+
+---
 Your child is frustrated.
 They're saying they're not good at something.
 You recognize the tone.
@@ -360,6 +398,8 @@ You're a mirror they can't escape.
 ---
 
 ## SCENE v23 | quiet_moment_emptiness
+---
+
 ---
 You finally have a moment alone.
 You sit.
@@ -377,6 +417,8 @@ You get back up and start again.
 
 ## SCENE v24 | performance_exhaustion
 ---
+
+---
 You're performing being okay.
 Being together.
 Being capable.
@@ -392,6 +434,8 @@ You don't know how to stop.
 ---
 
 ## SCENE v25 | family_photo_moment
+---
+
 ---
 You're taking a family photo.
 You're supposed to smile.
@@ -409,6 +453,8 @@ You share it online anyway.
 
 ## SCENE v26 | questioning_career_value
 ---
+
+---
 You're at work.
 You're being productive.
 You're checking boxes.
@@ -424,6 +470,8 @@ You go home.
 ---
 
 ## SCENE v27 | voice_getting_smaller
+---
+
 ---
 You're speaking and your voice gets smaller.
 You notice it.
@@ -441,6 +489,8 @@ They do.
 
 ## SCENE v28 | boundary_too_tired_to_enforce
 ---
+
+---
 Someone is crossing a boundary.
 You could push back.
 You're too tired.
@@ -457,6 +507,8 @@ You say nothing.
 
 ## SCENE v29 | moment_of_clarity_crushing
 ---
+
+---
 You see yourself clearly for a moment.
 Who you've become.
 What you've sacrificed.
@@ -472,6 +524,8 @@ You keep moving.
 ---
 
 ## SCENE v30 | becoming_unrecognizable
+---
+
 ---
 You're sitting in the car.
 You're parked.

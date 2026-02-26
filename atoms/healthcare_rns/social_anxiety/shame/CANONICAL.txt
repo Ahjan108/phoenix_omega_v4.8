@@ -1,51 +1,31 @@
-# healthcare_rns / social_anxiety / shame
-# Slot type: STORY (engine)
-# Engine: shame
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the moment you said the wrong thing
-BAND: 1
-SEMANTIC_FAMILY: SF1
----
-I said something stupid in front of a group. I know I said it. I can still remember it. The exact words. The way people looked at me. The silence after. And I'm ashamed. Deeply ashamed. This moment happened three weeks ago and I'm still thinking about it. I'm still feeling the heat in my face. I'm still replaying it. And the shame is making me want to hide. I don't want to see those people again. I don't want to be in situations where they might be. And the shame is disproportionate to what actually happened. I said something awkward. That's all. People say awkward things. But the shame is telling me that I should never have spoken. That I was an idiot. That everyone there now thinks I'm an idiot. And the shame is affecting my behavior. I'm less likely to speak up in groups. I'm less likely to risk saying something. I'm less likely to be myself. All because of shame about a moment that was probably not as catastrophic as the shame is telling me it was.
----
-
-## STORY v02
----
-path: the question you should have answered better
 BAND: 2
-SEMANTIC_FAMILY: SF2
+SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-The physician asked me a question in front of the team. A clinical question. And I gave a response that was technically correct but delivered with no confidence. My voice was uncertain. I hemmed and hawed. And now I'm ashamed. I'm ashamed of how I sounded. I'm ashamed that I didn't sound competent. I'm ashamed that the physician probably thinks I'm not very smart. And the shame is preventing me from being in that situation again. I'm avoiding the physician. I'm avoiding speaking up when I have knowledge. I'm making myself smaller because I'm ashamed of how I showed up last time. And the shame is creating a cycle. I'm less likely to speak up so I'm less likely to practice being confident. So the next time I do speak up I'll be even less confident. And the shame will be even worse.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the rejection you internalized
-BAND: 3
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Someone didn't respond to my message for a while. And I interpreted it as rejection. They don't want to talk to me. They think I'm annoying. And the shame of that hit me hard. The shame that I'm the kind of person that people don't want to talk to. That I'm not worth responding to. And I've been carrying that shame. I've been assuming that everyone feels that way about me. That I'm not worth people's time. And the shame is so strong that I'm not reaching out anymore. I'm waiting for them to reach out to me. And if they don't I take it as confirmation that they don't like me. That I'm unlovable. And the shame has become proof of my unworthiness. I believe the shame because the shame feels true. I feel ashamed so I must have done something shameful. I feel rejected so I must be rejectable. The shame has taken over how I see myself.
----
-
-## STORY v04
----
-path: the shame that rewrites the past
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-I'm looking back at interactions I've had with people. Conversations. Moments. And I'm reinterpreting them through the lens of shame. That time I laughed at a joke. I'm now ashamed of how I laughed. Was it too loud. Did I look stupid. That time I shared something personal. I'm now ashamed that I shared too much. Did they think I was oversharing. Did they think I was needy. The shame is rewriting my history. It's taking neutral moments and making them shameful in retrospect. And as I reinterpret my past through shame I'm also changing how I'll behave in the future. I'm going to be less open. Less playful. Less myself. Because the shame is telling me that being myself was wrong.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the shame that becomes the identity
 BAND: 5
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-I've become the shameful one. That's how I see myself now. The one who says wrong things. The one who doesn't fit. The one who's awkward. The one who should probably just stay quiet. The shame has become my identity. It's how I define myself. And because I see myself that way I act that way. I'm quiet. I'm small. I'm trying to disappear so no one will see the shameful parts of me. And the shame is no longer about a specific moment. It's about my entire existence. It's about the belief that there's something fundamentally wrong with me. That I'm fundamentally not okay. And the shame is so complete that I can't imagine a version of myself that isn't shameful. I can't imagine being around people without the constant undertone of shame. It's become who I am. And I don't know how to be anyone else.
+
 ---

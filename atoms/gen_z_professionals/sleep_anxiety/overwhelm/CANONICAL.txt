@@ -1,206 +1,101 @@
-# gen_z_professionals / sleep_anxiety / overwhelm
-# Slot type: STORY (engine)
-# Engine: overwhelm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the sleep debt mounting
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-I haven't slept well in weeks. And the sleep debt is accumulating. Every night I get fewer hours. Every night the sleep quality is worse. And I'm tracking it. Calculating how much sleep I've lost. How many hours I'm behind. And the calculation is overwhelming. The number is so big that it doesn't feel real. Doesn't feel like something that can be recovered from.
-
----
-
-## STORY v02
----
-path: the exhaustion that builds
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-I'm tired during the day. Exhausted. And the exhaustion is building because the nights aren't restorative. And the less sleep I get, the more anxious I am at night. And the more anxious I am at night, the worse I sleep. And the cycle is creating total overwhelm. I can't function and I can't sleep and the two are feeding each other.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the pressure to sleep
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-I need to sleep. I know this intellectually. My body needs sleep. I need to prioritize sleep. I need to make sleep happen. And the pressure to sleep is so high that it's preventing sleep. The pressure is making me anxious at bedtime. Which is making sleep harder. Which is making the pressure higher.
-
----
-
-## STORY v04
----
-path: the bedroom as a problem
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-The bedroom has become the place where I can't sleep. It's where I go to fail at sleeping. It's where the overwhelm happens. And entering the bedroom now creates anxiety. Because I know what's coming. Hours of wakefulness. Attempts at sleep that fail. Frustration with my own body.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the overwhelm of needing it
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-I need tomorrow to be good. I need energy. I need to be functional. And the need is so overwhelming that I can't sleep because I'm stressed about needing sleep. And the cycle is making sleep impossible through sheer need.
-
----
-
-## STORY v06
----
-path: the time pressure
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-I'm watching the time. Calculating how many hours until I need to wake up. And with each passing hour, the panic increases. I'm losing sleep for the next day. I'm destroying tomorrow by not sleeping tonight. And the time pressure is overwhelming.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the body that won't cooperate
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-My body is supposed to sleep. It's simple. Lie down. Close eyes. Sleep happens. But my body won't cooperate. And the rebellion of the body is overwhelming. Like my own system is working against me. Like I'm at war with myself.
-
----
-
-## STORY v08
----
-path: the overwhelming quiet
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-At night it's quiet. And the quiet is overwhelming. There's nothing to distract from the wakefulness. Nothing to distract from the anxiety. Just the awareness of not sleeping. And the awareness is loud.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the weight of sleep deprivation
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-The sleep deprivation is making everything heavier. Every task feels harder. Every emotion feels bigger. And the weight is building because the sleeplessness continues. And the weight makes it harder to sleep because everything feels overwhelming.
-
----
-
-## STORY v10
----
-path: the overwhelming helplessness
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-I don't know how to fix this. I've tried everything. And the helplessness is overwhelming. Like I'm stuck in a system I can't control. Like my own biology is against me. And the overwhelming feeling is that nothing will ever change.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the overwhelmed decision maker
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-Every sleep-related decision is overwhelming. What time to go to bed. What to do before bed. What not to do. What environment to create. And the decisions multiply. And the multiplication is overwhelming.
-
----
-
-## STORY v12
----
-path: the cascading overwhelm
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-The sleep overwhelm is creating overwhelm in other areas. I can't focus at work because I'm tired. I can't manage my anxiety because I'm overwhelmed. And the cascading overwhelm is making everything worse.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the overwhelming night
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-At the peak of overwhelm, the night is just crushing. Every moment is heavy. Every hour of wakefulness is a failure. And the night stretches on and the overwhelm grows.
-
----
-
-## STORY v14
----
-path: the overwhelm of the morning
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-The morning comes and I'm still awake. Or I slept for an hour. Or I didn't sleep at all. And the overwhelm of having to function now. Having to pretend I'm fine. Having to do things when I'm this exhausted is overwhelming.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the accumulated overwhelm
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-The overwhelm has been accumulating for so long that it's the baseline now. The overwhelm is just what happens. I'm always overwhelmed about sleep. Always stressed about whether I'll sleep. Always anxious about the next night.
-
----
-
-## STORY v16
----
-path: the overwhelm of the cycle
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-I understand the cycle. Bad sleep creates anxiety. Anxiety prevents sleep. Which creates more anxiety. And I see the cycle. But seeing it doesn't stop it. Which is overwhelming. The inability to break out even though I understand it.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the overwhelming systems failure
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-The body has failed. The system that's supposed to handle sleep is broken. And the overwhelming part is that I can't fix it through willpower. Can't fix it through thinking. It's broken in a way that I don't know how to repair.
-
----
-
-## STORY v18
----
-path: the overwhelm of no options
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-I've tried everything. And nothing works. And the feeling that I have no options is overwhelming. Like I'm trapped. Like there's no way out.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the overwhelming crisis
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-At crisis, the sleep overwhelm has reached peak. I can no longer function. The exhaustion is physical pain. The anxiety is constant. And there's no relief in sight. The overwhelm has consumed everything.
-
----
-
-## STORY v20
----
-path: the surrender to the overwhelm
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-I've given up. The overwhelm is too much. I'm not fighting it anymore. I'm just existing in the overwhelm. Not trying to sleep. Not trying to feel better. Just enduring.
-
+EMBODIMENT v05
 ---

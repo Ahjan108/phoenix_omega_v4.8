@@ -1,187 +1,101 @@
-# tech_finance_burnout / compassion_fatigue / grief
-# Slot type: STORY (engine)
-# Engine: grief
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: The portfolio companies that failed
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You've been tracking them. The companies you believed in. The founders you backed. The bets you made. And some of them didn't make it. And grief is a weird thing in this context because you were supposed to be rational about it. Risk is supposed to be baked in. Failure is supposed to be part of the model. And yet you're grieving. You're grieving the loss of time. The loss of potential. The loss of the story you thought was going to be different.
----
-
-## STORY v02
----
-path: The founder you couldn't save
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You saw it coming. You could model the trajectory. The runway was running out. The metrics were wrong. The market was shifting. And you tried to warn them. You tried to course-correct. You tried to intervene. And they didn't listen. Or they couldn't listen. Or they tried and it didn't work. And now the company is gone. And you're left holding the knowledge that you could see the ending coming. That you understood the system well enough to predict the failure.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: The opportunity cost that's now visible
 BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-All that time. All those hours. All that emotional bandwidth spent on that company that's now gone. And the opportunity cost is now visible. You can see the thing you didn't do because you were focused on the thing that failed. You can see the relationships you didn't build. The companies you didn't start. The people you didn't help. All because you invested in the thing that ended.
----
-
-## STORY v04
----
-path: The data that predicted the loss
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-You had the data. You could have modeled it. You could have run the numbers and seen the failure coming. But you didn't want to see it. Or you saw it but hoped you were wrong. Or you had a thesis about why this time would be different. And the grief is in knowing that the data was telling you something you didn't want to hear.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: The belief that didn't survive contact with reality
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-You believed in something. A thesis. A market. A team. And reality disagreed with your belief. And the grief is in the disconfirmation. Your model of the world turned out to be wrong. And now you have to update your model. And you have to live with the evidence that your thinking was flawed.
----
-
-## STORY v06
----
-path: The market that moved
-BAND: 3
-SEMANTIC_FAMILY: SF1
----
-The market shifted. Something changed. Competition entered. Regulation changed. Consumer preferences shifted. And the companies you backed were suddenly swimming against the current instead of riding the wave. And the grief is in the powerlessness. You could see the market shift. You couldn't stop it. You couldn't save the companies from it.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: The accumulation of small failures
 BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-You track failure rate like it's your job, because it is. And the failure rate is higher than you want it to be. Not catastrophically high. Just consistently higher than the model predicted. And the grief accumulates. Each failure is a data point. Each data point updates your belief about your own predictive ability. And the cumulative effect is a kind of grief about your own limitations.
----
-
-## STORY v08
----
-path: The team you tried to help
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-You brought in people. You offered advice. You made introductions. You tried to help the team succeed. And you're grieving the loss of the possibility of their success. You're grieving the loss of the path you saw for them. You're grieving knowing that your help wasn't enough.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: The capital that didn't generate returns
-BAND: 5
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-The capital in that failed company is gone. Not just the money, but the potential returns. The multiplier you were hoping for. The outcome you modeled. And the grief is mathematical. It's the loss of the expected value. It's the gap between the scenario you modeled and the scenario that actually happened.
----
-
-## STORY v10
----
-path: The story I don't get to tell
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-There was a narrative. A story about a company that solved a real problem and scaled and created value. And that story is not going to happen. That outcome is not coming. And you're grieving the loss of the narrative. You're grieving the loss of being able to point to that company and say "that's what I helped build." Instead, you're saying "that's a failure I was part of."
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: The efficiency that failed
-BAND: 1
+BAND: 3
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: experimentation---
 ---
-You believed in the efficiency of the model. The theory that if you made good bets, backed strong founders, provided capital and guidance, the outcomes would be positive. And the failed company is evidence that the model has limits. That efficiency isn't guaranteed. That belief is not enough.
----
-
-## STORY v12
----
-path: The pattern recognition that was wrong
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-You thought you could see the patterns. You thought you could identify the winners early. You thought your eye for talent was calibrated. And this failure is saying that your pattern recognition was wrong. That your filters missed something. That you misread the signals.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: The founders I'll never work with again
 BAND: 3
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: experimentation---
 ---
-There are founders whose companies failed and they've moved on. Some of them are fine. Some of them are broken. Some of them are rebuilding. And you're not going to work with them again because the company died. And the grief is in the loss of the potential future partnership. The loss of the next thing you might have built together.
----
-
-## STORY v14
----
-path: The thesis that was disproven
-BAND: 4
-SEMANTIC_FAMILY: SF5
----
-You had a thesis about the market. About what would work. About what customers wanted. And the failed company proves that your thesis was wrong. And now you have to update your thinking. You have to revise your assumptions. You have to rebuild your models.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: The time horizon I got wrong
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-You thought the company had time. You thought the runway was long enough. You thought the unit economics would turn positive before the money ran out. And you were wrong about the time horizon. The grief is in the miscalculation. In the model error. In the fact that you thought you understood the timing and you didn't.
----
-
-## STORY v16
----
-path: The learning that came too late
 BAND: 3
-SEMANTIC_FAMILY: SF2
+SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-The company failed and you learned something about the market. About the business model. About what works and what doesn't. And the grief is that you learned it from failure instead of success. You had to burn capital to learn the lesson. You had to waste time to understand the market.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: The leverage that didn't work
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-You thought your capital was leverage. You thought the founder would listen. You thought the introductions you made would move the needle. And the leverage didn't work. The capital didn't matter. The introductions didn't help. The grief is in the realization that you're not as powerful as you thought you were. That your leverage is limited.
----
-
-## STORY v18
----
-path: The portfolio that's underperforming
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-The portfolio is underperforming. Not by a lot. But enough that you notice. Enough that the returns are lower than they should be. Enough that the failure rate is higher than your model predicted. And the grief is distributed across the whole portfolio. It's not one failure. It's the cumulative weight of many small underperformances.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: The relationship with the outcome
-BAND: 2
+BAND: 1
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: self_claim---
 ---
-You're supposed to be detached from outcomes. You're supposed to be rational about risk. You're supposed to see failure as data. But you're grieving. You're attached to the outcome. You wanted this company to succeed. And grief is the evidence of that attachment. Grief is the proof that you're not as analytical as you tell yourself you are.
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: The version of the future that won't happen
-BAND: 5
-SEMANTIC_FAMILY: SF1
----
-There was a future where this company succeeded. Where your capital turned into returns. Where the thesis was right. Where the market moved in your favor. And that future is not coming. The grief is in the loss of that possible future. The loss of the outcome you believed would happen.
----
-

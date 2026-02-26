@@ -1,186 +1,101 @@
-# entrepreneurs / boundaries / false_alarm
-# Slot type: STORY (engine)
-# Engine: false_alarm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the notification that demanded urgency
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You got a notification. Something was wrong. A system went down. A customer was unhappy. The notification came at night. It demanded attention. You woke up from half-sleep and moved toward your computer. The thing that was urgent was urgent. And then you checked in the morning and it was fine. The thing that required emergency response had resolved. Or it wasn't as bad as it seemed. The noticing is quiet. You notice that you responded to the perceived emergency the same way you'd respond to an actual emergency. You notice that your nervous system treats them the same.
----
-
-## STORY v02
----
-path: the email with the subject line
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-An email came with an important subject line. URGENT. CRITICAL. REQUIRES DECISION. You opened it and it was something that could have waited. Or something that required a decision that didn't need to happen today. But the subject line had signaled crisis. Your body had mobilized. You had prepared for emergency. Then you read the email and the emergency was fictional. The mechanism is starting. Your nervous system is on high alert for crises that aren't happening.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the alarm that rings for everything
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-A customer sent a message. A team member flagged an issue. An investor asked a question. Each one triggered the alarm. Each one activated the urgency. Each one pulled you away from what you were doing. By the end of the day you've responded to twelve alarms and most of them weren't actually emergencies. They were just things that were vaguely time-sensitive. Your nervous system has learned to treat everything as an alarm.
----
-
-## STORY v04
----
-path: the thing that turned out to be fine
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-Something looked really bad. A metric tanked. A key person was interviewing elsewhere. A deal was at risk. You mobilized. You moved. You prepared for the worst-case scenario. Then the metric bounced back. The person wasn't interviewing away. The deal moved forward. The alarm was a false alarm and you're carrying the exhaustion from the mobilization. The turning point is arriving. You're starting to see that not every signal is a real signal.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the boundary that doesn't exist
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-You need to set a boundary where you don't respond to things at night. You need to separate the urgent from the important. But you can't tell the difference anymore because your nervous system has decided that everything is important. Everything has the potential to be urgent. So there's no safe time to not be available. There's no safe boundary because the threat is everywhere. The pattern is established. The boundary would require trusting that most things are false alarms. You've been trained to not trust that.
----
-
-## STORY v06
----
-path: the noise that's constant
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-There's a hum of potential crisis. Something might go wrong. A customer might churn. An engineer might leave. The market might shift. The product might not scale. None of these things are happening right now. All of these things could happen. Your nervous system is listening for the signal. It's scanning for the warning. The scan never stops. You're in a constant state of low-level alarm. You think you're being vigilant. You're actually being hypervigilant.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the crisis that actually happened
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-A real emergency happened. Something actually broke. The system actually went down. A customer actually left. And you were ready for it because you're always ready for emergency. You responded well. You handled it. But the handling cost energy. The handling cost time. If you'd been running at normal alert level the cost would have been different. But you've been running at crisis level for so long that crisis is your baseline.
----
-
-## STORY v08
----
-path: the false alarm that felt real
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-There was a scare. A data point looked concerning. A conversation suggested risk. You spent hours investigating. You got the team mobilized. You prepared contingencies. Then you discovered there was no actual problem. The data point was a blip. The conversation was misunderstood. The risk was theoretical. You'd spent all that energy on something that wasn't real. The false alarm cost you but it's done now. Then tomorrow brings the next alarm.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the person you're always ready for
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-There's someone or something you're always braced against. The competitor. The market change. The regulatory shift. The key person leaving. The customer churning. You're in a permanent posture of defense. You're ready to respond to the threat. The mechanism is visible. You've built your entire operating system around defending against a threat that might not come. The threat lives in your head more than in reality but you're defending against it anyway.
----
-
-## STORY v10
----
-path: the sleep that false alarms steal
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-You can't sleep because your nervous system is waiting for the alarm. You're in a permanent state of readiness. You go to sleep thinking about what might go wrong. You wake up thinking about it. You can't shift down because shifting down feels dangerous. The boundary between asleep and awake has collapsed because there's no safe time. There's no time when you're not available to respond to the alarm. The false alarms have stolen your rest.
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the reaction that's automatic
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-Someone sends you something and you react immediately. Your nervous system has learned to treat every communication as potentially requiring emergency response. So you read it as emergency. You mobilize. You prepare. Then you realize you misread the tone. You misunderstood the urgency. The thing was informational not urgent. But you've already mobilized and the mobilization is exhausting. The mechanism is that the false alarms are training your nervous system to be in permanent crisis mode.
----
-
-## STORY v12
----
-path: the thing you can't relax about
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-There's something you've been worried about for months. It hasn't happened. It's not showing any signs of happening. And you still can't relax about it. The alarm is still active. The threat is still present in your body. The false alarm has become persistent. You're defending against a threat that isn't materializing and you can't convince your nervous system that it's safe.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the moment the alarm becomes background
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-You stop noticing the alarm. The state of crisis becomes normal. You wake up in crisis mode. You go to sleep in crisis mode. You can't remember what it felt like to not be braced for the next thing. The false alarms have taught you that crisis is permanent. The alarm is still going off but you've stopped hearing it. The cost is that you can't rest. The benefit is that you don't have to feel scared anymore. You're just always ready.
----
-
-## STORY v14
----
-path: the boundary you can't set
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-You want to not check your phone at night. You want to set a boundary where you're unavailable. You try. Something pulls you back. The fear that there's an emergency. The fear that you're needed. The fear that if you don't check something bad will happen. The turning point is that the boundary is impossible because the false alarm threat is too real in your body. Your nervous system won't let you rest because rest means lowering the guard and lowering the guard is terrifying.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the exhaustion that's permanent
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-You're always tired. You sleep but it doesn't help. You rest but it doesn't matter. The tiredness is structural because your nervous system is never resting. The false alarms have taught it that rest is dangerous. So even when you're physically resting, your nervous system is on alert. Your body is in a permanent state of low-level mobilization. The tiredness is the price you pay for being ready for the emergency that might come.
----
-
-## STORY v16
----
-path: the person who thinks you're fine
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-Someone asks if you're okay. You say yes. You seem fine to them. You're functioning. You're executing. You're doing the job. They can't see the alarm. They can't feel the false alarms. They just see someone who's present. But you're present in a state of constant readiness. You're present while being braced for emergency. The presentation is fine. The internal state is not.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the scenario that plays on loop
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-You have a specific scenario that worries you. It plays in your head. You play out the contingencies. You prepare for it. Most days nothing happens. But you keep preparing because the day something happens you need to be ready. The scenario has become real in your body even though it hasn't happened in reality. The false alarm is personalized. It's specific. It lives in you.
----
-
-## STORY v18
----
-path: the relief that never comes
-BAND: 5
-SEMANTIC_FAMILY: SF3
----
-You're waiting for the moment when everything is fine. When you can relax. When the threats have been neutralized and you can breathe. The moment never comes. There's always something new to worry about. The false alarms are infinite because you're in a business where anything could change. So the relief never arrives. The exhaustion is permanent because you're protecting against an infinite set of threats that most of them won't happen.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the cost of being ready
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-You could have set boundaries. You could have protected your nervous system. You could have learned to distinguish signal from noise. You could have rested. Instead you spent all that energy being ready. Being braced. Being prepared. The cost of being ready is the life you didn't live. It's the rest you didn't take. It's the peace you didn't have. And you're starting to understand that most of what you were ready for never happened. The false alarms have cost you everything they were supposed to protect you from.
----
-
-## STORY v20
----
-path: the alarm that became your identity
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-You are the person who's always ready. The person who's always alert. The person who responds to every signal. That's who you've become. You don't know how to be anyone else. You don't know how to not be in crisis mode. The false alarms have built your identity. You are the person who lives in fear of emergencies. And you're not sure who you'd be if you stopped. You're not sure there's anyone under the alarm.
+EMBODIMENT v05
 ---

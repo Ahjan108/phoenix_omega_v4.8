@@ -1,205 +1,101 @@
-# corporate_managers / depression / watcher
-# Slot type: STORY (engine)
-# Engine: watcher
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the empty office where you get work done
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You're at your desk. Your surroundings are your surroundings. Your computer is your computer. You're doing work. It's all functional. It's all normal to an outside observer. But you're somewhere else. You're not inhabiting this space. You're observing yourself inhabit it. The person sitting at the desk is you, but you're watching her. She's the one going through the motions. You're just narrating. She answers emails. You watch her answer them. She sits in meetings. You observe the meetings happening. She's present and you're distant.
-
----
-
-## STORY v02
----
-path: the conversation you were half in
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-Someone was talking to you. Telling you something that mattered to them. And you were there. You were saying the right things. But you were watching yourself say them. You weren't actually in the conversation. You were observing it from somewhere else. The person thought they had your attention. But they had your performance of attention. Your presence without your presence. And something in you felt sadness about that. But even the sadness was being observed. Even that emotion was at a distance.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the email you wrote without conviction
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-You wrote an email. You said important things. The words were right. The tone was professional. It conveyed what needed to be conveyed. But you didn't believe any of it. You were writing words that a manager would write. You were watching yourself write them. The conviction is supposed to be there. It's not. You know how to perform belief. That's all that's left.
-
----
-
-## STORY v04
----
-path: the feedback that landed flat
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-You gave someone feedback. It was important feedback. They needed to hear it. And they did hear it. But they probably felt the distance in it. The absence of real investment. You were delivering information instead of having a conversation. You were executing the feedback process while you watched yourself execute it. The person received the words. But they didn't receive the care that's supposed to come with feedback. Because the care part is distant. The care part is being observed.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the morning you couldn't remember yesterday
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You woke up. You tried to remember what you'd done the day before. Specific moments didn't come. You knew generally what happened. You were in meetings. You answered emails. But the moments themselves—you weren't present for them. So there's nothing to remember. You experience your days as a narrator, not a participant. So your life doesn't accumulate in memory. It just passes. And you're watching it pass.
-
----
-
-## STORY v06
----
-path: the celebration that felt like a performance
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-Something good happened to your team. They were excited. You were supposed to be excited. You performed excitement. You said the right things. You made it about them and what they'd accomplished. They felt good. And you watched the whole thing happen like you were directing it. Which is how it felt. Like you were stage-managing a celebration you weren't actually in.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the decision you made while gone
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-You had to make a decision. Something important. And as you were making it, you felt the distance. Like the person making the decision was someone other than you. You were just watching her decide. She was methodical. She considered options. She made a choice. And you observed the whole process. Later you couldn't remember why you decided that way. Because you weren't actually there for the deciding. You were somewhere else, watching.
-
----
-
-## STORY v08
----
-path: the person trying to reach you
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-Someone wanted to connect with you. Really connect. And you wanted that too. But you couldn't. You were in the conversation but not in the conversation. They could feel it. They probably thought it was about them. It wasn't. It's about you being unable to access your own presence. You're somewhere else. And they're trying to reach you from where they are. And the distance between where they are and where you are is just too far.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the weekend where you waited for Monday
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-It was your time off. You were supposed to be restored. Instead you were waiting. Waiting for Monday. Waiting to get back to work where at least the watching makes sense. Your weekend was just an interlude. You were watching yourself try to enjoy it. You were going through the motions. But your real self—the part that watches—wasn't interested. The watching stopped being interesting when you had to apply it to something other than work.
-
----
-
-## STORY v10
----
-path: the person in the mirror
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-You looked at yourself. And you weren't sure who you were looking at. The person looked like you. But the expression was distant. The eyes were somewhere else. You were looking at a body that was going through a life. But the inhabitant of the body wasn't home. You were somewhere else, narrating the living. And the person in the mirror reflected that distance. She looked like someone pretending to be someone. Or someone unable to figure out how to be anyone.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the moment of joy you almost had
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Something happened that was good. Something that would normally make you happy. You felt the potential for happiness. And then you stepped outside of it to observe it. And once you stepped outside, the happiness couldn't reach you. You could see that you were supposed to be happy. You could see what happiness would feel like. But you were too far away. So you missed it. The joy happened and you watched it happen instead of experiencing it.
-
----
-
-## STORY v12
----
-path: the thought you couldn't engage with
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-There was a thought you were supposed to think about. Something that required engagement. And you couldn't. You could watch yourself trying to think about it. But you couldn't actually think about it. You couldn't get inside the thinking. You were just observing the attempt to think. And the attempt failed because you weren't present for it. Thinking requires presence. You've lost presence. So thinking is now a thing that happens and you watch it, or doesn't happen and you watch the failure.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the realization that came too late
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-You suddenly understood something about a situation. A moment of clarity. It came too late to change anything. You realized you were watching your own life play out without you in it. The realization was sharp. It was clear. And then it faded. And you were back to watching. Back to narrating. The clarity didn't change anything. You still can't get inside.
-
----
-
-## STORY v14
----
-path: the plea that didn't land
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-Someone said something to you. They were really trying to reach you. There was a plea in it. Come back. Be here. And you felt it. You understood they were asking for your presence. And you couldn't give it. You could only watch them ask. You could only observe your own inability to respond. The watching had separated you so far from them that their plea couldn't bridge the distance. They left knowing something was wrong. But not knowing that you were gone.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the exhaustion that is spiritual
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-There's an exhaustion that isn't physical. It's the exhaustion of narrating your own life. Of being separated from yourself. Of constant observation without participation. The exhaustion of the watcher. Your body isn't necessarily tired. But the part of you that's supposed to be you is exhausted from the distance. From never being able to arrive where the body is.
-
----
-
-## STORY v16
----
-path: the understanding that you might not come back
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-You had a thought. What if you never come back. What if the person you're watching just keeps living and you just keep watching from far away. What if the distance becomes permanent. You can see how that could happen. You can see how the separation could become the default state. And that scares you. But fear is also being observed. Everything is being observed. You're scared of a future where you're watching yourself be scared.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the moment you tried to come back
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You tried. You made an effort to step back into yourself. To be present in your own life. And it didn't work. You stepped forward and then immediately stepped back. The watching took over again. You felt the failure of the attempt. And then you felt the observation of the failure. You wanted to be here. But here is just too far away. The bridge is too long.
-
----
-
-## STORY v18
----
-path: the grief of never arriving
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-You realized you're grieving something that's still happening. You're watching your life and you're grieving the fact that you're not in your life. The grief is also being observed. So you're watching yourself grieve your own absence. It's circular. You're trapped in the circle. You want to step into the moment and you keep stepping back. You want to be here and you keep narrating here.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the night you talked to yourself from a distance
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-You were alone and you tried to talk to yourself. To ask where you were. To ask what happened to you. And you could hear your own voice asking. But you couldn't answer. Because the version of you that would answer isn't present. Only the watcher is present. And the watcher can only narrate. Can only observe. Can't actually speak from inside. So you sat there. The body and the watcher. But no one home in between.
-
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: the acceptance of the distance
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-You stopped fighting it. You accepted that this is how you are now. The person who watches. The person who narrates her own life. The person who isn't quite present for her own existence. You accepted it. And the acceptance was also something you observed. You watched yourself accept. And even that felt distant. But at least you stopped fighting. At least you stopped expecting to come back. At least the watcher accepted the watching.
-

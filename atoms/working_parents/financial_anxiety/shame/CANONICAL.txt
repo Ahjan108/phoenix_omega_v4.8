@@ -1,206 +1,101 @@
-# working_parents / financial_anxiety / shame
-# Slot type: STORY (engine)
-# Engine: shame
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the shame of not having enough
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Your child asked for something at the store. Something small and reasonable. You said no because you didn't have the money. Your child's face. That's what you're thinking about. The disappointment. The confusion about why they couldn't have the thing they wanted. You're the parent. You're supposed to provide. And you can't. You said no to a simple request because of money. Your child is learning that they can't have things. That their family is different. That they don't have what other kids have. You're ashamed. Your child shouldn't have to feel this.
-
----
-
-## STORY v02
----
-path: the bill you can't pay
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-The dentist bill arrived. For your daughter's cleaning. Two hundred dollars. You've been putting it off. You told yourself you'd pay it. You don't have two hundred dollars. You have the money for the urgent bills. Not the routine ones. Your daughter's teeth will rot because you can't afford a cleaning. You're ashamed. You can't even provide basic healthcare. You're a bad parent. A bad provider. You're failing. And your daughter will pay the price. Her teeth will be a reminder of your failure.
-
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the comparison to a parent who provides
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Your friend's kids have everything. New clothes. Activities. Opportunities. Vacations. Your friend is a good provider. A good parent. She made better financial choices. She earned more. She managed better. You're looking at her and seeing everything you're not. Everything you don't have. Everything you can't give your kids. You're ashamed of your own life. Your own choices. Your own capacity. You're less than. You're not enough. You're falling short compared to her and there's nothing you can do about it.
-
----
-
-## STORY v04
----
-path: the debt that proves you failed
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-You're in debt. That's the fact that lives with you. It's proof that you failed. You couldn't manage. You couldn't make it work. You couldn't be responsible with money. The debt is a scarlet letter. Everyone can see it. Everyone knows. You're the person in debt. The one who couldn't make it. You should be further ahead by now. You should be stable. You should have savings. You don't. You have debt. And the shame of it is constant.
-
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the secret you can't tell anyone
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-Nobody knows how much you're struggling. You haven't told anyone. Not your parents. Not your friends. Not even your partner knows the full extent. You're keeping the shame secret. You're pretending everything is fine. At work you seem normal. At school functions you seem normal. At home with your partner you don't say how bad it is. You're ashamed. And the shame keeps you isolated. Alone with the secret. Unable to ask for help. Unable to be vulnerable. The secret is eating you from the inside.
-
----
-
-## STORY v06
----
-path: the choice you're ashamed of
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-You made a choice. Work instead of parenting. Career instead of family time. Money instead of presence. You're ashamed of the choice. You feel like you chose wrong. Like you should have prioritized differently. Like you should have sacrificed more. Like you should have made it work without having to choose. But you had to choose. And you chose survival. And now you're ashamed of it. Of the hours you work. Of the time you don't spend with your kids. Of the person you had to become to make the finances work.
-
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the shame of being a burden
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-Your parents had to help you out. You had to ask. You had to admit that you couldn't manage. That you needed help. The shame was excruciating. You're an adult. You should be able to handle this. You should be independent. But you needed their help. Now you're indebted to them. And ashamed. Every time you see them you feel it. The shame of being a burden. Of needing help. Of not being enough. Your parents were gracious. But the shame remains.
-
----
-
-## STORY v08
----
-path: the shame of the choices you made
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-You have regrets. You should have gone to a different school. Should have chosen a different career. Should have not had children so early. Should have waited. Should have planned. Should have done literally anything differently. You're ashamed of the chain of choices that led you here. To struggling. To not having enough. Every decision that led to this moment feels like a failure. And you're ashamed of all of them.
-
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the lie you tell about money
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-When people ask if you're fine you say yes. You're fine. Everything's great. Your kids are thriving. Your work is good. Your finances are stable. It's all a lie. You're drowning. You're struggling. You can barely function. But you lie. Because the truth is shameful. The truth is that you're failing. So you perform fine. You wear the mask. You say the right things. And inside you're dissolving. The lie is a weight. But the truth is worse.
-
----
-
-## STORY v10
----
-path: the shame of your net worth
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-You know your net worth. You calculated it one time and never again. It was negative. You owe more than you own. That's the definition of failure. That's the proof that you don't have your life together. You should have savings by now. You should have equity. You should have something. You have debt. The shame of it is paralyzing. You're on the wrong side of zero and there's no way out.
-
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the shame of not being able to provide extras
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Your kids can't do the activity they want. Or the class trip. Or have the birthday party they dreamed about. Because you can't afford it. They have to settle for less. They have to want less. They have to learn that their desires aren't as important as the budget. And you're ashamed. That you can't give them this. That you can't say yes. That you have to say no. That they have to feel the weight of your financial limitations. They shouldn't have to. But they do.
-
----
-
-## STORY v12
----
-path: the shame of the thing you bought to cope
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-You bought something. Something you didn't need. Something that made you feel better for a moment. And now you're ashamed. You spent money that wasn't yours to spend. You added to the debt. You made it worse. And you feel terrible about it. You're weak. You're impulsive. You're the reason you're drowning. You wanted to feel good and you made everything worse. The shame of it is crushing.
-
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the shame of the visible poverty
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-Your car is falling apart. Your clothes are worn. Your house needs things. It's all visible. Everyone can see that you don't have money. There's no hiding it. Your car is literally falling apart and everyone sees. Your kids wear the same clothes over and over. Other parents notice. Other kids notice. The poverty is visible. And the shame of being visible in your poverty is unbearable. You can't hide. Everyone knows. Everyone can see. You're the poor family in the neighborhood.
-
----
-
-## STORY v14
----
-path: the shame of asking for a discount
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-You asked if they had a sliding scale. You asked about discounts. You asked if there was any way to make it more affordable. The shame was immediate. You couldn't afford something normal. Something that most people can just pay for. You had to ask for help. You had to admit that you couldn't afford the standard price. The person helping you was kind. But you felt small. Less than. Unable. Ashamed of being the person who has to ask.
-
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the shame of the financial conversation
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-You have to talk to your partner about money. It's always hard. It always ends with one of you feeling blamed. One of you feeling ashamed. Why didn't you spend less. Why did you choose this job. Why can't you earn more. Why couldn't you have done things differently. The conversation is shame-inducing. You're both failing. You're both not enough. And you're both ashamed.
-
----
-
-## STORY v16
----
-path: the shame of the bill that went to collections
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-The bill went unpaid too long. Now it's in collections. You have a call from a number you don't recognize. A company trying to collect money you owe. The shame is complete. This is the bottom. This is what you've become. A person who can't pay their bills. A person who has debt in collections. A person who's failing in every way. The collector's voice on the phone is a mirror showing you how far down you've fallen.
-
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the permanent shame of inadequacy
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You're ashamed at a cellular level. It's not about money anymore. It's about you. You're inadequate. You're not enough. You're failing as a provider. As a parent. As a person. The shame is existential. It's who you are. A failure. Someone who can't manage. Someone who can't provide. Someone who isn't capable. This is your identity now. The person who failed financially. The person who couldn't make it work. The person who let their family down.
-
----
-
-## STORY v18
----
-path: the shame that won't let you reach out
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-You need help. Real help. Financial help. Counseling. Someone to talk to. But you can't reach out. The shame is too strong. If you ask for help it confirms that you've failed. That you're broken. That you can't handle this. So you suffer alone. You drown silently. You let it destroy you rather than admit that you need help. The shame is a stronger force than your need to survive.
-
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the shame of being less than your parents
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-Your parents had more. Had better. Managed better. You're not doing as well as they did. You're behind them. You're less successful. Less capable. Less worthy. They built something and you're losing it. They managed and you're struggling. The comparison is constant. And the shame of not measuring up is constant. You're failing in front of them. They're watching you fail and trying to be nice about it and the shame is killing you.
-
----
-
-## STORY v20
----
-path: the internalized shame that never lifts
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-The shame is inside you now. It lives in your chest. It wakes you up. It follows you through the day. It makes you small. It makes you hide. It makes you ashamed of existing. Ashamed of your choices. Ashamed of your life. Ashamed of who you've become. Ashamed of failing your family. The shame doesn't lift. It doesn't leave. It becomes your baseline. Your home. Your truth. You are ashamed. This is your reality.
-
+EMBODIMENT v05
 ---

@@ -1,225 +1,101 @@
-# gen_x_sandwich / somatic_healing / watcher
-# Slot type: STORY (engine)
-# Engine: watcher
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the_permanent_shoulder_tension
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-My shoulders live up around my ears. I'm watching this physical posture and recognizing it as perpetual bracing. Like I'm always expecting to have to brace for impact. The watcher notes this with something like compassion—this body has been holding tension for years. It's learned to live defended.
----
-
----
-
-## STORY v02
----
-path: the_clenched_jaw_at_night
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-I wake with my teeth so pressed together there's pain. I'm not dreaming of conflict; I'm just holding. The watcher recognizes this as the day's tension stored in my body while I sleep. The body is processing what the mind won't.
+RECOGNITION v02
 ---
 
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: the_shallow_breath
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Even when nothing's happening, I'm breathing shallowly. Like I'm in a constant mild bracing. The watcher observes this: the body is held like something could happen. It's tired of holding. But it doesn't know how to stop.
----
-
----
-
-## STORY v04
----
-path: the_fatigue_that's_somatic
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-I'm tired in a way that sleep doesn't fix. It's a cellular exhaustion. The watcher recognizes this as chronic stress stored in the tissues. My body has been running hard for so long it doesn't remember rest.
+RECOGNITION v04
 ---
 
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: the_posture_of_protection
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-I'm small. Contracted. Protecting my center. The watcher notes that my body has learned to take up less space, to be smaller, to require less. The body is protecting something vulnerable.
----
-
----
-
-## STORY v06
----
-path: the_racing_heart_at_rest
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-Even sitting, my heart is elevated. The watcher recognizes this as a chronic activation state. My nervous system is braced even when nothing's happening.
+MECHANISM_PROOF v01
 ---
 
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the_tension_headaches
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-The back of my head is always tight. The watcher recognizes this as tension migrating upward. The body is holding stress at the top, like the weight is pressing down.
----
-
----
-
-## STORY v08
----
-path: the_stomach_that_won't_settle
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-There's a constant tightness. The watcher recognizes this as anxiety stored somatically. The body is holding something I'm not allowing my mind to feel fully.
+MECHANISM_PROOF v03
 ---
 
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the_leg_tension
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-My legs are always ready to run. The watcher notes the readiness, the bracing, the constant micro-tension. The body thinks it needs to escape.
----
-
----
-
-## STORY v10
----
-path: the_neck_that_carries_weight
-BAND: 3
-SEMANTIC_FAMILY: SF5
----
-My neck is tight—like it's supporting a weight that extends beyond my shoulders. The watcher recognizes this as carrying burden, literally.
+MECHANISM_PROOF v05
 ---
 
----
-
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the_breath_that's_protecting
 BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-My breathing is shallow because deep breathing would feel vulnerable. The watcher notes that my breath is guarded. The body knows something my mind isn't admitting.
----
-
----
-
-## STORY v12
----
-path: the_tired_muscles
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-My muscles are tired even when I haven't done much physical activity. The watcher recognizes this as nervous system fatigue—the body is exhausted from being activated.
+TURNING_POINT v02
 ---
 
----
-
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the_bracing_i_can't_release
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-My whole body is in a low-level brace. The watcher observes that I don't know how to come down from this. The brace has become my baseline.
----
-
----
-
-## STORY v14
----
-path: the_spine_that_holds_burden
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-My back is tight, curved, protecting. The watcher notes that my spine is literally shielding my center. The body knows how to protect even if the mind doesn't.
+TURNING_POINT v04
 ---
 
----
-
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the_hands_that_want_to_protect
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: experimentation---
 ---
-My hands are tense, ready. The watcher recognizes this as protective readiness. The body is holding something vulnerable and wants to guard it.
----
-
----
-
-## STORY v16
----
-path: the_jaw_tension
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-Not just at night. All the time. The watcher notes that my jaw is clenched even when relaxed. The body is holding something unsaid.
+EMBODIMENT v01
 ---
 
----
-
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the_fatigue_in_my_bones
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-It's not muscle fatigue. It's deeper. The watcher recognizes this as structural exhaustion. My body is tired at the level of bone and marrow.
----
-
----
-
-## STORY v18
----
-path: the_tremor_i'm_hiding
-BAND: 5
-SEMANTIC_FAMILY: SF3
----
-There's a micro-tremor in my hands sometimes. The watcher notes that this is my body's way of expressing what I won't say.
+EMBODIMENT v03
 ---
 
----
-
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the_temperature_dysregulation
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-I'm always too hot or too cold. The watcher recognizes this as nervous system dysregulation. My body doesn't know what's safe.
+EMBODIMENT v05
 ---
-
----
-
-## STORY v20
----
-path: the_movement_that's_constrained
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-Even my movements are smaller, constrained. The watcher notes that my body is taking up less space, moving less, expanding less. The contraction is complete.
----
-

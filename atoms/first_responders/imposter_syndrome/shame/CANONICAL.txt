@@ -1,186 +1,101 @@
-# first_responders / imposter_syndrome / shame
-# Slot type: STORY (engine)
-# Engine: shame
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: the doubt after every call
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You make a decision on a call. Treatment decision. Transport decision. Something. And it's right. The outcome's good. But the doubt comes anyway. What if you'd done it different. What if you'd been wrong. What if there was something you missed. And the shame of the doubt is that you're supposed to be confident. Supposed to know. Supposed to be the expert. And instead you're second-guessing yourself. And the patient's fine but you're not. Because you're wondering if you got lucky. If you actually know what you're doing or if you're just good at faking it. And this doubt shows up after every call. After every decision. After every moment where you're supposed to be the expert. And the shame of doubting yourself when people are trusting you. That's heavy.
----
-
-## STORY v02
----
-path: the credentials you don't feel
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You have the training. You have the certifications. You have the experience. On paper you're qualified. But inside you don't feel qualified. You feel like you're pretending. Like if you admitted how little you actually know. How much you're just using what you learned instead of actually understanding it. People would realize you shouldn't be here. And the shame of having the credentials but not the confidence. The shame of looking official while feeling fraudulent. That gap between the outside and inside is where the imposter shame lives. And it's telling you that you don't belong. That other people actually know this. That you're just good at hiding the fact that you're winging it.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: the training scenario you failed
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-You remember one training scenario where you didn't know something. Or you got it wrong. Or you hesitated. And other people knew. Other people were confident. And you were confused. And the shame of that moment is staying with you. Years later you're still remembering it. Still feeling like that person who didn't know. Who wasn't sure. Who got shown up. And the shame is telling you that moment proved you're an imposter. That everyone who was there remembering how you didn't know. That you've been found out and you're just waiting for everyone else to figure it out. And the shame's using that one moment as evidence of something deeper. Something true about your incompetence.
----
-
-## STORY v04
----
-path: the praise that feels undeserved
-BAND: 1
-SEMANTIC_FAMILY: SF4
----
-Someone compliments your work. Says you handled a call well. Says you're a good responder. And instead of accepting it you're dismissing it. It was luck. The patient was stable. It was obvious. Anyone could have done it. And the person praising you's probably just being kind. Doesn't actually mean it. And the shame of not being able to accept the praise. Not being able to believe it. Not being able to let yourself be good at something. The shame's telling you that you're not good enough for the praise. That the praise is misplaced. That if people knew what you actually know. How much you're guessing. They wouldn't praise you. They'd see through you.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: the peer who seems to know everything
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-There's someone on your crew who seems confident. Seems to know. Doesn't question themselves. Moves with certainty. And the shame is comparing you to them. Telling you that they're the real thing. That they actually belong. And you're just trying to look like them. Trying to fake it until you make it. And the fakeness of that. The performance of competence when underneath you don't feel competent. That shame is driving you. Making you work harder. Question more. Study more. Because maybe if you work hard enough you'll actually become the thing you're pretending to be. But the imposter shame is saying that day will never come. That you'll always be pretending.
----
-
-## STORY v06
----
-path: the knowledge you're not sure you have
-BAND: 2
-SEMANTIC_FAMILY: SF2
----
-There's medical knowledge. Protocol knowledge. System knowledge. And you have it. You've learned it. You know it. But the shame is telling you that you don't really know it. That you're just repeating what you memorized. That if someone asked you something slightly different you'd be lost. That you don't actually understand it. And the shame's making you small. Making you hesitant to speak up. Making you doubt your own training. Making you less effective because the doubt is using up the bandwidth that should go to confidence.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: the call that went wrong
-BAND: 2
+BAND: 4
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: destabilization---
 ---
-There was a call that didn't go the way you wanted. The patient didn't improve. Or something was missed. Or you made a mistake. And the shame's attached to it. Telling you that you caused it. That someone better wouldn't have missed it. That you're not good enough. And other people know. The crew knows. They're just not saying anything. They're being kind. But they know you messed up. And the shame's making that one call into evidence of your fundamental incompetence. Making it into proof that you're an imposter. When really it's just a human error. But the shame doesn't allow for that. The shame makes it definitive.
----
-
-## STORY v08
----
-path: the question you don't ask
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-You don't know something. Or you're unsure. And the shame prevents you from asking. From admitting the uncertainty. Because asking would expose you. Would prove that you're not qualified. That you don't know. And so you stay silent. You guess. You proceed without being certain. And that's dangerous. But the shame's telling you it's safer than admitting you don't know. And the silence is becoming a pattern. And the pattern is making you less safe. Less informed. Less able. But you're protecting the image of competence. You're hiding the shame.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: the veteran who knows it all
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: destabilization---
 ---
-There's a veteran who's been here forever. Seen everything. Knows everything. Or at least seems to. And the shame of being new beside them. Of being early in your career beside their experience. The shame is telling you that you'll never know what they know. That you'll always be the junior one. The one who's learning. The one who doesn't belong. And you watch how they move through calls. How confident. How certain. And the shame's using them as the measuring stick. And by that measure you're always coming up short.
----
-
-## STORY v10
----
-path: the credentials that were easier than expected
-BAND: 3
-SEMANTIC_FAMILY: SF2
----
-You got the certification. You passed the test. And the shame's telling you it was too easy. That you must have gotten lucky. That real experts find it harder. That if it was easy for you then maybe you're not cut out for this. And the shame's doing its job which is making success feel fraudulent. Making accomplishment feel undeserved. Making every achieved credential into evidence of imposter status. If you got the credential then maybe the credential doesn't mean what it's supposed to mean.
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: the mistakes that shame won't let go
 BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-You made a mistake. Years ago. Small one. Inconsequential. But the shame won't let it go. Brings it up. Uses it as evidence. Reminds you that you're not infallible. That you can be wrong. And the shame's making that one mistake into a definition. A proof of imposter status. When really it was just a human thing. A moment. But the shame is weaponizing it. Using it to keep you small. Keep you doubting. Keep you unsure.
----
-
-## STORY v12
----
-path: the success that feels like accident
-BAND: 3
-SEMANTIC_FAMILY: SF4
----
-Something good happens. You handled a call really well. The patient outcome's great. And the shame won't let you claim it. Won't let you accept it as something you did. It's reframing it. The patient was easy. You got lucky. The other crew member made the real difference. Anything but accepting that you did something good. And the refusal to claim success is a way the shame is keeping you down. Keeping you doubting. Not allowing you to build the evidence of your own competence. Every win is being reframed as accident. And that's the real damage of imposter shame. It's not the doubting. It's the refusal to accept evidence of actual competence.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: the question someone asks you
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-Someone asks you something about your job. How would you handle this. What would you do in that situation. And the shame is triggered immediately. Because if you answer wrong. If you admit you're not sure. If you hesitate. You're exposed. And the shame is making you either over-answer. Pretend more certainty than you have. Or under-answer. Minimize what you know. And the truth gets buried under the shame. And the person asking is just trying to learn. But the shame makes it adversarial. Makes it a test you're passing or failing.
----
-
-## STORY v14
----
-path: the moment someone actually knows
-BAND: 4
-SEMANTIC_FAMILY: SF2
----
-Someone figures something out. Realizes you're not certain about something. Sees through the performance. And the shame comes. Because you were found out. And the thing that you've been afraid of is happening. Someone knows you don't know. Someone sees the gap between the credentials and the confidence. And the shame is terrible because it confirms what you've always believed. That you're an imposter. That you don't belong. That it's only a matter of time before everyone figures it out.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: the person who's kind about the gap
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: experimentation---
 ---
-Someone knows about the gap. And instead of judgment they're kind. They tell you something like nobody knows everything. Or I don't know that either. Or let me help you figure it out. And the shame is fighting against the kindness. Telling you it's patronizing. Telling you that they're just being nice. That they really do think you're incompetent. But the kindness is offering something different. A different narrative. One where not knowing isn't failure. Where asking is strength. Where admitting uncertainty is wisdom. And the shame's resisting it. But it's a crack. An opening to a different way of being.
----
-
-## STORY v16
----
-path: admitting you don't know something
-BAND: 4
-SEMANTIC_FAMILY: SF4
----
-You're at work and you don't know something. And instead of pretending or staying silent. You speak up. I don't know. Can someone help. And the world doesn't end. Someone helps. You learn. The call gets handled. And nothing bad happens. And the shame's narrative is broken a little. Because you've been told that admitting you don't know is career suicide. That it's proof of incompetence. That it will get you fired or judged. But it didn't. And that changes something. Not everything. But enough that next time might be easier.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: the other people who don't know either
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: self_claim---
 ---
-You start talking to people. Start admitting the doubt. And you're hearing the same thing back from experienced people. The doubt never goes away. The questioning is part of the job. The certainty everyone seems to have is also performance sometimes. And the shame is quieting a little. Because if the veterans are also doubting themselves. If the experienced people are also asking themselves am I good enough. Then maybe it's not imposter syndrome. Maybe it's just the job. And that's different. That's something you can live with.
----
-
-## STORY v18
----
-path: building your own foundation
-BAND: 5
-SEMANTIC_FAMILY: SF2
----
-You're starting to keep track of the things you do know. The calls you handle well. The decisions that turn out right. The people who genuinely trust you. And you're building your own evidence. Not comparing to the veterans. Not measuring against the peer who seems perfect. But just accumulating the actual reality of your competence. And the shame's still there. Still saying you don't belong. But the evidence is starting to outweigh the shame. And that's slow. But it's real.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: the newer person who doubts like you
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-Someone new starts. And they're doing the same thing you did. Doubting. Assuming everyone else knows. Feeling like an imposter. And you're seeing yourself in them. And you're realizing something. You're not an imposter. Or maybe you are. But so are they. And so are the veterans. And maybe being an imposter is just part of being human. Part of learning a complex job. Part of being responsible for people. And if everyone's an imposter then maybe nobody is. Maybe it's just the weight of the responsibility making everyone doubt themselves. And that's actually what's supposed to happen. That's healthy.
----
-
-## STORY v20
----
-path: the shame that's becoming something else
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-The shame is still there. Probably always will be. But it's transforming. Into something like humility. Into caution. Into the knowledge that you need to keep learning. That you need to stay grounded. That certainty can be dangerous. And the imposter feeling is becoming not a proof of unworthiness but a reminder to keep growing. To keep learning. To stay connected to why you do this. And that's not shameful. That's actually integrity.
+EMBODIMENT v05
 ---

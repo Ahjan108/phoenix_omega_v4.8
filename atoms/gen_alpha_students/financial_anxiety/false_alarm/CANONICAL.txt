@@ -1,5 +1,4 @@
-# gen_alpha_students × financial_anxiety × false_alarm
-# 20 atoms: 5 recognition, 5 mechanism_proof, 5 turning_point, 5 embodiment
+
 
 ## RECOGNITION v01
 ---
@@ -11,17 +10,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
 Zoe gets a bill in the mail. Her body responds like it's an emergency. Her chest tightens. Her hands go cold. She opens it. The bill is reasonable. It's expected. But her nervous system treated it like disaster. The false alarm is about money. Every financial notification triggers crisis. A receipt from the bookstore. An email about tuition. A notification that rent is due. All false alarms. All treated as catastrophe. Her hands shake.
-
-## RECOGNITION v02
+RECOGNITION v02
 ---
-path: story_atoms/gen_alpha_students/anchored/financial_anxiety/false_alarm/recognition/micro/v02.txt
-BAND: 3
-MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 2
-IDENTITY_STAGE: pre_awareness
----
-Eli's dad calls. His body goes into alarm. The call is probably nothing. Maybe a casual check-in. But Eli's brain assumes financial emergency. His father is calling to say something terrible. Anxiety about money has rewired his threat detection. Normal calls feel like alarms. His jaw clenches. He answers the phone already in crisis mode. The call is fine. The alarm was false.
 
 ## RECOGNITION v03
 ---
@@ -33,17 +23,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
 Nia's bank app shows her balance. The false alarm is immediate. She has money. Actual dollars. But her body treats the balance like it could disappear any moment. She refreshes the app to check again. It's the same. The false alarm is about scarcity. Everything financial feels precarious. She's lived with money anxiety for so long that abundance feels dangerous. Her hands are cold. The safety isn't real.
-
-## RECOGNITION v04
+RECOGNITION v04
 ---
-path: story_atoms/gen_alpha_students/anchored/financial_anxiety/false_alarm/recognition/micro/v04.txt
-BAND: 3
-MECHANISM_DEPTH: 1
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: pre_awareness
----
-Leo gets his paycheck. The false alarm is that the money won't last. He knows mathematically that the paycheck covers his needs and then some. But the nervous system screams that he's broke. The alarm is running before the deposit even clears. His shoulders pull up. The false alarm about money has become constant background noise.
 
 ## RECOGNITION v05
 ---
@@ -55,17 +36,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
 Mika gets a notification that her student loan payment went through. The false alarm is enormous. The payment is due. It's supposed to happen. But the notification triggers panic. She's broke. She'll never pay it off. The system is broken. She's broken. The alarm is treating a routine transaction like a disaster. Her throat is tight. The financial false alarm is drowning out reality.
-
-## MECHANISM_PROOF v01
+MECHANISM_PROOF v01
 ---
-path: story_atoms/gen_alpha_students/anchored/financial_anxiety/false_alarm/mechanism_proof/micro/v01.txt
-BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 4
-IDENTITY_STAGE: destabilization
----
-Cam's financial anxiety is running constant false alarms. Every app notification. Every transaction. Every balance check. False alarm. False alarm. False alarm. The nervous system is exhausted. Cam is exhausted. Living in constant crisis about money that isn't actually critical creates real crisis inside the body. The alarm bell won't stop ringing. Her chest is permanently tight.
 
 ## MECHANISM_PROOF v02
 ---
@@ -77,17 +49,8 @@ COST_INTENSITY: 4
 IDENTITY_STAGE: destabilization
 ---
 Asha is triggered by any conversation about money. A friend mentions their tuition. False alarm. She spirals about her own. A classmate talks about student loans. False alarm. Asha treats the conversation like a threat. The financial anxiety is spreading. It's not just about her money anymore. It's about money in general. The false alarm is constant. Her stomach is tight.
-
-## MECHANISM_PROOF v03
+MECHANISM_PROOF v03
 ---
-path: story_atoms/gen_alpha_students/anchored/financial_anxiety/false_alarm/mechanism_proof/micro/v03.txt
-BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: opportunity
-COST_INTENSITY: 4
-IDENTITY_STAGE: destabilization
----
-Dre is checking bank balances constantly. The constant checking is supposed to provide safety. It doesn't. The false alarms keep firing. The balance looks low. Dre panics. Then realizes the low balance is normal for that part of the month. False alarm. Dre checks again. And again. The checking doesn't stop the alarms. It feeds them.
 
 ## MECHANISM_PROOF v04
 ---
@@ -99,17 +62,8 @@ COST_INTENSITY: 4
 IDENTITY_STAGE: destabilization
 ---
 Leo's financial false alarm is turning into belief. He's treated money like disaster so many times that he's starting to believe he'll be broke no matter what. The reality doesn't matter. The alarm has convinced him. His hands are shaking. The false alarm is becoming fact in his mind.
-
-## MECHANISM_PROOF v05
+MECHANISM_PROOF v05
 ---
-path: story_atoms/gen_alpha_students/anchored/financial_anxiety/false_alarm/mechanism_proof/micro/v05.txt
-BAND: 4
-MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 5
-IDENTITY_STAGE: destabilization
----
-Zoe is in crisis about money that doesn't exist as a crisis. She's living like she's broke when she's actually okay. The false alarm has hijacked her nervous system. She can't spend money without panic. She can't not spend money without panic. The system is broken. The false alarms have broken the ability to trust her own financial reality.
 
 ## TURNING_POINT v01
 ---
@@ -121,17 +75,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: experimentation
 ---
 Eli makes a list of false alarms. Times he panicked about money. Times the actual outcome. The list shows: he's never actually been destitute. The false alarms have all been false. The data doesn't stop the alarm. But it provides context. His nervous system is overactive. Not prescient.
-
-## TURNING_POINT v02
+TURNING_POINT v02
 ---
-path: story_atoms/gen_alpha_students/anchored/financial_anxiety/false_alarm/turning_point/micro/v02.txt
-BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: opportunity
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
----
-Nia talks to her parents about her financial anxiety. Her parents tell her: you have enough. You've always had enough when you needed it. The reassurance doesn't cure the anxiety. But it provides a counter-narrative to the false alarm. Her nervous system is lying. Her parents are telling the truth. Her hands warm up slightly.
 
 ## TURNING_POINT v03
 ---
@@ -143,17 +88,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: experimentation
 ---
 Mika stops checking her balance obsessively. She checks once a week instead of multiple times a day. The constant checking was feeding the alarm. The fewer checks means fewer false alarms triggered. Her anxiety drops. The alarm was partially self-created by the constant surveillance.
-
-## TURNING_POINT v04
+TURNING_POINT v04
 ---
-path: story_atoms/gen_alpha_students/anchored/financial_anxiety/false_alarm/turning_point/micro/v04.txt
-BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
----
-Cam talks to a friend who also has financial anxiety. The friend talks about using a spreadsheet. Seeing the actual numbers. Knowing what's real. The spreadsheet creates distance from the false alarm. The numbers are facts. The alarm is just alarm. The distinction helps. Cam's chest loosens. The facts might not feel true. But they're available.
 
 ## TURNING_POINT v05
 ---
@@ -165,17 +101,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: experimentation
 ---
 Asha decides: when the false alarm fires, she will write down the facts. Not the alarm. The facts. What do I actually have? What do I actually owe? Where am I actually at? The writing interrupts the alarm. The facts are smaller than the alarm usually is. The visible facts calm the system.
-
-## EMBODIMENT v01
+EMBODIMENT v01
 ---
-path: story_atoms/gen_alpha_students/anchored/financial_anxiety/false_alarm/embodiment/micro/v01.txt
-BAND: 2
-MECHANISM_DEPTH: 4
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: self_claim
----
-Zoe now recognizes when the false alarm is firing. She feels it in her chest first. The tightness is a signal. When the signal comes, she reaches for the facts. Not the alarm. Just the facts. The alarm doesn't disappear. She's just not believing it anymore. Her chest softens when she separates from the alarm.
 
 ## EMBODIMENT v02
 ---
@@ -187,17 +114,8 @@ COST_INTENSITY: 1
 IDENTITY_STAGE: self_claim
 ---
 Leo now tells people when financial false alarms are firing. He says: I'm in money panic but the panic isn't based on reality. The acknowledgment takes power away. People understand. The alarm loses credibility when it's named. His hands warm up. The false alarm still visits. He's just not alone with it anymore.
-
-## EMBODIMENT v03
+EMBODIMENT v03
 ---
-path: story_atoms/gen_alpha_students/anchored/financial_anxiety/false_alarm/embodiment/micro/v03.txt
-BAND: 2
-MECHANISM_DEPTH: 4
-COST_TYPE: opportunity
-COST_INTENSITY: 1
-IDENTITY_STAGE: self_claim
----
-Dre checks once a week. The less surveillance means fewer triggers. The fewer triggers means the system calms down. The financial anxiety is still there. But it's not running false alarms constantly. The alarm system has a chance to reset. Dre's shoulders drop. The constant panic has softened to manageable.
 
 ## EMBODIMENT v04
 ---
@@ -209,15 +127,5 @@ COST_INTENSITY: 1
 IDENTITY_STAGE: self_claim
 ---
 Nia is trusting the facts more than the alarm now. The alarm still visits. The facts are louder. The alarm says she'll be broke. The facts say she's okay. She believes the facts. Her hands are steady. The alarm is optional. She's choosing the facts.
-
-## EMBODIMENT v05
+EMBODIMENT v05
 ---
-path: story_atoms/gen_alpha_students/anchored/financial_anxiety/false_alarm/embodiment/micro/v05.txt
-BAND: 1
-MECHANISM_DEPTH: 4
-COST_TYPE: internal
-COST_INTENSITY: 1
-IDENTITY_STAGE: self_claim
----
-Mika has built a relationship with the false alarm. It's there. It still fires. She just doesn't respond immediately. She waits. She checks the facts. Then she responds. The alarm is predictable now. The response is measured. The financial anxiety remains but the false alarms are managed.
-

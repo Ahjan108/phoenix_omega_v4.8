@@ -1,5 +1,4 @@
-# first_responders × burnout × spiral
-# 20 atoms: 5 recognition, 5 mechanism_proof, 5 turning_point, 5 embodiment
+
 
 ## RECOGNITION v01
 ---
@@ -11,17 +10,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
 Sofia made a mistake. Small. But her mind spirals. What if I'm too burned out to do this job safely? What if the burnout is destroying my competence? The spiral feeds on burnout.
-
-## RECOGNITION v02
+RECOGNITION v02
 ---
-path: story_atoms/first_responders/anchored/burnout/spiral/recognition/micro/v02.txt
-BAND: 3
-MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: pre_awareness
----
-Jake spirals about his performance. Am I still capable? Is the burnout destroying my ability? His mind runs catastrophe scenarios.
 
 ## RECOGNITION v03
 ---
@@ -33,17 +23,8 @@ COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
 Marcus spirals about patient safety. The burnout makes him second-guess everything. The spiral feeds on doubt created by fatigue.
-
-## RECOGNITION v04
+RECOGNITION v04
 ---
-path: story_atoms/first_responders/anchored/burnout/spiral/recognition/micro/v04.txt
-BAND: 2
-MECHANISM_DEPTH: 1
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: pre_awareness
----
-Brianna spirals about fitness for duty. Should I even be working? Is the burnout making me dangerous?
 
 ## RECOGNITION v05
 ---
@@ -55,17 +36,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
 Heather spirals about leadership. If I'm burned out, is my judgment compromised? The spiral feeds on responsibility.
-
-## MECHANISM_PROOF v01
+MECHANISM_PROOF v01
 ---
-path: story_atoms/first_responders/anchored/burnout/spiral/mechanism_proof/micro/v01.txt
-BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: identity
-COST_INTENSITY: 4
-IDENTITY_STAGE: destabilization
----
-Sofia's spiral has been running for weeks. Every mistake feeds it. What if I kill someone because I'm too burned out? The spiral is consuming her.
 
 ## MECHANISM_PROOF v02
 ---
@@ -77,17 +49,8 @@ COST_INTENSITY: 4
 IDENTITY_STAGE: destabilization
 ---
 Jake's spiral is creating self-doubt. He's checking and rechecking his work. The burnout is making him obsessive.
-
-## MECHANISM_PROOF v03
+MECHANISM_PROOF v03
 ---
-path: story_atoms/first_responders/anchored/burnout/spiral/mechanism_proof/micro/v03.txt
-BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 4
-IDENTITY_STAGE: destabilization
----
-Marcus can't trust himself anymore. The spiral has convinced him the burnout has destroyed his competence.
 
 ## MECHANISM_PROOF v04
 ---
@@ -99,17 +62,8 @@ COST_INTENSITY: 4
 IDENTITY_STAGE: destabilization
 ---
 Brianna is considering quitting. The spiral has convinced her she's unsafe. The burnout and spiral are feeding each other.
-
-## MECHANISM_PROOF v05
+MECHANISM_PROOF v05
 ---
-path: story_atoms/first_responders/anchored/burnout/spiral/mechanism_proof/micro/v05.txt
-BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: destabilization
----
-Heather is withdrawing from leadership. The spiral has convinced her the unit would be better without her burned-out presence.
 
 ## TURNING_POINT v01
 ---
@@ -121,17 +75,8 @@ COST_INTENSITY: 4
 IDENTITY_STAGE: experimentation
 ---
 Sofia realizes: the spiral is about burnout, not reality. She brings evidence. The calls worked out fine. Rest breaks the spiral.
-
-## TURNING_POINT v02
+TURNING_POINT v02
 ---
-path: story_atoms/first_responders/anchored/burnout/spiral/turning_point/micro/v02.txt
-BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: social
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
----
-Jake stops checking. By not feeding the spiral, it starts to quiet. Burnout is real. But the catastrophe is imagined.
 
 ## TURNING_POINT v03
 ---
@@ -143,17 +88,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: experimentation
 ---
 Marcus recognizes the pattern. Burnout creates doubt. Doubt creates spiral. Rest interrupts the cycle.
-
-## TURNING_POINT v04
+TURNING_POINT v04
 ---
-path: story_atoms/first_responders/anchored/burnout/spiral/turning_point/micro/v04.txt
-BAND: 3
-MECHANISM_DEPTH: 3
-COST_TYPE: identity
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
----
-Brianna takes real leave. The spiral can't continue when she's resting. The burnout was feeding the spiral.
 
 ## TURNING_POINT v05
 ---
@@ -165,17 +101,8 @@ COST_INTENSITY: 3
 IDENTITY_STAGE: experimentation
 ---
 Heather steps back. Without burnout fatigue, the spiral about leadership disappears.
-
-## EMBODIMENT v01
+EMBODIMENT v01
 ---
-path: story_atoms/first_responders/anchored/burnout/spiral/embodiment/micro/v01.txt
-BAND: 1
-MECHANISM_DEPTH: 4
-COST_TYPE: identity
-COST_INTENSITY: 2
-IDENTITY_STAGE: self_claim
----
-Sofia knows the spiral now. Burnout is real. The spiral is real. But she manages it with rest.
 
 ## EMBODIMENT v02
 ---
@@ -187,17 +114,8 @@ COST_INTENSITY: 2
 IDENTITY_STAGE: self_claim
 ---
 Jake returns to work. The spiral is manageable when he's rested.
-
-## EMBODIMENT v03
+EMBODIMENT v03
 ---
-path: story_atoms/first_responders/anchored/burnout/spiral/embodiment/micro/v03.txt
-BAND: 2
-MECHANISM_DEPTH: 4
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: self_claim
----
-Marcus trusts his judgment again. The spiral was created by burnout, not by actual incompetence.
 
 ## EMBODIMENT v04
 ---
@@ -209,14 +127,5 @@ COST_INTENSITY: 2
 IDENTITY_STAGE: self_claim
 ---
 Brianna stays in the job. She manages the burnout so the spiral doesn't start.
-
-## EMBODIMENT v05
+EMBODIMENT v05
 ---
-path: story_atoms/first_responders/anchored/burnout/spiral/embodiment/micro/v05.txt
-BAND: 2
-MECHANISM_DEPTH: 4
-COST_TYPE: social
-COST_INTENSITY: 2
-IDENTITY_STAGE: self_claim
----
-Heather leads with confidence again. The spiral is gone when she's not burned out.

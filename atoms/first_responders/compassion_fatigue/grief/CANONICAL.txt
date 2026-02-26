@@ -1,97 +1,51 @@
-# first_responders / compassion_fatigue / grief
-# Slot type: STORY (engine)
-# Engine: grief
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: The victim's face across the years
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You remember the name. That's the part they don't tell you about. Years later and you'll be at the dinner table and her name will surface in your mind like something caught in a net. Not the worst call. Not the one everyone talks about. Just the one where something in you recognized something in her. The job teaches you to compartmentalize. Move to the next call. Clear the scene. But compartments leak. The ones that do are the ones where you saw yourself, or your kid, or someone you couldn't save fast enough.
----
-
-## STORY v02
----
-path: The shift partner who left the job
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-He was solid. Seven years riding together and he knew what you needed without asking. Then he got on with dispatch and two months later he was done. Not fired. Just gone. You see him at the grocery store and he's different. Lighter, maybe. Or just further away. The job doesn't mourn people leaving the way it mourns people dying. But there's a loss in it. The crew that held you up is smaller now. The mutual aid you counted on is a phone call to someone new.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: Running calls but not present
 BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-The burnout doesn't announce itself. You're still making the dispatches. Still gearing up. Still running the scene. But somewhere between the second year and the fifth, you stopped being all the way there. Your body knows the protocol. Your hands know the equipment. But the part of you that felt for the person in front of you went quiet. Not gone. Quiet. And you notice it most on the calls that should break you open. The ones where you should feel something. The ones where the rookies still have that light in their eyes and you remember when you did too.
----
-
-## STORY v04
----
-path: The call that got his family
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-You didn't know the victim. You know the firefighter. Everyone knows the firefighter now. Saw him at the funeral. He was held up by other men in blue. The photos are still on the crew board at the station. His family's pictures. Kids' school pictures next to the photos from the scene. The job says we do this so theirs doesn't have to. That's the deal. But the deal breaks when it's one of your own who goes into the fire and the fire wins. The weight of that doesn't get lighter.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: The one you couldn't turn off
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-Three years and you still think about what you'd do different. The call wasn't the worst you've run. Statistics say you made the right choices. The debrief said the protocol was followed. But grief doesn't follow protocol. You see her picture sometimes. Not because you're stalking. Just because the department did a community outreach and there she was. She's the one you've been carrying. Not in the way that makes for good stories. In the way that makes you wonder if the job picked you or if you picked the job knowing it would eventually crush something you couldn't afford to lose.
----
-
-## STORY v06
----
-path: The part of duty nobody names
-BAND: 3
-SEMANTIC_FAMILY: SF1
----
-They talk about the brotherhood. The team. The crew that backs you. But they don't talk about the grief that comes with showing up. Every call is someone's worst day. You run into it. You manage it. You compartmentalize it. And the weight of that accumulates. Not in the way it gets better. In the way it compounds. The victim faces stay. The near misses replay. The ones you saved still haunt you because you know exactly what could have happened instead. That's the tax of the job. Not the tax of trauma. The tax of witnessing.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: Missing the ones who've left
 BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-The station's different now. Three retirements in as many years. The ones who held the tradition. The ones who could tell you why things are done the way they are. You tried to learn before they left but their knowledge is like institutional muscle memory. You can't really transfer it. You can only hope it sticks. The grief of losing institutional elders is quiet. It doesn't make the news. It doesn't even make the shift report. But it's there. A competence that's gone. A steadiness that can't be replaced because it was built across fifteen years of calls you weren't on.
----
-
-## STORY v08
----
-path: The scene that rewrote everything
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-Before and after. That's what you think about now. The call that made you question everything. Not the safety procedures. Not the department. Just the whole equation of being human in a job like this. You made it home. You did your job. But something about that scene got under your skin in a way nothing else has. Maybe it was the age of the victim. Maybe it was the preventability. Maybe it was just that your nervous system recognized something it couldn't process then and still can't now. The grief is personal. The job doesn't have a name for it.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: Carrying weight that has no outlet
-BAND: 5
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-You can't talk to civilians about it. They don't understand the scene. You can talk to the crew but the crew's also carrying their own calls. The therapist is professional. Kind. But they didn't see what you saw. They didn't smell the smoke or hear the sounds or feel the weight of the person in front of you. So the grief sits. It doesn't go away. It attaches itself to your nervous system like scar tissue. You feel it on quiet calls. You feel it on your days off. You feel it most when you're home and safe and the loss becomes this abstract weight you can't set down because you haven't found the right place to put it.
+MECHANISM_PROOF v05
 ---
-
-## STORY v10
----
-path: The ritual that no longer holds
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-The station ritual used to mean something. The crew debrief. The dark humor that cut through the weight. The unspoken agreement that you'd all carry it together. But something's broken in the ritual. Maybe it's because there are too many calls. Maybe it's because the crew's changed. Or maybe it's that the grief has gotten too personal. Too specific. The humor doesn't land. The debrief feels hollow. You're still going through the motions but the container is cracked. The grief pours through. And you realize that the brotherhood was never really about processing the loss. It was about not being alone while you carried it.
----
-

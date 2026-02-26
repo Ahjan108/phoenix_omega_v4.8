@@ -1,187 +1,101 @@
-# entrepreneurs / social_anxiety / comparison
-# Slot type: STORY (engine)
-# Engine: comparison
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: The room of founders
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: pre_awareness---
 ---
-You're in a room with other founders. Successful ones. Or at least more successful than you are in this moment. And you're the quiet one. You're not talking about your metrics. You're not sharing your wins. You're not doing the performance that the other founders are doing. And everyone can sense it. Everyone can sense that you don't belong. That you're the one who's behind. That you're the one who hasn't made it yet. And the anxiety is in knowing that everyone can see it.
----
-
-## STORY v02
----
-path: The pitch in front of the investors
-BAND: 1
-SEMANTIC_FAMILY: SF2
----
-You're supposed to pitch. You're supposed to tell them why you're worth investing in. You're supposed to convince them that your company is the right bet. And as you're sitting there, you're thinking "they know I'm a fraud." You're thinking "they can see through me." You're thinking "I shouldn't be here." And the anxiety is so loud that you can barely hear yourself speak. And when you do speak, you know the anxiety is showing. You know that anyone paying attention can see it.
+RECOGNITION v02
 ---
 
-## STORY v03
+## RECOGNITION v03
 ---
 path: The question I don't want to answer
 BAND: 2
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: pre_awareness---
 ---
-Someone asks you a question. In the meeting. In the dinner. In the elevator. And you don't know the answer. And the anxiety floods. Because not knowing the answer is admitting that you don't have it all figured out. It's admitting that you don't know everything. It's admitting that you're uncertain. And the anxiety is in the thought "if I say I don't know, they'll realize I don't deserve to be here."
----
-
-## STORY v04
----
-path: The comparison that happens in real time
-BAND: 2
-SEMANTIC_FAMILY: SF4
----
-You're talking and in real time you're comparing what you're saying to what the other founder is saying. And theirs is better. Theirs is smarter. Theirs is more articulate. Theirs is more compelling. And your anxiety is feeding on that real-time comparison. You're getting worse as they get better. You're shrinking as they expand. And the anxiety is the knowledge that everyone is noticing the gap.
+RECOGNITION v04
 ---
 
-## STORY v05
+## RECOGNITION v05
 ---
 path: The question about your company
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: pre_awareness---
 ---
-Someone asks you about your company. About what you're building. About your metrics. About your vision. And you know that whatever you say, it's going to sound small. It's going to sound unprepared. It's going to sound like you don't know what you're doing. So the anxiety is anticipatory. You're already bracing for the judgment. You're already expecting to be found wanting.
----
-
-## STORY v06
----
-path: The network that excludes you
-BAND: 3
-SEMANTIC_FAMILY: SF1
----
-The successful founders know each other. They introduce each other. They refer each other. They support each other. And you're not in that network. You're outside looking in. And the anxiety is in wanting to be in. The anxiety is in knowing that the network would help. The anxiety is in knowing that you need it and you don't have access to it.
+MECHANISM_PROOF v01
 ---
 
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: The confidence I don't have
 BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-The other founders have confidence. They walk into rooms and they belong. They speak and people listen. They know that they deserve to be there. And you don't have that. You're constantly doubting. You're constantly second-guessing. You're constantly feeling like a fraud who shouldn't be here. And the anxiety is in wanting to have what they have. In wanting to belong.
----
-
-## STORY v08
----
-path: The investor who seems skeptical
-BAND: 4
-SEMANTIC_FAMILY: SF3
----
-The investor is listening but they're not nodding. They're not asking excited questions. They're asking hard questions. They're challenging your assumptions. And the anxiety interprets this as "they think you're not worth investing in." And it might be true. Or it might be that this investor just asks hard questions. But the anxiety doesn't care about probability. The anxiety just cares that they're not confirming your worthiness.
+MECHANISM_PROOF v03
 ---
 
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: The moment the conversation stops
-BAND: 5
+BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-You're talking and you can feel the energy in the room shift. The conversation stops being interested and starts being polite. And the anxiety knows exactly what that shift means. It means you've said something wrong. It means you've bored them. It means you've lost them. And the anxiety is so acute in that moment. You want to get out. You want to escape.
----
-
-## STORY v10
----
-path: The group chat you're not part of
-BAND: 5
-SEMANTIC_FAMILY: SF5
----
-The successful founders are in a group chat. You know they are. You can sense it. They're talking about opportunities. They're sharing wins. They're asking for advice. And you're not in it. And the anxiety is in the exclusion. The anxiety is in knowing that things are happening without you. That deals are being made. That networks are forming. And you're on the outside.
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: The pause before the answer
-BAND: 1
+BAND: 3
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: experimentation---
 ---
-You're asked a question and there's a pause. Just a second. Just long enough that the anxiety fills it. And in that pause, you're thinking "they can tell I don't know." You're thinking "the pause is exposing me." You're thinking "everyone is noticing that I had to think about the answer." And the pause becomes a window into your uncertainty.
----
-
-## STORY v12
----
-path: The eyes on you
-BAND: 2
-SEMANTIC_FAMILY: SF3
----
-You're presenting and you're acutely aware of everyone looking at you. Their eyes are tracking you. Their faces are revealing something to you about what they think. And the anxiety is in trying to read the faces. Is that skepticism? Is that boredom? Is that interest? You can't tell. So the anxiety fills the gap. The anxiety assumes the worst.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: The small talk before the meeting
 BAND: 3
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: experimentation---
 ---
-There's small talk. There's the before-meeting conversation. And you're terrible at it. You don't know what to say. You're trying to find common ground but you don't have it. You're trying to make them comfortable but you can feel yourself making them uncomfortable instead. And the anxiety is in knowing that the small talk is setting the tone for the meeting. That you're already failing before you even pitch.
----
-
-## STORY v14
----
-path: The reputation I don't have
-BAND: 4
-SEMANTIC_FAMILY: SF5
----
-The other founders have reputations. People know their work. People know their track record. People know what to expect. And you don't have that. You're unknown. You're unproven. And the anxiety is in knowing that every conversation is starting from zero. You have no capital. You have no brand. You have to convince every single person that you're worth their attention.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: The intro I had to ask for
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-You needed an introduction. You needed someone to vouch for you. Because without the vouching, you knew you'd have no credibility. And asking for the intro—it was admitting that you don't have enough standing on your own. And the anxiety is in the admission.
----
-
-## STORY v16
----
-path: The industry event where I didn't belong
 BAND: 3
-SEMANTIC_FAMILY: SF2
+SEMANTIC_FAMILY: SF1
+IDENTITY_STAGE: experimentation---
 ---
-You went to the event. Everyone seemed to know everyone. They were having conversations about deals and opportunities. They were connecting. And you were standing on the edge. Not able to break in. Not able to add to the conversation. Not able to contribute. And the anxiety was in the observation that you don't belong in this world. That you're too small. That you're too new. That you don't have the right credentials.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: The question about traction
-BAND: 4
+BAND: 1
 SEMANTIC_FAMILY: SF3
+IDENTITY_STAGE: self_claim---
 ---
-Someone asks "what's your traction?" And you know whatever number you say is not going to be impressive. It's going to sound small compared to what the other founders have. It's going to sound unimpressive. So the anxiety is anticipatory. You're already bracing for the moment when they realize that your traction is not sufficient. That your progress is too slow. That you're not ready for the next level.
----
-
-## STORY v18
----
-path: The word that came out wrong
-BAND: 5
-SEMANTIC_FAMILY: SF4
----
-You misspoke. You said something wrong. You mispronounced something. You got a fact slightly off. And the anxiety is consuming you. That small mistake—is that what they remember? Is that the thing that undoes your credibility? Is that the thing that makes you unreliable?
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: The follow-up that never came
-BAND: 2
+BAND: 1
 SEMANTIC_FAMILY: SF5
+IDENTITY_STAGE: self_claim---
 ---
-You had a conversation. You thought it went well. And then there was no follow-up. No email. No call. No "let's keep in touch." And the anxiety interprets that as rejection. That means they thought you were a waste of time. That means you didn't impress them. That means you failed.
+EMBODIMENT v05
 ---
-
-## STORY v20
----
-path: The room where I felt small
-BAND: 5
-SEMANTIC_FAMILY: SF1
----
-There was a room. Full of people doing important things. Building impressive companies. Making big moves. And you walked in and you felt small. You felt like a kid trying to play in the adult game. And the anxiety was in that feeling of smallness. In knowing that you don't belong. In knowing that everyone can see it.
----
-

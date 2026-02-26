@@ -1,157 +1,211 @@
-# tech_finance_burnout × depression × collapse
-# Slot type: SCENE
-# Count: 30
-# Voice: second-person present tense, sensory, one detail per sentence
-# Spec: max 10 words per sensory beat, min 2 location tokens, no emotional labeling, ends on action/sensory moment
-# Location tokens: {transit_line}, {street_name}, {weather_detail}
 
----
+
 ## SCENE v01: the_home_office_collapse
 ---
-Your home is your office now. The {weather_detail} outside is irrelevant. The commute is gone. Two hours vanished. You now work those hours. The line between home and work erased. Your couch is your desk. Your bedroom is your meeting room. You can't leave because you're already there. Four p.m. arrives. Your energy crashes. Coffee doesn't help. Sleep won't happen. You're sitting. Staring. At your code. At your screen. The work continues. You're still here. Still tired. The {street_name} outside is empty. You're still inside. The {transit_line} that used to mark the end doesn't exist. There's no end. There's just more of the same. You close your laptop. You're still at work.
 
 ---
+Your home is your office now. The {weather_detail} outside is irrelevant. The commute is gone. Two hours vanished. You now work those hours. The line between home and work erased. Your couch is your desk. Your bedroom is your meeting room. You can't leave because you're already there. Four p.m. arrives. Your energy crashes. Coffee doesn't help. Sleep won't happen. You're sitting. Staring. At your code. At your screen. The work continues. You're still here. Still tired. The {street_name} outside is empty. You're still inside. The {transit_line} that used to mark the end doesn't exist. There's no end. There's just more of the same. You close your laptop. You're still at work.
+---
+
 ## SCENE v02: four_pm_energy_crash
 ---
-It's four o'clock. The {weather_detail} afternoon light is starting to fade. Your energy crashes. Not tired. Crashed. Your eyelids are heavy. Your thoughts move slowly. Your body feels like cement. Coffee doesn't touch it. Caffeine doesn't work anymore. Your body has adapted. Or shut down. You sit. Staring at your screen. The code blurs. The keyboard feels far away. You have four more hours. Until you can sleep. Four more hours. Of functioning. Of pretending. Of pushing. Your standing desk feels like quicksand. The {street_name} outside is moving. You're not. Your fingers barely type. Your voice barely sounds in the meeting. You're going through the motions. The energy is gone. You're running on empty.
 
 ---
+It's four o'clock. The {weather_detail} afternoon light is starting to fade. Your energy crashes. Not tired. Crashed. Your eyelids are heavy. Your thoughts move slowly. Your body feels like cement. Coffee doesn't touch it. Caffeine doesn't work anymore. Your body has adapted. Or shut down. You sit. Staring at your screen. The code blurs. The keyboard feels far away. You have four more hours. Until you can sleep. Four more hours. Of functioning. Of pretending. Of pushing. Your standing desk feels like quicksand. The {street_name} outside is moving. You're not. Your fingers barely type. Your voice barely sounds in the meeting. You're going through the motions. The energy is gone. You're running on empty.
+---
+
 ## SCENE v03: the_weekend_that_never_came
 ---
-Friday at five p.m. The {street_name} office should be empty. You should be gone. The weekend should start. It doesn't. A production issue appears. It's critical. It's yours. The weekend disappears. Saturday becomes work. Sunday becomes work. Monday arrives. You're still working. The weekend existed. In theory. In the calendar. Not in your life. You go to bed Sunday night. You're going back to work. Monday. Tuesday. Wednesday. Thursday. Friday. The weekend will come. It will be taken. This is the pattern. The {weather_detail} doesn't change. The pattern continues. Your body doesn't distinguish. Between weekday and weekend. It's always work. It's always Monday.
 
 ---
+Friday at five p.m. The {street_name} office should be empty. You should be gone. The weekend should start. It doesn't. A production issue appears. It's critical. It's yours. The weekend disappears. Saturday becomes work. Sunday becomes work. Monday arrives. You're still working. The weekend existed. In theory. In the calendar. Not in your life. You go to bed Sunday night. You're going back to work. Monday. Tuesday. Wednesday. Thursday. Friday. The weekend will come. It will be taken. This is the pattern. The {weather_detail} doesn't change. The pattern continues. Your body doesn't distinguish. Between weekday and weekend. It's always work. It's always Monday.
+---
+
 ## SCENE v04: the_spiral_of_self_doubt
 ---
-You made a mistake. Small. Fixable. But you're spiraling. Thoughts cascade. You're bad at your job. You're going to get fired. You've fooled everyone. It's over. Your mind knows this is spiral. Your mind can't stop. The {weather_detail} outside is irrelevant. Inside is chaos. The mistake was minor. Your response is outsized. You sit. On your standing desk chair. Spiraling. The {street_name} office is quiet. You're quiet. You're just thinking. Thinking bad things. About yourself. The thoughts are loud. The day continues. You're still working. But you're not here. You're in the spiral. Hours pass. You're still spiraling. The mistake is fixed. The spiral continues.
 
 ---
+You made a mistake. Small. Fixable. But you're spiraling. Thoughts cascade. You're bad at your job. You're going to get fired. You've fooled everyone. It's over. Your mind knows this is spiral. Your mind can't stop. The {weather_detail} outside is irrelevant. Inside is chaos. The mistake was minor. Your response is outsized. You sit. On your standing desk chair. Spiraling. The {street_name} office is quiet. You're quiet. You're just thinking. Thinking bad things. About yourself. The thoughts are loud. The day continues. You're still working. But you're not here. You're in the spiral. Hours pass. You're still spiraling. The mistake is fixed. The spiral continues.
+---
+
 ## SCENE v05: the_morning_dread_at_eight_am
 ---
-Your alarm is seven a.m. You're awake. The {weather_detail} morning is gray. Your body doesn't want to move. Your mind doesn't want to think. But eight a.m. is coming. The standup is coming. The meetings are coming. Your stomach knots. Before the day starts. Before anything happens. Just knowing. The day is coming. You shower. You drink coffee. You open your laptop. The notifications are waiting. Slack has been busy. Overnight. While you slept. Everything needs attention. The weight lands. Before you've even started. The dread is already here. The {transit_line} below marks the beginning. Another day. Same day. Endless day. You press unmute. You're ready. You're not ready.
 
 ---
+Your alarm is seven a.m. You're awake. The {weather_detail} morning is gray. Your body doesn't want to move. Your mind doesn't want to think. But eight a.m. is coming. The standup is coming. The meetings are coming. Your stomach knots. Before the day starts. Before anything happens. Just knowing. The day is coming. You shower. You drink coffee. You open your laptop. The notifications are waiting. Slack has been busy. Overnight. While you slept. Everything needs attention. The weight lands. Before you've even started. The dread is already here. The {transit_line} below marks the beginning. Another day. Same day. Endless day. You press unmute. You're ready. You're not ready.
+---
+
 ## SCENE v06: numb_to_good_news
 ---
-You got a promotion. The {street_name} office knows. Everyone is celebrating. You're empty. The promotion should matter. Should feel good. Should change something. It doesn't. The numbness is total. You smile. You say thanks. You're performative. Inside is nothing. The promotion means more responsibility. More stress. More pressure. The joy is absent. The numbness replaces it. You go home. The promotion is real. The feeling is absent. Your partner is excited. You smile. You're not here. Your mind is elsewhere. The promotion continues. The numbness continues. The {weather_detail} doesn't change. Your internal weather is always the same. Gray. Still. Empty.
 
 ---
+You got a promotion. The {street_name} office knows. Everyone is celebrating. You're empty. The promotion should matter. Should feel good. Should change something. It doesn't. The numbness is total. You smile. You say thanks. You're performative. Inside is nothing. The promotion means more responsibility. More stress. More pressure. The joy is absent. The numbness replaces it. You go home. The promotion is real. The feeling is absent. Your partner is excited. You smile. You're not here. Your mind is elsewhere. The promotion continues. The numbness continues. The {weather_detail} doesn't change. Your internal weather is always the same. Gray. Still. Empty.
+---
+
 ## SCENE v07: canceling_again
 ---
-You had plans. The {weather_detail} tonight was supposed to be social. Dinner with friends. You cancel. Again. The third time. Your energy is gone. The thought of socializing is overwhelming. Of talking. Of pretending to be normal. You send the cancellation message. You apologize. You say you're not feeling well. It's true. You're not well. You're not sick. But you're not well. Your friends are understanding. They're also tired of it. The pattern is clear. You make plans. You cancel. The cycle continues. The {street_name} outside has people living their lives. You're inside. On your couch. Alone. It's easier. It's also the problem. The isolation is comfortable. The isolation is terrible. You stay on the couch.
 
 ---
+You had plans. The {weather_detail} tonight was supposed to be social. Dinner with friends. You cancel. Again. The third time. Your energy is gone. The thought of socializing is overwhelming. Of talking. Of pretending to be normal. You send the cancellation message. You apologize. You say you're not feeling well. It's true. You're not well. You're not sick. But you're not well. Your friends are understanding. They're also tired of it. The pattern is clear. You make plans. You cancel. The cycle continues. The {street_name} outside has people living their lives. You're inside. On your couch. Alone. It's easier. It's also the problem. The isolation is comfortable. The isolation is terrible. You stay on the couch.
+---
+
 ## SCENE v08: the_code_that_won't_come
 ---
-You're staring at your editor. The {transit_line} below is moving. Your brain isn't. You need to write code. Simple code. You can't. The thoughts won't connect. The logic feels distant. Your fingers don't want to type. You open a blank file. You close it. You open an existing file. You can't focus. The code is there. Your mind isn't. You sit. For an hour. Maybe you're thinking. Maybe you're blank. It's hard to tell. Your manager messages. Asking for status. You say making progress. You're staring at a blank screen. The code doesn't come. The day passes. You've written nothing. You're paralyzed. The {weather_detail} outside is irrelevant. Inside is paralysis.
 
 ---
+You're staring at your editor. The {transit_line} below is moving. Your brain isn't. You need to write code. Simple code. You can't. The thoughts won't connect. The logic feels distant. Your fingers don't want to type. You open a blank file. You close it. You open an existing file. You can't focus. The code is there. Your mind isn't. You sit. For an hour. Maybe you're thinking. Maybe you're blank. It's hard to tell. Your manager messages. Asking for status. You say making progress. You're staring at a blank screen. The code doesn't come. The day passes. You've written nothing. You're paralyzed. The {weather_detail} outside is irrelevant. Inside is paralysis.
+---
+
 ## SCENE v09: the_meeting_where_you_said_nothing
 ---
-The meeting is happening. The {street_name} office is represented. You're here. In body. Your mind is absent. Someone asks your opinion. You have none. Or you do. You can't access it. You say something vague. People look confused. The conversation continues. Without you. You're present and invisible. The meeting ends. You said nothing. You contributed nothing. You're useless. In that meeting. In all meetings. Your silence is evidence. Evidence of your incompetence. Evidence of your fraud. The {weather_detail} doesn't care. Your thoughts spiral. The next meeting starts. You're still invisible.
 
 ---
+The meeting is happening. The {street_name} office is represented. You're here. In body. Your mind is absent. Someone asks your opinion. You have none. Or you do. You can't access it. You say something vague. People look confused. The conversation continues. Without you. You're present and invisible. The meeting ends. You said nothing. You contributed nothing. You're useless. In that meeting. In all meetings. Your silence is evidence. Evidence of your incompetence. Evidence of your fraud. The {weather_detail} doesn't care. Your thoughts spiral. The next meeting starts. You're still invisible.
+---
+
 ## SCENE v10: the_weight_on_your_chest
 ---
-It's not a panic attack. It's not acute. It's chronic. The weight. On your chest. Every morning. When you wake. Before you wake. It's there. The weight of the day. The weight of the job. The weight of everything. You breathe. The weight stays. You shower. The weight stays. You dress. The weight stays. Coffee. The weight. Slack. The weight. Work. The weight stays. All day. All night. The {weather_detail} outside is light. Inside is heavy. The {street_name} office is busy. You're moving through molasses. The weight is constant. The weight is real. The weight is crushing. You don't mention it. You just carry it.
 
 ---
+It's not a panic attack. It's not acute. It's chronic. The weight. On your chest. Every morning. When you wake. Before you wake. It's there. The weight of the day. The weight of the job. The weight of everything. You breathe. The weight stays. You shower. The weight stays. You dress. The weight stays. Coffee. The weight. Slack. The weight. Work. The weight stays. All day. All night. The {weather_detail} outside is light. Inside is heavy. The {street_name} office is busy. You're moving through molasses. The weight is constant. The weight is real. The weight is crushing. You don't mention it. You just carry it.
+---
+
 ## SCENE v11: the_crying_that_won't_stop
 ---
-You're crying. The {weather_detail} afternoon. You don't know why. Or you do. Too many reasons. They converge. Your eyes won't stop. Your shoulders shake. You close your office door. You close your laptop. You're just crying. Not from one thing. From everything. From the exhaustion. From the weight. From the emptiness. From the futility. The tears are endless. You sit. And cry. Time passes. The tears slow. They're not gone. They slow. You wipe your face. You're red. You're blotchy. You're destroyed. You have another meeting. In ten minutes. You have to be okay. You force yourself. To be okay. You're not okay. The {transit_line} below carries people who are okay. You're not one of them.
 
 ---
+You're crying. The {weather_detail} afternoon. You don't know why. Or you do. Too many reasons. They converge. Your eyes won't stop. Your shoulders shake. You close your office door. You close your laptop. You're just crying. Not from one thing. From everything. From the exhaustion. From the weight. From the emptiness. From the futility. The tears are endless. You sit. And cry. Time passes. The tears slow. They're not gone. They slow. You wipe your face. You're red. You're blotchy. You're destroyed. You have another meeting. In ten minutes. You have to be okay. You force yourself. To be okay. You're not okay. The {transit_line} below carries people who are okay. You're not one of them.
+---
+
 ## SCENE v12: the_sleep_that_won't_come
 ---
-It's midnight. The {street_name} is quiet. Your eyes are closed. Your mind is open. Racing. You think about work. You think about your failures. You think about tomorrow. You think about everything. Sleep doesn't come. You're tired. But sleep doesn't come. You try to quiet your mind. It gets louder. You count. You breathe. You meditate. Nothing works. The clock shows one a.m. Two a.m. Three a.m. You're still awake. Your body is exhausted. Your mind won't shut down. You have to wake up. In four hours. You're not sleeping. The {weather_detail} outside is dark. Inside is bright. The lights in your mind won't turn off. By morning you've slept. Maybe an hour. You're functioning on empty.
 
 ---
+It's midnight. The {street_name} is quiet. Your eyes are closed. Your mind is open. Racing. You think about work. You think about your failures. You think about tomorrow. You think about everything. Sleep doesn't come. You're tired. But sleep doesn't come. You try to quiet your mind. It gets louder. You count. You breathe. You meditate. Nothing works. The clock shows one a.m. Two a.m. Three a.m. You're still awake. Your body is exhausted. Your mind won't shut down. You have to wake up. In four hours. You're not sleeping. The {weather_detail} outside is dark. Inside is bright. The lights in your mind won't turn off. By morning you've slept. Maybe an hour. You're functioning on empty.
+---
+
 ## SCENE v13: the_shower_where_you_stand_still
 ---
-You're in the shower. The {weather_detail} outside is irrelevant. The water is warm. You should feel it. You don't. You're standing. The water runs. You're not washing. You're just standing. Minutes pass. More minutes. You're not moving. Your body is here. Your mind is gone. The water runs cold. You don't move. The water runs cold enough. That you finally notice. You turn it off. You stand. Dripping. Empty. The shower was supposed to help. It didn't. You're clean. You're empty. You dress. You're empty. The {street_name} outside is waiting. You're still empty.
 
 ---
+You're in the shower. The {weather_detail} outside is irrelevant. The water is warm. You should feel it. You don't. You're standing. The water runs. You're not washing. You're just standing. Minutes pass. More minutes. You're not moving. Your body is here. Your mind is gone. The water runs cold. You don't move. The water runs cold enough. That you finally notice. You turn it off. You stand. Dripping. Empty. The shower was supposed to help. It didn't. You're clean. You're empty. You dress. You're empty. The {street_name} outside is waiting. You're still empty.
+---
+
 ## SCENE v14: the_meal_you_forgot_to_eat
 ---
-It's three p.m. The {weather_detail} afternoon. You haven't eaten. You don't remember breakfast. Or lunch. Your body doesn't ask for food. Your mind doesn't think about it. You're working. You're not here. Hunger doesn't register. Your blood sugar is dropping. Your concentration is dropping. You finally notice. It's four p.m. You're starving. Or you think you are. You open the fridge. You close it. Nothing appeals. You're not hungry. You're empty. You make something. You eat it. You don't taste it. You don't remember finishing. The {transit_line} below carries people who are eating. You ate. But it didn't matter.
 
 ---
+It's three p.m. The {weather_detail} afternoon. You haven't eaten. You don't remember breakfast. Or lunch. Your body doesn't ask for food. Your mind doesn't think about it. You're working. You're not here. Hunger doesn't register. Your blood sugar is dropping. Your concentration is dropping. You finally notice. It's four p.m. You're starving. Or you think you are. You open the fridge. You close it. Nothing appeals. You're not hungry. You're empty. You make something. You eat it. You don't taste it. You don't remember finishing. The {transit_line} below carries people who are eating. You ate. But it didn't matter.
+---
+
 ## SCENE v15: the_reaction_that_was_disproportionate
 ---
-Someone said something minor. The {street_name} office is normal. Your response is not normal. You're angry. Or you're crying. Or you're both. Over something small. The person looks shocked. Your response is too much. You know it's too much. You can't stop it. The emotion is bigger than the trigger. The response is disproportionate. You're damaged. The trigger hit something. Something broken. The person apologizes. You apologize. The moment passes. But you're fractured. The {weather_detail} outside doesn't change. Inside you're shattered. You're reactive. You're fragile. You're broken.
 
 ---
+Someone said something minor. The {street_name} office is normal. Your response is not normal. You're angry. Or you're crying. Or you're both. Over something small. The person looks shocked. Your response is too much. You know it's too much. You can't stop it. The emotion is bigger than the trigger. The response is disproportionate. You're damaged. The trigger hit something. Something broken. The person apologizes. You apologize. The moment passes. But you're fractured. The {weather_detail} outside doesn't change. Inside you're shattered. You're reactive. You're fragile. You're broken.
+---
+
 ## SCENE v16: the_compliment_that_felt_like_an_attack
 ---
-Your manager said something nice. The {weather_detail} morning. About your work. About your contribution. You hear it as judgment. As a setup. As sarcasm. As an attack. Your manager meant it kindly. You received it as cruelty. Your mind twisted it. Your mind is twisting everything. Everything is a threat. Everything is an attack. Kindness feels dangerous. Praise feels like criticism. Your mind is the problem. Your mind is broken. You thank your manager. You're not grateful. You're afraid. The {street_name} office continues. You're still broken.
 
 ---
+Your manager said something nice. The {weather_detail} morning. About your work. About your contribution. You hear it as judgment. As a setup. As sarcasm. As an attack. Your manager meant it kindly. You received it as cruelty. Your mind twisted it. Your mind is twisting everything. Everything is a threat. Everything is an attack. Kindness feels dangerous. Praise feels like criticism. Your mind is the problem. Your mind is broken. You thank your manager. You're not grateful. You're afraid. The {street_name} office continues. You're still broken.
+---
+
 ## SCENE v17: the_day_you_couldn't_get_out_of_bed
 ---
-You woke up. The {weather_detail} morning. You didn't get out of bed. Your alarm was eight a.m. It's noon. You're still in bed. Your laptop is across the room. You can't get up. Your body won't move. Your mind won't convince it. You're stuck. You text your manager. You're sick. You're not sick. You're broken. They say rest up. Rest won't fix this. The day passes. You're in bed. The {transit_line} below carries people to work. You're not one of them. By five p.m. you get up. You're not better. You're just ashamed. Tomorrow you'll get up. You'll go to work. Today you're broken.
 
 ---
+You woke up. The {weather_detail} morning. You didn't get out of bed. Your alarm was eight a.m. It's noon. You're still in bed. Your laptop is across the room. You can't get up. Your body won't move. Your mind won't convince it. You're stuck. You text your manager. You're sick. You're not sick. You're broken. They say rest up. Rest won't fix this. The day passes. You're in bed. The {transit_line} below carries people to work. You're not one of them. By five p.m. you get up. You're not better. You're just ashamed. Tomorrow you'll get up. You'll go to work. Today you're broken.
+---
+
 ## SCENE v18: the_nothing_that_was_everything
 ---
-Something happened. Or nothing happened. You can't tell anymore. The distinction is gone. Everything feels catastrophic. Nothing feels real. The {street_name} office is a stage. You're performing on it. The performance is real. The person underneath is absent. You're ghosting your own life. Present and absent. Here and gone. The {weather_detail} outside is irrelevant. Inside is fog. Everything is muffled. Everything is distant. You're functioning. You're not here. The day ends. You don't remember it.
 
 ---
+Something happened. Or nothing happened. You can't tell anymore. The distinction is gone. Everything feels catastrophic. Nothing feels real. The {street_name} office is a stage. You're performing on it. The performance is real. The person underneath is absent. You're ghosting your own life. Present and absent. Here and gone. The {weather_detail} outside is irrelevant. Inside is fog. Everything is muffled. Everything is distant. You're functioning. You're not here. The day ends. You don't remember it.
+---
+
 ## SCENE v19: the_comparison_that_destroyed_you
 ---
-You compared yourself. The {weather_detail} afternoon. To someone else. Someone succeeding. Someone energized. Someone alive. You're not alive. You're half alive. The comparison is devastating. They're thriving. You're surviving. The gap is massive. You're watching their success. From the bottom of a hole. You know comparison is poison. You can't stop. Your mind keeps comparing. You're losing. Everyone else is winning. The {transit_line} below carries winners. You're not one of them.
 
 ---
+You compared yourself. The {weather_detail} afternoon. To someone else. Someone succeeding. Someone energized. Someone alive. You're not alive. You're half alive. The comparison is devastating. They're thriving. You're surviving. The gap is massive. You're watching their success. From the bottom of a hole. You know comparison is poison. You can't stop. Your mind keeps comparing. You're losing. Everyone else is winning. The {transit_line} below carries winners. You're not one of them.
+---
+
 ## SCENE v20: the_meeting_about_your_performance
 ---
-The meeting is about your performance. The {street_name} office is tense. You're not performing well. You know this. Your manager is being kind. Is trying to help. You hear it as judgment. As failure. As the beginning of the end. You're going to be fired. Your career is over. Everything is over. Your manager is trying to help. You're hearing execution. The meeting ends. You're devastated. The feedback was meant to help. It devastated you. Your mind is the problem. Your mind is broken.
 
 ---
+The meeting is about your performance. The {street_name} office is tense. You're not performing well. You know this. Your manager is being kind. Is trying to help. You hear it as judgment. As failure. As the beginning of the end. You're going to be fired. Your career is over. Everything is over. Your manager is trying to help. You're hearing execution. The meeting ends. You're devastated. The feedback was meant to help. It devastated you. Your mind is the problem. Your mind is broken.
+---
+
 ## SCENE v21: the_hope_that_died
 ---
-You had hope. Once. That things would get better. That you'd feel different. That something would change. The hope is gone. You've accepted this. This is permanent. This is your life now. Empty. Gray. Heavy. You're not going to get better. You've tried. Nothing works. The hope is dead. The {weather_detail} outside is irrelevant. Inside is the absence of hope. Without hope there's just continuation. Just existence. Just the next thing. The {street_name} office continues. You continue. Without hope.
 
 ---
+You had hope. Once. That things would get better. That you'd feel different. That something would change. The hope is gone. You've accepted this. This is permanent. This is your life now. Empty. Gray. Heavy. You're not going to get better. You've tried. Nothing works. The hope is dead. The {weather_detail} outside is irrelevant. Inside is the absence of hope. Without hope there's just continuation. Just existence. Just the next thing. The {street_name} office continues. You continue. Without hope.
+---
+
 ## SCENE v22: the_medication_that_you're_considering
 ---
-Your doctor suggested it. The {weather_detail} is neutral. Medication. For the depression. You're resisting. If you take it. You're admitting. That this is real. That this is not just weakness. That this is actual sickness. You're resisting the label. You're resisting the help. You're holding onto the idea. That you can willpower your way out. You can't. You know you can't. You're tired of being strong. You're considering the pills. You haven't taken them. The {transit_line} below carries people who are medicated. You're not one of them. Yet. You pick up the bottle. You put it down. You pick it up. You're considering.
 
 ---
+Your doctor suggested it. The {weather_detail} is neutral. Medication. For the depression. You're resisting. If you take it. You're admitting. That this is real. That this is not just weakness. That this is actual sickness. You're resisting the label. You're resisting the help. You're holding onto the idea. That you can willpower your way out. You can't. You know you can't. You're tired of being strong. You're considering the pills. You haven't taken them. The {transit_line} below carries people who are medicated. You're not one of them. Yet. You pick up the bottle. You put it down. You pick it up. You're considering.
+---
+
 ## SCENE v23: the_day_that_was_like_the_other_days
 ---
-Today is like yesterday. Like the day before. The {street_name} is the same. The work is the same. The feeling is the same. The emptiness is the same. Nothing is different. Nothing changes. The cycle is closed. The loop is endless. You're in it. The {weather_detail} is different. But you're not. Everything else changes. Your internal weather doesn't. It stays gray. It stays still. It stays empty. The day passes. The next day arrives. It's the same. The pattern will continue.
 
 ---
+Today is like yesterday. Like the day before. The {street_name} is the same. The work is the same. The feeling is the same. The emptiness is the same. Nothing is different. Nothing changes. The cycle is closed. The loop is endless. You're in it. The {weather_detail} is different. But you're not. Everything else changes. Your internal weather doesn't. It stays gray. It stays still. It stays empty. The day passes. The next day arrives. It's the same. The pattern will continue.
+---
+
 ## SCENE v24: the_person_who_asked_if_you_were_okay
 ---
-Someone asked. The {weather_detail} morning. If you were okay. You said yes. You're not okay. They said okay. They didn't push. They accepted your lie. You were relieved and devastated. Relieved that they didn't push. Devastated that they didn't care enough to push. You wanted them to push. You also couldn't handle them pushing. You're a contradiction. You're broken in contradictory ways. They moved on. You stayed broken. The {street_name} office has people who might care. If you let them. You won't. You're holding it alone.
 
 ---
+Someone asked. The {weather_detail} morning. If you were okay. You said yes. You're not okay. They said okay. They didn't push. They accepted your lie. You were relieved and devastated. Relieved that they didn't push. Devastated that they didn't care enough to push. You wanted them to push. You also couldn't handle them pushing. You're a contradiction. You're broken in contradictory ways. They moved on. You stayed broken. The {street_name} office has people who might care. If you let them. You won't. You're holding it alone.
+---
+
 ## SCENE v25: the_moment_before_the_breakdown
 ---
-You can feel it coming. The {weather_detail} afternoon. The breakdown is close. You can sense it. It's like thunder before the storm. The pressure is building. You're managing. Barely. Something small will break it. Something will happen. And you'll break. You know this is coming. You're bracing for it. But bracing doesn't stop it. The moment is coming. The {transit_line} below is carrying toward it. You're helpless. You're waiting for the collapse. You're holding it back. But the collapse is coming.
 
 ---
+You can feel it coming. The {weather_detail} afternoon. The breakdown is close. You can sense it. It's like thunder before the storm. The pressure is building. You're managing. Barely. Something small will break it. Something will happen. And you'll break. You know this is coming. You're bracing for it. But bracing doesn't stop it. The moment is coming. The {transit_line} below is carrying toward it. You're helpless. You're waiting for the collapse. You're holding it back. But the collapse is coming.
+---
+
 ## SCENE v26: the_question_that_you_couldn't_answer
 ---
-Someone asked you a question. Simple. Normal. You couldn't answer. Your mind was blank. The question seemed impossible. Unanswerable. They were confused. You couldn't explain. The confusion deepened. You appeared broken. You were broken. The moment passed. But it's evidence. Evidence that you're not okay. Evidence that you're failing. The question was about the weather. You couldn't answer it. The {weather_detail} outside is clear. Inside is fog.
 
 ---
+Someone asked you a question. Simple. Normal. You couldn't answer. Your mind was blank. The question seemed impossible. Unanswerable. They were confused. You couldn't explain. The confusion deepened. You appeared broken. You were broken. The moment passed. But it's evidence. Evidence that you're not okay. Evidence that you're failing. The question was about the weather. You couldn't answer it. The {weather_detail} outside is clear. Inside is fog.
+---
+
 ## SCENE v27: the_email_you_reread_five_times
 ---
-You received an email. The {street_name} is quiet. You reread it. Five times. Looking for hidden meaning. Looking for criticism. Looking for the truth beneath the words. The email is neutral. You can't accept that. The email must mean something worse. It must be a message. You're reading the spaces. Between the words. There's nothing there. But you keep reading. The email is innocent. You're guilty. So the email must be judging you.
 
 ---
+You received an email. The {street_name} is quiet. You reread it. Five times. Looking for hidden meaning. Looking for criticism. Looking for the truth beneath the words. The email is neutral. You can't accept that. The email must mean something worse. It must be a message. You're reading the spaces. Between the words. There's nothing there. But you keep reading. The email is innocent. You're guilty. So the email must be judging you.
+---
+
 ## SCENE v28: the_success_that_felt_empty
 ---
-You completed something. The {weather_detail} is indifferent. You shipped it. It works. It's good. People are using it. It's a success. You feel nothing. The success is hollow. It doesn't matter. Nothing matters. You did something good. You feel bad. The disconnect is total. Success should feel good. It doesn't. The emptiness is so complete. That even success is empty. The {weather_detail} outside is irrelevant. Inside is void.
 
 ---
+You completed something. The {weather_detail} is indifferent. You shipped it. It works. It's good. People are using it. It's a success. You feel nothing. The success is hollow. It doesn't matter. Nothing matters. You did something good. You feel bad. The disconnect is total. Success should feel good. It doesn't. The emptiness is so complete. That even success is empty. The {weather_detail} outside is irrelevant. Inside is void.
+---
+
 ## SCENE v29: the_night_you_stayed_awake_thinking
 ---
-It's two a.m. The {street_name} is silent. You're not sleeping. You're thinking. Spiraling. Replaying conversations. Rewriting them. Imagining disasters. All future disasters. All past failures. Your mind is a prison. The walls are the people you've disappointed. The floor is your failures. The ceiling is your fear. You're in the prison. You built it. The night continues. The walls don't move. The prison is permanent. The {transit_line} below will carry morning. You'll be exhausted. The prison stays.
 
 ---
+It's two a.m. The {street_name} is silent. You're not sleeping. You're thinking. Spiraling. Replaying conversations. Rewriting them. Imagining disasters. All future disasters. All past failures. Your mind is a prison. The walls are the people you've disappointed. The floor is your failures. The ceiling is your fear. You're in the prison. You built it. The night continues. The walls don't move. The prison is permanent. The {transit_line} below will carry morning. You'll be exhausted. The prison stays.
+---
+
 ## SCENE v30: the_question_you_stopped_asking
 ---
-Will it get better? The {weather_detail} doesn't change. You stopped asking. The answer is always no. Or maybe. Maybe is worse than no. So you stopped asking. You're not hoping anymore. You're just continuing. The days pass. The same. The {street_name} is the same. The work is the same. You're the same. Empty. Gray. Heavy. You're not getting better. You've accepted this. Acceptance is just another word. For defeat. For surrender. For giving up. You've given up. The days continue. You continue. Without getting better.
 
+---
+Will it get better? The {weather_detail} doesn't change. You stopped asking. The answer is always no. Or maybe. Maybe is worse than no. So you stopped asking. You're not hoping anymore. You're just continuing. The days pass. The same. The {street_name} is the same. The work is the same. You're the same. Empty. Gray. Heavy. You're not getting better. You've accepted this. Acceptance is just another word. For defeat. For surrender. For giving up. You've given up. The days continue. You continue. Without getting better.
+---

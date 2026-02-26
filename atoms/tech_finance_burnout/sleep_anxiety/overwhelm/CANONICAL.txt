@@ -1,228 +1,101 @@
-# tech_finance_burnout / sleep_anxiety / overwhelm
-# Slot type: STORY (engine)
-# Engine: overwhelm
-# Count: 20
 
----
 
-## STORY v01
+## RECOGNITION v01
 ---
 path: capacity exceeded at rest
-BAND: 1
+BAND: 2
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: pre_awareness---
 ---
-The day ends but the mental load doesn't. I'm supposed to sleep and the brain is supposed to power down. But there's too much in the system. Too many open loops. Too many things unresolved. The day ended but it didn't finish. It just ended time-wise.
-
-So when I lie down, the load is still there. Not integrated. Not processed. Just... waiting. Everything is waiting. The work, the emails, the decisions that need to be made, the decisions that should have been made differently. All of it is sitting in my mental space taking up capacity. Sleep requires the space to be clear. The space is full. The fullness is preventing sleep.
-
-I'm trying to sleep while carrying a load that's too heavy to sleep under. So I'm lying awake, exhausted, too full to rest.
+RECOGNITION v02
 ---
 
-## STORY v02
----
-path: decision residue insomnia
-BAND: 1
-SEMANTIC_FAMILY: SF3
----
-I made a decision today. It was the best decision I could make with the information I had. But now I'm lying in bed wondering if it was right. If I had more information, would I have decided differently? Should I have waited for more information? Should I have asked for more advice?
-
-The decision is already made. It's already in motion. But the residue is in my head. The uncertainty about the decision is now my insomnia. And the insomnia is preventing the clarity that would actually let me feel good about the decision.
-
-So I made a good decision but I'm undermining it in real-time through sleep deprivation. The decision is valid but the sleeplessness is making me question it. So the questioning becomes the problem, not the decision.
----
-
-## STORY v03
+## RECOGNITION v03
 ---
 path: task overflow intrusion
 BAND: 2
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: pre_awareness---
 ---
-My task list is too long. I know it's too long. I know I can't do all of it. But the knowing doesn't reduce the list. The list is still all there, all the tasks, all waiting, and they're all in my head when I try to sleep.
-
-I'm trying to mentally prioritize. But prioritization is mental work. The mental work is arousal. The arousal is the opposite of sleep. So the attempt to reduce the cognitive load is creating more cognitive load.
-
-If I could just turn the list off, stop thinking about it, maybe I could sleep. But the list is real. The things are real. The work is real. So it's not a matter of will or positive thinking. The list exists and my brain is doing the rational thing by refusing to rest when there's work unfinished.
-
-Sleep deprivation as a symptom of an actually overwhelming situation.
+RECOGNITION v04
 ---
 
-## STORY v04
----
-path: project complexity weight
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-The project has more moving parts than I realized when I agreed to it. Each part has dependencies. Each dependency has risks. Each risk has mitigation strategies. And I'm the person who has to hold all of this in my head.
-
-So my head is full. Genuinely full. And when I lie down, I'm supposed to empty it. But you can't empty something that's genuinely full. It's not avoidance. It's not rumination. It's necessary information that I have to hold because I'm responsible for this system.
-
-So the insomnia is structural. I can't sleep until the project is simpler. The project isn't going to get simpler. So the insomnia is going to persist. And the insomnia is going to make the project harder to manage. Which is going to make me feel worse about the complexity. Which is going to make it harder to sleep.
-
-The system is self-worsening.
----
-
-## STORY v05
+## RECOGNITION v05
 ---
 path: stakeholder expectation weight
-BAND: 3
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: pre_awareness---
 ---
-Multiple people are depending on me. My manager. My team. The customer. The business. They're all depending on me to deliver something. The weight of all those dependencies is in my chest. It's a physical sensation. A tightness. And I can't sleep while holding that weight.
-
-I try to tell myself that I can't actually do anything about it at night. The trying is itself an attempt to relax something that refuses to relax. My system has labeled this as threat-level important. My body won't let me rest.
-
-So I'm carrying everyone's needs into my bed. And the carrying is exhausting. And being exhausted about carrying weight is worse than just being awake and accepting that you're awake.
+MECHANISM_PROOF v01
 ---
 
-## STORY v06
----
-path: information processing backlog
-BAND: 3
-SEMANTIC_FAMILY: SF3
----
-My brain is supposed to process experiences during sleep. But I've had too much experience. Too much input. Too much to process. So sleep is the brain trying to do processing that's mathematically impossible given the volume of input.
-
-It's like trying to debug a massive codebase when you've only got a few hours before launch. You can't. It's impossible. So the brain gives up on sleep and just stays awake, trying to process anyway. But trying to process while awake is worse than giving up and sleeping.
-
-So I'm in a state of failed processing. Not asleep. Not awake. Not able to function. The backlog is too big.
----
-
-## STORY v07
+## MECHANISM_PROOF v02
 ---
 path: capacity ceiling awareness
 BAND: 4
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: destabilization---
 ---
-I know I'm at capacity. I know I'm over capacity, actually. But I can't reduce anything. The things that are taking up the capacity are all essential. So the overload is necessary. So I'm supposed to function at an impossible level. So sleep is not going to happen.
-
-This is the new normal. Permanently over capacity. Permanently unable to rest. Permanently trying. It's sustainable only if I don't acknowledge it's unsustainable. But I'm very aware it's unsustainable. So the awareness of unsustainability is what's keeping me awake.
-
-The acknowledgment of the problem is the problem.
+MECHANISM_PROOF v03
 ---
 
-## STORY v08
----
-path: system collapse risk
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-If I sleep, something might fail. The monitoring might miss something. The system might go down. The work might not get done. The failures might cascade. I'm the point of failure. So I can't rest. I have to be on, always, ready to respond.
-
-This is not sustainable. But the point at which it becomes unsustainable is the point at which it becomes dangerous to stop. So the danger of continuing is less than the danger of stopping. So I continue. Into the wall.
-
-The insomnia is protective. Against what, I'm not fully sure anymore.
----
-
-## STORY v09
+## MECHANISM_PROOF v04
 ---
 path: time scarcity mathematics
-BAND: 5
+BAND: 4
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: destabilization---
 ---
-There's more to do than time available. This is simple math. The math is true. So I have to choose: sleep or accomplishment. I've been choosing accomplishment. And the choice is destroying sleep. And the lack of sleep is destroying accomplishment. But I can't see a path where I choose sleep without failing at accomplishment.
-
-So I'm choosing both things: accomplish more than is possible, and sleep more than the accomplishment allows. Both are impossible. The impossibility is keeping me awake.
----
-
-## STORY v10
----
-path: overwhelm as permanent state
-BAND: 5
-SEMANTIC_FAMILY: SF3
----
-This is just how things are now. Perpetually behind. Perpetually under-resourced. Perpetually trying to do the impossible. And the trying is 24/7. There's no off switch. There's no space to rest.
-
-The overwhelm has become the baseline. Sleep would feel weird now. It would feel like shirking. Like letting things fail. So I'm aligned with the overwhelm. I've internalized it. The insomnia is just the symptom of accepting that overwhelm is permanent.
-
-But underneath that acceptance is rage. At the system. At the people. At myself for agreeing to this. But the rage is also something I can't rest with.
+MECHANISM_PROOF v05
 ---
 
-## STORY v11
+## TURNING_POINT v01
 ---
 path: dependency overload
-BAND: 1
+BAND: 3
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: experimentation---
 ---
-So many people need me. And the needing is continuous. And sleep is removing myself from availability. So sleep is abandonment. So I can't sleep.
----
-
-## STORY v12
----
-path: complexity internalization
-BAND: 2
-SEMANTIC_FAMILY: SF1
----
-The systems I've built are complex. I understand them because I built them. But the understanding is a burden. I'm the only person who knows how all the pieces fit. So I'm the single point of failure. So I can't rest.
+TURNING_POINT v02
 ---
 
-## STORY v13
+## TURNING_POINT v03
 ---
 path: escalating responsibilities
 BAND: 3
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: experimentation---
 ---
-Each success brings more responsibility. More scope. More people dependent on me. The expansion is continuous. The relief never comes. So the accumulation is continuous. And the sleep deprivation is continuous.
----
-
-## STORY v14
----
-path: mental load distribution failure
-BAND: 3
-SEMANTIC_FAMILY: SF3
----
-I should delegate. But delegation is slower than doing it myself. So I'm choosing efficiency over distribution. And the efficiency is creating the overload.
+TURNING_POINT v04
 ---
 
-## STORY v15
+## TURNING_POINT v05
 ---
 path: fear of stopping
-BAND: 4
+BAND: 3
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: experimentation---
 ---
-If I stop, it stops. If I rest, things fail. The system depends on my continuous effort. So rest is betrayal. So I keep going.
----
-
-## STORY v16
----
-path: backpressure simulation
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-My system has too much backpressure. Too many things queued up. Too much waiting. The pressure is physical. It's in my shoulders. In my jaw. In my inability to relax.
+EMBODIMENT v01
 ---
 
-## STORY v17
+## EMBODIMENT v02
 ---
 path: velocity unsustainability recognition
-BAND: 5
+BAND: 1
 SEMANTIC_FAMILY: SF2
+IDENTITY_STAGE: self_claim---
 ---
-I'm moving too fast to be sustainable. I know it. I can feel it. The pace is going to end in breakdown. But slowing down is not an option. So the breakdown is inevitable. So I'm just waiting for it while trying to pretend I'm not waiting for it.
----
-
-## STORY v18
----
-path: emergency state normalization
-BAND: 5
-SEMANTIC_FAMILY: SF3
----
-Every day is treated as urgent. Urgent has become normal. Normal would feel like I'm not trying hard enough. So I maintain the urgency. And the urgency prevents rest.
+EMBODIMENT v03
 ---
 
-## STORY v19
+## EMBODIMENT v04
 ---
 path: priority conflict paralysis
-BAND: 2
+BAND: 1
 SEMANTIC_FAMILY: SF4
+IDENTITY_STAGE: self_claim---
 ---
-Everything is priority one. The conflicts can't be resolved by prioritization because nothing can deprioritized. So the system is stuck. And the stuckness is what's keeping me awake.
----
-
-## STORY v20
----
-path: system saturation
-BAND: 4
-SEMANTIC_FAMILY: SF1
----
-The system is saturated. There's no slack. There's no buffer. One more thing and it all breaks. So I'm holding my breath. So I can't sleep.
+EMBODIMENT v05
 ---

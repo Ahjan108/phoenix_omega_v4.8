@@ -1,12 +1,8 @@
-# working_parents × anxiety × scene_set
-# Slot type: SCENE
-# Count: 30
-# Voice: second-person present tense, sensory, one detail per sentence
-# Spec: max 10 words per sensory beat, min 2 location tokens, no emotional labeling, ends on action/sensory moment
-# Location tokens: {transit_line}, {street_name}, {weather_detail}
 
----
+
 ## SCENE v01 | school_dropoff_line
+---
+
 ---
 You're parked three cars back on {street_name}.
 The clock shows 8:43 AM.
@@ -22,6 +18,8 @@ You lean to unbuckle, reaching.
 ---
 
 ## SCENE v02 | 2am_child_wakecall
+---
+
 ---
 The monitor crackles at 2:17 AM.
 Your eyes open in darkness.
@@ -39,6 +37,8 @@ You reach and lift them up.
 
 ## SCENE v03 | pediatrician_waiting_room
 ---
+
+---
 You sit with a clipboard.
 The pen hovers over "reason for visit."
 Fluorescent lights hum above you.
@@ -54,6 +54,8 @@ You look back down at the form.
 ---
 
 ## SCENE v04 | parents_calendar
+---
+
 ---
 Your phone screen glows in the dark kitchen.
 Wednesday is already double-booked.
@@ -71,6 +73,8 @@ Your thumb hovers over the screen.
 
 ## SCENE v05 | morning_before_school
 ---
+
+---
 They won't find their shoes.
 You asked them ten minutes ago.
 The car is running in the driveway.
@@ -86,6 +90,8 @@ The clock ticks toward departure.
 ---
 
 ## SCENE v06 | email_during_bedtime
+---
+
 ---
 The child is half-asleep on your lap.
 Your laptop is open on the couch.
@@ -103,6 +109,8 @@ You close the laptop halfway.
 
 ## SCENE v07 | midday_text_from_school
 ---
+
+---
 Your phone buzzes during a meeting.
 It's from the school nurse.
 Your child has a temperature.
@@ -118,6 +126,8 @@ Your leg bounces under the table.
 ---
 
 ## SCENE v08 | partner_conflict_evening
+---
+
 ---
 You mention the pediatrician appointment cost.
 Your partner says you should've scheduled sooner.
@@ -135,6 +145,8 @@ Neither of you moves toward them yet.
 
 ## SCENE v09 | carline_comparison
 ---
+
+---
 You watch a mother walk past.
 Her child is perfectly dressed.
 Their hair is braided.
@@ -150,6 +162,8 @@ You listen and say nothing about the stain.
 ---
 
 ## SCENE v10 | nighttime_worry_spiral
+---
+
 ---
 You're lying in bed at 11:30 PM.
 Your partner sleeps beside you.
@@ -167,6 +181,8 @@ You put it back down.
 
 ## SCENE v11 | work_call_interruption
 ---
+
+---
 You're on camera, mid-sentence.
 Your child appears in the doorway.
 They're asking for juice.
@@ -182,6 +198,8 @@ Then you get up from your desk.
 ---
 
 ## SCENE v12 | sunday_evening_dread
+---
+
 ---
 It's 6:47 PM on Sunday.
 Monday morning exists in less than twelve hours.
@@ -199,6 +217,8 @@ You're checking two forms at once.
 
 ## SCENE v13 | financial_text_during_day
 ---
+
+---
 Your bank app notification pops up.
 The childcare payment posted.
 It's more than you expected.
@@ -214,6 +234,8 @@ The number is still on the screen.
 ---
 
 ## SCENE v14 | partner_not_understanding
+---
+
 ---
 You're trying to explain the schedule conflict.
 Your partner keeps checking their phone.
@@ -231,6 +253,8 @@ You shake your head instead.
 
 ## SCENE v15 | carpool_coordination_fail
 ---
+
+---
 You sent a text about Friday.
 Nobody responded.
 Two hours before pickup you send again.
@@ -246,6 +270,8 @@ You start texting other options.
 ---
 
 ## SCENE v16 | 3pm_energy_crash
+---
+
 ---
 It's 3:15 PM and you're exhausted.
 The workday still has two hours.
@@ -263,6 +289,8 @@ Someone knocks on your office door.
 
 ## SCENE v17 | bedtime_negotiation
 ---
+
+---
 They say five more minutes.
 You already gave five more minutes.
 You're standing in the doorway.
@@ -278,6 +306,8 @@ Your hand touches their hair.
 ---
 
 ## SCENE v18 | solo_bathroom_break
+---
+
 ---
 You lock the door.
 You don't turn on the light.
@@ -295,6 +325,8 @@ You don't remember the last time you were alone.
 
 ## SCENE v19 | morning_mirror
 ---
+
+---
 You catch your reflection while brushing teeth.
 You look thinner than last month.
 Your eyes have new lines.
@@ -310,6 +342,8 @@ Their face appears, already frustrated with the day.
 ---
 
 ## SCENE v20 | car_radio_off
+---
+
 ---
 You're driving alone for once.
 You could turn on music.
@@ -327,6 +361,8 @@ You didn't notice.
 
 ## SCENE v21 | grocery_store_calculation
 ---
+
+---
 You're pushing the cart through produce.
 You price apples against your receipt total.
 You do the math faster than normal.
@@ -342,6 +378,8 @@ It's enough but not plenty.
 ---
 
 ## SCENE v22 | night_sweat_wake
+---
+
 ---
 You wake up at 4 AM.
 Your shirt is damp.
@@ -359,6 +397,8 @@ You stand in their doorway for several minutes.
 
 ## SCENE v23 | {street_name} standstill
 ---
+
+---
 You're stuck on {street_name} at 5:43 PM.
 The daycare closes at 6:00.
 You're seventeen minutes away.
@@ -374,6 +414,8 @@ You have two minutes.
 ---
 
 ## SCENE v24 | {weather_detail} morning_dread
+---
+
 ---
 Outside is {weather_detail} and gray.
 Nobody wants to get out of bed.
@@ -391,6 +433,8 @@ You leave the room and close the door.
 
 ## SCENE v25 | pocket_change_count
 ---
+
+---
 You empty your work bag at the kitchen table.
 Two dollars and seventeen cents.
 That's the total in your pockets.
@@ -406,6 +450,8 @@ Their face falls just a little.
 ---
 
 ## SCENE v26 | work_laptop_late_night
+---
+
 ---
 It's 11 PM and you're still working.
 Your child has been asleep for hours.
@@ -423,6 +469,8 @@ By midnight you've done barely anything.
 
 ## SCENE v27 | pediatrician_bill_envelope
 ---
+
+---
 The bill arrives on a Tuesday.
 You open it standing at the mailbox.
 Your chest tightens at the number.
@@ -438,6 +486,8 @@ You sit on the front step.
 ---
 
 ## SCENE v28 | comparison_scroll
+---
+
 ---
 You're scrolling your feed at midnight.
 Another parent posted about their family trip.
@@ -455,6 +505,8 @@ You force yourself to stop.
 
 ## SCENE v29 | partner_asleep_early
 ---
+
+---
 Your partner fell asleep on the couch.
 It's only 8:30 PM.
 You have three loads of laundry to fold.
@@ -470,6 +522,8 @@ You start folding in the quiet.
 ---
 
 ## SCENE v30 | dawn_quiet_before
+---
+
 ---
 You wake before everyone else.
 5:47 AM.

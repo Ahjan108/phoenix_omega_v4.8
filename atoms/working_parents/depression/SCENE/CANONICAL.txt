@@ -1,12 +1,8 @@
-# working_parents × depression × scene_set
-# Slot type: SCENE
-# Count: 30
-# Voice: second-person present tense, sensory, one detail per sentence
-# Spec: max 10 words per sensory beat, min 2 location tokens, no emotional labeling, ends on action/sensory moment
-# Location tokens: {transit_line}, {street_name}, {weather_detail}
 
----
+
 ## SCENE v01 | bath_ritual_mechanical
+---
+
 ---
 You're running bathwater for your child.
 You're supposed to sit and watch.
@@ -24,6 +20,8 @@ You don't check it.
 
 ## SCENE v02 | saturday_morning_free
 ---
+
+---
 It's Saturday morning.
 No obligations until this afternoon.
 You should feel relief.
@@ -39,6 +37,8 @@ You close your eyes again.
 ---
 
 ## SCENE v03 | afternoon_weight
+---
+
 ---
 It's 2 PM on a Tuesday.
 The day is half over.
@@ -56,6 +56,8 @@ You keep moving.
 
 ## SCENE v04 | child_wants_play
 ---
+
+---
 Your child wants to play with you.
 They're excited.
 They're looking at you with hope.
@@ -71,6 +73,8 @@ You feel gray.
 ---
 
 ## SCENE v05 | {weather_detail} morning_dread
+---
+
 ---
 You wake up and it's {weather_detail}.
 The weather should not affect you like this.
@@ -88,6 +92,8 @@ You wait.
 
 ## SCENE v06 | dinner_table_silence
 ---
+
+---
 Your family is eating dinner.
 Everyone is talking except you.
 You're moving food around your plate.
@@ -103,6 +109,8 @@ You don't have it.
 ---
 
 ## SCENE v07 | work_email_delay
+---
+
 ---
 An email came in at 3 PM.
 It's now 6 PM.
@@ -120,6 +128,8 @@ You close the laptop anyway.
 
 ## SCENE v08 | {street_name} carpool_numb
 ---
+
+---
 You're parked on {street_name}.
 The line is moving.
 Your child will get in the car soon.
@@ -135,6 +145,8 @@ You paste something on your face.
 ---
 
 ## SCENE v09 | {transit_line} empty_space
+---
+
 ---
 You're on {transit_line}.
 You're commuting but not aware of the stops.
@@ -152,6 +164,8 @@ Someone gets on near you.
 
 ## SCENE v10 | night_with_partner
 ---
+
+---
 Your partner is beside you in bed.
 They're trying to connect.
 You understand they want intimacy.
@@ -167,6 +181,8 @@ You stay awake.
 ---
 
 ## SCENE v11 | friend_hangout_dread
+---
+
 ---
 Your friend texts about getting together.
 You know you should see them.
@@ -184,6 +200,8 @@ You feel worse that she's trying.
 
 ## SCENE v12 | child_excitement_mismatch
 ---
+
+---
 Your child is excited about something small.
 A toy.
 A show.
@@ -199,6 +217,8 @@ You wish you could meet them there.
 ---
 
 ## SCENE v13 | showering_is_effort
+---
+
 ---
 You know you should shower.
 It's been two days.
@@ -216,6 +236,8 @@ It's fine.
 
 ## SCENE v14 | {weather_detail} weight
 ---
+
+---
 Outside is {weather_detail} and your body matches it.
 Heavy.
 Gray.
@@ -231,6 +253,8 @@ You want it anyway.
 ---
 
 ## SCENE v15 | accomplishment_empty
+---
+
 ---
 You finished something.
 It went well.
@@ -248,6 +272,8 @@ You keep going because stopping isn't an option.
 
 ## SCENE v16 | laugh_track_hollow
 ---
+
+---
 Your child is laughing at something.
 You make the sounds that are appropriate.
 You sound like someone laughing.
@@ -263,6 +289,8 @@ They settle into you, confused but comforted.
 ---
 
 ## SCENE v17 | phone_notifications_ignored
+---
+
 ---
 Your phone keeps buzzing.
 Messages, emails, notifications.
@@ -280,6 +308,8 @@ You still feel it there.
 
 ## SCENE v18 | mirror_avoidance
 ---
+
+---
 You're getting ready and you avoid looking.
 You know what's there.
 You know what's missing.
@@ -295,6 +325,8 @@ You can go like this.
 ---
 
 ## SCENE v19 | partner_concerned_face
+---
+
 ---
 Your partner is looking at you with concern.
 You know that look.
@@ -312,6 +344,8 @@ You both sit in the lie together.
 
 ## SCENE v20 | interest_gone_quiet
 ---
+
+---
 Something you loved isn't interesting anymore.
 You can't explain why.
 Nothing tastes good.
@@ -327,6 +361,8 @@ You're just noting it.
 ---
 
 ## SCENE v21 | {street_name} drive_no_music
+---
+
 ---
 You're driving on {street_name}.
 The radio is off.
@@ -344,6 +380,8 @@ You stay out longer than necessary.
 
 ## SCENE v22 | bed_call
 ---
+
+---
 You go to bed at 8 PM.
 Your child is confused.
 You don't explain.
@@ -359,6 +397,8 @@ You sleep anyway.
 ---
 
 ## SCENE v23 | decision_exhaustion
+---
+
 ---
 Someone is asking you to make a choice.
 It doesn't matter.
@@ -376,6 +416,8 @@ You stop explaining.
 
 ## SCENE v24 | child_stops_asking
 ---
+
+---
 Your child used to ask you more.
 They've stopped.
 They know the answer.
@@ -391,6 +433,8 @@ They learn to stop expecting.
 ---
 
 ## SCENE v25 | success_doesn't_touch_you
+---
+
 ---
 Something good happened at work.
 Your boss praised you.
@@ -408,6 +452,8 @@ You forget good things.
 
 ## SCENE v26 | {weather_detail} window_watch
 ---
+
+---
 You're looking out the window.
 It's {weather_detail}.
 You've been looking for ten minutes.
@@ -423,6 +469,8 @@ You turn away from the window.
 ---
 
 ## SCENE v27 | mouth_words_automatic
+---
+
 ---
 You're speaking but you're not in your mouth.
 You're watching yourself speak.
@@ -440,6 +488,8 @@ You finish speaking and disappear.
 
 ## SCENE v28 | evening_settle_down
 ---
+
+---
 The day is ending.
 This was the goal.
 To get to the end.
@@ -456,6 +506,8 @@ You're just ending days.
 
 ## SCENE v29 | kitchen_standing_idle
 ---
+
+---
 You're in the kitchen.
 You opened the refrigerator.
 You don't remember why.
@@ -471,6 +523,8 @@ You're waiting for something.
 ---
 
 ## SCENE v30 | falling_asleep_relief
+---
+
 ---
 You're finally falling asleep.
 Your body is heavy.
