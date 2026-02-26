@@ -34,7 +34,10 @@
 | **specs/README.md** | **Active** | Spec index; authority and run instructions; links to SYSTEMS_V4. |
 | **talp/SYSTEMS_DOCUMENTATION.md** | **Reference** | Legacy full system rebuild spec; Layer 0–2; superseded for canonical overview by docs/SYSTEMS_V4.md. |
 | **unified_personas.md** (repo root) | **Canonical** | Source of truth for active personas (10) and topics (12); full catalog metadata, design foundation, catalog math, template requirements, consumer language map, production sequence. canonical_personas.yaml / canonical_topics.yaml must align. |
-| **config/catalog_planning/** | **Active** | domain_definitions, series_templates, capacity_constraints, teacher_persona_matrix.yaml, **brand_archetype_registry.yaml** (v1.1, 24 archetypes); **canonical_personas.yaml**, **canonical_topics.yaml** (align with unified_personas.md). |
+| **config/catalog_planning/** | **Active** | domain_definitions, series_templates, capacity_constraints, teacher_persona_matrix.yaml, **brand_archetype_registry.yaml** (v1.1, 24 archetypes); **canonical_personas.yaml**, **canonical_topics.yaml**, **atoms_model.yaml** (align with unified_personas.md). |
+| **docs/PHOENIX_24_BRAND_GOVERNANCE_ARCHITECTURE.md** | **Active** | 24-brand governance architecture: 3-layer stack, 22 controls, Catalog Health, Non-Goals, Failure Scenarios, Change control. North star for scale governance. |
+| **docs/PHOENIX_24_BRAND_MINIMUM_GOVERNANCE_CORE.md** | **Active** | Minimum governance core: 12 controls (GOV-01..GOV-12), control map, acceptance criteria, rollout by phase, break-glass, glossary, dashboard requirement. |
+| **docs/GOVERNANCE_HARDENING_BLUEPRINT.md** | **Reference** | 80 candidate controls (backlog only, non-authoritative); link from governance architecture. |
 | **config/localization/** | **Active** | locale_registry, brand_registry_locale_extension; BookSpec locale/territory. |
 | **config/teachers/** | **Active** | teacher_registry.yaml (Teacher Mode); **per-teacher &lt;teacher_id&gt;.yaml** (teacher_exercise_fallback, exercise_wrapper, teacher_quality_profile); example master_feng.yaml. See docs/TEACHER_MODE_SYSTEM_REFERENCE.md. |
 | **specs/BRAND_ARCHETYPE_VALIDATOR_SPEC.md** | **Active** | CI rules for brand archetype registry (structural, vocabulary, voice, pricing); fail at plan time. |

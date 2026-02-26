@@ -27,6 +27,7 @@ Phoenix is a **deterministic therapeutic audio operating system** that produces 
 | **Stage handoffs** | [OMEGA_LAYER_CONTRACTS.md](../specs/OMEGA_LAYER_CONTRACTS.md) | BookSpec, FormatPlan, CompiledBook schemas and config locations. |
 | **Teacher Mode** | [TEACHER_MODE_MASTER_SPEC.md](../specs/TEACHER_MODE_MASTER_SPEC.md), [TEACHER_MODE_INVARIANTS.md](../TEACHER_MODE_INVARIANTS.md), [TEACHER_MODE_V4_CANONICAL_SPEC.md](../specs/TEACHER_MODE_V4_CANONICAL_SPEC.md) | Strict-by-default, coverage gate, EXERCISE fallback, TDEL, CI. Full system reference: [docs/TEACHER_MODE_SYSTEM_REFERENCE.md](./TEACHER_MODE_SYSTEM_REFERENCE.md). |
 | **Release gates** | [V4_5_PRODUCTION_READINESS_CHECKLIST.md](../specs/V4_5_PRODUCTION_READINESS_CHECKLIST.md) | 17 conditions; run `scripts/run_production_readiness_gates.py` + simulation; jsonschema required (Gate 17/17b). |
+| **24-brand governance** | [PHOENIX_24_BRAND_GOVERNANCE_ARCHITECTURE.md](PHOENIX_24_BRAND_GOVERNANCE_ARCHITECTURE.md), [PHOENIX_24_BRAND_MINIMUM_GOVERNANCE_CORE.md](PHOENIX_24_BRAND_MINIMUM_GOVERNANCE_CORE.md) | Governance architecture (3-layer, 22 controls) and minimum governance core (12 controls GOV-01..GOV-12); survival layer for scale. |
 
 ---
 
