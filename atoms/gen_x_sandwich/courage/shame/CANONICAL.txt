@@ -1,261 +1,240 @@
-
-
 ## RECOGNITION v01
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/recognition/micro/v01.txt
+---
 BAND: 2
+path: gen_x_sandwich/courage/shame
+---
 MECHANISM_DEPTH: 1
 COST_TYPE: internal
 COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-
----
-Carol needs courage. She needs to set a boundary with her mother. The recognition is that courage is available to her, but she has to access it. Her chest is tight. She's afraid. But underneath the fear is the possibility of a different choice.
----
-
-## MECHANISM_PROOF v01
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/mechanism_proof/micro/v01.txt
-BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: destabilization
----
-
----
-Carol's fear is preventing her courage. The mechanism is that the fear keeps her small. She doesn't access her own power because she's afraid of what it would mean. The mechanism keeps her stuck.
----
-
-## TURNING_POINT v01
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/turning_point/micro/v01.txt
-BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
----
-
----
-Carol decides to be afraid and do it anyway. She sets the boundary. Her chest opens. The turning point is acting despite fear, not after conquering fear.
----
-
-## EMBODIMENT v01
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/embodiment/micro/v01.txt
-BAND: 2
-MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: self_claim
----
-
----
-Carol has courage now. She's not fearless. She's just brave. She acts despite fear. Her chest is open. She's learning her own capacity.
----
+Karen doesn't advocate for herself at work anymore. A project comes up that would be perfect for her. She doesn't volunteer. She's learned that younger people get the good assignments. She watches them get promoted. She watches them get developed. She's passed over. The shame is quiet: you're invisible here. Your contribution doesn't matter. You're aged out. She has a job. She does it well. But the feeling that she doesn't belong in the future of this company is settling in. She's become someone who shows up and does the work but doesn't believe in her own trajectory. The shame is making her small.
 
 ## RECOGNITION v02
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/recognition/micro/v02.txt
-BAND: 3
+---
+BAND: 2
+path: gen_x_sandwich/courage/shame
+---
 MECHANISM_DEPTH: 1
 COST_TYPE: internal
-COST_INTENSITY: 3
+COST_INTENSITY: 2
 IDENTITY_STAGE: pre_awareness
 ---
-
----
-Tom needs courage. He needs to be vulnerable with his son. His throat is tight. The recognition is that courage is available but he has to choose it.
----
-
-## MECHANISM_PROOF v02
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/mechanism_proof/micro/v02.txt
-BAND: 4
-MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 4
-IDENTITY_STAGE: destabilization
----
-
----
-Tom's fear of vulnerability is preventing his courage. The mechanism keeps him performing competence rather than being real. His throat is tight all the time.
----
-
-## TURNING_POINT v02
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/turning_point/micro/v02.txt
-BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
----
-
----
-Tom is vulnerable with his son anyway. His throat loosens. The turning point is choosing authenticity over protection.
----
-
-## EMBODIMENT v02
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/embodiment/micro/v02.txt
-BAND: 1
-MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: self_claim
----
-
----
-Tom has courage now. His throat is clear. He's real. He's learning his strength comes from authenticity, not from protecting an image.
----
+Tom looks in the mirror. He's tired. His kids are eating into his face. His parents are eating into his time. His job is eating into both. He's been the capable one. The problem-solver. The person people count on. He's still that. But he's burning. He looks at his younger colleagues. They have balance. They have boundaries. They have lives outside work. Tom wonders what's wrong with him that he can't manage both. The shame is: you're not handling this well. You should be better at this. You should have it together. The failure is internal. The shame is telling him it's a character flaw.
 
 ## RECOGNITION v03
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/recognition/micro/v03.txt
-BAND: 2
+---
+BAND: 3
+path: gen_x_sandwich/courage/shame
+---
 MECHANISM_DEPTH: 1
 COST_TYPE: internal
-COST_INTENSITY: 2
+COST_INTENSITY: 3
 IDENTITY_STAGE: pre_awareness
 ---
+Maria said no to something her mother asked. Small thing. But her mother's disappointment was clear. Maria's shame fired. She should help. She should be available. She should be the kind of daughter who doesn't have limits. The shame says she's failing at her primary obligation. Her mother is aging and Maria has her own life and kids. But the shame doesn't acknowledge that. The shame says: you should do both perfectly. You're not. Therefore you're failing. Maria agreed to help anyway. The agreement came from shame, not from actual capacity.
 
+## RECOGNITION v04
 ---
-Diane needs courage. She needs to say no to her in-laws. Her jaw is tight. The recognition is that courage is available, but she's afraid to access it.
----
-
-## MECHANISM_PROOF v03
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/mechanism_proof/micro/v03.txt
 BAND: 3
-MECHANISM_DEPTH: 2
+path: gen_x_sandwich/courage/shame
+---
+MECHANISM_DEPTH: 1
 COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+Bill's teenage son is struggling. Bill should be there more. Bill knows this. He's working. He's managing. But the shame is telling him he's choosing work over his kid. He's not actually choosing. He's just doing both and not doing either perfectly. But the shame interprets that as failure. Bill is learning to see himself through the shame lens: inadequate parent, inadequate professional, sandwiched between two impossible expectations. The shame is making him feel like he's the problem. Like if he just worked harder or loved more he could do both perfectly.
+
+## RECOGNITION v05
+---
+BAND: 4
+path: gen_x_sandwich/courage/shame
+---
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 4
+IDENTITY_STAGE: pre_awareness
+---
+Diane is becoming someone she doesn't recognize. The shame has settled in so deeply that it's become her baseline. She should be doing better. She should have more to show for her life. She's managed a career while raising kids while tending to parents. The achievements are real. The cost is also real. But the shame says the achievements don't count. She should have done more. She should have done it better. The shame is destroying her ability to acknowledge her own competence. She's invisible to herself now. She's just failing to be what everyone needs.
+
+## MECHANISM_PROOF v01
+---
+BAND: 3
+path: gen_x_sandwich/courage/shame
+---
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
 COST_INTENSITY: 3
 IDENTITY_STAGE: destabilization
 ---
+Karen is now accepting the invisibility. She's not advocating. She's not applying. She's not pushing. The shame has convinced her that advocacy is pointless. That she's already been decided against. She's forty-eight. She's got maybe fifteen years left in the workforce. The shame says: why bother? You're already past your prime. She's becoming smaller at work. Taking up less space. Contributing less because the shame is convincing her that her contribution doesn't matter. The mechanism is sophisticated: the shame creates invisibility, then uses invisibility as proof.
 
+## MECHANISM_PROOF v02
 ---
-Diane's fear of disappointing others is preventing her courage. The mechanism keeps her small. She doesn't access her own agency because she's afraid of other people's reactions.
----
-
-## TURNING_POINT v03
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/turning_point/micro/v03.txt
 BAND: 3
+path: gen_x_sandwich/courage/shame
+---
 MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: experimentation
----
-
----
-Diane says no anyway. Her jaw unclenches. The turning point is prioritizing her own wellbeing over others' approval.
----
-
-## EMBODIMENT v03
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/embodiment/micro/v03.txt
-BAND: 2
-MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: self_claim
----
-
----
-Diane has courage now. Her jaw is loose. She's learning her strength. She's no longer small.
----
-
-## RECOGNITION v04
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/recognition/micro/v04.txt
-BAND: 3
-MECHANISM_DEPTH: 1
-COST_TYPE: internal
+COST_TYPE: social
 COST_INTENSITY: 3
-IDENTITY_STAGE: pre_awareness
+IDENTITY_STAGE: destabilization
 ---
+Tom is withdrawing. He's not complaining to his wife about his exhaustion. He's not asking for help. He's trying to handle it all silently. The shame is saying that asking for help is weakness. That a real man just does what needs doing. That burnout is a personal failure, not a legitimate response to unsustainable demands. He's isolating in the shame. His family doesn't know how bad it is. He's suffering alone. The shame is preventing him from being supported. The silence is part of the shame mechanism.
 
+## MECHANISM_PROOF v03
 ---
-Mike needs courage. He needs to ask for help. His stomach drops. The recognition is that courage is available, but he has to choose it.
----
-
-## MECHANISM_PROOF v04
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/mechanism_proof/micro/v04.txt
 BAND: 4
+path: gen_x_sandwich/courage/shame
+---
 MECHANISM_DEPTH: 2
-COST_TYPE: internal
+COST_TYPE: relational
 COST_INTENSITY: 4
 IDENTITY_STAGE: destabilization
 ---
+Maria is saying yes to everything. Not from capacity. From shame. The shame is making her overcommit. She's resentful. Her family feels her resentment even though she's agreeing. She's not actually present when she's helping because she's not willing. She's obligated. The shame has made her into someone who can't say no. Which means she's not actually choosing her commitments. She's being controlled by shame. And everyone feels it. The relationship to her parents is becoming transactional rather than relational. The shame is destroying the authenticity of her care.
 
+## MECHANISM_PROOF v04
 ---
-Mike's shame about needing help is preventing his courage. The mechanism keeps him isolated and struggling. His stomach is twisted all the time.
+BAND: 4
+path: gen_x_sandwich/courage/shame
 ---
-
-## TURNING_POINT v04
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/turning_point/micro/v04.txt
-BAND: 3
 MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 3
-IDENTITY_STAGE: experimentation
----
-
----
-Mike asks for help anyway. His stomach settles. The turning point is choosing to be helped despite shame.
----
-
-## EMBODIMENT v04
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/embodiment/micro/v04.txt
-BAND: 2
-MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: self_claim
----
-
----
-Mike has courage now. He's asking for help and the world doesn't end. His stomach is less twisted. He's learning his strength includes vulnerability.
----
-
-## RECOGNITION v05
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/recognition/micro/v05.txt
-BAND: 2
-MECHANISM_DEPTH: 1
-COST_TYPE: internal
-COST_INTENSITY: 2
-IDENTITY_STAGE: pre_awareness
----
-
----
-Janet needs courage. She needs to reduce her commitments. Her chest is tight. The recognition is that courage is available.
----
-
-## MECHANISM_PROOF v05
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/mechanism_proof/micro/v05.txt
-BAND: 3
-MECHANISM_DEPTH: 2
-COST_TYPE: internal
-COST_INTENSITY: 3
+COST_TYPE: relational
+COST_INTENSITY: 4
 IDENTITY_STAGE: destabilization
 ---
+Bill is becoming irritable with his son. Not because of his son. Because Bill is exhausted and ashamed of not being there more. The shame is being converted to anger. Bill's son is absorbing criticism instead of receiving presence. Bill knows this is happening. The knowing makes the shame worse. He's now ashamed of how the shame is making him treat his son. It's a spiral. The shame creates inadequate parenting. The inadequate parenting creates more shame.
 
+## MECHANISM_PROOF v05
 ---
-Janet's fear of failure is preventing her courage. The mechanism keeps her overcommitted. Her chest is perpetually tight.
----
-
-## TURNING_POINT v05
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/turning_point/micro/v05.txt
 BAND: 3
+path: gen_x_sandwich/courage/shame
+---
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
+COST_INTENSITY: 4
+IDENTITY_STAGE: destabilization
+---
+Diane has become the shame. She's not just experiencing it. She is it. She's a failure who somehow keeps functioning. She's not good enough at anything. Not a good enough parent, professional, or daughter. The shame is rewriting her entire identity. She's started to believe the narrative: you're not worthy of ease. You're not worthy of recognition. You should be working harder. You should sacrifice more. The shame has become her self-concept. She's no longer imagining a version of herself that's worthy. She's identified with unworthiness.
+
+## TURNING_POINT v01
+---
+BAND: 3
+path: gen_x_sandwich/courage/shame
+---
 MECHANISM_DEPTH: 2
 COST_TYPE: internal
 COST_INTENSITY: 2
 IDENTITY_STAGE: experimentation
 ---
+Karen volunteers for something. Small thing. Something she's actually qualified for. The volunteer triggers the shame. "You're too old for this." "They don't want you." She volunteers anyway. What she finds: people respond well. They're glad to have her expertise. She's not invisible. She was believing the shame's narrative. The narrative wasn't true. She's testing: maybe I'm wrong about the invisibility. Maybe the shame is lying about my worth.
 
+## TURNING_POINT v02
 ---
-Janet reduces her commitments anyway. Her chest opens. The turning point is choosing her own capacity over others' expectations.
+BAND: 3
+path: gen_x_sandwich/courage/shame
 ---
-
-## EMBODIMENT v05
-path: story_atoms/gen_x_sandwich/anchored/courage/shame/embodiment/micro/v05.txt
-BAND: 1
 MECHANISM_DEPTH: 2
 COST_TYPE: internal
 COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Tom tells his wife he's burned out. The admission is terrifying. The shame says this is weakness. But he's saying it anyway. His wife responds with compassion. She's been worried. She wants to help. She didn't know because Tom wasn't telling. The honesty creates a shift. He's not alone with it anymore. The shame wanted him to believe that admitting difficulty was shameful. The actual response from his partner is support. He's testing: maybe the shame is wrong about what's shameful.
+
+## TURNING_POINT v03
+---
+BAND: 3
+path: gen_x_sandwich/courage/shame
+---
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Maria says no. To something small. To a request from her mother. The guilt comes. The shame comes. "Bad daughter." She sits with the discomfort. She doesn't reverse the no. She holds it. And what happens is: her mother is fine. The world doesn't end. Maria doesn't become a bad person for having a boundary. She's testing: maybe the shame is wrong about what happens when I prioritize myself.
+
+## TURNING_POINT v04
+---
+BAND: 3
+path: gen_x_sandwich/courage/shame
+---
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Bill spends time with his son without trying to fix anything. Just presence. He doesn't have the perfect words. Doesn't have the perfect plan. Just shows up. His son responds to the presence. The interaction is healing. Bill is learning that his son doesn't need a perfect parent. He needs a present parent. The shame has been saying he's not enough. The actual need is for what he can give: presence. He's testing whether the shame's standard is the real standard.
+
+## TURNING_POINT v05
+---
+BAND: 3
+path: gen_x_sandwich/courage/shame
+---
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Diane acknowledges one accomplishment. Just one. She worked. She raised kids. She supported parents. She did all of this and kept functioning. She's learning to recognize that as worthy. The shame says it's not enough. But she's testing whether the shame's standard is achievable. Perfection isn't achievable. Humanity is. She's learning to value what she's actually done instead of what she hasn't.
+
+## EMBODIMENT v01
+---
+BAND: 2
+path: gen_x_sandwich/courage/shame
+---
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 1
 IDENTITY_STAGE: self_claim
 ---
+Karen is visible now. Not perfect. Not competing with younger colleagues for trajectory. But present. Advocating for herself when it matters. She's learned that invisibility was partly the shame's narrative. She's a valuable part of the organization. She's claiming that. Not through desperation or overwork. Through honest contribution. The shame still comes. But it doesn't have the weight it did.
 
+## EMBODIMENT v02
 ---
-Janet has courage now. She's learning her strength. Her chest is open. She's building a sustainable life.
+BAND: 1
+path: gen_x_sandwich/courage/shame
+---
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Tom is honest about his limitations. He's working. He's parenting. He's not doing both at a level of perfection. That's okay. It's actually honest. His family knows what's real now. He's present more because he's not carrying shame about not being present enough. The shame of inadequacy was exhausting. The reality of doing well enough is freeing.
+
+## EMBODIMENT v03
+---
+BAND: 2
+path: gen_x_sandwich/courage/shame
+---
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Maria has boundaries now. Not perfect ones. But real ones. She helps her mother from a place of choice, not obligation. The relationship is more authentic. Her mother respects the boundaries more than she respected the boundaryless availability. Maria is learning that taking care of herself makes her a better daughter. That wasn't shameful. That was necessary.
+
+## EMBODIMENT v04
+---
+BAND: 1
+path: gen_x_sandwich/courage/shame
+---
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Bill is present for his son. Not perfectly solving everything. Just showing up. His son is thriving. Bill is learning that presence is the real gift. The shame was insisting on perfection. The real need was for presence. He's reclaimed the ability to be a good parent through humility instead of heroics.
+
+## EMBODIMENT v05
+---
+BAND: 1
+path: gen_x_sandwich/courage/shame
+---
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Diane is acknowledging what she's done. She's managed. She's carried. She's shown up. It's not the perfect story society tells. It's her real story. She's learning to see that as worthy. Not despite the difficulty. Because of the grace it took to do this well. She's reclaimed her own estimation of her worth.
 ---

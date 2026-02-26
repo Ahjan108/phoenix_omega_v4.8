@@ -70,8 +70,8 @@ def _wrap_practice_fallback_exercise(prose: str, plan: dict[str, Any], chapter_i
             return prose
         book_id = plan.get("plan_id") or plan.get("plan_hash") or "book"
         h = hashlib.sha256(f"{book_id}:{chapter_index}:{slot_index}".encode("utf-8")).hexdigest()
-        intro = (intro_templates[int(int(h[:8], 16) % len(intro_templates)] + "\n\n") if intro_templates else ""
-        close = ("\n\n" + close_templates[int(int(h[8:16], 16) % len(close_templates)]) if close_templates else ""
+        intro = (intro_templates[int(int(h[:8], 16) % len(intro_templates))] + "\n\n") if intro_templates else ""
+        close = ("\n\n" + close_templates[int(int(h[8:16], 16) % len(close_templates))]) if close_templates else ""
         return f"{intro}{prose}{close}"
     except Exception:
         return prose

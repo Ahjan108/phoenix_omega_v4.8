@@ -10,6 +10,7 @@ Run: pytest tests/test_atoms_coverage_100_percent.py -v
 from __future__ import annotations
 
 import os
+import sys
 from pathlib import Path
 
 try:
@@ -18,6 +19,9 @@ except ImportError:
     pytest = None
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+# Ensure repo root on path so phoenix_v4 can be imported when run as script or from another cwd
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 CONFIG_ROOT = REPO_ROOT / "config"
 ATOMS_ROOT = REPO_ROOT / "atoms"
 
@@ -75,7 +79,8 @@ def _has_story_pool(atoms_root: Path, persona: str, topic: str, engine: str) -> 
         from phoenix_v4.planning.assembly_compiler import _parse_canonical_txt
         atoms = _parse_canonical_txt(path)
         return len(atoms) > 0, len(atoms)
-    except Exception:
+    except Exception as e:
+        # Validation or parse error; treat as missing for coverage
         return False, 0
 
 
@@ -198,7 +203,6 @@ def run_sim_test() -> tuple[bool, str]:
 
 
 if __name__ == "__main__":
-    import sys
     passed, message = run_sim_test()
     print(message)
     sys.exit(0 if passed else 1)
