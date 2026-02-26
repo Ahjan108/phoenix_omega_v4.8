@@ -9,6 +9,7 @@ import pytest
 from phoenix_v4.rendering.prose_resolver import (
     PlanContext,
     RenderResult,
+    _parse_block_file_with_prose,
     resolve_prose_for_plan,
     _is_placeholder_or_silence,
     _slot_type_from_placeholder_or_silence,
@@ -139,3 +140,22 @@ def test_render_book_enforce_chapter_flow_raises(tmp_path: Path) -> None:
             enforce_word_count=False,
             enforce_chapter_flow=True,
         )
+
+
+def test_parse_block_file_with_metadata_then_prose(tmp_path: Path) -> None:
+    canonical = tmp_path / "CANONICAL.txt"
+    canonical.write_text(
+        """## INTEGRATION v01
+---
+mode: BODY_LANDED
+reframe_type: BODY_FACT
+weight: light
+carry_line: "line"
+---
+This is real prose, not metadata.
+---
+""",
+        encoding="utf-8",
+    )
+    parsed = _parse_block_file_with_prose(canonical, "p", "t", "INTEGRATION")
+    assert parsed["p_t_INTEGRATION_v01"].startswith("This is real prose")

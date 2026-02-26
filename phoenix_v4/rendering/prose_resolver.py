@@ -165,13 +165,24 @@ def _parse_block_file_with_prose(path: Path, persona: str, topic: str, slot_type
         # Prose: next part. (Non-STORY often has --- prose --- only; STORY has --- metadata --- prose --- so prose at i+2.)
         if i + 1 < len(parts):
             candidate = parts[i + 1].strip()
-            # If next part looks like a header (starts with ##), no metadata block — prose is this candidate.
-            # If candidate looks like metadata (has path:, BAND:), prose might be at i+2.
             if candidate.startswith("##"):
                 continue  # no prose between this header and next
-            if re.search(r"^\s*(path|BAND|MECHANISM|SEMANTIC_FAMILY)\s*:", candidate, re.I | re.MULTILINE):
-                if i + 2 < len(parts):
-                    candidate = parts[i + 2].strip()
+
+            # Detect metadata blocks broadly (not just STORY keys). Many non-STORY atoms
+            # use keys like mode:, reframe_type:, weight:, carry_line: before prose.
+            meta_lines = [ln.strip() for ln in candidate.splitlines() if ln.strip()]
+            keylike_lines = [
+                ln for ln in meta_lines
+                if re.match(r"^[A-Za-z_][A-Za-z0-9_ ]{0,40}\s*:\s*.+$", ln)
+            ]
+            looks_like_metadata = (
+                bool(meta_lines)
+                and len(keylike_lines) >= 2
+                and (len(keylike_lines) / len(meta_lines)) >= 0.6
+            )
+
+            if looks_like_metadata and i + 2 < len(parts):
+                candidate = parts[i + 2].strip()
             out[atom_id] = candidate
     return out
 
