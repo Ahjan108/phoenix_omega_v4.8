@@ -26,6 +26,28 @@ def _de_scaffold(text: str) -> str:
     return clean_for_delivery(text or "")
 
 
+def _polish_scene(scene: str) -> str:
+    s = (scene or "").strip()
+    if not s:
+        return s
+    # Fix common fallback-template collision in outdoor scenes.
+    s = s.replace("The gray light through the window afternoon", "The afternoon light is flat and gray")
+    s = s.replace("through the window afternoon", "afternoon")
+    s = s.replace("through the window", "")
+    s = s.replace(
+        "The afternoon light is flat and gray stretches long and empty ahead of you.",
+        "The afternoon light is flat and gray. The road ahead feels long and empty.",
+    )
+    s = re.sub(
+        r"The\s+[A-Za-z ]*afternoon stretches long and empty ahead of you\.",
+        "The afternoon light is flat and gray. The road ahead feels long and empty.",
+        s,
+    )
+    # Clean double spaces created by removals.
+    s = re.sub(r"\s{2,}", " ", s).strip()
+    return s
+
+
 def _trim_reflection(reflection: str, max_sentences: int = 7) -> str:
     sents = _sentences(reflection)
     if not sents:
@@ -47,6 +69,20 @@ def _trim_reflection(reflection: str, max_sentences: int = 7) -> str:
     return joined.strip()
 
 
+def _warm_reflection(reflection_raw: str) -> str:
+    low = (reflection_raw or "").lower()
+    if "perfect choice" in low or ("regret" in low and "choice" in low):
+        return (
+            "You are not broken for feeling this. Your brain is trying to protect you from future pain, "
+            "but it is using impossible standards. Useful decisions are not perfect decisions. "
+            "Useful decisions are adjustable decisions."
+        )
+    return (
+        "You are not failing this moment. You are in a normal human conflict between uncertainty and control. "
+        "The move is not to erase uncertainty. The move is to act inside it."
+    )
+
+
 def _derive_thesis(reflection: str) -> str:
     sents = _sentences(reflection)
     for s in sents:
@@ -58,6 +94,23 @@ def _derive_thesis(reflection: str) -> str:
         if "mechanism" in low and "choice" in low:
             return "The point is that the mechanism treats every decision like a permanent threat."
     return "The point is that you can make a workable decision without solving every future outcome."
+
+
+def _mechanism_rewrite(reflection_raw: str, thesis: str) -> str:
+    low = (reflection_raw or "").lower()
+    if "regret" in low and "choice" in low:
+        return (
+            "Here is what is actually happening: anxiety predicts regret so loudly that it drowns out your ability "
+            "to make a useful decision. The mechanism is simple and brutal. The moment you choose one thing, your "
+            "brain starts mourning everything you did not choose. It tries to find a perfect option with zero loss, "
+            "but that option does not exist. Every path closes other paths. So the system freezes you, or lets you "
+            "choose and then punishes you for choosing."
+        )
+    return (
+        "Here is what is actually happening: " + thesis.replace("The point is that ", "") + " "
+        "When the alarm runs the decision, your brain treats uncertainty like danger and asks for impossible certainty. "
+        "That is why small choices feel heavy."
+    )
 
 
 def _default_exercise(reflection: str) -> str:
@@ -87,23 +140,26 @@ def compose_chapter(plan: dict, chapter_index: int) -> str:
         slot_text[st] = _de_scaffold(rr.prose_map.get(aid, ""))
 
     hook = slot_text.get("HOOK", "")
-    scene = slot_text.get("SCENE", "")
+    scene = _polish_scene(slot_text.get("SCENE", ""))
     story = slot_text.get("STORY", "")
     reflection_raw = slot_text.get("REFLECTION", "")
-    reflection = _trim_reflection(reflection_raw)
+    reflection = _warm_reflection(reflection_raw)
     integration = slot_text.get("INTEGRATION", "")
     exercise = slot_text.get("EXERCISE", "") or _default_exercise(reflection_raw)
     thesis = _derive_thesis(reflection_raw)
+    mechanism = _mechanism_rewrite(reflection_raw, thesis)
+
+    # Avoid stitched immersive openings: prefer one coherent scene.
+    opening = scene or hook
 
     parts = [
-        hook,
-        scene,
-        "That moment matters because it reveals the pattern before the label.",
-        f"Principle: {thesis}",
+        opening,
+        "That moment matters because it reveals the pattern before you have language for it.",
+        mechanism,
         reflection,
         "So this is not just your private glitch. It is a repeatable mechanism, which means it can be worked with.",
         story,
-        "In practice, we turn that understanding into a body-level action so the next decision is smaller and safer.",
+        "So here is what you can actually do with this. Right now. Not someday, now.",
         exercise,
     ]
     if integration:

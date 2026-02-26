@@ -99,6 +99,11 @@ def main() -> int:
     ap.add_argument("--render-formats", default="txt", help="Comma-separated book output formats (default: txt)")
     ap.add_argument("--render-dir", default=None, help="Output dir for rendered book (default: artifacts/rendered/<plan_id>)")
     ap.add_argument("--skip-word-count-gate", action="store_true", help="Bypass word count minimum gate (use when content density work is in progress)")
+    ap.add_argument(
+        "--enforce-book-pass-gate",
+        action="store_true",
+        help="Run book-pass quality gate (claim progression, non-shuffleability, ending transformation) and fail on errors",
+    )
     ap.add_argument("--atoms-root", default=None, help="Atoms root (e.g. atoms/zh-TW). Default: repo atoms/")
     ap.add_argument(
         "--atoms-model",
@@ -570,6 +575,56 @@ def main() -> int:
             for e in engine_errors:
                 print(f"Engine resolution failed: {e}", file=sys.stderr)
             return 1
+
+    # Book-pass gate: narrative progression + prose-level claim quality (optional hard gate)
+    if args.enforce_book_pass_gate:
+        from phoenix_v4.qa.atom_metadata_loader import load_atom_metadata
+        from phoenix_v4.qa.book_pass_gate import validate_book_pass
+        from phoenix_v4.rendering.prose_resolver import resolve_prose_for_plan
+
+        plan_for_gate = {
+            "chapter_slot_sequence": compiled.chapter_slot_sequence,
+            "atom_ids": compiled.atom_ids,
+            "dominant_band_sequence": compiled.dominant_band_sequence or [],
+            "exercise_chapters": compiled.exercise_chapters or [],
+            "persona_id": canonical_persona,
+            "topic_id": canonical_topic,
+            "emotional_curve": getattr(arc, "emotional_curve", None) or [],
+        }
+        atom_meta = load_atom_metadata(
+            atoms_root=atoms_root,
+            persona=canonical_persona,
+            topic=canonical_topic,
+        )
+        prose = resolve_prose_for_plan(plan_for_gate, atoms_root=atoms_root).prose_map
+        book_pass = validate_book_pass(plan_for_gate, atom_meta, prose_map=prose)
+
+        report_dir = REPO_ROOT / "artifacts" / "book_pass"
+        report_dir.mkdir(parents=True, exist_ok=True)
+        report_path = report_dir / f"{compiled.plan_hash}.json"
+        report_path.write_text(
+            json.dumps(
+                {
+                    "plan_hash": compiled.plan_hash,
+                    "persona_id": canonical_persona,
+                    "topic_id": canonical_topic,
+                    "valid": book_pass.valid,
+                    "errors": book_pass.errors,
+                    "warnings": book_pass.warnings,
+                    "metrics": book_pass.metrics,
+                },
+                indent=2,
+            ),
+            encoding="utf-8",
+        )
+        if not book_pass.valid:
+            print(f"Book-pass gate failed. Report: {report_path}", file=sys.stderr)
+            for e in book_pass.errors:
+                print(f"  - {e}", file=sys.stderr)
+            return 1
+        for w in book_pass.warnings:
+            print(f"Book-pass warning: {w}", file=sys.stderr)
+        print(f"Book-pass gate passed. Report: {report_path}", file=sys.stderr)
 
     # Teacher matrix: enforce peak_intensity_limit on compiled band sequence
     if teacher_id and teacher_id != "default_teacher":
