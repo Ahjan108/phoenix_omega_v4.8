@@ -60,7 +60,7 @@
 | **config/ops_schema_registry.yaml** | **Active** | Ops artifact type → schema_path, artifact_pattern, current_version; includes book_quality_bundle, wave_candidates_enriched, memorable_line_registry_snapshot, memorable_line_registry_violations, catalog_health_summary; used by scripts/ci/validate_ops_artifacts.py (scans artifacts/ops and artifacts/waves). |
 | **config/wave_optimizer_blocking_codes.yaml** | **Active** | Canonical wave optimizer blocking reason codes and Slack/Jira routing; machine-parseable. |
 | **schemas/** (ops + wave) | **Active** | JSON Schema (Draft 2020-12/7): wave_candidates, wave_optimizer_solution, wave_optimizer_infeasible, book_quality_summary_v1, **book_quality_bundle_v1**, **wave_candidates_enriched_v1**, story_atom_lint_v1, book_transformation_summary_v1, memorable_line_summary_v1, **memorable_line_registry_snapshot_v1**, **memorable_line_registry_violations_v1**, **catalog_health_summary_v1**. |
-| **docs/TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md** | **Active** | Tuple viability gate (Phase 1) and coverage health report (Phase 2); tuple universe from catalog so NO_ARC appears for missing arcs; paths, risk model, config. Replaces cursor_smart_planner.md. |
+| **docs/TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md** | **Active** | Tuple viability gate (Phase 1) and coverage health report (Phase 2); tuple universe from catalog so NO_ARC appears for missing arcs; paths, risk model, config. **§7:** 100% atoms sim test (`tests/test_atoms_coverage_100_percent.py`) — asserts every (persona, topic, engine) has non-empty STORY pool for all books. Replaces cursor_smart_planner.md. |
 
 ---
 
@@ -134,6 +134,8 @@ For release, use **specs/V4_5_PRODUCTION_READINESS_CHECKLIST.md** (15 conditions
 1. **Bindings** — Every unified topic must have an entry in `config/topic_engine_bindings.yaml`. Until then, NO_BINDING rows block.
 2. **Arcs** — Generate arc YAMLs for every (persona, topic, engine, format) in scope (e.g. single canonical format F006). Use `tools/arc_generator.py` or `scripts/generate_arcs_from_backlog.py`. NO_ARC goes to 0 only when all in-scope tuples have an arc file for the chosen format policy.
 3. **STORY pools by band** — Content team fills `atoms/<persona>/<topic>/<engine>/` for STORY, with band metadata. Use the report to see NO_STORY_POOL and BAND_THIN; re-run the report periodically as pools are filled.
+
+**100% atoms sim test:** Run `python3 tests/test_atoms_coverage_100_percent.py` from repo root to assert every (persona, topic, engine) in the catalog has a non-empty STORY pool. Exit 0 only when coverage is 100%. See **docs/TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md** §7.
 
 **Artifacts:**
 

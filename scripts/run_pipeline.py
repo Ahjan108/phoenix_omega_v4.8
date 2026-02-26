@@ -114,6 +114,7 @@ def main() -> int:
     series_id = args.series
     angle_id = args.angle
     seed = args.seed
+    input_atoms_model = None  # from --input YAML when present
     if args.input:
         p = Path(args.input)
         if not p.exists():
@@ -127,6 +128,8 @@ def main() -> int:
         if angle_id is None:
             angle_id = data.get("angle_id")
         seed = data.get("seed", seed)
+        if data.get("atoms_model") in ("legacy", "cluster"):
+            input_atoms_model = data["atoms_model"]
 
     if not topic_id or not persona_id:
         print("Error: need --topic and --persona (or --input YAML with topic_id, persona_id)", file=sys.stderr)
@@ -213,9 +216,10 @@ def main() -> int:
         return 1
 
     # Stage 1: BookSpec (author_id, narrator_id optional)
-    from phoenix_v4.planning.catalog_planner import CatalogPlanner, BookSpec
+    from phoenix_v4.planning.catalog_planner import AtomsModel, CatalogPlanner, BookSpec
     planner = CatalogPlanner()
     teacher_mode = bool(teacher_id and teacher_id != "default_teacher")
+    spec_atoms_model = AtomsModel(input_atoms_model) if input_atoms_model in ("legacy", "cluster") else None
     book_spec = planner.produce_single(
         topic_id=topic_id,
         persona_id=persona_id,
@@ -228,6 +232,7 @@ def main() -> int:
         author_id=author_id,
         narrator_id=narrator_id,
         teacher_mode=teacher_mode,
+        atoms_model=spec_atoms_model,
     )
 
     if book_spec.angle_id.endswith("_general"):
@@ -260,6 +265,26 @@ def main() -> int:
     # Resolve aliases before Stage 3 (Canonical §3.0). Stage 3 only sees canonical IDs.
     canonical_topic, canonical_persona = resolve_to_canonical(ALIASES_PATH, topic_id, persona_id)
     book_spec_for_compiler = {**book_spec.to_dict(), "topic_id": canonical_topic, "persona_id": canonical_persona}
+
+    # atoms_model: precedence 1) CLI --atoms-model 2) book spec 3) derive from config (legacy_personas). Always persist in plan.
+    if args.atoms_model is not None:
+        effective_atoms_model = args.atoms_model
+    elif book_spec.atoms_model is not None:
+        effective_atoms_model = book_spec.atoms_model.value
+    else:
+        from phoenix_v4.planning.atoms_model_loader import atoms_model_for_persona
+        effective_atoms_model = atoms_model_for_persona(persona_id).value
+        print(f"Warning: atoms_model missing in spec; derived from config (legacy_personas) -> {effective_atoms_model}", file=sys.stderr)
+    book_spec_for_compiler["atoms_model"] = effective_atoms_model
+
+    # atoms_root: default None (repo atoms/). Cluster future-guard: when atoms_model=cluster and unset, warn and set default.
+    atoms_root = Path(args.atoms_root) if args.atoms_root else None
+    if effective_atoms_model == "cluster" and atoms_root is None:
+        atoms_root = REPO_ROOT / "atoms"
+        print(
+            "Warning: atoms_model=cluster but atoms_root not set; using repo atoms/ — cluster layout (core/ + overlay/) required when implemented",
+            file=sys.stderr,
+        )
 
     # Author assets (Writer Spec §23.3, §23.9): load when author_id set; fail if any required asset missing.
     author_assets = None
@@ -393,7 +418,6 @@ def main() -> int:
     # Stage 3: CompiledBook (Arc-First: arc required)
     # Teacher Mode: require_full_resolution=True so no placeholders are allowed (Gate A).
     require_full_resolution = bool(book_spec_for_compiler.get("teacher_mode"))
-    atoms_root = Path(args.atoms_root) if args.atoms_root else None
     from phoenix_v4.planning.assembly_compiler import compile_plan
     compiled = compile_plan(
         book_spec_for_compiler,
@@ -401,6 +425,7 @@ def main() -> int:
         arc_path=arc_path,
         require_full_resolution=require_full_resolution,
         atoms_root=atoms_root,
+        atoms_model=effective_atoms_model,
     )
 
     # Part 3.1 / 3.3 validate compiled plan (structure)
@@ -522,6 +547,7 @@ def main() -> int:
     out["format_id"] = format_plan_dict.get("format_structural_id") or format_plan_dict.get("format_id") or ""
     out["locale"] = book_spec_for_compiler.get("locale", "en-US")
     out["territory"] = book_spec_for_compiler.get("territory", "US")
+    out["atoms_model"] = effective_atoms_model
     if getattr(arc, "engine", None):
         out["engine_id"] = arc.engine
     # Angle Integration (V4.7) — structural fingerprint / CTSS / wave density

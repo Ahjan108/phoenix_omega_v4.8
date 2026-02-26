@@ -133,11 +133,44 @@ Engine IDs are those in bindings (e.g. `false_alarm`, `spiral`, `watcher`, `over
 | Coverage report (arc-only discovery) | **Deprecated** | Previous implementation discovered tuples only from existing arc filenames; NO_ARC could not appear for missing tuples. |
 | Coverage report (catalog universe) | **Implemented** | Tuple universe from personas × bindings (topics × allowed_engines) × formats; then arc existence and other checks. NO_ARC appears for missing arcs. |
 | Format policy for coverage | **Config** | `config/gates.yaml` → `coverage_health.formats` (default `["F006"]`). |
+| 100% atoms coverage sim test | **Implemented** | `tests/test_atoms_coverage_100_percent.py`; see §7. |
 
 ---
 
-## 6. Related docs
+## 7. 100% atoms coverage sim test
 
-- **docs/SYSTEMS_V4.md** — Canonical systems overview; CI and release gates.
+**Purpose:** Assert that every (persona, topic, engine) in the catalog has a non-empty STORY pool so all books for all personas and all topics can be built.
+
+### Contract
+
+- **Tuple universe:** Personas from `config/catalog_planning/canonical_personas.yaml` × topics (and their `allowed_engines`) from `config/topic_engine_bindings.yaml`.
+- **Requirement:** For each (persona, topic, engine), `atoms/{persona}/{topic}/{engine}/CANONICAL.txt` must **exist** and be **non-empty** (at least one valid STORY atom, parsed via same logic as tuple viability gate).
+
+### Behavior
+
+| Condition | Effect |
+|-----------|--------|
+| **BLOCKER** | Any tuple missing the file or with no parseable STORY atom → test **fails**; prints missing paths and coverage percentage (e.g. 398/450 → 88.4%). |
+| **RED (report only)** | Pools with `story_count < min_story_pool_size` (from `config/gates.yaml` → `tuple_viability.min_story_pool_size`) are **reported** only; they do **not** fail the test. |
+
+### How to run
+
+| Mode | Command |
+|------|--------|
+| Script (no pytest) | `python3 tests/test_atoms_coverage_100_percent.py` |
+| Pytest | `python3 -m pytest tests/test_atoms_coverage_100_percent.py -v` |
+
+**Exit code:** **0** when coverage is 100% (all required STORY pools present and non-empty); **1** otherwise. Run from repo root.
+
+### Getting to 100%
+
+Add or fix missing `atoms/{persona}/{topic}/{engine}/CANONICAL.txt` so each has at least one valid STORY atom (and ideally ≥ `min_story_pool_size` per `config/gates.yaml`). See **docs/UNIFIED_PERSONAS_BOOK_READINESS_ANALYSIS.md** for personas/topics and what’s needed for full books.
+
+---
+
+## 8. Related docs
+
+- **docs/SYSTEMS_V4.md** — Canonical systems overview; CI and release gates; 100% atoms coverage test.
+- **docs/UNIFIED_PERSONAS_BOOK_READINESS_ANALYSIS.md** — Personas/topics and what’s needed for full books; STORY coverage.
 - **phoenix_v4/ops/README.md** — Ops tooling index; coverage health report.
 - **unified_personas.md** — Source of truth for active personas and topics; canonical config must align.

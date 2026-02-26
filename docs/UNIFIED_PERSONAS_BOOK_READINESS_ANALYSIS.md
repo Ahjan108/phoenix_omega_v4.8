@@ -3,6 +3,8 @@
 **Purpose:** What is ready to write books today, what is missing, and what is left for the writing team so the system can write books for **all** active personas.  
 **Sources:** [unified_personas.md](../unified_personas.md) (source of truth), docs/, specs/, config/, atoms/, BOOK_001_*, WRITER_COMMS_SYSTEMS_100, GOLDEN_PHOENIX_ATOM_UPGRADE_GUIDE.
 
+**100% atoms sim test:** To assert that there are atoms to make **all** books for all personas and all topics, run from repo root: `python3 tests/test_atoms_coverage_100_percent.py`. Exit 0 only when every (persona, topic, engine) in the catalog has a non-empty STORY pool. See [docs/TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md](./TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md) §7.
+
 ---
 
 ## 1. What “unified_personas” refers to
@@ -42,6 +44,8 @@ So: the **pipeline** runs end-to-end for this lane; **only STORY slots are fille
 - **Engines** vary by topic. Each CANONICAL file contains atoms with role headers and BAND metadata (where tagged).
 
 So: **every active persona has atom content for book writing**; STORY is the slot type most broadly populated; REFLECTION/EXERCISE/INTEGRATION (and HOOK/SCENE where used) exist for some persona×topic lanes and placeholders are used elsewhere until pools are added.
+
+**100% atoms coverage sim test:** The test `tests/test_atoms_coverage_100_percent.py` enforces that **every** (persona, topic, engine) in the catalog (from `canonical_personas.yaml` × `topic_engine_bindings.yaml`) has `atoms/{persona}/{topic}/{engine}/CANONICAL.txt` existing and non-empty (at least one valid STORY atom). It fails (BLOCKER) if any tuple is missing a STORY pool and prints the missing paths; it **reports** (does not fail) pools below `min_story_pool_size` from `config/gates.yaml` (RED in coverage report). Run: `python3 tests/test_atoms_coverage_100_percent.py` or `pytest tests/test_atoms_coverage_100_percent.py -v`. Authority: **docs/TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md** §7.
 
 ### 2.3 Content scale (translation and adding personas)
 

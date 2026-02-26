@@ -155,6 +155,11 @@ def main() -> int:
         action="store_true",
         help="Compile with default_teacher (shared atoms only). Skips teacher exercise pool gate; use for catalog when teacher banks are empty.",
     )
+    ap.add_argument(
+        "--allow-mixed-atoms-model",
+        action="store_true",
+        help="Allow wave to mix legacy and cluster atoms_model when using allocation_personas_file (e.g. ZH matrix). Default: assert all cluster.",
+    )
     args = ap.parse_args()
 
     brand_matrix_path = args.brand_matrix
@@ -175,6 +180,7 @@ def main() -> int:
         allocate_wave,
         load_brand_matrix,
     )
+    from phoenix_v4.planning.atoms_model_loader import get_allocation_personas_path
 
     matrix = load_brand_matrix(brand_matrix_path)
     brands = matrix.get("brands") or {}
@@ -187,6 +193,16 @@ def main() -> int:
         print("No teachers found in brand matrix. Check config/catalog_planning/brand_teacher_matrix.yaml.", file=sys.stderr)
         return 1
 
+    # When using a custom brand matrix (e.g. ZH), optional allocation persona list from atoms_model.yaml
+    personas_override = None
+    allocation_path = get_allocation_personas_path()
+    if brand_matrix_path and allocation_path and allocation_path.exists():
+        data = _load_yaml(allocation_path)
+        personas_list = data.get("personas") or data.get("persona_ids") or []
+        if isinstance(personas_list, list) and personas_list:
+            personas_override = list(personas_list)
+            print(f"Using allocation personas from {allocation_path.name} ({len(personas_override)} personas).")
+
     wave_id = "full_catalog"
     total_to_allocate = args.max_books
     if args.brand:
@@ -198,6 +214,7 @@ def main() -> int:
         total_books=total_to_allocate,
         seed=args.seed,
         brand_matrix_path=brand_matrix_path,
+        personas_override=personas_override,
     )
 
     if args.brand:
@@ -210,12 +227,14 @@ def main() -> int:
         print(f"Portfolio allocated: {len(allocations)} books across brands.")
 
     # --- Step 2: BookSpec per allocation ---
-    from phoenix_v4.planning.catalog_planner import CatalogPlanner
+    from phoenix_v4.planning.catalog_planner import CatalogPlanner, AtomsModel
+    from phoenix_v4.planning.atoms_model_loader import atoms_model_for_persona
 
     planner = CatalogPlanner()
     specs = []
     for i, alloc in enumerate(allocations):
         try:
+            atoms_model = atoms_model_for_persona(alloc.persona_id)
             spec = planner.produce_single(
                 topic_id=alloc.topic_id,
                 persona_id=alloc.persona_id,
@@ -223,6 +242,7 @@ def main() -> int:
                 brand_id=alloc.brand_id,
                 seed=f"{args.seed}:{i}:{alloc.position_in_wave}",
                 teacher_mode=(alloc.teacher_id and alloc.teacher_id != "default_teacher"),
+                atoms_model=atoms_model,
             )
             specs.append((alloc, spec))
         except Exception as e:
@@ -232,6 +252,21 @@ def main() -> int:
     if not specs:
         print("No BookSpecs produced.", file=sys.stderr)
         return 1
+
+    # Mixed-models gate: when using allocation_personas_file (e.g. ZH matrix), expect all cluster unless --allow-mixed-atoms-model
+    if personas_override is not None and not args.allow_mixed_atoms_model:
+        non_cluster = [(a, s) for a, s in specs if s.atoms_model != AtomsModel.CLUSTER]
+        if non_cluster:
+            print(
+                "Atoms model gate: allocation used cluster persona list but some specs are legacy. "
+                "Use --allow-mixed-atoms-model to allow, or ensure allocation_personas_file contains cluster-only personas.",
+                file=sys.stderr,
+            )
+            for alloc, spec in non_cluster[:5]:
+                print(f"  {spec.persona_id} -> {spec.atoms_model.value}", file=sys.stderr)
+            if len(non_cluster) > 5:
+                print(f"  ... and {len(non_cluster) - 5} more.", file=sys.stderr)
+            return 1
 
     # Cap to requested max_books (e.g. 108)
     if len(specs) > args.max_books:
@@ -295,6 +330,8 @@ def main() -> int:
             atoms_root = str(REPO_ROOT / "atoms" / spec.locale)
         elif args.atoms_root:
             atoms_root = args.atoms_root
+        elif spec.atoms_model == AtomsModel.CLUSTER:
+            atoms_root = str(REPO_ROOT / "atoms")
         teacher_id = "default_teacher" if args.no_teacher_mode else (spec.teacher_id or "default_teacher")
         cmd = [
             sys.executable,
@@ -305,6 +342,7 @@ def main() -> int:
             "--teacher", teacher_id,
             "--seed", spec.seed,
             "--out", str(out_path),
+            "--atoms-model", spec.atoms_model.value,
             freebies_flag,
         ]
         if atoms_root:

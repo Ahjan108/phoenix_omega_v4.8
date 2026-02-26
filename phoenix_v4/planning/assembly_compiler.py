@@ -431,12 +431,15 @@ def compile_plan(
     bindings_path: Optional[Path] = None,
     validate_atom_schema: bool = True,
     require_full_resolution: bool = False,
+    atoms_model: Optional[str] = None,
 ) -> CompiledBook:
     """
     Stage 3: BookSpec + FormatPlan + Arc -> CompiledBook (Arc-First: arc required).
     book_spec must contain canonical topic_id and persona_id. format_plan must contain slot_definitions.
     arc_path or arc (loaded ArcBlueprint or dict) is required; no arc = no compile.
     Same (book_spec, format_plan, arc) -> same plan_hash and atom_ids.
+    atoms_model: optional "legacy" | "cluster". When "cluster", a future implementation will switch to
+    core+overlay resolution and require atoms_root to contain core/ and overlay/. Currently no resolution change.
     """
     atoms_root = atoms_root or ATOMS_ROOT
     bindings_path = bindings_path or (CONFIG_ROOT / "topic_engine_bindings.yaml")

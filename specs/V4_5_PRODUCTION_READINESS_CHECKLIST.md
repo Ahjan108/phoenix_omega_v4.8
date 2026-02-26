@@ -30,7 +30,7 @@ For every **persona × topic × role**:
 
 **If any slot cannot be filled deterministically → Not ready.**
 
-*Ref:* Canonical Spec Part 3 (K-tables, capability check); `phoenix_v4/planning/`, coverage_checker.
+*Ref:* Canonical Spec Part 3 (K-tables, capability check); `phoenix_v4/planning/`, coverage_checker. **Optional 100% atoms sim test:** `python3 tests/test_atoms_coverage_100_percent.py` from repo root asserts every (persona, topic, engine) has non-empty STORY pool for all books; see [docs/TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md](../docs/TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md) §7.
 
 ---
 

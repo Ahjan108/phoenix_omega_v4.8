@@ -31,6 +31,7 @@ Produced by the catalog planner. Consumed by the format selector.
 | `author_id` | string \| null | Optional. Pen-name author slug; when set, `author_positioning_profile` is required and resolved from author_registry. |
 | `author_positioning_profile` | string \| null | Optional. Trust posture profile (e.g. somatic_companion, research_guide). When `author_id` present, must match registry; when absent, may be set from default_by_brand. Writer Spec §24. |
 | `narrator_id` | string \| null | Optional. Narrator slug; when set, validated against config/narrators/narrator_registry.yaml (brand_compatibility, status). Resolved from config/brand_narrator_assignments.yaml when not supplied. Writer Spec §23.5. |
+| `atoms_model` | string \| null | Optional. Enum: `"legacy"` \| `"cluster"` only. Legacy = persona-specific atoms; cluster = core+overlay (future). When absent, downstream may derive from config (atoms_model.yaml: persona_id in legacy_personas → legacy, else cluster) and **must log a warning** when deriving. Precedence: 1) CLI `--atoms-model`, 2) BookSpec field, 3) derived from config. Compiled plan **always** persists the effective value (including when derived) to avoid cross-env drift. |
 
 **Failure behavior:** Stage 1 must not emit a BookSpec with missing required fields. If a field is optional by policy (e.g. series_id for standalone books), use null. Stage 2 rejects invalid or missing required fields with a hard fail (no silent default).
 

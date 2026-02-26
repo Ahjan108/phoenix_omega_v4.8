@@ -27,6 +27,8 @@ This runs 17 conditions including Gate 17 (jsonschema required) and Gate 17b (op
 
 **Quality/registry regression tests:** `tests/test_quality_regression.py` — malformed CANONICAL.txt, missing chapter text in plan, duplicate memorable-line collision. Run: `python -m unittest tests.test_quality_regression -v`.
 
+**100% atoms coverage sim test:** `tests/test_atoms_coverage_100_percent.py` — requires every (persona, topic, engine) in the catalog to have a non-empty STORY pool (`atoms/{persona}/{topic}/{engine}/CANONICAL.txt`). Exit 0 only when 100%; reports shallow pools (below `min_story_pool_size`) without failing. Run: `python3 tests/test_atoms_coverage_100_percent.py` or `pytest tests/test_atoms_coverage_100_percent.py -v`. See [docs/TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md](../../docs/TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md) §7.
+
 ## Running pre-publish anti-spam gates
 
 From repo root:
