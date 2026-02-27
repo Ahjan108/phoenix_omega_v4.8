@@ -1,0 +1,21 @@
+schema_version: 1
+rules_id: variant_scheduler_rules
+owner: governance
+status: active
+
+catalog_policy:
+  isolated_scheduling: true
+  forbid_cross_catalog_wave_pooling: true
+
+scheduling:
+  max_variants_per_topic: 3
+  min_days_between_same_topic_persona: 21
+  max_same_family_per_wave_ratio: 0.4
+
+wave_controls:
+  require_family_diversity_floor: true
+  family_diversity_min_count: 3
+
+conflict_resolution:
+  same_slot_signature_collision: reseat_variant
+  same_band_signature_collision: reseat_variant
