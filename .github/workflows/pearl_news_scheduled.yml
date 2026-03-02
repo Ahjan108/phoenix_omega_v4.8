@@ -1,0 +1,63 @@
+# Pearl News: scheduled feed ingest and optional WordPress post.
+# Runs on schedule so articles can be produced even when your laptop is off.
+# Set repository secrets WORDPRESS_SITE_URL, WORDPRESS_USERNAME, WORDPRESS_APP_PASSWORD to enable posting.
+# Without secrets, the post step runs in dry-run mode. See docs/PEARL_NEWS_GITHUB_SCHEDULING.md.
+name: Pearl News scheduled
+
+on:
+  schedule:
+    # 6:00 and 18:00 UTC daily
+    - cron: '0 6,18 * * *'
+  workflow_dispatch: # allow manual run
+
+jobs:
+  pearl-news:
+    runs-on: ubuntu-latest
+    env:
+      WORDPRESS_SITE_URL: ${{ secrets.WORDPRESS_SITE_URL }}
+      WORDPRESS_USERNAME: ${{ secrets.WORDPRESS_USERNAME }}
+      WORDPRESS_APP_PASSWORD: ${{ secrets.WORDPRESS_APP_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Pearl News dependencies
+        run: |
+          pip install feedparser pyyaml requests pytest
+
+      - name: Run Pearl News tests
+        run: |
+          PYTHONPATH=. python -m pytest tests/test_pearl_news/ -v -k "not real_rss"
+
+      - name: Run feed ingest and write minimal drafts
+        run: |
+          python -m pearl_news.pipeline.run_article_pipeline \
+            --feeds pearl_news/config/feeds.yaml \
+            --out-dir artifacts/pearl_news/drafts \
+            --limit 10 \
+            --write-minimal-drafts
+
+      - name: Upload draft artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pearl_news_drafts
+          path: artifacts/pearl_news/drafts/
+          retention-days: 7
+
+      - name: Test WordPress integration (dry-run or post)
+        run: |
+          shopt -s nullglob
+          first=$(ls -1 artifacts/pearl_news/drafts/article_*.json 2>/dev/null | head -1)
+          if [ -z "$first" ]; then
+            echo "No article_*.json found; skipping"
+            exit 0
+          fi
+          if [ -z "$WORDPRESS_APP_PASSWORD" ]; then
+            python scripts/pearl_news_post_to_wp.py --article "$first" --dry-run
+          else
+            python scripts/pearl_news_post_to_wp.py --article "$first" --status draft
+          fi
+        continue-on-error: true
