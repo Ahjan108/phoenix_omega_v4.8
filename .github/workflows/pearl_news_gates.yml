@@ -1,0 +1,44 @@
+# Pearl News — run governance tests on push/PR.
+# Runs classifier, selector, quality gates, and e2e tests.
+name: Pearl News gates
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pearl_news/**'
+      - 'tests/test_topic_sdg_classifier.py'
+      - 'tests/test_template_selector.py'
+      - 'tests/test_pearl_news_quality_gates_minimal.py'
+      - 'tests/test_pearl_news_pipeline_e2e.py'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'pearl_news/**'
+      - 'tests/test_topic_sdg_classifier.py'
+      - 'tests/test_template_selector.py'
+      - 'tests/test_pearl_news_quality_gates_minimal.py'
+      - 'tests/test_pearl_news_pipeline_e2e.py'
+
+jobs:
+  pearl-news-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install feedparser pyyaml pytest
+
+      - name: Run Pearl News governance tests
+        run: |
+          PYTHONPATH=. python -m pytest \
+            tests/test_topic_sdg_classifier.py \
+            tests/test_template_selector.py \
+            tests/test_pearl_news_quality_gates_minimal.py \
+            tests/test_pearl_news_pipeline_e2e.py \
+            -v

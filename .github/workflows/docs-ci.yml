@@ -1,0 +1,31 @@
+name: Docs CI
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'docs/**'
+      - 'specs/**'
+      - 'ONBOARDING.md'
+      - 'scripts/ci/check_docs_governance.py'
+      - '.github/workflows/docs-ci.yml'
+  pull_request:
+    branches: [main, master]
+    paths:
+      - 'docs/**'
+      - 'specs/**'
+      - 'ONBOARDING.md'
+      - 'scripts/ci/check_docs_governance.py'
+      - '.github/workflows/docs-ci.yml'
+
+jobs:
+  docs-governance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Docs governance (links + freshness + authority)
+        run: |
+          PYTHONPATH=. python scripts/ci/check_docs_governance.py

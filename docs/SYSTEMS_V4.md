@@ -2,8 +2,8 @@
 
 **Purpose:** Single canonical description of the whole V4 system.  
 **Audience:** Engineers, QA, content governance, release.  
-**Last updated:** 2026-02-25  
-**Authority:** This doc is the one systems-level overview; architecture authority remains [specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md](../specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md).
+**Last updated:** 2026-03-03  
+**Authority:** This doc is the one systems-level overview. Canonical anchors: [docs/DOCS_INDEX.md](./DOCS_INDEX.md), [specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md](../specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md), [specs/PHOENIX_V4_5_WRITER_SPEC.md](../specs/PHOENIX_V4_5_WRITER_SPEC.md).
 
 **What’s still to do to finish the whole system:** [§ Remaining to finish](#remaining-to-finish-whole-system) below and [docs/PLANNING_STATUS.md](./PLANNING_STATUS.md).
 

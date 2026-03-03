@@ -108,6 +108,7 @@ def _assemble_one(item: dict[str, Any], template: dict[str, Any], root: Path) ->
 
     return {
         "id": item.get("id"),
+        "_feed_item_id": item.get("id"),
         "title": title,
         "content": content,
         "slug": None,
@@ -116,6 +117,10 @@ def _assemble_one(item: dict[str, Any], template: dict[str, Any], root: Path) ->
         "topic": topic,
         "primary_sdg": primary_sdg,
         "source_url": url,
+        "pub_date": item.get("pub_date"),
+        "teacher_ids": item.get("teacher_ids") or [],
+        "stressor_tags": item.get("stressor_tags") or [],
+        "region": item.get("region") or item.get("source_feed_id") or "",
     }
 
 

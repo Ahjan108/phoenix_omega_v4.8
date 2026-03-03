@@ -76,6 +76,9 @@ def main() -> int:
         logging.getLogger("pearl_news").setLevel(logging.DEBUG)
 
     out_dir.mkdir(parents=True, exist_ok=True)
+    # Metadata always goes to artifacts/pearl_news/ (fixed path per schema)
+    artifact_dir = Path("artifacts/pearl_news")
+    artifact_dir.mkdir(parents=True, exist_ok=True)
 
     # Step 1: Ingest feeds
     try:
@@ -117,9 +120,29 @@ def main() -> int:
         items = classify_sdgs(raw_items)
         items = select_templates(items)
         articles = assemble_articles(items)
-        articles = run_quality_gates(articles)
+        metadata_path = artifact_dir / "article_metadata.jsonl"
+        articles = run_quality_gates(articles, metadata_path=metadata_path)
         articles = run_qc_checklist(articles)
         articles_to_write = filter_checklist_passed(filter_passed(articles))
+
+        # Append article metadata for each assembled article (all, including failed)
+        for draft in articles:
+            article_id = draft.get("_feed_item_id", draft.get("id", ""))
+            meta = {
+                "article_id": str(article_id),
+                "date": draft.get("pub_date") or datetime.now(timezone.utc).isoformat(),
+                "topic": draft.get("topic") or "general",
+                "primary_sdg": draft.get("primary_sdg") or "17",
+                "template_id": draft.get("template_id") or "hard_news_spiritual_response",
+                "teacher_ids": draft.get("teacher_ids") or [],
+                "stressor_tags": draft.get("stressor_tags") or [],
+                "region": draft.get("region") or "",
+                "phrase_flags": draft.get("phrase_flags") or [],
+            }
+            with open(metadata_path, "a", encoding="utf-8") as f:
+                f.write(json.dumps(meta, ensure_ascii=False) + "\n")
+        if articles:
+            logger.info("Appended %d metadata lines to %s", len(articles), metadata_path)
 
     # Build manifest (audit trail): ingested items + build metadata
     build_date = datetime.now(timezone.utc).isoformat()
