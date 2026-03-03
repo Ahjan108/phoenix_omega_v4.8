@@ -17,13 +17,11 @@ from pathlib import Path
 from typing import Any
 
 from pearl_news.pipeline.feed_ingest import ingest_feeds
-
-# Stubs for next steps (implement and chain):
-# from pearl_news.pipeline.topic_sdg_classifier import classify_sdgs
-# from pearl_news.pipeline.template_selector import select_templates
-# from pearl_news.pipeline.article_assembler import assemble_articles
-# from pearl_news.pipeline.quality_gates import run_quality_gates
-# from pearl_news.pipeline.qc_checklist import run_qc_checklist
+from pearl_news.pipeline.topic_sdg_classifier import classify_sdgs
+from pearl_news.pipeline.template_selector import select_templates
+from pearl_news.pipeline.article_assembler import assemble_articles
+from pearl_news.pipeline.quality_gates import run_quality_gates, filter_passed
+from pearl_news.pipeline.qc_checklist import run_qc_checklist, filter_checklist_passed
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s %(message)s")
 logger = logging.getLogger(__name__)
@@ -81,43 +79,18 @@ def main() -> int:
 
     # Step 1: Ingest feeds
     try:
-        items = ingest_feeds(feeds_path, limit=args.limit, per_feed_limit=args.per_feed_limit)
+        raw_items = ingest_feeds(feeds_path, limit=args.limit, per_feed_limit=args.per_feed_limit)
     except Exception as e:
         logger.exception("Feed ingest failed: %s", e)
         return 1
 
-    logger.info("Ingested %d items", len(items))
+    logger.info("Ingested %d items", len(raw_items))
 
-    # Step 2+: Stubs — implement and uncomment to chain
-    # items = classify_sdgs(items)       # Assign topic/SDG from sdg_news_topic_mapping + keyword or LLM
-    # items = select_templates(items)    # Pick template per item from template_diversity config
-    # items = assemble_articles(items)    # Render from template + atoms; optional LLM expansion
-    # items = run_quality_gates(items)   # legal_boundary, editorial_firewall, quality_gates (fail-hard)
-    # run_qc_checklist(items)            # Final validation; filter to passed only
-
-    # Build manifest (audit trail): ingested items + build metadata
-    build_date = datetime.now(timezone.utc).isoformat()
-    manifest: dict[str, Any] = {
-        "build_date": build_date,
-        "feeds_path": str(feeds_path),
-        "limit": args.limit,
-        "per_feed_limit": args.per_feed_limit,
-        "item_count": len(items),
-        "items": items,
-    }
-    manifest_path = out_dir / "ingest_manifest.json"
-    manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
-    logger.info("Wrote %s", manifest_path)
-
-    # Write each normalized item as a JSON file for downstream (classifier can read these)
-    for i, item in enumerate(items):
-        item_id = item.get("id", f"item_{i}")
-        item_path = out_dir / f"feed_item_{item_id}.json"
-        item_path.write_text(json.dumps(item, indent=2, ensure_ascii=False), encoding="utf-8")
-
-    # Optional: write minimal article drafts (title + summary + featured_image from first image) for testing
+    # Step 2–6: Full pipeline (unless --write-minimal-drafts for quick test)
     if getattr(args, "write_minimal_drafts", False):
-        for i, item in enumerate(items):
+        # Shortcut: skip classify/assemble, write minimal drafts only
+        articles_to_write: list[dict[str, Any]] = []
+        for i, item in enumerate(raw_items):
             images = item.get("images") or []
             featured = None
             if images:
@@ -129,7 +102,7 @@ def main() -> int:
                 }
                 if img.get("caption"):
                     featured["caption"] = img["caption"]
-            draft: dict[str, Any] = {
+            draft = {
                 "title": item.get("title") or "(No title)",
                 "content": f"<p>{item.get('summary') or item.get('raw_summary') or 'No summary.'}</p>",
                 "slug": None,
@@ -137,11 +110,47 @@ def main() -> int:
             }
             if item.get("url"):
                 draft["content"] += f'<p><a href="{item["url"]}">Source</a></p>'
-            draft_path = out_dir / f"article_{item.get('id', i)}.json"
-            draft_path.write_text(json.dumps(draft, indent=2, ensure_ascii=False), encoding="utf-8")
-        logger.info("Wrote minimal article drafts (with featured_image when available) for testing")
+            draft["id"] = item.get("id", f"item_{i}")
+            articles_to_write.append(draft)
+    else:
+        # Full pipeline: classify → select → assemble → quality gates → qc
+        items = classify_sdgs(raw_items)
+        items = select_templates(items)
+        articles = assemble_articles(items)
+        articles = run_quality_gates(articles)
+        articles = run_qc_checklist(articles)
+        articles_to_write = filter_checklist_passed(filter_passed(articles))
 
-    logger.info("Pipeline step 1 complete. Output: %s (%d items)", out_dir, len(items))
+    # Build manifest (audit trail): ingested items + build metadata
+    build_date = datetime.now(timezone.utc).isoformat()
+    manifest: dict[str, Any] = {
+        "build_date": build_date,
+        "feeds_path": str(feeds_path),
+        "limit": args.limit,
+        "per_feed_limit": args.per_feed_limit,
+        "item_count": len(raw_items),
+        "articles_count": len(articles_to_write),
+        "items": raw_items,
+    }
+    manifest_path = out_dir / "ingest_manifest.json"
+    manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
+    logger.info("Wrote %s", manifest_path)
+
+    # Write each normalized item as a JSON file for downstream
+    for i, item in enumerate(raw_items):
+        item_id = item.get("id", f"item_{i}")
+        item_path = out_dir / f"feed_item_{item_id}.json"
+        item_path.write_text(json.dumps(item, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    # Write article drafts (minimal or full pipeline output)
+    for i, draft in enumerate(articles_to_write):
+        article_id = draft.get("_feed_item_id", draft.get("id", i))
+        draft_clean = {k: v for k, v in draft.items() if not k.startswith("_")}
+        draft_path = out_dir / f"article_{article_id}.json"
+        draft_path.write_text(json.dumps(draft_clean, indent=2, ensure_ascii=False), encoding="utf-8")
+    logger.info("Wrote %d article drafts", len(articles_to_write))
+
+    logger.info("Pipeline complete. Output: %s (%d items, %d articles)", out_dir, len(raw_items), len(articles_to_write))
     return 0
 
 

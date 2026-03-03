@@ -58,13 +58,12 @@ jobs:
             exit 1
           fi
 
-      - name: Run feed ingest and write minimal drafts
+      - name: Run full pipeline (ingest → classify → assemble → QC)
         run: |
           python -m pearl_news.pipeline.run_article_pipeline \
             --feeds pearl_news/config/feeds.yaml \
             --out-dir artifacts/pearl_news/drafts \
-            --limit 10 \
-            --write-minimal-drafts
+            --limit 10
 
       - name: Upload draft artifacts
         uses: actions/upload-artifact@v4
