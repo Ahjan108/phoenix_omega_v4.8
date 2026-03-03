@@ -13,6 +13,7 @@ from __future__ import annotations
 import base64
 import os
 from typing import Any
+from urllib.parse import urlparse
 
 try:
     import requests
@@ -25,8 +26,28 @@ class WordPressPublishError(Exception):
     pass
 
 
+def _normalize_site_url(raw: str) -> str:
+    """
+    Normalize WP site URL from env.
+    - Trims whitespace and trailing slash
+    - Adds https:// when scheme is missing
+    - Validates scheme + host
+    """
+    site = (raw or "").strip().rstrip("/")
+    if not site:
+        return site
+    if "://" not in site:
+        site = f"https://{site}"
+    parsed = urlparse(site)
+    if parsed.scheme not in ("http", "https") or not parsed.netloc:
+        raise WordPressPublishError(
+            f"Invalid WORDPRESS_SITE_URL: {raw!r}. Expected e.g. https://pearlnewsuna.org"
+        )
+    return site
+
+
 def _get_credentials() -> tuple[str, str, str]:
-    site_url = os.environ.get("WORDPRESS_SITE_URL", "").rstrip("/")
+    site_url = _normalize_site_url(os.environ.get("WORDPRESS_SITE_URL", ""))
     username = os.environ.get("WORDPRESS_USERNAME", "")
     app_password = os.environ.get("WORDPRESS_APP_PASSWORD", "").replace(" ", "").strip()
     if not site_url or not username or not app_password:
