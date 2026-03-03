@@ -29,8 +29,9 @@ jobs:
           echo "---"
           ls -la tests/ 2>/dev/null || echo "tests/ not found"
           ls -la tests/test_pearl_news/ 2>/dev/null || echo "tests/test_pearl_news/ not found"
+          ls -la test_pearl_news/ 2>/dev/null || echo "test_pearl_news/ not found"
           ls -la pearl_news/ 2>/dev/null || echo "pearl_news/ not found"
-          echo "--- find test_pearl_news ---"
+          echo "--- find ---"
           find . -name "test_pearl_news" -type d 2>/dev/null
           find . -name "test_feed_ingest.py" 2>/dev/null
 
@@ -44,7 +45,18 @@ jobs:
 
       - name: Run Pearl News tests
         run: |
-          PYTHONPATH=. python -m pytest tests/test_pearl_news/ -v -k "not real_rss"
+          if [ -d tests/test_pearl_news ]; then
+            PYTHONPATH=. python -m pytest tests/test_pearl_news/ -v -k "not real_rss"
+          elif [ -d test/test_pearl_news ]; then
+            PYTHONPATH=. python -m pytest test/test_pearl_news/ -v -k "not real_rss"
+          elif [ -d test_pearl_news ]; then
+            PYTHONPATH=. python -m pytest test_pearl_news/ -v -k "not real_rss"
+          elif [ -d tests/pearl_news ]; then
+            PYTHONPATH=. python -m pytest tests/pearl_news/ -v -k "not real_rss"
+          else
+            echo "No Pearl News test dir found"
+            exit 1
+          fi
 
       - name: Run feed ingest and write minimal drafts
         run: |
