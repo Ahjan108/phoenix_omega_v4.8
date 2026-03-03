@@ -3,15 +3,18 @@
 name: Pearl News gates
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
+      - '.github/workflows/pearl_news_gates.yml'
       - 'pearl_news/**'
       - 'tests/test_pearl_news_quality_gates_minimal.py'
       - 'tests/test_pearl_news_pipeline_e2e.py'
   pull_request:
     branches: [main]
     paths:
+      - '.github/workflows/pearl_news_gates.yml'
       - 'pearl_news/**'
       - 'tests/test_pearl_news_quality_gates_minimal.py'
       - 'tests/test_pearl_news_pipeline_e2e.py'
