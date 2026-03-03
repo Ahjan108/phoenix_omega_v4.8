@@ -12,6 +12,26 @@ Use this checklist to close the “ingest-only” branch and confirm full end-to
 
 ---
 
+## Docs Complete → Runtime Production State
+
+To move from "docs complete" to "runtime production state," complete all 7 steps below.
+
+**Not automatically 100% yet.** The 7 steps are documented here, but the system becomes 100% only when those 7 are **actually executed and evidenced** — not just written in the checklist. Documenting the steps ≠ completing them.
+
+| # | Step | Evidenced? | How to verify |
+|---|------|------------|----------------|
+| 1 | **Prove live pipeline run on `main`** | ☐ | Run live feeds end-to-end. Keep artifact evidence (`drafts` + `networked_run_evidence.json`). |
+| 2 | **Prove CI gate on `main`** | ☐ | `pearl_news_gates.yml` green on latest `main` commit. Save Actions run URL in checklist evidence. |
+| 3 | **Prove scheduled runtime** | ☐ | Trigger `pearl_news_scheduled.yml` manually once. Confirm artifact upload and no runtime errors. |
+| 4 | **Prove WordPress draft-post path** | ☐ | Run `scripts/pearl_news_do_it.sh --post` with real secrets. Verify draft appears correctly in WP. |
+| 5 | **Finalize GO/NO-GO signoff** | ☐ | Update this checklist with: green CI URL, networked run evidence path/link, signed by + date. |
+| 6 | **Lock branch protection** | ☐ | Require `pearl_news_gates` (and `docs-ci` if used) on `main`. |
+| 7 | **Verify rollback once** | ☐ | Disable scheduler + rotate WP app password + confirm no-post mode works. Record rollback proof in checklist/runbook. |
+
+**Runtime status:** Not 100% until all 7 are evidenced. When all 7 are done → runtime production-ready.
+
+---
+
 ## 1. Pipeline components (all implemented and used)
 
 | # | Component | Status | How to verify |

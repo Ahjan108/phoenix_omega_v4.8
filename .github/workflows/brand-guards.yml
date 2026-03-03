@@ -31,3 +31,10 @@ jobs:
       - name: NorCal Dharma brand guards (matrix exclusion + assignments)
         run: |
           python scripts/ci/check_norcal_dharma_brand_guards.py
+      - name: Secret scan (no sensitive fields in brand config)
+        run: |
+          python scripts/ci/check_church_yaml_no_sensitive_tokens.py --files config/brand_registry.yaml config/localization/brand_registry_locale_extension.yaml config/catalog_planning/brand_teacher_assignments.yaml
+      - name: NorCal Dharma brand smoke tests (wave no-allocate, resolver default_teacher)
+        run: |
+          pip install -q pyyaml pytest
+          PYTHONPATH=. python -m pytest tests/test_norcal_dharma_brand_smoke.py -v --tb=short

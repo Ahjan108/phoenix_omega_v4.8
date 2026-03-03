@@ -113,8 +113,9 @@ This document states what success looks like in four dimensions: **technical**, 
 
 ### Scale & Catalog
 
-- **2,160+ core titles.** Personas × topics × arcs × formats. 24 brands. 1,008+ books for US full catalog. Each brand supports 100+ books.
-- **1,000+ books without spam flags.** Structural diversity, metadata uniqueness, title entropy, wave composition. Platform does not flag catalog as duplicate or farm-like.
+- **2,160+ core titles.** Target catalog scale across all dimensions (personas × topics × arcs × formats × brands × series/angles). The "+" = growth as coverage and velocity support. Long-term aspiration; no fixed launch date.
+- **1,008 books.** US full catalog count. 24 brands × 15 topics × 10 personas with round-robin/constraints. Build target for initial catalog.
+- **1,000+ books without spam flags.** Structural diversity, metadata uniqueness, title entropy, wave composition. Platform does not flag catalog as duplicate or farm-like. Ramp per [release velocity](docs/RELEASE_VELOCITY_AND_SCHEDULE.md) (Phase 1: first 90 days conservative; Phase 2: 6 months; Phase 3: ramp to target).
 - **Multi-brand monetization.** 24 brands across 4 imprints (Calm, Edge, Rise, Root). Each brand: distinct identity, persona clusters, topic envelope, narrator profile.
 
 ### Title & Metadata
@@ -146,11 +147,25 @@ This document states what success looks like in four dimensions: **technical**, 
 | **Technical** | Deterministic, arc-first, teacher-pure, duplication-safe, CI-enforced, provenance-tracked. Books = compiled software. |
 | **Therapeutic** | Emotionally coherent, recognition-first, nervous-system-grounded, story-anchored, somatic, doctrine-safe. Helps without harming. |
 | **Experience** | Listener feels seen, held, moved. Prose breathes in monotone. Arc lands. Worth finishing and recommending. |
-| **Business** | 2,160+ titles, 24 brands, 1,000+ books without spam flags. Platform-trusted, compliant, revenue-sustaining. |
+| **Business** | 2,160+ target scale, 1,008 US catalog, 24 brands. Platform-trusted, compliant, revenue-sustaining. |
 
 ---
 
-## 6. What We Are Not
+## 6. Hard NOs (Go/No-Go)
+
+These are non-negotiable. If any apply, stop and fix before proceeding.
+
+| NO | Meaning |
+|----|---------|
+| **No silent fallback** | Missing story, missing atom, capability gap → fail visibly. Log it. No assembly continues without surfacing the gap. |
+| **No doctrinal drift** | Teacher content must match doctrine. No mixing teachers. No borrowing from generic pools when Teacher Mode is on. |
+| **No compliance bypass** | Medical claims, cure language, forbidden terms → hard block. No "we'll fix it later." No export without passing gate. |
+| **No placeholder in delivered output** | Rendered book must not contain `{{...}}`, `[Placeholder: ...]`, or `[Silence: ...]` in published output. |
+| **No arc-less compile** | No arc = no compile. No fallback. |
+
+---
+
+## 7. What We Are Not
 
 - A literary nonfiction simulator
 - A bestseller generator
@@ -160,7 +175,7 @@ This document states what success looks like in four dimensions: **technical**, 
 
 ---
 
-## 7. Where to Go Next
+## 8. Where to Go Next
 
 - **Architecture:** [specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md](specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md)
 - **Writer/content:** [specs/PHOENIX_V4_5_WRITER_SPEC.md](specs/PHOENIX_V4_5_WRITER_SPEC.md)

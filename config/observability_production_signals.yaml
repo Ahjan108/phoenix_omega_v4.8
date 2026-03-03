@@ -1,0 +1,69 @@
+# Production Observability — signal registry (100% repo coverage)
+# Used by scripts/observability/collect_signals.py
+# See docs/PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md
+
+signals:
+  - id: gate_production_readiness
+    category: core
+    source: script
+    script: scripts/run_production_readiness_gates.py
+    timeout_sec: 120
+    evidence_path: artifacts/observability/gates_{timestamp}.json
+
+  - id: systems_test
+    category: core
+    source: script
+    script: scripts/systems_test/run_systems_test.py
+    args: ["--all"]
+    timeout_sec: 300
+    evidence_path: artifacts/systems_test/report_{timestamp}.md
+
+  - id: atoms_coverage
+    category: coverage
+    source: pytest
+    test: tests/test_atoms_coverage_100_percent.py
+    timeout_sec: 60
+
+  - id: teacher_gates
+    category: teacher_mode
+    source: workflow
+    workflow: teacher-gates.yml
+    # evidence from GitHub Actions URL (passive)
+
+  - id: brand_guards
+    category: brand
+    source: workflow
+    workflow: brand-guards.yml
+
+  - id: pearl_news_gates
+    category: pearl_news
+    source: workflow
+    workflow: pearl_news_gates.yml
+
+  - id: docs_ci
+    category: docs
+    source: workflow
+    workflow: docs-ci.yml
+
+  - id: simulation_10k
+    category: simulation
+    source: script
+    script: simulation/run_simulation.py
+    args: ["--n", "100", "--phase2", "--phase3"]
+    timeout_sec: 180
+    # Use --n 100 for quick check; 10000 for full
+
+  - id: pipeline_canary
+    category: pipeline
+    source: script
+    script: scripts/run_pipeline.py
+    args:
+      - "--topic"
+      - "self_worth"
+      - "--persona"
+      - "nyc_executives"
+      - "--arc"
+      - "config/source_of_truth/master_arcs/nyc_executives__self_worth__shame__F006.yaml"
+      - "--out"
+      - "artifacts/observability/canary_plan_{timestamp}.json"
+    timeout_sec: 90
