@@ -43,19 +43,19 @@ Use this checklist to close the “ingest-only” branch and confirm full end-to
 
 | # | Requirement | Status | How to verify |
 |---|--------------|--------|----------------|
-| 7 | Full flow from feeds to drafts | Pending | Run pipeline with network (live UN feeds). Local: `pip install feedparser pyyaml` then `./scripts/pearl_news_networked_run_and_evidence.sh --limit 5` or `python -m pearl_news.pipeline.run_article_pipeline --feeds pearl_news/config/feeds.yaml --out-dir artifacts/pearl_news/drafts --limit 5`. Or trigger `.github/workflows/pearl_news_scheduled.yml` (workflow_dispatch) and use uploaded artifact as evidence. |
+| 7 | Full flow from feeds to drafts | ✅ Done | Run pipeline with network (live UN feeds). Local: `pip install feedparser pyyaml` then `./scripts/pearl_news_networked_run_and_evidence.sh --limit 5` or `python -m pearl_news.pipeline.run_article_pipeline --feeds pearl_news/config/feeds.yaml --out-dir artifacts/pearl_news/drafts --limit 5`. Or trigger `.github/workflows/pearl_news_scheduled.yml` (workflow_dispatch) and use uploaded artifact as evidence. |
 
 ---
 
 ## GO criteria (all must be YES)
 
-- [ ] 1. topic_sdg_classifier implemented and used in pipeline
-- [ ] 2. template_selector implemented and used
-- [ ] 3. article_assembler implemented and used (teacher + youth + SDG injected)
-- [ ] 4. quality_gates and qc_checklist implemented and enforced as blocking (filter_to_passed=True by default)
-- [ ] 5. Final article outputs written (article_<id>.json + build_manifests.json)
+- [x] 1. topic_sdg_classifier implemented and used in pipeline
+- [x] 2. template_selector implemented and used
+- [x] 3. article_assembler implemented and used (teacher + youth + SDG injected)
+- [x] 4. quality_gates and qc_checklist implemented and enforced as blocking (filter_to_passed=True by default)
+- [x] 5. Final article outputs written (article_<id>.json + build_manifests.json)
 - [ ] 6. **CI green on main** for Pearl News tests/workflows
-- [ ] 7. **One real networked run** proving full flow from feeds → final article drafts
+- [x] 7. **One real networked run** proving full flow from feeds → final article drafts
 - [ ] 8. **Checklist signed** with evidence links (section below)
 
 **NO-GO:** If any item above is unchecked, the system is not production 100%.
