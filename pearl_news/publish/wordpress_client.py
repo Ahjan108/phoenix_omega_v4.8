@@ -43,7 +43,11 @@ def _normalize_site_url(raw: str) -> str:
         raise WordPressPublishError(
             f"Invalid WORDPRESS_SITE_URL: {raw!r}. Expected e.g. https://pearlnewsuna.org"
         )
-    return site
+    # Canonicalize to origin only, so inputs like:
+    # - https://example.org/wp-admin
+    # - https://example.org/wp-json/wp/v2
+    # still resolve to the correct base site URL.
+    return f"{parsed.scheme}://{parsed.netloc}"
 
 
 def _get_credentials() -> tuple[str, str, str]:

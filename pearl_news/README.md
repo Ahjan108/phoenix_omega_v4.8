@@ -18,11 +18,23 @@ Editorial article pipeline for **Pearl News** (civic media: world news + spiritu
 - **governance/** — Canonical source for published governance page, editorial standards, corrections policy, conflict-of-interest policy (§9).
 - **prompts/** — Optional prompts for local/API LLM (summarization, headline, expansion only by default; §7).
 
-## Quick start (when implemented)
+## Quick start
 
 ```bash
 # Ingest feeds and run full pipeline (draft articles to artifacts)
 python -m pearl_news.pipeline.run_article_pipeline --feeds config/feeds.yaml --out-dir artifacts/pearl_news/drafts
+```
+
+### One-command run (recommended)
+
+```bash
+scripts/pearl_news_do_it.sh
+```
+
+Run tests + pipeline + post first draft to WordPress (`draft`):
+
+```bash
+scripts/pearl_news_do_it.sh --post
 ```
 
 ## Publish to WordPress
@@ -38,6 +50,11 @@ python scripts/pearl_news_post_to_wp.py --article artifacts/pearl_news/drafts/ar
 ```
 
 See **[pearl_news/publish/README.md](publish/README.md)** for credentials, article JSON format, and scheduling. Do not commit the app password.
+
+`WORDPRESS_SITE_URL` accepts:
+- `https://pearlnewsuna.org` (recommended)
+- `pearlnewsuna.org` (auto-normalized to `https://...`)
+- `https://pearlnewsuna.org/wp-admin` (auto-normalized to site root)
 
 ## Reuse vs v4 / Pearl Prime
 
