@@ -13,6 +13,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -35,6 +36,52 @@ def load_signal_registry() -> list[dict]:
         return []
 
 
+def _tail(text: str | None, n: int = 500) -> str | None:
+    if not text:
+        return None
+    return text[-n:]
+
+
+def _extract_missing_module(stderr_or_stdout: str | None) -> str | None:
+    if not stderr_or_stdout:
+        return None
+    m = re.search(r"ModuleNotFoundError:\s+No module named ['\"]([^'\"]+)['\"]", stderr_or_stdout)
+    return m.group(1) if m else None
+
+
+def _append_jsonl(path: Path, row: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+
+def _run_cmd(cmd: list[str], timeout: int) -> subprocess.CompletedProcess:
+    return subprocess.run(
+        cmd,
+        cwd=str(REPO_ROOT),
+        capture_output=True,
+        text=True,
+        timeout=timeout,
+        env={**os.environ, "PYTHONPATH": str(REPO_ROOT)},
+    )
+
+
+def _attempt_dependency_autofix(module_name: str) -> tuple[bool, str]:
+    try:
+        r = subprocess.run(
+            [sys.executable, "-m", "pip", "install", module_name],
+            cwd=str(REPO_ROOT),
+            capture_output=True,
+            text=True,
+            timeout=180,
+            env={**os.environ, "PYTHONPATH": str(REPO_ROOT)},
+        )
+    except Exception as e:
+        return False, f"pip install exception: {e}"
+    out = (r.stdout or "") + "\n" + (r.stderr or "")
+    return r.returncode == 0, _tail(out, n=800) or ""
+
+
 def run_script_signal(sig: dict, timestamp: str) -> dict:
     """Run a script-based signal and return result."""
     script = sig.get("script")
@@ -42,21 +89,33 @@ def run_script_signal(sig: dict, timestamp: str) -> dict:
         return {"status": "skip", "message": f"Script not found: {script}"}
     args = sig.get("args") or []
     timeout = sig.get("timeout_sec", 120)
+    auto_fix = sig.get("auto_fix_dependency", True)
     cmd = [sys.executable, str(REPO_ROOT / script)] + [str(a).replace("{timestamp}", timestamp) for a in args]
     try:
-        r = subprocess.run(
-            cmd,
-            cwd=str(REPO_ROOT),
-            capture_output=True,
-            text=True,
-            timeout=timeout,
-            env={**os.environ, "PYTHONPATH": str(REPO_ROOT)},
-        )
+        r = _run_cmd(cmd, timeout=timeout)
+        stdout = r.stdout or ""
+        stderr = r.stderr or ""
+        missing = _extract_missing_module(stderr) or _extract_missing_module(stdout)
+        if r.returncode != 0 and auto_fix and missing:
+            ok, fix_tail = _attempt_dependency_autofix(missing)
+            if ok:
+                r = _run_cmd(cmd, timeout=timeout)
+                stdout = r.stdout or ""
+                stderr = r.stderr or ""
+            return {
+                "status": "pass" if r.returncode == 0 else "fail",
+                "exit_code": r.returncode,
+                "stdout_tail": _tail(stdout),
+                "stderr_tail": _tail(stderr),
+                "auto_fix_attempted": True,
+                "auto_fix_module": missing,
+                "auto_fix_result_tail": fix_tail,
+            }
         return {
             "status": "pass" if r.returncode == 0 else "fail",
             "exit_code": r.returncode,
-            "stdout_tail": (r.stdout or "")[-500:] if r.stdout else None,
-            "stderr_tail": (r.stderr or "")[-500:] if r.stderr else None,
+            "stdout_tail": _tail(r.stdout),
+            "stderr_tail": _tail(r.stderr),
         }
     except subprocess.TimeoutExpired:
         return {"status": "fail", "message": f"Timeout after {timeout}s"}
@@ -70,21 +129,33 @@ def run_pytest_signal(sig: dict, timestamp: str) -> dict:
     if not test or not (REPO_ROOT / test).exists():
         return {"status": "skip", "message": f"Test not found: {test}"}
     timeout = sig.get("timeout_sec", 60)
+    auto_fix = sig.get("auto_fix_dependency", True)
     cmd = [sys.executable, "-m", "pytest", test, "-v", "--tb=short"]
     try:
-        r = subprocess.run(
-            cmd,
-            cwd=str(REPO_ROOT),
-            capture_output=True,
-            text=True,
-            timeout=timeout,
-            env={**os.environ, "PYTHONPATH": str(REPO_ROOT)},
-        )
+        r = _run_cmd(cmd, timeout=timeout)
+        stdout = r.stdout or ""
+        stderr = r.stderr or ""
+        missing = _extract_missing_module(stderr) or _extract_missing_module(stdout)
+        if r.returncode != 0 and auto_fix and missing:
+            ok, fix_tail = _attempt_dependency_autofix(missing)
+            if ok:
+                r = _run_cmd(cmd, timeout=timeout)
+                stdout = r.stdout or ""
+                stderr = r.stderr or ""
+            return {
+                "status": "pass" if r.returncode == 0 else "fail",
+                "exit_code": r.returncode,
+                "stdout_tail": _tail(stdout),
+                "stderr_tail": _tail(stderr),
+                "auto_fix_attempted": True,
+                "auto_fix_module": missing,
+                "auto_fix_result_tail": fix_tail,
+            }
         return {
             "status": "pass" if r.returncode == 0 else "fail",
             "exit_code": r.returncode,
-            "stdout_tail": (r.stdout or "")[-500:] if r.stdout else None,
-            "stderr_tail": (r.stderr or "")[-500:] if r.stderr else None,
+            "stdout_tail": _tail(r.stdout),
+            "stderr_tail": _tail(r.stderr),
         }
     except subprocess.TimeoutExpired:
         return {"status": "fail", "message": f"Timeout after {timeout}s"}
@@ -141,6 +212,26 @@ def main() -> int:
     out_file.parent.mkdir(parents=True, exist_ok=True)
     out_file.write_text(json.dumps(snapshot, indent=2))
     print(f"\nSnapshot: {out_file}")
+
+    evidence_log = REPO_ROOT / "artifacts" / "observability" / "evidence_log.jsonl"
+    elevated_log = REPO_ROOT / "artifacts" / "observability" / "elevated_failures.jsonl"
+    for r in results:
+        row = {
+            "timestamp": timestamp,
+            "signal_id": r.get("signal_id"),
+            "category": r.get("category"),
+            "status": r.get("status"),
+            "exit_code": r.get("exit_code"),
+            "auto_fix_attempted": r.get("auto_fix_attempted", False),
+            "auto_fix_module": r.get("auto_fix_module"),
+            "message": r.get("message"),
+            "stdout_tail": r.get("stdout_tail"),
+            "stderr_tail": r.get("stderr_tail"),
+            "snapshot_path": str(out_file),
+        }
+        _append_jsonl(evidence_log, row)
+        if r.get("status") == "fail":
+            _append_jsonl(elevated_log, row)
     return 0 if snapshot["failed"] == 0 else 1
 
 

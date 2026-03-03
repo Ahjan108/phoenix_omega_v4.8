@@ -1,0 +1,63 @@
+name: Production failure alerts
+
+on:
+  workflow_run:
+    workflows:
+      - Core tests
+      - Release gates
+      - Pearl News gates
+      - Teacher gates
+      - Brand guards
+      - Docs CI
+      - Simulation 10k
+      - Production observability
+    types: [completed]
+
+permissions:
+  contents: read
+  issues: write
+  actions: read
+
+jobs:
+  open-alert-issue:
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create or update failure issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const run = context.payload.workflow_run;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const title = `[ALERT] Workflow failed: ${run.name}`;
+            const body = [
+              `Workflow: ${run.name}`,
+              `Conclusion: ${run.conclusion}`,
+              `Branch: ${run.head_branch}`,
+              `Commit: ${run.head_sha}`,
+              `Run URL: ${run.html_url}`,
+              ``,
+              `Action required:`,
+              `1. Open run URL and inspect failed job step.`,
+              `2. Fix code/config or rerun if transient.`,
+              `3. Close this issue after green rerun.`,
+            ].join('\n');
+
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              owner, repo, state: 'open', labels: 'production-alert'
+            });
+            const existing = issues.find(i => i.title === title);
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: existing.number, body
+              });
+            } else {
+              await github.rest.issues.create({
+                owner,
+                repo,
+                title,
+                body,
+                labels: ['production-alert']
+              });
+            }
