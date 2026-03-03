@@ -13,6 +13,7 @@ import pytest
 from pearl_news.publish.wordpress_client import (
     WordPressPublishError,
     _get_credentials,
+    _normalize_site_url,
     post_article,
 )
 
@@ -38,6 +39,27 @@ def test_get_credentials_ok() -> None:
         assert site == "https://example.org"
         assert user == "user"
         assert pw == "abcdefgh"
+
+
+def test_get_credentials_normalizes_missing_scheme() -> None:
+    with patch.dict(
+        os.environ,
+        {
+            "WORDPRESS_SITE_URL": "example.org/",
+            "WORDPRESS_USERNAME": "user",
+            "WORDPRESS_APP_PASSWORD": "abcd efgh",
+        },
+        clear=False,
+    ):
+        site, user, pw = _get_credentials()
+        assert site == "https://example.org"
+        assert user == "user"
+        assert pw == "abcdefgh"
+
+
+def test_normalize_site_url_invalid() -> None:
+    with pytest.raises(WordPressPublishError):
+        _normalize_site_url("://bad_url")
 
 
 def test_post_article_with_featured_image_mock() -> None:
