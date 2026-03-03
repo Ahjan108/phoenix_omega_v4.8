@@ -355,8 +355,28 @@ def main() -> int:
         if not gate("17b. Ops/waves schema validation (when dirs exist)", ops_validation_ok, gate17_ops_detail):
             failed += 1
 
+    # --- 18. Author cover art: every launchable author has registry + PNG + style/palette ---
+    try:
+        env = os.environ.copy()
+        env["PYTHONPATH"] = str(REPO_ROOT)
+        r = subprocess.run(
+            [sys.executable, str(REPO_ROOT / "scripts" / "ci" / "check_author_cover_art.py"), "--repo-root", str(REPO_ROOT)],
+            cwd=str(REPO_ROOT),
+            env=env,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        cover_art_ok = r.returncode == 0
+        gate18_detail = (r.stderr or r.stdout or "").strip() or "check_author_cover_art.py"
+    except Exception as e:
+        cover_art_ok = False
+        gate18_detail = str(e)
+    if not gate("18. Author cover art (launchable authors: registry + PNG + style/palette)", cover_art_ok, gate18_detail):
+        failed += 1
+
     # --- Report ---
-    print("V4.5 Production Readiness — 17 conditions\n")
+    print("V4.5 Production Readiness — 18 conditions\n")
     for name, status, detail in RESULTS:
         sym = "✓" if status == "PASS" else ("○" if status == "SKIP" else "✗")
         print(f"  {sym} {status:4}  {name}")

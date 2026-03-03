@@ -1,0 +1,59 @@
+# Release gates — production readiness gates + rigorous test + canary + rollback smoke.
+# Runs on push to main and workflow_dispatch. Required for release confidence.
+name: Release gates
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'phoenix_v4/**'
+      - 'scripts/**'
+      - 'config/**'
+      - 'atoms/**'
+      - '.github/workflows/release-gates.yml'
+  schedule:
+    - cron: '0 6 * * 0'
+  workflow_dispatch:
+
+jobs:
+  release-gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements-test.txt
+
+      - name: Production readiness gates
+        run: |
+          PYTHONPATH=. python scripts/run_production_readiness_gates.py
+
+      - name: Rigorous system test (skip sim for speed)
+        run: |
+          PYTHONPATH=. python scripts/ci/run_rigorous_system_test.py --skip-sim --strict
+
+      - name: Pipeline canary (20 books)
+        run: |
+          PYTHONPATH=. python scripts/ci/run_canary_100_books.py --n 20
+
+      - name: Rollback smoke (post-restore verification)
+        run: |
+          chmod +x scripts/release/rollback_smoke.sh
+          bash scripts/release/rollback_smoke.sh
+
+      - name: Upload release evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: release-gates-evidence
+          path: |
+            artifacts/release/rollback_smoke_evidence.json
+            artifacts/systems_test/report_*.json
+            artifacts/canary_plans/canary_failures.json
+          if-no-files-found: ignore

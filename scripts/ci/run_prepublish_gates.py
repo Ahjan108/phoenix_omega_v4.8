@@ -186,6 +186,15 @@ def main() -> int:
     if r.returncode != 0:
         failures.append({"gate": "check_book_output_no_placeholders", "detail": r.stderr.strip() or r.stdout.strip()})
 
+    # 4a2) Tier 0 book output contract (config-driven forbidden patterns, min word count)
+    tier0_script = REPO_ROOT / "scripts" / "ci" / "check_book_output_tier0_contract.py"
+    if tier0_script.exists():
+        tier0_cmd = [sys.executable, str(tier0_script), "--wave-rendered-dir", str(wave_rendered_dir)]
+        r = _run(tier0_cmd)
+        steps.append({"tier0_book_output_contract": {"rc": r.returncode, "stdout": (r.stdout or "").strip(), "stderr": (r.stderr or "").strip()}})
+        if r.returncode != 0:
+            failures.append({"gate": "check_book_output_tier0_contract", "detail": r.stderr.strip() or r.stdout.strip()})
+
     # 4b) Series diversity (P0: hard fail on adjacent mech+journey or band_curve; soft warn on combo density)
     try:
         from phoenix_v4.qa.validate_series_diversity import validate_series_diversity

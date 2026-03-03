@@ -1,0 +1,67 @@
+# Enlightened Intelligence V2 Configuration
+# Runs parallel to V1 for A/B comparison. V1 remains authoritative.
+# Enable/disable each dimension independently.
+#
+# Usage: python scripts/run_pipeline.py ... --ei-v2-compare
+# Output: artifacts/ei_v2/ei_v1_v2_comparison.json + summary.txt
+
+safety_classifier:
+  enabled: true
+  mode: heuristic_plus           # "heuristic_plus" (no deps) or "llm" (requires API)
+  medical_claim_threshold: 0.6   # Score above this = flagged
+  promotional_threshold: 0.5
+  clinical_language_threshold: 0.5
+  cache_enabled: true
+  cache_path: artifacts/ei_v2/safety_cache.jsonl
+
+cross_encoder:
+  enabled: true
+  mode: heuristic                # "heuristic" (no deps) or "model" (requires model callback)
+  model: null                    # Set to model name when using "model" mode
+  cache_enabled: true
+  cache_path: artifacts/ei_v2/rerank_cache.db
+  top_n: 5                      # Max candidates to return from reranking
+
+domain_embeddings:
+  enabled: true
+  mode: weighted                 # "weighted" heuristic or "model" with embed_fn
+  model: null                    # Set to embedding model name when using external API
+  persona_weight: 0.3            # Weight for persona context affinity
+  topic_weight: 0.3              # Weight for topic coherence
+  thesis_weight: 0.4             # Weight for core thesis alignment
+  cache_enabled: true
+  cache_path: artifacts/ei_v2/domain_embed_cache.db
+
+tts_readability:
+  enabled: true
+  max_sentence_words: 35         # Sentences longer than this are penalized
+  ideal_sentence_range: [8, 25]  # Sweet spot for TTS pacing
+  min_paragraph_breaks_per_500_words: 3
+  rhythm_variance_min: 0.15      # Below this = monotone pacing warning
+  problematic_tts_patterns:      # Regex patterns TTS handles poorly
+    - '\b\w{15,}\b'             # Very long words
+    - '\([^)]{50,}\)'           # Long parentheticals
+    - ';\s*\w+;\s*\w+;'        # Semicolon chains
+
+semantic_dedup:
+  enabled: true
+  mode: ngram_plus_embedding     # "ngram_plus_embedding" or "full" (with embed_fn)
+  ngram_n: 6                     # Word n-gram size for overlap detection
+  ngram_overlap_threshold: 0.30  # Jaccard above this = flagged pair
+  semantic_similarity_threshold: 0.85  # Embedding similarity above this = flagged
+  cache_enabled: true
+  cache_path: artifacts/ei_v2/dedup_cache.db
+
+emotion_arc:
+  enabled: true
+  mode: lexicon                  # "lexicon" (built-in) or "model" (future)
+  valence_lexicon_size: medium
+  arc_deviation_warn: 0.3        # Deviation from expected valence triggers warning
+  arc_deviation_fail: 0.6        # Deviation above this = fail
+
+# Composite weights for V2 candidate selection (sum to 1.0 recommended)
+composite_weights:
+  rerank: 0.35                   # Cross-encoder relevance
+  safety: 0.25                   # Safety inversed (1 - risk)
+  domain_similarity: 0.20        # Domain-tuned thesis alignment
+  tts_readability: 0.20          # TTS readability composite

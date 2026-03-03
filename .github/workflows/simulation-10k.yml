@@ -1,0 +1,56 @@
+# Simulation 10k — format/structure at scale; analyzer gate.
+# Runs on push to main and weekly schedule. Fail CI when pass rate below baseline.
+name: Simulation 10k
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'simulation/**'
+      - 'phoenix_v4/planning/format_selector.py'
+      - 'config/format_selection/**'
+      - 'scripts/ci/run_simulation_10k.py'
+      - 'scripts/ci/analyze_pearl_prime_sim.py'
+      - '.github/workflows/simulation-10k.yml'
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+jobs:
+  simulation-10k:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements-test.txt
+
+      - name: Run 10k simulation
+        run: |
+          PYTHONPATH=. python scripts/ci/run_simulation_10k.py \
+            --n 10000 \
+            --out artifacts/simulation_10k.json
+
+      - name: Analyze simulation
+        run: |
+          PYTHONPATH=. python scripts/ci/analyze_pearl_prime_sim.py \
+            --input artifacts/simulation_10k.json \
+            --baseline artifacts/reports/pearl_prime_sim_baseline.json \
+            --out artifacts/reports/pearl_prime_sim_analysis.json
+
+      - name: Upload simulation artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: simulation-10k-artifacts
+          path: |
+            artifacts/simulation_10k.json
+            artifacts/reports/pearl_prime_sim_analysis.json
+            artifacts/reports/pearl_prime_sim_analysis_SUMMARY.txt
+          if-no-files-found: ignore

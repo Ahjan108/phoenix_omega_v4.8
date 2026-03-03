@@ -1,0 +1,17 @@
+{
+  "timestamp": "20260303T094507Z",
+  "signals": [
+    {
+      "signal_id": "atoms_coverage",
+      "category": "coverage",
+      "timestamp": "20260303T094507Z",
+      "status": "pass",
+      "exit_code": 0,
+      "stdout_tail": "ile: pytest.ini\ncollecting ... collected 4 items\n\ntests/test_atoms_coverage_100_percent.py::test_100_percent_atoms_for_all_books PASSED [ 25%]\ntests/test_atoms_coverage_100_percent.py::test_100_percent_non_story_atoms_for_all_books PASSED [ 50%]\ntests/test_atoms_coverage_100_percent.py::test_non_story_coverage_summary PASSED [ 75%]\ntests/test_atoms_coverage_100_percent.py::test_atoms_coverage_summary PASSED [100%]\n\n============================== 4 passed in 0.50s ===============================\n",
+      "stderr_tail": null
+    }
+  ],
+  "passed": 1,
+  "failed": 0,
+  "skipped": 0
+}

@@ -118,6 +118,11 @@ def main() -> int:
         action="store_true",
         help="Run book-pass quality gate (claim progression, non-shuffleability, ending transformation) and fail on errors",
     )
+    ap.add_argument(
+        "--ei-v2-compare",
+        action="store_true",
+        help="Run EI V2 AI techniques in parallel with V1 and produce comparison report (artifacts/ei_v2/)",
+    )
     ap.add_argument("--atoms-root", default=None, help="Atoms root (e.g. atoms/zh-TW). Default: repo atoms/")
     ap.add_argument(
         "--atoms-model",
@@ -779,6 +784,14 @@ def main() -> int:
         out["narrator_id"] = book_spec_for_compiler["narrator_id"]
     if author_assets is not None:
         out["author_assets"] = {k: v for k, v in author_assets.items() if k != "errors"}
+    # Author cover art base (docs/authoring/AUTHOR_COVER_ART_SYSTEM.md): for export/storefront; fallback to default when no author/teacher
+    cover_author_id = book_spec_for_compiler.get("author_id") or (teacher_id if (teacher_id and teacher_id != "default_teacher") else None)
+    from phoenix_v4.planning.author_cover_art_resolver import resolve_author_cover_art
+    cover_art = resolve_author_cover_art(cover_author_id, repo_root=REPO_ROOT)
+    out["cover_art_base"] = cover_art.get("cover_art_base", "")
+    out["cover_art_style_hint"] = cover_art.get("cover_art_style_hint", "")
+    out["cover_art_palette_tokens"] = cover_art.get("cover_art_palette_tokens", [])
+    out["cover_variant_id"] = cover_art.get("cover_variant_id", "")
     if book_spec_for_compiler.get("_pre_intro_signature"):
         out["pre_intro_signature"] = book_spec_for_compiler["_pre_intro_signature"]
     if book_spec_for_compiler.get("opening_style_id"):
@@ -969,6 +982,96 @@ def main() -> int:
             except ValueError as e:
                 print(f"Stage 6 render failed: {e}", file=sys.stderr)
                 return 1
+        # EI V2 parallel comparison (advisory; V1 remains authoritative)
+        if args.ei_v2_compare:
+            try:
+                from phoenix_v4.quality.ei_parallel_adapter import (
+                    compare_slot,
+                    build_pipeline_comparison,
+                    write_comparison_report,
+                )
+                from phoenix_v4.quality.ei_v2.config import load_ei_v2_config
+                from phoenix_v4.rendering.prose_resolver import resolve_prose_for_plan
+
+                v2_cfg = load_ei_v2_config()
+                v1_cfg = {}  # V1 loads its own config from ei_registry
+                try:
+                    v1_cfg_path = REPO_ROOT / "config" / "source_of_truth" / "enlightened_intelligence_registry.yaml"
+                    if v1_cfg_path.exists() and yaml:
+                        v1_cfg = yaml.safe_load(v1_cfg_path.read_text(encoding="utf-8")) or {}
+                except Exception:
+                    pass
+
+                prose_result = resolve_prose_for_plan(out, atoms_root=atoms_root)
+                prose_map = prose_result.prose_map
+
+                thesis = f"{canonical_topic} for {canonical_persona}"
+                chapter_slot_seq = out.get("chapter_slot_sequence", [])
+                atom_ids_list = out.get("atom_ids", [])
+                band_seq = out.get("dominant_band_sequence", [])
+                emotional_roles = out.get("emotional_role_sequence", [])
+
+                slot_comparisons = []
+                atom_idx = 0
+                for ch_idx, slots in enumerate(chapter_slot_seq):
+                    chapter_prose_parts = []
+                    chapter_candidates_by_slot = []
+
+                    for si, slot_type in enumerate(slots):
+                        if atom_idx >= len(atom_ids_list):
+                            break
+                        aid = atom_ids_list[atom_idx]
+                        prose = prose_map.get(aid, "")
+                        chapter_prose_parts.append(prose)
+                        chapter_candidates_by_slot.append((slot_type, si, aid, prose))
+                        atom_idx += 1
+
+                    chapter_text = "\n\n".join(chapter_prose_parts)
+                    band = band_seq[ch_idx] if ch_idx < len(band_seq) else None
+                    role = emotional_roles[ch_idx] if ch_idx < len(emotional_roles) else ""
+                    arc_intent = {"band": band, "emotional_role": role, "chapter_index": ch_idx}
+
+                    for slot_type, si, aid, prose in chapter_candidates_by_slot:
+                        candidates_raw = [{"id": aid, "text": prose, "meta": {}}]
+                        try:
+                            result = compare_slot(
+                                slot=slot_type,
+                                chapter_index=ch_idx,
+                                slot_index=si,
+                                candidates_raw=candidates_raw,
+                                persona_id=canonical_persona,
+                                topic_id=canonical_topic,
+                                thesis=thesis,
+                                v1_cfg=v1_cfg,
+                                v2_cfg=v2_cfg,
+                                selector_key=f"ei:{slot_type}:{canonical_persona}:{canonical_topic}",
+                                teacher_mode=teacher_mode,
+                                chapter_text=chapter_text,
+                                arc_intent=arc_intent,
+                            )
+                            slot_comparisons.append(result)
+                        except Exception as exc:
+                            print(f"EI V2 compare failed at ch{ch_idx} {slot_type}: {exc}", file=sys.stderr)
+
+                comparison = build_pipeline_comparison(
+                    slot_comparisons,
+                    plan_hash=out.get("plan_hash", ""),
+                    persona_id=canonical_persona,
+                    topic_id=canonical_topic,
+                )
+                ei_v2_dir = REPO_ROOT / "artifacts" / "ei_v2"
+                report_path = write_comparison_report(comparison, ei_v2_dir)
+                print(f"EI V2 comparison: {report_path}")
+                print(
+                    f"  Slots compared: {comparison.total_slots} | "
+                    f"Agreement: {comparison.agreement_rate * 100:.0f}% | "
+                    f"Safety flags: {len(comparison.v2_safety_flags)} | "
+                    f"TTS issues: {len(comparison.v2_tts_issues)} | "
+                    f"Dedup flags: {len(comparison.v2_dedup_flags)} | "
+                    f"Arc issues: {len(comparison.v2_arc_issues)}"
+                )
+            except Exception as exc:
+                print(f"EI V2 comparison failed (non-blocking): {exc}", file=sys.stderr)
     else:
         print(json.dumps(out, indent=2))
     return 0

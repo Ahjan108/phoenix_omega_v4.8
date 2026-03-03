@@ -1,0 +1,29 @@
+EI V1 vs V2 Comparison Summary
+========================================
+Plan hash: 5b74f23508c4d07724ff6c8a7fd3d3ea
+Persona: gen_z_professionals  Topic: anxiety
+Total slots compared: 59
+Agreements: 59 (100.0%)
+Disagreements: 0
+
+V1 total time: 3ms
+V2 total time: 43ms
+
+TTS readability issues (14):
+  Ch1 INTEGRATION: score=0.45 ['choppy_pacing: 100% of sentences under 4 words', 'low_rhythm_variance: 0.000 (min: 0.15)']
+  Ch2 REFLECTION: score=0.45 ['choppy_pacing: 100% of sentences under 4 words', 'low_rhythm_variance: 0.000 (min: 0.15)']
+  Ch2 INTEGRATION: score=0.45 ['choppy_pacing: 100% of sentences under 4 words', 'low_rhythm_variance: 0.000 (min: 0.15)']
+  Ch3 INTEGRATION: score=0.50 ['monotone_pacing: consecutive similar-length sentences', 'insufficient_paragraph_breaks']
+  Ch5 INTEGRATION: score=0.45 ['choppy_pacing: 100% of sentences under 4 words', 'low_rhythm_variance: 0.000 (min: 0.15)']
+  Ch6 REFLECTION: score=0.45 ['choppy_pacing: 100% of sentences under 4 words', 'low_rhythm_variance: 0.000 (min: 0.15)']
+  Ch6 EXERCISE: score=0.48 ['monotone_pacing: consecutive similar-length sentences', 'insufficient_paragraph_breaks']
+  Ch6 INTEGRATION: score=0.45 ['choppy_pacing: 100% of sentences under 4 words', 'low_rhythm_variance: 0.000 (min: 0.15)']
+  Ch7 SCENE: score=0.46 ['choppy_pacing: 45% of sentences under 4 words', 'monotone_pacing: consecutive similar-length sentences']
+  Ch7 INTEGRATION: score=0.45 ['choppy_pacing: 100% of sentences under 4 words', 'low_rhythm_variance: 0.000 (min: 0.15)']
+
+Emotion arc issues (5):
+  Ch7 HOOK: status=WARN []
+  Ch7 SCENE: status=WARN []
+  Ch7 REFLECTION: status=WARN []
+  Ch7 INTEGRATION: status=WARN []
+  Ch7 STORY: status=WARN []

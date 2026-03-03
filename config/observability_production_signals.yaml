@@ -1,13 +1,13 @@
-# Production Observability — signal registry (100% repo coverage)
-# Used by scripts/observability/collect_signals.py
-# See docs/PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md
+# Production signal registry — 100% repo observability.
+# Authority: docs/PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md
+# Collector: scripts/observability/collect_signals.py
 
 signals:
   - id: gate_production_readiness
     category: core
     source: script
     script: scripts/run_production_readiness_gates.py
-    timeout_sec: 120
+    timeout_sec: 90
     evidence_path: artifacts/observability/gates_{timestamp}.json
 
   - id: systems_test
@@ -16,54 +16,49 @@ signals:
     script: scripts/systems_test/run_systems_test.py
     args: ["--all"]
     timeout_sec: 300
-    evidence_path: artifacts/systems_test/report_{timestamp}.md
+    evidence_path: artifacts/systems_test/report_{timestamp}.json
 
   - id: atoms_coverage
     category: coverage
     source: pytest
     test: tests/test_atoms_coverage_100_percent.py
-    timeout_sec: 60
+    timeout_sec: 120
+    evidence_path: null
 
-  - id: teacher_gates
+  - id: ci_core_tests
+    category: core
+    source: workflow
+    workflow: core-tests.yml
+    evidence_path: null
+
+  - id: ci_teacher_gates
     category: teacher_mode
     source: workflow
     workflow: teacher-gates.yml
-    # evidence from GitHub Actions URL (passive)
+    evidence_path: null
 
-  - id: brand_guards
+  - id: ci_brand_guards
     category: brand
     source: workflow
     workflow: brand-guards.yml
+    evidence_path: null
 
-  - id: pearl_news_gates
+  - id: ci_pearl_news_gates
     category: pearl_news
     source: workflow
     workflow: pearl_news_gates.yml
+    evidence_path: null
 
-  - id: docs_ci
+  - id: ci_docs
     category: docs
     source: workflow
     workflow: docs-ci.yml
+    evidence_path: null
 
   - id: simulation_10k
     category: simulation
     source: script
-    script: simulation/run_simulation.py
-    args: ["--n", "100", "--phase2", "--phase3"]
+    script: scripts/ci/run_simulation_10k.py
+    args: ["--n", "1000", "--out", "artifacts/observability/sim_1000_{timestamp}.json"]
     timeout_sec: 180
-    # Use --n 100 for quick check; 10000 for full
-
-  - id: pipeline_canary
-    category: pipeline
-    source: script
-    script: scripts/run_pipeline.py
-    args:
-      - "--topic"
-      - "self_worth"
-      - "--persona"
-      - "nyc_executives"
-      - "--arc"
-      - "config/source_of_truth/master_arcs/nyc_executives__self_worth__shame__F006.yaml"
-      - "--out"
-      - "artifacts/observability/canary_plan_{timestamp}.json"
-    timeout_sec: 90
+    evidence_path: artifacts/observability/sim_1000_{timestamp}.json

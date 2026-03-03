@@ -131,7 +131,7 @@ class WavePlanRow:
     chapter_count: int
     cta_template_id: str = ""
     slug_pattern: str = ""
-    raw: dict[str, Any] = field(repr=False)
+    raw: dict[str, Any] = field(default_factory=dict, repr=False)
 
 
 def extract_wave_row(plan: dict[str, Any], plan_path: str = "") -> Optional[WavePlanRow]:

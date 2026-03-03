@@ -1,0 +1,234 @@
+{
+  "chapter_count": 12,
+  "failed_chapters": 12,
+  "status": "FAIL",
+  "chapters": [
+    {
+      "chapter": 1,
+      "status": "FAIL",
+      "score": 70,
+      "errors": [
+        "WEAK_TRANSITIONS",
+        "NO_ACTIONABLE_STEP"
+      ],
+      "warnings": [],
+      "metrics": {
+        "paragraphs": 10,
+        "sentences": 73,
+        "transition_hits": 1,
+        "thesis_hits": 1,
+        "avg_adjacent_overlap": 0.087,
+        "sentence_len_std": 7.66
+      }
+    },
+    {
+      "chapter": 2,
+      "status": "FAIL",
+      "score": 55,
+      "errors": [
+        "WEAK_TRANSITIONS",
+        "MISSING_CLEAR_POINT",
+        "NO_ACTIONABLE_STEP"
+      ],
+      "warnings": [],
+      "metrics": {
+        "paragraphs": 5,
+        "sentences": 29,
+        "transition_hits": 1,
+        "thesis_hits": 0,
+        "avg_adjacent_overlap": 0.095,
+        "sentence_len_std": 5.93
+      }
+    },
+    {
+      "chapter": 3,
+      "status": "FAIL",
+      "score": 50,
+      "errors": [
+        "WEAK_TRANSITIONS",
+        "MISSING_CLEAR_POINT",
+        "CHOPPY_SECTION_JUMPS"
+      ],
+      "warnings": [
+        "LOW_RHYTHM_VARIATION"
+      ],
+      "metrics": {
+        "paragraphs": 4,
+        "sentences": 31,
+        "transition_hits": 0,
+        "thesis_hits": 0,
+        "avg_adjacent_overlap": 0.013,
+        "sentence_len_std": 2.64
+      }
+    },
+    {
+      "chapter": 4,
+      "status": "FAIL",
+      "score": 85,
+      "errors": [
+        "WEAK_TRANSITIONS"
+      ],
+      "warnings": [],
+      "metrics": {
+        "paragraphs": 7,
+        "sentences": 63,
+        "transition_hits": 2,
+        "thesis_hits": 1,
+        "avg_adjacent_overlap": 0.097,
+        "sentence_len_std": 5.55
+      }
+    },
+    {
+      "chapter": 5,
+      "status": "FAIL",
+      "score": 70,
+      "errors": [
+        "WEAK_TRANSITIONS",
+        "MISSING_CLEAR_POINT"
+      ],
+      "warnings": [],
+      "metrics": {
+        "paragraphs": 8,
+        "sentences": 74,
+        "transition_hits": 0,
+        "thesis_hits": 0,
+        "avg_adjacent_overlap": 0.086,
+        "sentence_len_std": 5.59
+      }
+    },
+    {
+      "chapter": 6,
+      "status": "FAIL",
+      "score": 70,
+      "errors": [
+        "WEAK_TRANSITIONS",
+        "MISSING_CLEAR_POINT"
+      ],
+      "warnings": [],
+      "metrics": {
+        "paragraphs": 6,
+        "sentences": 46,
+        "transition_hits": 1,
+        "thesis_hits": 0,
+        "avg_adjacent_overlap": 0.074,
+        "sentence_len_std": 5.92
+      }
+    },
+    {
+      "chapter": 7,
+      "status": "FAIL",
+      "score": 50,
+      "errors": [
+        "WEAK_TRANSITIONS",
+        "MISSING_CLEAR_POINT",
+        "CHOPPY_SECTION_JUMPS"
+      ],
+      "warnings": [
+        "LOW_RHYTHM_VARIATION"
+      ],
+      "metrics": {
+        "paragraphs": 5,
+        "sentences": 42,
+        "transition_hits": 0,
+        "thesis_hits": 0,
+        "avg_adjacent_overlap": 0.029,
+        "sentence_len_std": 2.36
+      }
+    },
+    {
+      "chapter": 8,
+      "status": "FAIL",
+      "score": 70,
+      "errors": [
+        "WEAK_TRANSITIONS",
+        "MISSING_CLEAR_POINT"
+      ],
+      "warnings": [],
+      "metrics": {
+        "paragraphs": 6,
+        "sentences": 38,
+        "transition_hits": 1,
+        "thesis_hits": 0,
+        "avg_adjacent_overlap": 0.09,
+        "sentence_len_std": 8.08
+      }
+    },
+    {
+      "chapter": 9,
+      "status": "FAIL",
+      "score": 55,
+      "errors": [
+        "WEAK_TRANSITIONS",
+        "MISSING_CLEAR_POINT",
+        "NO_ACTIONABLE_STEP"
+      ],
+      "warnings": [],
+      "metrics": {
+        "paragraphs": 5,
+        "sentences": 28,
+        "transition_hits": 2,
+        "thesis_hits": 0,
+        "avg_adjacent_overlap": 0.124,
+        "sentence_len_std": 5.25
+      }
+    },
+    {
+      "chapter": 10,
+      "status": "FAIL",
+      "score": 70,
+      "errors": [
+        "WEAK_TRANSITIONS",
+        "MISSING_CLEAR_POINT"
+      ],
+      "warnings": [],
+      "metrics": {
+        "paragraphs": 6,
+        "sentences": 38,
+        "transition_hits": 0,
+        "thesis_hits": 0,
+        "avg_adjacent_overlap": 0.116,
+        "sentence_len_std": 7.42
+      }
+    },
+    {
+      "chapter": 11,
+      "status": "FAIL",
+      "score": 50,
+      "errors": [
+        "WEAK_TRANSITIONS",
+        "MISSING_CLEAR_POINT",
+        "CHOPPY_SECTION_JUMPS"
+      ],
+      "warnings": [
+        "LOW_RHYTHM_VARIATION"
+      ],
+      "metrics": {
+        "paragraphs": 4,
+        "sentences": 33,
+        "transition_hits": 1,
+        "thesis_hits": 0,
+        "avg_adjacent_overlap": 0.024,
+        "sentence_len_std": 3.47
+      }
+    },
+    {
+      "chapter": 12,
+      "status": "FAIL",
+      "score": 55,
+      "errors": [
+        "WEAK_TRANSITIONS",
+        "MISSING_CLEAR_POINT",
+        "CHOPPY_SECTION_JUMPS"
+      ],
+      "warnings": [],
+      "metrics": {
+        "paragraphs": 5,
+        "sentences": 36,
+        "transition_hits": 1,
+        "thesis_hits": 0,
+        "avg_adjacent_overlap": 0.029,
+        "sentence_len_std": 5.18
+      }
+    }
+  ]
+}

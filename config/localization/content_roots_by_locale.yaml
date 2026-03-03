@@ -1,0 +1,321 @@
+# content_roots_by_locale.yaml
+# Maps each locale to its content root paths.
+# Authority: single source of truth for per-locale content directory routing.
+#
+# atoms_root: path (relative to repo root) where atom directories live for this locale.
+#   en-US: atoms/<persona>/<topic>/<slot>/  (personas directly under atoms/)
+#   all others: atoms/<locale>/<persona>/<topic>/<slot>/  (locale subdirectory first)
+#
+# translation_source_locale: which locale's atoms to translate from (always en-US for now)
+# translation_output_root: where translated atoms land (same as atoms_root)
+# quality_contracts_dir: where locale-specific quality validation contracts live (planned)
+# population_status: current population state
+#   populated = canonical, fully authored (en-US only)
+#   planned = directory exists after translation pipeline runs
+#
+# ADDING A NEW LOCALE:
+#   1. Add entry to locale_registry.yaml first
+#   2. Add entry here
+#   3. Run translation pipeline for new locale
+#   4. Run coverage gate: tests/test_atoms_coverage_100_percent.py
+
+schema_version: 1
+
+locales:
+
+  en-US:
+    description: >
+      English (United States) — Baseline locale.
+      Personas live directly under atoms/ directory.
+      This is the canonical source for all translated content.
+    atoms_root: "atoms"
+    translation_source_locale: null    # en-US is the source
+    translation_output_root: "atoms"
+    quality_contracts_dir: "config/localization/quality_contracts/en-US/"
+    population_status: populated
+    is_baseline: true
+    rollout_phase: Phase 0 (baseline)
+    distribution_blocker: null
+    notes: >
+      Canonical English-language content. All translators source from en-US atoms.
+      Personas: anxious_insomniac, burned_out_professional, gen_z_grounding, etc.
+      TTS: ElevenLabs eleven_multilingual_v2 (en-US) + Google Neural2-F fallback.
+
+  # ─── CHINESE (SIMPLIFIED): MAINLAND CHINA ─────────────────────────────────
+
+  zh-CN:
+    description: >
+      Chinese (Simplified) — Mainland China.
+      Atoms stored in locale subdirectory (atoms/zh-CN/).
+      Local platform distribution required; not available via Findaway or Google Play CN.
+    atoms_root: "atoms/zh-CN"
+    translation_source_locale: en-US
+    translation_output_root: "atoms/zh-CN"
+    quality_contracts_dir: "config/localization/quality_contracts/zh-CN/"
+    population_status: planned
+    is_baseline: false
+    rollout_phase: Phase 5 (Months 10–18)
+    distribution_blocker: >
+      LOCAL PLATFORMS REQUIRED. Google Play not available in mainland China.
+      Findaway does NOT distribute to mainland China. Use Ximalaya, NetEase Cloud
+      Music, WeChat Read, Dedao only. See docs/ZH_CN_DISTRIBUTION_PLAN.md.
+    tts_notes: >
+      Primary: ElevenLabs eleven_multilingual_v2 (zh-CN, Putonghua).
+      Fallback: Google cmn-CN-Wavenet-A. Prioritize ElevenLabs for quality.
+    notes: >
+      Simplified script. Mandarin (Putonghua) for mainland.
+      Content review requirements differ from international standards.
+      Must use local distributor accounts and onboarding process.
+      See ZH_CN_DISTRIBUTION_PLAN.md for onboarding checklist.
+
+  # ─── CHINESE (TRADITIONAL): TAIWAN ────────────────────────────────────────
+
+  zh-TW:
+    description: >
+      Chinese (Traditional) — Taiwan.
+      Atoms stored in locale subdirectory (atoms/zh-TW/).
+      Phase 1 pilot locale with 6 brands.
+    atoms_root: "atoms/zh-TW"
+    translation_source_locale: en-US
+    translation_output_root: "atoms/zh-TW"
+    quality_contracts_dir: "config/localization/quality_contracts/zh-TW/"
+    population_status: planned
+    is_baseline: false
+    rollout_phase: Phase 1 (Months 1–3, pilot)
+    distribution_blocker: null
+    tts_notes: >
+      Primary: ElevenLabs eleven_multilingual_v2 (zh-TW).
+      Fallback: Google cmn-TW-Wavenet-A.
+    notes: >
+      Traditional script. Mandarin with Taiwanese positioning language.
+      Initial 6 pilot brands: sleep_repair_tw, stabilizer_tw, panic_first_aid_tw,
+      gen_z_grounding_tw, grief_companion_tw, inner_security_tw.
+      Taiwan-specific invisible scripts: academic pressure (大考), tech sector
+      overwork (竹科), filial duty, social comparison culture (IG).
+      Persona set: anxious_insomniac_tw, burned_out_professional_tw, gen_z_tw,
+      bereaved_adult_tw, anxious_attacher_tw, healthcare_worker_tw.
+
+  # ─── CHINESE (TRADITIONAL): HONG KONG ──────────────────────────────────────
+
+  zh-HK:
+    description: >
+      Chinese (Traditional) — Hong Kong.
+      Atoms stored in locale subdirectory (atoms/zh-HK/).
+    atoms_root: "atoms/zh-HK"
+    translation_source_locale: en-US
+    translation_output_root: "atoms/zh-HK"
+    quality_contracts_dir: "config/localization/quality_contracts/zh-HK/"
+    population_status: planned
+    is_baseline: false
+    rollout_phase: Phase 2+ (post-Taiwan pilot)
+    distribution_blocker: null
+    tts_notes: >
+      Primary: ElevenLabs eleven_multilingual_v2 (zh-HK).
+      Fallback: Google yue-HK-Standard-A (Cantonese voice available).
+    notes: >
+      Traditional script. Cantonese voice available in fallback.
+      Different positioning language and cultural context from zh-TW.
+      Hong Kong market smaller than Taiwan but distinct audience.
+
+  # ─── CHINESE (SIMPLIFIED): SINGAPORE ──────────────────────────────────────
+
+  zh-SG:
+    description: >
+      Chinese (Simplified) — Singapore.
+      Atoms stored in locale subdirectory (atoms/zh-SG/).
+      NOTE: English dominates Singapore commerce; evaluate ROI before full build.
+    atoms_root: "atoms/zh-SG"
+    translation_source_locale: en-US
+    translation_output_root: "atoms/zh-SG"
+    quality_contracts_dir: "config/localization/quality_contracts/zh-SG/"
+    population_status: planned
+    is_baseline: false
+    rollout_phase: Phase 5 (Months 10–18, same wave as zh-CN)
+    distribution_blocker: >
+      LOWER PRIORITY THAN zh-CN. Evaluate whether en-US or zh-SG is higher ROI
+      for Singapore market — English dominates Singapore commerce.
+    tts_notes: >
+      Primary: ElevenLabs eleven_multilingual_v2 (zh-SG, Simplified, Singapore accent).
+      Fallback: Google cmn-SG voice (if available) or cmn-CN-Wavenet-A.
+    notes: >
+      Simplified script (same as zh-CN). English-centric market; Chinese audio
+      audience smaller than expected. Lower priority than other locales.
+
+  # ─── JAPANESE ─────────────────────────────────────────────────────────────
+
+  ja-JP:
+    description: >
+      Japanese — Japan.
+      Atoms stored in locale subdirectory (atoms/ja-JP/).
+      Phase 2 pilot locale with 6 brands.
+    atoms_root: "atoms/ja-JP"
+    translation_source_locale: en-US
+    translation_output_root: "atoms/ja-JP"
+    quality_contracts_dir: "config/localization/quality_contracts/ja-JP/"
+    population_status: planned
+    is_baseline: false
+    rollout_phase: Phase 2 (Months 4–6, pilot)
+    distribution_blocker: null
+    tts_notes: >
+      Primary: ElevenLabs eleven_multilingual_v2 (ja-JP).
+      Fallback: Google ja-JP-Neural2-A. Politeness register (丁寧語) required.
+    notes: >
+      Japanese (日本語). Phase 2 pilot.
+      CRITICAL: Never use "mental health" (精神的健康) in titles — high stigma.
+      Use "nervous system" (神経系), "wellbeing" (ウェルビーイング), "self-care" (セルフケア).
+      Karoshi (過労死) culture makes burnout brands highest priority.
+      Politeness register (丁寧語) required throughout narration.
+      Persona set: anxious_insomniac_jp, burned_out_professional_jp, gen_z_jp.
+
+  # ─── KOREAN ───────────────────────────────────────────────────────────────
+
+  ko-KR:
+    description: >
+      Korean — South Korea.
+      Atoms stored in locale subdirectory (atoms/ko-KR/).
+      Phase 3 pilot locale with 4 brands.
+    atoms_root: "atoms/ko-KR"
+    translation_source_locale: en-US
+    translation_output_root: "atoms/ko-KR"
+    quality_contracts_dir: "config/localization/quality_contracts/ko-KR/"
+    population_status: planned
+    is_baseline: false
+    rollout_phase: Phase 3 (Months 5–7, pilot)
+    distribution_blocker: null
+    tts_notes: >
+      Primary: ElevenLabs eleven_multilingual_v2 (ko-KR).
+      Fallback: Google ko-KR-Neural2-A.
+    notes: >
+      Korean (한국어). Phase 3 pilot.
+      High podcast/audio consumption. 번아웃 (burnout) is high-awareness search term.
+      빨리빨리 (ppalli-ppalli) culture: micro sessions (15–30 min) may outperform
+      deep dives. Academic/exam pressure (수능) strong for gen_z angle.
+      K-beauty wellness crossover — metabolic, longevity brands have audience.
+      Fastest-growing mental health awareness in East Asia.
+
+  # ─── SPANISH (US HISPANIC) ────────────────────────────────────────────────
+
+  es-US:
+    description: >
+      Spanish (Neutral Latin American) — United States Hispanic market.
+      Atoms stored in locale subdirectory (atoms/es-US/).
+      Same territory as en-US but different locale; distribute separately.
+    atoms_root: "atoms/es-US"
+    translation_source_locale: en-US
+    translation_output_root: "atoms/es-US"
+    quality_contracts_dir: "config/localization/quality_contracts/es-US/"
+    population_status: planned
+    is_baseline: false
+    rollout_phase: Phase 4 (Months 7–12)
+    distribution_blocker: null
+    tts_notes: >
+      Primary: ElevenLabs eleven_multilingual_v2 (es-US, Latin American neutral).
+      Fallback: Google es-US-Neural2-A. Avoid Castilian (Spain) accent.
+    notes: >
+      Neutral Latin American Spanish (not Castilian/Spain Spanish).
+      Largest non-English US audiobook opportunity. US storefronts only.
+      Do NOT mix with es-ES (Spain) in same catalog upload.
+      Phase 4 brands: stabilizer_es_us, gen_z_grounding_es_us, others.
+
+  # ─── SPANISH (CASTILIAN/SPAIN) ────────────────────────────────────────────
+
+  es-ES:
+    description: >
+      Spanish (Castilian) — Spain.
+      Atoms stored in locale subdirectory (atoms/es-ES/).
+      Separate storefront from es-US; do not mix.
+    atoms_root: "atoms/es-ES"
+    translation_source_locale: en-US
+    translation_output_root: "atoms/es-ES"
+    quality_contracts_dir: "config/localization/quality_contracts/es-ES/"
+    population_status: planned
+    is_baseline: false
+    rollout_phase: Phase 4 (Months 7–12)
+    distribution_blocker: null
+    tts_notes: >
+      Primary: ElevenLabs eleven_multilingual_v2 (es-ES, Castilian).
+      Fallback: Google es-ES-Neural2-A. Use vosotros, c/z distinction.
+    notes: >
+      Castilian Spanish (España). Vosotros verb forms, c/z distinction required.
+      Strong European audiobook market. Separate brand instances from es-US.
+      Phase 4 brands: stabilizer_es_es.
+
+  # ─── FRENCH ───────────────────────────────────────────────────────────────
+
+  fr-FR:
+    description: >
+      French — France and French-speaking Europe.
+      Atoms stored in locale subdirectory (atoms/fr-FR/).
+      Strong audiobook market; philosophical framing accepted.
+    atoms_root: "atoms/fr-FR"
+    translation_source_locale: en-US
+    translation_output_root: "atoms/fr-FR"
+    quality_contracts_dir: "config/localization/quality_contracts/fr-FR/"
+    population_status: planned
+    is_baseline: false
+    rollout_phase: Phase 4 (Months 7–12)
+    distribution_blocker: null
+    tts_notes: >
+      Primary: ElevenLabs eleven_multilingual_v2 (fr-FR).
+      Fallback: Google fr-FR-Neural2-A.
+    notes: >
+      French (Français). Strong audiobook market in France and Benelux.
+      Mental health discourse differs from US/UK — more philosophical framing
+      accepted. Stoic, existentialist framing works alongside somatic approaches.
+      Phase 4 brands: sleep_repair_fr, stabilizer_fr, contemplative_wisdom_fr.
+
+  # ─── GERMAN ───────────────────────────────────────────────────────────────
+
+  de-DE:
+    description: >
+      German — Germany, Austria, Switzerland (DACH market).
+      Atoms stored in locale subdirectory (atoms/de-DE/).
+      Largest European audiobook market; science framing required.
+    atoms_root: "atoms/de-DE"
+    translation_source_locale: en-US
+    translation_output_root: "atoms/de-DE"
+    quality_contracts_dir: "config/localization/quality_contracts/de-DE/"
+    population_status: planned
+    is_baseline: false
+    rollout_phase: Phase 4 (Months 7–12)
+    distribution_blocker: null
+    tts_notes: >
+      Primary: ElevenLabs eleven_multilingual_v2 (de-DE).
+      Fallback: Google de-DE-Neural2-A. Audible.de also significant.
+    notes: >
+      German (Deutsch). Largest European audiobook market (DACH: Germany,
+      Austria, Switzerland). Evidence-based, science-grounded framing strongly
+      preferred. Avoid overtly spiritual framing — secular nervous system/
+      neuroscience angle works best. "Stressbewältigung" and "Burnout" are
+      high-search terms. Audible.de is significant storefront for this locale.
+      Phase 4 brands: stabilizer_de, sleep_repair_de, adhd_anchor_de.
+
+  # ─── HUNGARIAN ────────────────────────────────────────────────────────────
+
+  hu-HU:
+    description: >
+      Hungarian — Hungary.
+      Atoms stored in locale subdirectory (atoms/hu-HU/).
+      ElevenLabs only — Google Neural2 does NOT support Hungarian.
+    atoms_root: "atoms/hu-HU"
+    translation_source_locale: en-US
+    translation_output_root: "atoms/hu-HU"
+    quality_contracts_dir: "config/localization/quality_contracts/hu-HU/"
+    population_status: planned
+    is_baseline: false
+    rollout_phase: Phase 4 (Months 7–12)
+    distribution_blocker: >
+      MUST USE ELEVENLABS TTS ONLY. Google Neural2 does NOT have hu-HU support
+      (only hu-HU-Standard voice available). Enforce ElevenLabs in CI.
+    tts_notes: >
+      PRIMARY (ONLY): ElevenLabs eleven_multilingual_v2 (hu-HU).
+      NO FALLBACK TO GOOGLE. Google Neural2 has no hu-HU support.
+      Standard Google voice hu-HU-Standard-A available but lower quality.
+    notes: >
+      Hungarian (Magyar). Smaller market but high per-capita audio consumption.
+      ElevenLabs has Hungarian support; Google does not (Standard voice only).
+      CRITICAL: Prioritize ElevenLabs for quality and compliance.
+      Mental health stigma remains higher than Western Europe — wellness/
+      self-development framing preferred over clinical language.
+      Phase 4 brands: stabilizer_hu, sleep_repair_hu.
+

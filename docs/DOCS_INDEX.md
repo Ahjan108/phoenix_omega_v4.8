@@ -2,9 +2,19 @@
 
 **Purpose:** Canonical index for documentation authority and navigation.  
 **Missing-file policy:** Only existing files are linked; planned or missing files are listed as backlog items (plain text or `path` with ⚠️ *file not present*).  
-**Last updated:** 2026-03-04 (Production Observability, Learning & Self-Healing spec)
+**Last updated:** 2026-03-02
 
-**Missing-file policy:** Only files that exist on disk are linked. Planned or referenced-but-missing files are listed as plain text backlog items and marked `⚠️ *file not present*`.
+---
+
+## How to use this index
+
+| Task | Where to go |
+|------|-------------|
+| **Document all (single source)** | This file: [Document all — complete inventory](#document-all--complete-inventory) lists every doc/spec/config/script; domain "(document all)" subsections list every asset per domain. |
+| **Find a doc** | Browse sections below, or search [Document all — complete inventory](#document-all--complete-inventory). |
+| **Add a doc** | Follow [Document all — usage](#document-all--usage): place in correct section, add to inventory, reference canonical anchors if authority doc. |
+| **Check domain coverage** | Use "(document all)" subsections (e.g. [Marketing & deep research](#marketing--deep-research-document-all), [Teacher Mode](#teacher-mode--production-readiness-document-all)) — each lists every asset for that domain. |
+| **Go/no-go decision** | [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md) §6 Hard NOs. |
 
 ---
 
@@ -26,6 +36,9 @@
 - [docs/SYSTEMS_V4.md](./SYSTEMS_V4.md) — V4 systems overview
 - [docs/PLANNING_STATUS.md](./PLANNING_STATUS.md) — Planning status
 - [docs/SYSTEMS_AUDIT.md](./SYSTEMS_AUDIT.md) — Systems audit
+- [docs/FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md) — Full test suite plan, gap analysis, pipeline matrix
+- [docs/BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md) — Required status checks for main
+- [docs/DISASTER_RECOVERY_DRILL_CHECKLIST.md](./DISASTER_RECOVERY_DRILL_CHECKLIST.md) — DR drill steps, evidence template
 - [specs/README.md](../specs/README.md) — Specs overview
 - [ONBOARDING.md](../ONBOARDING.md) — Onboarding
 
@@ -57,10 +70,11 @@ Single index: every doc, script, config, and artifact for simulation, 10k/100k k
 | **Simulator core** | [simulation/simulator.py](../simulation/simulator.py) — Formats, validation matrix, BookRequest, run_simulation(), validate_plan() |
 | **Phase 2** | [simulation/phase2.py](../simulation/phase2.py) — Waveform, arc, drift on Phase 1 results |
 | **Phase 3 MVP** | [simulation/phase3_mvp.py](../simulation/phase3_mvp.py) — Volatility, cognitive, consequence, reassurance on synthetic text |
-| **10k sim runner** | `scripts/ci/run_simulation_10k.py` — n=10000, --use-format-selector, --phase2, --phase3 (CI) ⚠️ *file not present* |
+| **10k sim runner** | [scripts/ci/run_simulation_10k.py](../scripts/ci/run_simulation_10k.py) — n=10000, --use-format-selector, --phase2, --phase3 (CI) |
 | **100k sim runner** | `scripts/ci/run_simulation_100k.py` — n=100000, --full-knobs; optional --n, --out ⚠️ *file not present* |
-| **Analyzer** | `scripts/ci/analyze_pearl_prime_sim.py` — Pass rate by dimension; best/worst combos; --input, --out ⚠️ *file not present* |
-| **Rigorous suite runner** | `scripts/ci/run_rigorous_system_test.py` — 10k sim + variation report + E2E smoke + atoms coverage ⚠️ *file not present* |
+| **Analyzer** | [scripts/ci/analyze_pearl_prime_sim.py](../scripts/ci/analyze_pearl_prime_sim.py) — Pass rate by dimension; best/worst combos; --input, --out |
+| **Rigorous suite runner** | [scripts/ci/run_rigorous_system_test.py](../scripts/ci/run_rigorous_system_test.py) — Systems test + variation + atoms coverage + optional sim |
+| **Canary** | [scripts/ci/run_canary_100_books.py](../scripts/ci/run_canary_100_books.py) — Real pipeline on sampled arcs |
 | **Variation report** | [scripts/ci/report_variation_knobs.py](../scripts/ci/report_variation_knobs.py) — variation_knob_distribution, pearl_prime block from plans/index |
 | **Monte Carlo CTSS** | [simulation/run_monte_carlo_ctss.py](../simulation/run_monte_carlo_ctss.py) — Duplication risk vs index |
 | **Systems test** | [scripts/systems_test/run_systems_test.py](../scripts/systems_test/run_systems_test.py) — Phases 1–7; optional sim run |
@@ -83,10 +97,11 @@ Single index: every doc, script, config, and artifact for simulation, 10k/100k k
 
 | Item | Location |
 |------|----------|
-| **10k results** | `artifacts/simulation_10k.json` (optional --out from run_simulation_10k.py) |
+| **10k results** | `artifacts/simulation_10k.json` (from run_simulation_10k.py --out) |
 | **100k results** | `artifacts/simulation_100k.json` (optional --out from run_simulation_100k.py) |
 | **Analysis JSON** | `artifacts/reports/pearl_prime_sim_analysis.json` (from analyze_pearl_prime_sim.py --out) |
 | **Analysis summary** | `artifacts/reports/pearl_prime_sim_analysis_SUMMARY.txt` |
+| **Simulation baseline** | [artifacts/reports/pearl_prime_sim_baseline.json](../artifacts/reports/pearl_prime_sim_baseline.json) — min_pass_rate for CI threshold |
 | **Variation report** | `artifacts/reports/variation_report.json` (from report_variation_knobs.py) |
 | **Drift dashboard** | `artifacts/drift/` (from build_structural_drift_dashboard.py) |
 
@@ -94,8 +109,10 @@ Single index: every doc, script, config, and artifact for simulation, 10k/100k k
 
 | Item | Location |
 |------|----------|
-| **Simulation 10k workflow** | `.github/workflows/simulation-10k.yml` ⚠️ *file not present* |
-| **Release gates** | `.github/workflows/release-gates.yml` ⚠️ *file not present* |
+| **Core tests** | [.github/workflows/core-tests.yml](../.github/workflows/core-tests.yml) — Fast pytest + production readiness gates; required for branch protection |
+| **Simulation 10k workflow** | [.github/workflows/simulation-10k.yml](../.github/workflows/simulation-10k.yml) — 10k sim + analyzer; fail on threshold |
+| **Release gates** | [.github/workflows/release-gates.yml](../.github/workflows/release-gates.yml) — Production gates + rigorous test + canary + rollback smoke |
+| **Production observability** | [.github/workflows/production-observability.yml](../.github/workflows/production-observability.yml) — Signal collection, trend tracking |
 | **Teacher gates** | [.github/workflows/teacher-gates.yml](../.github/workflows/teacher-gates.yml) — Teacher production gates + teacher arc tests + Teacher Mode E2E smoke (see [Teacher Mode & production readiness](#teacher-mode--production-readiness-document-all)) |
 | **Brand guards** | [.github/workflows/brand-guards.yml](../.github/workflows/brand-guards.yml) — NorCal Dharma brand-only invariants: matrix exclusion, assignments → default_teacher, secret scan, smoke tests (see [Church & payout](#church--payout-distribution-only-brands)) |
 
@@ -218,10 +235,46 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 
 ---
 
-## Brand & release
+## Marketing & deep research (document all)
 
-- [docs/RELEASE_VELOCITY_AND_SCHEDULE.md](./RELEASE_VELOCITY_AND_SCHEDULE.md) — Release velocity and schedule
-- [docs/PLATFORM_HARDENING_PHASES_3-8_OUTLINE.md](./PLATFORM_HARDENING_PHASES_3-8_OUTLINE.md) — Platform hardening phases
+Single index: every doc, spec, script, and config that uses or is fed by marketing deep research (prompts, invisible scripts, title philosophy, belief flip, consumer language). Outputs feed brand registry, title engine, persona metadata, and content briefs.
+
+### Docs
+
+| Item | Location |
+|------|----------|
+| **Marketing deep research prompts** | [docs/MARKETING_DEEP_RESEARCH_PROMPTS.md](./MARKETING_DEEP_RESEARCH_PROMPTS.md) — One-to-many deep research prompts; master + 7 sub-prompts (per-brand GTM, emotional vocabulary, consumer vs clinical language, persona×topic invisible scripts, duration bands, cover design, pricing). **Use:** Run via deep research workflow; output feeds brand registry, title engine, persona metadata, content briefs. Downstream: [PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md), HOOK atoms, title engine seeds. |
+| **Title & catalog marketing system** | [docs/TITLE_AND_CATALOG_MARKETING_SYSTEM.md](./TITLE_AND_CATALOG_MARKETING_SYSTEM.md) — Title philosophy (search keyword, invisible script, brand voice); deep research integration; ops-manual dimensions (templates, imprints, validation); title engine v2→v4. Authority: [PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md). |
+| **Locale catalog marketing plan** | [docs/LOCALE_CATALOG_MARKETING_PLAN.md](./LOCALE_CATALOG_MARKETING_PLAN.md) — Per-locale positioning, go-live checklists, invisible script per locale; extends title philosophy; references deep research briefs. |
+| **Release velocity and schedule** | [docs/RELEASE_VELOCITY_AND_SCHEDULE.md](./RELEASE_VELOCITY_AND_SCHEDULE.md) — Release velocity and schedule |
+| **Platform hardening phases** | [docs/PLATFORM_HARDENING_PHASES_3-8_OUTLINE.md](./PLATFORM_HARDENING_PHASES_3-8_OUTLINE.md) — Platform hardening phases 3–8 |
+
+### Specs
+
+| Item | Location |
+|------|----------|
+| **Deep research integration spec** | [specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md) — Narrative Depth Layer v1.0: `invisible_script` HOOK subtype, `belief_flip` STORY pattern, SCENE micro-failure, INTEGRATION `milestone_type`, arc quality test. Subordinate to Arc-First Canonical. Feeds: title philosophy, HOOK atoms, marketing brief (invisible_script, belief flip). |
+
+### Scripts / code (consumers of deep research outputs)
+
+| Item | Location |
+|------|----------|
+| **Title engine (v3)** | [phoenix_title_engine_v3.py](../phoenix_title_engine_v3.py) — `generate_invisible_script()`; title = search keyword + invisible script; persona×topic invisible_scripts in topic vocab |
+| **Title engine (v4)** | [phoenix_title_engine_v4.py](../phoenix_title_engine_v4.py) — Same; invisible_script in title generation pipeline |
+| **Title engine (legacy)** | [phoenix_title_engine.py](../phoenix_title_engine.py) — `invisible_script` in title model; picks from topic invisible_scripts |
+
+### Config (planned / output targets)
+
+| Item | Location |
+|------|----------|
+| **Invisible scripts by persona×topic** | `config/marketing/invisible_scripts_by_persona_topic.yaml` ⚠️ *file not present* — Target output from MARKETING_DEEP_RESEARCH_PROMPTS sub-prompt 4; fields: `persona_id`, `topic_id`, `invisible_script`. Feeds HOOK seeds and title engine. |
+
+### Use flow
+
+1. **Run prompts:** Use [MARKETING_DEEP_RESEARCH_PROMPTS.md](./MARKETING_DEEP_RESEARCH_PROMPTS.md) (master or sub-prompts) in your deep research workflow.
+2. **Outputs:** Structured YAML/JSON (e.g. per-brand GTM, emotional vocabulary, consumer language, invisible scripts, duration bands, cover language, pricing).
+3. **Ingestion:** Invisible scripts → `config/marketing/invisible_scripts_by_persona_topic.yaml` (when created) or direct input to title engine / HOOK atom authoring.
+4. **Authority:** [PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md) defines how invisible_script and belief_flip integrate into atoms and title philosophy.
 
 ---
 
@@ -232,7 +285,7 @@ Church brands (e.g. NorCal Dharma) are identity/distribution only: no teacher, n
 ### Church docs
 
 - [docs/church_docs/README.md](./church_docs/README.md) — Church–brand linkage: brand_id → church record mapping, display name source, Cooperative Church Compliance YAML Schema reference, ops smoke
-- `docs/norcal_dharma.yaml` ⚠️ *file not present* — Church #1 canonical record (Cooperative Church Compliance YAML Schema)
+- **docs/norcal_dharma.yaml** — Church #1 canonical record (Cooperative Church Compliance YAML Schema). ⚠️ *file not present*; when added, link here.
 - [docs/adr/ADR-002-distribution-only-church-brand.md](./adr/ADR-002-distribution-only-church-brand.md) — Distribution-only church brand policy
 
 ### Config (church / brand-only)
@@ -267,16 +320,34 @@ Church brands (e.g. NorCal Dharma) are identity/distribution only: no teacher, n
 - [docs/BOOK_001_READINESS_CHECKLIST.md](./BOOK_001_READINESS_CHECKLIST.md) — Book_001 readiness checklist
 - [docs/BOOK_001_POST_MORTEM.md](./BOOK_001_POST_MORTEM.md) — Book_001 post-mortem
 - [docs/authoring/AUTHOR_ASSET_WORKBOOK.md](./authoring/AUTHOR_ASSET_WORKBOOK.md) — Author asset workbook
+- [docs/authoring/AUTHOR_COVER_ART_SYSTEM.md](./authoring/AUTHOR_COVER_ART_SYSTEM.md) — Author signature cover art base backgrounds (first 10 authors per catalog)
 - [docs/WRITER_BRIEF_BOOK_001.md](./WRITER_BRIEF_BOOK_001.md) — Writer brief for Book_001
 - [docs/WRITER_COMMS_SYSTEMS_100.md](./WRITER_COMMS_SYSTEMS_100.md) — Writer comms systems
 - [docs/WRITER_SPEC_MARKDOWN_AND_DOCX.md](./WRITER_SPEC_MARKDOWN_AND_DOCX.md) — Writer spec (Markdown and DOCX)
 - [docs/FIRST_10_BOOKS_EVALUATION_PROTOCOL.md](./FIRST_10_BOOKS_EVALUATION_PROTOCOL.md) — First 10 books evaluation protocol
 
+### Author cover art (document all)
+
+Author signature cover art base backgrounds for the first 10 authors of every catalog; runtime resolver, pipeline output, CI gate. Launchable = teachers in brand_teacher_matrix + author_registry; each must have registry entry, PNG, style_hint, palette_tokens.
+
+| Item | Location |
+|------|----------|
+| **Doc** | [docs/authoring/AUTHOR_COVER_ART_SYSTEM.md](./authoring/AUTHOR_COVER_ART_SYSTEM.md) — Registry, assets, generation, runtime, CI |
+| **Registry** | [config/authoring/author_cover_art_registry.yaml](../config/authoring/author_cover_art_registry.yaml) — author_id → cover_art_base, style_hint, palette_tokens |
+| **Resolver** | [phoenix_v4/planning/author_cover_art_resolver.py](../phoenix_v4/planning/author_cover_art_resolver.py) — `resolve_author_cover_art(author_id_or_teacher_id)`; fallback default |
+| **Generator** | [scripts/generate_author_cover_art_bases.py](../scripts/generate_author_cover_art_bases.py) — Pure Python PNG gradients → `assets/authors/cover_art/{author_id}_base.png` |
+| **Pipeline output** | [scripts/run_pipeline.py](../scripts/run_pipeline.py) — Plan JSON: `cover_art_base`, `cover_art_style_hint`, `cover_art_palette_tokens`, `cover_variant_id` |
+| **CI gate** | [scripts/ci/check_author_cover_art.py](../scripts/ci/check_author_cover_art.py) — Launchable authors: registry + PNG + style/palette; exit 0/1 |
+| **Production gates** | [scripts/run_production_readiness_gates.py](../scripts/run_production_readiness_gates.py) — **Gate 18:** author cover art |
+| **Assets** | `assets/authors/cover_art/` — `{author_id}_base.png` (1080×1920); see [assets/authors/README.md](../assets/authors/README.md) |
+
 ---
 
-## Enlightened Intelligence (EI)
+## Enlightened Intelligence (EI) — V1 & V2 (document all)
 
-EI is 100% at **test slice** when the 4 targeted unit tests pass. It is **100% production-ready** only when all operational gates are confirmed on `main` with evidence links (see [ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md](./ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md)).
+Single index: every doc, module, config, test, script, and artifact for the Enlightened Intelligence subsystem. EI V1 is the production candidate-selection pipeline (heuristic scoring, embedding thesis alignment, LLM tie-break, teacher integrity). EI V2 is a parallel enhancement layer with 6 new AI techniques (cross-encoder reranking, domain-tuned embeddings, few-shot safety classifiers, semantic dedup, emotion arc validation, TTS readability). V2 runs alongside V1 for A/B comparison and never overrides V1 in production.
+
+EI V1 is 100% at **test slice** when the 4 targeted unit tests pass. It is **100% production-ready** only when all operational gates are confirmed on `main` with evidence links (see [ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md](./ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md)).
 
 ### Operational gates (production 100%)
 
@@ -287,10 +358,150 @@ EI is 100% at **test slice** when the 4 targeted unit tests pass. It is **100% p
 5. Checklist doc completed with evidence links
 6. Rollback procedure validated
 
-### EI docs
+### Architecture
 
-- [docs/ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md](./ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md) — **Production checklist:** test slice (4 tests) + 6 operational gates. Pre-merge verification, rollback procedure
-- `config/source_of_truth/enlightened_intelligence_registry.yaml` ⚠️ *file not present* — EI registry: slots, llm_judge, embeddings, teacher_integrity
+| Layer | Purpose | Authority |
+|-------|---------|-----------|
+| **EI V1 (production)** | Per-slot candidate selection: heuristic scoring (somatic, concreteness, risk), embedding thesis alignment, teacher integrity penalties, deterministic hash or GA-best selector, optional LLM tie-break | `ei_adapter.py` |
+| **EI V2 (parallel/advisory)** | 6 enhanced AI modules: cross-encoder reranking, domain-tuned embeddings, few-shot safety classifiers, semantic dedup, emotion arc validation, TTS readability scoring. Config-gated, fail-open, deterministic | `ei_v2/__init__.py` |
+| **Parallel adapter** | Runs V1 + V2 on the same candidates, compares selections, produces comparison reports. V1 always wins; V2 is advisory only | `ei_parallel_adapter.py` |
+| **Rigorous eval harness** | 10-dimension quality scoring (therapeutic, engagement, journey, listen experience, marketability, safety, uniqueness, somatic precision, emotional coherence, cohesion) + V1/V2 slot comparison + timing benchmarks | `run_ei_v2_rigorous_eval.py` |
+
+### Docs
+
+| Item | Location |
+|------|----------|
+| **Production checklist** | [docs/ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md](./ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md) — Test slice (4 tests) + 6 operational gates; pre-merge verification, rollback procedure |
+| **EI registry** | `config/source_of_truth/enlightened_intelligence_registry.yaml` ⚠️ *file not present* — EI registry: slots, llm_judge, embeddings, teacher_integrity |
+
+### EI V1 modules (production)
+
+| Module | Location | Purpose |
+|--------|----------|---------|
+| **EI adapter (main entry)** | [phoenix_v4/quality/ei_adapter.py](../phoenix_v4/quality/ei_adapter.py) | `apply_ei_selection()`: threshold gates, heuristic scoring (somatic precision, concreteness, risk penalty), embedding thesis alignment, teacher integrity penalties, deterministic hash selector (`rule_best`) or score selector (`ga_best`), optional LLM tie-break. Composite: somatic 0.25 + concreteness 0.25 + thesis 0.35 − risk 0.25 − teacher_penalty 0.10 |
+| **Embedding thesis alignment** | [phoenix_v4/quality/ei_embeddings.py](../phoenix_v4/quality/ei_embeddings.py) | `thesis_similarity()`: cosine similarity between thesis and candidate embeddings. `EmbeddingCache` with SQLite backend. `get_embedding()` with pluggable `embed_fn` |
+| **LLM judge (tie-break)** | [phoenix_v4/quality/ei_llm_judge.py](../phoenix_v4/quality/ei_llm_judge.py) | `judge_tie_break()`: builds structured therapeutic rubric prompt, calls LLM, returns `LLMJudgeResult`. JSONL cache for determinism |
+| **Teacher integrity** | [phoenix_v4/quality/teacher_integrity.py](../phoenix_v4/quality/teacher_integrity.py) | `compute_teacher_integrity_penalty()`: phrase-matching for promotional tone, miracle claims, sectarian superiority, endorsement implication. `TeacherIntegrityPenalty` dataclass with softening for allowlisted phrases |
+
+### EI V2 modules (parallel/advisory)
+
+| Module | Location | Purpose |
+|--------|----------|---------|
+| **V2 entry point** | [phoenix_v4/quality/ei_v2/\_\_init\_\_.py](../phoenix_v4/quality/ei_v2/__init__.py) | `run_ei_v2_analysis()`: orchestrates all enabled V2 modules based on config. Returns `EIV2AnalysisReport` with per-candidate scores and V2 recommendation. `_select_v2_best()` for composite V2 scoring |
+| **Config loader** | [phoenix_v4/quality/ei_v2/config.py](../phoenix_v4/quality/ei_v2/config.py) | `load_ei_v2_config()`: loads defaults + merges from `config/quality/ei_v2_config.yaml`. All modules disabled by default; YAML enables them. Cached after first load |
+| **Cross-encoder reranker** | [phoenix_v4/quality/ei_v2/cross_encoder_reranker.py](../phoenix_v4/quality/ei_v2/cross_encoder_reranker.py) | `rerank_candidates()`: scores thesis-candidate relevance via semantic field overlap, token overlap (Jaccard), positional bonuses. Default `heuristic` mode; pluggable model callback. `_SEMANTIC_FIELDS` for domain terms |
+| **Safety classifier** | [phoenix_v4/quality/ei_v2/safety_classifier.py](../phoenix_v4/quality/ei_v2/safety_classifier.py) | `classify_safety()`: expanded pattern detection for medical claims, clinical language, promotional content, reassurance spam, pathologizing language. Negation handling. Default `heuristic_plus` mode; pluggable LLM |
+| **Domain embeddings** | [phoenix_v4/quality/ei_v2/domain_embeddings.py](../phoenix_v4/quality/ei_v2/domain_embeddings.py) | `domain_thesis_similarity()`: combines thesis alignment (token/semantic overlap) with persona affinity (`_PERSONA_LEXICONS`) and topic coherence (`_TOPIC_LEXICONS`). Default `weighted` heuristic mode; pluggable `embed_fn` |
+| **Semantic dedup** | [phoenix_v4/quality/ei_v2/semantic_dedup.py](../phoenix_v4/quality/ei_v2/semantic_dedup.py) | `detect_semantic_duplicates()`: word/char n-grams, paragraph shape similarity, narrative beat fingerprinting (`_BEAT_PATTERNS`). Default `ngram_plus_embedding` mode |
+| **Emotion arc validator** | [phoenix_v4/quality/ei_v2/emotion_arc_validator.py](../phoenix_v4/quality/ei_v2/emotion_arc_validator.py) | `validate_emotion_arc()`: internal valence/arousal lexicons score paragraph emotional trajectory against expected BAND values and `emotional_role`. Returns PASS/WARN/FAIL with deviation details |
+| **TTS readability** | [phoenix_v4/quality/ei_v2/tts_readability.py](../phoenix_v4/quality/ei_v2/tts_readability.py) | `score_tts_readability()`: sentence length distribution, rhythm variance, paragraph breaks, problematic TTS patterns (parenthetical, em-dash chains, all-caps), rhetorical questions. Composite 0–1 score |
+
+### Parallel adapter
+
+| Module | Location | Purpose |
+|--------|----------|---------|
+| **Parallel adapter** | [phoenix_v4/quality/ei_parallel_adapter.py](../phoenix_v4/quality/ei_parallel_adapter.py) | `compare_slot()`: runs V1 + V2 on identical candidates, returns `SlotComparisonResult`. `build_pipeline_comparison()`: aggregates into `PipelineComparisonReport`. `write_comparison_report()`: JSON + human-readable summary |
+
+### Config
+
+| Item | Location |
+|------|----------|
+| **EI V2 config** | [config/quality/ei_v2_config.yaml](../config/quality/ei_v2_config.yaml) — Enable/disable each V2 module, set modes (`heuristic`, `heuristic_plus`, `model`), thresholds, composite weights (rerank 0.35, safety 0.25, domain_similarity 0.20, tts_readability 0.20) |
+| **EI registry** | `config/source_of_truth/enlightened_intelligence_registry.yaml` ⚠️ *file not present* |
+
+### Tests
+
+| Item | Location |
+|------|----------|
+| **EI V2 test suite** | [tests/test_ei_v2.py](../tests/test_ei_v2.py) — 28 tests: cross-encoder reranker, safety classifier, semantic dedup, emotion arc validator, TTS readability, domain embeddings, V2 orchestration, config loading, parallel adapter comparison, pipeline report generation |
+
+### Scripts (evaluation)
+
+| Item | Location |
+|------|----------|
+| **Rigorous eval harness** | [scripts/ci/run_ei_v2_rigorous_eval.py](../scripts/ci/run_ei_v2_rigorous_eval.py) — Compiles + renders books across persona × topic × engine matrix, evaluates each chapter on 10 quality dimensions (therapeutic value, emotional coherence, engagement, chapter journey, cohesion, listen experience, marketability, safety compliance, content uniqueness, somatic precision), runs V1/V2 slot comparison, benchmarks timing. Flags: `--full` (7 books), `--sample N`. Outputs: `artifacts/ei_v2/eval_rigorous_report.json`, `artifacts/ei_v2/eval_rigorous_summary.txt` |
+
+### Pipeline integration
+
+| Item | Location | Purpose |
+|------|----------|---------|
+| **`--ei-v2-compare` flag** | [scripts/run_pipeline.py](../scripts/run_pipeline.py) | Post-render, runs `ei_parallel_adapter.compare_slot` for every atom in the book. Non-blocking try-except ensures V2 errors never halt the main pipeline. Outputs: `artifacts/ei_v2/ei_v1_v2_comparison.json`, `artifacts/ei_v2/ei_v1_v2_summary.txt` |
+
+### Artifacts
+
+| Item | Location |
+|------|----------|
+| **V1/V2 comparison report** | `artifacts/ei_v2/ei_v1_v2_comparison.json` — Per-slot V1 vs V2 chosen candidate, scores, timing, agreement rate |
+| **V1/V2 summary** | `artifacts/ei_v2/ei_v1_v2_summary.txt` — Human-readable executive summary: agreement rate, safety/dedup/TTS/arc flags, timing |
+| **Rigorous eval report** | `artifacts/ei_v2/eval_rigorous_report.json` — Full 10-dimension quality data for all evaluated books + V1/V2 comparison per slot |
+| **Rigorous eval summary** | `artifacts/ei_v2/eval_rigorous_summary.txt` — Dimension scorecard, per-book breakdown, performance benchmarks, weakest-to-strongest ranking |
+
+### V2 composite weights
+
+The V2 best-candidate selector uses these weights (configurable in `ei_v2_config.yaml`):
+
+| Dimension | Weight |
+|-----------|--------|
+| Cross-encoder rerank score | 0.35 |
+| Safety compliance (1 − risk) | 0.25 |
+| Domain thesis similarity | 0.20 |
+| TTS readability composite | 0.20 |
+
+### Rigorous eval quality dimensions
+
+The 10-dimension audiobook quality rubric (scored per chapter, aggregated per book):
+
+| # | Dimension | Weight | What it measures |
+|---|-----------|--------|-----------------|
+| 1 | Therapeutic Value | 0.15 | Recognition-first language, non-pathologizing, earned insight |
+| 2 | Emotional Coherence | 0.12 | Chapter arc matches blueprint BAND + emotional_role |
+| 3 | Engagement | 0.12 | Hook strength, narrative tension markers, forward momentum |
+| 4 | Chapter Journey | 0.12 | Clear point per chapter, progression signals, actionable takeaway |
+| 5 | Cohesion | 0.08 | Cross-chapter thread references, motif continuity |
+| 6 | Listen Experience | 0.12 | TTS readability: rhythm, sentence length, breath points, pacing |
+| 7 | Marketability | 0.10 | Invisible script feel, persona-specific language, concrete detail |
+| 8 | Safety Compliance | 0.08 | No medical claims, clinical language, promotional content |
+| 9 | Content Uniqueness | 0.05 | No duplicate atoms/structures across chapters |
+| 10 | Somatic Precision | 0.06 | Body-grounded moments, concrete sensory detail |
+
+### Latest eval results (baseline)
+
+Evaluated 6 books (78 chapters, 33,007 words) across 3 personas. Key findings:
+
+| Grade | Score | Dimension |
+|-------|-------|-----------|
+| A | 0.995 | Safety Compliance |
+| A | 0.939 | Emotional Coherence |
+| B | 0.710 | Therapeutic Value |
+| B | 0.619 | Chapter Journey |
+| C | 0.590 | Listen Experience |
+| C | 0.424 | Cohesion |
+| D | 0.362 | Somatic Precision |
+| D | 0.298 | Marketability |
+| D | 0.269 | Engagement |
+| F | 0.021 | Content Uniqueness |
+
+V1/V2 agreement rate: 20.4% across 431 slots. V2 flagged 698 dedup issues, 381 TTS problems, 65 arc concerns, 0 safety issues. V2 per-slot cost: 6.16ms (vs V1: 0.28ms). Total per-book: ~956ms avg.
+
+### V2 promotion gates
+
+V2 cannot replace V1 until **all three gates pass for 5 consecutive CI runs**. `auto_promote` is OFF; manual approval required even after criteria are met.
+
+| Gate | Criteria | Current |
+|------|----------|---------|
+| **1. Quality** | Composite >= 0.55; per-dimension floors (safety >= 0.95, emotional_coherence >= 0.85, etc.); agreement rate >= 10% | PASS |
+| **2. Performance** | V2 per-slot <= 50ms; V2/V1 ratio <= 100x; per-book overhead <= 5000ms | PASS |
+| **3. Safety** | Zero safety regressions; compliance >= 0.95; V2 must catch everything V1 catches | FAIL (2 chapter-level regressions) |
+
+Current status: **BLOCKED** — 0/5 consecutive passes. V1 is authoritative.
+
+| Item | Location |
+|------|----------|
+| **Promotion criteria config** | [config/quality/ei_v2_promotion_criteria.yaml](../config/quality/ei_v2_promotion_criteria.yaml) — Three gates (quality, performance, safety), consecutive pass requirement, auto_promote flag |
+| **Promotion gate checker** | [scripts/ci/check_ei_v2_promotion_gate.py](../scripts/ci/check_ei_v2_promotion_gate.py) — Reads eval report + criteria, checks all gates, appends to history, writes `promotion_gate_result.json` |
+| **CI workflow** | [.github/workflows/ei-v2-gates.yml](../.github/workflows/ei-v2-gates.yml) — Runs on EI code changes + weekly: unit tests → rigorous eval (3 books) → promotion gate check. Uploads evidence artifacts |
+| **Promotion history** | `artifacts/ei_v2/promotion_history.jsonl` — Append-only log of gate results per run; used for consecutive-pass tracking |
+| **Promotion result** | `artifacts/ei_v2/promotion_gate_result.json` — Latest gate check breakdown: pass/fail per gate, issues, consecutive count |
 
 ---
 
@@ -500,7 +711,15 @@ Teacher Mode is **100% production-ready** when: (1) strict validation and CI gat
 
 ## Tests (full inventory)
 
-All test files under `tests/`. Two are required status checks; remainder are available for CI expansion.
+All test files under `tests/`. Core tests workflow runs fast set (`-m "not slow"`); slow tests (atoms coverage, teacher E2E) run in release-gates or separately.
+
+### Test infrastructure
+
+| Item | Location |
+|------|----------|
+| **Test dependencies** | [requirements-test.txt](../requirements-test.txt) — pytest, pyyaml, jsonschema, feedparser |
+| **Pytest config** | [pytest.ini](../pytest.ini) — markers (slow, integration, e2e), testpaths |
+| **Shared fixtures** | [tests/conftest.py](../tests/conftest.py) — repo_root, fixtures_dir, config_root, atoms_root |
 
 | Test file | Purpose |
 |-----------|---------|
@@ -538,6 +757,7 @@ All test files under `tests/`. Two are required status checks; remainder are ava
 | [tests/test_validators.py](../tests/test_validators.py) | Core validators |
 | [tests/test_variation.py](../tests/test_variation.py) | Variation knob distribution |
 | [tests/test_wave_optimizer_constraint_solver.py](../tests/test_wave_optimizer_constraint_solver.py) | Wave optimizer constraint solver |
+| [tests/test_ei_v2.py](../tests/test_ei_v2.py) | EI V2 test suite: 28 tests — cross-encoder, safety, dedup, arc, TTS, domain embeddings, V2 orchestration, config, parallel adapter |
 
 ---
 
@@ -591,12 +811,29 @@ All payout package files (`payouts/cli.py`, `payouts/setup.py`, `payouts/plaid_s
 
 ## Translation, validation & multilingual
 
-Translation and validation pipeline: parallel sharded translation (atoms + exercises) to all locales (zh_CN, zh_TW, zh_HK, zh_SG, yue, ja_JP, ko_KR), deterministic validation (schema, locale script, coverage, meta/leakage, repetition), merge + global QA, golden regression. ⚠️ **Several translation files not present** — see ⚠️ markers.
+Translation and validation pipeline: parallel sharded translation (atoms + exercises) to all locales (zh_CN, zh_TW, zh_HK, zh_SG, yue, ja_JP, ko_KR), deterministic validation (schema, locale script, coverage, meta/leakage, repetition), merge + global QA, golden regression. ⚠️ **Several translation scripts not present** — see ⚠️ markers.
+
+### All-locale production readiness (verified state)
+
+| Dimension | Status |
+|-----------|--------|
+| **Docs/planning readiness** | **High** — content_roots_by_locale.yaml, LOCALE_PERSONAS.md, LOCALE_CATALOG_MARKETING_PLAN.md, ZH_CN_DISTRIBUTION_PLAN.md exist |
+| **All-locale runtime production readiness** | **Not 100% yet** |
+
+**Still blocking 100% all-language production:**
+
+1. **Locale atom roots missing on disk** — `atoms/zh-CN`, `atoms/zh-TW`, `atoms/ja-JP`, etc. are missing; only `atoms/` for en-US exists (personas directly under atoms/).
+2. **Translation execution script missing** — `scripts/translate_atoms_all_locales_cloud.py` is not present.
+3. **Localized content not generated/validated yet** — Planning docs exist; runtime content does not.
 
 ### Docs
 
 | Item | Location |
 |------|----------|
+| **Locale personas** | [docs/LOCALE_PERSONAS.md](./LOCALE_PERSONAS.md) — 40 persona definitions across 11 non-en-US locales (anxious_insomniac_tw, burned_out_professional_tw, etc.) |
+| **All-locale catalog marketing plan** | [docs/LOCALE_CATALOG_MARKETING_PLAN.md](./LOCALE_CATALOG_MARKETING_PLAN.md) — Per-locale positioning, go-live checklists, readiness tracker for all 12 locales |
+| **zh-CN distribution plan** | [docs/ZH_CN_DISTRIBUTION_PLAN.md](./ZH_CN_DISTRIBUTION_PLAN.md) — Local platform pipeline (Ximalaya, NetEase, WeChat Read, Dedao); Phase 5 prerequisite checklist |
+| **Locale strategy (rollout phases)** | [del_location_plan/locale_strategy.md](../del_location_plan/locale_strategy.md) — One brand = one locale; Phase 1–5 rollout; distribution routing; CI gate #49 |
 | **Locale prose & prompting** | `docs/LOCALE_PROSE_AND_PROMPTING.md` ⚠️ *file not present* |
 | **Multilingual architecture** | `docs/MULTILINGUAL_ARCHITECTURE.md` ⚠️ *file not present* |
 | **Korean market & prose** | `docs/KOREA_MARKET_AND_PROSE.md` ⚠️ *file not present* |
@@ -614,7 +851,13 @@ Translation and validation pipeline: parallel sharded translation (atoms + exerc
 
 ### Config & quality contracts
 
-All quality_contracts/ files and `config/localization/content_roots_by_locale.yaml` ⚠️ *not present in repo*.
+| Item | Location |
+|------|----------|
+| **Content roots by locale** | [config/localization/content_roots_by_locale.yaml](../config/localization/content_roots_by_locale.yaml) — Maps all 12 locales to atoms_root, translation paths, TTS constraints, rollout phase, and distribution blockers. |
+| **Locale registry** | [config/localization/locale_registry.yaml](../config/localization/locale_registry.yaml) — All 12 locale definitions: language, script, TTS provider, storefront IDs, distribution rules. |
+| **Brand locale extension** | [config/localization/brand_registry_locale_extension.yaml](../config/localization/brand_registry_locale_extension.yaml) — Per-brand locale and territory. One brand = one locale. |
+
+All `quality_contracts/` per-locale validation files ⚠️ *not present* (planned path: `config/localization/quality_contracts/<locale>/`).
 
 ### CI / workflow
 
@@ -638,6 +881,7 @@ All root-level `scripts/*.py` files confirmed present on disk.
 | [scripts/run_pipeline.py](../scripts/run_pipeline.py) | Full 6-stage pipeline CLI — see Delivery pipeline section |
 | [scripts/run_production_readiness_gates.py](../scripts/run_production_readiness_gates.py) | Production readiness gate runner |
 | [scripts/render_plan_to_txt.py](../scripts/render_plan_to_txt.py) | Standalone render from saved plan JSON |
+| [scripts/release/rollback_smoke.sh](../scripts/release/rollback_smoke.sh) | Post-restore verification (gates + pytest); DR drill evidence |
 | [scripts/build_proof_chapter.py](../scripts/build_proof_chapter.py) | Build a single proof chapter from atoms + plan |
 | [scripts/check_spec_version_bump.py](../scripts/check_spec_version_bump.py) | Verify spec version is bumped on breaking changes |
 | [scripts/clean_atom_prose.py](../scripts/clean_atom_prose.py) | Batch clean atom prose files (strip metadata artifacts) |
@@ -645,6 +889,7 @@ All root-level `scripts/*.py` files confirmed present on disk.
 | [scripts/create_freebie_assets.py](../scripts/create_freebie_assets.py) | Generate freebie assets (PDFs, landing copy) from plan |
 | [scripts/fill_non_story_coverage_gaps.py](../scripts/fill_non_story_coverage_gaps.py) | Fill missing HOOK/SCENE/REFLECTION/INTEGRATION/EXERCISE CANONICAL.txt files |
 | [scripts/generate_arcs_from_backlog.py](../scripts/generate_arcs_from_backlog.py) | Batch-generate arc YAMLs from arc backlog config |
+| [scripts/generate_author_cover_art_bases.py](../scripts/generate_author_cover_art_bases.py) | Author cover art base PNGs → assets/authors/cover_art/{author_id}_base.png (see Author cover art §) |
 | [scripts/generate_full_catalog.py](../scripts/generate_full_catalog.py) | Generate full 1,008-title US catalog plan JSON |
 | [scripts/generate_landing_pages.py](../scripts/generate_landing_pages.py) | Generate landing page HTML for each freebie |
 | [scripts/generate_teacher_gap_atoms.py](../scripts/generate_teacher_gap_atoms.py) | Generate candidate atoms for teachers with pool gaps |
@@ -672,7 +917,13 @@ All `scripts/ci/` files confirmed present on disk.
 |--------|---------|
 | [scripts/ci/check_docs_governance.py](../scripts/ci/check_docs_governance.py) | **DOCS_INDEX link integrity + Last updated staleness** — fails if any linked file is missing; warns on stale date |
 | [scripts/ci/check_author_positioning.py](../scripts/ci/check_author_positioning.py) | Author positioning validation: pen name, bio, positioning consistency |
+| [scripts/ci/check_author_cover_art.py](../scripts/ci/check_author_cover_art.py) | Author cover art: every launchable author has registry + PNG + style/palette (Gate 18) |
 | [scripts/ci/check_book_output_no_placeholders.py](../scripts/ci/check_book_output_no_placeholders.py) | Hard-fail if any placeholder pattern survives rendered output |
+| [scripts/ci/check_book_output_tier0_contract.py](../scripts/ci/check_book_output_tier0_contract.py) | Tier 0 book output contract (config-driven forbidden patterns) |
+| [scripts/ci/run_simulation_10k.py](../scripts/ci/run_simulation_10k.py) | 10k sim for CI |
+| [scripts/ci/analyze_pearl_prime_sim.py](../scripts/ci/analyze_pearl_prime_sim.py) | Pass rate by dimension; best/worst combos; threshold gate |
+| [scripts/ci/run_rigorous_system_test.py](../scripts/ci/run_rigorous_system_test.py) | Systems test + variation + atoms coverage + optional sim |
+| [scripts/ci/run_canary_100_books.py](../scripts/ci/run_canary_100_books.py) | Real pipeline canary on sampled arcs |
 | [scripts/ci/check_doctrine_drift.py](../scripts/ci/check_doctrine_drift.py) | Detect teacher doctrine drift vs approved baseline |
 | [scripts/ci/check_doctrine_schema.py](../scripts/ci/check_doctrine_schema.py) | Doctrine YAML schema validation per teacher |
 | [scripts/ci/check_export_no_bypass.py](../scripts/ci/check_export_no_bypass.py) | Verify export path cannot bypass release gates |
@@ -717,6 +968,8 @@ Config files in `config/source_of_truth/` that control prose style, chapter comp
 | [config/source_of_truth/section_reorder_modes.yaml](../config/source_of_truth/section_reorder_modes.yaml) | Section reorder modes |
 | [config/source_of_truth/intro_ending_variation.yaml](../config/source_of_truth/intro_ending_variation.yaml) | Intro/ending variation feature flag (`intro_ending_variation_enabled: true`) |
 | [config/source_of_truth/mechanism_aliases/_schema.yaml](../config/source_of_truth/mechanism_aliases/_schema.yaml) | Mechanism alias schema |
+| [config/quality/tier0_book_output_contract.yaml](../config/quality/tier0_book_output_contract.yaml) | Tier 0 book output contract (forbidden patterns, min word count) |
+| [config/observability_production_signals.yaml](../config/observability_production_signals.yaml) | Production signal registry for POLES collector |
 | [config/source_of_truth/mechanism_aliases/_naming_template.md](../config/source_of_truth/mechanism_aliases/_naming_template.md) | Mechanism alias naming template |
 
 ---
@@ -752,16 +1005,40 @@ All docs that declare authority must reference the three canonical anchors: `SYS
 
 **What "document all" means:** Subsections titled "Document all" or "(document all)" list every doc, script, config, and artifact for that domain. Use them for coverage checks and "is X anywhere in the index?"
 
-**When to add a doc:**
-- New doc that declares authority or is referenced by specs → add to the appropriate section and to the complete inventory below.
-- New script/config that is part of a documented system → add to that section's Document all table.
+### When to add
 
-**How to add:**
-1. Place in the correct section (e.g. Pearl News, Teacher Mode, Translation).
-2. Add a row to the "Document all — complete inventory" below. Use ✓ if file exists, ⚠️ if referenced but missing.
-3. If the doc declares authority, ensure it references the three canonical anchors: [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md), [specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md](../specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md), [specs/PHOENIX_V4_5_WRITER_SPEC.md](../specs/PHOENIX_V4_5_WRITER_SPEC.md).
+| Trigger | Action |
+|---------|--------|
+| New doc that declares authority or is referenced by specs | Add to the appropriate section and to the complete inventory below |
+| New script/config that is part of a documented system | Add to that section's Document all table |
+| New workflow, artifact, or config file | Add to the domain subsection (e.g. Rigorous system test, Pearl News, Teacher Mode) |
+| File is planned but not yet created | Add with ⚠️ *file not present* in the inventory |
 
-**North star for go/no-go:** [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md) §6 Hard NOs.
+### How to add
+
+1. **Place in the correct section** — Match the domain (e.g. Pearl News, Teacher Mode, Translation, Rigorous system test).
+2. **Add a row to the domain's Document all table** — If the section has a table (Docs, Scripts, Config, Artifacts, CI), add the item there.
+3. **Add to "Document all — complete inventory"** — Use ✓ if file exists, ⚠️ if referenced but missing.
+4. **Authority docs** — If the doc declares authority, ensure it references the three canonical anchors: [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md), [specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md](../specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md), [specs/PHOENIX_V4_5_WRITER_SPEC.md](../specs/PHOENIX_V4_5_WRITER_SPEC.md).
+
+### Domain-specific subsections (document all)
+
+| Section | Anchor | Purpose |
+|---------|--------|---------|
+| [Rigorous system test & simulation](#rigorous-system-test--simulation-document-all) | § Rigorous system test | Simulation, 10k/100k, analyzer, variation report, config, artifacts, CI |
+| [Pearl News](#pearl-news-document-all) | § Pearl News | Pipeline, docs, scripts, config, tests, artifacts, workflows |
+| [Marketing & deep research](#marketing--deep-research-document-all) | § Marketing | Deep research prompts, invisible script, marketing brief |
+| [Church & payout](#church--payout-distribution-only-brands) | § Church | Church docs, brand config, scripts, tests, CI |
+| [Teacher Mode & production readiness](#teacher-mode--production-readiness-document-all) | § Teacher Mode | Teacher gates, doctrine, config, tests, artifacts, workflows |
+| [Mechanism alias system](#mechanism-alias-system-document-all) | § Mechanism alias | Schema, alias files, renderer integration |
+| [Delivery pipeline](#delivery-pipeline-document-all) | § Delivery pipeline | Renderer, CLI, delivery contract, word-count gate, artifacts |
+| [Enlightened Intelligence V1 & V2](#enlightened-intelligence-ei--v1--v2-document-all) | § EI | V1 modules, V2 modules (6 AI techniques), parallel adapter, eval harness, config, tests, artifacts |
+| [Phoenix Churches Payout System](#phoenix-churches-payout-system-document-all) | § Payout | Spec, config, package (most files ⚠️ missing) |
+
+### Governance
+
+- **Link integrity:** [scripts/ci/check_docs_governance.py](../scripts/ci/check_docs_governance.py) — Fails if any linked file is missing; warns on stale date.
+- **North star for go/no-go:** [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md) §6 Hard NOs.
 
 ---
 
@@ -776,6 +1053,10 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md) | Canonical authority | ✓ |
 | [DOCS_INDEX.md](./DOCS_INDEX.md) | Canonical authority | ✓ |
 | [RIGOROUS_SYSTEM_TEST.md](./RIGOROUS_SYSTEM_TEST.md) | Core system docs | ✓ |
+| [FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md) | Core system docs | ✓ |
+| [BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md) | Core system docs | ✓ |
+| [DISASTER_RECOVERY_DRILL_CHECKLIST.md](./DISASTER_RECOVERY_DRILL_CHECKLIST.md) | Core system docs | ✓ |
+| [MARKETING_DEEP_RESEARCH_PROMPTS.md](./MARKETING_DEEP_RESEARCH_PROMPTS.md) | Marketing & deep research | ✓ |
 | [PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md](./PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md) | Core system docs | ✓ |
 | [SYSTEMS_V4.md](./SYSTEMS_V4.md) | Core system docs | ✓ |
 | [PLANNING_STATUS.md](./PLANNING_STATUS.md) | Core system docs | ✓ |
@@ -794,18 +1075,19 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [RELEASE_VELOCITY_AND_SCHEDULE.md](./RELEASE_VELOCITY_AND_SCHEDULE.md) | Brand & release | ✓ |
 | [PLATFORM_HARDENING_PHASES_3-8_OUTLINE.md](./PLATFORM_HARDENING_PHASES_3-8_OUTLINE.md) | Brand & release | ✓ |
 | [church_docs/README.md](./church_docs/README.md) | Church & payout | ✓ |
-| `norcal_dharma.yaml` | Church & payout | ⚠️ missing |
+| `docs/norcal_dharma.yaml` | Church & payout | ⚠️ missing |
 | [adr/ADR-002-distribution-only-church-brand.md](./adr/ADR-002-distribution-only-church-brand.md) | Church & payout, ADRs | ✓ |
 | [BOOK_001_ASSEMBLY_CONTRACT.md](./BOOK_001_ASSEMBLY_CONTRACT.md) | Book & authoring | ✓ |
 | [BOOK_001_FREEZE.md](./BOOK_001_FREEZE.md) | Book & authoring | ✓ |
 | [BOOK_001_READINESS_CHECKLIST.md](./BOOK_001_READINESS_CHECKLIST.md) | Book & authoring | ✓ |
 | [BOOK_001_POST_MORTEM.md](./BOOK_001_POST_MORTEM.md) | Book & authoring | ✓ |
 | [authoring/AUTHOR_ASSET_WORKBOOK.md](./authoring/AUTHOR_ASSET_WORKBOOK.md) | Book & authoring | ✓ |
+| [authoring/AUTHOR_COVER_ART_SYSTEM.md](./authoring/AUTHOR_COVER_ART_SYSTEM.md) | Book & authoring | ✓ |
 | [WRITER_BRIEF_BOOK_001.md](./WRITER_BRIEF_BOOK_001.md) | Book & authoring | ✓ |
 | [WRITER_COMMS_SYSTEMS_100.md](./WRITER_COMMS_SYSTEMS_100.md) | Book & authoring | ✓ |
 | [WRITER_SPEC_MARKDOWN_AND_DOCX.md](./WRITER_SPEC_MARKDOWN_AND_DOCX.md) | Book & authoring | ✓ |
 | [FIRST_10_BOOKS_EVALUATION_PROTOCOL.md](./FIRST_10_BOOKS_EVALUATION_PROTOCOL.md) | Book & authoring | ✓ |
-| [ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md](./ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md) | Enlightened Intelligence | ✓ |
+| [ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md](./ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md) | Enlightened Intelligence (V1/V2) | ✓ |
 | [MANUSCRIPT_QUALITY_IMPLEMENTATION_CHECKLIST.md](./MANUSCRIPT_QUALITY_IMPLEMENTATION_CHECKLIST.md) | Manuscript quality | ✓ |
 | `PRODUCTION_READINESS_GO_NO_GO.md` | Manuscript quality | ⚠️ missing |
 | `RELEASE_PRODUCTION_READINESS_CHECKLIST.md` | Manuscript quality | ⚠️ missing |
@@ -837,10 +1119,13 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [adr/README.md](./adr/README.md) | ADRs | ✓ |
 | [SCHEMA_CHANGELOG.md](./SCHEMA_CHANGELOG.md) | Schema & audit | ✓ |
 | [AUDIT_OLD_CHAT_SPECS_VS_V4.md](./AUDIT_OLD_CHAT_SPECS_VS_V4.md) | Schema & audit | ✓ |
+| [LOCALE_PERSONAS.md](./LOCALE_PERSONAS.md) | Locale personas | ✓ — 40 persona definitions across all 11 non-en-US locales (zh-TW, zh-HK, zh-CN, zh-SG, ja-JP, ko-KR, es-US, es-ES, fr-FR, de-DE, hu-HU) |
+| [LOCALE_CATALOG_MARKETING_PLAN.md](./LOCALE_CATALOG_MARKETING_PLAN.md) | All-locale marketing plan | ✓ — Per-locale positioning, go-live checklists, readiness tracker for all 12 locales |
+| [ZH_CN_DISTRIBUTION_PLAN.md](./ZH_CN_DISTRIBUTION_PLAN.md) | zh-CN distribution | ✓ — Local platform pipeline (Ximalaya, NetEase, WeChat Read, Dedao); Phase 5 prerequisite checklist |
 | `LOCALE_PROSE_AND_PROMPTING.md` | Translation | ⚠️ missing |
 | `MULTILINGUAL_ARCHITECTURE.md` | Translation | ⚠️ missing |
-| `KOREA_MARKET_AND_PROSE.md` | Translation | ⚠️ missing |
-| `JAPANESE_MARKET_SELFHELP_GUIDE.md` | Translation | ⚠️ missing |
+| `KOREA_MARKET_AND_PROSE.md` | Translation | ⚠️ missing (covered in LOCALE_PERSONAS.md + locale_strategy.md) |
+| `JAPANESE_MARKET_SELFHELP_GUIDE.md` | Translation | ⚠️ missing (covered in LOCALE_PERSONAS.md + locale_strategy.md) |
 
 ### Specs (specs/)
 
@@ -851,6 +1136,7 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [specs/README.md](../specs/README.md) | Core system docs | ✓ |
 | `specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md` | Phoenix Churches Payout | ⚠️ missing |
 | [specs/V4_5_PRODUCTION_READINESS_CHECKLIST.md](../specs/V4_5_PRODUCTION_READINESS_CHECKLIST.md) | Simulation | ✓ |
+| [specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md) | Marketing & deep research | ✓ |
 
 ### Specs — full index
 
@@ -897,6 +1183,11 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 
 | Item | Section | Status |
 |------|---------|--------|
+| [requirements-test.txt](../requirements-test.txt) | Test infrastructure | ✓ |
+| [pytest.ini](../pytest.ini) | Test infrastructure | ✓ |
+| [tests/conftest.py](../tests/conftest.py) | Test infrastructure | ✓ |
+| [artifacts/reports/pearl_prime_sim_baseline.json](../artifacts/reports/pearl_prime_sim_baseline.json) | Simulation | ✓ |
+| [artifacts/dr_drill/](../artifacts/dr_drill/) | DR | ✓ |
 | [ONBOARDING.md](../ONBOARDING.md) | Core system docs | ✓ |
 | [pearl_news/README.md](../pearl_news/README.md) | Pearl News | ✓ |
 | [pearl_news/publish/README.md](../pearl_news/publish/README.md) | Pearl News | ✓ |
@@ -913,24 +1204,32 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 
 | Config | Section | Status |
 |--------|---------|--------|
-| `config/source_of_truth/enlightened_intelligence_registry.yaml` | Enlightened Intelligence | ⚠️ missing |
-| `config/quality/tier0_book_output_contract.yaml` | Manuscript quality | ⚠️ missing |
+| `config/source_of_truth/enlightened_intelligence_registry.yaml` | Enlightened Intelligence (V1/V2) | ⚠️ missing |
+| [config/quality/ei_v2_config.yaml](../config/quality/ei_v2_config.yaml) | Enlightened Intelligence V2 | ✓ — Enable/disable V2 modules, modes, thresholds, composite weights |
+| [config/quality/ei_v2_promotion_criteria.yaml](../config/quality/ei_v2_promotion_criteria.yaml) | Enlightened Intelligence V2 promotion | ✓ — Three gates (quality, performance, safety), consecutive passes, auto_promote |
+| [config/quality/tier0_book_output_contract.yaml](../config/quality/tier0_book_output_contract.yaml) | Manuscript quality | ✓ |
+| [config/observability_production_signals.yaml](../config/observability_production_signals.yaml) | Observability | ✓ |
 | `config/quality/canary_config.yaml` | Manuscript quality | ⚠️ missing |
 | `config/payouts/churches.yaml` | Phoenix Churches Payout | ⚠️ missing |
 | `config/payouts/payees.yaml` | Phoenix Churches Payout | ⚠️ missing |
 | `config/payouts/credentials.yaml.example` | Phoenix Churches Payout | ⚠️ missing |
 | `config/payouts/fill_template.csv` | Phoenix Churches Payout | ⚠️ missing |
 | [config/teachers/teacher_registry.yaml](../config/teachers/teacher_registry.yaml) | Teacher Mode | ✓ |
+| [config/authoring/author_cover_art_registry.yaml](../config/authoring/author_cover_art_registry.yaml) | Book & authoring (Author cover art) | ✓ |
+| `config/marketing/invisible_scripts_by_persona_topic.yaml` | Marketing & deep research | ⚠️ missing — target output from MARKETING_DEEP_RESEARCH_PROMPTS sub-prompt 4 |
 | [.github/workflows/teacher-gates.yml](../.github/workflows/teacher-gates.yml) | Teacher Mode | ✓ |
 | [.github/workflows/brand-guards.yml](../.github/workflows/brand-guards.yml) | Church & payout (NorCal Dharma brand guards) | ✓ |
 | `quality_contracts/README.md` | Translation | ⚠️ missing |
 | `quality_contracts/glossary.yaml` | Translation | ⚠️ missing |
 | `quality_contracts/release_thresholds.yaml` | Translation | ⚠️ missing |
 | `quality_contracts/golden_translation_regression.yaml` | Translation | ⚠️ missing |
-| `config/localization/content_roots_by_locale.yaml` | Translation | ⚠️ missing |
+| [config/localization/content_roots_by_locale.yaml](../config/localization/content_roots_by_locale.yaml) | Translation | ✓ — all 12 locales mapped with atoms_root, TTS constraints, rollout phase, distribution blockers |
 | `.github/workflows/translate-atoms-qwen-matrix.yml` | Translation | ⚠️ missing |
-| `.github/workflows/simulation-10k.yml` | Simulation CI | ⚠️ missing |
-| `.github/workflows/release-gates.yml` | Simulation CI | ⚠️ missing |
+| [.github/workflows/core-tests.yml](../.github/workflows/core-tests.yml) | Core CI | ✓ |
+| [.github/workflows/simulation-10k.yml](../.github/workflows/simulation-10k.yml) | Simulation CI | ✓ |
+| [.github/workflows/release-gates.yml](../.github/workflows/release-gates.yml) | Release CI | ✓ |
+| [.github/workflows/production-observability.yml](../.github/workflows/production-observability.yml) | Observability | ✓ |
+| [.github/workflows/ei-v2-gates.yml](../.github/workflows/ei-v2-gates.yml) | Enlightened Intelligence V2 CI | ✓ — Unit tests → rigorous eval → promotion gate check; weekly + on EI code changes |
 | [config/format_selection/format_registry.yaml](../config/format_selection/format_registry.yaml) | Simulation / Delivery | ✓ |
 | [config/format_selection/selection_rules.yaml](../config/format_selection/selection_rules.yaml) | Simulation | ✓ |
 | `config/source_of_truth/chapter_order_modes.yaml` | Simulation | ⚠️ missing |
@@ -956,22 +1255,43 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [phoenix_v4/rendering/book_renderer.py](../phoenix_v4/rendering/book_renderer.py) | Delivery pipeline / Mechanism alias | ✓ |
 | [phoenix_v4/rendering/prose_resolver.py](../phoenix_v4/rendering/prose_resolver.py) | Delivery pipeline | ✓ |
 | [phoenix_v4/rendering/__init__.py](../phoenix_v4/rendering/__init__.py) | Delivery pipeline | ✓ |
+| [phoenix_v4/quality/ei_adapter.py](../phoenix_v4/quality/ei_adapter.py) | Enlightened Intelligence V1 | ✓ — `apply_ei_selection()`: heuristic scoring, embedding thesis alignment, selector, LLM tie-break |
+| [phoenix_v4/quality/ei_embeddings.py](../phoenix_v4/quality/ei_embeddings.py) | Enlightened Intelligence V1 | ✓ — `thesis_similarity()`: cosine similarity, SQLite cache |
+| [phoenix_v4/quality/ei_llm_judge.py](../phoenix_v4/quality/ei_llm_judge.py) | Enlightened Intelligence V1 | ✓ — `judge_tie_break()`: LLM-based candidate comparison, JSONL cache |
+| [phoenix_v4/quality/teacher_integrity.py](../phoenix_v4/quality/teacher_integrity.py) | Enlightened Intelligence V1 | ✓ — `compute_teacher_integrity_penalty()`: phrase-matching safety |
+| [phoenix_v4/quality/ei_v2/\_\_init\_\_.py](../phoenix_v4/quality/ei_v2/__init__.py) | Enlightened Intelligence V2 | ✓ — `run_ei_v2_analysis()`: orchestrates all V2 modules |
+| [phoenix_v4/quality/ei_v2/config.py](../phoenix_v4/quality/ei_v2/config.py) | Enlightened Intelligence V2 | ✓ — `load_ei_v2_config()`: YAML + defaults merge |
+| [phoenix_v4/quality/ei_v2/cross_encoder_reranker.py](../phoenix_v4/quality/ei_v2/cross_encoder_reranker.py) | Enlightened Intelligence V2 | ✓ — `rerank_candidates()`: semantic + token overlap reranking |
+| [phoenix_v4/quality/ei_v2/safety_classifier.py](../phoenix_v4/quality/ei_v2/safety_classifier.py) | Enlightened Intelligence V2 | ✓ — `classify_safety()`: expanded pattern detection + negation |
+| [phoenix_v4/quality/ei_v2/domain_embeddings.py](../phoenix_v4/quality/ei_v2/domain_embeddings.py) | Enlightened Intelligence V2 | ✓ — `domain_thesis_similarity()`: persona + topic weighted |
+| [phoenix_v4/quality/ei_v2/semantic_dedup.py](../phoenix_v4/quality/ei_v2/semantic_dedup.py) | Enlightened Intelligence V2 | ✓ — `detect_semantic_duplicates()`: n-gram + beat fingerprint |
+| [phoenix_v4/quality/ei_v2/emotion_arc_validator.py](../phoenix_v4/quality/ei_v2/emotion_arc_validator.py) | Enlightened Intelligence V2 | ✓ — `validate_emotion_arc()`: valence/arousal lexicon scoring |
+| [phoenix_v4/quality/ei_v2/tts_readability.py](../phoenix_v4/quality/ei_v2/tts_readability.py) | Enlightened Intelligence V2 | ✓ — `score_tts_readability()`: rhythm, sentence length, TTS patterns |
+| [phoenix_v4/quality/ei_parallel_adapter.py](../phoenix_v4/quality/ei_parallel_adapter.py) | Enlightened Intelligence (parallel) | ✓ — `compare_slot()`, `build_pipeline_comparison()`, `write_comparison_report()` |
+| [scripts/ci/run_ei_v2_rigorous_eval.py](../scripts/ci/run_ei_v2_rigorous_eval.py) | Enlightened Intelligence (eval) | ✓ — 10-dimension quality eval + V1/V2 comparison + timing benchmarks |
+| [scripts/ci/check_ei_v2_promotion_gate.py](../scripts/ci/check_ei_v2_promotion_gate.py) | Enlightened Intelligence (promotion) | ✓ — Checks eval report against promotion criteria; tracks consecutive passes |
+| [phoenix_title_engine.py](../phoenix_title_engine.py) | Marketing & deep research | ✓ |
+| [phoenix_title_engine_v3.py](../phoenix_title_engine_v3.py) | Marketing & deep research | ✓ |
+| [phoenix_title_engine_v4.py](../phoenix_title_engine_v4.py) | Marketing & deep research | ✓ |
 | [scripts/ci/run_teacher_production_gates.py](../scripts/ci/run_teacher_production_gates.py) | Teacher Mode | ✓ |
 | [scripts/ci/check_doctrine_schema.py](../scripts/ci/check_doctrine_schema.py) | Teacher Mode | ✓ |
 | [scripts/ci/check_teacher_readiness.py](../scripts/ci/check_teacher_readiness.py) | Teacher Mode | ✓ |
 | [scripts/ci/check_teacher_synthetic_governance.py](../scripts/ci/check_teacher_synthetic_governance.py) | Teacher Mode | ✓ |
+| [scripts/ci/check_author_cover_art.py](../scripts/ci/check_author_cover_art.py) | Book & authoring (Author cover art Gate 18) | ✓ |
 | [scripts/teacher_stub_f006_slots.py](../scripts/teacher_stub_f006_slots.py) | Teacher Mode | ✓ |
+| [scripts/generate_author_cover_art_bases.py](../scripts/generate_author_cover_art_bases.py) | Book & authoring (Author cover art) | ✓ |
+| [phoenix_v4/planning/author_cover_art_resolver.py](../phoenix_v4/planning/author_cover_art_resolver.py) | Book & authoring (Author cover art; pipeline output) | ✓ |
 | [scripts/ci/report_variation_knobs.py](../scripts/ci/report_variation_knobs.py) | Simulation | ✓ |
-| `scripts/ci/run_simulation_10k.py` | Simulation | ⚠️ missing |
+| [scripts/ci/run_simulation_10k.py](../scripts/ci/run_simulation_10k.py) | Simulation | ✓ |
 | `scripts/ci/run_simulation_100k.py` | Simulation | ⚠️ missing |
-| `scripts/ci/analyze_pearl_prime_sim.py` | Simulation | ⚠️ missing |
-| `scripts/ci/run_rigorous_system_test.py` | Simulation | ⚠️ missing |
-| `scripts/ci/check_book_output_tier0_contract.py` | Manuscript quality | ⚠️ missing |
+| [scripts/ci/analyze_pearl_prime_sim.py](../scripts/ci/analyze_pearl_prime_sim.py) | Simulation | ✓ |
+| [scripts/ci/run_rigorous_system_test.py](../scripts/ci/run_rigorous_system_test.py) | Simulation | ✓ |
+| [scripts/ci/check_book_output_tier0_contract.py](../scripts/ci/check_book_output_tier0_contract.py) | Manuscript quality | ✓ |
 | `scripts/ci/tier0_trend.py` | Manuscript quality | ⚠️ missing |
-| `scripts/ci/run_canary_100_books.py` | Manuscript quality | ⚠️ missing |
+| [scripts/ci/run_canary_100_books.py](../scripts/ci/run_canary_100_books.py) | Simulation / Release | ✓ |
+| [scripts/release/rollback_smoke.sh](../scripts/release/rollback_smoke.sh) | Release / DR | ✓ |
 | [scripts/ci/check_norcal_dharma_brand_guards.py](../scripts/ci/check_norcal_dharma_brand_guards.py) | Church & payout | ✓ |
 | [scripts/ci/check_church_yaml_no_sensitive_tokens.py](../scripts/ci/check_church_yaml_no_sensitive_tokens.py) | Church & payout | ✓ |
-| `scripts/ci/check_norcal_dharma_export.py` | Church & payout | ⚠️ missing |
 | [scripts/ops/smoke_church_brand_resolution.py](../scripts/ops/smoke_church_brand_resolution.py) | Church & payout | ✓ |
 | [phoenix_v4/ops/church_loader.py](../phoenix_v4/ops/church_loader.py) | Church & payout | ✓ |
 | `scripts/translate_atoms_all_locales_cloud.py` | Translation | ⚠️ missing |

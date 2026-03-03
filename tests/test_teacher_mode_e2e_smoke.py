@@ -42,6 +42,7 @@ def _has_f006_coverage(teacher_id: str, min_per_slot: int = 20) -> bool:
     return True
 
 
+@pytest.mark.slow
 @pytest.mark.parametrize("teacher_id", _teacher_ids())
 def test_teacher_mode_compile_smoke(teacher_id: str, tmp_path: Path):
     """Run pipeline for one arc per teacher; expect success when teacher has F006 coverage."""

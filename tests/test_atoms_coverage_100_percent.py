@@ -125,6 +125,7 @@ def _has_story_pool(atoms_root: Path, persona: str, topic: str, engine: str) -> 
         return False, 0
 
 
+@pytest.mark.slow
 def test_100_percent_atoms_for_all_books():
     """
     Sim test: every (persona, topic, engine) in the catalog has a non-empty STORY pool
@@ -173,6 +174,7 @@ def test_100_percent_atoms_for_all_books():
         print(f"\nShallow pools (below min_story_pool_size={min_depth}): {len(shallow)}. Examples: {shallow_msg}")
 
 
+@pytest.mark.slow
 def test_100_percent_non_story_atoms_for_all_books():
     """
     Every (persona, topic) has non-empty HOOK, SCENE, REFLECTION, EXERCISE, INTEGRATION pools
@@ -214,6 +216,7 @@ def test_100_percent_non_story_atoms_for_all_books():
         )
 
 
+@pytest.mark.slow
 def test_non_story_coverage_summary():
     """Print non-STORY coverage summary (always runs; does not fail). Useful for CI logs."""
     if not CONFIG_ROOT.exists() or not ATOMS_ROOT.exists():
@@ -237,6 +240,7 @@ def test_non_story_coverage_summary():
             print(f"  {st}: {len(m)} missing (first 5): {[f'{p}/{t}' for p, t in m[:5]]}")
 
 
+@pytest.mark.slow
 def test_atoms_coverage_summary():
     """Print coverage summary (always runs; does not fail). Useful for CI logs."""
     if not CONFIG_ROOT.exists() or not ATOMS_ROOT.exists():

@@ -12,7 +12,12 @@ assets/authors/<author_id>/
   why_this_book.yaml
   authority_position.yaml
   audiobook_pre_intro.yaml
+
+assets/authors/cover_art/
+  {author_id}_base.png   # Author signature cover art base (first 10 authors of every catalog)
 ```
+
+Cover art base backgrounds: see [docs/authoring/AUTHOR_COVER_ART_SYSTEM.md](../../docs/authoring/AUTHOR_COVER_ART_SYSTEM.md). Generate with `python3 scripts/generate_author_cover_art_bases.py`.
 
 Each file must exist and meet the word ranges and content rules in the AUTHOR_ASSET_WORKBOOK. The pipeline fails (Writer Spec §23.9) if any required asset is missing when `author_id` is set.
 

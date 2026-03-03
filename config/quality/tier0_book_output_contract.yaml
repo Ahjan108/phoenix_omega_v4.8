@@ -1,0 +1,33 @@
+# Tier 0 Book Output Contract — hard fail before export.
+# Authority: docs/MANUSCRIPT_QUALITY_IMPLEMENTATION_CHECKLIST.md
+# Check: scripts/ci/check_book_output_tier0_contract.py
+
+# Forbidden patterns (regex, line-level). Any match = FAIL.
+forbidden_patterns:
+  - id: mustache_placeholder
+    pattern: '\{\{[^}]+\}\}'
+    description: Unreplaced mustache placeholder (e.g. {{cta_text}})
+  - id: structural_placeholder
+    pattern: '\[Placeholder:\s*[^\]]+\]'
+    description: Structural placeholder leak
+  - id: silence_placeholder
+    pattern: '\[Silence:\s*[^\]]+\]'
+    description: Silence placeholder leak
+  - id: metadata_key
+    pattern: '^(family|voice_mode|mode|reframe_type|weight|carry_line):'
+    description: Pipeline metadata key in prose
+  - id: markdown_divider
+    pattern: '^---$'
+    description: Markdown divider in output
+  - id: chapter_scaffold
+    pattern: '^===.*CHAPTER'
+    description: Chapter scaffold marker
+  - id: unresolved_brace_var
+    pattern: '\{[^}]+\}'
+    description: Unresolved {variable} placeholder
+
+# Min word count per book (0 = disabled)
+min_word_count: 0
+
+# Max consecutive identical lines (repetition guard; 0 = disabled)
+max_consecutive_identical_lines: 0

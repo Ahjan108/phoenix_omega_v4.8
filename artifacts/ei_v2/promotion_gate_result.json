@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-03-03T10:25:33.360204+00:00",
+  "all_gates_pass": false,
+  "promotion_ready": false,
+  "consecutive_passes": 0,
+  "consecutive_required": 5,
+  "auto_promote": false,
+  "gate_1_quality": {
+    "pass": true,
+    "issues": []
+  },
+  "gate_2_performance": {
+    "pass": true,
+    "issues": []
+  },
+  "gate_3_safety": {
+    "pass": false,
+    "issues": [
+      "safety_regressions 2 > max 0"
+    ]
+  },
+  "eval_summary": {
+    "overall_composite": 0.5625,
+    "safety_compliance": 0.9947,
+    "agreement_rate": 0.2042,
+    "books_evaluated": 6
+  }
+}

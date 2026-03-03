@@ -1,0 +1,74 @@
+# EI V2 Promotion Criteria
+#
+# V1 remains authoritative until ALL criteria below are met for
+# N consecutive CI runs (see consecutive_passes_required).
+#
+# Promotion = V2 replaces V1 as the production candidate selector.
+# Until then, V2 is advisory only (--ei-v2-compare mode).
+#
+# Three gates: quality, performance, safety. All must pass.
+
+# ── Gate 1: Quality Delta ──
+# V2 must demonstrably improve or match V1 across evaluated dimensions.
+# Scores come from run_ei_v2_rigorous_eval.py output.
+quality:
+  # Minimum overall composite score (absolute floor)
+  min_overall_composite: 0.55
+
+  # Per-dimension absolute minimums (V2 must not fall below these)
+  min_dimension_scores:
+    therapeutic_value: 0.60
+    emotional_coherence: 0.85
+    engagement: 0.25
+    chapter_journey: 0.50
+    cohesion: 0.35
+    listen_experience: 0.50
+    marketability: 0.25
+    safety_compliance: 0.95
+    content_uniqueness: 0.02
+    somatic_precision: 0.30
+
+  # V1/V2 agreement floor: V2 must agree with V1 on at least this
+  # fraction of slots (prevents V2 from being wildly divergent)
+  min_v1v2_agreement_rate: 0.10
+
+  # V2 must flag fewer false positives on safety than this ceiling
+  max_v2_false_safety_flags_per_book: 5
+
+# ── Gate 2: Performance ──
+# V2 must not unacceptably slow the pipeline.
+performance:
+  # Max average latency per slot for V2 (ms)
+  max_v2_avg_slot_ms: 50.0
+
+  # Max V2/V1 latency ratio (V2 can be slower, but within bounds)
+  max_v2_v1_ratio: 100.0
+
+  # Max total per-book overhead for V2 evaluation (ms)
+  max_v2_per_book_ms: 5000.0
+
+# ── Gate 3: Safety Regression ──
+# Zero tolerance for safety regression. V2 must never:
+# - Miss a safety issue that V1 catches
+# - Introduce new safety compliance failures
+# - Lower safety_compliance below the absolute floor
+safety:
+  # Safety regression tolerance: 0 = zero tolerance
+  max_safety_regression_count: 0
+
+  # V2 safety_compliance must be >= V1 safety_compliance minus this delta
+  max_safety_score_drop: 0.0
+
+  # Absolute floor: safety_compliance must never drop below this
+  min_safety_compliance: 0.95
+
+  # V2 must not flag 0 issues when V1 flags >0 (no silent drops)
+  require_v2_catches_v1_flags: true
+
+# ── Promotion Lock ──
+# How many consecutive CI passes are required before V2 can be promoted.
+# Prevents a single lucky run from triggering promotion.
+promotion:
+  consecutive_passes_required: 5
+  history_file: artifacts/ei_v2/promotion_history.jsonl
+  auto_promote: false  # true = auto-flip V1→V2 when criteria met; false = manual approval
