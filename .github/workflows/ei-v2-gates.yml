@@ -42,9 +42,9 @@ jobs:
       - name: Install test dependencies
         run: pip install -r requirements-test.txt
 
-      - name: Run EI V2 test suite (28 tests)
+      - name: Run EI V2 test suite
         run: |
-          PYTHONPATH=. python -m pytest tests/test_ei_v2.py \
+          PYTHONPATH=. python -m pytest tests/test_ei_v2.py tests/test_ei_v2_hybrid.py \
             -v --tb=short -x
 
   ei-v2-rigorous-eval:
@@ -66,12 +66,15 @@ jobs:
         run: |
           PYTHONPATH=. python scripts/ci/run_ei_v2_rigorous_eval.py --sample 3
 
+      - name: Catalog calibration + dimension gates
+        run: |
+          PYTHONPATH=. python scripts/ci/run_ei_v2_catalog_calibration.py --learn
+
       - name: Check V2 promotion readiness
         run: |
           PYTHONPATH=. python scripts/ci/check_ei_v2_promotion_gate.py \
             --eval-report artifacts/ei_v2/eval_rigorous_report.json \
             --criteria config/quality/ei_v2_promotion_criteria.yaml
-        continue-on-error: true  # advisory until V2 earns promotion
 
       - name: Upload EI V2 evidence
         uses: actions/upload-artifact@v4
@@ -82,4 +85,7 @@ jobs:
             artifacts/ei_v2/eval_rigorous_report.json
             artifacts/ei_v2/eval_rigorous_summary.txt
             artifacts/ei_v2/promotion_gate_result.json
+            artifacts/ei_v2/catalog_calibration.json
+            artifacts/ei_v2/learned_params.json
+            artifacts/ei_v2/learner_feedback.jsonl
           if-no-files-found: ignore
