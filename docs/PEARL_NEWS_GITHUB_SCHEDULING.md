@@ -77,4 +77,5 @@ The scheduled workflow runs here. No move required.
 
 - **Architecture:** [PEARL_NEWS_ARCHITECTURE_SPEC.md](PEARL_NEWS_ARCHITECTURE_SPEC.md)
 - **Publish (credentials, article JSON):** [pearl_news/publish/README.md](../pearl_news/publish/README.md)
+- **Hardening 100% checklist (incl. optional ops):** [PEARL_NEWS_HARDENING_100_PERCENT.md](PEARL_NEWS_HARDENING_100_PERCENT.md)
 - **Qwen forks and backup:** [QWEN_FORKS_AND_BACKUP.md](QWEN_FORKS_AND_BACKUP.md)
