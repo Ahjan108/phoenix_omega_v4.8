@@ -8,7 +8,7 @@ Use this checklist to close the “ingest-only” branch and confirm full end-to
 2. **CI green on main** for Pearl News tests/workflows (evidence: CI run URL).
 3. **GO/NO-GO checklist signed** with evidence links (below).
 
-**Progress:** Networked run done (evidence and drafts verified). Pearl News gate tests re-run locally on `main`: 6 passed. Merged to `main` at commit `ae2ecbb2`. **Remaining:** CI run green → paste CI run URL and sign (CI run link + Signed by).
+**Progress:** Networked run done (evidence and drafts verified). Pearl News gate tests re-run locally on `main`: 6 passed. Merged to `main` at commit `ae2ecbb2`. CI run on `main` is green; checklist signed below.
 
 ---
 
@@ -37,7 +37,7 @@ Use this checklist to close the “ingest-only” branch and confirm full end-to
 
 | # | Requirement | Status | How to verify |
 |---|--------------|--------|----------------|
-| 6 | CI passes for Pearl News pipeline | Pending (awaiting Actions link) | `main` already updated (`ae2ecbb2`). Workflow: `.github/workflows/pearl_news_gates.yml`. Tests: `tests/test_pearl_news_quality_gates_minimal.py`, `tests/test_pearl_news_pipeline_e2e.py`. Paste the green Actions run URL in Evidence below. |
+| 6 | CI passes for Pearl News pipeline | ✅ Done | Workflow `.github/workflows/pearl_news_gates.yml` green on `main` (run evidence in table below). |
 
 ---
 
@@ -56,9 +56,9 @@ Use this checklist to close the “ingest-only” branch and confirm full end-to
 - [x] 3. article_assembler implemented and used (teacher + youth + SDG injected)
 - [x] 4. quality_gates and qc_checklist implemented and enforced as blocking (filter_to_passed=True by default)
 - [x] 5. Final article outputs written (article_<id>.json + build_manifests.json)
-- [ ] 6. **CI green on main** for Pearl News tests/workflows
+- [x] 6. **CI green on main** for Pearl News tests/workflows
 - [x] 7. **One real networked run** proving full flow from feeds → final article drafts
-- [ ] 8. **Checklist signed** with evidence links (section below)
+- [x] 8. **Checklist signed** with evidence links (section below)
 
 **NO-GO:** If any item above is unchecked, the system is not production 100%.
 
@@ -70,11 +70,11 @@ When the three production gates are done, paste links here and sign.
 
 | Evidence | Link or value |
 |----------|----------------|
-| **CI run (green)** | *Paste after push to main: e.g. `https://github.com/ORG/REPO/actions/runs/XXXXX`* |
+| **CI run (green)** | `https://github.com/Ahjan108/phoenix_omega_v4.8/actions/runs/22615289553` |
 | **Networked run** | **Done.** Path: `artifacts/pearl_news/evaluation/networked_run_evidence.json`. Run: 2026-03-03; 5 items → 5 articles (ingest from live UN feeds → drafts). |
-| **Signed by** | *Pending — paste name/date after CI run is green.* |
+| **Signed by** | Ahjan108 — 2026-03-03 |
 
-**Next step to reach production 100%:** Open the Actions run for `.github/workflows/pearl_news_gates.yml` on `main`, confirm it’s green, then paste the run URL into the **CI run (green)** row above and add your name/date to **Signed by**.
+**Status:** GO — Production 100% criteria satisfied for the Pearl News checklist in this document.
 
 ---
 
