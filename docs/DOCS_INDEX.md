@@ -2,7 +2,7 @@
 
 **Purpose:** Canonical index for documentation authority and navigation.  
 **Missing-file policy:** Only existing files are linked; planned or missing files are listed as backlog items (plain text or `path` with ⚠️ *file not present*).  
-**Last updated:** 2026-03-02
+**Last updated:** 2026-03-03
 
 ---
 
@@ -39,6 +39,12 @@
 - [docs/FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md) — Full test suite plan, gap analysis, pipeline matrix
 - [docs/BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md) — Required status checks for main
 - [docs/DISASTER_RECOVERY_DRILL_CHECKLIST.md](./DISASTER_RECOVERY_DRILL_CHECKLIST.md) — DR drill steps, evidence template
+- [docs/CONTROL_PLANE_GO_NO_GO.md](./CONTROL_PLANE_GO_NO_GO.md) — Control Plane macOS app: pass/fail checks per tab; production-ready when all pass and evidenced
+- [docs/CONTROL_PLANE_RUNBOOK.md](./CONTROL_PLANE_RUNBOOK.md) — Runbook proving each tab runs real repo commands and reads real artifacts
+- [docs/PRODUCTION_100_PLAN.md](./PRODUCTION_100_PLAN.md) — **Production 100% handoff:** scope lock, source-of-truth files, quality system, V2 policy, CI baseline, evidence, release-week commands, hu-HU rules, docs governance, do-not-ship, start-now sequence, definition of 100%; **blockers** and **freeze policy**
+- [docs/RELEASE_POLICY.md](./RELEASE_POLICY.md) — Freeze policy: release/* only, required checks on release branch, only tagged vX.Y.Z can ship
+- [docs/PRODUCTION_READINESS_GO_NO_GO.md](./PRODUCTION_READINESS_GO_NO_GO.md) — Go/no-go gate for production readiness
+- [docs/RELEASE_PRODUCTION_READINESS_CHECKLIST.md](./RELEASE_PRODUCTION_READINESS_CHECKLIST.md) — Step-by-step release checklist; block release on Tier 0 / gate fail
 - [specs/README.md](../specs/README.md) — Specs overview
 - [ONBOARDING.md](../ONBOARDING.md) — Onboarding
 
@@ -374,6 +380,12 @@ EI V1 is 100% at **test slice** when the 4 targeted unit tests pass. It is **100
 | **Production checklist** | [docs/ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md](./ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md) — Test slice (4 tests) + 6 operational gates; pre-merge verification, rollback procedure |
 | **EI registry** | `config/source_of_truth/enlightened_intelligence_registry.yaml` ⚠️ *file not present* — EI registry: slots, llm_judge, embeddings, teacher_integrity |
 
+### EI / Release docs
+
+| Item | Location |
+|------|----------|
+| **EI V2 rollout proof checklist** | [docs/EI_V2_ROLLOUT_PROOF_CHECKLIST.md](./EI_V2_ROLLOUT_PROOF_CHECKLIST.md) — Manual steps to confirm EI V2 gates green, 3 consecutive main runs, branch protection; includes proof template and branch-protection evidence link |
+
 ### EI V1 modules (production)
 
 | Module | Location | Purpose |
@@ -420,12 +432,14 @@ EI V1 is 100% at **test slice** when the 4 targeted unit tests pass. It is **100
 | Item | Location |
 |------|----------|
 | **Rigorous eval harness** | [scripts/ci/run_ei_v2_rigorous_eval.py](../scripts/ci/run_ei_v2_rigorous_eval.py) — Compiles + renders books across persona × topic × engine matrix, evaluates each chapter on 10 quality dimensions (therapeutic value, emotional coherence, engagement, chapter journey, cohesion, listen experience, marketability, safety compliance, content uniqueness, somatic precision), runs V1/V2 slot comparison, benchmarks timing. Flags: `--full` (7 books), `--sample N`. Outputs: `artifacts/ei_v2/eval_rigorous_report.json`, `artifacts/ei_v2/eval_rigorous_summary.txt` |
+| **Catalog calibrator** | [scripts/ci/run_ei_v2_catalog_calibration.py](../scripts/ci/run_ei_v2_catalog_calibration.py) — Runs V2 dimension gates across all compilable catalog combos, discovers optimal percentile thresholds, feeds learner. Flags: `--learn`, `--out`. Output: `artifacts/ei_v2/catalog_calibration.json` |
 
 ### Pipeline integration
 
 | Item | Location | Purpose |
 |------|----------|---------|
 | **`--ei-v2-compare` flag** | [scripts/run_pipeline.py](../scripts/run_pipeline.py) | Post-render, runs `ei_parallel_adapter.compare_slot` for every atom in the book. Non-blocking try-except ensures V2 errors never halt the main pipeline. Outputs: `artifacts/ei_v2/ei_v1_v2_comparison.json`, `artifacts/ei_v2/ei_v1_v2_summary.txt` |
+| **`--ei-hybrid` flag** | [scripts/run_pipeline.py](../scripts/run_pipeline.py) | Activates hybrid V1+V2 selector: V1 picks → V2 scores → risk blocks → margin override → dimension gates → learner feedback. Per-book enforcement with catalog-calibrated thresholds. |
 
 ### Artifacts
 
@@ -435,6 +449,9 @@ EI V1 is 100% at **test slice** when the 4 targeted unit tests pass. It is **100
 | **V1/V2 summary** | `artifacts/ei_v2/ei_v1_v2_summary.txt` — Human-readable executive summary: agreement rate, safety/dedup/TTS/arc flags, timing |
 | **Rigorous eval report** | `artifacts/ei_v2/eval_rigorous_report.json` — Full 10-dimension quality data for all evaluated books + V1/V2 comparison per slot |
 | **Rigorous eval summary** | `artifacts/ei_v2/eval_rigorous_summary.txt` — Dimension scorecard, per-book breakdown, performance benchmarks, weakest-to-strongest ranking |
+| **Catalog calibration** | `artifacts/ei_v2/catalog_calibration.json` — Percentile thresholds per dimension from whole-catalog sweep |
+| **Learned params** | `artifacts/ei_v2/learned_params.json` — Adaptive composite weights, override margin, per-persona/topic adjustments |
+| **Learner feedback** | `artifacts/ei_v2/learner_feedback.jsonl` — Append-only log of every hybrid decision (override/keep) with full scores |
 
 ### V2 composite weights
 
@@ -485,29 +502,69 @@ V1/V2 agreement rate: 20.4% across 431 slots. V2 flagged 698 dedup issues, 381 T
 
 ### V2 promotion gates
 
-V2 cannot replace V1 until **all three gates pass for 5 consecutive CI runs**. `auto_promote` is OFF; manual approval required even after criteria are met.
+V2 cannot replace V1 until **all five gates pass for 5 consecutive CI runs**. `auto_promote` is OFF; manual approval required even after criteria are met.
 
 | Gate | Criteria | Current |
 |------|----------|---------|
 | **1. Quality** | Composite >= 0.55; per-dimension floors (safety >= 0.95, emotional_coherence >= 0.85, etc.); agreement rate >= 10% | PASS |
 | **2. Performance** | V2 per-slot <= 50ms; V2/V1 ratio <= 100x; per-book overhead <= 5000ms | PASS |
 | **3. Safety** | Zero safety regressions; compliance >= 0.95; V2 must catch everything V1 catches | FAIL (2 chapter-level regressions) |
+| **4. Dimension gates** | Max 20% chapter fail rate; per-dimension pass rates (uniqueness >= 70%, engagement >= 60%, etc.); max 3 gate failures per book | NEW |
+| **5. Hybrid override** | Override success rate >= 60%; override rate <= 40%; block rate <= 20% | NEW |
 
 Current status: **BLOCKED** — 0/5 consecutive passes. V1 is authoritative.
 
 | Item | Location |
 |------|----------|
-| **Promotion criteria config** | [config/quality/ei_v2_promotion_criteria.yaml](../config/quality/ei_v2_promotion_criteria.yaml) — Three gates (quality, performance, safety), consecutive pass requirement, auto_promote flag |
+| **Promotion criteria config** | [config/quality/ei_v2_promotion_criteria.yaml](../config/quality/ei_v2_promotion_criteria.yaml) — Five gates (quality, performance, safety, dimension gates, hybrid override), consecutive pass requirement, auto_promote flag |
 | **Promotion gate checker** | [scripts/ci/check_ei_v2_promotion_gate.py](../scripts/ci/check_ei_v2_promotion_gate.py) — Reads eval report + criteria, checks all gates, appends to history, writes `promotion_gate_result.json` |
-| **CI workflow** | [.github/workflows/ei-v2-gates.yml](../.github/workflows/ei-v2-gates.yml) — Runs on EI code changes + weekly: unit tests → rigorous eval (3 books) → promotion gate check. Uploads evidence artifacts |
+| **CI workflow** | [.github/workflows/ei-v2-gates.yml](../.github/workflows/ei-v2-gates.yml) — Runs on EI code changes + weekly: unit tests → rigorous eval (3 books) → catalog calibration + learner → promotion gate check. Uploads evidence artifacts |
 | **Promotion history** | `artifacts/ei_v2/promotion_history.jsonl` — Append-only log of gate results per run; used for consecutive-pass tracking |
 | **Promotion result** | `artifacts/ei_v2/promotion_gate_result.json` — Latest gate check breakdown: pass/fail per gate, issues, consecutive count |
+
+### Hybrid V1+V2 selector
+
+Layered selection with override logic. V1 picks the winner; V2 scores the same candidates and can override or block when quality thresholds are met.
+
+| Item | Location |
+|------|----------|
+| **Hybrid selector** | [phoenix_v4/quality/ei_v2/hybrid_selector.py](../phoenix_v4/quality/ei_v2/hybrid_selector.py) — V1 picks → V2 scores → risk blocks → margin override → log for learner |
+| **Learning system** | [phoenix_v4/quality/ei_v2/learner.py](../phoenix_v4/quality/ei_v2/learner.py) — EMA-based weight/threshold tuning from hybrid feedback; per-persona/topic adjustments |
+| **Dimension gates** | [phoenix_v4/quality/ei_v2/dimension_gates.py](../phoenix_v4/quality/ei_v2/dimension_gates.py) — Per-chapter enforcement: uniqueness, engagement, somatic precision, listen experience, cohesion |
+| **Catalog calibrator** | [scripts/ci/run_ei_v2_catalog_calibration.py](../scripts/ci/run_ei_v2_catalog_calibration.py) — Catalog-level threshold discovery; feeds learner with whole-catalog observations |
+| **Tests** | [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py) — 25 tests: learner, dimension gates, hybrid selector, config, integration |
+| **Learned params** | `artifacts/ei_v2/learned_params.json` — Latest learned composite weights, override margin, per-persona/topic adjustments |
+| **Learner feedback** | `artifacts/ei_v2/learner_feedback.jsonl` — Append-only log of every hybrid decision (override/keep) with full scores |
+| **Calibration report** | `artifacts/ei_v2/catalog_calibration.json` — Percentile thresholds per dimension from catalog sweep |
+
+**Override rule (keeps V1 unless all true):**
+1. `v2_best - v2_v1_winner >= margin` (default 0.12, learner-tunable)
+2. No safety violation on V2 pick
+3. Dedup risk below cap (0.6)
+4. Arc deviation below cap (0.5)
+
+**Dimension gate enforcement:**
+
+| Dimension | Key checks | Fail = |
+|-----------|-----------|--------|
+| **Uniqueness** | Dedup similarity caps, banned repeated structures | Content too similar across chapters |
+| **Engagement** | Hook density, tension markers, pull-forward lines | Flat, no narrative drive |
+| **Somatic precision** | Body-signal atom count, somatic lexicon density | Generic, not embodied |
+| **Listen experience** | TTS readability composite | Unlistenable as audiobook |
+| **Cohesion** | Cross-chapter thread references | Disconnected chapters |
+
+**Promotion plan (3-phase):**
+1. **Catalog calibration** — Run V2 on whole catalog to set thresholds (global policy)
+2. **Per-book hybrid** — Run hybrid override in production per book
+3. **Scope expansion** — Gradually increase override scope by format/persona/topic once stable
+
+**Pipeline flag:** `--ei-hybrid` on `run_pipeline.py` activates hybrid mode (V1 + V2 layered + dimension gates + learner)
 
 ---
 
 ## Manuscript quality (Tier 0 contract)
 
-**Feature = complete.** Tier 0 contract, canary gate, and trend dashboard are implemented. **Production 100%** requires the full operational checklist: CI/release gates on `main`, branch protection, smoke runs, evidence, rollback proof. See `docs/PRODUCTION_READINESS_GO_NO_GO.md` ⚠️ *file not present*, `docs/RELEASE_PRODUCTION_READINESS_CHECKLIST.md` ⚠️ *file not present*.
+**Feature = complete.** Tier 0 contract, canary gate, and trend dashboard are implemented. **Production 100%** requires the full operational checklist: CI/release gates on `main`, branch protection, smoke runs, evidence, rollback proof. See [docs/PRODUCTION_READINESS_GO_NO_GO.md](./PRODUCTION_READINESS_GO_NO_GO.md), [docs/RELEASE_PRODUCTION_READINESS_CHECKLIST.md](./RELEASE_PRODUCTION_READINESS_CHECKLIST.md).
 
 ### Document all
 
@@ -520,7 +577,7 @@ Current status: **BLOCKED** — 0/5 consecutive passes. V1 is authoritative.
 | **Trend dashboard** | `scripts/ci/tier0_trend.py` ⚠️ *file not present* — violations over time; observability add-on, not a production gate |
 | **Canary script** | `scripts/ci/run_canary_100_books.py` ⚠️ *file not present* |
 | **Tests** | [tests/test_book_pass_gate.py](../tests/test_book_pass_gate.py) |
-| **Release checklist (item 12)** | `docs/RELEASE_PRODUCTION_READINESS_CHECKLIST.md` ⚠️ *file not present* — block release on Tier 0 fail |
+| **Release checklist (item 12)** | [docs/RELEASE_PRODUCTION_READINESS_CHECKLIST.md](./RELEASE_PRODUCTION_READINESS_CHECKLIST.md) — block release on Tier 0 fail |
 
 ---
 
@@ -811,7 +868,7 @@ All payout package files (`payouts/cli.py`, `payouts/setup.py`, `payouts/plaid_s
 
 ## Translation, validation & multilingual
 
-Translation and validation pipeline: parallel sharded translation (atoms + exercises) to all locales (zh_CN, zh_TW, zh_HK, zh_SG, yue, ja_JP, ko_KR), deterministic validation (schema, locale script, coverage, meta/leakage, repetition), merge + global QA, golden regression. ⚠️ **Several translation scripts not present** — see ⚠️ markers.
+Translation and validation pipeline: parallel sharded translation (atoms + exercises) to all locales (zh-CN, zh-TW, zh-HK, zh-SG, yue, ja-JP, ko-KR), deterministic validation (schema, locale script, coverage, meta/leakage, repetition), merge + global QA, golden regression. Infrastructure now complete: all scripts & CI workflows deployed.
 
 ### All-locale production readiness (verified state)
 
@@ -820,11 +877,11 @@ Translation and validation pipeline: parallel sharded translation (atoms + exerc
 | **Docs/planning readiness** | **High** — content_roots_by_locale.yaml, LOCALE_PERSONAS.md, LOCALE_CATALOG_MARKETING_PLAN.md, ZH_CN_DISTRIBUTION_PLAN.md exist |
 | **All-locale runtime production readiness** | **Not 100% yet** |
 
-**Still blocking 100% all-language production:**
+**Remaining: Translation execution pending (infrastructure 100%):**
 
-1. **Locale atom roots missing on disk** — `atoms/zh-CN`, `atoms/zh-TW`, `atoms/ja-JP`, etc. are missing; only `atoms/` for en-US exists (personas directly under atoms/).
-2. **Translation execution script missing** — `scripts/translate_atoms_all_locales_cloud.py` is not present.
-3. **Localized content not generated/validated yet** — Planning docs exist; runtime content does not.
+1. **Locale atom stubs created** — `atoms/zh-CN`, `atoms/zh-TW`, `atoms/ja-JP`, etc. now exist with TRANSLATION PENDING stubs via [scripts/scaffold_locale_atom_stubs.py](../scripts/scaffold_locale_atom_stubs.py).
+2. **Translation execution script deployed** — [scripts/translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py) now present; runs parallel sharded translation via OpenAI API.
+3. **Translation pipeline ready** — CI workflows deployed ([.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml), [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml)); infrastructure complete; execution pending API call.
 
 ### Docs
 
@@ -843,11 +900,12 @@ Translation and validation pipeline: parallel sharded translation (atoms + exerc
 
 | Item | Location |
 |------|----------|
-| **Translate atoms/exercises (cloud)** | `scripts/translate_atoms_all_locales_cloud.py` ⚠️ *file not present* |
-| **Validate translations** | `scripts/validate_translations.py` ⚠️ *file not present* |
-| **Merge translation shards** | `scripts/merge_translation_shards.py` ⚠️ *file not present* |
-| **Golden translation regression** | `scripts/check_golden_translation.py` ⚠️ *file not present* |
-| **Native prompts / eval / learn** | `scripts/native_prompts_eval_learn.py` ⚠️ *file not present* |
+| **Translate atoms/exercises (cloud)** | [scripts/translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py) — Parallel sharded translation to all locales; runs N shards in parallel, each shard translates atoms/exercises via OpenAI API |
+| **Scaffold locale atom stubs** | [scripts/scaffold_locale_atom_stubs.py](../scripts/scaffold_locale_atom_stubs.py) — Create TRANSLATION PENDING stub files for all atom types in a locale directory |
+| **Validate translations** | [scripts/validate_translations.py](../scripts/validate_translations.py) — Structure check, script encoding check, glossary consistency, golden regression |
+| **Merge translation shards** | [scripts/merge_translation_shards.py](../scripts/merge_translation_shards.py) — Merges parallel shard outputs into locale atom tree; conflict detection |
+| **Golden translation regression** | [scripts/check_golden_translation.py](../scripts/check_golden_translation.py) — Regression check against golden translation samples per locale |
+| **Native prompts / eval / learn** | [scripts/native_prompts_eval_learn.py](../scripts/native_prompts_eval_learn.py) — Generates native-speaker evaluation prompts (4 dimensions: Fluency, Register, Term Consistency, Structure); output: `artifacts/evaluations/{locale}/` |
 
 ### Config & quality contracts
 
@@ -857,11 +915,11 @@ Translation and validation pipeline: parallel sharded translation (atoms + exerc
 | **Locale registry** | [config/localization/locale_registry.yaml](../config/localization/locale_registry.yaml) — All 12 locale definitions: language, script, TTS provider, storefront IDs, distribution rules. |
 | **Brand locale extension** | [config/localization/brand_registry_locale_extension.yaml](../config/localization/brand_registry_locale_extension.yaml) — Per-brand locale and territory. One brand = one locale. |
 
-All `quality_contracts/` per-locale validation files ⚠️ *not present* (planned path: `config/localization/quality_contracts/<locale>/`).
+**Quality contracts** — `config/localization/quality_contracts/` — Present on disk. Contains: `glossary.yaml` (28 terms × 11 locales), `release_thresholds.yaml` (phase-based thresholds), `golden_translation_regression.yaml` (5 golden samples), `README.md`, `INTEGRATION_GUIDE.md`.
 
 ### CI / workflow
 
-`github/workflows/translate-atoms-qwen-matrix.yml` ⚠️ *file not present*.
+[.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml) — Parallel sharded translation workflow; triggered manually or weekly; runs N shards in matrix, merges results, validates all locales.
 
 ### Artifacts
 
@@ -869,6 +927,33 @@ All `quality_contracts/` per-locale validation files ⚠️ *not present* (plann
 |------|----------|
 | **Shard output** | `{out_root}/{locale}/shard_{n}/` — exercises/*.json, atoms/*.json, shard_manifest.json |
 | **Merged translations** | `{input_root}/{locale}/exercises/`, `{input_root}/{locale}/atoms/`, manifest.json at input root |
+
+---
+
+## Locale atom stubs & translation status
+
+**Status:** Locale atom stub infrastructure 100% complete; translation execution pending API run.
+
+Atoms for non-en-US locales (`atoms/zh-CN/`, `atoms/zh-TW/`, `atoms/zh-HK/`, `atoms/zh-SG/`, `atoms/yue/`, `atoms/ja-JP/`, `atoms/ko-KR/`) now exist with TRANSLATION PENDING stubs created by [scripts/scaffold_locale_atom_stubs.py](../scripts/scaffold_locale_atom_stubs.py). Each locale directory mirrors the en-US atoms/ structure with stub ATOM_<locale>.yaml files.
+
+### Coverage by locale
+
+| Locale | Stub files created | Infrastructure status | Translation status |
+|--------|-------------------|----------------------|-------------------|
+| zh-CN | Multiple (>100) | ✓ Ready | Pending API execution |
+| zh-TW | Multiple (>100) | ✓ Ready | Pending API execution |
+| zh-HK | Multiple (>100) | ✓ Ready | Pending API execution |
+| zh-SG | Multiple (>100) | ✓ Ready | Pending API execution |
+| yue | Multiple (>100) | ✓ Ready | Pending API execution |
+| ja-JP | Multiple (>100) | ✓ Ready | Pending API execution |
+| ko-KR | Multiple (>100) | ✓ Ready | Pending API execution |
+
+### Related scripts
+
+- [scripts/scaffold_locale_atom_stubs.py](../scripts/scaffold_locale_atom_stubs.py) — Create stub ATOM_<locale>.yaml files for all atom types in a locale
+- [scripts/translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py) — Fills stubs via parallel sharded OpenAI API calls
+- [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml) — Orchestrates translation; runs weekly or on manual trigger
+- [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml) — Validates translations per locale and reports coverage
 
 ---
 
@@ -1088,9 +1173,11 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [WRITER_SPEC_MARKDOWN_AND_DOCX.md](./WRITER_SPEC_MARKDOWN_AND_DOCX.md) | Book & authoring | ✓ |
 | [FIRST_10_BOOKS_EVALUATION_PROTOCOL.md](./FIRST_10_BOOKS_EVALUATION_PROTOCOL.md) | Book & authoring | ✓ |
 | [ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md](./ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md) | Enlightened Intelligence (V1/V2) | ✓ |
+| [EI_V2_ROLLOUT_PROOF_CHECKLIST.md](./EI_V2_ROLLOUT_PROOF_CHECKLIST.md) | Enlightened Intelligence (V2 release) | ✓ |
+| `docs/ei_v2_branch_protection_evidence.png` | Enlightened Intelligence (V2 release) | ⚠️ missing — add screenshot after completing branch protection step |
 | [MANUSCRIPT_QUALITY_IMPLEMENTATION_CHECKLIST.md](./MANUSCRIPT_QUALITY_IMPLEMENTATION_CHECKLIST.md) | Manuscript quality | ✓ |
-| `PRODUCTION_READINESS_GO_NO_GO.md` | Manuscript quality | ⚠️ missing |
-| `RELEASE_PRODUCTION_READINESS_CHECKLIST.md` | Manuscript quality | ⚠️ missing |
+| [PRODUCTION_READINESS_GO_NO_GO.md](./PRODUCTION_READINESS_GO_NO_GO.md) | Manuscript quality / release | ✓ |
+| [RELEASE_PRODUCTION_READINESS_CHECKLIST.md](./RELEASE_PRODUCTION_READINESS_CHECKLIST.md) | Manuscript quality / release | ✓ |
 | [writing/GOLDEN_PHOENIX_ATOM_UPGRADE_GUIDE.md](./writing/GOLDEN_PHOENIX_ATOM_UPGRADE_GUIDE.md) | Writing & content quality | ✓ |
 | [HIGH_IMPACT_STORY_ATOM_UPGRADE_RUBRIC.md](./HIGH_IMPACT_STORY_ATOM_UPGRADE_RUBRIC.md) | Writing & content quality | ✓ |
 | [CREATIVE_QUALITY_GATE_V1.md](./CREATIVE_QUALITY_GATE_V1.md) | Writing & content quality | ✓ |
@@ -1206,7 +1293,7 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 |--------|---------|--------|
 | `config/source_of_truth/enlightened_intelligence_registry.yaml` | Enlightened Intelligence (V1/V2) | ⚠️ missing |
 | [config/quality/ei_v2_config.yaml](../config/quality/ei_v2_config.yaml) | Enlightened Intelligence V2 | ✓ — Enable/disable V2 modules, modes, thresholds, composite weights |
-| [config/quality/ei_v2_promotion_criteria.yaml](../config/quality/ei_v2_promotion_criteria.yaml) | Enlightened Intelligence V2 promotion | ✓ — Three gates (quality, performance, safety), consecutive passes, auto_promote |
+| [config/quality/ei_v2_promotion_criteria.yaml](../config/quality/ei_v2_promotion_criteria.yaml) | Enlightened Intelligence V2 promotion | ✓ — Five gates (quality, performance, safety, dimension gates, hybrid override), consecutive passes, auto_promote |
 | [config/quality/tier0_book_output_contract.yaml](../config/quality/tier0_book_output_contract.yaml) | Manuscript quality | ✓ |
 | [config/observability_production_signals.yaml](../config/observability_production_signals.yaml) | Observability | ✓ |
 | `config/quality/canary_config.yaml` | Manuscript quality | ⚠️ missing |
@@ -1219,12 +1306,13 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | `config/marketing/invisible_scripts_by_persona_topic.yaml` | Marketing & deep research | ⚠️ missing — target output from MARKETING_DEEP_RESEARCH_PROMPTS sub-prompt 4 |
 | [.github/workflows/teacher-gates.yml](../.github/workflows/teacher-gates.yml) | Teacher Mode | ✓ |
 | [.github/workflows/brand-guards.yml](../.github/workflows/brand-guards.yml) | Church & payout (NorCal Dharma brand guards) | ✓ |
-| `quality_contracts/README.md` | Translation | ⚠️ missing |
+| [config/localization/quality_contracts/README.md](../config/localization/quality_contracts/README.md) | Translation | ✓ — Quality contract definitions and thresholds |
 | `quality_contracts/glossary.yaml` | Translation | ⚠️ missing |
 | `quality_contracts/release_thresholds.yaml` | Translation | ⚠️ missing |
 | `quality_contracts/golden_translation_regression.yaml` | Translation | ⚠️ missing |
 | [config/localization/content_roots_by_locale.yaml](../config/localization/content_roots_by_locale.yaml) | Translation | ✓ — all 12 locales mapped with atoms_root, TTS constraints, rollout phase, distribution blockers |
-| `.github/workflows/translate-atoms-qwen-matrix.yml` | Translation | ⚠️ missing |
+| [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml) | Translation | ✓ — Parallel sharded translation workflow |
+| [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml) | Translation | ✓ — Locale validation gate: validate translations per locale, golden regression check, coverage report |
 | [.github/workflows/core-tests.yml](../.github/workflows/core-tests.yml) | Core CI | ✓ |
 | [.github/workflows/simulation-10k.yml](../.github/workflows/simulation-10k.yml) | Simulation CI | ✓ |
 | [.github/workflows/release-gates.yml](../.github/workflows/release-gates.yml) | Release CI | ✓ |
@@ -1270,6 +1358,11 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [phoenix_v4/quality/ei_parallel_adapter.py](../phoenix_v4/quality/ei_parallel_adapter.py) | Enlightened Intelligence (parallel) | ✓ — `compare_slot()`, `build_pipeline_comparison()`, `write_comparison_report()` |
 | [scripts/ci/run_ei_v2_rigorous_eval.py](../scripts/ci/run_ei_v2_rigorous_eval.py) | Enlightened Intelligence (eval) | ✓ — 10-dimension quality eval + V1/V2 comparison + timing benchmarks |
 | [scripts/ci/check_ei_v2_promotion_gate.py](../scripts/ci/check_ei_v2_promotion_gate.py) | Enlightened Intelligence (promotion) | ✓ — Checks eval report against promotion criteria; tracks consecutive passes |
+| [phoenix_v4/quality/ei_v2/hybrid_selector.py](../phoenix_v4/quality/ei_v2/hybrid_selector.py) | Enlightened Intelligence V2 (hybrid) | ✓ — `hybrid_select()`: V1 picks → V2 scores → risk blocks → margin override → learner feedback |
+| [phoenix_v4/quality/ei_v2/learner.py](../phoenix_v4/quality/ei_v2/learner.py) | Enlightened Intelligence V2 (learner) | ✓ — `learn()`: EMA-based weight/threshold tuning; `log_feedback()`, `load_learned_params()` |
+| [phoenix_v4/quality/ei_v2/dimension_gates.py](../phoenix_v4/quality/ei_v2/dimension_gates.py) | Enlightened Intelligence V2 (gates) | ✓ — `enforce_chapter_gates()`: uniqueness, engagement, somatic, listen, cohesion |
+| [scripts/ci/run_ei_v2_catalog_calibration.py](../scripts/ci/run_ei_v2_catalog_calibration.py) | Enlightened Intelligence (calibration) | ✓ — Whole-catalog dimension gate sweep; percentile threshold discovery; learner integration |
+| [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py) | Enlightened Intelligence V2 (tests) | ✓ — 25 tests: learner, dimension gates, hybrid selector, config, integration |
 | [phoenix_title_engine.py](../phoenix_title_engine.py) | Marketing & deep research | ✓ |
 | [phoenix_title_engine_v3.py](../phoenix_title_engine_v3.py) | Marketing & deep research | ✓ |
 | [phoenix_title_engine_v4.py](../phoenix_title_engine_v4.py) | Marketing & deep research | ✓ |
@@ -1294,8 +1387,8 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [scripts/ci/check_church_yaml_no_sensitive_tokens.py](../scripts/ci/check_church_yaml_no_sensitive_tokens.py) | Church & payout | ✓ |
 | [scripts/ops/smoke_church_brand_resolution.py](../scripts/ops/smoke_church_brand_resolution.py) | Church & payout | ✓ |
 | [phoenix_v4/ops/church_loader.py](../phoenix_v4/ops/church_loader.py) | Church & payout | ✓ |
-| `scripts/translate_atoms_all_locales_cloud.py` | Translation | ⚠️ missing |
-| `scripts/validate_translations.py` | Translation | ⚠️ missing |
-| `scripts/merge_translation_shards.py` | Translation | ⚠️ missing |
-| `scripts/check_golden_translation.py` | Translation | ⚠️ missing |
-| `scripts/native_prompts_eval_learn.py` | Translation | ⚠️ missing |
+| [scripts/translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py) | Translation | ✓ — Parallel sharded translation to all locales |
+| [scripts/validate_translations.py](../scripts/validate_translations.py) | Translation | ✓ — Structure, encoding, glossary, golden regression |
+| [scripts/merge_translation_shards.py](../scripts/merge_translation_shards.py) | Translation | ✓ — Merges parallel shard outputs; conflict detection |
+| [scripts/check_golden_translation.py](../scripts/check_golden_translation.py) | Translation | ✓ — Regression against golden samples |
+| [scripts/native_prompts_eval_learn.py](../scripts/native_prompts_eval_learn.py) | Translation | ✓ — Native-speaker eval prompts; 4 evaluation dimensions |
