@@ -43,20 +43,25 @@ jobs:
         run: |
           pip install feedparser pyyaml requests pytest
 
+      - name: Validate WordPress env format (if configured)
+        run: |
+          PYTHONPATH=. python - <<'PY'
+          import os
+          from pearl_news.publish.wordpress_client import _normalize_site_url
+          raw = os.environ.get("WORDPRESS_SITE_URL", "").strip()
+          if not raw:
+              print("WORDPRESS_SITE_URL not set; skipping WP env validation.")
+          else:
+              normalized = _normalize_site_url(raw)
+              print(f"WORDPRESS_SITE_URL normalized to: {normalized}")
+          PY
+
       - name: Run Pearl News tests
         run: |
-          if [ -d tests/test_pearl_news ]; then
-            PYTHONPATH=. python -m pytest tests/test_pearl_news/ -v -k "not real_rss"
-          elif [ -d test/test_pearl_news ]; then
-            PYTHONPATH=. python -m pytest test/test_pearl_news/ -v -k "not real_rss"
-          elif [ -d test_pearl_news ]; then
-            PYTHONPATH=. python -m pytest test_pearl_news/ -v -k "not real_rss"
-          elif [ -d tests/pearl_news ]; then
-            PYTHONPATH=. python -m pytest tests/pearl_news/ -v -k "not real_rss"
-          else
-            echo "No Pearl News test dir found"
-            exit 1
-          fi
+          PYTHONPATH=. python -m pytest \
+            tests/test_pearl_news_quality_gates_minimal.py \
+            tests/test_pearl_news_pipeline_e2e.py \
+            -v
 
       - name: Run full pipeline (ingest → classify → assemble → QC)
         run: |

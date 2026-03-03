@@ -57,6 +57,22 @@ def test_get_credentials_normalizes_missing_scheme() -> None:
         assert pw == "abcdefgh"
 
 
+def test_get_credentials_normalizes_admin_url_to_origin() -> None:
+    with patch.dict(
+        os.environ,
+        {
+            "WORDPRESS_SITE_URL": "https://example.org/wp-admin/",
+            "WORDPRESS_USERNAME": "user",
+            "WORDPRESS_APP_PASSWORD": "abcd efgh",
+        },
+        clear=False,
+    ):
+        site, user, pw = _get_credentials()
+        assert site == "https://example.org"
+        assert user == "user"
+        assert pw == "abcdefgh"
+
+
 def test_normalize_site_url_invalid() -> None:
     with pytest.raises(WordPressPublishError):
         _normalize_site_url("://bad_url")

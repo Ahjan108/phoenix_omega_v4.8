@@ -1,0 +1,350 @@
+{
+  "plan_hash": "a0ac6fdc331340edb1682c9880d746d9",
+  "plan_id": "a0ac6fdc331340edb1682c9880d746d9",
+  "chapter_slot_sequence": [
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ]
+  ],
+  "atom_ids": [
+    "educators_anxiety_HOOK_v09",
+    "educators_anxiety_SCENE_v27",
+    "educators_anxiety_REFLECTION_v07",
+    "educators_anxiety_INTEGRATION_v01",
+    "educators_anxiety_overwhelm_MECHANISM_PROOF_v03",
+    "educators_anxiety_HOOK_v18",
+    "educators_anxiety_SCENE_v03",
+    "educators_anxiety_REFLECTION_v13",
+    "educators_anxiety_EXERCISE_v12",
+    "educators_anxiety_INTEGRATION_v04",
+    "educators_anxiety_shame_RECOGNITION_v03",
+    "educators_anxiety_HOOK_v22",
+    "educators_anxiety_SCENE_v26",
+    "educators_anxiety_REFLECTION_v17",
+    "educators_anxiety_EXERCISE_v06",
+    "educators_anxiety_INTEGRATION_v05",
+    "educators_anxiety_shame_RECOGNITION_v04",
+    "educators_anxiety_HOOK_v02",
+    "educators_anxiety_SCENE_v06",
+    "educators_anxiety_REFLECTION_v01",
+    "educators_anxiety_INTEGRATION_v07",
+    "educators_anxiety_spiral_RECOGNITION_v04",
+    "educators_anxiety_HOOK_v19",
+    "educators_anxiety_SCENE_v20",
+    "educators_anxiety_REFLECTION_v29",
+    "educators_anxiety_EXERCISE_v20",
+    "educators_anxiety_INTEGRATION_v03",
+    "educators_anxiety_HOOK_v14",
+    "educators_anxiety_SCENE_v16",
+    "educators_anxiety_REFLECTION_v19",
+    "educators_anxiety_INTEGRATION_v06",
+    "educators_anxiety_HOOK_v16",
+    "educators_anxiety_SCENE_v04",
+    "educators_anxiety_REFLECTION_v11",
+    "educators_anxiety_EXERCISE_v19",
+    "educators_anxiety_INTEGRATION_v02",
+    "educators_anxiety_HOOK_v24",
+    "educators_anxiety_SCENE_v19",
+    "educators_anxiety_REFLECTION_v27",
+    "educators_anxiety_EXERCISE_v03",
+    "placeholder:INTEGRATION:ch7:slot4"
+  ],
+  "dominant_band_sequence": [
+    2,
+    3,
+    4,
+    4,
+    null,
+    null,
+    null,
+    null
+  ],
+  "arc_id": "educators_anxiety_overwhelm_8",
+  "emotional_temperature_sequence": [
+    "cool",
+    "cool",
+    "warm",
+    "warm",
+    "warm",
+    "hot",
+    "hot",
+    "warm"
+  ],
+  "exercise_chapters": [
+    1,
+    2,
+    4,
+    6,
+    7
+  ],
+  "slot_sig": "MOD_pocket_guide:7b49b9c6cfb7a19e",
+  "format_id": "MOD_pocket_guide",
+  "runtime_format_id": "",
+  "output_format_id": "pocket_guide",
+  "output_format_name": "Pocket Guide",
+  "v4_freeze_enabled": true,
+  "locale": "en-US",
+  "territory": "US",
+  "atoms_model": "cluster",
+  "engine_id": "overwhelm",
+  "angle_id": "at_work",
+  "reflection_strategy_sequence": [
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic"
+  ],
+  "chapter_archetypes": [
+    "intro_hook_heavy",
+    "deepen_mechanism",
+    "deepen_mechanism",
+    "challenge_cost",
+    "resolve_integration",
+    "legacy_uniform",
+    "practice_heavy",
+    "resolve_integration"
+  ],
+  "chapter_exercise_modes": [
+    "none",
+    "micro",
+    "micro",
+    "none",
+    "micro",
+    "none",
+    "full",
+    "micro"
+  ],
+  "chapter_reflection_weights": [
+    "light",
+    "standard",
+    "standard",
+    "heavy",
+    "standard",
+    "standard",
+    "light",
+    "standard"
+  ],
+  "chapter_story_depths": [
+    "standard",
+    "standard",
+    "standard",
+    "deep",
+    "micro",
+    "standard",
+    "micro",
+    "micro"
+  ],
+  "narrator_id": "default_narrator",
+  "emotional_role_sequence": [
+    "recognition",
+    "destabilization",
+    "destabilization",
+    "reframe",
+    "stabilization",
+    "reframe",
+    "stabilization",
+    "integration"
+  ],
+  "emotional_role_sig": "r-d-d-f-s-f-s-i",
+  "book_structure_id": "linear_transformation",
+  "journey_shape_id": "linear_rise",
+  "motif_id": "motif_choice",
+  "section_reorder_mode": "local_reflection_integration",
+  "reframe_profile_id": "balanced",
+  "variation_chapter_archetypes": [
+    "establish",
+    "expose",
+    "destabilize",
+    "reframe",
+    "stabilize",
+    "integrate",
+    "establish",
+    "expose"
+  ],
+  "variation_signature": "f278e4c46d4b2df68be31bd565698b42",
+  "motif_injections": [
+    {
+      "chapter_index": 0,
+      "slot_index": 2,
+      "phrase": "One small choice can change the direction."
+    },
+    {
+      "chapter_index": 0,
+      "slot_index": 4,
+      "phrase": "One small choice can change the direction."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 2,
+      "phrase": "This is where you choose."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 4,
+      "phrase": "You get to choose what happens next."
+    },
+    {
+      "chapter_index": 2,
+      "slot_index": 2,
+      "phrase": "This is where you choose."
+    },
+    {
+      "chapter_index": 2,
+      "slot_index": 4,
+      "phrase": "One small choice can change the direction."
+    },
+    {
+      "chapter_index": 3,
+      "slot_index": 2,
+      "phrase": "You get to choose what happens next."
+    },
+    {
+      "chapter_index": 3,
+      "slot_index": 4,
+      "phrase": "You get to choose what happens next."
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 2,
+      "phrase": "One small choice can change the direction."
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 4,
+      "phrase": "This is where you choose."
+    },
+    {
+      "chapter_index": 5,
+      "slot_index": 2,
+      "phrase": "You get to choose what happens next."
+    },
+    {
+      "chapter_index": 6,
+      "slot_index": 2,
+      "phrase": "This is where you choose."
+    }
+  ],
+  "reframe_injections": [
+    {
+      "chapter_index": 0,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "You don't have to do it all at once."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Your nervous system is doing its best."
+    },
+    {
+      "chapter_index": 2,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "What if this moment could be different?"
+    },
+    {
+      "chapter_index": 3,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Change happens in relationship, not in isolation."
+    },
+    {
+      "chapter_index": 5,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "One breath can reset the script."
+    },
+    {
+      "chapter_index": 6,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "Progress isn't linear."
+    },
+    {
+      "chapter_index": 7,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Safety comes before growth."
+    }
+  ],
+  "freebie_bundle": [
+    "breath_reset_structured_v1"
+  ],
+  "cta_template_id": "tool_forward",
+  "freebie_slug": "anxiety-educators-breath-reset-structured-v1",
+  "freebie_bundle_with_formats": [
+    {
+      "freebie_id": "breath_reset_structured_v1",
+      "formats": [
+        "html"
+      ]
+    }
+  ],
+  "topic_id": "anxiety",
+  "persona_id": "educators"
+}

@@ -8,6 +8,14 @@ All changes to ops and wave optimizer JSON schemas must be recorded here. Any ch
 
 ---
 
+## 2026-03-03
+
+### Added
+
+- **Distribution-only church brand policy** (ADR-002) — Church brands (e.g. norcal_dharma) are identity/distribution only: teacher_id=default_teacher, excluded from brand_teacher_matrix, display name from church YAML. CI: `check_church_yaml_no_sensitive_tokens.py`, `check_norcal_dharma_no_matrix.py`, `check_norcal_dharma_export.py`. Ops smoke: `scripts/ops/smoke_church_brand_resolution.py`.
+
+---
+
 ## 2026-02-25
 
 ### Added

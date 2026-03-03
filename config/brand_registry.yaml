@@ -25,6 +25,16 @@ brands:
       - performance_pressure
       - shame_engine
 
+  # Church compliance: canonical record in docs/norcal_dharma.yaml (Cooperative Church Compliance YAML Schema).
+  # Brand-only (no teacher): distribution/identity for payouts and catalog; no wave allocation.
+  norcal_dharma:
+    lifecycle: active
+    catalog_id: en_us_core
+    locale: en_US
+    family_allowlist:
+      - alarm_fear_systems
+      - collapse_burnout
+
   sleep_repair_tw:
     lifecycle: active
     catalog_id: zh_tw

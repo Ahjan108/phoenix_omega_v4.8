@@ -62,7 +62,7 @@
 - **Structural drift dashboard** — build_structural_drift_dashboard.py (artifacts/drift/; role distribution, signatures).
 - **Monte Carlo CTSS** — run_monte_carlo_ctss.py (duplication risk vs index).
 - **Wave orchestrator** — wave_orchestrator.py (balanced wave from candidates; arc/band/slot/ex diversity).
-- **Simulation** — run_simulation.py (--n, --phase2, --phase3).
+- **Simulation** — run_simulation.py (--n, --phase2, --phase3). Simulation is **synthetic validation** (readiness tooling); for **production 100%** you still need real canaries, CI gate on analyzer, evidence on main, and release smoke + rollback proof — see [docs/RIGOROUS_SYSTEM_TEST.md](RIGOROUS_SYSTEM_TEST.md).
 
 ### Config and contracts
 - **Topic/engine bindings** — topic_engine_bindings.yaml (allowed_engines per topic).

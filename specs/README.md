@@ -1,5 +1,9 @@
 # Phoenix Specs
 
+**Last updated:** 2026-03-03
+
+**Canonical docs index:** [../docs/DOCS_INDEX.md](../docs/DOCS_INDEX.md)
+
 **Canonical systems doc (whole V4 in one place):** [../docs/SYSTEMS_V4.md](../docs/SYSTEMS_V4.md) — single description of the full V4 system, pipeline, Teacher Mode, CI, and **what’s still to do to finish the whole system**.
 
 **Active personas and topics (catalog source of truth):** [../unified_personas.md](../unified_personas.md) — 10 active personas, 12 active topics, full Phoenix metadata, design foundation, catalog math, template requirements, consumer language map, production sequence. Only personas and topics listed there are active; all others (e.g. nyc_executives, educators) are inactive. Config `canonical_personas.yaml` and `canonical_topics.yaml` must align with it.

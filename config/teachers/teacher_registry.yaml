@@ -18,17 +18,168 @@ teachers:
       require_teacher_exercise: true
       allow_generic_fallback_for_scene: true
 
-  ajahn_x:
-    display_name: "Ajahn X"
-    kb_id: "ajahn_x"
-    doctrine_profile: "theravada_minimalist"
-    allowed_topics: [anxiety, shame, self_worth]
+  master_feung:
+    display_name: "Master Feung"
+    kb_id: "master_feung"
+    doctrine_profile: "master_feung"
+    allowed_topics: [anxiety, burnout, self_worth]
     disallowed_topics: [manifestation, get_rich_quick]
-    allowed_engines: [shame, anxiety]
-    allowed_resolution_types: [open_loop, internal_shift_only]
+    allowed_engines: [overwhelm, shame]
+    allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
     identity_shift_allowed: false
     preferred_formats: [F006, standard_book]
     teacher_mode_defaults:
       require_teacher_story: true
       require_teacher_exercise: true
       allow_generic_fallback_for_scene: true
+
+  sai_ma:
+    display_name: "Sai Maa"
+    kb_id: "sai_ma"
+    doctrine_profile: "sai_ma"
+    allowed_topics: [anxiety, self_worth, shame, grief, boundaries, courage]
+    disallowed_topics: [manifestation, get_rich_quick]
+    allowed_engines: [overwhelm, shame, spiral]
+    allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
+    identity_shift_allowed: false
+    preferred_formats: [F006, standard_book]
+    teacher_mode_defaults:
+      require_teacher_story: true
+      require_teacher_exercise: true
+      allow_generic_fallback_for_scene: true
+
+  ra:
+    display_name: "Ra"
+    kb_id: "ra"
+    doctrine_profile: "ra"
+    allowed_topics: [anxiety, self_worth, grief, boundaries, courage]
+    disallowed_topics: [manifestation, get_rich_quick]
+    allowed_engines: [overwhelm, spiral, grief]
+    allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
+    identity_shift_allowed: false
+    preferred_formats: [F006, standard_book]
+    teacher_mode_defaults:
+      require_teacher_story: true
+      require_teacher_exercise: true
+      allow_generic_fallback_for_scene: true
+
+  junko:
+    display_name: "Junko"
+    kb_id: "junko"
+    doctrine_profile: "junko"
+    allowed_topics: [anxiety, self_worth, shame, burnout, boundaries]
+    disallowed_topics: [manifestation, get_rich_quick]
+    allowed_engines: [overwhelm, shame]
+    allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
+    identity_shift_allowed: false
+    preferred_formats: [F006, standard_book]
+    teacher_mode_defaults:
+      require_teacher_story: true
+      require_teacher_exercise: true
+      allow_generic_fallback_for_scene: true
+
+  miki:
+    display_name: "Miki"
+    kb_id: "miki"
+    doctrine_profile: "miki"
+    allowed_topics: [anxiety, self_worth, shame, burnout, boundaries]
+    disallowed_topics: [manifestation, get_rich_quick]
+    allowed_engines: [overwhelm, shame]
+    allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
+    identity_shift_allowed: false
+    preferred_formats: [F006, standard_book]
+    teacher_mode_defaults:
+      require_teacher_story: true
+      require_teacher_exercise: true
+      allow_generic_fallback_for_scene: true
+
+  master_wu:
+    display_name: "Master Wu"
+    kb_id: "master_wu"
+    doctrine_profile: "master_wu"
+    allowed_topics: [anxiety, burnout, self_worth, boundaries]
+    disallowed_topics: [manifestation, get_rich_quick]
+    allowed_engines: [overwhelm, shame]
+    allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
+    identity_shift_allowed: false
+    preferred_formats: [F006, standard_book]
+    teacher_mode_defaults:
+      require_teacher_story: true
+      require_teacher_exercise: true
+      allow_generic_fallback_for_scene: true
+
+  pamela_fellows:
+    display_name: "Pamela Fellows"
+    kb_id: "pamela_fellows"
+    doctrine_profile: "pamela_fellows"
+    allowed_topics: [anxiety, self_worth, shame, grief, boundaries, courage]
+    disallowed_topics: [manifestation, get_rich_quick]
+    allowed_engines: [overwhelm, shame, spiral]
+    allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
+    identity_shift_allowed: false
+    preferred_formats: [F006, standard_book]
+    teacher_mode_defaults:
+      require_teacher_story: true
+      require_teacher_exercise: true
+      allow_generic_fallback_for_scene: true
+
+  joshin:
+    display_name: "Joshin"
+    kb_id: "joshin"
+    doctrine_profile: "joshin"
+    allowed_topics: [anxiety, self_worth, shame, burnout, boundaries]
+    disallowed_topics: [manifestation, get_rich_quick]
+    allowed_engines: [overwhelm, shame]
+    allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
+    identity_shift_allowed: false
+    preferred_formats: [F006, standard_book]
+    teacher_mode_defaults:
+      require_teacher_story: true
+      require_teacher_exercise: true
+      allow_generic_fallback_for_scene: true
+
+  maat:
+    display_name: "Maat"
+    kb_id: "maat"
+    doctrine_profile: "maat"
+    allowed_topics: [anxiety, self_worth, shame, grief, boundaries]
+    disallowed_topics: [manifestation, get_rich_quick]
+    allowed_engines: [overwhelm, shame, spiral]
+    allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
+    identity_shift_allowed: false
+    preferred_formats: [F006, standard_book]
+    teacher_mode_defaults:
+      require_teacher_story: true
+      require_teacher_exercise: true
+      allow_generic_fallback_for_scene: true
+
+  omote:
+    display_name: "Omote"
+    kb_id: "omote"
+    doctrine_profile: "omote"
+    allowed_topics: [anxiety, self_worth, shame, burnout, boundaries]
+    disallowed_topics: [manifestation, get_rich_quick]
+    allowed_engines: [overwhelm, shame]
+    allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
+    identity_shift_allowed: false
+    preferred_formats: [F006, standard_book]
+    teacher_mode_defaults:
+      require_teacher_story: true
+      require_teacher_exercise: true
+      allow_generic_fallback_for_scene: true
+
+  master_sha:
+    display_name: "Master Sha"
+    kb_id: "master_sha"
+    doctrine_profile: "master_sha"
+    allowed_topics: [anxiety, self_worth, shame, grief, boundaries]
+    disallowed_topics: [manifestation, get_rich_quick]
+    allowed_engines: [overwhelm, shame, spiral]
+    allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
+    identity_shift_allowed: false
+    preferred_formats: [F006, standard_book]
+    teacher_mode_defaults:
+      require_teacher_story: true
+      require_teacher_exercise: true
+      allow_generic_fallback_for_scene: true
+

@@ -8,6 +8,7 @@
 
 | File | Description |
 |------|-------------|
+| **SYSTEM_OWNER_VISION.md** | **North star:** System owner statement of what Phoenix must achieve — technical, therapeutic, reader/listener experience, marketing and business. The whole story of success. |
 | **ONBOARDING.md** | Onboarding for writers/content leads; points to canonical spec and (when added) `docs/writing/`. |
 | **REBUILD_README.txt** | Rebuild pipeline: story-atom roles, cadence, exercise schema, approval, forbidden resolution. |
 | **PHOENIX_V4_5_COMPLETE_FORMAT_SPEC.docx** | Human-reference format portfolio (14 formats, tiers); simulation uses `simulation/config/v4_5_formats.yaml`. |

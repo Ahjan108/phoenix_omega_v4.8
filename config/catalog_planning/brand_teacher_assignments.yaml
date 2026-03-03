@@ -18,6 +18,13 @@ assignments:
     persona_ids: []
     series_ids: []
 
+  # Church brand (distribution-only): no teacher; never in brand_teacher_matrix.
+  - brand_id: norcal_dharma
+    teacher_id: default_teacher
+    topic_ids: []
+    persona_ids: []
+    series_ids: []
+
   # Example: assign a specific teacher for a brand when needed
   # - brand_id: stillness_press
   #   teacher_id: ajahn_x

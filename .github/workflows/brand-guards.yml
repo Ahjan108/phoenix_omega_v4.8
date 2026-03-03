@@ -1,0 +1,33 @@
+# NorCal Dharma brand guards: brand-only (no teacher) invariants.
+# Runs when brand registry, locale extension, catalog planning, or guard script changes.
+name: Brand guards
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'config/brand_registry.yaml'
+      - 'config/localization/brand_registry_locale_extension*.yaml'
+      - 'config/catalog_planning/brand_teacher_*.yaml'
+      - 'scripts/ci/check_norcal_dharma_brand_guards.py'
+      - '.github/workflows/brand-guards.yml'
+  pull_request:
+    branches: [main, master]
+    paths:
+      - 'config/brand_registry.yaml'
+      - 'config/localization/brand_registry_locale_extension*.yaml'
+      - 'config/catalog_planning/brand_teacher_*.yaml'
+      - 'scripts/ci/check_norcal_dharma_brand_guards.py'
+      - '.github/workflows/brand-guards.yml'
+
+jobs:
+  norcal-dharma-guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: NorCal Dharma brand guards (matrix exclusion + assignments)
+        run: |
+          python scripts/ci/check_norcal_dharma_brand_guards.py

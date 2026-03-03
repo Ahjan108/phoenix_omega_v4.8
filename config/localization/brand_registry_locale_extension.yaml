@@ -38,6 +38,11 @@ schema_version: 1
 
 brands:
 
+  # EN-US church/distribution-only brand (no teacher). See docs/CHURCH_BRAND_MAPPING.md.
+  norcal_dharma:
+    locale: en-US
+    territory: US
+
   sleep_repair_tw:
     locale: zh-TW
     territory: TW

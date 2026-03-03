@@ -1,14 +1,10 @@
 """
-Pearl News — fill template slots from feed item + atoms.
-
-MVP: rule-based assembly from feed data and config. No LLM. Slots filled from:
-- news_event: feed summary
-- youth_impact: short placeholder from topic
-- sdg_ref: from sdg_labels + un_body (classifier output)
-- teacher_quotes_practices: placeholder (no atom store yet)
+Pearl News — assemble full article from template + feed item + atoms (teacher, youth, SDG).
+Fills section slots; uses placeholders when atom files are missing so pipeline always produces output.
 """
 from __future__ import annotations
 
+import hashlib
 import logging
 from pathlib import Path
 from typing import Any
@@ -21,126 +17,127 @@ except ImportError:
 logger = logging.getLogger(__name__)
 
 
-def _load_template(template_id: str, root: Path) -> dict[str, Any] | None:
-    templates_dir = root / "article_templates"
-    candidates = [f"{template_id}.yaml", f"{template_id}.yml"]
-    for name in candidates:
-        p = templates_dir / name
-        if p.exists():
-            if yaml is None:
-                return {"section_slots": []}
-            with open(p, "r", encoding="utf-8") as f:
-                return yaml.safe_load(f) or {}
-    return None
+def _load_template(template_dir: Path, template_file: str) -> dict[str, Any]:
+    path = template_dir / template_file
+    if not path.exists() or yaml is None:
+        return {"section_slots": []}
+    with open(path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f) or {}
 
 
-def _youth_impact_placeholder(topic: str) -> str:
-    """Short placeholder for youth impact by topic."""
-    placeholders: dict[str, str] = {
-        "climate": "Young people are increasingly affected by climate impacts and are leading advocacy for action.",
-        "mental_health": "Youth mental health remains a priority for families and communities worldwide.",
-        "education": "Education systems continue to adapt to support young learners.",
-        "peace_conflict": "Conflict and displacement disproportionately affect young people.",
-        "economy_work": "Youth employment and economic opportunity remain key concerns.",
-        "inequality": "Inequality affects young people's access to opportunity.",
-        "partnerships": "Partnerships across sectors support youth-focused initiatives.",
-        "general": "The issue has significant implications for young people and future generations.",
-    }
-    return placeholders.get(topic, placeholders["general"])
+def _resolve_slot(
+    slot_name: str,
+    source: str,
+    item: dict[str, Any],
+    atoms_root: Path,
+    topic: str,
+    primary_sdg: str,
+    sdg_labels: dict,
+    un_body: str,
+) -> str:
+    """Return content for one slot based on source type."""
+    if source == "news_event":
+        title = item.get("title") or item.get("raw_title") or ""
+        summary = item.get("summary") or item.get("raw_summary") or ""
+        url = item.get("url") or ""
+        return f"<h2>{title}</h2>\n<p>{summary}</p>\n<p><em>Source: <a href=\"{url}\">{url[:60]}...</a></em></p>"
+
+    if source == "youth_impact":
+        # Try atoms/youth_impact/<topic>.md or .txt
+        for ext in (".md", ".txt", ".yaml"):
+            p = atoms_root / "youth_impact" / f"{topic}{ext}"
+            if p.exists():
+                return p.read_text(encoding="utf-8").strip()
+        return f"<p>Young people are increasingly affected by global events in this area. Gen Z and Gen Alpha seek clarity and constructive responses aligned with sustainable development and well-being (SDG {primary_sdg}: {sdg_labels.get(primary_sdg, '')}).</p>"
+
+    if source == "teacher_quotes_practices":
+        # Try atoms/teacher_quotes_practices/ or placeholder
+        teacher_dir = atoms_root / "teacher_quotes_practices"
+        if teacher_dir.exists():
+            for f in teacher_dir.rglob("*"):
+                if f.suffix in (".md", ".txt", ".yaml") and topic in f.read_text(encoding="utf-8").lower():
+                    return f.read_text(encoding="utf-8").strip()
+        return f"<p>Leaders from the United Spiritual Leaders Forum emphasize reflection and resilience in the face of uncertainty, in line with ethical frameworks that support youth well-being and global goals.</p>"
+
+    if source in ("sdg_ref", "sdg_framework", "sdg_un_tie", "sdg_alignment", "sdg_policy_tie", "sdg_reference"):
+        label = sdg_labels.get(primary_sdg) or "Sustainable Development"
+        return f"<p>This story relates to <strong>SDG {primary_sdg}: {label}</strong>. The {un_body} tracks progress and supports initiatives in this area. Pearl News is an independent nonprofit and is not affiliated with the United Nations.</p>"
+
+    if source == "generate" or source == "fixed":
+        if "forward_look" in slot_name or "solutions" in slot_name or "next_steps" in slot_name:
+            return "<p>Constructive next steps and dialogue continue to shape how communities and youth engage with these challenges.</p>"
+        if "headline" in slot_name:
+            return (item.get("title") or item.get("raw_title") or "News update").strip()
+        return ""
+
+    return ""
 
 
-def _sdg_ref_text(primary_sdg: str, sdg_labels: dict[str, str], un_body: str) -> str:
-    """Build SDG reference paragraph (no endorsement claim)."""
-    label = sdg_labels.get(primary_sdg, f"SDG {primary_sdg}")
-    return (
-        f"This story relates to Sustainable Development Goal {primary_sdg} ({label}). "
-        f"Relevant UN work in this area is led by {un_body}."
-    )
-
-
-def _assemble_one(item: dict[str, Any], template: dict[str, Any], root: Path) -> dict[str, Any]:
-    """Fill slots and produce article dict (title, content, featured_image, etc.)."""
+def _render_article(template: dict, item: dict[str, Any], atoms_root: Path) -> tuple[str, str]:
+    """Build full HTML content and plain title from template slots."""
     slots = template.get("section_slots") or []
-    topic = item.get("topic") or "general"
+    topic = item.get("topic") or "partnerships"
     primary_sdg = item.get("primary_sdg") or "17"
     sdg_labels = item.get("sdg_labels") or {"17": "Partnerships for the Goals"}
     un_body = item.get("un_body") or "United Nations"
 
-    summary = item.get("summary") or item.get("raw_summary") or "No summary available."
-    url = item.get("url") or ""
-
-    sections: list[str] = []
-    for slot_def in slots:
-        slot = slot_def.get("slot", "")
-        source = slot_def.get("source", "")
-        if not slot:
+    parts = []
+    title = ""
+    for s in slots:
+        slot_name = (s if isinstance(s, str) else s.get("slot")) or ""
+        source = s.get("source", "generate") if isinstance(s, dict) else "generate"
+        fixed_val = s.get("value") if isinstance(s, dict) else None
+        if fixed_val and source == "fixed":
+            parts.append(f"<p><strong>{fixed_val}</strong></p>")
             continue
-        if source == "news_event" or slot == "news_summary":
-            sections.append(f"<p>{summary}</p>")
-        elif source == "youth_impact" or slot in ("youth_impact", "youth_narrative"):
-            sections.append(f"<p>{_youth_impact_placeholder(topic)}</p>")
-        elif source == "sdg_ref" or slot in ("sdg_un_tie", "sdg_framework"):
-            sections.append(f"<p>{_sdg_ref_text(primary_sdg, sdg_labels, un_body)}</p>")
-        elif source == "teacher_quotes_practices" or "teacher" in slot.lower():
-            sections.append("<p><em>Forum perspective to be added.</em></p>")
-        elif source == "generate" and slot == "headline":
-            continue  # headline becomes title
-        elif source == "generate":
-            sections.append("<p></p>")
+        content = _resolve_slot(slot_name, source, item, atoms_root, topic, primary_sdg, sdg_labels, un_body)
+        if not content and slot_name == "label" and "Commentary" in str(s):
+            parts.append("<p><strong>Commentary</strong></p>")
+            continue
+        if slot_name == "headline":
+            title = content.replace("<h2>", "").replace("</h2>", "").strip() or item.get("title", "")
+            parts.append(f"<h1>{title}</h1>")
+        elif content:
+            if not content.startswith("<"):
+                content = f"<p>{content}</p>"
+            parts.append(content)
 
-    content = "\n".join(sections)
-    if url:
-        content += f'\n<p><a href="{url}">Source</a></p>'
-
-    title = item.get("title") or item.get("raw_title") or "(No title)"
-
-    images = item.get("images") or []
-    featured_image = None
-    if images:
-        img = images[0]
-        featured_image = {
-            "url": img.get("url"),
-            "credit": img.get("credit") or item.get("source_feed_title", ""),
-            "source_url": img.get("source_url") or url,
-        }
-        if img.get("caption"):
-            featured_image["caption"] = img["caption"]
-
-    return {
-        "id": item.get("id"),
-        "title": title,
-        "content": content,
-        "slug": None,
-        "featured_image": featured_image,
-        "template_id": item.get("template_id"),
-        "topic": topic,
-        "primary_sdg": primary_sdg,
-        "source_url": url,
-    }
+    body = "\n\n".join(parts)
+    # Mandatory disclaimer (legal boundary)
+    disclaimer = "<p><em>Pearl News is an independent nonprofit civic media organization. We are not affiliated with, endorsed by, or officially connected to the United Nations unless explicitly stated in formal public documentation.</em></p>"
+    body = body.rstrip() + "\n\n" + disclaimer
+    headline = title or item.get("title") or item.get("raw_title") or "Pearl News"
+    return headline, body
 
 
 def assemble_articles(
     items: list[dict[str, Any]],
-    templates_dir: str | Path | None = None,
+    templates_dir: Path | None = None,
+    atoms_root: Path | None = None,
 ) -> list[dict[str, Any]]:
     """
-    Produce article drafts from classified + template-selected items.
-
-    :param items: Items from select_templates (must have template_id, topic, primary_sdg, etc.).
-    :param templates_dir: Base path for article_templates (default: pearl_news/article_templates).
-    :return: List of article dicts (title, content, featured_image, ...) ready for QC and posting.
+    For each item, load its template_id template, fill slots from item + atoms (or placeholders),
+    set article title, content (HTML), and content_plain. Adds headline_sig, lede_sig for manifest.
     """
-    root = Path(templates_dir) if templates_dir else Path(__file__).resolve().parent.parent
+    root = Path(__file__).resolve().parent.parent
+    templates_dir = templates_dir or (root / "article_templates")
+    atoms_root = atoms_root or (root / "atoms")
 
-    result: list[dict[str, Any]] = []
     for item in items:
         template_id = item.get("template_id") or "hard_news_spiritual_response"
-        template = _load_template(template_id, root)
-        if not template:
-            logger.warning("Template %s not found; using minimal", template_id)
-            template = {"section_slots": [{"slot": "news_summary", "source": "news_event"}]}
-        article = _assemble_one(item, template, root)
-        result.append(article)
+        template_file = item.get("template_file") or f"{template_id}.yaml"
+        template = _load_template(templates_dir, template_file)
 
-    logger.info("Assembled %d articles", len(result))
-    return result
+        headline, content = _render_article(template, item, atoms_root)
+
+        item["article_title"] = headline
+        item["content"] = content
+        item["content_plain"] = headline + "\n\n" + content.replace("<p>", "\n").replace("</p>", "").replace("<h1>", "\n").replace("</h1>", "").replace("<h2>", "\n").replace("</h2>", "").strip()
+
+        # Signatures for diversity/audit
+        item["headline_sig"] = hashlib.sha256(headline.lower().encode("utf-8")).hexdigest()[:16]
+        lede = content[:500] if content else ""
+        item["lede_sig"] = hashlib.sha256(lede.encode("utf-8")).hexdigest()[:16]
+
+    logger.info("Assembled %d articles", len(items))
+    return items
