@@ -8,7 +8,7 @@ Use this checklist to close the “ingest-only” branch and confirm full end-to
 2. **CI green on main** for Pearl News tests/workflows (evidence: CI run URL).
 3. **GO/NO-GO checklist signed** with evidence links (below).
 
-**Progress:** Networked run done (evidence and drafts verified). Pearl News gate tests re-run locally: 6 passed. **Remaining:** Merge to main → CI run green → paste CI run URL and sign (CI run link + Signed by).
+**Progress:** Networked run done (evidence and drafts verified). Pearl News gate tests re-run locally on `main`: 6 passed. Merged to `main` at commit `ae2ecbb2`. **Remaining:** CI run green → paste CI run URL and sign (CI run link + Signed by).
 
 ---
 
@@ -37,7 +37,7 @@ Use this checklist to close the “ingest-only” branch and confirm full end-to
 
 | # | Requirement | Status | How to verify |
 |---|--------------|--------|----------------|
-| 6 | CI passes for Pearl News pipeline | Pending | Push to `main` (or PR that touches `pearl_news/**` or the two test files). Workflow: `.github/workflows/pearl_news_gates.yml`. Tests: `tests/test_pearl_news_quality_gates_minimal.py`, `tests/test_pearl_news_pipeline_e2e.py`. |
+| 6 | CI passes for Pearl News pipeline | Pending (awaiting Actions link) | `main` already updated (`ae2ecbb2`). Workflow: `.github/workflows/pearl_news_gates.yml`. Tests: `tests/test_pearl_news_quality_gates_minimal.py`, `tests/test_pearl_news_pipeline_e2e.py`. Paste the green Actions run URL in Evidence below. |
 
 ---
 
@@ -74,7 +74,7 @@ When the three production gates are done, paste links here and sign.
 | **Networked run** | **Done.** Path: `artifacts/pearl_news/evaluation/networked_run_evidence.json`. Run: 2026-03-03; 5 items → 5 articles (ingest from live UN feeds → drafts). |
 | **Signed by** | *Pending — paste name/date after CI run is green.* |
 
-**Next step to reach production 100%:** Push this branch to `main` (or merge a PR). That triggers `.github/workflows/pearl_news_gates.yml`. Open the Actions run, confirm it’s green, then paste the run URL into the **CI run (green)** row above and add your name/date to **Signed by**.
+**Next step to reach production 100%:** Open the Actions run for `.github/workflows/pearl_news_gates.yml` on `main`, confirm it’s green, then paste the run URL into the **CI run (green)** row above and add your name/date to **Signed by**.
 
 ---
 
