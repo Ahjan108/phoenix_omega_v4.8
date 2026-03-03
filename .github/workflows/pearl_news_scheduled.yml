@@ -20,6 +20,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Debug - list repo contents
+        run: |
+          echo "=== Branch: ${{ github.ref_name }} ==="
+          ls -la
+          ls -la tests/ 2>/dev/null || echo "tests/ not found"
+          ls -la tests/test_pearl_news/ 2>/dev/null || echo "tests/test_pearl_news/ not found"
+          ls -la pearl_news/ 2>/dev/null || echo "pearl_news/ not found"
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
