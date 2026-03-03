@@ -8,6 +8,8 @@ Use this checklist to close the “ingest-only” branch and confirm full end-to
 2. **CI green on main** for Pearl News tests/workflows (evidence: CI run URL).
 3. **GO/NO-GO checklist signed** with evidence links (below).
 
+**Progress:** Networked run done (evidence and drafts verified). Pearl News gate tests re-run locally: 6 passed. **Remaining:** Merge to main → CI run green → paste CI run URL and sign (CI run link + Signed by).
+
 ---
 
 ## 1. Pipeline components (all implemented and used)
