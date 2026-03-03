@@ -23,6 +23,13 @@ TEMPLATE_IDS = [
     "commentary",
 ]
 
+DEFAULT_TOPIC_TO_TEMPLATE = {
+    "mental_health": "youth_feature",
+    "education": "youth_feature",
+    "peace_conflict": "interfaith_dialogue_report",
+    "inequality": "explainer_context",
+}
+
 
 def _load_index(config_root: Path) -> dict[str, Any]:
     path = config_root / "article_templates_index.yaml"
@@ -35,15 +42,27 @@ def _load_index(config_root: Path) -> dict[str, Any]:
 def select_templates(
     items: list[dict[str, Any]],
     config_root: Path | None = None,
+    topic_to_template: dict[str, str] | None = None,
 ) -> list[dict[str, Any]]:
     """
-    Set template_id on each item. Uses suggested_template from classifier if present;
-    otherwise defaults to hard_news_spiritual_response. SDG feed items can use explainer or youth_feature.
+    Set template_id on each item.
+    Priority:
+    1) suggested_template from classifier
+    2) caller override mapping (topic_to_template)
+    3) config topic_to_template mapping (if present in article_templates_index.yaml)
+    4) default topic mapping
+    5) source heuristics
+    6) hard_news_spiritual_response fallback
     """
     root = Path(__file__).resolve().parent.parent
     config_root = config_root or (root / "config")
     index = _load_index(config_root)
     templates = index.get("templates") or {}
+    config_topic_map = index.get("topic_to_template") or {}
+    merged_topic_map = dict(DEFAULT_TOPIC_TO_TEMPLATE)
+    merged_topic_map.update(config_topic_map)
+    if topic_to_template:
+        merged_topic_map.update(topic_to_template)
 
     for i, item in enumerate(items):
         suggested = item.get("suggested_template")
@@ -52,6 +71,8 @@ def select_templates(
 
         if suggested and suggested in TEMPLATE_IDS:
             template_id = suggested
+        elif topic in merged_topic_map and merged_topic_map[topic] in TEMPLATE_IDS:
+            template_id = merged_topic_map[topic]
         elif source == "un_news_sdgs" and topic in ("education", "mental_health"):
             template_id = "youth_feature"
         elif source == "un_news_sdgs":
