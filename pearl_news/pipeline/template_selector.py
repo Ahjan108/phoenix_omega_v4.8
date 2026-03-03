@@ -1,7 +1,6 @@
 """
-Pearl News — select one template per feed item by topic.
-
-Maps topic (from classifier) to template_id from article_templates_index.
+Pearl News — select one of the 5 article templates per feed item based on topic, SDG, and source.
+Uses article_templates_index.yaml; applies simple rules for diversity.
 """
 from __future__ import annotations
 
@@ -16,62 +15,55 @@ except ImportError:
 
 logger = logging.getLogger(__name__)
 
-# Topic → template_id. Must match keys in article_templates_index.yaml.
-DEFAULT_TOPIC_TO_TEMPLATE: dict[str, str] = {
-    "mental_health": "youth_feature",
-    "education": "youth_feature",
-    "climate": "hard_news_spiritual_response",
-    "peace_conflict": "interfaith_dialogue_report",
-    "economy_work": "hard_news_spiritual_response",
-    "inequality": "explainer_context",
-    "partnerships": "hard_news_spiritual_response",
-    "general": "hard_news_spiritual_response",
-}
+TEMPLATE_IDS = [
+    "hard_news_spiritual_response",
+    "youth_feature",
+    "interfaith_dialogue_report",
+    "explainer_context",
+    "commentary",
+]
 
 
-def _load_template_index(config_path: Path) -> dict[str, Any]:
-    if yaml is None:
-        raise RuntimeError("PyYAML required; pip install pyyaml")
-    with open(config_path, "r", encoding="utf-8") as f:
-        data = yaml.safe_load(f) or {}
-    return data
+def _load_index(config_root: Path) -> dict[str, Any]:
+    path = config_root / "article_templates_index.yaml"
+    if not path.exists() or yaml is None:
+        return {}
+    with open(path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f) or {}
 
 
 def select_templates(
     items: list[dict[str, Any]],
-    config_path: str | Path | None = None,
-    topic_to_template: dict[str, str] | None = None,
+    config_root: Path | None = None,
 ) -> list[dict[str, Any]]:
     """
-    Add template_id to each item based on topic.
-
-    :param items: Classified items (must have topic from classify_sdgs).
-    :param config_path: Path to article_templates_index.yaml (for validation).
-    :param topic_to_template: Override mapping; defaults to DEFAULT_TOPIC_TO_TEMPLATE.
-    :return: Items with template_id added.
+    Set template_id on each item. Uses suggested_template from classifier if present;
+    otherwise defaults to hard_news_spiritual_response. SDG feed items can use explainer or youth_feature.
     """
     root = Path(__file__).resolve().parent.parent
-    path = Path(config_path) if config_path else root / "config" / "article_templates_index.yaml"
-    mapping = topic_to_template or DEFAULT_TOPIC_TO_TEMPLATE
+    config_root = config_root or (root / "config")
+    index = _load_index(config_root)
+    templates = index.get("templates") or {}
 
-    valid_templates: set[str] = set()
-    if path.exists():
-        index = _load_template_index(path)
-        templates = index.get("templates") or {}
-        valid_templates = set(templates.keys())
-    else:
-        valid_templates = set(DEFAULT_TOPIC_TO_TEMPLATE.values())
+    for i, item in enumerate(items):
+        suggested = item.get("suggested_template")
+        source = item.get("source_feed_id") or ""
+        topic = item.get("topic") or ""
 
-    default_template = "hard_news_spiritual_response"
+        if suggested and suggested in TEMPLATE_IDS:
+            template_id = suggested
+        elif source == "un_news_sdgs" and topic in ("education", "mental_health"):
+            template_id = "youth_feature"
+        elif source == "un_news_sdgs":
+            template_id = "explainer_context"
+        else:
+            template_id = "hard_news_spiritual_response"
 
-    result: list[dict[str, Any]] = []
-    for item in items:
-        topic = item.get("topic") or "general"
-        template_id = mapping.get(topic, default_template)
-        if template_id not in valid_templates and valid_templates:
-            template_id = default_template
-        out = {**item, "template_id": template_id}
-        result.append(out)
+        item["template_id"] = template_id
+        if template_id in templates:
+            item["template_file"] = templates[template_id].get("file") or f"{template_id}.yaml"
+        else:
+            item["template_file"] = f"{template_id}.yaml"
 
-    logger.info("Selected templates for %d items (templates: %s)", len(result), set(i["template_id"] for i in result))
-    return result
+    logger.info("Selected templates for %d items", len(items))
+    return items

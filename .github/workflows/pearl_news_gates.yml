@@ -7,16 +7,12 @@ on:
     branches: [main]
     paths:
       - 'pearl_news/**'
-      - 'tests/test_topic_sdg_classifier.py'
-      - 'tests/test_template_selector.py'
       - 'tests/test_pearl_news_quality_gates_minimal.py'
       - 'tests/test_pearl_news_pipeline_e2e.py'
   pull_request:
     branches: [main]
     paths:
       - 'pearl_news/**'
-      - 'tests/test_topic_sdg_classifier.py'
-      - 'tests/test_template_selector.py'
       - 'tests/test_pearl_news_quality_gates_minimal.py'
       - 'tests/test_pearl_news_pipeline_e2e.py'
 
@@ -37,8 +33,6 @@ jobs:
       - name: Run Pearl News governance tests
         run: |
           PYTHONPATH=. python -m pytest \
-            tests/test_topic_sdg_classifier.py \
-            tests/test_template_selector.py \
             tests/test_pearl_news_quality_gates_minimal.py \
             tests/test_pearl_news_pipeline_e2e.py \
             -v

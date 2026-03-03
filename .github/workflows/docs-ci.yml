@@ -8,6 +8,7 @@ on:
       - 'specs/**'
       - 'ONBOARDING.md'
       - 'scripts/ci/check_docs_governance.py'
+      - 'scripts/ci/check_church_yaml_no_sensitive_tokens.py'
       - '.github/workflows/docs-ci.yml'
   pull_request:
     branches: [main, master]
@@ -16,6 +17,7 @@ on:
       - 'specs/**'
       - 'ONBOARDING.md'
       - 'scripts/ci/check_docs_governance.py'
+      - 'scripts/ci/check_church_yaml_no_sensitive_tokens.py'
       - '.github/workflows/docs-ci.yml'
 
 jobs:
@@ -29,3 +31,5 @@ jobs:
       - name: Docs governance (links + freshness + authority)
         run: |
           PYTHONPATH=. python scripts/ci/check_docs_governance.py
+      - name: Church YAML no sensitive tokens (ssn, account_number, etc.)
+        run: python scripts/ci/check_church_yaml_no_sensitive_tokens.py

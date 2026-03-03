@@ -1,0 +1,41 @@
+{
+  "build_date": "2026-03-03T08:22:03.148049+00:00",
+  "feeds_path": "pearl_news/config/feeds.yaml",
+  "limit": 5,
+  "per_feed_limit": null,
+  "item_count": 5,
+  "articles_passed_qc": 5,
+  "articles_output": 5,
+  "items": [
+    {
+      "id": "99d6dbe6a6137bad",
+      "title": "World News in Brief: Gaza crossings closed, fighting in Sudan continues, Afghanistan quake victims",
+      "topic": "partnerships",
+      "qc_passed": true
+    },
+    {
+      "id": "094afe22e13a2eb7",
+      "title": "SECURITY COUNCIL LIVE: Melania Trump presides over historic session on children in conflict",
+      "topic": "peace_conflict",
+      "qc_passed": true
+    },
+    {
+      "id": "fbb04cf8c6693af1",
+      "title": "MIDDLE EAST LIVE: Strikes continue from US, Israel and Iran as UN urges restraint",
+      "topic": "partnerships",
+      "qc_passed": true
+    },
+    {
+      "id": "bbb7d4a9bc8f4109",
+      "title": "Iran crisis: Nuclear watchdog urges restraint amid ongoing strikes",
+      "topic": "partnerships",
+      "qc_passed": true
+    },
+    {
+      "id": "ea16f1a8c4d14f27",
+      "title": "Deadly bombing of Iran primary school ‘a grave violation of humanitarian law’: UNESCO",
+      "topic": "education",
+      "qc_passed": true
+    }
+  ]
+}

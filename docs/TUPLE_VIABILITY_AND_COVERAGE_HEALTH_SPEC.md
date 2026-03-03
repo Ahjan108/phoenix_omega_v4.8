@@ -137,24 +137,33 @@ Engine IDs are those in bindings (e.g. `false_alarm`, `spiral`, `watcher`, `over
 
 ---
 
-## 7. 100% atoms coverage sim test
+## 7. 100% atoms coverage sim test (STORY + non-STORY)
 
-**Purpose:** Assert that every (persona, topic, engine) in the catalog has a non-empty STORY pool so all books for all personas and all topics can be built.
+**Purpose:** Assert that (1) every (persona, topic, engine) has a non-empty STORY pool, and (2) every (persona, topic) has non-empty canonical pools for HOOK, SCENE, REFLECTION, EXERCISE, and INTEGRATION, so all US-English books can be built without relying on fallbacks.
 
 **Module:** `tests/test_atoms_coverage_100_percent.py`. Authority: this spec and **docs/UNIFIED_PERSONAS_BOOK_READINESS_ANALYSIS.md**.
 
 ### Contract
 
+**STORY (tuple-level):**
+
 - **Tuple universe:** Personas from `config/catalog_planning/canonical_personas.yaml` × topics (and their `allowed_engines`) from `config/topic_engine_bindings.yaml`. Same universe as the coverage health report (no format dimension; one check per (persona, topic, engine)).
 - **Requirement:** For each (persona, topic, engine), `atoms/{persona}/{topic}/{engine}/CANONICAL.txt` must **exist** and be **non-empty** (at least one valid STORY atom). Parsing uses `phoenix_v4.planning.assembly_compiler._parse_canonical_txt` (same as tuple viability gate). If the file fails validation or parse, the tuple is treated as missing (no STORY pool).
-- **Path:** Run from repo root. The module inserts `REPO_ROOT` into `sys.path` at load so `phoenix_v4` imports work when the script is run from any working directory.
+
+**Non-STORY (persona–topic-level):**
+
+- **Pair universe:** Same personas × same topics (no engine dimension); one check per (persona, topic) per slot type.
+- **Requirement:** For each (persona, topic) and each slot type in **HOOK, SCENE, REFLECTION, EXERCISE, INTEGRATION**, `atoms/{persona}/{topic}/{slot_type}/CANONICAL.txt` must **exist** and be **non-empty** (at least one block matching the canonical block format). Same rigor as STORY: any gap fails the test. EXERCISE is checked for canonical content only (no fallback to practice library).
+
+- **Path:** Run from repo root. The module inserts `REPO_ROOT` into `sys.path` at load so `phoenix_v4` imports work when the script is run from any working directory. Optional env **`ATOMS_ROOT`** overrides the atoms directory (e.g. for CI or alternate content roots).
 
 ### Behavior
 
 | Condition | Effect |
 |-----------|--------|
-| **BLOCKER** | Any tuple missing the file or with no parseable STORY atom → test **fails**; prints missing paths and coverage percentage (e.g. 398/450 → 88.4%). |
-| **RED (report only)** | Pools with `story_count < min_story_pool_size` (from `config/gates.yaml` → `tuple_viability.min_story_pool_size`) are **reported** only; they do **not** fail the test. |
+| **BLOCKER** | Any (persona, topic, engine) missing STORY file or with no parseable STORY atom → test **fails**; prints missing paths and coverage percentage. |
+| **BLOCKER** | Any (persona, topic, slot_type) missing non-STORY file or with no parseable block (HOOK/SCENE/REFLECTION/EXERCISE/INTEGRATION) → test **fails**; prints missing paths per slot type. |
+| **RED (report only)** | STORY pools with `story_count < min_story_pool_size` (from `config/gates.yaml` → `tuple_viability.min_story_pool_size`) are **reported** only; they do **not** fail the test. |
 
 ### How to run
 
@@ -163,27 +172,33 @@ Engine IDs are those in bindings (e.g. `false_alarm`, `spiral`, `watcher`, `over
 | Script (no pytest) | `python3 tests/test_atoms_coverage_100_percent.py` |
 | Pytest | `python3 -m pytest tests/test_atoms_coverage_100_percent.py -v` |
 
-**Exit code:** **0** when coverage is 100% (all required STORY pools present and non-empty); **1** otherwise.
+**Exit code:** **0** only when both STORY and non-STORY coverage are 100%; **1** if either fails.
 
 ### Pytest entry points
 
 | Test | Purpose |
 |------|--------|
 | `test_100_percent_atoms_for_all_books` | Asserts no missing STORY pools; fails with missing paths and percentage if not 100%. |
-| `test_atoms_coverage_summary` | Prints coverage percentage and up to 20 missing paths; does not fail (useful for CI logs). |
+| `test_100_percent_non_story_atoms_for_all_books` | Asserts no missing HOOK/SCENE/REFLECTION/EXERCISE/INTEGRATION pools for any (persona, topic); fails on any gap. |
+| `test_atoms_coverage_summary` | Prints STORY coverage percentage and up to 20 missing paths; does not fail (useful for CI logs). |
+| `test_non_story_coverage_summary` | Prints non-STORY coverage percentage and missing counts per slot type; does not fail (useful for CI logs). |
 
 ### Programmatic API
 
-- **`run_sim_test() -> tuple[bool, str]`** — Returns `(passed, message)`. Use from CLI (`if __name__ == "__main__"`) or from other code. `passed` is True only when every (persona, topic, engine) has a non-empty STORY pool; `message` is the same text printed when run as script.
+- **`run_sim_test() -> tuple[bool, str]`** — STORY only. Returns `(passed, message)`. `passed` is True only when every (persona, topic, engine) has a non-empty STORY pool.
+- **`run_non_story_sim_test() -> tuple[bool, str]`** — Non-STORY only. Returns `(passed, message)`. `passed` is True only when every (persona, topic) has non-empty canonical pools for HOOK, SCENE, REFLECTION, EXERCISE, INTEGRATION.
+
+When run as script (`if __name__ == "__main__"`), both are executed; exit 1 if either fails.
 
 ### Getting to 100%
 
-Add or fix missing `atoms/{persona}/{topic}/{engine}/CANONICAL.txt` so each has at least one valid STORY atom (and ideally ≥ `min_story_pool_size` per `config/gates.yaml`). See **docs/UNIFIED_PERSONAS_BOOK_READINESS_ANALYSIS.md** for personas/topics and what’s needed for full books.
+- **STORY:** Add or fix missing `atoms/{persona}/{topic}/{engine}/CANONICAL.txt` so each has at least one valid STORY atom (and ideally ≥ `min_story_pool_size` per `config/gates.yaml`). See **docs/UNIFIED_PERSONAS_BOOK_READINESS_ANALYSIS.md** for personas/topics and what’s needed for full books.
+- **Non-STORY:** Add or fix missing `atoms/{persona}/{topic}/{slot_type}/CANONICAL.txt` for each slot_type in HOOK, SCENE, REFLECTION, EXERCISE, INTEGRATION so each file has at least one block (same block format as `pool_index._parse_block_file_canonical`).
 
 ### Implementation summary (from chat)
 
-- **File:** `tests/test_atoms_coverage_100_percent.py`. Catalog from `canonical_personas.yaml` × `topic_engine_bindings.yaml` (topics with `allowed_engines`). STORY pool check: path exists and `_parse_canonical_txt` returns ≥1 atom; parse/validation errors count as missing.
-- **Run:** Script (exit 0/1) or pytest (`test_100_percent_atoms_for_all_books`, `test_atoms_coverage_summary`). Repo root added to `sys.path` at import so `phoenix_v4` works from any cwd.
+- **File:** `tests/test_atoms_coverage_100_percent.py`. Catalog from `canonical_personas.yaml` × `topic_engine_bindings.yaml` (topics with `allowed_engines`). STORY pool check: path exists and `_parse_canonical_txt` returns ≥1 atom; parse/validation errors count as missing. Non-STORY: path exists and block regex returns ≥1 block per (persona, topic) per slot type; CI fails on any gap.
+- **Run:** Script (exit 0/1) or pytest (all four tests). Repo root added to `sys.path` at import so `phoenix_v4` works from any cwd. Optional `ATOMS_ROOT` env for override.
 - **Cross-references:** docs/PLANNING_STATUS.md (playbook + doc status), docs/SYSTEMS_V4.md (coverage row + doc map), docs/UNIFIED_PERSONAS_BOOK_READINESS_ANALYSIS.md (sim test paragraph), specs/V4_5_PRODUCTION_READINESS_CHECKLIST.md (§2 optional), specs/README.md (content coverage), REPO_FILES.md (atoms section), docs/SYSTEMS_AUDIT.md (CI/tools table).
 
 ---

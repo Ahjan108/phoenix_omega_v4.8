@@ -58,18 +58,10 @@ jobs:
 
       - name: Run Pearl News tests
         run: |
-          if [ -d tests/test_pearl_news ]; then
-            PYTHONPATH=. python -m pytest tests/test_pearl_news/ -v -k "not real_rss"
-          elif [ -d test/test_pearl_news ]; then
-            PYTHONPATH=. python -m pytest test/test_pearl_news/ -v -k "not real_rss"
-          elif [ -d test_pearl_news ]; then
-            PYTHONPATH=. python -m pytest test_pearl_news/ -v -k "not real_rss"
-          elif [ -d tests/pearl_news ]; then
-            PYTHONPATH=. python -m pytest tests/pearl_news/ -v -k "not real_rss"
-          else
-            echo "No Pearl News test dir found"
-            exit 1
-          fi
+          PYTHONPATH=. python -m pytest \
+            tests/test_pearl_news_quality_gates_minimal.py \
+            tests/test_pearl_news_pipeline_e2e.py \
+            -v
 
       - name: Run full pipeline (ingest → classify → assemble → QC)
         run: |

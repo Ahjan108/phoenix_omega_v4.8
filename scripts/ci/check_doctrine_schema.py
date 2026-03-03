@@ -20,6 +20,8 @@ ALLOWED_TOP_LEVEL = frozenset({
     "teacher_id", "doctrine_version", "tradition", "primary_methods", "core_principles", "tone_profile",
     "signature_metaphors", "signature_practices", "transformation_model", "forbidden_language", "avoid_claims",
     "fallback_alignment", "constraints", "doctrine_schema_version",
+    "display_name", "forbidden_claims", "tone_boundaries", "glossary", "prohibited_outcomes", "exercise_safety_notes",
+    "schema_version", "doctrine_profile",
 })
 
 REQUIRED_TOP_LEVEL = frozenset({
