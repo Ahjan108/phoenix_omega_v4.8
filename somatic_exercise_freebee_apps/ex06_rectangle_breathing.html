@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rectangle Breathing — 5·5·5·5</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@300;400&family=Sora:wght@300;400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--c1:#5E94B8;--c2:#8B72A8;--c3:#4F9882;--c4:#B8925E;--bg:#080C15;--text:#DDD8CE;--muted:#5D5955}
+  body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;user-select:none}
+  .wrap{z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.4rem}
+  h1{font-family:'EB Garamond',serif;font-weight:300;font-size:2rem;letter-spacing:.05em}
+  .sub{font-size:.72rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+  .rect-area{position:relative;width:340px;height:220px}
+  .rect-border{position:absolute;inset:20px;border:1px solid rgba(255,255,255,.07);border-radius:3px}
+  .side-glow{position:absolute;opacity:0;transition:opacity .4s}
+  .side-glow.top{top:19px;left:20px;right:20px;height:3px;border-radius:2px;background:var(--c1)}
+  .side-glow.right{top:20px;right:19px;width:3px;bottom:20px;border-radius:2px;background:var(--c2)}
+  .side-glow.bottom{bottom:19px;left:20px;right:20px;height:3px;border-radius:2px;background:var(--c3)}
+  .side-glow.left{top:20px;left:19px;width:3px;bottom:20px;border-radius:2px;background:var(--c4)}
+  .side-glow.active{opacity:.7}
+  .dot{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--c1);box-shadow:0 0 20px rgba(94,148,184,.5);transform:translate(-50%,-50%);z-index:2;transition:background .4s,box-shadow .4s}
+  .lbl{position:absolute;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:color .3s}
+  .lbl.active{color:var(--text)}
+  .lbl.t{top:4px;left:50%;transform:translateX(-50%)}
+  .lbl.r{right:-2px;top:50%;transform:translateY(-50%) rotate(90deg)}
+  .lbl.b{bottom:4px;left:50%;transform:translateX(-50%)}
+  .lbl.l{left:-2px;top:50%;transform:translateY(-50%) rotate(-90deg)}
+  .center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .pn{font-family:'EB Garamond',serif;font-size:1.4rem;font-weight:300;letter-spacing:.08em}
+  .pc{font-size:2rem;font-weight:300;opacity:.7}
+  .info-row{display:flex;gap:2rem;font-size:.8rem;color:var(--muted)}
+  .info-row strong{color:var(--text);font-weight:500}
+  .controls{display:flex;gap:1rem}
+  .btn{font-family:'Sora',sans-serif;padding:.55rem 1.6rem;border:1px solid rgba(255,255,255,.1);border-radius:100px;background:rgba(255,255,255,.03);color:var(--text);font-size:.8rem;cursor:pointer;transition:all .3s}
+  .btn:hover{background:rgba(255,255,255,.08)}
+  .btn.pri{background:rgba(94,148,184,.15);border-color:rgba(94,148,184,.3)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Rectangle Breathing</h1>
+  <p class="sub">5 · 5 · 5 · 5 seconds</p>
+  <div class="rect-area">
+    <div class="rect-border"></div>
+    <div class="side-glow top" id="sT"></div>
+    <div class="side-glow right" id="sR"></div>
+    <div class="side-glow bottom" id="sB"></div>
+    <div class="side-glow left" id="sL"></div>
+    <span class="lbl t" id="lT">Inhale 5s</span>
+    <span class="lbl r" id="lR">Hold 5s</span>
+    <span class="lbl b" id="lB">Exhale 5s</span>
+    <span class="lbl l" id="lL">Pause 5s</span>
+    <div class="dot" id="dot"></div>
+    <div class="center">
+      <span class="pn" id="pn">Ready</span>
+      <span class="pc" id="pc"></span>
+    </div>
+  </div>
+  <div class="info-row">
+    <span>Cycle <strong id="cn">0</strong> / <strong>15</strong></span>
+    <span>Remaining <strong id="rem">5:00</strong></span>
+  </div>
+  <div class="controls">
+    <button class="btn pri" id="sb" onclick="toggle()">Begin</button>
+    <button class="btn" onclick="doReset()">Reset</button>
+  </div>
+</div>
+<script>
+const P=[
+  {name:'Inhale',dur:5,color:'#5E94B8',shadow:'rgba(94,148,184,.5)',side:'sT',lbl:'lT'},
+  {name:'Hold',dur:5,color:'#8B72A8',shadow:'rgba(139,114,168,.5)',side:'sR',lbl:'lR'},
+  {name:'Exhale',dur:5,color:'#4F9882',shadow:'rgba(79,152,130,.5)',side:'sB',lbl:'lB'},
+  {name:'Pause',dur:5,color:'#B8925E',shadow:'rgba(184,146,94,.5)',side:'sL',lbl:'lL'},
+];
+const CYC=15,SESSION=300;
+const L=20,R=320,T=20,B=200;
+const CORNERS=[[L,T],[R,T],[R,B],[L,B]];
+
+function pos(si,f){const a=CORNERS[si],b=CORNERS[(si+1)%4];return[a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f]}
+
+let running=false,paused=false,pi=0,pt=0,cyc=0,total=0,lastTs=0,lastPi=-1,aCtx=null;
+function audio(){if(!aCtx)aCtx=new(window.AudioContext||window.webkitAudioContext)();return aCtx}
+function tone(f,d=.3){try{const x=audio(),o=x.createOscillator(),g=x.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,x.currentTime);g.gain.linearRampToValueAtTime(.08,x.currentTime+.05);g.gain.exponentialRampToValueAtTime(.001,x.currentTime+d);o.connect(g);g.connect(x.destination);o.start();o.stop(x.currentTime+d)}catch(e){}}
+function fmt(s){return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
+
+function tick(ts){
+  if(!running||paused)return;
+  if(!lastTs)lastTs=ts;
+  const dt=(ts-lastTs)/1000;lastTs=ts;pt+=dt;total+=dt;
+  if(total>=SESSION){end();return}
+  const p=P[pi];
+  if(pi!==lastPi){
+    tone([396,320,285,240][pi]);
+    document.querySelectorAll('.side-glow').forEach(s=>s.classList.remove('active'));
+    document.getElementById(p.side).classList.add('active');
+    document.querySelectorAll('.lbl').forEach(l=>l.classList.remove('active'));
+    document.getElementById(p.lbl).classList.add('active');
+    lastPi=pi;
+  }
+  const f=Math.min(pt/p.dur,1);
+  const[x,y]=pos(pi,f);
+  const dot=document.getElementById('dot');
+  dot.style.left=x+'px';dot.style.top=y+'px';dot.style.background=p.color;dot.style.boxShadow='0 0 20px '+p.shadow;
+  document.getElementById('pn').textContent=p.name;
+  document.getElementById('pc').textContent=Math.ceil(p.dur-pt);
+  document.getElementById('rem').textContent=fmt(Math.max(0,SESSION-total));
+  if(pt>=p.dur){pt=0;pi++;if(pi>=4){pi=0;cyc++;document.getElementById('cn').textContent=cyc;if(cyc>=CYC){end();return}}}
+  requestAnimationFrame(tick);
+}
+
+function toggle(){
+  const b=document.getElementById('sb');
+  if(!running){running=true;paused=false;pi=0;pt=0;cyc=0;total=0;lastTs=0;lastPi=-1;
+    document.getElementById('cn').textContent='0';b.textContent='Pause';requestAnimationFrame(tick);
+  }else if(!paused){paused=true;lastTs=0;b.textContent='Resume'}
+  else{paused=false;lastTs=0;b.textContent='Pause';requestAnimationFrame(tick)}
+}
+
+function doReset(){
+  running=false;paused=false;pi=0;pt=0;cyc=0;total=0;lastTs=0;lastPi=-1;
+  document.getElementById('sb').textContent='Begin';document.getElementById('cn').textContent='0';
+  document.getElementById('rem').textContent=fmt(SESSION);document.getElementById('pn').textContent='Ready';
+  document.getElementById('pc').textContent='';
+  document.querySelectorAll('.side-glow').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.lbl').forEach(l=>l.classList.remove('active'));
+  const[x,y]=pos(0,0);const d=document.getElementById('dot');d.style.left=x+'px';d.style.top=y+'px';
+}
+
+function end(){running=false;document.getElementById('sb').textContent='Begin';document.getElementById('pn').textContent='Complete';document.getElementById('pc').textContent='';tone(528,.8)}
+
+const[ix,iy]=pos(0,0);document.getElementById('dot').style.left=ix+'px';document.getElementById('dot').style.top=iy+'px';
+</script>
+</body>
+</html>

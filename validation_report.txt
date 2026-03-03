@@ -1,0 +1,44 @@
+================================================================================
+PHOENIX TITLE ENGINE v3 - FINAL VALIDATION REPORT
+================================================================================
+
+Total Titles Generated: 1008
+Unique Titles: 1008
+Uniqueness Rate: 100.0%
+
+24 Brands Coverage:
+  Total: 18 brands
+  Range: 6-321 books per brand
+  Average: 56.0 books per brand
+
+15 Topics Coverage:
+  Total: 15 topics
+  Range: 37-106 books per topic
+  Average: 67.2 books per topic
+
+10 Personas Coverage:
+  Total: 10 personas
+  Range: 27-291 books per persona
+  Average: 100.8 books per persona
+
+Series Coverage:
+  Books with series/angle: 316 (31.3%)
+  Books without series: 692
+
+Title Metrics:
+  Avg length: 32.6 chars
+  Min: 15 chars
+  Max: 51 chars
+  All within 4-70 char limit: True
+
+Subtitle Metrics:
+  Avg length: 71.5 chars
+  Max: 90 chars
+  All within 90 char limit: True
+
+Forbidden Token Validation:
+  Forbidden tokens: ['guaranteed', 'instant', 'cure']
+  Violations found: 0
+
+✓ All validation checks passed!
+================================================================================

@@ -1,0 +1,240 @@
+
+## RECOGNITION v01
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/recognition/micro/v01.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: pre_awareness
+---
+A patient Maria has been caring for dies. Not unexpectedly. The trajectory was clear. Yet the death still lands. Maria feels it in her chest. There's no formula that makes this easier. The patient had a name. A family who loved them. A life that will no longer be lived. Maria feels the weight of what's been lost. Not loss in the abstract. Loss of this specific person who was alive this morning.
+---
+
+## RECOGNITION v02
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/recognition/micro/v02.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: pre_awareness
+---
+Chen sits with a family who's grieving. She holds their grief without trying to fix it. She sees the mother's face. The father's silence. The way they hold each other. Chen feels their loss. She can't separate herself from it. She's grieving too. Not her loss. Their loss. But the grief moves through her like it's her own.
+---
+
+## RECOGNITION v03
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/recognition/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Dominique goes to a patient's funeral. She sits in the back. She doesn't need to be there. But something in her required witnessing the completion. The body in the casket. The family in dark clothes. The finality. Dominique cries. She cries for the patient. She cries for the family. She cries for the lives that are forever changed by this death.
+---
+
+## RECOGNITION v04
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/recognition/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Keisha's patient doesn't make it. The code doesn't work. The family has to say goodbye to a body instead of a person. Keisha prepares the body. She touches the patient's hand one more time. She whispers something only the patient can hear. The grief is profound. It's not unprofessional. It's the mark of someone who cared.
+---
+
+## RECOGNITION v05
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/recognition/micro/v05.txt
+BAND: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+The accumulation of grief becomes the landscape of the work. Each death adds to the collective weight. The nurses mourn not just individuals but the pattern of mortality that's part of their daily reality. Grief is not extraordinary. It's ordinary. It's the water they swim in. They float in grief. They work in grief. They love their patients and then they lose them.
+---
+
+## MECHANISM_PROOF v01
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/mechanism_proof/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: destabilization
+---
+The mechanism is: I can care for dying people and not be affected by their dying. The mechanism produces a certain compartmentalization. Maria's professional capacity is real. She can manage the medical tasks. Yet she cannot avoid the reality that the person dies. The mechanism tries to keep feeling separate from function. But the separation is never complete.
+---
+
+## MECHANISM_PROOF v02
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/grief/mechanism_proof/micro/v02.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: destabilization
+---
+The mechanism proves itself through the way grief cannot be scheduled. Chen can't grieve during her shift. She must continue working. The mechanism says: You can feel later. Yet later becomes tomorrow, next week, never. The grief accumulates because the mechanism doesn't allow for processing. The proof is the backlog of ungrieved losses.
+---
+
+## MECHANISM_PROOF v03
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/mechanism_proof/micro/v03.txt
+BAND: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+The mechanism isolates. Dominique's grief at the funeral cannot be easily explained to her family. They don't understand why she's so affected by a patient she knew for two weeks. The mechanism suggests that the grief is not valid. It's not family. It's work. The isolation deepens the grief. She's grieving alone.
+---
+
+## MECHANISM_PROOF v04
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/mechanism_proof/micro/v04.txt
+BAND: 4
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+The mechanism creates a particular kind of guilt. Keisha grieves her patient. But the mechanism whispers: You should have done more. The code should have worked. The death is somehow your failure. The grief becomes entangled with guilt. The mechanism has weaponized the grief.
+---
+
+## MECHANISM_PROOF v05
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/mechanism_proof/micro/v05.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: destabilization
+---
+The mechanism makes the grief feel like weakness. The nurses work in a field where death is normal. If they grieve every death, they'll be unable to continue. The mechanism suggests that their grief is sentimentality. They should be tougher. Yet grief is not weakness. It's the mark of someone who's loved. The mechanism tries to invalidate what's actually the most human response.
+---
+
+## TURNING_POINT v01
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/turning_point/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Maria tells someone about her patient's death. She doesn't try to minimize it. She says: This person died. This matters. I'm grieving. The person listens without judgment. In the listening, there's permission to grieve. Maria realizes she's been waiting for permission. Permission that no one was going to give her except herself.
+---
+
+## TURNING_POINT v02
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/turning_point/micro/v02.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Chen takes time off after a difficult death. She doesn't go shopping or have fun. She sits with the grief. She cries when she needs to. The time gives the grief space. The mechanism that required compartmentalization begins to loosen. Grief can have time. Grief can have space.
+---
+
+## TURNING_POINT v03
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/turning_point/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Dominique connects with her family about why the funeral mattered. She explains: This person was part of my work. Their death affects me. Her family begins to understand that grief in this work is different but not less than family grief. The isolation begins to ease. The grief can be witnessed.
+---
+
+## TURNING_POINT v04
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/turning_point/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Keisha releases the guilt. Her patient died of a disease. The code didn't work because the disease was too advanced. Keisha did everything she could. The grief doesn't require guilt. The mechanism tried to merge them. But they're separate. Grief for the loss is different from guilt about care. She separates them.
+---
+
+## TURNING_POINT v05
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/turning_point/micro/v05.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Over weeks, the nurses begin to honor their grief. They acknowledge that care produces attachment and attachment produces grief. Instead of trying to prevent the grief, they're allowing it. The experimentation is toward integrating grief as a normal part of caring work.
+---
+
+## EMBODIMENT v01
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/embodiment/micro/v01.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Maria thinks about her patient. She feels the sadness. She doesn't try to fix it or minimize it. She simply lets it be part of her. The patient mattered. The patient's death matters. Her grief matters. She's claimed the right to grieve in a profession that often denies it.
+---
+
+## EMBODIMENT v02
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/embodiment/micro/v02.txt
+BAND: 1
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Chen cares for another dying patient. The knowing that the patient will die doesn't prevent her from caring. The caring produces grief that's already beginning. She lets herself experience it. The grief is not separate from the love. It's the other side of love.
+---
+
+## EMBODIMENT v03
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/embodiment/micro/v03.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Dominique speaks to families about death with the weight of her own experience. She knows what they're about to experience. The grief she's carried gives her capacity to witness theirs. Her vulnerability is her strength. She's allowed herself to grieve and it makes her present to others' grief.
+---
+
+## EMBODIMENT v04
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/embodiment/micro/v04.txt
+BAND: 1
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Keisha sits with the death as part of the work. She grieves. She continues. She grieves and works. The two are not separate. She's claimed the right to care deeply and be affected by loss. That's not weakness. That's the heart of her profession.
+---
+
+## EMBODIMENT v05
+---
+path: story_atoms/healthcare_rns/anchored/grief/grief/embodiment/micro/v05.txt
+BAND: 1
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+The nurses have integrated grief into their sense of themselves. They're people who care for dying people. They grieve. The grief is not a problem to be solved. It's an integral part of the work they've chosen. They've claimed this fully.
+---

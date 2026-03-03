@@ -1,0 +1,12 @@
+# K-table for F009 (Parts Work). Dev Spec §4.2.2. 10-15 chapters.
+format_id: F009
+tier: A
+chapter_count: 15
+
+k_min_per_slot:
+  HOOK: { k_min: 10 }
+  SCENE: { k_min: 12 }
+  STORY: { k_min: 15 }
+  REFLECTION: { k_min: 12 }
+  EXERCISE: { k_min: 5 }
+  INTEGRATION: { k_min: 8 }

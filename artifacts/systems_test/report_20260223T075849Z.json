@@ -1,0 +1,48 @@
+{
+  "timestamp": "20260223T075849Z",
+  "total": 5,
+  "passed": 4,
+  "failed": 1,
+  "results": [
+    {
+      "check_id": "phase1_yaml",
+      "passed": false,
+      "category": "config_missing",
+      "message": "PyYAML required for config checks",
+      "artifact_path": null,
+      "suggested_fix": "pip install pyyaml"
+    },
+    {
+      "check_id": "phase2_teacher_resolver",
+      "passed": true,
+      "category": "resolver_fail",
+      "message": "resolve_teacher_brand OK",
+      "artifact_path": null,
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase2_author_resolver",
+      "passed": true,
+      "category": "resolver_fail",
+      "message": "resolve_author_from_brand OK",
+      "artifact_path": null,
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase2_narrator_resolver",
+      "passed": true,
+      "category": "resolver_fail",
+      "message": "no default narrator; skip validate",
+      "artifact_path": null,
+      "suggested_fix": null
+    },
+    {
+      "check_id": "phase2_resolve_canonical",
+      "passed": true,
+      "category": "resolver_fail",
+      "message": "resolve_to_canonical OK",
+      "artifact_path": null,
+      "suggested_fix": null
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+schema_version: 1
+registry_id: family_registry
+owner: pearl_prime
+status: active
+
+defaults:
+  id_format: snake_case
+  lifecycle_states: [active, deprecated]
+
+families:
+  alarm_fear_systems:
+    display_name: Alarm / Fear Systems
+    lifecycle: active
+    mechanism_priority: threat_misfire
+    arc_bias: stabilization_first
+  shame_engine:
+    display_name: Shame Engine
+    lifecycle: active
+    mechanism_priority: self_evaluation_loop
+    arc_bias: de-shaming_to_function
+  collapse_burnout:
+    display_name: Collapse / Burnout
+    lifecycle: active
+    mechanism_priority: energy_depletion
+    arc_bias: restoration_then_capacity
+  identity_fracture:
+    display_name: Identity Fracture
+    lifecycle: active
+    mechanism_priority: self-coherence_break
+    arc_bias: reorientation_then_rebuild
+  overcontrol_perfection:
+    display_name: Overcontrol / Perfection
+    lifecycle: active
+    mechanism_priority: control_compulsion
+    arc_bias: flexibility_expansion
+  grief_loss:
+    display_name: Grief / Loss
+    lifecycle: active
+    mechanism_priority: attachment_disruption
+    arc_bias: integration_without_erasure
+  relational_instability:
+    display_name: Relational Instability
+    lifecycle: active
+    mechanism_priority: attachment_threat
+    arc_bias: regulation_to_connection
+  performance_pressure:
+    display_name: Performance Pressure
+    lifecycle: active
+    mechanism_priority: conditional_worth_loop
+    arc_bias: sustainable_output
+  existential_void:
+    display_name: Existential Void
+    lifecycle: active
+    mechanism_priority: meaning_disconnection
+    arc_bias: grounded_meaning_rebuild

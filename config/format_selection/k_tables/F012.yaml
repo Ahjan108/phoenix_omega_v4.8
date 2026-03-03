@@ -1,0 +1,12 @@
+# K-table for F012 (Permission). Dev Spec §4.2.2. 52 chapters.
+format_id: F012
+tier: C
+chapter_count: 52
+
+k_min_per_slot:
+  HOOK: { k_min: 20 }
+  SCENE: { k_min: 20 }
+  STORY: { k_min: 52 }
+  REFLECTION: { k_min: 20 }
+  EXERCISE: { k_min: 4 }
+  INTEGRATION: { k_min: 12 }

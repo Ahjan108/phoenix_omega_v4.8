@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breath of Fire</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#1a0800;color:#fef3c7;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1rem;padding:1.5rem;width:100%;max-width:440px}
+h1{font-family:'Archivo Black',sans-serif;font-size:1.7rem;letter-spacing:.06em;text-transform:uppercase;background:linear-gradient(135deg,#ef4444,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sub{font-size:.68rem;color:#92400e;letter-spacing:.2em;text-transform:uppercase;margin-top:-.4rem}
+canvas{display:block;width:220px;height:220px}
+.warn{font-size:.58rem;color:#dc2626;letter-spacing:.1em;text-align:center;padding:.35rem .7rem;border:1px solid rgba(220,38,38,.2);border-radius:6px;background:rgba(220,38,38,.05)}
+.bpm{display:flex;align-items:center;gap:.8rem}
+.bpm-l{font-size:.65rem;color:#92400e;letter-spacing:.15em;text-transform:uppercase}
+.bpm-v{font-family:'Archivo Black',sans-serif;font-size:1.3rem;color:#f97316;min-width:45px;text-align:center}
+.bpm-b{width:30px;height:30px;border-radius:50%;border:1px solid rgba(249,115,22,.3);background:rgba(249,115,22,.08);color:#fbbf24;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center}
+.stats{display:flex;gap:1.5rem}
+.stat{text-align:center}.sv{font-family:'Archivo Black',sans-serif;font-size:1.1rem}.sl{font-size:.6rem;color:#92400e;letter-spacing:.12em;text-transform:uppercase}
+.ibar{width:100%;height:5px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden}
+.ifill{height:100%;width:0%;background:linear-gradient(90deg,#fbbf24,#f97316,#ef4444);border-radius:3px;transition:width .3s}
+.ctrls{display:flex;gap:1rem}
+.btn{font-family:'Inter',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.6rem;border:1px solid rgba(249,115,22,.2);border-radius:8px;background:rgba(249,115,22,.06);color:#fef3c7;cursor:pointer;transition:all .25s}
+.btn:hover{background:rgba(249,115,22,.15)}
+.btn.pri{border-color:rgba(239,68,68,.4);background:rgba(239,68,68,.1)}
+.btn-s{padding:.4rem .9rem;font-size:.68rem}
+.done{display:none;flex-direction:column;align-items:center;gap:1.2rem;text-align:center;animation:fu .8s}
+.done.show{display:flex}.main.off{display:none}
+.done h2{font-family:'Archivo Black',sans-serif;font-size:1.4rem;text-transform:uppercase;background:linear-gradient(135deg,#ef4444,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.done p{color:#d97706;font-size:.82rem;line-height:1.7;max-width:340px}
+@keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.snd{position:fixed;top:1rem;right:1rem;z-index:10;width:34px;height:34px;border-radius:50%;border:1px solid rgba(249,115,22,.2);background:rgba(249,115,22,.05);color:#92400e;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<button class="snd" id="sndBtn">🔔</button>
+<div class="wrap">
+<h1>Breath of Fire</h1>
+<div class="sub">Agni Prasana · 3 minutes</div>
+<div class="main" id="mainV">
+<div class="warn">⚠ Not for pregnancy, high blood pressure, heart conditions, or epilepsy</div>
+<canvas id="cv" width="440" height="440"></canvas>
+<div class="bpm"><div class="bpm-l">Tempo</div><button class="bpm-b" id="bd">−</button><div class="bpm-v" id="bv">90</div><button class="bpm-b" id="bu">+</button><div class="bpm-l">BPM</div></div>
+<div class="stats">
+<div class="stat"><div class="sv" id="bn">0</div><div class="sl">Breaths</div></div>
+<div class="stat"><div class="sv" id="tl">3:00</div><div class="sl">Remaining</div></div>
+<div class="stat"><div class="sv" id="rn">1/3</div><div class="sl">Round</div></div>
+</div>
+<div class="ibar"><div class="ifill" id="ifill"></div></div>
+<div class="ctrls"><button class="btn pri" id="goBtn">Ignite</button><button class="btn btn-s" id="rstBtn" style="display:none">Reset</button></div>
+</div>
+<div class="done" id="doneV">
+<h2>Fire Session Complete</h2>
+<p>Three minutes of rapid rhythmic breathing — your blood is oxygen-rich, your solar plexus activated. This ancient kriya clears stagnation and builds internal heat.</p>
+<p style="opacity:.7;font-style:italic">The fire inside you is awake.</p>
+<button class="btn pri" id="agBtn">Reignite</button>
+</div>
+</div>
+<script>
+const DUR=180;let bpm=90;
+class Aud{constructor(){this.c=null;this.on=true}init(){if(!this.c)this.c=new(window.AudioContext||window.webkitAudioContext)()}pulse(){if(!this.on||!this.c)return;const o=this.c.createOscillator(),g=this.c.createGain();o.type='triangle';o.frequency.value=180;g.gain.setValueAtTime(0,this.c.currentTime);g.gain.linearRampToValueAtTime(.08,this.c.currentTime+.02);g.gain.linearRampToValueAtTime(0,this.c.currentTime+.08);o.connect(g);g.connect(this.c.destination);o.start();o.stop(this.c.currentTime+.1)}toggle(){this.on=!this.on;return this.on}}
+const au=new Aud();const cv=document.getElementById('cv'),c=cv.getContext('2d'),W=cv.width,H=cv.height,CX=W/2,CY=H/2;
+function drawFire(bp,int){c.clearRect(0,0,W,H);const t=Date.now()/1e3,isEx=bp>.5,ps=isEx?1+Math.sin(bp*Math.PI)*.3:.7+Math.sin(bp*Math.PI)*.3;
+const cnt=20+Math.floor(int*30);for(let i=0;i<cnt;i++){const a=(i/cnt)*Math.PI*2+t*(1+int),br=40+int*30,r=br+Math.sin(t*3+i*.7)*20*ps,px=CX+Math.cos(a)*r,py=CY+Math.sin(a)*r-Math.sin(t*4+i)*10*int,sz=4+int*6+Math.sin(t*5+i)*2;const gr=c.createRadialGradient(px,py,0,px,py,sz*2);const cols=['rgba(239,68,68,','rgba(249,115,22,','rgba(251,191,36,'];gr.addColorStop(0,cols[i%3]+(.4+int*.3)+')');gr.addColorStop(1,'transparent');c.beginPath();c.arc(px,py,sz*2,0,Math.PI*2);c.fillStyle=gr;c.fill()}
+const cr=30+ps*25;const cg=c.createRadialGradient(CX,CY,0,CX,CY,cr);cg.addColorStop(0,`rgba(251,191,36,${.5+int*.3})`);cg.addColorStop(.5,`rgba(249,115,22,${.3+int*.2})`);cg.addColorStop(1,'transparent');c.beginPath();c.arc(CX,CY,cr,0,Math.PI*2);c.fillStyle=cg;c.fill()}
+function drawIdle(){c.clearRect(0,0,W,H);const t=Date.now()/2e3,r=40+Math.sin(t)*5;const g=c.createRadialGradient(CX,CY,0,CX,CY,r);g.addColorStop(0,'rgba(249,115,22,.15)');g.addColorStop(1,'transparent');c.beginPath();c.arc(CX,CY,r,0,Math.PI*2);c.fillStyle=g;c.fill()}
+let state='idle',sS=0,pa=false,pO=0,pT2=0,tb=0;
+const bn=document.getElementById('bn'),tl=document.getElementById('tl'),rn=document.getElementById('rn'),ifill=document.getElementById('ifill'),bv=document.getElementById('bv');
+const goBtn=document.getElementById('goBtn'),rstBtn=document.getElementById('rstBtn'),mainV=document.getElementById('mainV'),doneV=document.getElementById('doneV');
+function fmt(s){const m=Math.floor(s/60),sec=Math.floor(s%60);return m+':'+(sec<10?'0':'')+sec}
+function start(){au.init();state='active';sS=performance.now();pa=false;pO=0;tb=0;goBtn.textContent='Pause';goBtn.classList.remove('pri');rstBtn.style.display='inline-block';doneV.classList.remove('show');mainV.classList.remove('off');tick()}
+function tick(){if(state!=='active'||pa)return;const now=performance.now(),el=(now-sS-pO)/1e3,rem=Math.max(0,DUR-el),bi=60/bpm,bp=(el%bi)/bi,cb=Math.floor(el/bi),rd=Math.min(3,Math.floor(el/60)+1),int=Math.min(1,el/DUR);
+if(cb>tb){tb=cb;au.pulse()}
+bn.textContent=tb;tl.textContent=fmt(rem);rn.textContent=rd+'/3';ifill.style.width=Math.min(100,int*100)+'%';
+drawFire(bp,int);if(el>=DUR){finish();return}requestAnimationFrame(tick)}
+function finish(){state='done';mainV.classList.add('off');doneV.classList.add('show')}
+function reset(){state='idle';pa=false;pO=0;tb=0;goBtn.textContent='Ignite';goBtn.classList.add('pri');rstBtn.style.display='none';bn.textContent='0';tl.textContent='3:00';rn.textContent='1/3';ifill.style.width='0%';doneV.classList.remove('show');mainV.classList.remove('off');idleL()}
+function toggleP(){if(!pa){pa=true;pT2=performance.now();goBtn.textContent='Resume';goBtn.classList.add('pri')}else{pO+=performance.now()-pT2;pa=false;goBtn.textContent='Pause';goBtn.classList.remove('pri');tick()}}
+goBtn.onclick=()=>{if(state==='idle')start();else if(state==='active')toggleP()};rstBtn.onclick=reset;document.getElementById('agBtn').onclick=()=>{reset();start()};
+document.getElementById('sndBtn').onclick=()=>{au.init();document.getElementById('sndBtn').textContent=au.toggle()?'🔔':'🔇'};
+document.getElementById('bu').onclick=()=>{bpm=Math.min(180,bpm+10);bv.textContent=bpm};
+document.getElementById('bd').onclick=()=>{bpm=Math.max(40,bpm-10);bv.textContent=bpm};
+function idleL(){if(state!=='idle')return;drawIdle();requestAnimationFrame(idleL)}idleL();
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+# Canonical topics — single source of truth for asset planning.
+# Must stay in sync with config/topic_engine_bindings.yaml (validated by validate_canonical_sources.py).
+# Authority: V4 Freebies + Immersion Ecosystem plan §2.1.
+# Unified 12 (unified_personas.md Part 2) + legacy (anxiety, courage, financial_stress) retained in bindings.
+
+topics:
+  - anxiety
+  - boundaries
+  - burnout
+  - compassion_fatigue
+  - courage
+  - depression
+  - financial_anxiety
+  - financial_stress
+  - grief
+  - imposter_syndrome
+  - overthinking
+  - self_worth
+  - sleep_anxiety
+  - social_anxiety
+  - somatic_healing

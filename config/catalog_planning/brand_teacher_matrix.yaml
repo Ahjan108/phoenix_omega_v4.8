@@ -1,0 +1,32 @@
+# Brand × Teacher matrix for Teacher Mode portfolio planning.
+# Authority: specs/TEACHER_PORTFOLIO_PLANNING_SPEC.md
+#
+# Release: Week-by-week schedule (generate_weekly_schedule.py) is the source of when to upload.
+# Platform caps (safe_velocity.yaml) must not be exceeded; scheduler fails hard if they are.
+# The defaults below are FAIL-SAFE guardrails until scheduler enforcement is complete everywhere.
+# Do not remove them: they protect against schedule output that exceeds platform-safe ranges.
+
+defaults:
+  # Per-wave cap (books in a single wave selection) — keep under platform weekly caps
+  max_books_per_wave: 12
+  # Minimum days between releases for same brand (allocation interleaving)
+  release_spacing_days: 14
+  # Per-brand monthly cap — must stay within strictest platform (e.g. Ximalaya 20–40/mo)
+  max_books_per_brand_per_month: 40
+
+brands:
+  stillness_press:
+    teachers: [ahjan, ajahn_x]
+    # topic_focus / persona_focus optional
+
+  cognitive_clarity:
+    teachers: [ahjan]
+
+# Per-teacher saturation (diversity guardrails only; release timing from weekly schedule)
+teacher_constraints:
+  ahjan:
+    max_books_per_topic: 4
+    max_books_per_persona: 5
+  ajahn_x:
+    max_books_per_topic: 4
+    max_books_per_persona: 5

@@ -1,0 +1,830 @@
+# Brand Archetype Registry v1.1
+# Canonical schema for 24 en-US brand archetypes. Doctrine-locked; CI-enforced.
+# Authority: specs/BRAND_ARCHETYPE_VALIDATOR_SPEC.md
+# Use with: brand_registry_locale_extension.yaml (locale-specific brands), brand_teacher_matrix.yaml (teachers per brand).
+
+version: 1.1
+registry_type: brand_archetype
+total_brands: 24
+
+global_constraints:
+  max_mid_form_ratio: 0.25
+  required_fields:
+    - brand_id
+    - admin_id
+    - gtm_identity
+    - discovery_contract
+    - structural_signature
+    - duration_strategy
+    - emotional_vocabulary
+    - voice_identity
+    - cover_art_identity
+    - pricing_posture
+  forbidden_title_tokens:
+    - guaranteed
+    - instant
+    - cure
+  emotional_token_global_caps:
+    reset: 12
+    clarity: 18
+    calm: 24
+
+brand_archetypes:
+  # 01 — Stabilizer
+  - brand_id: stabilizer
+    admin_id: "01"
+    gtm_identity:
+      persona: burned_out_professional
+      age_range: [25, 45]
+      primary_moment: evening_wind_down
+      emotional_job: calm nervous system
+      functional_job: somatic regulation
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters:
+        primary: ["nervous system regulation", "burnout recovery"]
+        secondary: ["vagus nerve", "somatic calm"]
+    structural_signature:
+      avg_chapters: [4, 6]
+      intro_probability: 0.7
+      outro_probability: 0.9
+      somatic_slot_probability: 0.8
+    duration_strategy:
+      micro_sessions: 0.55
+      deep_dives: 0.35
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["calm", "grounded", "regulation", "safety"]
+      quota_exceptions:
+        reset: { per_brand_max: 1 }
+    voice_identity:
+      lead_voice: f_us_31_45_warm
+      support_voices:
+        - m_uk_31_45_calm
+        - f_us_18_30_bright
+    cover_art_identity:
+      style_pool: ["minimalist_gradient"]
+      color_palette: ["muted_blue", "warm_sand"]
+    pricing_posture:
+      micro_sessions: [3.99, 5.99]
+      deep_dives: [17.99, 24.99]
+      discount_ratio: 0.20
+
+  # 02 — Optimizer
+  - brand_id: optimizer
+    admin_id: "02"
+    gtm_identity:
+      persona: high_efficiency_achiever
+      age_range: [22, 40]
+      primary_moment: morning_commute
+      emotional_job: feel ahead of the day
+      functional_job: increase focus
+    discovery_contract:
+      primary_channels: [google_play_search, youtube_audio_clips]
+      keyword_clusters:
+        primary: ["dopamine management", "focus system"]
+        secondary: ["habit stacking", "deep work"]
+    structural_signature:
+      avg_chapters: [6, 9]
+      intro_probability: 0.6
+      outro_probability: 0.7
+      somatic_slot_probability: 0.3
+    duration_strategy:
+      micro_sessions: 0.40
+      deep_dives: 0.45
+      mid_form: 0.15
+    emotional_vocabulary:
+      allowed_tokens: ["focus", "clarity", "momentum", "discipline"]
+    voice_identity:
+      lead_voice: m_us_31_45_authoritative
+      support_voices:
+        - f_us_31_45_direct
+        - m_uk_18_30_crisp
+    cover_art_identity:
+      style_pool: ["geometric_anchor"]
+      color_palette: ["electric_blue", "graphite"]
+    pricing_posture:
+      micro_sessions: [4.99, 6.99]
+      deep_dives: [19.99, 24.99]
+      discount_ratio: 0.20
+
+  # 03 — NightReset
+  - brand_id: night_reset
+    admin_id: "03"
+    gtm_identity:
+      persona: insomniac_creative
+      age_range: [25, 45]
+      primary_moment: late_night_spiral
+      emotional_job: stop dreading the night
+      functional_job: fall asleep without medication
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters:
+        primary: ["insomnia", "racing thoughts", "sleep anxiety"]
+        secondary: ["late night calm"]
+    structural_signature:
+      avg_chapters: [4, 6]
+      intro_probability: 0.6
+      outro_probability: 0.85
+      somatic_slot_probability: 0.7
+    duration_strategy:
+      micro_sessions: 0.50
+      deep_dives: 0.40
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["calm", "rest", "release", "safety"]
+    voice_identity:
+      lead_voice: f_uk_35_low_pitch
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["dark_minimal"]
+      color_palette: ["navy", "charcoal"]
+    pricing_posture:
+      micro_sessions: [3.99, 5.99]
+      deep_dives: [17.99, 22.99]
+      discount_ratio: 0.20
+
+  # 04 — CareerLift
+  - brand_id: career_lift
+    admin_id: "04"
+    gtm_identity:
+      persona: mid_career_stalled
+      age_range: [32, 52]
+      primary_moment: sunday_planning
+      emotional_job: feel unstuck
+      functional_job: clarity on next move
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters:
+        primary: ["career transition", "mid career"]
+        secondary: ["sunday scaries", "planning"]
+    structural_signature:
+      avg_chapters: [6, 9]
+      intro_probability: 0.65
+      outro_probability: 0.75
+      somatic_slot_probability: 0.4
+    duration_strategy:
+      micro_sessions: 0.35
+      deep_dives: 0.50
+      mid_form: 0.15
+    emotional_vocabulary:
+      allowed_tokens: ["clarity", "momentum", "grounded", "choice"]
+    voice_identity:
+      lead_voice: m_us_45_steady
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["bold_typography"]
+      color_palette: ["slate", "white"]
+    pricing_posture:
+      micro_sessions: [4.99, 6.99]
+      deep_dives: [19.99, 26.99]
+      discount_ratio: 0.20
+
+  # 05 — ADHDForge
+  - brand_id: adhd_forge
+    admin_id: "05"
+    gtm_identity:
+      persona: neurodivergent_young_adult
+      age_range: [18, 35]
+      primary_moment: afternoon_focus_crash
+      emotional_job: stop feeling broken
+      functional_job: sustain focus
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters:
+        primary: ["ADHD focus", "neurodivergent"]
+        secondary: ["afternoon crash", "focus system"]
+    structural_signature:
+      avg_chapters: [4, 7]
+      intro_probability: 0.5
+      outro_probability: 0.7
+      somatic_slot_probability: 0.5
+    duration_strategy:
+      micro_sessions: 0.60
+      deep_dives: 0.30
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["focus", "clarity", "regulation", "acceptance"]
+    voice_identity:
+      lead_voice: energetic_male_25
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["vibrant_shapes"]
+      color_palette: ["electric_teal", "coral"]
+    pricing_posture:
+      micro_sessions: [3.99, 5.99]
+      deep_dives: [17.99, 22.99]
+      discount_ratio: 0.20
+
+  # 06 — LongevityLab
+  - brand_id: longevity_lab
+    admin_id: "06"
+    gtm_identity:
+      persona: longevity_seeker
+      age_range: [35, 60]
+      primary_moment: morning_health_routine
+      emotional_job: feel in control of aging
+      functional_job: evidence-based habits
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters:
+        primary: ["longevity", "healthspan"]
+        secondary: ["morning routine", "nervous system"]
+    structural_signature:
+      avg_chapters: [6, 9]
+      intro_probability: 0.6
+      outro_probability: 0.8
+      somatic_slot_probability: 0.4
+    duration_strategy:
+      micro_sessions: 0.40
+      deep_dives: 0.50
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["clarity", "calm", "regulation", "vitality"]
+    voice_identity:
+      lead_voice: deep_male_40
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["clean_white_minimal"]
+      color_palette: ["white", "sage"]
+    pricing_posture:
+      micro_sessions: [4.99, 6.99]
+      deep_dives: [19.99, 27.99]
+      discount_ratio: 0.20
+
+  # 07–24 (compact; expand to full blocks as needed)
+  - brand_id: creative_unfold
+    admin_id: "07"
+    gtm_identity:
+      persona: artistic_student
+      primary_moment: reflective_walk
+      emotional_job: creative confidence
+      functional_job: creative flow
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters: { primary: ["creative block", "artist"], secondary: [] }
+    structural_signature:
+      avg_chapters: [5, 8]
+      intro_probability: 0.6
+      outro_probability: 0.8
+      somatic_slot_probability: 0.5
+    duration_strategy:
+      micro_sessions: 0.45
+      deep_dives: 0.45
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["flow", "grounded", "release", "curiosity"]
+    voice_identity:
+      lead_voice: soft_female_28
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["whimsical_illustrated"]
+      color_palette: ["pastel", "ink"]
+    pricing_posture:
+      micro_sessions: [3.99, 5.99]
+      deep_dives: [17.99, 24.99]
+      discount_ratio: 0.20
+
+  - brand_id: resilient_parent
+    admin_id: "08"
+    gtm_identity:
+      persona: overwhelmed_parent
+      primary_moment: post_kids_bedtime
+      emotional_job: feel like a person again
+      functional_job: regulate nervous system
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters: { primary: ["parent burnout", "overwhelmed parent"], secondary: [] }
+    structural_signature:
+      avg_chapters: [4, 6]
+      intro_probability: 0.7
+      outro_probability: 0.9
+      somatic_slot_probability: 0.7
+    duration_strategy:
+      micro_sessions: 0.55
+      deep_dives: 0.35
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["calm", "grounded", "safety", "rest"]
+    voice_identity:
+      lead_voice: mature_female_42
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["warm_soft"]
+      color_palette: ["warm_sand", "soft_blue"]
+    pricing_posture:
+      micro_sessions: [3.99, 5.99]
+      deep_dives: [17.99, 23.99]
+      discount_ratio: 0.20
+
+  - brand_id: executive_calm
+    admin_id: "09"
+    gtm_identity:
+      persona: corporate_leader
+      primary_moment: pre_board_meeting
+      emotional_job: steady under pressure
+      functional_job: perform under stress
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters: { primary: ["executive stress", "board meeting"], secondary: [] }
+    structural_signature:
+      avg_chapters: [5, 7]
+      intro_probability: 0.55
+      outro_probability: 0.75
+      somatic_slot_probability: 0.4
+    duration_strategy:
+      micro_sessions: 0.45
+      deep_dives: 0.45
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["clarity", "calm", "grounded", "presence"]
+    voice_identity:
+      lead_voice: low_male_authority
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["dark_elegant"]
+      color_palette: ["charcoal", "gold"]
+    pricing_posture:
+      micro_sessions: [4.99, 6.99]
+      deep_dives: [19.99, 27.99]
+      discount_ratio: 0.20
+
+  - brand_id: trauma_path
+    admin_id: "10"
+    gtm_identity:
+      persona: trauma_recovery_adult
+      primary_moment: therapy_integration
+      emotional_job: feel safe in body
+      functional_job: integrate between sessions
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters: { primary: ["trauma recovery", "somatic"], secondary: [] }
+    structural_signature:
+      avg_chapters: [5, 8]
+      intro_probability: 0.75
+      outro_probability: 0.9
+      somatic_slot_probability: 0.8
+    duration_strategy:
+      micro_sessions: 0.50
+      deep_dives: 0.40
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["safety", "grounded", "regulation", "witness"]
+    voice_identity:
+      lead_voice: compassionate_female_38
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["earth_tones"]
+      color_palette: ["terracotta", "sage"]
+    pricing_posture:
+      micro_sessions: [3.99, 5.99]
+      deep_dives: [17.99, 24.99]
+      discount_ratio: 0.20
+
+  - brand_id: spiritual_ground
+    admin_id: "11"
+    gtm_identity:
+      persona: spiritually_curious_professional
+      primary_moment: morning_meditation
+      emotional_job: connection to something larger
+      functional_job: consistent practice
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters: { primary: ["meditation", "spiritual"], secondary: [] }
+    structural_signature:
+      avg_chapters: [5, 8]
+      intro_probability: 0.65
+      outro_probability: 0.85
+      somatic_slot_probability: 0.5
+    duration_strategy:
+      micro_sessions: 0.45
+      deep_dives: 0.45
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["presence", "grounded", "calm", "clarity"]
+    voice_identity:
+      lead_voice: neutral_gender_low_pitch
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["abstract_symbolic"]
+      color_palette: ["indigo", "cream"]
+    pricing_posture:
+      micro_sessions: [3.99, 5.99]
+      deep_dives: [17.99, 24.99]
+      discount_ratio: 0.20
+
+  - brand_id: focus_sprint
+    admin_id: "12"
+    gtm_identity:
+      persona: startup_founder
+      primary_moment: late_night_work
+      emotional_job: sustain without burning out
+      functional_job: focus and ship
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters: { primary: ["founder burnout", "startup focus"], secondary: [] }
+    structural_signature:
+      avg_chapters: [5, 7]
+      intro_probability: 0.5
+      outro_probability: 0.7
+      somatic_slot_probability: 0.35
+    duration_strategy:
+      micro_sessions: 0.50
+      deep_dives: 0.40
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["focus", "clarity", "momentum", "regulation"]
+    voice_identity:
+      lead_voice: crisp_male_30
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["high_contrast"]
+      color_palette: ["black", "electric_blue"]
+    pricing_posture:
+      micro_sessions: [4.99, 6.99]
+      deep_dives: [19.99, 26.99]
+      discount_ratio: 0.20
+
+  - brand_id: hormone_reset
+    admin_id: "13"
+    gtm_identity:
+      persona: women_35_plus
+      primary_moment: health_research_evening
+      emotional_job: feel in control of body
+      functional_job: hormone-aware habits
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters: { primary: ["hormone health", "women 35"], secondary: [] }
+    structural_signature:
+      avg_chapters: [6, 9]
+      intro_probability: 0.65
+      outro_probability: 0.8
+      somatic_slot_probability: 0.5
+    duration_strategy:
+      micro_sessions: 0.40
+      deep_dives: 0.50
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["calm", "grounded", "regulation", "vitality"]
+    voice_identity:
+      lead_voice: mature_female_low_pitch
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["soft_pastel"]
+      color_palette: ["blush", "sage"]
+    pricing_posture:
+      micro_sessions: [4.99, 6.99]
+      deep_dives: [19.99, 26.99]
+      discount_ratio: 0.20
+
+  - brand_id: stoic_edge
+    admin_id: "14"
+    gtm_identity:
+      persona: young_male_growth
+      primary_moment: gym_drive
+      emotional_job: mental toughness
+      functional_job: emotional regulation
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters: { primary: ["stoic", "mental toughness"], secondary: [] }
+    structural_signature:
+      avg_chapters: [5, 7]
+      intro_probability: 0.5
+      outro_probability: 0.75
+      somatic_slot_probability: 0.4
+    duration_strategy:
+      micro_sessions: 0.50
+      deep_dives: 0.40
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["clarity", "discipline", "grounded", "focus"]
+    voice_identity:
+      lead_voice: strong_low_male
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["bold_monochrome"]
+      color_palette: ["black", "white"]
+    pricing_posture:
+      micro_sessions: [4.99, 6.99]
+      deep_dives: [19.99, 24.99]
+      discount_ratio: 0.20
+
+  - brand_id: calm_student
+    admin_id: "15"
+    gtm_identity:
+      persona: gen_z_student
+      primary_moment: pre_exam_evening
+      emotional_job: stop spiraling
+      functional_job: focus and sleep
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters: { primary: ["exam anxiety", "student stress"], secondary: [] }
+    structural_signature:
+      avg_chapters: [4, 6]
+      intro_probability: 0.6
+      outro_probability: 0.8
+      somatic_slot_probability: 0.5
+    duration_strategy:
+      micro_sessions: 0.55
+      deep_dives: 0.35
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["calm", "grounded", "focus", "safety"]
+    voice_identity:
+      lead_voice: friendly_female_23
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["bright_clean"]
+      color_palette: ["sky_blue", "white"]
+    pricing_posture:
+      micro_sessions: [3.99, 5.99]
+      deep_dives: [17.99, 22.99]
+      discount_ratio: 0.20
+
+  - brand_id: healing_ground
+    admin_id: "16"
+    gtm_identity:
+      persona: chronic_stress_worker
+      primary_moment: lunch_break
+      emotional_job: reset in the middle of the day
+      functional_job: somatic regulation
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters: { primary: ["lunch break calm", "chronic stress"], secondary: [] }
+    structural_signature:
+      avg_chapters: [4, 6]
+      intro_probability: 0.6
+      outro_probability: 0.85
+      somatic_slot_probability: 0.75
+    duration_strategy:
+      micro_sessions: 0.60
+      deep_dives: 0.30
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["calm", "grounded", "regulation", "reset"]
+    voice_identity:
+      lead_voice: soothing_male_40
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["muted_green"]
+      color_palette: ["sage", "cream"]
+    pricing_posture:
+      micro_sessions: [3.99, 5.99]
+      deep_dives: [17.99, 23.99]
+      discount_ratio: 0.20
+
+  - brand_id: bio_flow
+    admin_id: "17"
+    gtm_identity:
+      persona: biohacker
+      primary_moment: quantified_self_review
+      emotional_job: optimize and feel good
+      functional_job: data-driven habits
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters: { primary: ["biohacking", "quantified self"], secondary: [] }
+    structural_signature:
+      avg_chapters: [6, 9]
+      intro_probability: 0.55
+      outro_probability: 0.75
+      somatic_slot_probability: 0.35
+    duration_strategy:
+      micro_sessions: 0.40
+      deep_dives: 0.50
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["clarity", "optimization", "regulation", "focus"]
+    voice_identity:
+      lead_voice: analytical_male
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["tech_gradient"]
+      color_palette: ["cyan", "navy"]
+    pricing_posture:
+      micro_sessions: [4.99, 6.99]
+      deep_dives: [19.99, 27.99]
+      discount_ratio: 0.20
+
+  - brand_id: confidence_core
+    admin_id: "18"
+    gtm_identity:
+      persona: socially_anxious_adult
+      primary_moment: pre_social_event
+      emotional_job: feel okay showing up
+      functional_job: regulate before social
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters: { primary: ["social anxiety", "pre-event calm"], secondary: [] }
+    structural_signature:
+      avg_chapters: [4, 6]
+      intro_probability: 0.65
+      outro_probability: 0.85
+      somatic_slot_probability: 0.6
+    duration_strategy:
+      micro_sessions: 0.55
+      deep_dives: 0.35
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["safety", "grounded", "calm", "confidence"]
+    voice_identity:
+      lead_voice: warm_female_30
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["soft_pink_gradient"]
+      color_palette: ["blush", "white"]
+    pricing_posture:
+      micro_sessions: [3.99, 5.99]
+      deep_dives: [17.99, 23.99]
+      discount_ratio: 0.20
+
+  - brand_id: relationship_clarity
+    admin_id: "19"
+    gtm_identity:
+      persona: couples_repair
+      primary_moment: post_argument
+      emotional_job: repair and reconnect
+      functional_job: co-regulation
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters: { primary: ["couples", "relationship repair"], secondary: [] }
+    structural_signature:
+      avg_chapters: [5, 8]
+      intro_probability: 0.65
+      outro_probability: 0.8
+      somatic_slot_probability: 0.5
+    duration_strategy:
+      micro_sessions: 0.40
+      deep_dives: 0.50
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["calm", "grounded", "connection", "safety"]
+    voice_identity:
+      lead_voice: balanced_dual_voice
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["split_tone"]
+      color_palette: ["warm", "cool"]
+    pricing_posture:
+      micro_sessions: [4.99, 6.99]
+      deep_dives: [19.99, 26.99]
+      discount_ratio: 0.20
+
+  - brand_id: morning_momentum
+    admin_id: "20"
+    gtm_identity:
+      persona: early_riser_professional
+      primary_moment: sunrise_drive
+      emotional_job: feel set for the day
+      functional_job: morning routine
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters: { primary: ["morning routine", "early riser"], secondary: [] }
+    structural_signature:
+      avg_chapters: [5, 7]
+      intro_probability: 0.55
+      outro_probability: 0.75
+      somatic_slot_probability: 0.45
+    duration_strategy:
+      micro_sessions: 0.50
+      deep_dives: 0.40
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["clarity", "momentum", "focus", "calm"]
+    voice_identity:
+      lead_voice: energetic_female
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["sunrise_palette"]
+      color_palette: ["coral", "gold"]
+    pricing_posture:
+      micro_sessions: [3.99, 5.99]
+      deep_dives: [17.99, 24.99]
+      discount_ratio: 0.20
+
+  - brand_id: minimal_mind
+    admin_id: "21"
+    gtm_identity:
+      persona: digital_overwhelm_adult
+      primary_moment: doomscroll_fatigue
+      emotional_job: feel less scattered
+      functional_job: attention regulation
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters: { primary: ["digital detox", "doomscroll"], secondary: [] }
+    structural_signature:
+      avg_chapters: [4, 6]
+      intro_probability: 0.6
+      outro_probability: 0.8
+      somatic_slot_probability: 0.5
+    duration_strategy:
+      micro_sessions: 0.55
+      deep_dives: 0.35
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["calm", "clarity", "grounded", "reset"]
+    voice_identity:
+      lead_voice: calm_gender_neutral
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["stark_minimal"]
+      color_palette: ["white", "grey"]
+    pricing_posture:
+      micro_sessions: [3.99, 5.99]
+      deep_dives: [17.99, 22.99]
+      discount_ratio: 0.20
+
+  - brand_id: high_performer
+    admin_id: "22"
+    gtm_identity:
+      persona: competitive_sales
+      primary_moment: pre_call_prep
+      emotional_job: confident under pressure
+      functional_job: peak performance
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters: { primary: ["sales confidence", "pre-call"], secondary: [] }
+    structural_signature:
+      avg_chapters: [4, 6]
+      intro_probability: 0.5
+      outro_probability: 0.7
+      somatic_slot_probability: 0.4
+    duration_strategy:
+      micro_sessions: 0.55
+      deep_dives: 0.35
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["focus", "confidence", "clarity", "grounded"]
+    voice_identity:
+      lead_voice: confident_male
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["red_black"]
+      color_palette: ["red", "black"]
+    pricing_posture:
+      micro_sessions: [4.99, 6.99]
+      deep_dives: [19.99, 26.99]
+      discount_ratio: 0.20
+
+  - brand_id: gentle_growth
+    admin_id: "23"
+    gtm_identity:
+      persona: therapy_newcomer
+      primary_moment: journaling_time
+      emotional_job: feel safe exploring
+      functional_job: gentle self-inquiry
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters: { primary: ["therapy beginner", "journaling"], secondary: [] }
+    structural_signature:
+      avg_chapters: [5, 8]
+      intro_probability: 0.7
+      outro_probability: 0.9
+      somatic_slot_probability: 0.6
+    duration_strategy:
+      micro_sessions: 0.45
+      deep_dives: 0.45
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["safety", "curiosity", "grounded", "gentle"]
+    voice_identity:
+      lead_voice: soft_female
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["watercolor"]
+      color_palette: ["soft_blue", "lavender"]
+    pricing_posture:
+      micro_sessions: [3.99, 5.99]
+      deep_dives: [17.99, 23.99]
+      discount_ratio: 0.20
+
+  - brand_id: legacy_builder
+    admin_id: "24"
+    gtm_identity:
+      persona: "45_plus_reinventor"
+      primary_moment: life_transition
+      emotional_job: meaning in next chapter
+      functional_job: clarity on direction
+    discovery_contract:
+      primary_channels: [google_play_search]
+      keyword_clusters: { primary: ["midlife", "reinvention", "life transition"], secondary: [] }
+    structural_signature:
+      avg_chapters: [6, 9]
+      intro_probability: 0.65
+      outro_probability: 0.85
+      somatic_slot_probability: 0.5
+    duration_strategy:
+      micro_sessions: 0.35
+      deep_dives: 0.55
+      mid_form: 0.10
+    emotional_vocabulary:
+      allowed_tokens: ["clarity", "grounded", "meaning", "presence"]
+    voice_identity:
+      lead_voice: deep_reflective_male
+      support_voices: []
+    cover_art_identity:
+      style_pool: ["elegant_dark"]
+      color_palette: ["charcoal", "gold"]
+    pricing_posture:
+      micro_sessions: [4.99, 6.99]
+      deep_dives: [19.99, 27.99]
+      discount_ratio: 0.20

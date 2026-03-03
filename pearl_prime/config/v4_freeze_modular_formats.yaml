@@ -1,0 +1,57 @@
+version: "1.0"
+v4_freeze_enabled: true
+default_output_format: pocket_guide
+
+# V4 freeze: only these output formats are allowed for pipeline generation.
+# Chapter count remains Arc-First in run_pipeline; this config controls slot shape + runtime hint.
+output_formats:
+  five_min_practice:
+    name: "5-Minute Practice"
+    runtime_format_id: micro_book_15
+    slot_template: [HOOK, SCENE, REFLECTION, EXERCISE, INTEGRATION]
+    target_word_range: [350, 650]
+  pocket_guide:
+    name: "Pocket Guide"
+    runtime_format_id: short_book_30
+    slot_template: [HOOK, SCENE, REFLECTION, EXERCISE, INTEGRATION]
+    target_word_range: [200, 450]
+  ten_things_to_do:
+    name: "10 Things To Do For X"
+    runtime_format_id: short_book_30
+    slot_template: [HOOK, SCENE, EXERCISE, INTEGRATION]
+    target_word_range: [120, 260]
+  symptom_to_action_atlas:
+    name: "Symptom-to-Action Atlas"
+    runtime_format_id: micro_book_20
+    slot_template: [HOOK, SCENE, EXERCISE, INTEGRATION]
+    target_word_range: [90, 220]
+  daily_text_audio_companion:
+    name: "Daily Text + Audio Companion"
+    runtime_format_id: micro_book_20
+    slot_template: [HOOK, SCENE, EXERCISE, INTEGRATION]
+    target_word_range: [140, 320]
+  crisis_cards:
+    name: "Crisis Cards"
+    runtime_format_id: micro_book_15
+    slot_template: [HOOK, SCENE, EXERCISE, INTEGRATION]
+    target_word_range: [90, 200]
+  weekly_challenge_pack:
+    name: "Weekly Challenge Pack"
+    runtime_format_id: short_book_30
+    slot_template: [HOOK, SCENE, EXERCISE, INTEGRATION]
+    target_word_range: [180, 480]
+  faq_audiobook:
+    name: "FAQ Audiobook"
+    runtime_format_id: short_book_30
+    slot_template: [HOOK, SCENE, REFLECTION, EXERCISE, INTEGRATION]
+    target_word_range: [320, 700]
+  myth_vs_mechanism:
+    name: "Myth vs Mechanism"
+    runtime_format_id: short_book_30
+    slot_template: [HOOK, SCENE, STORY, REFLECTION, EXERCISE, INTEGRATION]
+    target_word_range: [450, 900]
+  protocol_library:
+    name: "Protocol Library"
+    runtime_format_id: micro_book_20
+    slot_template: [HOOK, SCENE, EXERCISE, INTEGRATION]
+    target_word_range: [120, 280]

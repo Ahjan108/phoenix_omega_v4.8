@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Body Scan + Breath</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cardo&family=Rubik:wght@300;400&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--scan:#5EAAB8;--bg:#090C14;--text:#D8D2C8;--muted:#585450}
+  body{font-family:'Rubik',sans-serif;background:var(--bg);color:var(--text);height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none}
+  .wrap{z-index:1;display:flex;flex-direction:column;align-items:center;gap:1rem;max-width:420px;padding:0 1rem}
+  h1{font-family:'Cardo',serif;font-size:1.8rem;letter-spacing:.04em}
+  .sub{font-size:.7rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+  .body-wrap{display:flex;gap:1.5rem;align-items:center}
+  .body-fig{position:relative;width:120px;height:300px}
+  svg.fig{width:100%;height:100%}
+  .zone{fill:rgba(255,255,255,.03);stroke:rgba(255,255,255,.05);stroke-width:.5;transition:fill .6s,stroke .6s}
+  .zone.active{fill:rgba(94,170,184,.15);stroke:rgba(94,170,184,.4)}
+  .zone.done{fill:rgba(94,170,184,.06);stroke:rgba(94,170,184,.15)}
+  .zone-list{display:flex;flex-direction:column;gap:.4rem;width:140px}
+  .zone-item{font-size:.72rem;padding:.4rem .6rem;border-radius:6px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);transition:all .4s;color:var(--muted);letter-spacing:.04em}
+  .zone-item.active{background:rgba(94,170,184,.12);border-color:rgba(94,170,184,.3);color:var(--text)}
+  .zone-item.done{opacity:.4}
+  .breath-orb{width:60px;height:60px;border-radius:50%;background:radial-gradient(circle,rgba(94,170,184,.3),transparent);margin:0 auto;transition:transform .3s}
+  .phase-area{text-align:center}
+  .pn{font-family:'Cardo',serif;font-size:1.3rem;letter-spacing:.06em}
+  .pc{font-size:1.6rem;font-weight:300;opacity:.7}
+  .inst{font-size:.7rem;color:var(--muted);text-align:center;min-height:1.2rem;font-style:italic}
+  .bar{width:100%;height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
+  .bf{height:100%;width:0;border-radius:2px;background:var(--scan)}
+  .info-row{display:flex;gap:2rem;font-size:.78rem;color:var(--muted)}
+  .info-row strong{color:var(--text);font-weight:400}
+  .controls{display:flex;gap:1rem}
+  .btn{font-family:'Rubik',sans-serif;padding:.5rem 1.4rem;border:1px solid rgba(255,255,255,.1);border-radius:100px;background:rgba(255,255,255,.03);color:var(--text);font-size:.78rem;cursor:pointer;transition:all .3s}
+  .btn:hover{background:rgba(255,255,255,.08)}
+  .btn.pri{background:rgba(94,170,184,.15);border-color:rgba(94,170,184,.3)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Body Scan + Breath</h1>
+  <p class="sub">5 minutes · head to feet · 5s in · 5s out</p>
+  <div class="body-wrap">
+    <div class="body-fig">
+      <svg class="fig" viewBox="0 0 120 300">
+        <ellipse class="zone" id="z0" cx="60" cy="30" rx="22" ry="25"/>
+        <rect class="zone" id="z1" x="30" y="55" width="60" height="30" rx="4"/>
+        <rect class="zone" id="z2" x="25" y="85" width="70" height="40" rx="4"/>
+        <rect class="zone" id="z3" x="30" y="125" width="60" height="35" rx="4"/>
+        <rect class="zone" id="z4" x="28" y="160" width="64" height="35" rx="4"/>
+        <rect class="zone" id="z5" x="25" y="195" width="30" height="50" rx="4"/>
+        <rect class="zone" id="z6" x="65" y="195" width="30" height="50" rx="4"/>
+        <rect class="zone" id="z7" x="22" y="245" width="33" height="30" rx="4"/>
+        <rect class="zone" id="z8" x="65" y="245" width="33" height="30" rx="4"/>
+      </svg>
+    </div>
+    <div class="zone-list" id="zoneList">
+      <div class="zone-item" id="zi0">Head & Face</div>
+      <div class="zone-item" id="zi1">Neck & Shoulders</div>
+      <div class="zone-item" id="zi2">Chest & Upper Back</div>
+      <div class="zone-item" id="zi3">Belly & Lower Back</div>
+      <div class="zone-item" id="zi4">Hips & Pelvis</div>
+      <div class="zone-item" id="zi5">Left Thigh</div>
+      <div class="zone-item" id="zi6">Right Thigh</div>
+      <div class="zone-item" id="zi7">Left Shin & Foot</div>
+      <div class="zone-item" id="zi8">Right Shin & Foot</div>
+    </div>
+  </div>
+  <div class="phase-area">
+    <div class="pn" id="pn">Ready</div>
+    <div class="pc" id="pc"></div>
+    <div class="inst" id="inst">Bring awareness to each zone as it lights up</div>
+  </div>
+  <div class="bar"><div class="bf" id="bf"></div></div>
+  <div class="info-row">
+    <span>Zone <strong id="zn">0</strong> / 9</span>
+    <span>Remaining <strong id="rem">5:00</strong></span>
+  </div>
+  <div class="controls">
+    <button class="btn pri" id="sb" onclick="toggle()">Begin</button>
+    <button class="btn" onclick="doReset()">Reset</button>
+  </div>
+</div>
+<script>
+const ZONES=9,ZONE_DUR=300/9,INH=5,EXH=5,SESSION=300;
+const PROMPTS=['Soften your forehead, jaw, eyes','Release tension in neck and shoulders','Feel chest rise and fall',
+  'Let belly be soft and open','Release any gripping in the hips','Awareness flows down left leg',
+  'Awareness flows down right leg','Feel left foot on the ground','Feel right foot grounded'];
+let running=false,paused=false,t=0,total=0,lastTs=0,zone=0,lastP='',aCtx=null;
+function audio(){if(!aCtx)aCtx=new(window.AudioContext||window.webkitAudioContext)();return aCtx}
+function tone(f,d=.25){try{const x=audio(),o=x.createOscillator(),g=x.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,x.currentTime);g.gain.linearRampToValueAtTime(.06,x.currentTime+.05);g.gain.exponentialRampToValueAtTime(.001,x.currentTime+d);o.connect(g);g.connect(x.destination);o.start();o.stop(x.currentTime+d)}catch(e){}}
+function fmt(s){return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
+
+let lastZone=-1;
+function tick(ts){
+  if(!running||paused)return;
+  if(!lastTs)lastTs=ts;
+  const dt=(ts-lastTs)/1000;lastTs=ts;t+=dt;total+=dt;
+  if(total>=SESSION){end();return}
+
+  zone=Math.min(Math.floor(total/ZONE_DUR),ZONES-1);
+  if(zone!==lastZone){
+    for(let i=0;i<ZONES;i++){
+      document.getElementById('z'+i).classList.toggle('active',i===zone);
+      document.getElementById('z'+i).classList.toggle('done',i<zone);
+      document.getElementById('zi'+i).classList.toggle('active',i===zone);
+      document.getElementById('zi'+i).classList.toggle('done',i<zone);
+    }
+    document.getElementById('zn').textContent=zone+1;
+    document.getElementById('inst').textContent=PROMPTS[zone];
+    tone(300+zone*30);
+    lastZone=zone;
+  }
+
+  const ct=t%(INH+EXH);
+  const isIn=ct<INH;
+  const cur=isIn?'in':'out';
+  if(cur!==lastP){tone(isIn?350:280,.15);lastP=cur}
+  document.getElementById('pn').textContent=isIn?'Inhale':'Exhale';
+  document.getElementById('pc').textContent=Math.ceil(isIn?INH-ct:EXH-(ct-INH));
+  document.getElementById('bf').style.width=(total/SESSION*100)+'%';
+  document.getElementById('rem').textContent=fmt(Math.max(0,SESSION-total));
+  requestAnimationFrame(tick);
+}
+
+function toggle(){
+  const b=document.getElementById('sb');
+  if(!running){running=true;paused=false;t=0;total=0;lastTs=0;zone=0;lastZone=-1;lastP='';
+    document.getElementById('zn').textContent='0';b.textContent='Pause';requestAnimationFrame(tick);
+  }else if(!paused){paused=true;lastTs=0;b.textContent='Resume'}
+  else{paused=false;lastTs=0;b.textContent='Pause';requestAnimationFrame(tick)}
+}
+function doReset(){
+  running=false;paused=false;t=0;total=0;lastTs=0;zone=0;lastZone=-1;lastP='';
+  document.getElementById('sb').textContent='Begin';document.getElementById('zn').textContent='0';
+  document.getElementById('rem').textContent=fmt(SESSION);document.getElementById('pn').textContent='Ready';
+  document.getElementById('pc').textContent='';document.getElementById('bf').style.width='0';
+  document.getElementById('inst').textContent='Bring awareness to each zone as it lights up';
+  for(let i=0;i<ZONES;i++){document.getElementById('z'+i).className='zone';document.getElementById('zi'+i).className='zone-item'}
+}
+function end(){running=false;document.getElementById('sb').textContent='Begin';document.getElementById('pn').textContent='Whole Body';document.getElementById('pc').textContent='✦';
+  document.getElementById('inst').textContent='Feel your entire body as one unified field of awareness';tone(528,.8)}
+</script>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nervous System Reset — Phoenix Protocol</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bone: #f5f0e8;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a0;
+    --deep: #080b0d;
+    --forest: #0a1a0f;
+    --sage: #2a4a33;
+    --mist: rgba(245,240,232,0.5);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--deep);
+    color: var(--bone);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(10,26,15,0.9) 0%, var(--deep) 100%);
+    pointer-events: none;
+  }
+
+  .back {
+    position: fixed;
+    top: 24px; left: 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.3);
+    text-decoration: none;
+    transition: color 0.3s;
+    z-index: 10;
+  }
+  .back:hover { color: var(--gold); }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    max-width: 560px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+    opacity: 0.7;
+  }
+
+  h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 300;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  /* Body map */
+  .body-map {
+    position: relative;
+    width: 160px;
+    height: 280px;
+    margin: 40px auto;
+  }
+
+  .body-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Zone highlights */
+  .zone {
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    filter: blur(8px);
+  }
+
+  .zone.active { opacity: 1; }
+
+  /* Main instruction text */
+  .instruction {
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--bone);
+    min-height: 80px;
+    margin: 16px 0 32px;
+    transition: opacity 0.5s;
+  }
+
+  .instruction em { color: var(--gold-light); font-style: italic; }
+
+  /* Timer */
+  .timer-ring {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    position: relative;
+  }
+
+  .timer-svg {
+    width: 80px;
+    height: 80px;
+    transform: rotate(-90deg);
+  }
+
+  .timer-track {
+    fill: none;
+    stroke: rgba(201,168,76,0.12);
+    stroke-width: 2;
+  }
+
+  .timer-fill {
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    transition: stroke-dashoffset 1s linear;
+  }
+
+  .timer-label {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'DM Mono', monospace;
+    font-size: 1rem;
+    color: var(--gold);
+  }
+
+  /* Step indicator */
+  .step-dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+
+  .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.2);
+    transition: background 0.4s, transform 0.4s;
+  }
+
+  .dot.done { background: var(--gold); }
+  .dot.active { background: var(--gold); transform: scale(1.5); }
+
+  /* Start/controls */
+  .btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    cursor: pointer;
+    border: 1px solid rgba(201,168,76,0.4);
+    background: var(--gold);
+    color: var(--deep);
+    transition: all 0.3s;
+  }
+
+  .btn:hover { background: var(--gold-light); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--gold);
+    margin-left: 12px;
+  }
+
+  .btn-ghost:hover { background: rgba(201,168,76,0.08); }
+
+  /* Complete */
+  .complete {
+    display: none;
+    animation: rise 0.8s ease forwards;
+  }
+
+  .complete h2 {
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    margin-bottom: 16px;
+  }
+
+  .complete p {
+    font-size: 1.1rem;
+    color: rgba(245,240,232,0.55);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    font-style: italic;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back">← All tools</a>
+
+<div class="content">
+  <p class="eyebrow">Phoenix Protocol — 03</p>
+  <h1>Nervous System Reset</h1>
+
+  <div id="startView">
+    <p style="font-size:1.1rem; color:rgba(245,240,232,0.5); line-height:1.7; margin:20px 0 36px; font-weight:300;">
+      A 6-step somatic scan that moves stored tension<br>
+      <em>out of your body</em> — not just your mind.
+      <br><br>Takes about 4 minutes. Find a quiet moment.
+    </p>
+    <button class="btn" onclick="startScan()">Begin the Reset</button>
+  </div>
+
+  <div id="scanView" style="display:none;">
+    <!-- Body diagram with glowing zone -->
+    <div class="body-map">
+      <svg class="body-svg" viewBox="0 0 100 200" fill="none">
+        <!-- Body outline -->
+        <ellipse cx="50" cy="18" rx="14" ry="16" fill="none" stroke="rgba(245,240,232,0.12)" stroke-width="0.8"/>
+        <path d="M36 32 Q30 50 32 80 Q34 100 36 120 L64 120 Q66 100 68 80 Q70 50 64 32 Z" fill="none" stroke="rgba(245,240,232,0.12)" stroke-width="0.8"/>
+        <path d="M36 34 Q20 38 18 60 Q16 80 22 88" fill="none" stroke="rgba(245,240,232,0.12)" stroke-width="0.8"/>
+        <path d="M64 34 Q80 38 82 60 Q84 80 78 88" fill="none" stroke="rgba(245,240,232,0.12)" stroke-width="0.8"/>
+        <path d="M40 120 Q38 150 36 185" fill="none" stroke="rgba(245,240,232,0.12)" stroke-width="0.8"/>
+        <path d="M60 120 Q62 150 64 185" fill="none" stroke="rgba(245,240,232,0.12)" stroke-width="0.8"/>
+
+        <!-- Zones (glow layers) -->
+        <!-- Head -->
+        <ellipse id="zone-head" class="zone" cx="50" cy="18" rx="16" ry="18" fill="rgba(201,168,76,0.15)"/>
+        <!-- Jaw/neck -->
+        <ellipse id="zone-jaw" class="zone" cx="50" cy="32" rx="10" ry="6" fill="rgba(201,168,76,0.15)"/>
+        <!-- Chest -->
+        <ellipse id="zone-chest" class="zone" cx="50" cy="60" rx="18" ry="16" fill="rgba(201,168,76,0.15)"/>
+        <!-- Belly -->
+        <ellipse id="zone-belly" class="zone" cx="50" cy="90" rx="16" ry="14" fill="rgba(201,168,76,0.15)"/>
+        <!-- Hands -->
+        <ellipse id="zone-hands" class="zone" cx="20" cy="84" rx="8" ry="6" fill="rgba(201,168,76,0.15)"/>
+        <ellipse id="zone-hands2" class="zone" cx="80" cy="84" rx="8" ry="6" fill="rgba(201,168,76,0.15)"/>
+        <!-- Feet -->
+        <ellipse id="zone-feet" class="zone" cx="38" cy="183" rx="8" ry="5" fill="rgba(201,168,76,0.15)"/>
+        <ellipse id="zone-feet2" class="zone" cx="62" cy="183" rx="8" ry="5" fill="rgba(201,168,76,0.15)"/>
+      </svg>
+    </div>
+
+    <!-- Step dots -->
+    <div class="step-dots" id="stepDots"></div>
+
+    <!-- Timer ring -->
+    <div class="timer-ring">
+      <svg class="timer-svg" viewBox="0 0 80 80">
+        <circle class="timer-track" cx="40" cy="40" r="35"/>
+        <circle class="timer-fill" id="timerCircle" cx="40" cy="40" r="35"/>
+      </svg>
+      <span class="timer-label" id="timerLabel">0</span>
+    </div>
+
+    <!-- Instruction -->
+    <p class="instruction" id="instructionText"></p>
+
+    <button class="btn btn-ghost" onclick="skipStep()">Skip →</button>
+  </div>
+
+  <div class="complete" id="completeView">
+    <h2>You've returned to yourself.</h2>
+    <p>
+      Tension that was trapped has moved.<br>
+      Your nervous system has received the signal: it is safe.<br><br>
+      Sit with this for one more minute before moving on.
+    </p>
+    <button class="btn" onclick="resetScan()">Do it again</button>
+  </div>
+</div>
+
+<script>
+const steps = [
+  {
+    zone: ['zone-head'],
+    text: 'Close your eyes. Place your attention at the top of your skull. Notice any tightness, pressure, or heat — without trying to change it. Just <em>witness.</em>',
+    duration: 30
+  },
+  {
+    zone: ['zone-jaw'],
+    text: 'Drop your jaw slightly open. Notice your teeth, tongue, and the muscles behind your ears. This is where <em>so much</em> goes unspoken. Breathe into it.',
+    duration: 30
+  },
+  {
+    zone: ['zone-chest'],
+    text: 'Put a hand on your chest. Feel the rhythm of your heartbeat. Notice what emotion lives here right now — name it without judgment. <em>It is allowed to be here.</em>',
+    duration: 40
+  },
+  {
+    zone: ['zone-belly'],
+    text: 'Move attention to your belly, three inches below your navel. Breathe deeply so this area expands first. This is your body\'s <em>center of gravity.</em> Come home to it.',
+    duration: 40
+  },
+  {
+    zone: ['zone-hands', 'zone-hands2'],
+    text: 'Wiggle your fingers slowly. Feel the pulse in your palms. Your hands carry what you\'ve held, built, and done. <em>Soften the grip. You can let go now.</em>',
+    duration: 30
+  },
+  {
+    zone: ['zone-feet', 'zone-feet2'],
+    text: 'Press your feet into the floor. Feel the weight of your body, fully supported. The earth holds you. You do not need to carry yourself alone. <em>Let yourself be held.</em>',
+    duration: 40
+  }
+];
+
+let currentStep = 0;
+let countTimer = null;
+let stepTimer = null;
+let stepSeconds = 0;
+
+function startScan() {
+  document.getElementById('startView').style.display = 'none';
+  document.getElementById('scanView').style.display = 'block';
+  buildDots();
+  runStep(0);
+}
+
+function buildDots() {
+  const dotsWrap = document.getElementById('stepDots');
+  dotsWrap.innerHTML = '';
+  steps.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot';
+    d.id = 'dot-' + i;
+    dotsWrap.appendChild(d);
+  });
+}
+
+function runStep(idx) {
+  if (idx >= steps.length) { complete(); return; }
+  currentStep = idx;
+
+  // Clear all zones
+  document.querySelectorAll('.zone').forEach(z => z.classList.remove('active'));
+  steps[idx].zone.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.add('active');
+  });
+
+  // Update dots
+  steps.forEach((_, i) => {
+    const d = document.getElementById('dot-' + i);
+    d.className = 'dot' + (i < idx ? ' done' : i === idx ? ' active' : '');
+  });
+
+  // Instruction
+  document.getElementById('instructionText').innerHTML = steps[idx].text;
+
+  // Timer
+  const duration = steps[idx].duration;
+  stepSeconds = 0;
+  const circumference = 2 * Math.PI * 35;
+  const circle = document.getElementById('timerCircle');
+  document.getElementById('timerLabel').textContent = duration;
+
+  clearInterval(countTimer);
+  clearTimeout(stepTimer);
+
+  countTimer = setInterval(() => {
+    stepSeconds++;
+    const remaining = duration - stepSeconds;
+    document.getElementById('timerLabel').textContent = remaining;
+    const offset = circumference - (stepSeconds / duration) * circumference;
+    circle.style.strokeDashoffset = offset;
+
+    if (stepSeconds >= duration) {
+      clearInterval(countTimer);
+    }
+  }, 1000);
+
+  stepTimer = setTimeout(() => {
+    clearInterval(countTimer);
+    runStep(idx + 1);
+  }, duration * 1000);
+}
+
+function skipStep() {
+  clearInterval(countTimer);
+  clearTimeout(stepTimer);
+  runStep(currentStep + 1);
+}
+
+function complete() {
+  document.getElementById('scanView').style.display = 'none';
+  document.getElementById('completeView').style.display = 'block';
+}
+
+function resetScan() {
+  document.getElementById('completeView').style.display = 'none';
+  document.getElementById('scanView').style.display = 'block';
+  buildDots();
+  runStep(0);
+}
+</script>
+</body>
+</html>

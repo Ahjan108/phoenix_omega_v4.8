@@ -1,0 +1,240 @@
+
+## RECOGNITION v01
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/recognition/micro/v01.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: pre_awareness
+---
+Maria watches Keisha work. Keisha is efficient. Patients love her. She never seems rushed. She has energy at the end of her shift. Maria compares herself. Maria feels rushed all day. She feels behind. She leaves exhausted. The comparison creates a gap. Keisha is the nurse Maria thinks she should be. Maria is something less. The comparison is happening without words, just in the body.
+---
+
+## RECOGNITION v02
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/recognition/micro/v02.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: pre_awareness
+---
+Dominique sees Chen charting. Chen finishes charting for a patient in half the time it takes Dominique. Dominique thinks: Chen is better at this. Chen is smarter. Chen is more organized. The comparison feeds a quiet sense of inadequacy. The gap between her and Chen becomes evidence that she's not good enough at this work.
+---
+
+## RECOGNITION v03
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/recognition/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Raj hears about Alicia's certification. Alicia is pursuing advancement. Raj has stalled in his career. The comparison rises. Alicia is advancing. Raj is stuck. The comparison becomes a statement about worth. Alicia is more committed. Alicia is going somewhere. Raj is just working. The worth gets measured by professional trajectory.
+---
+
+## RECOGNITION v04
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/recognition/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Tomas watches as newer nurses quickly become confident. They dive in. They don't second-guess themselves. Tomas is still careful. Still checking. Still uncertain in some areas. The comparison creates doubt. Maybe Tomas is weaker. Maybe he doesn't belong. The comparison is between Tomas and a version of the new nurses that might not be real, but feels true.
+---
+
+## RECOGNITION v05
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/recognition/micro/v05.txt
+BAND: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+The comparisons accumulate. The nurses build a hierarchy in their minds. At the top are the ones who seem most competent, most composed, most suited for the work. At the bottom is where each of them sees themselves. The hierarchy becomes invisible but it's the lens through which they measure their own worth. Every interaction is filtered through this hierarchy.
+---
+
+## MECHANISM_PROOF v01
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/mechanism_proof/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: destabilization
+---
+The mechanism is: My worth is determined by how I compare to other nurses. Maria's constant comparison is the mechanism at work. Keisha is better. Keisha has worth. Maria is worse. Maria has less worth. The mechanism uses comparison as the metric for self-evaluation. The proof is everywhere. Every interaction becomes data in the comparison.
+---
+
+## MECHANISM_PROOF v02
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/mechanism_proof/micro/v02.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: destabilization
+---
+The mechanism produces proof through selective observation. Dominique notices what Chen does well and what she herself struggles with. She doesn't notice what she does well. She doesn't notice what Chen struggles with. The mechanism is biased. It's designed to prove that others are better. The proof is selective but it feels complete.
+---
+
+## MECHANISM_PROOF v03
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/mechanism_proof/micro/v03.txt
+BAND: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+The mechanism extends beyond individual nurses to entire trajectories. Raj's worth is measured by his career advancement compared to Alicia's. The comparison is designed to prove that Alicia is more worthy. The mechanism doesn't allow for the possibility that they're just on different paths. Different doesn't mean worse. But the mechanism reads all differences as ranking.
+---
+
+## MECHANISM_PROOF v04
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/mechanism_proof/micro/v04.txt
+BAND: 4
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+The mechanism isolates through comparison. Tomas cannot easily talk about his uncertainty because the comparison has made uncertainty feel shameful. He compares himself to confident new nurses and concludes that his own uncertainty is a character flaw. The isolation deepens the comparison. He's alone with the sense that he's not good enough.
+---
+
+## MECHANISM_PROOF v05
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/mechanism_proof/micro/v05.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: destabilization
+---
+The mechanism's deepest proof is the way it's become invisible. The nurses don't think they're engaging in constant comparison. They just think they're noticing reality. But the reality they're noticing is filtered through the comparison lens. The mechanism has become the way they perceive themselves.
+---
+
+## TURNING_POINT v01
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/turning_point/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Maria talks to Keisha about her experience of watching Keisha work. She expects Keisha to confirm that she's more efficient. Instead, Keisha says she struggles. She's not as composed as Maria thinks. The comparison breaks. The image Maria had built doesn't match Keisha's experience of herself. The possibility opens that the comparison might not be accurate.
+---
+
+## TURNING_POINT v02
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/turning_point/micro/v02.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Dominique notices something. Chen, who she thought was so organized, asks her for advice on charting. Chen sees Dominique as more skilled in that area. The comparison fragments. It's not as simple as Chen being better. They're each good at different things. The hierarchy begins to wobble.
+---
+
+## TURNING_POINT v03
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/turning_point/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Raj realizes that his path and Alicia's are just different. Alicia is pursuing advancement. Raj values stability and presence with his family. The difference is not about worth. It's about values. The comparison dissolves when Raj remembers what actually matters to him.
+---
+
+## TURNING_POINT v04
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/turning_point/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Tomas starts talking about his uncertainty. He mentions it to a new nurse. The new nurse responds with relief. She's also uncertain. She's just been pretending. Tomas realized the comparison he was making was between his inside and someone else's outside. The outside looked confident. The inside was actually full of doubt.
+---
+
+## TURNING_POINT v05
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/turning_point/micro/v05.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Over weeks, the nurses notice the comparison less frequently. They're beginning to measure themselves by their own values instead of by how they rank against others. The hierarchy is losing power. The experimentation is toward evaluating worth from the inside rather than through the mirror of comparison.
+---
+
+## EMBODIMENT v01
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/embodiment/micro/v01.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Maria works and doesn't compare herself to Keisha anymore. She's not better or worse. They're just different nurses. Maria is good at what she does. That doesn't require Keisha to be bad. The freedom from constant comparison is felt as lightness.
+---
+
+## EMBODIMENT v02
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/embodiment/micro/v02.txt
+BAND: 1
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Dominique asks for advice when she needs it. She offers advice when she has knowledge. The interaction is not filtered through comparison. She's just responding to what's actually needed. The worth is not measured by the exchange.
+---
+
+## EMBODIMENT v03
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/embodiment/micro/v03.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Raj owns his career path. He's not advancing because he doesn't want to. The non-advancement is not a statement about his worth. It's a statement about his values. He's claimed his own trajectory.
+---
+
+## EMBODIMENT v04
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/embodiment/micro/v04.txt
+BAND: 1
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Tomas talks about his uncertainty without shame. He's learning. He's careful. He's thorough. These are qualities. The comparison that made uncertainty feel like a flaw is no longer operational.
+---
+
+## EMBODIMENT v05
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/comparison/embodiment/micro/v05.txt
+BAND: 1
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+The nurses have released the hierarchy. They still see other nurses' strengths. But the strengths are not being used to measure their own shortcomings. They've claimed their own worth independent of comparison.
+---

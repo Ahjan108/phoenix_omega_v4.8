@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phoenix/schemas/wave_optimizer_infeasible.schema.json",
+  "title": "Wave Optimizer Infeasible",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "wave_id",
+    "status",
+    "target_size",
+    "candidate_count",
+    "blocking_reasons"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "wave_id": { "type": "string" },
+    "status": { "type": "string", "const": "INFEASIBLE" },
+    "target_size": { "type": "integer", "minimum": 0 },
+    "candidate_count": { "type": "integer", "minimum": 0 },
+    "blocking_reasons": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["code"],
+        "properties": {
+          "code": { "type": "string" },
+          "description": { "type": "string" },
+          "details": { "type": "object" },
+          "eligible_count": { "type": "integer" },
+          "needed": { "type": "integer" },
+          "exclusion_breakdown": { "type": "object" },
+          "selected_so_far": { "type": "integer" },
+          "note": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "recommended_ops_actions": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": true
+}

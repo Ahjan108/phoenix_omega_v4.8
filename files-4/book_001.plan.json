@@ -1,0 +1,240 @@
+{
+  "book_id": "goldmaster_001",
+  "persona": "nyc_executives",
+  "topic": "self_worth",
+  "engine": "shame",
+  "locale": "nyc",
+  "format_id": "F006",
+  "chapter_count": 8,
+  "plan_hash": "512528e1f241145f",
+  "dominant_band_sequence": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    4,
+    3,
+    2
+  ],
+  "all_atom_ids": [
+    "nyc_executives__self_worth__shame__HOOK__f3__v02",
+    "nyc_executives__self_worth__shame__SCENE__entry__v04",
+    "nyc_executives__self_worth__shame__STORY__RECOGNITION__v06",
+    "nyc_executives__self_worth__shame__REFLECTION__cool__v02",
+    "nyc_executives__self_worth__shame__EXERCISE__Box_Breathing_4_4_4_4__v01",
+    "nyc_executives__self_worth__shame__INTEGRATION__someone_else__v01",
+    "nyc_executives__self_worth__shame__HOOK__f5__v02",
+    "nyc_executives__self_worth__shame__SCENE__transition__v01",
+    "nyc_executives__self_worth__shame__STORY__EMBODIMENT__v04",
+    "nyc_executives__self_worth__shame__REFLECTION__cool__v01",
+    "nyc_executives__self_worth__shame__EXERCISE__Three_Part_Breath___Dirga__v01",
+    "nyc_executives__self_worth__shame__INTEGRATION__cost_visible__v02",
+    "nyc_executives__self_worth__shame__HOOK__f5__v01",
+    "nyc_executives__self_worth__shame__SCENE__closing__v04",
+    "nyc_executives__self_worth__shame__STORY__RECOGNITION__v01",
+    "nyc_executives__self_worth__shame__REFLECTION__warm__v01",
+    "nyc_executives__self_worth__shame__EXERCISE__Ocean_Breath___Ujjayi__v01",
+    "nyc_executives__self_worth__shame__INTEGRATION__fmt__v01",
+    "nyc_executives__self_worth__shame__HOOK__f4__v02",
+    "nyc_executives__self_worth__shame__SCENE__entry__v03",
+    "nyc_executives__self_worth__shame__STORY__MECHANISM_PROOF__v03",
+    "nyc_executives__self_worth__shame__REFLECTION__warm__v02",
+    "nyc_executives__self_worth__shame__EXERCISE__5_Senses_Grounding__v01",
+    "nyc_executives__self_worth__shame__INTEGRATION__body_landed__v02",
+    "nyc_executives__self_worth__shame__HOOK__f2__v03",
+    "nyc_executives__self_worth__shame__SCENE__transition__v03",
+    "nyc_executives__self_worth__shame__STORY__EMBODIMENT__v03",
+    "nyc_executives__self_worth__shame__REFLECTION__hot__v02",
+    "nyc_executives__self_worth__shame__EXERCISE__4_7_8_Breathing__v01",
+    "nyc_executives__self_worth__shame__INTEGRATION__fmt__v02",
+    "nyc_executives__self_worth__shame__HOOK__f1__v02",
+    "nyc_executives__self_worth__shame__SCENE__closing__v01",
+    "nyc_executives__self_worth__shame__STORY__TURNING_POINT__v01",
+    "nyc_executives__self_worth__shame__REFLECTION__descent__v01",
+    "nyc_executives__self_worth__shame__EXERCISE__Cyclic_Sighing___Physiological_Sigh__v01",
+    "nyc_executives__self_worth__shame__INTEGRATION__cost_visible__v01",
+    "nyc_executives__self_worth__shame__HOOK__f2__v02",
+    "nyc_executives__self_worth__shame__SCENE__entry__v01",
+    "nyc_executives__self_worth__shame__STORY__EMBODIMENT__v01",
+    "nyc_executives__self_worth__shame__REFLECTION__descent__v02",
+    "nyc_executives__self_worth__shame__EXERCISE__Heart_Rate_Coherence___HRV__v01",
+    "nyc_executives__self_worth__shame__INTEGRATION__question_open__v02",
+    "nyc_executives__self_worth__shame__HOOK__f1__v01",
+    "nyc_executives__self_worth__shame__SCENE__transition__v02",
+    "nyc_executives__self_worth__shame__STORY__RECOGNITION__v03",
+    "nyc_executives__self_worth__shame__REFLECTION__hot__v01",
+    "nyc_executives__self_worth__shame__EXERCISE__Resonance_Breathing_6_BPM__v01",
+    "nyc_executives__self_worth__shame__INTEGRATION__still_here__v01"
+  ],
+  "chapters": [
+    {
+      "chapter_number": 1,
+      "slot_sequence": [
+        "HOOK",
+        "SCENE",
+        "STORY",
+        "REFLECTION",
+        "EXERCISE",
+        "INTEGRATION"
+      ],
+      "atom_ids": [
+        "nyc_executives__self_worth__shame__HOOK__f3__v02",
+        "nyc_executives__self_worth__shame__SCENE__entry__v04",
+        "nyc_executives__self_worth__shame__STORY__RECOGNITION__v06",
+        "nyc_executives__self_worth__shame__REFLECTION__cool__v02",
+        "nyc_executives__self_worth__shame__EXERCISE__Box_Breathing_4_4_4_4__v01",
+        "nyc_executives__self_worth__shame__INTEGRATION__someone_else__v01"
+      ],
+      "dominant_band": 1,
+      "integration_mode": "SOMEONE-ELSE"
+    },
+    {
+      "chapter_number": 2,
+      "slot_sequence": [
+        "HOOK",
+        "SCENE",
+        "STORY",
+        "REFLECTION",
+        "EXERCISE",
+        "INTEGRATION"
+      ],
+      "atom_ids": [
+        "nyc_executives__self_worth__shame__HOOK__f5__v02",
+        "nyc_executives__self_worth__shame__SCENE__transition__v01",
+        "nyc_executives__self_worth__shame__STORY__EMBODIMENT__v04",
+        "nyc_executives__self_worth__shame__REFLECTION__cool__v01",
+        "nyc_executives__self_worth__shame__EXERCISE__Three_Part_Breath___Dirga__v01",
+        "nyc_executives__self_worth__shame__INTEGRATION__cost_visible__v02"
+      ],
+      "dominant_band": 2,
+      "integration_mode": "COST-VISIBLE"
+    },
+    {
+      "chapter_number": 3,
+      "slot_sequence": [
+        "HOOK",
+        "SCENE",
+        "STORY",
+        "REFLECTION",
+        "EXERCISE",
+        "INTEGRATION"
+      ],
+      "atom_ids": [
+        "nyc_executives__self_worth__shame__HOOK__f5__v01",
+        "nyc_executives__self_worth__shame__SCENE__closing__v04",
+        "nyc_executives__self_worth__shame__STORY__RECOGNITION__v01",
+        "nyc_executives__self_worth__shame__REFLECTION__warm__v01",
+        "nyc_executives__self_worth__shame__EXERCISE__Ocean_Breath___Ujjayi__v01",
+        "nyc_executives__self_worth__shame__INTEGRATION__fmt__v01"
+      ],
+      "dominant_band": 3,
+      "integration_mode": "FMT"
+    },
+    {
+      "chapter_number": 4,
+      "slot_sequence": [
+        "HOOK",
+        "SCENE",
+        "STORY",
+        "REFLECTION",
+        "EXERCISE",
+        "INTEGRATION"
+      ],
+      "atom_ids": [
+        "nyc_executives__self_worth__shame__HOOK__f4__v02",
+        "nyc_executives__self_worth__shame__SCENE__entry__v03",
+        "nyc_executives__self_worth__shame__STORY__MECHANISM_PROOF__v03",
+        "nyc_executives__self_worth__shame__REFLECTION__warm__v02",
+        "nyc_executives__self_worth__shame__EXERCISE__5_Senses_Grounding__v01",
+        "nyc_executives__self_worth__shame__INTEGRATION__body_landed__v02"
+      ],
+      "dominant_band": 4,
+      "integration_mode": "BODY-LANDED"
+    },
+    {
+      "chapter_number": 5,
+      "slot_sequence": [
+        "HOOK",
+        "SCENE",
+        "STORY",
+        "REFLECTION",
+        "EXERCISE",
+        "INTEGRATION"
+      ],
+      "atom_ids": [
+        "nyc_executives__self_worth__shame__HOOK__f2__v03",
+        "nyc_executives__self_worth__shame__SCENE__transition__v03",
+        "nyc_executives__self_worth__shame__STORY__EMBODIMENT__v03",
+        "nyc_executives__self_worth__shame__REFLECTION__hot__v02",
+        "nyc_executives__self_worth__shame__EXERCISE__4_7_8_Breathing__v01",
+        "nyc_executives__self_worth__shame__INTEGRATION__fmt__v02"
+      ],
+      "dominant_band": 5,
+      "integration_mode": "FMT"
+    },
+    {
+      "chapter_number": 6,
+      "slot_sequence": [
+        "HOOK",
+        "SCENE",
+        "STORY",
+        "REFLECTION",
+        "EXERCISE",
+        "INTEGRATION"
+      ],
+      "atom_ids": [
+        "nyc_executives__self_worth__shame__HOOK__f1__v02",
+        "nyc_executives__self_worth__shame__SCENE__closing__v01",
+        "nyc_executives__self_worth__shame__STORY__TURNING_POINT__v01",
+        "nyc_executives__self_worth__shame__REFLECTION__descent__v01",
+        "nyc_executives__self_worth__shame__EXERCISE__Cyclic_Sighing___Physiological_Sigh__v01",
+        "nyc_executives__self_worth__shame__INTEGRATION__cost_visible__v01"
+      ],
+      "dominant_band": 4,
+      "integration_mode": "COST-VISIBLE"
+    },
+    {
+      "chapter_number": 7,
+      "slot_sequence": [
+        "HOOK",
+        "SCENE",
+        "STORY",
+        "REFLECTION",
+        "EXERCISE",
+        "INTEGRATION"
+      ],
+      "atom_ids": [
+        "nyc_executives__self_worth__shame__HOOK__f2__v02",
+        "nyc_executives__self_worth__shame__SCENE__entry__v01",
+        "nyc_executives__self_worth__shame__STORY__EMBODIMENT__v01",
+        "nyc_executives__self_worth__shame__REFLECTION__descent__v02",
+        "nyc_executives__self_worth__shame__EXERCISE__Heart_Rate_Coherence___HRV__v01",
+        "nyc_executives__self_worth__shame__INTEGRATION__question_open__v02"
+      ],
+      "dominant_band": 3,
+      "integration_mode": "QUESTION-OPEN"
+    },
+    {
+      "chapter_number": 8,
+      "slot_sequence": [
+        "HOOK",
+        "SCENE",
+        "STORY",
+        "REFLECTION",
+        "EXERCISE",
+        "INTEGRATION"
+      ],
+      "atom_ids": [
+        "nyc_executives__self_worth__shame__HOOK__f1__v01",
+        "nyc_executives__self_worth__shame__SCENE__transition__v02",
+        "nyc_executives__self_worth__shame__STORY__RECOGNITION__v03",
+        "nyc_executives__self_worth__shame__REFLECTION__hot__v01",
+        "nyc_executives__self_worth__shame__EXERCISE__Resonance_Breathing_6_BPM__v01",
+        "nyc_executives__self_worth__shame__INTEGRATION__still_here__v01"
+      ],
+      "dominant_band": 2,
+      "integration_mode": "STILL-HERE"
+    }
+  ]
+}

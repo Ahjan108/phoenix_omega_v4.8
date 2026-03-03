@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resonance Breathing — 6 BPM</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy&family=Jost:wght@300;400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--inhale:#7AAED4;--exhale:#D4A87A;--bg:#090D16;--text:#DDD7CC;--muted:#5B5752}
+  body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--text);height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;user-select:none}
+  .wrap{z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.3rem}
+  h1{font-family:'Sorts Mill Goudy',serif;font-size:2rem;letter-spacing:.04em}
+  .sub{font-size:.72rem;color:var(--muted);letter-spacing:.13em;text-transform:uppercase}
+  .pendulum-area{position:relative;width:300px;height:260px;overflow:hidden}
+  .pivot{position:absolute;top:10px;left:50%;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.15);transform:translateX(-50%)}
+  .arm{position:absolute;top:13px;left:50%;width:2px;height:180px;background:linear-gradient(rgba(255,255,255,.1),rgba(255,255,255,.03));transform-origin:top center;transform:rotate(0deg);transition:none}
+  .bob{position:absolute;bottom:-18px;left:50%;width:36px;height:36px;border-radius:50%;transform:translateX(-50%);background:radial-gradient(circle at 40% 35%,var(--inhale),rgba(122,174,212,.15));box-shadow:0 0 30px rgba(122,174,212,.3);transition:background 1s,box-shadow 1s}
+  .bob.exhale{background:radial-gradient(circle at 40% 35%,var(--exhale),rgba(212,168,122,.15));box-shadow:0 0 30px rgba(212,168,122,.3)}
+  .side-lbl{position:absolute;bottom:50px;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:color .4s,opacity .4s;opacity:.4}
+  .side-lbl.l{left:20px}.side-lbl.r{right:20px}
+  .side-lbl.active{opacity:1;color:var(--text)}
+  .arc{position:absolute;bottom:40px;left:50%;transform:translateX(-50%)}
+  .phase-info{text-align:center}
+  .pn{font-family:'Sorts Mill Goudy',serif;font-size:1.5rem;letter-spacing:.08em}
+  .pc{font-size:2rem;font-weight:300;opacity:.7}
+  .bar{width:240px;height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
+  .bar-fill{height:100%;width:0;border-radius:2px;background:var(--inhale);transition:background .5s}
+  .info-row{display:flex;gap:2rem;font-size:.8rem;color:var(--muted)}
+  .info-row strong{color:var(--text);font-weight:500}
+  .controls{display:flex;gap:1rem}
+  .btn{font-family:'Jost',sans-serif;padding:.55rem 1.6rem;border:1px solid rgba(255,255,255,.1);border-radius:100px;background:rgba(255,255,255,.03);color:var(--text);font-size:.8rem;cursor:pointer;transition:all .3s}
+  .btn:hover{background:rgba(255,255,255,.08)}
+  .btn.pri{background:rgba(122,174,212,.15);border-color:rgba(122,174,212,.3)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Resonance Breathing</h1>
+  <p class="sub">6 breaths per minute · 5s in · 5s out</p>
+  <div class="pendulum-area">
+    <div class="pivot"></div>
+    <div class="arm" id="arm">
+      <div class="bob" id="bob"></div>
+    </div>
+    <span class="side-lbl l" id="lblL">Inhale</span>
+    <span class="side-lbl r" id="lblR">Exhale</span>
+    <svg class="arc" width="200" height="20" viewBox="0 0 200 20">
+      <path d="M10 18 Q100 0 190 18" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+    </svg>
+  </div>
+  <div class="phase-info">
+    <div class="pn" id="pn">Ready</div>
+    <div class="pc" id="pc"></div>
+  </div>
+  <div class="bar"><div class="bar-fill" id="bf"></div></div>
+  <div class="info-row">
+    <span>Breaths <strong id="bc">0</strong></span>
+    <span>Remaining <strong id="rem">6:00</strong></span>
+  </div>
+  <div class="controls">
+    <button class="btn pri" id="sb" onclick="toggle()">Begin</button>
+    <button class="btn" onclick="doReset()">Reset</button>
+  </div>
+</div>
+<script>
+const INH=5,EXH=5,CYCLE=10,SESSION=360,MAX_ANGLE=35;
+let running=false,paused=false,t=0,total=0,lastTs=0,breaths=0,lastP='',aCtx=null;
+
+function audio(){if(!aCtx)aCtx=new(window.AudioContext||window.webkitAudioContext)();return aCtx}
+function tone(f,d=.3){try{const x=audio(),o=x.createOscillator(),g=x.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,x.currentTime);g.gain.linearRampToValueAtTime(.07,x.currentTime+.05);g.gain.exponentialRampToValueAtTime(.001,x.currentTime+d);o.connect(g);g.connect(x.destination);o.start();o.stop(x.currentTime+d)}catch(e){}}
+function fmt(s){return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
+
+function tick(ts){
+  if(!running||paused)return;
+  if(!lastTs)lastTs=ts;
+  const dt=(ts-lastTs)/1000;lastTs=ts;t+=dt;total+=dt;
+  if(total>=SESSION){end();return}
+
+  const ct=t%CYCLE;
+  const isIn=ct<INH;
+  const frac=isIn?ct/INH:(ct-INH)/EXH;
+
+  // Pendulum angle: inhale swings left (-), exhale swings right (+)
+  const angle=isIn?
+    -MAX_ANGLE*Math.sin(frac*Math.PI/2):
+    MAX_ANGLE*Math.sin(frac*Math.PI/2);
+
+  document.getElementById('arm').style.transform='rotate('+angle+'deg)';
+
+  const cur=isIn?'in':'out';
+  if(cur!==lastP){
+    tone(isIn?396:285);
+    if(cur==='in'&&lastP==='out'){breaths++;document.getElementById('bc').textContent=breaths}
+    lastP=cur;
+  }
+
+  document.getElementById('bob').classList.toggle('exhale',!isIn);
+  document.getElementById('pn').textContent=isIn?'Inhale':'Exhale';
+  document.getElementById('pc').textContent=Math.ceil(isIn?INH-ct:EXH-(ct-INH));
+  document.getElementById('lblL').classList.toggle('active',isIn);
+  document.getElementById('lblR').classList.toggle('active',!isIn);
+  const bf=document.getElementById('bf');
+  bf.style.width=(frac*100)+'%';
+  bf.style.background=isIn?'var(--inhale)':'var(--exhale)';
+  document.getElementById('rem').textContent=fmt(Math.max(0,SESSION-total));
+
+  requestAnimationFrame(tick);
+}
+
+function toggle(){
+  const b=document.getElementById('sb');
+  if(!running){running=true;paused=false;t=0;total=0;lastTs=0;breaths=0;lastP='';
+    document.getElementById('bc').textContent='0';b.textContent='Pause';requestAnimationFrame(tick);
+  }else if(!paused){paused=true;lastTs=0;b.textContent='Resume'}
+  else{paused=false;lastTs=0;b.textContent='Pause';requestAnimationFrame(tick)}
+}
+
+function doReset(){
+  running=false;paused=false;t=0;total=0;lastTs=0;breaths=0;lastP='';
+  document.getElementById('sb').textContent='Begin';document.getElementById('bc').textContent='0';
+  document.getElementById('rem').textContent=fmt(SESSION);document.getElementById('pn').textContent='Ready';
+  document.getElementById('pc').textContent='';document.getElementById('bf').style.width='0';
+  document.getElementById('arm').style.transform='rotate(0deg)';document.getElementById('bob').classList.remove('exhale');
+  document.querySelectorAll('.side-lbl').forEach(l=>l.classList.remove('active'));
+}
+
+function end(){running=false;document.getElementById('sb').textContent='Begin';document.getElementById('pn').textContent='Complete';document.getElementById('pc').textContent='';tone(528,.8)}
+</script>
+</body>
+</html>

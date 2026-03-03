@@ -1,0 +1,245 @@
+
+
+## RECOGNITION v01
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/recognition/micro/v01.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Nora misses a lab value. Not a critical one—a trending potassium that shifted from 3.6 to 3.4. Within normal limits both times. Clinically insignificant. She catches it on the next check. No harm. But the miss lives in her body as evidence. Evidence of what, she can't articulate precisely, but the shape of it is: you should have caught it. The "should" carries more weight than the clinical reality. The clinical reality is: nothing happened. The shame reality is: something almost happened because of you. The almost is where the shame lives. The almost is larger than the actual.
+---
+
+## RECOGNITION v02
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/recognition/micro/v02.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: social
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+Tomás asks the attending to repeat an order. The attending repeats it without irritation. Standard clarification. But Tomás's face heats. The heat is shame—not for asking, but for needing to ask. Five years in the ICU and he should know the standard dosing for this medication. He does know it. He asked because the order was unusual—a non-standard dose for a specific clinical reason. The asking was correct. The shame doesn't evaluate correctness. The shame evaluates the appearance of not knowing. The appearance lives in his face and the correctness lives in his clinical judgment and only the face is visible.
+---
+
+## RECOGNITION v03
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/recognition/micro/v03.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Aisha cries in the supply closet after a patient codes. The code was run correctly. The patient was revived. The outcome was the best possible outcome. She cries anyway—the adrenaline needs somewhere to go. A tech walks in, sees her, walks out. The tech says nothing. Aisha's shame says everything: nurses don't cry in supply closets, nurses who cry aren't strong enough, the tech will tell someone. The crying was a normal physiological response to an extreme situation. The shame converts the normal response into a professional deficiency. The conversion happens faster than the tears dry.
+---
+
+## RECOGNITION v04
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/recognition/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: social
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+Claire asks for a second opinion on a fetal heart tracing. The tracing is ambiguous—category II with variable decelerations. Asking for a second opinion is protocol. She asks the senior nurse. The senior nurse agrees with Claire's assessment. Claire should feel validated. Instead, she feels exposed. The asking revealed that she wasn't certain. The uncertainty was clinically appropriate—the tracing was genuinely ambiguous. But the shame framework says: experienced nurses are certain. Ten years of experience and she's still asking. The asking is expertise. The shame calls it inadequacy. Both use the same data point and reach opposite conclusions.
+---
+
+## RECOGNITION v05
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/recognition/micro/v05.txt
+BAND: 4
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 4
+IDENTITY_STAGE: pre_awareness
+---
+Derek makes a medication error. He catches it before administration—scans the barcode, the system flags the wrong dose, he corrects it. The system worked. The safeguard worked. Derek worked, because he scanned instead of overriding. But the error existed for eleven seconds between pulling the wrong dose and scanning it. The eleven seconds are the only thing his shame retains. Not the catch. Not the correction. Not the system functioning as designed. The eleven seconds where he held the wrong syringe. His hands remember the weight of the wrong dose. His shame assigns the weight permanent significance. The correction is a footnote. The error is the headline.
+---
+
+## MECHANISM_PROOF v01
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/mechanism_proof/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+Nora maps the shame's logic. The shame says: good nurses don't miss things. The clinical reality says: all humans miss things, which is why systems have redundancies. The shame operates on a model of nursing that requires perfection. The hospital operates on a model that expects errors and builds safety nets. The shame's model has no safety nets because in the shame's model, needing a safety net is the failure. She works inside two systems simultaneously—one that accounts for human limitation and one that punishes it. The hospital designed the redundancies. The shame designed the punishment.
+---
+
+## MECHANISM_PROOF v02
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/mechanism_proof/micro/v02.txt
+BAND: 2
+MECHANISM_DEPTH: 2
+COST_TYPE: social
+COST_INTENSITY: 2
+IDENTITY_STAGE: destabilization
+---
+Tomás realizes the shame scales with witnesses. Asking the attending in an empty hallway: moderate shame. Asking the attending during rounds with four residents watching: maximum shame. The clinical value of the question doesn't change. The number of eyes changes. The shame is an audience-dependent phenomenon. It measures exposure, not competence. He's equally competent in both scenarios. He's equally ashamed only when no one watches. The shame needs observers to achieve full intensity. Without observers, the shame is a whisper. With observers, the shame is a verdict.
+---
+
+## MECHANISM_PROOF v03
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/mechanism_proof/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+Aisha discovers the shame has a memory system that only stores failures. Six years of competent care: thousands of correct assessments, hundreds of caught deteriorations, dozens of lives directly preserved by her skill. The shame's archive contains: the time she missed a fever trend, the time she hesitated during a rapid response, the time she misprogrammed a pump and caught it. Three entries in six years. The three entries carry more emotional weight than the thousands of correct actions. The shame's filing system is rigged. Successes go to a folder she never opens. Failures go to a folder that opens itself.
+---
+
+## MECHANISM_PROOF v04
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/mechanism_proof/micro/v04.txt
+BAND: 4
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 4
+IDENTITY_STAGE: destabilization
+---
+Claire identifies the shame's deepest layer: it converts uncertainty into identity. A tracing she can't read isn't a difficult tracing—it's proof she isn't good enough. A decision she struggles with isn't a complex decision—it's evidence of her limitations. The shame takes every moment of clinical uncertainty and files it under "who you are" instead of "what you're facing." The distinction matters enormously. A difficult tracing is a feature of the situation. A deficient nurse is a feature of the person. The shame consistently misfiles the situation as the person. The misfiling is the mechanism.
+---
+
+## MECHANISM_PROOF v05
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/mechanism_proof/micro/v05.txt
+BAND: 2
+MECHANISM_DEPTH: 2
+COST_TYPE: opportunity
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Derek counts the clinical questions he doesn't ask because of shame. One per shift, on average. One question per shift that his clinical judgment says to ask and his shame says will reveal him. Over a month, that's roughly fifteen unasked questions. Some of those questions would have clarified ambiguous orders. Some would have caught discrepancies. Some would have been answered with information that changed care. The shame's cost isn't just emotional. The shame's cost is informational. Fifteen data points per month that his patients' care doesn't receive because his shame made asking expensive.
+---
+
+## TURNING_POINT v01
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/turning_point/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Nora tells the charge nurse about the missed lab value. Not in a report—in conversation. "I missed the potassium trend yesterday. Caught it on the next round." The charge nurse nods: "Trending values are easy to lose in a six-patient assignment." The response is not absolution. The response is context. The shame said: you missed it because you're not good enough. The charge nurse said: you missed it because six patients produce too many data streams. The context doesn't eliminate the miss. The context places the miss inside a system instead of inside a person. The placement changes the weight.
+---
+
+## TURNING_POINT v02
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/turning_point/micro/v02.txt
+BAND: 2
+MECHANISM_DEPTH: 3
+COST_TYPE: social
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Tomás asks a question during rounds. Full audience—attending, residents, the pharmacist. His face heats. He asks anyway: "Can you walk me through the rationale for that dose?" The attending explains. The explanation reveals a nuance Tomás didn't know. The residents write it down. The pharmacist nods. The question produced information that five people in the room didn't have. Tomás's shame said the question exposed ignorance. The room's response said the question distributed knowledge. His face is still warm. The knowledge is still distributed. Both things happened simultaneously.
+---
+
+## TURNING_POINT v03
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/turning_point/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+CALLBACK_ID: supply_closet
+CALLBACK_PHASE: setup
+---
+Aisha tells another nurse about the supply closet. Not as a confession—as a fact. "I cried after the code yesterday." The other nurse says: "I cried after a code last month. In the bathroom." The exchange is two sentences. The two sentences dismantle the shame's central claim: that crying is singular evidence of personal weakness. The crying is plural. The crying is common. The shame required the crying to be Aisha's specific failure. The other nurse's disclosure converts the specific failure into a shared response. The shame can survive being personal. The shame has difficulty surviving being ordinary.
+---
+
+## TURNING_POINT v04
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/turning_point/micro/v04.txt
+BAND: 4
+MECHANISM_DEPTH: 3
+COST_TYPE: social
+COST_INTENSITY: 4
+IDENTITY_STAGE: experimentation
+---
+Claire reframes the second opinion as a clinical skill. She writes it in her notes: "Requested second read on ambiguous tracing—confirmed assessment." The writing changes the asking from a weakness into a documentation point. The documentation point is accurate—second reads on ambiguous tracings are a safety behavior, not a deficiency. She starts documenting every second opinion request. The documentation creates a record that reads like thoroughness, which is what it actually is. The shame read it as inadequacy. The chart reads it as diligence. The chart is the more accurate document.
+---
+
+## TURNING_POINT v05
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/turning_point/micro/v05.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Derek files a near-miss report on his own medication error. The barcode catch. The system flags require documentation. He documents it fully: wrong dose pulled, barcode scanned, system flagged, dose corrected, correct dose administered. The report is a safety document. The shame says the report is a permanent record of his failure. The safety team reviews it and notes the barcode scan as a positive safety behavior. The error is part of the report. The catch is also part of the report. The shame only reads the error section. The safety team reads the whole document.
+---
+
+## EMBODIMENT v01
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/embodiment/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Nora misses a trend again. Different patient, different lab. She catches it on the next check. The shame activates. She lets it activate and simultaneously contextualizes: six patients, twelve-hour shift, trending value in a stable patient. The contextualization doesn't silence the shame. The contextualization runs alongside it. She reports the catch to the oncoming nurse during handoff—not as a confession but as clinical information. "Watch the mag trend, I caught a dip on the second check." The handoff is professional. The shame is personal. Both exist. The professional behavior is the one that affects patient care.
+---
+
+## EMBODIMENT v02
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/embodiment/micro/v02.txt
+BAND: 2
+MECHANISM_DEPTH: 3
+COST_TYPE: social
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Tomás asks another question during rounds. The shame fires. He asks. The attending answers. Nobody reacts as though he's revealed incompetence. He asks a follow-up. The shame fires again, quieter. The second question builds on the first and produces a care plan adjustment that benefits the patient in Room 4. Two questions, two shame responses, one care improvement. He's learning to measure the questions by their clinical output instead of their emotional cost. The emotional cost is real. The clinical output is also real. He's choosing which measurement matters more.
+---
+
+## EMBODIMENT v03
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/embodiment/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+CALLBACK_ID: supply_closet
+CALLBACK_PHASE: return
+---
+Aisha cries after another difficult case. This time she doesn't go to the supply closet. She sits at the nurses' station, turns slightly away, and lets the tears come for thirty seconds. A colleague sees. The colleague puts a hand on her shoulder and says nothing. The thirty seconds pass. Aisha wipes her face. Returns to charting. The shame says: everyone saw. The reality says: one person saw and responded with contact instead of judgment. The contact was more accurate than the shame. The shame predicted exposure and rejection. The reality delivered exposure and warmth.
+---
+
+## EMBODIMENT v04
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/embodiment/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: social
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Claire requests a second opinion on another tracing. Documents it. The shame fires at reduced volume. The documentation is becoming a practice—a clinical habit rather than a compensatory behavior. She reviews her documentation over the past month: seven second-opinion requests, seven confirmed or refined assessments, zero errors from the tracings she sought help on. The record doesn't say "nurse who can't read tracings." The record says "nurse who uses available resources to maximize accuracy." The shame still whispers the first interpretation. The data supports the second.
+---
+
+## EMBODIMENT v05
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/shame/embodiment/micro/v05.txt
+BAND: 2
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Derek files another near-miss report. The shame fires. He files it anyway. The safety team's quarterly review highlights barcode compliance as a unit strength, citing Derek's reports as examples of the system working correctly. The word "correctly" sits in the report alongside the word "error." Both words describe the same event from different angles. The shame only has one angle: error. The safety system has two: error and correction. Derek is learning to hold both angles. The holding doesn't make the shame disappear. The holding makes the shame one perspective instead of the only perspective.
+---

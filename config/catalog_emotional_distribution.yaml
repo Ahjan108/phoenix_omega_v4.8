@@ -1,0 +1,86 @@
+# Phase 9 — Catalog Emotional Distribution (standalone ops governance)
+# 90-day rolling macro telemetry: emotional flattening and brand/persona drift.
+# Deterministic, cheap (daily cache), incremental.
+
+catalog_emotional_distribution:
+  window_days: 90
+
+  thresholds:
+    entropy:
+      global_min: 0.86
+      brand_min: 0.78
+      persona_min: 0.78
+    volatility:
+      global_min: 0.42
+      brand_min: 0.38
+      persona_min: 0.36
+    band5_share:
+      global_min: 0.06
+      brand_min: 0.03
+
+  drift:
+    entropy_drop: 0.05
+    volatility_drop: 0.05
+    band5_drop: 0.03
+    recent_flattening_days: 30
+    recent_entropy_drop: 0.03
+
+  alert_policy:
+    default_severity: WARN
+    hard_fail_codes: []   # promote codes to FAIL after calibration
+
+  minimums:
+    brand_min_books: 25
+    persona_min_books: 25
+
+  # Phase 9 Recommendation Contract — deterministic alert → action. No freeform; ops executes as written.
+  recommendations:
+    GLOBAL_ENTROPY_LOW: |
+      Reduce mid-band dominance in next 2 release waves.
+      Increase selection of arcs whose dominant_band_sequence includes Band 1 or Band 5.
+      Do not reopen content unless coverage gates indicate deficits.
+    BRAND_ENTROPY_LOW: |
+      Adjust release mix for this brand.
+      Select arcs with required_bands including lower or higher extremes within brand_emotional_range.
+      Do not modify existing arcs; change wave selection only.
+    PERSONA_ENTROPY_LOW: |
+      Increase emotional diversity for this persona in next release cycle.
+      Prioritize tuples with broader band spread already viable.
+      Do not reopen content unless tuple viability gate fails.
+    GLOBAL_VOLATILITY_LOW: |
+      Select arcs with higher transition_energy in dominant_band_sequence.
+      Reduce scheduling of flat band sequences.
+      No structural content changes required.
+    BRAND_VOLATILITY_LOW: |
+      Adjust wave composition for this brand.
+      Favor arcs with greater band transitions within brand_emotional_range.
+      Avoid repeating same slot_sig + band_sig combinations.
+    PERSONA_VOLATILITY_LOW: |
+      Increase volatility mix for this persona.
+      Schedule tuples with greater band variation.
+      Maintain current content freeze policy.
+    GLOBAL_BAND5_SHARE_LOW: |
+      Increase scheduling of arcs containing Band 5.
+      Do not modify arcs outside brand_emotional_range.
+      Correct via release selection only.
+    BRAND_BAND5_SHARE_LOW: |
+      Increase Band 5 presence within this brand's allowed emotional range.
+      If brand_emotional_range excludes Band 5, ignore this alert.
+    DRIFT_ENTROPY_DROP: |
+      Pause expansion of new persona-topic combinations.
+      Rebalance next 2 waves toward underrepresented bands.
+      Review release_wave composition before approving next batch.
+    DRIFT_VOLATILITY_DROP: |
+      Increase transition-heavy arcs in upcoming wave.
+      Limit consecutive releases with identical band_sig.
+    DRIFT_BAND5_DROP: |
+      Correct Band 5 underrepresentation in next release wave.
+      Do not reopen content; adjust scheduling mix.
+    RECENT_FLATTENING_30D: |
+      Adjust release composition immediately.
+      Shift 20–30% of next wave toward extreme-band arcs.
+      Re-run release_wave gate after adjustment.
+    GLOBAL_ENTROPY_CRITICAL: |
+      Freeze new releases.
+      Run emergency wave recomposition.
+      Do not proceed until entropy >= threshold.

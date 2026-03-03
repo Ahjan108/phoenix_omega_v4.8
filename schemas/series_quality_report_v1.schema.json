@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "series_quality_report_v1.schema.json",
+  "title": "SeriesQualityReportV1",
+  "description": "Series quality artifact: hard violations, soft warnings, freshness, opener/closer, metadata.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generated_at", "plans_dir", "hard_violations", "soft_warnings"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "generated_at": { "type": "string", "description": "ISO-8601" },
+    "plans_dir": { "type": "string" },
+    "hard_violations": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "soft_warnings": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "freshness_stats": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Per-series min new story counts, integration distinct flags"
+    },
+    "opener_closer_collisions": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "metadata_conflicts": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    }
+  }
+}

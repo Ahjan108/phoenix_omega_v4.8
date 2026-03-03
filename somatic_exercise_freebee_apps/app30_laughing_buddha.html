@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laughing Buddha Breath</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Quicksand',sans-serif;background:#1a0f00;color:#fff7ed;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.1rem;padding:1.5rem;width:100%;max-width:440px}
+h1{font-family:'Pacifico',cursive;font-size:1.8rem;color:#fb923c}
+.sub{font-size:.68rem;color:#c2410c;letter-spacing:.2em;text-transform:uppercase;margin-top:-.3rem}
+canvas{display:block;width:200px;height:200px}
+.joy{width:100%;display:flex;align-items:center;gap:.5rem}
+.jl{font-size:.6rem;color:#c2410c;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.jb{flex:1;height:10px;background:rgba(255,255,255,.05);border-radius:5px;overflow:hidden}
+.jf{height:100%;width:10%;background:linear-gradient(90deg,#fb923c,#facc15);border-radius:5px;transition:width .5s}
+.ph{font-family:'Pacifico',cursive;font-size:1.1rem;transition:color .3s}
+.ct{font-family:'Quicksand',sans-serif;font-size:2.5rem;font-weight:300;transition:color .3s}
+.cy{font-size:.68rem;color:#c2410c;letter-spacing:.12em}
+.ctrls{display:flex;gap:1rem}
+.btn{font-family:'Quicksand',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.6rem;border:1px solid rgba(251,146,60,.25);border-radius:100px;background:rgba(251,146,60,.06);color:#fff7ed;cursor:pointer;transition:all .25s}
+.btn:hover{background:rgba(251,146,60,.12)}
+.btn.pri{border-color:rgba(251,146,60,.45);background:rgba(251,146,60,.1)}
+.btn-s{padding:.4rem .9rem;font-size:.68rem}
+.done{display:none;flex-direction:column;align-items:center;gap:1.2rem;text-align:center;animation:fu .8s}
+.done.show{display:flex}.main.off{display:none}
+.done h2{font-family:'Pacifico',cursive;font-size:1.5rem;color:#fb923c}
+.done p{color:#c2410c;font-size:.82rem;line-height:1.7;max-width:340px}
+@keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.snd{position:fixed;top:1rem;right:1rem;z-index:10;width:34px;height:34px;border-radius:50%;border:1px solid rgba(251,146,60,.2);background:rgba(251,146,60,.05);color:#c2410c;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<button class="snd" id="sndBtn">🔔</button>
+<div class="wrap">
+<h1>Laughing Buddha</h1>
+<div class="sub">Phoenix Liberation · 6 minutes</div>
+<div class="main" id="mainV">
+<canvas id="cv" width="400" height="400"></canvas>
+<div class="joy"><div class="jl">Joy</div><div class="jb"><div class="jf" id="jf"></div></div><div class="jl" style="font-size:1.2rem">😄</div></div>
+<div style="text-align:center"><div class="ph" id="ph">Ready</div><div class="ct" id="ct">—</div><div class="cy" id="cy"></div></div>
+<div class="ctrls"><button class="btn pri" id="goBtn">Begin</button><button class="btn btn-s" id="rstBtn" style="display:none">Reset</button></div>
+</div>
+<div class="done" id="doneV">
+<h2>Joy Unlocked</h2>
+<p>Nine cycles of laughter breathing. Combining deep inhales with ha-ha-ha exhales releases endorphins, reduces cortisol, and activates the same neural pathways as genuine laughter.</p>
+<p style="opacity:.6;font-style:italic">The Buddha laughs because joy requires no reason.</p>
+<button class="btn pri" id="agBtn">Again</button>
+</div>
+</div>
+<script>
+const INH=5,EXH=4,CYCLES=9,DUR=360;
+// Phases per cycle: inhale 5s deep → exhale 4s "ha ha ha"
+const LAUGHS=['Ha!','Ha Ha!','Ha Ha Ha!'];
+class Aud{constructor(){this.c=null;this.on=true}init(){if(!this.c)this.c=new(window.AudioContext||window.webkitAudioContext)()}t(f,d){if(!this.on||!this.c)return;const o=this.c.createOscillator(),g=this.c.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,this.c.currentTime);g.gain.linearRampToValueAtTime(.06,this.c.currentTime+.1);g.gain.setValueAtTime(.06,this.c.currentTime+d-.15);g.gain.linearRampToValueAtTime(0,this.c.currentTime+d);o.connect(g);g.connect(this.c.destination);o.start();o.stop(this.c.currentTime+d)}toggle(){this.on=!this.on;return this.on}}
+const au=new Aud();const cv=document.getElementById('cv'),c=cv.getContext('2d'),W=cv.width,H=cv.height,CX=W/2,CY=H/2;
+function drawFace(isIn,prog,joy){
+c.clearRect(0,0,W,H);const t=Date.now()/1e3;
+// Head circle
+const headR=80;const gr=c.createRadialGradient(CX,CY,0,CX,CY,headR);gr.addColorStop(0,`rgba(251,146,60,${.15+joy*.1})`);gr.addColorStop(1,'transparent');c.beginPath();c.arc(CX,CY,headR,0,Math.PI*2);c.fillStyle=gr;c.fill();c.strokeStyle=`rgba(251,146,60,${.3+joy*.2})`;c.lineWidth=2;c.stroke();
+// Eyes - get happier with joy
+const eyeY=CY-15;const eyeClose=isIn?0:Math.min(1,joy);
+// Left eye
+c.beginPath();if(eyeClose>.5){c.moveTo(CX-30,eyeY);c.quadraticCurveTo(CX-20,eyeY-10*eyeClose,CX-10,eyeY)}else{c.arc(CX-20,eyeY,6,0,Math.PI*2)}
+c.strokeStyle=`rgba(251,146,60,.6)`;c.lineWidth=2;c.stroke();
+// Right eye
+c.beginPath();if(eyeClose>.5){c.moveTo(CX+10,eyeY);c.quadraticCurveTo(CX+20,eyeY-10*eyeClose,CX+30,eyeY)}else{c.arc(CX+20,eyeY,6,0,Math.PI*2)}c.stroke();
+// Mouth - gets wider/more open with joy and exhale
+const mouthWidth=20+joy*20;const mouthOpen=isIn?5:10+joy*15;
+c.beginPath();c.moveTo(CX-mouthWidth,CY+20);c.quadraticCurveTo(CX,CY+20+mouthOpen,CX+mouthWidth,CY+20);if(!isIn&&joy>.3){c.quadraticCurveTo(CX,CY+20+mouthOpen*.3,CX-mouthWidth,CY+20)}c.strokeStyle=`rgba(251,146,60,.6)`;c.lineWidth=2;c.stroke();
+// Joy particles during exhale
+if(!isIn){for(let i=0;i<8;i++){const a=(i/8)*Math.PI*2+t*2;const r=headR+20+Math.sin(t*3+i)*10+prog*20;const px=CX+Math.cos(a)*r,py=CY+Math.sin(a)*r;c.beginPath();c.arc(px,py,2+joy*2,0,Math.PI*2);c.fillStyle=`rgba(250,204,21,${.2+joy*.2})`;c.fill()}}
+// Belly bounce during laugh exhale
+if(!isIn){const belly=CY+headR+20+Math.sin(t*8)*5*prog;c.beginPath();c.arc(CX,belly,25+Math.sin(t*6)*3,0,Math.PI*2);c.fillStyle=`rgba(251,146,60,${.08+prog*.05})`;c.fill()}
+}
+let state='idle',cycle=0,isIn=true,phS=0,pa=false,pO=0,pT2=0;
+const ph=document.getElementById('ph'),ct2=document.getElementById('ct'),cy=document.getElementById('cy'),jf=document.getElementById('jf');
+const goBtn=document.getElementById('goBtn'),rstBtn=document.getElementById('rstBtn'),mainV=document.getElementById('mainV'),doneV=document.getElementById('doneV');
+function setUI(){const joy=cycle/CYCLES;ph.textContent=isIn?'Deep Inhale':LAUGHS[Math.min(2,Math.floor(joy*3))];ph.style.color=isIn?'#fb923c':'#facc15';ct2.style.color=isIn?'#fb923c':'#facc15';cy.textContent=(cycle+1)+'/'+CYCLES;jf.style.width=Math.max(10,joy*100)+'%'}
+function start(){au.init();state='active';cycle=0;isIn=true;pa=false;pO=0;phS=performance.now();goBtn.textContent='Pause';goBtn.classList.remove('pri');rstBtn.style.display='inline-block';doneV.classList.remove('show');mainV.classList.remove('off');setUI();au.t(261,INH);tick()}
+function tick(){if(state!=='active'||pa)return;const now=performance.now(),dur=isIn?INH:EXH,el=(now-phS-pO)/1e3,prog=Math.min(1,el/dur),joy=cycle/CYCLES;
+ct2.textContent=Math.ceil(Math.max(0,dur-el));drawFace(isIn,prog,joy);
+if(el>=dur){if(isIn){isIn=false;setUI();au.t(392,EXH)}else{cycle++;if(cycle>=CYCLES){finish();return}isIn=true;setUI();au.t(261,INH)}pO=0;phS=performance.now()}requestAnimationFrame(tick)}
+function finish(){state='done';jf.style.width='100%';mainV.classList.add('off');doneV.classList.add('show')}
+function reset(){state='idle';pa=false;pO=0;goBtn.textContent='Begin';goBtn.classList.add('pri');rstBtn.style.display='none';ph.textContent='Ready';ct2.textContent='—';cy.textContent='';jf.style.width='10%';c.clearRect(0,0,W,H);doneV.classList.remove('show');mainV.classList.remove('off')}
+function toggleP(){if(!pa){pa=true;pT2=performance.now();goBtn.textContent='Resume';goBtn.classList.add('pri')}else{pO+=performance.now()-pT2;pa=false;goBtn.textContent='Pause';goBtn.classList.remove('pri');tick()}}
+goBtn.onclick=()=>{if(state==='idle')start();else if(state==='active')toggleP()};rstBtn.onclick=reset;document.getElementById('agBtn').onclick=()=>{reset();start()};
+document.getElementById('sndBtn').onclick=()=>{au.init();document.getElementById('sndBtn').textContent=au.toggle()?'🔔':'🔇'};
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+# Phase 10 — Cross-Brand Divergence Index (CBDI)
+# Structural identity separation across brands over a rolling window.
+# Prevents brands from converging to identical arc/slot/band/engine usage.
+
+cross_brand_divergence:
+  window_days: 90
+
+  thresholds:
+    warn_below: 0.18   # CBDI < 0.18 → structural convergence warning
+    fail_below: 0.12   # CBDI < 0.12 → brands nearly identical (optional FAIL)
+
+  minimum_books_per_brand: 20   # only evaluate brands with >= this many releases in window
+
+  weights:
+    arc: 0.30
+    slot: 0.20
+    band: 0.20
+    engine: 0.15
+    volatility: 0.15
+
+  # Deterministic recommendation contract
+  recommendations:
+    BRAND_CONVERGENCE_LOW: |
+      Increase differentiation in next release cycle.
+      Select arcs not recently used by both brands.
+      Avoid identical band_sig + slot_sig combinations across brands.
+      Do not modify existing arcs; adjust scheduling only.
+    BRAND_CONVERGENCE_CRITICAL: |
+      Pause cross-brand releases for affected brands.
+      Recompose wave to reduce arc overlap.
+      Require release-wave check to confirm divergence >= threshold before approval.

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holotropic Breathwork</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400&family=Nunito+Sans:wght@300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito Sans',sans-serif;background:#0d0518;color:#e9d5ff;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.1rem;padding:1.5rem;width:100%;max-width:460px}
+h1{font-family:'Cinzel',serif;font-weight:300;font-size:1.8rem;letter-spacing:.08em}
+.sub{font-size:.68rem;color:#7c3aed;letter-spacing:.2em;text-transform:uppercase;margin-top:-.4rem}
+.warn{font-size:.56rem;color:#ef4444;letter-spacing:.08em;text-align:center;padding:.35rem .7rem;border:1px solid rgba(239,68,68,.2);border-radius:6px;background:rgba(239,68,68,.05)}
+canvas{display:block;width:240px;height:240px}
+.timeline{width:100%;display:flex;gap:2px}
+.tph{flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.04);position:relative;overflow:hidden}
+.tpf{height:100%;width:0%;border-radius:3px;transition:width .5s}
+.tpl{display:flex;justify-content:space-between;width:100%;margin-top:.2rem}
+.tpl span{font-size:.55rem;color:#6b21a8;letter-spacing:.08em}
+.ph{font-family:'Cinzel',serif;font-size:1.1rem;letter-spacing:.1em;transition:color .4s}
+.ct{font-family:'Cinzel',serif;font-size:2.8rem;font-weight:300;transition:color .3s}
+.cy{font-size:.68rem;color:#7c3aed;letter-spacing:.12em}
+.ctrls{display:flex;gap:1rem}
+.btn{font-family:'Nunito Sans',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.6rem;border:1px solid rgba(124,58,237,.25);border-radius:100px;background:rgba(124,58,237,.06);color:#e9d5ff;cursor:pointer;transition:all .25s}
+.btn:hover{background:rgba(124,58,237,.12)}
+.btn.pri{border-color:rgba(124,58,237,.45);background:rgba(124,58,237,.1)}
+.btn-s{padding:.4rem .9rem;font-size:.68rem}
+.done{display:none;flex-direction:column;align-items:center;gap:1.2rem;text-align:center;animation:fu .8s}
+.done.show{display:flex}.main.off{display:none}
+.done h2{font-family:'Cinzel',serif;font-weight:300;font-size:1.6rem}
+.done p{color:#7c3aed;font-size:.82rem;line-height:1.7;max-width:350px}
+@keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.snd{position:fixed;top:1rem;right:1rem;z-index:10;width:34px;height:34px;border-radius:50%;border:1px solid rgba(124,58,237,.2);background:rgba(124,58,237,.05);color:#6b21a8;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<button class="snd" id="sndBtn">🔔</button>
+<div class="wrap">
+<h1>Holotropic Breathwork</h1>
+<div class="sub">Introduction · 10 Minutes</div>
+<div class="main" id="mainV">
+<div class="warn">⚠ Not for cardiovascular disease, severe mental illness, seizures, or pregnancy. Have support present.</div>
+<canvas id="cv" width="480" height="480"></canvas>
+<div class="timeline">
+<div class="tph"><div class="tpf" id="tf1" style="background:#a78bfa"></div></div>
+<div class="tph"><div class="tpf" id="tf2" style="background:#c084fc"></div></div>
+<div class="tph"><div class="tpf" id="tf3" style="background:#e879f9"></div></div>
+<div class="tph"><div class="tpf" id="tf4" style="background:#a78bfa"></div></div>
+</div>
+<div class="tpl"><span>Warmup</span><span>Accelerate</span><span>Sustain</span><span>Integrate</span></div>
+<div style="text-align:center"><div class="ph" id="ph">Ready</div><div class="ct" id="ct">10:00</div><div class="cy" id="cy"></div></div>
+<div class="ctrls"><button class="btn pri" id="goBtn">Begin Journey</button><button class="btn btn-s" id="rstBtn" style="display:none">Reset</button></div>
+</div>
+<div class="done" id="doneV">
+<h2>Journey Complete</h2>
+<p>Ten minutes of connected breathwork. Holotropic breathing accesses non-ordinary states through sustained hyperventilation. This introduction touches the threshold — full sessions run 60-90 minutes with trained facilitators.</p>
+<p style="opacity:.6;font-style:italic">The breath is a portal. You just opened it.</p>
+<button class="btn pri" id="agBtn">Again</button>
+</div>
+</div>
+<script>
+// 4 phases: Warmup 120s, Accelerate 120s, Sustain 240s, Integrate 120s = 600s
+const PHASES=[{name:'Warmup',dur:120,bpm:12,col:'#a78bfa'},{name:'Accelerating',dur:120,bpm:24,col:'#c084fc'},{name:'Sustaining',dur:240,bpm:30,col:'#e879f9'},{name:'Integrating',dur:120,bpm:8,col:'#a78bfa'}];
+const DUR=600;
+class Aud{constructor(){this.c=null;this.on=true}init(){if(!this.c)this.c=new(window.AudioContext||window.webkitAudioContext)()}t(f,d){if(!this.on||!this.c)return;const o=this.c.createOscillator(),g=this.c.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(.04,this.c.currentTime);g.gain.linearRampToValueAtTime(0,this.c.currentTime+d);o.connect(g);g.connect(this.c.destination);o.start();o.stop(this.c.currentTime+d)}toggle(){this.on=!this.on;return this.on}}
+const au=new Aud();const cv=document.getElementById('cv'),c=cv.getContext('2d'),W=cv.width,H=cv.height,CX=W/2,CY=H/2;
+function drawSpiral(intensity,t){
+c.clearRect(0,0,W,H);
+const spins=3+intensity*4;
+for(let i=0;i<200;i++){const p=i/200;const angle=p*spins*Math.PI*2+t*.5;const r=20+p*180;const x=CX+Math.cos(angle)*r;const y=CY+Math.sin(angle)*r;const sz=2+intensity*3+Math.sin(t*3+i*.1)*1;
+c.beginPath();c.arc(x,y,sz,0,Math.PI*2);
+const hue=270+p*60;c.fillStyle=`hsla(${hue},80%,70%,${.1+intensity*.15})`;c.fill()}
+const gr=c.createRadialGradient(CX,CY,0,CX,CY,60+intensity*40);gr.addColorStop(0,`rgba(192,132,252,${.15+intensity*.15})`);gr.addColorStop(1,'transparent');c.beginPath();c.arc(CX,CY,80,0,Math.PI*2);c.fillStyle=gr;c.fill()}
+let state='idle',sS=0,pa=false,pO=0,pT2=0,lastBreath=0;
+const ph=document.getElementById('ph'),ct2=document.getElementById('ct'),cy=document.getElementById('cy');
+const goBtn=document.getElementById('goBtn'),rstBtn=document.getElementById('rstBtn'),mainV=document.getElementById('mainV'),doneV=document.getElementById('doneV');
+function fmt(s){const m=Math.floor(s/60),sec=Math.floor(s%60);return m+':'+(sec<10?'0':'')+sec}
+function getPhase(el){let s=0;for(let i=0;i<PHASES.length;i++){if(el<s+PHASES[i].dur)return{idx:i,...PHASES[i],phaseEl:el-s};s+=PHASES[i].dur}return{idx:3,...PHASES[3],phaseEl:el-480}}
+function start(){au.init();state='active';sS=performance.now();pa=false;pO=0;lastBreath=0;goBtn.textContent='Pause';goBtn.classList.remove('pri');rstBtn.style.display='inline-block';doneV.classList.remove('show');mainV.classList.remove('off');tick()}
+function tick(){if(state!=='active'||pa)return;const now=performance.now(),el=(now-sS-pO)/1e3,rem=Math.max(0,DUR-el);
+const p=getPhase(el);ph.textContent=p.name;ph.style.color=p.col;ct2.textContent=fmt(rem);ct2.style.color=p.col;cy.textContent='Phase '+(p.idx+1)+'/4';
+// Update timeline
+let s=0;for(let i=0;i<4;i++){const d=PHASES[i].dur;const pEl=el-s;document.getElementById('tf'+(i+1)).style.width=Math.min(100,Math.max(0,pEl/d*100))+'%';s+=d}
+// Breath pulses
+const breathInterval=60/p.bpm;const breathNum=Math.floor(el/breathInterval);
+if(breathNum>lastBreath){lastBreath=breathNum;au.t(432,.15)}
+const intensity=p.idx<=1?p.idx*.3+.2:p.idx===2?.8:.3;
+drawSpiral(intensity,Date.now()/1e3);
+if(el>=DUR){finish();return}requestAnimationFrame(tick)}
+function finish(){state='done';mainV.classList.add('off');doneV.classList.add('show')}
+function reset(){state='idle';pa=false;pO=0;goBtn.textContent='Begin Journey';goBtn.classList.add('pri');rstBtn.style.display='none';ph.textContent='Ready';ct2.textContent='10:00';cy.textContent='';for(let i=1;i<=4;i++)document.getElementById('tf'+i).style.width='0%';c.clearRect(0,0,W,H);doneV.classList.remove('show');mainV.classList.remove('off')}
+function toggleP(){if(!pa){pa=true;pT2=performance.now();goBtn.textContent='Resume';goBtn.classList.add('pri')}else{pO+=performance.now()-pT2;pa=false;goBtn.textContent='Pause';goBtn.classList.remove('pri');tick()}}
+goBtn.onclick=()=>{if(state==='idle')start();else if(state==='active')toggleP()};rstBtn.onclick=reset;document.getElementById('agBtn').onclick=()=>{reset();start()};
+document.getElementById('sndBtn').onclick=()=>{au.init();document.getElementById('sndBtn').textContent=au.toggle()?'🔔':'🔇'};
+</script>
+</body>
+</html>

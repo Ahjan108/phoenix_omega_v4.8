@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "score": 100,
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "paragraphs": 11,
+    "sentences": 55,
+    "transition_hits": 5,
+    "thesis_hits": 4,
+    "avg_adjacent_overlap": 0.067,
+    "sentence_len_std": 4.6
+  },
+  "plan": "artifacts/gen_alpha_anxiety_6hr_plan.json",
+  "chapter_index": 0,
+  "output_path": "artifacts/proof_chapter/gen_alpha_ch1_cohesive.txt"
+}

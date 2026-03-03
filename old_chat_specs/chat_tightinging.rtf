@@ -1,0 +1,1005 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2867
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\froman\fcharset0 Times-Bold;\f2\fmodern\fcharset0 Courier;
+\f3\fmodern\fcharset0 Courier-Bold;\f4\froman\fcharset0 Times-BoldItalic;\f5\froman\fcharset0 Times-Italic;
+}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue255;\red109\green109\blue109;}
+{\*\expandedcolortbl;;\cssrgb\c100000\c100000\c100000;\cssrgb\c50196\c50196\c50196;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Below are 
+\f1\b \cf2 \strokec2 copy/paste-ready Python skeletons
+\f0\b0 \cf2 \strokec2  for all three tools, plus a 
+\f1\b \cf2 \strokec2 simple \'93marketing asset generator\'94
+\f0\b0 \cf2 \strokec2  that turns the Memorable Line Detector output into 
+\f1\b \cf2 \strokec2 quotes/captions/hooks
+\f0\b0 \cf2 \strokec2  you can use for Pinterest, landing pages, audiobook trailers, and email subject lines.\
+All are 
+\f1\b \cf2 \strokec2 standalone
+\f0\b0 \cf2 \strokec2 , deterministic, and safe to run locally.\
+\pard\pardeftab720\partightenfactor0
+\cf3 \strokec3 \
+\pard\pardeftab720\sa321\partightenfactor0
+
+\f1\b\fs48 \cf2 \strokec2 File layout\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf2 phoenix_v4/\
+  quality/\
+    __init__.py\
+    story_atom_lint.py\
+    transformation_heatmap.py\
+    memorable_line_detector.py\
+    marketing_assets_from_lines.py\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sa321\partightenfactor0
+
+\f1\b\fs48 \cf2 \strokec2 1) 
+\f3\fs52 story_atom_lint.py
+\f1\fs48 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf2 #!/usr/bin/env python3\
+"""\
+phoenix_v4/quality/story_atom_lint.py\
+\
+Deterministic story-atom linting:\
+- checks specificity, conflict, cost, insight pivot\
+- scores PASS/WARN/FAIL\
+- supports single file or directory recursion\
+\
+Usage:\
+  PYTHONPATH=. python3 phoenix_v4/quality/story_atom_lint.py --path atoms/... --json-out artifacts/ops/story_lint.json\
+"""\
+\
+from __future__ import annotations\
+\
+import argparse\
+import json\
+import os\
+import re\
+from dataclasses import dataclass, asdict\
+from pathlib import Path\
+from typing import Dict, List, Optional, Tuple\
+\
+# -----------------------------\
+# Patterns (tweakable)\
+# -----------------------------\
+\
+ACTION_VERBS = [\
+    r"\\b(sat|stood|walked|drove|ran|stared|grabbed|held|shook|typed|called|texted|opened|closed|slammed)\\b",\
+]\
+SENSORY_WORDS = [\
+    r"\\b(cold|warm|loud|silent|tight|heavy|burning|buzzing|aching|sweaty|shaky)\\b",\
+]\
+CONFLICT_MARKERS = [\
+    r"\\b(but|however|although|yet)\\b",\
+    r"\\b(couldn[\'92']t|cannot|can\'92t)\\b",\
+    r"\\b(wanted to|should)\\b",\
+]\
+COST_MARKERS = [\
+    r"\\b(lost|exhausted|ashamed|avoided|broke|collapsed|quit)\\b",\
+    r"\\b(couldn[\'92']t sleep|stopped eating|panic|crying)\\b",\
+]\
+PIVOT_MARKERS = [\
+    r"\\b(I|she|he|they)\\s+(realized|noticed|understood|saw|recognized)\\b",\
+    r"\\b(the truth was|that\'92s when|thats when|it hit (me|her|him)|what (I|she|he) didn[\'92']t know)\\b",\
+]\
+\
+SENTENCE_START_RE = re.compile(r"^[\\"'(\\[]*[A-Z]")\
+\
+# Proper noun heuristic: capitalized word not at sentence start, not "I"\
+PROPER_NOUN_RE = re.compile(r"\\b(?!I\\b)[A-Z][a-z]\{2,\}\\b")\
+\
+WORD_RE = re.compile(r"\\b[\\w\'92']+\\b")\
+\
+# -----------------------------\
+# Data\
+# -----------------------------\
+\
+@dataclass(frozen=True)\
+class StoryLintResult:\
+    path: str\
+    story_id: str\
+    word_count: int\
+    flags: List[str]\
+    missing_signals: int\
+    status: str  # PASS/WARN/FAIL\
+    notes: List[str]\
+\
+# -----------------------------\
+# Helpers\
+# -----------------------------\
+\
+def normalize_text(text: str) -> str:\
+    text = text.replace("\\r\\n", "\\n").replace("\\r", "\\n")\
+    # collapse extra spaces but keep newlines\
+    text = re.sub(r"[ \\t]+", " ", text)\
+    return text.strip()\
+\
+def word_count(text: str) -> int:\
+    return len(WORD_RE.findall(text))\
+\
+def count_hits(text: str, patterns: List[str]) -> int:\
+    flags = re.IGNORECASE | re.MULTILINE\
+    return sum(len(re.findall(p, text, flags)) for p in patterns)\
+\
+def has_any(text: str, patterns: List[str]) -> bool:\
+    return count_hits(text, patterns) > 0\
+\
+def count_proper_nouns(text: str) -> int:\
+    # naive: count capitalized words not at beginning of sentence\
+    # We approximate by removing sentence-initial tokens.\
+    tokens = PROPER_NOUN_RE.findall(text)\
+    # This is already imperfect but deterministic.\
+    return len(tokens)\
+\
+def derive_story_id(path: Path) -> str:\
+    # You can customize this if your story files embed IDs.\
+    return path.stem\
+\
+def lint_story(text: str, path: Path) -> StoryLintResult:\
+    text = normalize_text(text)\
+    wc = word_count(text)\
+\
+    flags: List[str] = []\
+    notes: List[str] = []\
+\
+    # Length checks\
+    if wc < 120:\
+        flags.append("TOO_SHORT_LT_120")\
+\
+    # Specificity: proper noun OR action verb OR sensory word\
+    proper_n = count_proper_nouns(text)\
+    has_action = has_any(text, ACTION_VERBS)\
+    has_sensory = has_any(text, SENSORY_WORDS)\
+    if (proper_n == 0) and (not has_action) and (not has_sensory):\
+        flags.append("NO_SPECIFIC_DETAIL")\
+\
+    # Conflict\
+    if not has_any(text, CONFLICT_MARKERS):\
+        flags.append("NO_INTERNAL_CONFLICT")\
+\
+    # Cost\
+    if not has_any(text, COST_MARKERS):\
+        flags.append("NO_COST_SIGNAL")\
+\
+    # Pivot\
+    pivot = has_any(text, PIVOT_MARKERS)\
+    if not pivot:\
+        flags.append("NO_INSIGHT_PIVOT")\
+        if wc < 180:\
+            notes.append("Short story with no pivot tends to read generic.")\
+\
+    # Score\
+    # Missing \'93signals\'94 excludes length (length is hard structural)\
+    signal_flags = \{"NO_SPECIFIC_DETAIL", "NO_INTERNAL_CONFLICT", "NO_COST_SIGNAL", "NO_INSIGHT_PIVOT"\}\
+    missing = sum(1 for f in flags if f in signal_flags)\
+\
+    status = "PASS"\
+    if "TOO_SHORT_LT_120" in flags or missing >= 3:\
+        status = "FAIL"\
+    elif missing == 2:\
+        status = "WARN"\
+\
+    return StoryLintResult(\
+        path=str(path),\
+        story_id=derive_story_id(path),\
+        word_count=wc,\
+        flags=flags,\
+        missing_signals=missing,\
+        status=status,\
+        notes=notes,\
+    )\
+\
+def iter_text_files(root: Path) -> List[Path]:\
+    if root.is_file():\
+        return [root]\
+    files: List[Path] = []\
+    for p in root.rglob("*"):\
+        if p.is_file() and p.suffix.lower() in (".txt", ".md"):\
+            files.append(p)\
+    return sorted(files)\
+\
+# -----------------------------\
+# CLI\
+# -----------------------------\
+\
+def parse_args() -> argparse.Namespace:\
+    ap = argparse.ArgumentParser()\
+    ap.add_argument("--path", required=True, help="File or directory of story atoms")\
+    ap.add_argument("--json-out", default=None, help="Write JSON report to this path")\
+    ap.add_argument("--fail-on", choices=["PASS", "WARN", "FAIL"], default="FAIL",\
+                    help="Exit nonzero if any result is at/above this severity")\
+    return ap.parse_args()\
+\
+_SEVERITY = \{"PASS": 0, "WARN": 1, "FAIL": 2\}\
+\
+def main() -> int:\
+    args = parse_args()\
+    root = Path(args.path)\
+\
+    results: List[StoryLintResult] = []\
+    for f in iter_text_files(root):\
+        try:\
+            text = f.read_text(encoding="utf-8", errors="replace")\
+        except Exception as e:\
+            results.append(StoryLintResult(\
+                path=str(f),\
+                story_id=derive_story_id(f),\
+                word_count=0,\
+                flags=["READ_ERROR"],\
+                missing_signals=4,\
+                status="FAIL",\
+                notes=[str(e)],\
+            ))\
+            continue\
+        results.append(lint_story(text, f))\
+\
+    # Summary\
+    counts = \{"PASS": 0, "WARN": 0, "FAIL": 0\}\
+    for r in results:\
+        counts[r.status] += 1\
+\
+    payload = \{\
+        "schema_version": "1.0",\
+        "path": str(root),\
+        "summary": \{"counts": counts, "total": len(results)\},\
+        "results": [asdict(r) for r in results],\
+    \}\
+\
+    if args.json_out:\
+        outp = Path(args.json_out)\
+        outp.parent.mkdir(parents=True, exist_ok=True)\
+        outp.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")\
+\
+    # Print top failures\
+    top = [r for r in results if r.status != "PASS"][:20]\
+    if top:\
+        print("\\nTop issues:")\
+        for r in top:\
+            print(f"- \{r.status\} \{r.story_id\} (\{r.word_count\}w) \{Path(r.path).name\} :: \{', '.join(r.flags)\}")\
+\
+    # Exit rule\
+    threshold = _SEVERITY[args.fail_on]\
+    worst = max((_SEVERITY[r.status] for r in results), default=0)\
+    return 1 if worst >= threshold and threshold > 0 else 0\
+\
+if __name__ == "__main__":\
+    raise SystemExit(main())\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sa321\partightenfactor0
+
+\f1\b\fs48 \cf2 \strokec2 2) 
+\f3\fs52 transformation_heatmap.py
+\f1\fs48 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf2 #!/usr/bin/env python3\
+"""\
+phoenix_v4/quality/transformation_heatmap.py\
+\
+Deterministic chapter-level \'93transformation signal\'94 heatmap.\
+- Accepts a compiled text file OR a plan JSON with chapter text\
+- Outputs JSON + optional ASCII view\
+\
+Usage:\
+  PYTHONPATH=. python3 phoenix_v4/quality/transformation_heatmap.py --file compiled.txt --json-out artifacts/ops/heatmap.json --ascii\
+  PYTHONPATH=. python3 phoenix_v4/quality/transformation_heatmap.py --plan artifacts/book_002.plan.json --json-out artifacts/ops/heatmap.json\
+"""\
+\
+from __future__ import annotations\
+\
+import argparse\
+import json\
+import re\
+from dataclasses import dataclass, asdict\
+from pathlib import Path\
+from typing import Dict, List, Optional, Tuple\
+\
+# -----------------------------\
+# Patterns (tweakable)\
+# -----------------------------\
+PATTERNS = \{\
+    "recognition": [\
+        r"\\bif you[\'92']?ve ever\\b",\
+        r"\\byou know this feeling\\b",\
+        r"\\bthis is you\\b",\
+        r"\\byou[\'92']?ve probably\\b",\
+    ],\
+    "reframe": [\
+        r"\\bwhat if\\b",\
+        r"\\bactually\\b",\
+        r"\\binstead\\b",\
+        r"\\bit[\'92']?s not that\\b",\
+        r"\\bthe truth is\\b",\
+    ],\
+    "challenge": [\
+        r"\\byou must\\b",\
+        r"\\byou need to\\b",\
+        r"\\bstop\\b",\
+        r"\\bchoose\\b",\
+        r"\\bstart\\b",\
+    ],\
+    "relief": [\
+        r"\\bit makes sense\\b",\
+        r"\\bno wonder\\b",\
+        r"\\bof course\\b",\
+        r"\\bthat[\'92']?s okay\\b",\
+    ],\
+    "identity_shift": [\
+        r"\\byou are not broken\\b",\
+        r"\\bmaybe you[\'92']?re\\b",\
+        r"\\byou[\'92']?re becoming\\b",\
+        r"\\byou[\'92']?re someone who\\b",\
+        r"\\bfrom now on\\b",\
+    ],\
+\}\
+\
+CHAPTER_SPLIT_RE = re.compile(r"^\\s*#+\\s*chapter\\b.*$", re.IGNORECASE | re.MULTILINE)\
+\
+# -----------------------------\
+# Data\
+# -----------------------------\
+\
+@dataclass(frozen=True)\
+class ChapterSignals:\
+    chapter_index: int\
+    recognition: bool\
+    reframe: bool\
+    challenge: bool\
+    relief: bool\
+    identity_shift: bool\
+    hits: Dict[str, int]\
+\
+# -----------------------------\
+# Helpers\
+# -----------------------------\
+\
+def normalize_text(t: str) -> str:\
+    t = t.replace("\\r\\n", "\\n").replace("\\r", "\\n")\
+    return t.strip()\
+\
+def count_hits(text: str, pats: List[str]) -> int:\
+    flags = re.IGNORECASE | re.MULTILINE\
+    return sum(len(re.findall(p, text, flags)) for p in pats)\
+\
+def load_from_plan(plan_path: Path) -> Tuple[str, List[str]]:\
+    data = json.loads(plan_path.read_text(encoding="utf-8"))\
+    book_id = data.get("book_id") or data.get("id") or "unknown_book"\
+\
+    # Try common layouts\
+    candidates = []\
+    for k in ("compiled_book", "compiled", "book"):\
+        if isinstance(data.get(k), dict):\
+            candidates.append(data[k])\
+\
+    # Search for chapters\
+    chapter_texts: List[str] = []\
+    # Common patterns\
+    if "compiled_book" in data and isinstance(data["compiled_book"], dict):\
+        chs = data["compiled_book"].get("chapters", [])\
+        for ch in chs:\
+            txt = ch.get("text") or ch.get("prose") or ""\
+            chapter_texts.append(str(txt))\
+    elif "chapters" in data and isinstance(data["chapters"], list):\
+        for ch in data["chapters"]:\
+            txt = ch.get("text") or ch.get("prose") or ""\
+            chapter_texts.append(str(txt))\
+    elif "compiled_chapters" in data and isinstance(data["compiled_chapters"], list):\
+        for ch in data["compiled_chapters"]:\
+            txt = ch.get("text") or ""\
+            chapter_texts.append(str(txt))\
+\
+    if not chapter_texts or all(not t.strip() for t in chapter_texts):\
+        raise ValueError("PLAN_INPUT_INVALID: could not locate chapter texts in plan JSON")\
+\
+    return book_id, [normalize_text(t) for t in chapter_texts]\
+\
+def load_from_file(path: Path) -> Tuple[str, List[str]]:\
+    text = normalize_text(path.read_text(encoding="utf-8", errors="replace"))\
+    book_id = path.stem\
+\
+    # If headings exist, split on them; otherwise treat as one \'93chapter\'94\
+    splits = CHAPTER_SPLIT_RE.split(text)\
+    if len(splits) >= 2:\
+        # CHAPTER_SPLIT_RE removes the headings; keep non-empty parts\
+        chapters = [s.strip() for s in splits if s.strip()]\
+    else:\
+        chapters = [text] if text else []\
+\
+    if not chapters:\
+        raise ValueError("FILE_INPUT_INVALID: no text found")\
+    return book_id, chapters\
+\
+def compute_signals(chapters: List[str]) -> List[ChapterSignals]:\
+    out: List[ChapterSignals] = []\
+    for i, ch in enumerate(chapters):\
+        hits = \{k: count_hits(ch, PATTERNS[k]) for k in PATTERNS\}\
+        out.append(ChapterSignals(\
+            chapter_index=i,\
+            recognition=hits["recognition"] > 0,\
+            reframe=hits["reframe"] > 0,\
+            challenge=hits["challenge"] > 0,\
+            relief=hits["relief"] > 0,\
+            identity_shift=hits["identity_shift"] > 0,\
+            hits=hits,\
+        ))\
+    return out\
+\
+def ending_check(signals: List[ChapterSignals], last_n: int = 2) -> Dict[str, bool]:\
+    tail = signals[-last_n:] if len(signals) >= last_n else signals\
+    has_identity = any(s.identity_shift for s in tail)\
+    has_reframe = any(s.reframe for s in tail)\
+    return \{\
+        "ending_identity_shift_present": has_identity,\
+        "ending_reframe_present": has_reframe,\
+        "ending_weak": not (has_identity and has_reframe),\
+    \}\
+\
+def ascii_view(signals: List[ChapterSignals]) -> str:\
+    lines = []\
+    for s in signals:\
+        lines.append(\
+            f"CH\{s.chapter_index+1:02d\}: "\
+            f"R \{'\uc0\u10003 ' if s.recognition else '\u10007 '\}  "\
+            f"RF \{'\uc0\u10003 ' if s.reframe else '\u10007 '\}  "\
+            f"C \{'\uc0\u10003 ' if s.challenge else '\u10007 '\}  "\
+            f"RL \{'\uc0\u10003 ' if s.relief else '\u10007 '\}  "\
+            f"I \{'\uc0\u10003 ' if s.identity_shift else '\u10007 '\}"\
+        )\
+    return "\\n".join(lines)\
+\
+# -----------------------------\
+# CLI\
+# -----------------------------\
+\
+def parse_args() -> argparse.Namespace:\
+    ap = argparse.ArgumentParser()\
+    g = ap.add_mutually_exclusive_group(required=True)\
+    g.add_argument("--file", help="Compiled prose text file")\
+    g.add_argument("--plan", help="Compiled plan JSON containing chapters")\
+    ap.add_argument("--json-out", required=True, help="Output JSON path")\
+    ap.add_argument("--ascii", action="store_true", help="Print ASCII heatmap")\
+    ap.add_argument("--last-n", type=int, default=2, help="Ending check tail length")\
+    return ap.parse_args()\
+\
+def main() -> int:\
+    args = parse_args()\
+\
+    if args.plan:\
+        book_id, chapters = load_from_plan(Path(args.plan))\
+    else:\
+        book_id, chapters = load_from_file(Path(args.file))\
+\
+    sigs = compute_signals(chapters)\
+    end = ending_check(sigs, last_n=args.last_n)\
+\
+    summary = \{\
+        "chapters": len(sigs),\
+        "chapters_without_reframe": sum(1 for s in sigs if not s.reframe),\
+        "chapters_without_identity_shift": sum(1 for s in sigs if not s.identity_shift),\
+        **end,\
+    \}\
+\
+    payload = \{\
+        "schema_version": "1.0",\
+        "book_id": book_id,\
+        "summary": summary,\
+        "chapter_signals": [asdict(s) for s in sigs],\
+    \}\
+\
+    outp = Path(args.json_out)\
+    outp.parent.mkdir(parents=True, exist_ok=True)\
+    outp.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")\
+\
+    if args.ascii:\
+        print(ascii_view(sigs))\
+        print("\\nEnding:", "WEAK" if end["ending_weak"] else "OK")\
+\
+    # Exit code policy: don't fail builds by default; return WARN (2) if ending weak\
+    return 2 if end["ending_weak"] else 0\
+\
+if __name__ == "__main__":\
+    raise SystemExit(main())\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sa321\partightenfactor0
+
+\f1\b\fs48 \cf2 \strokec2 3) 
+\f3\fs52 memorable_line_detector.py
+\f1\fs48 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf2 #!/usr/bin/env python3\
+"""\
+phoenix_v4/quality/memorable_line_detector.py\
+\
+Deterministic sentence scanning to extract "memorable line candidates".\
+Heuristics:\
+- short declarative lines (8\'9620 words)\
+- contrast patterns (not X but Y)\
+- identity phrases ("you are", "you're")\
+- reframe markers ("actually", "the truth is", "instead")\
+\
+Usage:\
+  PYTHONPATH=. python3 phoenix_v4/quality/memorable_line_detector.py --file compiled.txt --json-out artifacts/ops/mem_lines.json\
+  PYTHONPATH=. python3 phoenix_v4/quality/memorable_line_detector.py --plan artifacts/book_002.plan.json --json-out artifacts/ops/mem_lines.json\
+"""\
+\
+from __future__ import annotations\
+\
+import argparse\
+import json\
+import re\
+from dataclasses import dataclass, asdict\
+from pathlib import Path\
+from statistics import mean\
+from typing import Dict, List, Optional, Tuple\
+\
+WORD_RE = re.compile(r"\\b[\\w\'92']+\\b")\
+SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?])\\s+(?=[A-Z0-9\\"'])")\
+\
+# Heuristic patterns\
+CONTRAST = [\
+    r"\\bnot\\b.+?\\bbut\\b",\
+    r"\\bthis isn[\'92']t\\b.+?\\bthis is\\b",\
+]\
+IDENTITY = [\
+    r"\\byou are\\b",\
+    r"\\byou[\'92']?re\\b",\
+    r"\\bthis is\\b",\
+]\
+REFRAME = [\
+    r"\\bactually\\b",\
+    r"\\bthe truth is\\b",\
+    r"\\binstead\\b",\
+    r"\\bwhat if\\b",\
+]\
+\
+@dataclass(frozen=True)\
+class LineCandidate:\
+    text: str\
+    chapter_index: int\
+    sentence_index: int\
+    word_count: int\
+    score: float\
+    tags: List[str]\
+\
+def normalize_text(t: str) -> str:\
+    return t.replace("\\r\\n", "\\n").replace("\\r", "\\n").strip()\
+\
+def split_sentences(text: str) -> List[str]:\
+    text = normalize_text(text)\
+    if not text:\
+        return []\
+    parts = SENTENCE_SPLIT_RE.split(text)\
+    out = []\
+    for s in parts:\
+        s = s.strip()\
+        if len(s) < 10:\
+            continue\
+        out.append(s)\
+    return out\
+\
+def count_words(s: str) -> int:\
+    return len(WORD_RE.findall(s))\
+\
+def hit_any(s: str, pats: List[str]) -> bool:\
+    flags = re.IGNORECASE | re.MULTILINE\
+    return any(re.search(p, s, flags) for p in pats)\
+\
+def score_sentence(s: str) -> Tuple[float, List[str]]:\
+    wc = count_words(s)\
+    tags: List[str] = []\
+    score = 0.0\
+\
+    # Length window (best: 8\'9620)\
+    if 8 <= wc <= 20:\
+        score += 2.0\
+        tags.append("LENGTH_GOOD")\
+    elif 6 <= wc <= 28:\
+        score += 1.0\
+        tags.append("LENGTH_OK")\
+    else:\
+        score -= 1.0\
+        tags.append("LENGTH_WEIRD")\
+\
+    # Contrast / identity / reframe boosts\
+    if hit_any(s, CONTRAST):\
+        score += 2.0\
+        tags.append("CONTRAST")\
+    if hit_any(s, IDENTITY):\
+        score += 1.5\
+        tags.append("IDENTITY")\
+    if hit_any(s, REFRAME):\
+        score += 1.5\
+        tags.append("REFRAME")\
+\
+    # Penalize question marks (often less quotable)\
+    if "?" in s:\
+        score -= 0.5\
+        tags.append("QUESTION")\
+\
+    # Penalize very long clauses\
+    if wc > 28:\
+        score -= 0.5\
+        tags.append("LONG")\
+\
+    return score, tags\
+\
+def load_chapters_from_plan(plan_path: Path) -> Tuple[str, List[str]]:\
+    data = json.loads(plan_path.read_text(encoding="utf-8"))\
+    book_id = data.get("book_id") or data.get("id") or plan_path.stem\
+\
+    chapters: List[str] = []\
+    if "compiled_book" in data and isinstance(data["compiled_book"], dict):\
+        for ch in data["compiled_book"].get("chapters", []):\
+            chapters.append(str(ch.get("text") or ch.get("prose") or ""))\
+    elif "chapters" in data and isinstance(data["chapters"], list):\
+        for ch in data["chapters"]:\
+            chapters.append(str(ch.get("text") or ch.get("prose") or ""))\
+    else:\
+        raise ValueError("PLAN_INPUT_INVALID: missing chapter texts")\
+\
+    chapters = [normalize_text(c) for c in chapters if normalize_text(c)]\
+    if not chapters:\
+        raise ValueError("PLAN_INPUT_INVALID: empty chapters")\
+    return book_id, chapters\
+\
+def load_chapters_from_file(path: Path) -> Tuple[str, List[str]]:\
+    text = normalize_text(path.read_text(encoding="utf-8", errors="replace"))\
+    if not text:\
+        raise ValueError("FILE_INPUT_INVALID: empty file")\
+    # Treat whole file as one \'93chapter\'94 unless you add your own split marker\
+    return path.stem, [text]\
+\
+def detect_lines(book_id: str, chapters: List[str], min_score: float = 3.0, max_lines: int = 80) -> Dict:\
+    candidates: List[LineCandidate] = []\
+\
+    total_words = sum(count_words(ch) for ch in chapters)\
+\
+    for ci, ch in enumerate(chapters):\
+        sentences = split_sentences(ch)\
+        for si, s in enumerate(sentences):\
+            sc, tags = score_sentence(s)\
+            wc = count_words(s)\
+            if sc >= min_score:\
+                candidates.append(LineCandidate(\
+                    text=s,\
+                    chapter_index=ci,\
+                    sentence_index=si,\
+                    word_count=wc,\
+                    score=sc,\
+                    tags=tags,\
+                ))\
+\
+    # Sort best-first, then de-dup exact lines\
+    candidates.sort(key=lambda x: (-x.score, x.word_count, x.text))\
+    uniq: List[LineCandidate] = []\
+    seen = set()\
+    for c in candidates:\
+        t = c.text.strip()\
+        if t in seen:\
+            continue\
+        seen.add(t)\
+        uniq.append(c)\
+        if len(uniq) >= max_lines:\
+            break\
+\
+    density = (len(uniq) / max(total_words, 1)) * 1000.0\
+\
+    return \{\
+        "schema_version": "1.0",\
+        "book_id": book_id,\
+        "total_words": total_words,\
+        "memorable_candidate_count": len(uniq),\
+        "highlight_density_per_1000_words": round(density, 3),\
+        "candidates": [asdict(u) for u in uniq],\
+    \}\
+\
+def parse_args() -> argparse.Namespace:\
+    ap = argparse.ArgumentParser()\
+    g = ap.add_mutually_exclusive_group(required=True)\
+    g.add_argument("--file", help="Compiled prose text file")\
+    g.add_argument("--plan", help="Compiled plan JSON containing chapter text")\
+    ap.add_argument("--json-out", required=True)\
+    ap.add_argument("--min-score", type=float, default=3.0)\
+    ap.add_argument("--max-lines", type=int, default=80)\
+    return ap.parse_args()\
+\
+def main() -> int:\
+    args = parse_args()\
+\
+    if args.plan:\
+        book_id, chapters = load_chapters_from_plan(Path(args.plan))\
+    else:\
+        book_id, chapters = load_chapters_from_file(Path(args.file))\
+\
+    payload = detect_lines(book_id, chapters, min_score=args.min_score, max_lines=args.max_lines)\
+\
+    outp = Path(args.json_out)\
+    outp.parent.mkdir(parents=True, exist_ok=True)\
+    outp.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")\
+\
+    print(f"Memorable lines: \{payload['memorable_candidate_count']\} | "\
+          f"density/1k words: \{payload['highlight_density_per_1000_words']\}")\
+    return 0\
+\
+if __name__ == "__main__":\
+    raise SystemExit(main())\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sa321\partightenfactor0
+
+\f1\b\fs48 \cf2 \strokec2 4) Connect Memorable Lines \uc0\u8594  Marketing Asset Generation\
+\pard\pardeftab720\sa298\partightenfactor0
+
+\fs36 \cf2 What you 
+\f4\i do
+\f1\i0  with it\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b0\fs24 \cf2 \strokec2 You generate 
+\f1\b \cf2 \strokec2 ready-to-paste marketing assets
+\f0\b0 \cf2 \strokec2 :\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls1\ilvl0
+\f2\fs26 \cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 quotes.csv
+\f0\fs24  for social + pins\
+\ls1\ilvl0
+\f2\fs26 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 pin_captions.txt
+\f0\fs24  (one per line)\
+\ls1\ilvl0
+\f2\fs26 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 landing_page_hooks.txt
+\f0\fs24 \
+\ls1\ilvl0
+\f2\fs26 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 trailer_lines.txt
+\f0\fs24  (for audiobook trailer script)\
+\ls1\ilvl0
+\f2\fs26 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 email_subject_lines.txt
+\f0\fs24 \
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f3\b\fs30\fsmilli15210 \cf2 marketing_assets_from_lines.py
+\f1\fs28 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf2 #!/usr/bin/env python3\
+"""\
+phoenix_v4/quality/marketing_assets_from_lines.py\
+\
+Takes memorable_line_detector JSON and generates marketing assets:\
+- quotes.csv\
+- pin_captions.txt\
+- landing_page_hooks.txt\
+- trailer_lines.txt\
+- email_subject_lines.txt\
+\
+Usage:\
+  PYTHONPATH=. python3 phoenix_v4/quality/marketing_assets_from_lines.py \\\
+    --mem-lines artifacts/ops/mem_lines.json \\\
+    --brand phoenix \\\
+    --topic overthinking \\\
+    --persona nurses \\\
+    --out-dir artifacts/marketing/book_002\
+"""\
+\
+from __future__ import annotations\
+\
+import argparse\
+import csv\
+import json\
+import re\
+from pathlib import Path\
+from typing import Dict, List\
+\
+def sanitize_quote(q: str) -> str:\
+    q = q.strip()\
+    q = re.sub(r"\\s+", " ", q)\
+    # remove trailing quotes if mismatched\
+    return q\
+\
+def load_mem_lines(path: Path) -> Dict:\
+    return json.loads(path.read_text(encoding="utf-8"))\
+\
+def pick_top_candidates(data: Dict, n: int = 25) -> List[Dict]:\
+    cands = data.get("candidates", [])\
+    # already sorted best-first by detector; keep top n\
+    return cands[:n]\
+\
+def make_pin_caption(quote: str, brand: str, topic: str, persona: str) -> str:\
+    # Simple deterministic templates (keep small)\
+    return f"\{quote\} \'97 \{brand\} \'95 \{topic\} for \{persona\}"\
+\
+def make_hook(quote: str, topic: str) -> str:\
+    # Landing hook: compress to one line with topic framing\
+    return f"\{quote\} (A new way to understand \{topic\}.)"\
+\
+def make_trailer_line(quote: str) -> str:\
+    # Trailer line: short dramatic pause cue marker (you can replace later with SSML)\
+    return f"\{quote\}"\
+\
+def make_email_subject(quote: str) -> str:\
+    # Subject must be short-ish; if too long, trim.\
+    s = quote\
+    if len(s) > 60:\
+        s = s[:57].rstrip() + "\'85"\
+    return s\
+\
+def write_quotes_csv(out_dir: Path, rows: List[Dict], meta: Dict) -> None:\
+    out_dir.mkdir(parents=True, exist_ok=True)\
+    path = out_dir / "quotes.csv"\
+    with path.open("w", newline="", encoding="utf-8") as f:\
+        w = csv.writer(f)\
+        w.writerow(["book_id", "brand", "topic", "persona", "quote", "score", "tags", "chapter_index", "sentence_index"])\
+        for r in rows:\
+            w.writerow([\
+                meta["book_id"],\
+                meta["brand"],\
+                meta["topic"],\
+                meta["persona"],\
+                sanitize_quote(r["text"]),\
+                r.get("score", ""),\
+                " ".join(r.get("tags", [])),\
+                r.get("chapter_index", ""),\
+                r.get("sentence_index", ""),\
+            ])\
+\
+def write_lines(out_dir: Path, filename: str, lines: List[str]) -> None:\
+    (out_dir / filename).write_text("\\n".join(lines).strip() + "\\n", encoding="utf-8")\
+\
+def parse_args() -> argparse.Namespace:\
+    ap = argparse.ArgumentParser()\
+    ap.add_argument("--mem-lines", required=True, help="memorable_line_detector JSON")\
+    ap.add_argument("--brand", required=True)\
+    ap.add_argument("--topic", required=True)\
+    ap.add_argument("--persona", required=True)\
+    ap.add_argument("--out-dir", required=True)\
+    ap.add_argument("--top-n", type=int, default=25)\
+    return ap.parse_args()\
+\
+def main() -> int:\
+    args = parse_args()\
+    data = load_mem_lines(Path(args.mem_lines))\
+\
+    meta = \{\
+        "book_id": data.get("book_id", "unknown_book"),\
+        "brand": args.brand,\
+        "topic": args.topic,\
+        "persona": args.persona,\
+    \}\
+\
+    top = pick_top_candidates(data, n=args.top_n)\
+\
+    # Build assets\
+    quotes = [sanitize_quote(r["text"]) for r in top]\
+\
+    pin_captions = [make_pin_caption(q, args.brand, args.topic, args.persona) for q in quotes]\
+    hooks = [make_hook(q, args.topic) for q in quotes[:12]]\
+    trailer_lines = [make_trailer_line(q) for q in quotes[:15]]\
+    email_subjects = [make_email_subject(q) for q in quotes[:20]]\
+\
+    out_dir = Path(args.out_dir)\
+    out_dir.mkdir(parents=True, exist_ok=True)\
+\
+    write_quotes_csv(out_dir, top, meta)\
+    write_lines(out_dir, "pin_captions.txt", pin_captions)\
+    write_lines(out_dir, "landing_page_hooks.txt", hooks)\
+    write_lines(out_dir, "trailer_lines.txt", trailer_lines)\
+    write_lines(out_dir, "email_subject_lines.txt", email_subjects)\
+\
+    # Also write a simple manifest\
+    manifest = \{\
+        "schema_version": "1.0",\
+        "book_id": meta["book_id"],\
+        "inputs": \{\
+            "brand": meta["brand"],\
+            "topic": meta["topic"],\
+            "persona": meta["persona"],\
+            "mem_lines_path": str(Path(args.mem_lines)),\
+        \},\
+        "outputs": \{\
+            "quotes_csv": "quotes.csv",\
+            "pin_captions": "pin_captions.txt",\
+            "landing_page_hooks": "landing_page_hooks.txt",\
+            "trailer_lines": "trailer_lines.txt",\
+            "email_subject_lines": "email_subject_lines.txt",\
+        \},\
+    \}\
+    (out_dir / "marketing_assets_manifest.json").write_text(\
+        json.dumps(manifest, indent=2, ensure_ascii=False),\
+        encoding="utf-8"\
+    )\
+\
+    print(f"Wrote marketing assets to: \{out_dir\}")\
+    return 0\
+\
+if __name__ == "__main__":\
+    raise SystemExit(main())\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sa321\partightenfactor0
+
+\f1\b\fs48 \cf2 \strokec2 How you run it (end-to-end)\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\fs28 \cf2 A) Extract memorable lines from a compiled plan\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf2 PYTHONPATH=. python3 phoenix_v4/quality/memorable_line_detector.py \\\
+  --plan artifacts/book_002.plan.json \\\
+  --json-out artifacts/ops/mem_lines_book_002.json\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f1\b\fs28 \cf2 B) Generate marketing assets\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf2 PYTHONPATH=. python3 phoenix_v4/quality/marketing_assets_from_lines.py \\\
+  --mem-lines artifacts/ops/mem_lines_book_002.json \\\
+  --brand phoenix \\\
+  --topic overthinking \\\
+  --persona nurses \\\
+  --out-dir artifacts/marketing/book_002\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f1\b\fs28 \cf2 C) Optional: heatmap + story lint\
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0\fs26 \cf2 PYTHONPATH=. python3 phoenix_v4/quality/transformation_heatmap.py \\\
+  --plan artifacts/book_002.plan.json \\\
+  --json-out artifacts/ops/heatmap_book_002.json --ascii\
+PYTHONPATH=. python3 phoenix_v4/quality/story_atom_lint.py \\\
+  --path atoms/<persona>/<topic>/<engine>/ \\\
+  --json-out artifacts/ops/story_lint_<tuple>.json\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf3 \strokec3 \
+\pard\pardeftab720\sa321\partightenfactor0
+
+\f1\b\fs48 \cf2 \strokec2 What you get (immediately useful)\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls2\ilvl0
+\fs24 \cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 quotes.csv
+\f0\b0  \uc0\u8594  copy into Canva/Pinterest schedulers, social quote images, blog quote blocks\
+\ls2\ilvl0
+\f1\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 pin_captions.txt
+\f0\b0  \uc0\u8594  paste into pin uploader / scheduler\
+\ls2\ilvl0
+\f1\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 landing_page_hooks.txt
+\f0\b0  \uc0\u8594  headline testing / hero sections\
+\ls2\ilvl0
+\f1\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 trailer_lines.txt
+\f0\b0  \uc0\u8594  audiobook trailer script raw material\
+\ls2\ilvl0
+\f1\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 email_subject_lines.txt
+\f0\b0  \uc0\u8594  fast A/B subject brainstorming using actual book language\
+\pard\pardeftab720\sa240\partightenfactor0
+\cf2 \strokec2 If you paste your 
+\f5\i \cf2 \strokec2 actual compiled plan JSON structure
+\f0\i0 \cf2 \strokec2  (top-level keys), I can tighten 
+\f2\fs26 \cf2 \strokec2 load_from_plan()
+\f0\fs24 \cf2 \strokec2  to your exact schema so it never misses chapter text.\
+}

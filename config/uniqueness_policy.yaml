@@ -1,0 +1,25 @@
+schema_version: 1
+policy_id: uniqueness_policy
+owner: governance
+status: active
+
+scope:
+  catalog_isolated: true
+  catalogs: [en_us_core, zh_tw, zh_hk, zh_cn, zh_sg]
+
+checks:
+  hard_fail:
+    - duplicate_book_id_within_catalog
+    - duplicate_topic_persona_pair_within_wave
+    - duplicate_title_slug_within_brand_90d
+  warn:
+    - semantic_similarity_above_warn_threshold
+
+similarity:
+  algorithm: embedding_cosine
+  thresholds:
+    warn_above: 0.86
+    fail_above: 0.93
+
+exclusions:
+  cross_catalog_similarity: forbidden

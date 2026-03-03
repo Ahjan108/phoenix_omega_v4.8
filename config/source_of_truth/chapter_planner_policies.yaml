@@ -1,0 +1,97 @@
+version: "1.0"
+schema_type: chapter_planner_policies
+
+book_size_by_chapters:
+  short: [1, 6]
+  medium: [7, 10]
+  long: [11, 40]
+
+# Soft target ranges validated against arc emotional_role_sequence.
+role_distribution_targets:
+  short:
+    introduce: [1, 2]
+    deepen: [1, 3]
+    challenge: [1, 2]
+    resolve: [1, 2]
+  medium:
+    introduce: [1, 3]
+    deepen: [2, 5]
+    challenge: [2, 4]
+    resolve: [2, 4]
+  long:
+    introduce: [2, 4]
+    deepen: [3, 6]
+    challenge: [3, 5]
+    resolve: [2, 5]
+
+quotas:
+  short:
+    full_exercise_max: 1
+    reflection_heavy_max: 1
+  medium:
+    full_exercise_max: 3
+    reflection_heavy_max: 3
+  long:
+    full_exercise_max: 5
+    reflection_heavy_max: 4
+
+archetypes:
+  intro_hook_heavy:
+    arc_roles: [introduce]
+    allowed_next: [deepen_mechanism, challenge_cost, resolve_integration]
+    priority: 1.0
+    slot_policy:
+      require: [HOOK, SCENE, STORY]
+      optional: [REFLECTION, EXERCISE, INTEGRATION]
+      forbid: []
+      exercise_mode: none
+      reflection_weight: light
+      story_depth: standard
+
+  deepen_mechanism:
+    arc_roles: [deepen]
+    allowed_next: [deepen_mechanism, challenge_cost, resolve_integration]
+    priority: 1.0
+    slot_policy:
+      require: [HOOK, SCENE, STORY, REFLECTION]
+      optional: [EXERCISE, INTEGRATION]
+      forbid: []
+      exercise_mode: micro
+      reflection_weight: standard
+      story_depth: standard
+
+  challenge_cost:
+    arc_roles: [challenge]
+    allowed_next: [deepen_mechanism, resolve_integration]
+    priority: 1.1
+    slot_policy:
+      require: [SCENE, STORY, REFLECTION]
+      optional: [HOOK, EXERCISE, INTEGRATION]
+      forbid: []
+      exercise_mode: none
+      reflection_weight: heavy
+      story_depth: deep
+
+  resolve_integration:
+    arc_roles: [resolve]
+    allowed_next: [resolve_integration, deepen_mechanism]
+    priority: 1.0
+    slot_policy:
+      require: [REFLECTION, INTEGRATION]
+      optional: [HOOK, SCENE, STORY, EXERCISE]
+      forbid: []
+      exercise_mode: micro
+      reflection_weight: standard
+      story_depth: micro
+
+  practice_heavy:
+    arc_roles: [deepen, resolve]
+    allowed_next: [deepen_mechanism, resolve_integration, challenge_cost]
+    priority: 0.95
+    slot_policy:
+      require: [SCENE, EXERCISE, INTEGRATION]
+      optional: [HOOK, STORY, REFLECTION]
+      forbid: []
+      exercise_mode: full
+      reflection_weight: light
+      story_depth: micro

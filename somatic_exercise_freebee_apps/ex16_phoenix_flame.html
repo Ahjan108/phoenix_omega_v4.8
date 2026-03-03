@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phoenix Flame — I Live For</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400&family=Questrial&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--flame1:#E8743A;--flame2:#D4A030;--flame3:#C44020;--bg:#0C0808;--text:#E8DCC8;--muted:#6A5E50}
+  body{font-family:'Questrial',sans-serif;background:var(--bg);color:var(--text);height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none}
+  .wrap{z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.2rem;max-width:400px;padding:0 1rem}
+  h1{font-family:'Cinzel',serif;font-weight:300;font-size:1.8rem;letter-spacing:.06em;color:#E8A040}
+  .sub{font-size:.7rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+  .flame-area{position:relative;width:200px;height:240px;display:flex;align-items:flex-end;justify-content:center}
+  canvas#flame{width:100%;height:100%}
+  .intention-area{text-align:center;width:100%}
+  .ilf{font-family:'Cinzel',serif;font-size:1.1rem;letter-spacing:.06em;color:var(--flame2);opacity:.7}
+  .intention-input{background:none;border:none;border-bottom:1px solid rgba(232,160,64,.2);color:var(--text);font-family:'Cinzel',serif;font-size:1.3rem;text-align:center;padding:.4rem;outline:none;width:100%;margin-top:.3rem}
+  .intention-input::placeholder{color:rgba(255,255,255,.12)}
+  .intention-input:focus{border-color:rgba(232,160,64,.5)}
+  .pn{font-family:'Cinzel',serif;font-size:1.3rem;letter-spacing:.06em;text-align:center}
+  .pc{font-size:1.8rem;font-weight:300;opacity:.7;text-align:center}
+  .bar{width:100%;height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
+  .bf{height:100%;width:0;border-radius:2px;background:linear-gradient(90deg,var(--flame3),var(--flame2),var(--flame1))}
+  .info-row{display:flex;gap:2rem;font-size:.78rem;color:var(--muted)}
+  .info-row strong{color:var(--text);font-weight:400}
+  .controls{display:flex;gap:1rem}
+  .btn{font-family:'Questrial',sans-serif;padding:.5rem 1.4rem;border:1px solid rgba(232,160,64,.2);border-radius:100px;background:rgba(232,160,64,.06);color:var(--text);font-size:.78rem;cursor:pointer;transition:all .3s}
+  .btn:hover{background:rgba(232,160,64,.15)}
+  .btn.pri{background:rgba(232,160,64,.12);border-color:rgba(232,160,64,.35)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Phoenix Flame</h1>
+  <p class="sub">What do you live for?</p>
+  <div class="flame-area"><canvas id="flame"></canvas></div>
+  <div class="intention-area">
+    <div class="ilf">I live for...</div>
+    <input class="intention-input" id="intent" placeholder="type your intention here">
+  </div>
+  <div class="pn" id="pn">Ready</div>
+  <div class="pc" id="pc"></div>
+  <div class="bar"><div class="bf" id="bf"></div></div>
+  <div class="info-row">
+    <span>Remaining <strong id="rem">6:00</strong></span>
+  </div>
+  <div class="controls">
+    <button class="btn pri" id="sb" onclick="toggle()">Begin</button>
+    <button class="btn" onclick="doReset()">Reset</button>
+  </div>
+</div>
+<script>
+const canvas=document.getElementById('flame');const ctx=canvas.getContext('2d');
+const SESSION=360,INH=5,EXH=7;
+let running=false,paused=false,t=0,total=0,lastTs=0,lastP='',aCtx=null,particles=[];
+
+function resize(){canvas.width=canvas.offsetWidth*2;canvas.height=canvas.offsetHeight*2}
+window.addEventListener('resize',resize);resize();
+
+function audio(){if(!aCtx)aCtx=new(window.AudioContext||window.webkitAudioContext)();return aCtx}
+function tone(f,d=.3){try{const x=audio(),o=x.createOscillator(),g=x.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,x.currentTime);g.gain.linearRampToValueAtTime(.06,x.currentTime+.04);g.gain.exponentialRampToValueAtTime(.001,x.currentTime+d);o.connect(g);g.connect(x.destination);o.start();o.stop(x.currentTime+d)}catch(e){}}
+function fmt(s){return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
+
+function drawFlame(intensity){
+  const w=canvas.offsetWidth,h=canvas.offsetHeight;
+  ctx.clearRect(0,0,w*2,h*2);ctx.save();ctx.scale(2,2);
+  const cx=w/2,baseY=h-10;
+  // Add particles
+  for(let i=0;i<2+intensity*3;i++){
+    particles.push({x:cx+(Math.random()-.5)*30,y:baseY,vx:(Math.random()-.5)*1.5,vy:-1.5-Math.random()*2*intensity,life:1,size:3+Math.random()*4});
+  }
+  // Update & draw particles
+  particles.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;p.life-=0.015;p.size*=0.98;
+    if(p.life>0){
+      const alpha=p.life*0.6;
+      const r=232,g=Math.floor(100+p.life*60),b=Math.floor(30+p.life*30);
+      ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+      ctx.fillStyle=`rgba(${r},${g},${b},${alpha})`;ctx.fill();
+    }
+  });
+  particles=particles.filter(p=>p.life>0);
+  // Core glow
+  const grad=ctx.createRadialGradient(cx,baseY-40*intensity,5,cx,baseY-20,60*intensity);
+  grad.addColorStop(0,'rgba(232,160,64,0.3)');grad.addColorStop(1,'transparent');
+  ctx.fillStyle=grad;ctx.fillRect(0,0,w,h);
+  ctx.restore();
+}
+
+function tick(ts){
+  if(!running||paused)return;
+  if(!lastTs)lastTs=ts;const dt=(ts-lastTs)/1000;lastTs=ts;t+=dt;total+=dt;
+  if(total>=SESSION){end();return}
+  const ct=t%(INH+EXH);const isIn=ct<INH;
+  const frac=isIn?ct/INH:(ct-INH)/EXH;
+  const intensity=isIn?0.4+0.6*Math.sin(frac*Math.PI/2):0.4+0.6*Math.cos(frac*Math.PI/2);
+  drawFlame(intensity);
+  const cur=isIn?'in':'out';
+  if(cur!==lastP){tone(isIn?300:220);lastP=cur}
+  document.getElementById('pn').textContent=isIn?'Breathe In — Feel the Fire':'Breathe Out — Release';
+  document.getElementById('pc').textContent=Math.ceil(isIn?INH-ct:EXH-(ct-INH));
+  document.getElementById('bf').style.width=(total/SESSION*100)+'%';
+  document.getElementById('rem').textContent=fmt(Math.max(0,SESSION-total));
+  requestAnimationFrame(tick);
+}
+
+function toggle(){
+  const b=document.getElementById('sb');
+  if(!running){running=true;paused=false;t=0;total=0;lastTs=0;lastP='';particles=[];
+    b.textContent='Pause';requestAnimationFrame(tick);
+  }else if(!paused){paused=true;lastTs=0;b.textContent='Resume'}
+  else{paused=false;lastTs=0;b.textContent='Pause';requestAnimationFrame(tick)}
+}
+function doReset(){
+  running=false;paused=false;t=0;total=0;lastTs=0;lastP='';particles=[];
+  document.getElementById('sb').textContent='Begin';document.getElementById('rem').textContent=fmt(SESSION);
+  document.getElementById('pn').textContent='Ready';document.getElementById('pc').textContent='';
+  document.getElementById('bf').style.width='0';ctx.clearRect(0,0,canvas.width,canvas.height);
+}
+function end(){running=false;document.getElementById('sb').textContent='Begin';document.getElementById('pn').textContent='Your Flame Burns';document.getElementById('pc').textContent='🔥';tone(528,.8)}
+</script>
+</body>
+</html>

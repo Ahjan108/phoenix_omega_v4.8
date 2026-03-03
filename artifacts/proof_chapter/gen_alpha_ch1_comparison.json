@@ -1,0 +1,31 @@
+{
+  "old": {
+    "status": "FAIL",
+    "score": 70,
+    "errors": [
+      "WEAK_TRANSITIONS",
+      "MISSING_CLEAR_POINT"
+    ],
+    "metrics": {
+      "paragraphs": 10,
+      "sentences": 52,
+      "transition_hits": 1,
+      "thesis_hits": 0,
+      "avg_adjacent_overlap": 0.12,
+      "sentence_len_std": 5.93
+    }
+  },
+  "new": {
+    "status": "PASS",
+    "score": 100,
+    "errors": [],
+    "metrics": {
+      "paragraphs": 11,
+      "sentences": 55,
+      "transition_hits": 5,
+      "thesis_hits": 4,
+      "avg_adjacent_overlap": 0.067,
+      "sentence_len_std": 4.6
+    }
+  }
+}

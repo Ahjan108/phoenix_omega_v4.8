@@ -1,0 +1,18 @@
+# Audio script source for freebie MP3 generation (asset pipeline).
+# Authority: V4 Freebies + Immersion Ecosystem plan §3.3.
+# Templated: variables [topic, topic_description, persona, persona_trait, duration].
+# Fixed: path + optional overrides (topics list → path).
+
+# guided_meditation:
+#   type: templated
+#   template_path: SOURCE_OF_TRUTH/freebies/scripts/guided_meditation_template.txt
+#   variables: [topic, topic_description, persona, persona_trait, duration]
+#
+# affirmations:
+#   type: fixed
+#   path: SOURCE_OF_TRUTH/freebies/scripts/affirmations_general.txt
+#   overrides:
+#     - topics: [anxiety, stress, overwhelm]
+#       path: SOURCE_OF_TRUTH/freebies/scripts/affirmations_calm.txt
+#     - topics: [confidence, self_worth]
+#       path: SOURCE_OF_TRUTH/freebies/scripts/affirmations_confidence.txt

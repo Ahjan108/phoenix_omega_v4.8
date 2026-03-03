@@ -1,0 +1,149 @@
+arc_id: gen_alpha_students_anxiety_spiral_F013_6h
+persona: gen_alpha_students
+topic: anxiety
+engine: spiral
+format: F013
+chapter_count: 24
+
+# Three-act structure: Before (ch 1-8) / During (ch 9-16) / After (ch 17-24)
+# BAND 1 = low activation (pre-awareness), BAND 5 = peak (resolution threshold)
+# F013 range: 24 chapters fixed. Runtime: deep_book_6h (~360 min, ~54k words).
+
+emotional_curve:
+- 2   # ch 1:  Before — first recognition
+- 2   # ch 2:  Before — pattern emerging
+- 3   # ch 3:  Before — cost becoming visible
+- 3   # ch 4:  Before — destabilization beginning
+- 3   # ch 5:  Before — belief layer exposed
+- 4   # ch 6:  Before — confrontation with pattern
+- 3   # ch 7:  Before — somatic encounter
+- 4   # ch 8:  Before — threshold of During
+- 4   # ch 9:  During — full spiral activation
+- 4   # ch 10: During — peak cost, maximum exposure
+- 3   # ch 11: During — brief deceleration
+- 4   # ch 12: During — secondary peak
+- 4   # ch 13: During — relational shift begins
+- 3   # ch 14: During — mechanism made visible
+- 3   # ch 15: During — body repair enters
+- 3   # ch 16: During — threshold of After
+- 2   # ch 17: After — identity destabilization
+- 3   # ch 18: After — embodied identity forming
+- 2   # ch 19: After — grounded reframe
+- 2   # ch 20: After — new behavior anchored
+- 3   # ch 21: After — relational shift visible
+- 2   # ch 22: After — cost reframed
+- 2   # ch 23: After — integration landing
+- 3   # ch 24: After — self-claim, no resolution promise
+
+emotional_temperature_curve:
+  1:  cool
+  2:  cool
+  3:  cool
+  4:  cool
+  5:  cool
+  6:  warm
+  7:  warm
+  8:  warm
+  9:  warm
+  10: hot
+  11: hot
+  12: hot
+  13: warm
+  14: warm
+  15: warm
+  16: warm
+  17: warm
+  18: warm
+  19: cool
+  20: cool
+  21: cool
+  22: cool
+  23: cool
+  24: cool
+
+chapter_intent:
+  1:  establish_mask
+  2:  establish_mask
+  3:  expose_cost
+  4:  destabilize_strategy
+  5:  reveal_hidden_belief
+  6:  reveal_hidden_belief
+  7:  confrontation
+  8:  somatic_repair
+  9:  confrontation
+  10: confrontation
+  11: somatic_repair
+  12: somatic_repair
+  13: relational_shift
+  14: relational_shift
+  15: somatic_repair
+  16: embodied_identity
+  17: embodied_identity
+  18: embodied_identity
+  19: grounded_reframe
+  20: grounded_reframe
+  21: grounded_reframe
+  22: embodied_identity
+  23: grounded_reframe
+  24: embodied_identity
+
+emotional_role_sequence:
+- recognition       # ch 1
+- recognition       # ch 2
+- reframe           # ch 3
+- destabilization   # ch 4
+- destabilization   # ch 5
+- reframe           # ch 6
+- destabilization   # ch 7
+- reframe           # ch 8
+- destabilization   # ch 9
+- destabilization   # ch 10
+- stabilization     # ch 11
+- reframe           # ch 12
+- reframe           # ch 13
+- destabilization   # ch 14
+- stabilization     # ch 15
+- reframe           # ch 16
+- reframe           # ch 17
+- stabilization     # ch 18
+- reframe           # ch 19
+- stabilization     # ch 20
+- reframe           # ch 21
+- integration       # ch 22
+- reframe           # ch 23
+- integration       # ch 24
+
+reflection_strategy_sequence:
+- didactic          # ch 1
+- socratic          # ch 2
+- narrative_embedded # ch 3
+- didactic          # ch 4
+- socratic          # ch 5
+- narrative_embedded # ch 6
+- didactic          # ch 7
+- socratic          # ch 8
+- narrative_embedded # ch 9
+- didactic          # ch 10
+- socratic          # ch 11
+- narrative_embedded # ch 12
+- didactic          # ch 13
+- socratic          # ch 14
+- narrative_embedded # ch 15
+- didactic          # ch 16
+- socratic          # ch 17
+- narrative_embedded # ch 18
+- didactic          # ch 19
+- socratic          # ch 20
+- narrative_embedded # ch 21
+- didactic          # ch 22
+- socratic          # ch 23
+- narrative_embedded # ch 24
+
+cost_chapter_index: 10
+resolution_type: internal_shift_only
+
+motif:
+  primary_symbol: alarm
+  recurring_image: chest_and_phone
+  recurring_question: "What is your body trying to tell you?"
+  tonal_signature: restrained_clarity

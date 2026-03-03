@@ -1,0 +1,14 @@
+# Default narrator per brand when run_pipeline does not receive --narrator.
+# Authority: Writer Spec §23.5, §23.6 — brand registry default_narrators.
+# First matching row wins.
+
+assignments:
+  - brand_id: stillness_press
+    default_narrator: default_narrator
+
+  - brand_id: cognitive_clarity
+    default_narrator: default_narrator
+
+  # Add rows for other brands when using multiple narrators:
+  # - brand_id: phoenix_somatic
+  #   default_narrator: ava_reed

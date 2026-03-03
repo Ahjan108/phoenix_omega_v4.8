@@ -1,0 +1,9 @@
+# Cross-catalog memorable line registry — threshold policies
+# Used by update_memorable_line_registry.py and check_memorable_line_registry.py
+
+memorable_line_registry:
+  max_occurrences_global: 2
+  max_occurrences_per_brand: 1
+  max_occurrences_per_wave: 1
+  strength_levels_tracked: ["good", "great"]
+  block_on_violation: true

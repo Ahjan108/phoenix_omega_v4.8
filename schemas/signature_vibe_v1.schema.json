@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SignatureVibe",
+  "description": "Teacher Authoring Layer — signature vibe (doctrine/signature_vibe.yaml)",
+  "type": "object",
+  "required": ["schema_version", "teacher_id", "voice_instruction", "sentence_constraints", "vocabulary", "emotional_register"],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": { "type": "string" },
+    "teacher_id": { "type": "string" },
+    "voice_instruction": { "type": "string" },
+    "sentence_constraints": {
+      "type": "object",
+      "properties": {
+        "preferred_length_range": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
+        "max_sentence_length": { "type": "integer" },
+        "preferred_paragraph_length": { "type": "array", "items": { "type": "integer" } },
+        "allowed_opening_words": {
+          "type": "object",
+          "properties": {
+            "preferred": { "type": "array", "items": { "type": "string" } },
+            "forbidden": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "forbidden_sentence_patterns": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "vocabulary": {
+      "type": "object",
+      "properties": {
+        "preferred_words": { "type": "array", "items": { "type": "string" } },
+        "forbidden_words": { "type": "array", "items": { "type": "string" } },
+        "tone_words": { "type": "array", "items": { "type": "string" } },
+        "anti_tone_words": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "emotional_register": {
+      "type": "object",
+      "properties": {
+        "allowed": { "type": "array", "items": { "type": "string" } },
+        "forbidden": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

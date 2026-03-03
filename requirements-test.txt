@@ -1,0 +1,6 @@
+# Test dependencies — used by core-tests, teacher-gates, pearl_news_gates, brand-guards.
+# Install: pip install -r requirements-test.txt
+pyyaml>=5.0
+pytest>=7.0
+jsonschema>=4.0
+feedparser>=6.0

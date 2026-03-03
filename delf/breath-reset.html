@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breath Reset Timer — Phoenix Protocol</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --bone: #f5f0e8;
+    --gold: #c9a84c;
+    --deep: #070d12;
+    --ocean: #0e2233;
+    --sky: #1a4a6b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--deep);
+    color: var(--bone);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(14,34,51,0.8) 0%, var(--deep) 100%);
+    pointer-events: none;
+  }
+
+  .back {
+    position: fixed;
+    top: 24px; left: 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.3);
+    text-decoration: none;
+    transition: color 0.3s;
+    z-index: 10;
+  }
+  .back:hover { color: var(--gold); }
+
+  .label-top {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 48px;
+    opacity: 0.7;
+    position: relative;
+    z-index: 2;
+  }
+
+  .circle-wrap {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin-bottom: 48px;
+    z-index: 2;
+  }
+
+  /* Breathing ring */
+  .ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.2);
+    transform: scale(1);
+    transition: transform 4s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 4s ease,
+                border-color 4s ease;
+  }
+
+  .ring.inhale {
+    transform: scale(1.35);
+    box-shadow: 0 0 60px rgba(201,168,76,0.15), inset 0 0 40px rgba(201,168,76,0.05);
+    border-color: rgba(201,168,76,0.5);
+  }
+
+  .ring.hold {
+    transform: scale(1.35);
+    box-shadow: 0 0 80px rgba(201,168,76,0.2);
+    border-color: rgba(201,168,76,0.7);
+  }
+
+  .ring.exhale {
+    transform: scale(1);
+    box-shadow: none;
+    border-color: rgba(201,168,76,0.15);
+  }
+
+  /* Inner glow dot */
+  .dot {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    background: radial-gradient(circle, rgba(26,74,107,0.8) 0%, rgba(14,34,51,0.4) 60%, transparent 100%);
+    transition: transform 4s cubic-bezier(0.4, 0, 0.2, 1),
+                background 4s ease;
+  }
+
+  .dot.inhale {
+    transform: translate(-50%, -50%) scale(1.4);
+    background: radial-gradient(circle, rgba(201,168,76,0.3) 0%, rgba(26,74,107,0.5) 50%, transparent 100%);
+  }
+
+  .dot.hold {
+    transform: translate(-50%, -50%) scale(1.4);
+    background: radial-gradient(circle, rgba(201,168,76,0.4) 0%, rgba(26,74,107,0.6) 50%, transparent 100%);
+  }
+
+  .dot.exhale {
+    transform: translate(-50%, -50%) scale(1);
+    background: radial-gradient(circle, rgba(14,34,51,0.8) 0%, rgba(7,13,18,0.4) 60%, transparent 100%);
+  }
+
+  /* Center text */
+  .center-text {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 160px;
+  }
+
+  .phase-name {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--bone);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 4px;
+    transition: opacity 0.4s;
+  }
+
+  .count {
+    font-family: 'DM Mono', monospace;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+  }
+
+  /* Info below */
+  .info {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 40px;
+  }
+
+  .pattern {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: rgba(245,240,232,0.3);
+    margin-bottom: 8px;
+  }
+
+  .cycle-count {
+    font-size: 1rem;
+    color: rgba(245,240,232,0.4);
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  /* Controls */
+  .controls {
+    display: flex;
+    gap: 16px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    cursor: pointer;
+    border: 1px solid rgba(201,168,76,0.4);
+    background: transparent;
+    color: var(--gold);
+    transition: all 0.3s;
+  }
+
+  .btn:hover {
+    background: rgba(201,168,76,0.08);
+    border-color: var(--gold);
+  }
+
+  .btn.primary {
+    background: var(--gold);
+    color: var(--deep);
+    border-color: var(--gold);
+  }
+
+  .btn.primary:hover {
+    background: #e8d5a0;
+  }
+
+  /* Complete */
+  .complete-msg {
+    display: none;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    animation: rise 0.8s ease forwards;
+  }
+
+  .complete-msg h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .complete-msg p {
+    font-size: 1rem;
+    color: rgba(245,240,232,0.5);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back">← All tools</a>
+
+<p class="label-top">Phoenix Protocol — 01</p>
+
+<div class="circle-wrap">
+  <div class="ring" id="ring"></div>
+  <div class="dot" id="dot"></div>
+  <div class="center-text">
+    <span class="phase-name" id="phaseName">Ready</span>
+    <span class="count" id="countNum">4</span>
+  </div>
+</div>
+
+<div class="info">
+  <p class="pattern">4 — 7 — 8 breath pattern</p>
+  <p class="cycle-count" id="cycleInfo">3 cycles · ~3 minutes</p>
+</div>
+
+<div class="controls" id="controls">
+  <button class="btn primary" onclick="startBreath()">Begin</button>
+</div>
+
+<div class="complete-msg" id="completeMsg">
+  <h2>Well done.</h2>
+  <p>Your nervous system has shifted.<br>Notice what's different now.</p>
+  <button class="btn primary" onclick="resetBreath()">Go again</button>
+</div>
+
+<script>
+// 4-7-8 pattern
+const PHASES = [
+  { name: 'Inhale',  count: 4, cls: 'inhale' },
+  { name: 'Hold',    count: 7, cls: 'hold'   },
+  { name: 'Exhale',  count: 8, cls: 'exhale' },
+];
+
+const TOTAL_CYCLES = 3;
+let currentPhase = 0;
+let currentCount = 0;
+let cyclesDone = 0;
+let timer = null;
+let running = false;
+
+function setVisuals(cls) {
+  const ring = document.getElementById('ring');
+  const dot = document.getElementById('dot');
+  ring.className = 'ring ' + cls;
+  dot.className = 'dot ' + cls;
+}
+
+function startBreath() {
+  document.getElementById('controls').innerHTML = '<button class="btn" onclick="stopBreath()">Stop</button>';
+  running = true;
+  currentPhase = 0;
+  currentCount = 0;
+  cyclesDone = 0;
+  nextTick();
+}
+
+function stopBreath() {
+  clearTimeout(timer);
+  running = false;
+  setVisuals('');
+  document.getElementById('phaseName').textContent = 'Ready';
+  document.getElementById('countNum').textContent = '4';
+  document.getElementById('cycleInfo').textContent = '3 cycles · ~3 minutes';
+  document.getElementById('controls').innerHTML = '<button class="btn primary" onclick="startBreath()">Begin again</button>';
+}
+
+function nextTick() {
+  if (!running) return;
+  const phase = PHASES[currentPhase];
+
+  if (currentCount === 0) {
+    setVisuals(phase.cls);
+    document.getElementById('phaseName').textContent = phase.name;
+    document.getElementById('cycleInfo').textContent = `Cycle ${cyclesDone + 1} of ${TOTAL_CYCLES}`;
+  }
+
+  const remaining = phase.count - currentCount;
+  document.getElementById('countNum').textContent = remaining;
+
+  currentCount++;
+
+  if (currentCount > phase.count) {
+    currentCount = 0;
+    currentPhase++;
+    if (currentPhase >= PHASES.length) {
+      currentPhase = 0;
+      cyclesDone++;
+      if (cyclesDone >= TOTAL_CYCLES) {
+        complete();
+        return;
+      }
+    }
+  }
+
+  timer = setTimeout(nextTick, 1000);
+}
+
+function complete() {
+  running = false;
+  setVisuals('inhale');
+  document.getElementById('controls').style.display = 'none';
+  const wrap = document.querySelector('.circle-wrap');
+  wrap.style.display = 'none';
+  document.querySelector('.info').style.display = 'none';
+  document.querySelector('.label-top').style.display = 'none';
+  document.getElementById('completeMsg').style.display = 'block';
+}
+
+function resetBreath() {
+  document.getElementById('completeMsg').style.display = 'none';
+  document.querySelector('.circle-wrap').style.display = 'block';
+  document.querySelector('.info').style.display = 'block';
+  document.querySelector('.label-top').style.display = 'block';
+  document.getElementById('controls').style.display = 'flex';
+  stopBreath();
+}
+</script>
+</body>
+</html>

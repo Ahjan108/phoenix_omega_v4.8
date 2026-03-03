@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Box Breathing</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anybody:wght@200;400;600&family=Outfit:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0c0f14;
+    --inhale: #4ade80;
+    --hold1: #60a5fa;
+    --exhale: #f472b6;
+    --hold2: #fbbf24;
+    --text: #e4e4e7;
+    --muted: #52525b;
+    --surface: rgba(255,255,255,0.03);
+  }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(74,222,128,0.03) 0%, transparent 40%),
+      radial-gradient(ellipse at 80% 70%, rgba(96,165,250,0.03) 0%, transparent 40%);
+    z-index: 0;
+  }
+
+  .container {
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 1.8rem;
+    padding: 2rem; width: 100%; max-width: 500px;
+  }
+
+  h1 {
+    font-family: 'Anybody', sans-serif;
+    font-weight: 200;
+    font-size: 2.4rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .subtitle {
+    font-size: 0.8rem; color: var(--muted);
+    letter-spacing: 0.2em; text-transform: uppercase;
+    margin-top: -1rem;
+  }
+
+  /* Box visualization */
+  .box-area {
+    position: relative;
+    width: 260px; height: 260px;
+  }
+
+  canvas#boxCanvas {
+    width: 100%; height: 100%;
+  }
+
+  .box-center {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 0.3rem; pointer-events: none;
+  }
+
+  .phase-name {
+    font-family: 'Anybody', sans-serif;
+    font-weight: 400; font-size: 1.1rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    transition: color 0.4s;
+  }
+
+  .timer-num {
+    font-family: 'Anybody', sans-serif;
+    font-weight: 200; font-size: 3.2rem;
+    letter-spacing: 0.05em;
+    transition: color 0.4s;
+  }
+
+  .cycle-num {
+    font-size: 0.75rem; color: var(--muted);
+    letter-spacing: 0.15em;
+  }
+
+  /* Info */
+  .pattern-row {
+    display: flex; gap: 0.6rem; align-items: center;
+    flex-wrap: wrap; justify-content: center;
+  }
+
+  .pattern-chip {
+    padding: 0.35rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid;
+  }
+
+  .chip-inhale { border-color: rgba(74,222,128,0.3); color: var(--inhale); background: rgba(74,222,128,0.06); }
+  .chip-hold1  { border-color: rgba(96,165,250,0.3); color: var(--hold1); background: rgba(96,165,250,0.06); }
+  .chip-exhale { border-color: rgba(244,114,182,0.3); color: var(--exhale); background: rgba(244,114,182,0.06); }
+  .chip-hold2  { border-color: rgba(251,191,36,0.3); color: var(--hold2); background: rgba(251,191,36,0.06); }
+
+  /* Controls */
+  .controls { display: flex; gap: 1rem; }
+
+  .btn {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.7rem 2rem;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text); cursor: pointer;
+    transition: all 0.25s;
+  }
+
+  .btn:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.22); }
+  .btn.go { border-color: rgba(74,222,128,0.4); background: rgba(74,222,128,0.08); }
+  .btn.go:hover { background: rgba(74,222,128,0.15); }
+  .btn-sm { padding: 0.5rem 1rem; font-size: 0.72rem; }
+
+  /* Completion */
+  .done-screen {
+    display: none; flex-direction: column;
+    align-items: center; gap: 1.5rem; text-align: center;
+    animation: fadeUp 0.8s ease;
+  }
+  .done-screen.show { display: flex; }
+
+  .done-screen h2 {
+    font-family: 'Anybody', sans-serif;
+    font-weight: 200; font-size: 2rem;
+    letter-spacing: 0.1em;
+  }
+
+  .done-screen p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; max-width: 340px; }
+
+  .live { display: flex; flex-direction: column; align-items: center; gap: 1.8rem; }
+  .live.off { display: none; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .sound-btn {
+    position: fixed; top: 1.2rem; right: 1.2rem;
+    z-index: 10; width: 38px; height: 38px;
+    border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);
+    background: var(--surface); color: var(--muted);
+    cursor: pointer; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.25s;
+  }
+  .sound-btn:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+</style>
+</head>
+<body>
+
+<button class="sound-btn" id="sndBtn" title="Toggle sound">🔔</button>
+
+<div class="container">
+  <h1>Box Breath</h1>
+  <div class="subtitle">Equal-Sided Regulation</div>
+
+  <div class="live" id="liveView">
+    <div class="pattern-row">
+      <span class="pattern-chip chip-inhale">In 4s</span>
+      <span class="pattern-chip chip-hold1">Hold 4s</span>
+      <span class="pattern-chip chip-exhale">Out 4s</span>
+      <span class="pattern-chip chip-hold2">Hold 4s</span>
+    </div>
+
+    <div class="box-area">
+      <canvas id="boxCanvas" width="520" height="520"></canvas>
+      <div class="box-center">
+        <div class="phase-name" id="pName">Ready</div>
+        <div class="timer-num" id="tNum">—</div>
+        <div class="cycle-num" id="cNum"></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn go" id="goBtn">Begin</button>
+      <button class="btn btn-sm" id="rstBtn" style="display:none">Reset</button>
+    </div>
+  </div>
+
+  <div class="done-screen" id="doneView">
+    <h2>Session Complete</h2>
+    <p>Seven rounds of box breathing. The equal-sided pattern balances your autonomic nervous system — calming the sympathetic and engaging the parasympathetic in equilibrium.</p>
+    <p style="opacity:0.6;font-style:italic;">Used by Navy SEALs. Now it's yours.</p>
+    <button class="btn go" id="againBtn">Again</button>
+  </div>
+</div>
+
+<script>
+const IN=4, H1=4, OUT=4, H2=4, CYCLES=7;
+const SIDES=[
+  {name:'Inhale',dur:IN,  color:'#4ade80'},
+  {name:'Hold',  dur:H1,  color:'#60a5fa'},
+  {name:'Exhale',dur:OUT, color:'#f472b6'},
+  {name:'Hold',  dur:H2,  color:'#fbbf24'}
+];
+const CYCLE_T=IN+H1+OUT+H2;
+
+// Audio
+class Tones {
+  constructor(){ this.ctx=null; this.on=true; }
+  init(){ if(!this.ctx) this.ctx=new(window.AudioContext||window.webkitAudioContext)(); }
+  ping(freq,len){
+    if(!this.on||!this.ctx)return;
+    const o=this.ctx.createOscillator(),g=this.ctx.createGain();
+    o.type='triangle'; o.frequency.value=freq;
+    g.gain.setValueAtTime(0,this.ctx.currentTime);
+    g.gain.linearRampToValueAtTime(0.09,this.ctx.currentTime+0.08);
+    g.gain.linearRampToValueAtTime(0,this.ctx.currentTime+len);
+    o.connect(g); g.connect(this.ctx.destination);
+    o.start(); o.stop(this.ctx.currentTime+len);
+  }
+  phase(i){ this.ping([329.63,440,277.18,349.23][i], SIDES[i].dur); }
+  toggle(){ this.on=!this.on; return this.on; }
+}
+
+const tone=new Tones();
+
+// Canvas
+const cvs=document.getElementById('boxCanvas');
+const c=cvs.getContext('2d');
+const W=cvs.width, H=cvs.height, CX=W/2, CY=H/2;
+const PAD=70, HALF=W/2-PAD;
+
+// Corners of the box: TL, TR, BR, BL
+const corners=[
+  [CX-HALF, CY-HALF],
+  [CX+HALF, CY-HALF],
+  [CX+HALF, CY+HALF],
+  [CX-HALF, CY+HALF]
+];
+
+function drawBox(sideIdx, progress, overallProg){
+  c.clearRect(0,0,W,H);
+
+  // Draw completed sides
+  c.lineWidth=2; c.lineCap='round';
+  for(let i=0;i<4;i++){
+    const [x1,y1]=corners[i];
+    const [x2,y2]=corners[(i+1)%4];
+    if(i<sideIdx){
+      c.strokeStyle=SIDES[i].color;
+      c.globalAlpha=0.7;
+      c.beginPath(); c.moveTo(x1,y1); c.lineTo(x2,y2); c.stroke();
+    } else if(i===sideIdx){
+      // Partially drawn current side
+      const ex=x1+(x2-x1)*progress;
+      const ey=y1+(y2-y1)*progress;
+      c.strokeStyle=SIDES[i].color;
+      c.globalAlpha=0.9;
+      c.lineWidth=3;
+      c.beginPath(); c.moveTo(x1,y1); c.lineTo(ex,ey); c.stroke();
+      c.lineWidth=2;
+
+      // Dot at current position
+      c.globalAlpha=1;
+      c.beginPath(); c.arc(ex,ey,7,0,Math.PI*2);
+      c.fillStyle=SIDES[i].color;
+      c.shadowColor=SIDES[i].color;
+      c.shadowBlur=18;
+      c.fill();
+      c.shadowBlur=0;
+    } else {
+      c.strokeStyle='rgba(255,255,255,0.06)';
+      c.globalAlpha=1;
+      c.beginPath(); c.moveTo(x1,y1); c.lineTo(x2,y2); c.stroke();
+    }
+    c.globalAlpha=1;
+  }
+
+  // Corner dots
+  for(const [x,y] of corners){
+    c.beginPath(); c.arc(x,y,3,0,Math.PI*2);
+    c.fillStyle='rgba(255,255,255,0.15)';
+    c.fill();
+  }
+
+  // Progress ring in center
+  if(overallProg>0){
+    c.beginPath();
+    c.arc(CX,CY,28,-Math.PI/2,-Math.PI/2+overallProg*Math.PI*2);
+    c.strokeStyle='rgba(255,255,255,0.08)';
+    c.lineWidth=2; c.stroke();
+  }
+}
+
+function drawIdle(){
+  c.clearRect(0,0,W,H);
+  const t=Date.now()/2000;
+  const pulse=Math.sin(t)*2;
+  c.lineWidth=1.5;
+  for(let i=0;i<4;i++){
+    const [x1,y1]=corners[i];
+    const [x2,y2]=corners[(i+1)%4];
+    c.strokeStyle='rgba(255,255,255,0.08)';
+    c.beginPath(); c.moveTo(x1,y1); c.lineTo(x2,y2); c.stroke();
+  }
+  for(const [x,y] of corners){
+    c.beginPath(); c.arc(x,y,2.5+Math.sin(t)*0.5,0,Math.PI*2);
+    c.fillStyle='rgba(255,255,255,0.1)';
+    c.fill();
+  }
+}
+
+// State
+let state='idle', cycle=0, sideIdx=0, phaseStart=0, paused=false, pauseOff=0, pauseT=0;
+
+const pName=document.getElementById('pName');
+const tNum=document.getElementById('tNum');
+const cNum=document.getElementById('cNum');
+const goBtn=document.getElementById('goBtn');
+const rstBtn=document.getElementById('rstBtn');
+const liveView=document.getElementById('liveView');
+const doneView=document.getElementById('doneView');
+
+function setUI(side){
+  pName.textContent=side.name;
+  pName.style.color=side.color;
+  tNum.style.color=side.color;
+  cNum.textContent=`${cycle+1} / ${CYCLES}`;
+}
+
+function start(){
+  tone.init();
+  state='active'; cycle=0; sideIdx=0;
+  paused=false; pauseOff=0;
+  phaseStart=performance.now();
+  goBtn.textContent='Pause'; goBtn.classList.remove('go');
+  rstBtn.style.display='inline-block';
+  doneView.classList.remove('show');
+  liveView.classList.remove('off');
+  setUI(SIDES[0]); tone.phase(0);
+  tick();
+}
+
+function tick(){
+  if(state!=='active'||paused)return;
+  const now=performance.now();
+  const side=SIDES[sideIdx];
+  const elapsed=(now-phaseStart-pauseOff)/1000;
+  const remain=Math.max(0,side.dur-elapsed);
+  const prog=Math.min(1,elapsed/side.dur);
+
+  const totalS=CYCLES*CYCLE_T;
+  const doneS=cycle*CYCLE_T+SIDES.slice(0,sideIdx).reduce((s,p)=>s+p.dur,0)+elapsed;
+  const overall=Math.min(1,doneS/totalS);
+
+  tNum.textContent=Math.ceil(remain);
+  drawBox(sideIdx,prog,overall);
+
+  if(elapsed>=side.dur){
+    sideIdx++;
+    if(sideIdx>=4){ sideIdx=0; cycle++; if(cycle>=CYCLES){ finish(); return; } }
+    pauseOff=0; phaseStart=performance.now();
+    setUI(SIDES[sideIdx]); tone.phase(sideIdx);
+  }
+
+  requestAnimationFrame(tick);
+}
+
+function finish(){
+  state='done';
+  liveView.classList.add('off');
+  doneView.classList.add('show');
+}
+
+function reset(){
+  state='idle'; paused=false; pauseOff=0;
+  goBtn.textContent='Begin'; goBtn.classList.add('go');
+  rstBtn.style.display='none';
+  pName.textContent='Ready'; pName.style.color='';
+  tNum.textContent='—'; tNum.style.color=''; cNum.textContent='';
+  doneView.classList.remove('show'); liveView.classList.remove('off');
+  idleAnim();
+}
+
+function togglePause(){
+  if(!paused){ paused=true; pauseT=performance.now(); goBtn.textContent='Resume'; goBtn.classList.add('go'); }
+  else{ pauseOff+=performance.now()-pauseT; paused=false; goBtn.textContent='Pause'; goBtn.classList.remove('go'); tone.phase(sideIdx); tick(); }
+}
+
+goBtn.onclick=()=>{ if(state==='idle')start(); else if(state==='active')togglePause(); };
+rstBtn.onclick=reset;
+document.getElementById('againBtn').onclick=()=>{ reset(); start(); };
+document.getElementById('sndBtn').onclick=()=>{ tone.init(); const on=tone.toggle(); document.getElementById('sndBtn').textContent=on?'🔔':'🔇'; };
+
+function idleAnim(){ if(state!=='idle')return; drawIdle(); requestAnimationFrame(idleAnim); }
+idleAnim();
+</script>
+</body>
+</html>

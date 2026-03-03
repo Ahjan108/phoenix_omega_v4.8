@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nadi Shodhana — Alternate Nostril</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--left:#6B9FC4;--right:#C4896B;--bg:#0A0D14;--text:#E0DBD2;--muted:#5F5B55}
+  body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;user-select:none}
+  .wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.4rem;width:100%;max-width:420px;padding:0 1.5rem}
+  h1{font-family:'Cormorant',serif;font-weight:300;font-size:1.9rem;letter-spacing:.04em}
+  .sub{font-size:.72rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+  .nose-area{position:relative;width:240px;height:260px;display:flex;align-items:center;justify-content:center}
+  .nose-svg{width:180px;height:220px}
+  .nostril-l,.nostril-r{transition:fill .5s,opacity .5s}
+  .nostril-l{fill:rgba(107,159,196,.15)}.nostril-r{fill:rgba(196,137,107,.15)}
+  .nostril-l.active{fill:rgba(107,159,196,.6)}.nostril-r.active{fill:rgba(196,137,107,.6)}
+  .flow-l,.flow-r{position:absolute;width:40px;height:80px;top:40px;opacity:0;transition:opacity .8s}
+  .flow-l{left:30px}.flow-r{right:30px}
+  .flow-l.active,.flow-r.active{opacity:1}
+  .flow-arrow{font-size:1.8rem;opacity:.5;animation:flowAnim 2s ease-in-out infinite}
+  .flow-l .flow-arrow{color:var(--left)}.flow-r .flow-arrow{color:var(--right)}
+  @keyframes flowAnim{0%,100%{transform:translateY(0);opacity:.3}50%{transform:translateY(-10px);opacity:.7}}
+  .hand-indicator{position:absolute;bottom:10px;font-size:.65rem;color:var(--muted);letter-spacing:.08em;text-align:center;width:100%}
+  .side-labels{display:flex;justify-content:space-between;width:200px;font-size:.75rem;letter-spacing:.1em}
+  .side-labels span{transition:color .4s,opacity .4s;opacity:.4}
+  .side-labels span.active{opacity:1}
+  .side-labels .left-label{color:var(--left)}.side-labels .right-label{color:var(--right)}
+  .phase-info{text-align:center}
+  .phase-name{font-family:'Cormorant',serif;font-size:1.5rem;font-weight:300;letter-spacing:.08em}
+  .phase-cd{font-size:2rem;font-weight:300;opacity:.7}
+  .progress-bar{width:100%;height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
+  .progress-fill{height:100%;width:0;border-radius:2px;transition:background .5s}
+  .info-row{display:flex;gap:2rem;font-size:.8rem;color:var(--muted)}
+  .info-row strong{color:var(--text);font-weight:500}
+  .controls{display:flex;gap:1rem}
+  .btn{font-family:'Outfit',sans-serif;padding:.55rem 1.6rem;border:1px solid rgba(255,255,255,.1);border-radius:100px;background:rgba(255,255,255,.03);color:var(--text);font-size:.82rem;cursor:pointer;transition:all .3s}
+  .btn:hover{background:rgba(255,255,255,.08)}
+  .btn.pri{background:rgba(107,159,196,.15);border-color:rgba(107,159,196,.3)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Nadi Shodhana</h1>
+  <p class="sub">Alternate Nostril Breathing</p>
+  <div class="nose-area">
+    <div class="flow-l" id="flowL"><div class="flow-arrow">↑</div></div>
+    <div class="flow-r" id="flowR"><div class="flow-arrow">↑</div></div>
+    <svg class="nose-svg" viewBox="0 0 180 220">
+      <!-- nose bridge -->
+      <path d="M90 30 L90 120" stroke="rgba(255,255,255,.12)" stroke-width="1.5" fill="none"/>
+      <!-- left nostril -->
+      <ellipse class="nostril-l" id="nostrilL" cx="65" cy="155" rx="28" ry="38" stroke="rgba(107,159,196,.3)" stroke-width="1"/>
+      <!-- right nostril -->
+      <ellipse class="nostril-r" id="nostrilR" cx="115" cy="155" rx="28" ry="38" stroke="rgba(196,137,107,.3)" stroke-width="1"/>
+      <!-- septum -->
+      <line x1="90" y1="120" x2="90" y2="195" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+      <!-- nose tip -->
+      <circle cx="90" cy="120" r="4" fill="rgba(255,255,255,.08)"/>
+    </svg>
+    <div class="hand-indicator" id="handHint">Right thumb closes right nostril</div>
+  </div>
+  <div class="side-labels">
+    <span class="left-label" id="lblL">← Left (Ida)</span>
+    <span class="right-label" id="lblR">Right (Pingala) →</span>
+  </div>
+  <div class="phase-info">
+    <div class="phase-name" id="phaseName">Ready</div>
+    <div class="phase-cd" id="cd"></div>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="pFill"></div></div>
+  <div class="info-row">
+    <span>Rounds <strong id="rounds">0</strong> / <strong>10</strong></span>
+    <span>Elapsed <strong id="elapsed">0:00</strong></span>
+  </div>
+  <div class="controls">
+    <button class="btn pri" id="startBtn" onclick="toggle()">Begin</button>
+    <button class="btn" onclick="doReset()">Reset</button>
+  </div>
+</div>
+<script>
+// Pattern: inhale L 4s → exhale R 4s → inhale R 4s → exhale L 4s = 1 round
+const STEPS=[
+  {side:'left',action:'Inhale',dur:4,hand:'Right thumb closes right nostril'},
+  {side:'right',action:'Exhale',dur:4,hand:'Right ring finger closes left nostril'},
+  {side:'right',action:'Inhale',dur:4,hand:'Right ring finger closes left nostril'},
+  {side:'left',action:'Exhale',dur:4,hand:'Right thumb closes right nostril'},
+];
+const ROUNDS=10;
+let running=false,paused=false,step=0,st=0,round=0,total=0,lastTs=0,aCtx=null,lastStep=-1;
+
+function audio(){if(!aCtx)aCtx=new(window.AudioContext||window.webkitAudioContext)();return aCtx}
+function tone(f,d=.3){try{const x=audio(),o=x.createOscillator(),g=x.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,x.currentTime);g.gain.linearRampToValueAtTime(.08,x.currentTime+.05);g.gain.exponentialRampToValueAtTime(.001,x.currentTime+d);o.connect(g);g.connect(x.destination);o.start();o.stop(x.currentTime+d)}catch(e){}}
+function fmt(s){return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
+
+function updateVisuals(s){
+  const sp=STEPS[s.step||step];
+  const isL=sp.side==='left';
+  document.getElementById('nostrilL').classList.toggle('active',isL);
+  document.getElementById('nostrilR').classList.toggle('active',!isL);
+  document.getElementById('flowL').classList.toggle('active',isL);
+  document.getElementById('flowR').classList.toggle('active',!isL);
+  document.getElementById('lblL').classList.toggle('active',isL);
+  document.getElementById('lblR').classList.toggle('active',!isL);
+  document.getElementById('handHint').textContent=sp.hand;
+  document.getElementById('phaseName').textContent=sp.action+' · '+(isL?'Left':'Right');
+  const fill=document.getElementById('pFill');
+  fill.style.background=isL?'var(--left)':'var(--right)';
+}
+
+function tick(ts){
+  if(!running||paused)return;
+  if(!lastTs)lastTs=ts;
+  const dt=(ts-lastTs)/1000;lastTs=ts;
+  st+=dt;total+=dt;
+
+  const sp=STEPS[step];
+  if(step!==lastStep){
+    tone(sp.side==='left'?340:440);
+    updateVisuals({step});
+    lastStep=step;
+  }
+
+  const frac=Math.min(st/sp.dur,1);
+  document.getElementById('cd').textContent=Math.ceil(sp.dur-st);
+  document.getElementById('pFill').style.width=(frac*100)+'%';
+  document.getElementById('elapsed').textContent=fmt(total);
+
+  if(st>=sp.dur){
+    st=0;step++;
+    if(step>=STEPS.length){
+      step=0;round++;
+      document.getElementById('rounds').textContent=round;
+      if(round>=ROUNDS){end();return}
+    }
+  }
+  requestAnimationFrame(tick);
+}
+
+function toggle(){
+  const b=document.getElementById('startBtn');
+  if(!running){running=true;paused=false;step=0;st=0;round=0;total=0;lastTs=0;lastStep=-1;
+    document.getElementById('rounds').textContent='0';b.textContent='Pause';requestAnimationFrame(tick);
+  }else if(!paused){paused=true;lastTs=0;b.textContent='Resume'}
+  else{paused=false;lastTs=0;b.textContent='Pause';requestAnimationFrame(tick)}
+}
+
+function doReset(){
+  running=false;paused=false;step=0;st=0;round=0;total=0;lastTs=0;lastStep=-1;
+  document.getElementById('startBtn').textContent='Begin';
+  document.getElementById('rounds').textContent='0';document.getElementById('elapsed').textContent='0:00';
+  document.getElementById('phaseName').textContent='Ready';document.getElementById('cd').textContent='';
+  document.getElementById('pFill').style.width='0';
+  ['nostrilL','nostrilR'].forEach(id=>document.getElementById(id).classList.remove('active'));
+  ['flowL','flowR'].forEach(id=>document.getElementById(id).classList.remove('active'));
+  ['lblL','lblR'].forEach(id=>document.getElementById(id).classList.remove('active'));
+  document.getElementById('handHint').textContent='Right thumb closes right nostril';
+}
+
+function end(){
+  running=false;document.getElementById('startBtn').textContent='Begin';
+  document.getElementById('phaseName').textContent='Namaste';document.getElementById('cd').textContent='';
+  tone(528,.8);
+}
+</script>
+</body>
+</html>

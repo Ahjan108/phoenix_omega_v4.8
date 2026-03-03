@@ -1,0 +1,18 @@
+# Series quality rules: P0 hard/soft diversity, P1 freshness and metadata.
+# Consumed by validate_series_diversity, check_series_content_uniqueness, check_series_metadata_intent.
+
+schema_version: "1.0"
+
+hard_rules:
+  adjacent_mech_journey_unique: true   # Adjacent installments cannot share (primary_mechanism_id + journey_shape_id)
+  adjacent_band_curve_unique: true     # Adjacent installments cannot share band_curve_id
+
+soft_rules:
+  max_combo_share_warn: 0.40           # Warn when (book_structure_id, journey_shape_id, motif_id, reframe_profile_id) density exceeds this share in series
+
+freshness:
+  min_new_story_atoms_vs_prev: 2       # Minimum new STORY atom IDs vs immediate previous installment (integer)
+  require_distinct_integration_atom_vs_prev: true  # Final INTEGRATION atom must differ from previous installment
+
+metadata:
+  max_title_similarity: 0.85           # Block if title similarity (cosine/lexical) to another in series >= this

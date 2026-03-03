@@ -1,0 +1,45 @@
+# Authority: SYSTEMS_DOCUMENTATION §29.2.3
+# All scoring weights; no hardcoded numbers in scorer.py or validator.py.
+
+naming_scoring:
+  version: 2
+  model: "seo + human_appeal - dup_risk - penalties"
+  min_total_score: 0.80
+
+  length_limits:
+    max_title_length: 60
+    max_subtitle_length: 120
+
+  seo_scoring:
+    primary_in_title: 0.50
+    primary_in_subtitle_only: 0.30
+    secondary_in_subtitle: 0.10
+    intent_template_match: 0.10
+    keyword_stem_repeat_penalty: 0.10
+    keyword_stem_repeat_max: 2
+
+  human_appeal:
+    scenario_lexeme: 0.25
+    persona_lexeme: 0.25
+    distress_verb: 0.20
+    outcome_phrase: 0.20
+    scenario_3plus_words_bonus: 0.10
+    mechanism_blacklist_penalty: 0.25
+    abstract_noun_dominance_penalty: 0.15
+    metaphor_only_no_keyword_penalty: 0.10
+    max_score: 1.0
+    min_score: 0.0
+
+  duplication:
+    cosine_reject_threshold: 0.90
+    ngram_reject_threshold: 0.65
+    ngram_n: 3
+
+  penalties:
+    title_exceeds_max_length: 0.30
+    keyword_stuffing: 0.10
+    no_outcome_verb_in_subtitle: 0.10
+    same_template_as_series_sibling: 0.10
+
+  validators:
+    same_skeleton_max_per_wave: 3

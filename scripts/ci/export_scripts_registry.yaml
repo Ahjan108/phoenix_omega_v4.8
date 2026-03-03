@@ -1,0 +1,7 @@
+# Scripts that can trigger export/upload to storefronts.
+# Each listed script MUST call prepare_wave_for_export (no bypass).
+# CI check_export_no_bypass.py fails if any script here does not reference it.
+# When adding a new export path, add it here and ensure it calls the release entrypoint.
+
+export_scripts:
+  - scripts/release/export_wave.py

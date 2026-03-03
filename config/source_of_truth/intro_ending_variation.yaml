@@ -1,0 +1,22 @@
+# Controlled Intro/Conclusion Variation — feature flag and global settings.
+# Authority: Controlled Intro/Conclusion Variation plan.
+# When intro_ending_variation_enabled is false, pipeline uses only YAML pre-intro (current behavior).
+
+schema_version: "1.0"
+
+# Master switch: staged rollout and rollback without code revert.
+intro_ending_variation_enabled: true
+
+# When true: if both audiobook_pre_intro.yaml and pattern bank have a value for a dynamic block,
+# use pattern bank selection. When false: use YAML value. Global; one winner per block.
+pattern_bank_overrides_yaml: false
+
+# Reselection: max attempts when over cap or duplicate before failing with explicit error.
+max_retries: 5
+
+# Cap limits (share of books in brand/quarter): intro 15%, ending 20%.
+intro_signature_cap_share: 0.15
+ending_signature_cap_share: 0.20
+
+# Quarter window: calendar quarter in brand locale time (from locale_registry / brand territory).
+# Used so 15%/20% caps do not vary by runner. No config needed here; resolved from brand_id -> locale -> territory at runtime.

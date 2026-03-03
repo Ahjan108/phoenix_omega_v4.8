@@ -1,0 +1,16 @@
+{
+  "timestamp": "20260223T075905Z",
+  "total": 1,
+  "passed": 0,
+  "failed": 1,
+  "results": [
+    {
+      "check_id": "phase3_pipeline",
+      "passed": false,
+      "category": "pipeline_fail",
+      "message": "PyYAML required",
+      "artifact_path": null,
+      "suggested_fix": "pip install pyyaml"
+    }
+  ]
+}

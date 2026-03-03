@@ -1,0 +1,160 @@
+schema_version: 1
+registry_id: brand_registry
+owner: pearl_prime
+status: active
+
+defaults:
+  id_format: snake_case
+  lifecycle_states: [active, deprecated]
+
+brands:
+  stillness_press:
+    lifecycle: active
+    catalog_id: en_us_core
+    locale: en_US
+    family_allowlist:
+      - alarm_fear_systems
+      - collapse_burnout
+      - existential_void
+  cognitive_clarity:
+    lifecycle: active
+    catalog_id: en_us_core
+    locale: en_US
+    family_allowlist:
+      - overcontrol_perfection
+      - performance_pressure
+      - shame_engine
+
+  # Church compliance: canonical record in docs/norcal_dharma.yaml (Cooperative Church Compliance YAML Schema).
+  # Brand-only (no teacher): distribution/identity for payouts and catalog; no wave allocation.
+  norcal_dharma:
+    lifecycle: active
+    catalog_id: en_us_core
+    locale: en_US
+    family_allowlist:
+      - alarm_fear_systems
+      - collapse_burnout
+
+  sleep_repair_tw:
+    lifecycle: active
+    catalog_id: zh_tw
+    locale: zh_TW
+    family_allowlist: [alarm_fear_systems, collapse_burnout]
+  stabilizer_tw:
+    lifecycle: active
+    catalog_id: zh_tw
+    locale: zh_TW
+    family_allowlist: [alarm_fear_systems, collapse_burnout]
+  panic_first_aid_tw:
+    lifecycle: active
+    catalog_id: zh_tw
+    locale: zh_TW
+    family_allowlist: [alarm_fear_systems]
+  gen_z_grounding_tw:
+    lifecycle: active
+    catalog_id: zh_tw
+    locale: zh_TW
+    family_allowlist: [identity_fracture, performance_pressure]
+  grief_companion_tw:
+    lifecycle: active
+    catalog_id: zh_tw
+    locale: zh_TW
+    family_allowlist: [grief_loss]
+  inner_security_tw:
+    lifecycle: active
+    catalog_id: zh_tw
+    locale: zh_TW
+    family_allowlist: [relational_instability, shame_engine]
+
+  sleep_repair_hk:
+    lifecycle: active
+    catalog_id: zh_hk
+    locale: zh_HK
+    family_allowlist: [alarm_fear_systems, collapse_burnout]
+  stabilizer_hk:
+    lifecycle: active
+    catalog_id: zh_hk
+    locale: zh_HK
+    family_allowlist: [alarm_fear_systems, collapse_burnout]
+  panic_first_aid_hk:
+    lifecycle: active
+    catalog_id: zh_hk
+    locale: zh_HK
+    family_allowlist: [alarm_fear_systems]
+  gen_z_grounding_hk:
+    lifecycle: active
+    catalog_id: zh_hk
+    locale: zh_HK
+    family_allowlist: [identity_fracture, performance_pressure]
+  grief_companion_hk:
+    lifecycle: active
+    catalog_id: zh_hk
+    locale: zh_HK
+    family_allowlist: [grief_loss]
+  inner_security_hk:
+    lifecycle: active
+    catalog_id: zh_hk
+    locale: zh_HK
+    family_allowlist: [relational_instability, shame_engine]
+
+  sleep_repair_cn:
+    lifecycle: active
+    catalog_id: zh_cn
+    locale: zh_CN
+    family_allowlist: [alarm_fear_systems, collapse_burnout]
+  stabilizer_cn:
+    lifecycle: active
+    catalog_id: zh_cn
+    locale: zh_CN
+    family_allowlist: [alarm_fear_systems, collapse_burnout]
+  panic_first_aid_cn:
+    lifecycle: active
+    catalog_id: zh_cn
+    locale: zh_CN
+    family_allowlist: [alarm_fear_systems]
+  gen_z_grounding_cn:
+    lifecycle: active
+    catalog_id: zh_cn
+    locale: zh_CN
+    family_allowlist: [identity_fracture, performance_pressure]
+  grief_companion_cn:
+    lifecycle: active
+    catalog_id: zh_cn
+    locale: zh_CN
+    family_allowlist: [grief_loss]
+  inner_security_cn:
+    lifecycle: active
+    catalog_id: zh_cn
+    locale: zh_CN
+    family_allowlist: [relational_instability, shame_engine]
+
+  sleep_repair_sg:
+    lifecycle: active
+    catalog_id: zh_sg
+    locale: zh_SG
+    family_allowlist: [alarm_fear_systems, collapse_burnout]
+  stabilizer_sg:
+    lifecycle: active
+    catalog_id: zh_sg
+    locale: zh_SG
+    family_allowlist: [alarm_fear_systems, collapse_burnout]
+  panic_first_aid_sg:
+    lifecycle: active
+    catalog_id: zh_sg
+    locale: zh_SG
+    family_allowlist: [alarm_fear_systems]
+  gen_z_grounding_sg:
+    lifecycle: active
+    catalog_id: zh_sg
+    locale: zh_SG
+    family_allowlist: [identity_fracture, performance_pressure]
+  grief_companion_sg:
+    lifecycle: active
+    catalog_id: zh_sg
+    locale: zh_SG
+    family_allowlist: [grief_loss]
+  inner_security_sg:
+    lifecycle: active
+    catalog_id: zh_sg
+    locale: zh_SG
+    family_allowlist: [relational_instability, shame_engine]

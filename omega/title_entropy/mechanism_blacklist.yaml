@@ -1,0 +1,27 @@
+# Authority: SYSTEMS_DOCUMENTATION §29.2.2
+# Clinical/mechanism terms banned from titles and subtitles.
+
+mechanism_blacklist:
+  clinical_terms:
+    - spotlight effect
+    - cognitive defusion
+    - intolerance of uncertainty
+    - operant conditioning
+    - exposure hierarchy
+    - limbic system
+    - amygdala hijack
+    - schema therapy
+    - polyvagal
+    - window of tolerance
+    - nervous system regulation
+    - somatic experiencing
+
+  abstraction_terms:
+    - neurological pathway
+    - behavioral pattern disruption
+    - cognitive restructuring
+    - emotional processing
+    - psychoeducation
+    - metacognitive awareness
+
+  enforcement: hard_reject

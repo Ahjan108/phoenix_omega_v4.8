@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyclic Sighing</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:#0c1117;color:#d1fae5;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.3rem;padding:1.5rem;width:100%;max-width:440px}
+h1{font-family:'DM Serif Display',serif;font-size:2rem;letter-spacing:.04em}
+.sub{font-size:.7rem;color:#047857;letter-spacing:.2em;text-transform:uppercase;margin-top:-.5rem}
+canvas{display:block;width:260px;height:180px}
+.ph{font-family:'DM Serif Display',serif;font-size:1.2rem;letter-spacing:.08em;transition:color .3s}
+.ct{font-family:'DM Serif Display',serif;font-size:3rem;transition:color .3s}
+.cy{font-size:.68rem;color:#047857;letter-spacing:.12em}
+.stress{width:100%;display:flex;align-items:center;gap:.6rem}
+.sl{font-size:.6rem;color:#047857;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.sb{flex:1;height:8px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden}
+.sf{height:100%;width:80%;background:linear-gradient(90deg,#10b981,#f59e0b,#ef4444);border-radius:4px;transition:width 1s}
+.ctrls{display:flex;gap:1rem}
+.btn{font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.6rem;border:1px solid rgba(16,185,129,.25);border-radius:100px;background:rgba(16,185,129,.06);color:#d1fae5;cursor:pointer;transition:all .25s}
+.btn:hover{background:rgba(16,185,129,.12)}
+.btn.pri{border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.1)}
+.btn-s{padding:.4rem .9rem;font-size:.68rem}
+.done{display:none;flex-direction:column;align-items:center;gap:1.2rem;text-align:center;animation:fu .8s}
+.done.show{display:flex}.main.off{display:none}
+.done h2{font-family:'DM Serif Display',serif;font-size:1.7rem}
+.done p{color:#047857;font-size:.85rem;line-height:1.7;max-width:340px}
+@keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.snd{position:fixed;top:1rem;right:1rem;z-index:10;width:34px;height:34px;border-radius:50%;border:1px solid rgba(16,185,129,.15);background:rgba(16,185,129,.03);color:#047857;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<button class="snd" id="sndBtn">🔔</button>
+<div class="wrap">
+<h1>Cyclic Sighing</h1>
+<div class="sub">Physiological Sigh Protocol · 1 minute</div>
+<div class="main" id="mainV">
+<canvas id="cv" width="520" height="360"></canvas>
+<div style="text-align:center"><div class="ph" id="ph">Ready</div><div class="ct" id="ct">—</div><div class="cy" id="cy"></div></div>
+<div class="stress"><div class="sl">Stress</div><div class="sb"><div class="sf" id="sf"></div></div><div class="sl">Calm</div></div>
+<div class="ctrls"><button class="btn pri" id="goBtn">Begin</button><button class="btn btn-s" id="rstBtn" style="display:none">Reset</button></div>
+</div>
+<div class="done" id="doneV">
+<h2>Reset Complete</h2>
+<p>Six physiological sighs — the fastest evidence-based method for reducing stress in real time. Stanford research found just five minutes of this pattern outperformed meditation for mood improvement.</p>
+<p style="opacity:.6;font-style:italic">One double-inhale is all it takes to shift your state.</p>
+<button class="btn pri" id="agBtn">Again</button>
+</div>
+</div>
+<script>
+// Pattern: double inhale (2s + 1.5s sniff) + long exhale (6.5s) = 10s per cycle, 6 cycles
+const INH1=2,INH2=1.5,EXH=6.5,CYCLE_DUR=INH1+INH2+EXH,CYCLES=6;
+const PHASES=[{name:'Inhale',dur:INH1,col:'#34d399'},{name:'Sniff In',dur:INH2,col:'#6ee7b7'},{name:'Long Exhale',dur:EXH,col:'#047857'}];
+class Aud{constructor(){this.c=null;this.on=true}init(){if(!this.c)this.c=new(window.AudioContext||window.webkitAudioContext)()}t(f,d){if(!this.on||!this.c)return;const o=this.c.createOscillator(),g=this.c.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,this.c.currentTime);g.gain.linearRampToValueAtTime(.06,this.c.currentTime+.1);g.gain.setValueAtTime(.06,this.c.currentTime+d-.2);g.gain.linearRampToValueAtTime(0,this.c.currentTime+d);o.connect(g);g.connect(this.c.destination);o.start();o.stop(this.c.currentTime+d)}toggle(){this.on=!this.on;return this.on}}
+const au=new Aud();const cv=document.getElementById('cv'),c=cv.getContext('2d'),W=cv.width,H=cv.height;
+function drawLungs(phase,prog,cycle){
+c.clearRect(0,0,W,H);
+// Two lung shapes
+const t=Date.now()/1e3;
+let inflate=0;
+if(phase===0) inflate=prog*.6;
+else if(phase===1) inflate=.6+prog*.4;
+else inflate=1-prog;
+const r=30+inflate*50;
+// Left lung
+let lg=c.createRadialGradient(180,H/2,0,180,H/2,r);lg.addColorStop(0,`rgba(16,185,129,${.2+inflate*.25})`);lg.addColorStop(1,'transparent');c.beginPath();c.arc(180,H/2,r,0,Math.PI*2);c.fillStyle=lg;c.fill();
+// Right lung
+lg=c.createRadialGradient(340,H/2,0,340,H/2,r);lg.addColorStop(0,`rgba(16,185,129,${.2+inflate*.25})`);lg.addColorStop(1,'transparent');c.beginPath();c.arc(340,H/2,r,0,Math.PI*2);c.fillStyle=lg;c.fill();
+// Trachea line
+c.beginPath();c.moveTo(260,40);c.lineTo(260,H/2-20);c.lineTo(180,H/2);c.moveTo(260,H/2-20);c.lineTo(340,H/2);c.strokeStyle='rgba(16,185,129,.15)';c.lineWidth=2;c.stroke();
+// Phase 1 sniff indicator
+if(phase===1){const sz=4+Math.sin(t*8)*2;c.beginPath();c.arc(260,60,sz,0,Math.PI*2);c.fillStyle='rgba(110,231,183,.5)';c.fill()}
+}
+let state='idle',cycle=0,phaseIdx=0,phS=0,pa=false,pO=0,pT2=0;
+const ph=document.getElementById('ph'),ct=document.getElementById('ct'),cy=document.getElementById('cy'),sf=document.getElementById('sf');
+const goBtn=document.getElementById('goBtn'),rstBtn=document.getElementById('rstBtn'),mainV=document.getElementById('mainV'),doneV=document.getElementById('doneV');
+function setUI(){const p=PHASES[phaseIdx];ph.textContent=p.name;ph.style.color=p.col;ct.style.color=p.col;cy.textContent=(cycle+1)+' / '+CYCLES;sf.style.width=Math.max(10,80-cycle*12)+'%'}
+function start(){au.init();state='active';cycle=0;phaseIdx=0;pa=false;pO=0;phS=performance.now();goBtn.textContent='Pause';goBtn.classList.remove('pri');rstBtn.style.display='inline-block';doneV.classList.remove('show');mainV.classList.remove('off');setUI();au.t(330,INH1);tick()}
+function tick(){if(state!=='active'||pa)return;const now=performance.now(),p=PHASES[phaseIdx],el=(now-phS-pO)/1e3,rem=Math.max(0,p.dur-el),prog=Math.min(1,el/p.dur);
+ct.textContent=rem.toFixed(1);drawLungs(phaseIdx,prog,cycle);
+if(el>=p.dur){phaseIdx++;if(phaseIdx>=3){cycle++;if(cycle>=CYCLES){finish();return}phaseIdx=0;setUI();au.t(330,INH1)}else{setUI();if(phaseIdx===1)au.t(440,.8);else au.t(220,EXH)}pO=0;phS=performance.now()}
+requestAnimationFrame(tick)}
+function finish(){state='done';sf.style.width='10%';mainV.classList.add('off');doneV.classList.add('show')}
+function reset(){state='idle';pa=false;pO=0;goBtn.textContent='Begin';goBtn.classList.add('pri');rstBtn.style.display='none';ph.textContent='Ready';ph.style.color='';ct.textContent='—';ct.style.color='';cy.textContent='';sf.style.width='80%';doneV.classList.remove('show');mainV.classList.remove('off')}
+function toggleP(){if(!pa){pa=true;pT2=performance.now();goBtn.textContent='Resume';goBtn.classList.add('pri')}else{pO+=performance.now()-pT2;pa=false;goBtn.textContent='Pause';goBtn.classList.remove('pri');tick()}}
+goBtn.onclick=()=>{if(state==='idle')start();else if(state==='active')toggleP()};rstBtn.onclick=reset;document.getElementById('agBtn').onclick=()=>{reset();start()};
+document.getElementById('sndBtn').onclick=()=>{au.init();document.getElementById('sndBtn').textContent=au.toggle()?'🔔':'🔇'};
+</script>
+</body>
+</html>

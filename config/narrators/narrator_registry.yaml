@@ -1,0 +1,23 @@
+# Narrator registry — voice/narrator selection for audiobook (Writer Spec §23.5).
+# When run_pipeline does not receive --narrator, default resolved from brand (default_narrators).
+# Compile fails if narrator_id set but not in registry or brand incompatible or status not approved.
+
+narrators:
+  default_narrator:
+    display_name: "Default Narrator"
+    brand_compatibility: [phoenix, stillness_press, cognitive_clarity]
+    persona_alignment: []
+    pacing_profile: standard
+    voice_engine_id: null
+    disallowed_topics: []
+    status: approved
+
+  # Example entries for multi-narrator use:
+  # ava_reed:
+  #   display_name: "Ava Reed"
+  #   brand_compatibility: [phoenix, phoenix_somatic]
+  #   persona_alignment: [gen_z_professionals]
+  #   pacing_profile: calm
+  #   voice_engine_id: elevenlabs_ava
+  #   disallowed_topics: []
+  #   status: approved

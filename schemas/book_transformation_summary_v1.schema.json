@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BookTransformationSummary",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "tool",
+    "entity_type",
+    "entity_id",
+    "generated_at",
+    "status",
+    "metrics"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "string" },
+    "tool": { "const": "transformation_heatmap" },
+    "entity_type": { "const": "rendered_book" },
+    "entity_id": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "status": { "enum": ["pass", "warn", "fail"] },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "recognition_count": { "type": "integer" },
+        "reframe_count": { "type": "integer" },
+        "relief_count": { "type": "integer" },
+        "identity_shift_count": { "type": "integer" },
+        "ending_strength_score": { "type": "number" }
+      }
+    }
+  }
+}

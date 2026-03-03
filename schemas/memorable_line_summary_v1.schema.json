@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MemorableLineSummary",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "tool",
+    "entity_type",
+    "entity_id",
+    "generated_at",
+    "status",
+    "metrics"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "string" },
+    "tool": { "const": "memorable_line_detector" },
+    "entity_type": { "type": "string" },
+    "entity_id": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "status": { "enum": ["pass", "warn", "fail"] },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "memorable_line_count": { "type": "integer" },
+        "strong_quote_count": { "type": "integer" },
+        "highlight_density_per_1000_words": { "type": "number" }
+      }
+    }
+  }
+}

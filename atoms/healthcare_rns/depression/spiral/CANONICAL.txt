@@ -1,0 +1,241 @@
+
+
+## RECOGNITION v01
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/recognition/micro/v01.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+Tyler feels sad. The spiral: sad → depressed → broken → forever broken. His stomach drops. The spiral has connected this moment of sadness to permanent identity destruction. His chest is heavy. The spiral is vivid. He's spiraling and the sadness is still there.
+---
+
+## RECOGNITION v02
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/recognition/micro/v02.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+Maria feels numb. The spiral: numb → broken → hopeless → death. Her chest is tight. The spiral has gone from numbness to catastrophic conclusion. The mind is creating the narrative and the body is believing it. Her hands are cold.
+---
+
+## RECOGNITION v03
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/recognition/micro/v03.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+Amy is tired. The spiral: tired → can't do this → failing → should quit. Her throat is tight. The spiral has moved from fatigue to career catastrophe. Her chest is heavy. The narrative is running.
+---
+
+## RECOGNITION v04
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/recognition/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+Dani feels hopeless. The spiral: hopeless → everything is pointless → should die. Her chest is completely sealed. The spiral has moved from feeling to catastrophic narrative. Her hands are cold.
+---
+
+## RECOGNITION v05
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/recognition/micro/v05.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+Rosa feels heavy. The spiral: heavy → always heavy → burden → should disappear. Her chest is heavy. The spiral has connected present moment to permanent destruction. Her stomach is tight.
+---
+
+## MECHANISM_PROOF v01
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/mechanism_proof/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 4
+IDENTITY_STAGE: destabilization
+---
+Tyler's spiral is now automatic. Sadness appears. The spiral runs. The mechanism is that the depression has trained his brain to escalate. Sadness is not allowed. It must become something worse. His chest is always heavy. The spiral is constant background.
+---
+
+## MECHANISM_PROOF v02
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/mechanism_proof/micro/v02.txt
+BAND: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 4
+IDENTITY_STAGE: destabilization
+---
+Maria's spiral about numbness has become her reality. The mechanism is that the depression has convinced her that the spiral is truth. Numbness means broken. She's broken. The narrative has become identity. She's sleeping less. Her hands are shaking.
+---
+
+## MECHANISM_PROOF v03
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/mechanism_proof/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 4
+IDENTITY_STAGE: destabilization
+---
+Amy's spiral about failure is becoming her career. The mechanism is that the depression has convinced her the spiral is inevitable. Tiredness means failure. She's already failing. The thought is becoming action. She's already planning to quit.
+---
+
+## MECHANISM_PROOF v04
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/mechanism_proof/micro/v04.txt
+BAND: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 4
+IDENTITY_STAGE: destabilization
+---
+Dani's spiral about hopelessness has become her baseline. The mechanism is that the depression has convinced her the spiral is truth. Everything is pointless. She's becoming numb to stay safe from the spiral. Her chest is sealed. She's disappearing.
+---
+
+## MECHANISM_PROOF v05
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/mechanism_proof/micro/v05.txt
+BAND: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 4
+IDENTITY_STAGE: destabilization
+---
+Rosa's spiral about burden has become her truth. The mechanism is that the depression has convinced her everyone would be better without her. She's carrying the burden of her own existence. She's disappearing quietly. Her chest is completely sealed.
+---
+
+## TURNING_POINT v01
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/turning_point/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Tyler feels sad. The spiral begins. He stops it. He observes: this is the spiral pattern. Sadness is not broken. The spiral is lying. His chest opens slightly. The experiment is to notice the pattern.
+---
+
+## TURNING_POINT v02
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/turning_point/micro/v02.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Maria feels numb. The spiral begins. She acknowledges: this is the spiral. Numbness is depression. Not brokenness. She seeks help. Her chest opens slightly.
+---
+
+## TURNING_POINT v03
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/turning_point/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Amy is tired. The spiral begins. She stops it. Tiredness is not failure. The spiral is depression. She addresses the depression. Her throat opens slightly.
+---
+
+## TURNING_POINT v04
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/turning_point/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Dani feels hopeless. The spiral begins. She acknowledges: this is the spiral. Hopelessness is depression. The depression is treatable. She reaches out. Her chest opens slightly.
+---
+
+## TURNING_POINT v05
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/turning_point/micro/v05.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Rosa feels heavy. The spiral begins. She stops it. Heaviness is depression. Not burden. She seeks support. Her chest opens slightly.
+---
+
+## EMBODIMENT v01
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/embodiment/micro/v01.txt
+BAND: 2
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: self_claim
+---
+Tyler can notice sadness without spiraling. The depression is being treated. The spiral is quieting. His chest is open enough.
+---
+
+## EMBODIMENT v02
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/embodiment/micro/v02.txt
+BAND: 2
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: self_claim
+---
+Maria can feel numbness without the spiral. She's seeking help. The spiral is quieting. Her chest is open.
+---
+
+## EMBODIMENT v03
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/embodiment/micro/v03.txt
+BAND: 2
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: self_claim
+---
+Amy can be tired without the spiral. The depression is being treated. The spiral has quieted.
+---
+
+## EMBODIMENT v04
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/embodiment/micro/v04.txt
+BAND: 1
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: self_claim
+---
+Dani can feel hopeless without the spiral. She's getting support. The spiral is quieting. Her chest is open.
+---
+
+## EMBODIMENT v05
+---
+path: story_atoms/healthcare_rns/anchored/depression/spiral/embodiment/micro/v05.txt
+BAND: 2
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: self_claim
+---
+Rosa can feel heavy without the spiral. The depression is being addressed. The spiral has quieted.
+---

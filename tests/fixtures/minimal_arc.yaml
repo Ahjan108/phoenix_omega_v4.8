@@ -1,0 +1,49 @@
+# Minimal 8-chapter arc for narrative gate tests. Dev Spec §5.3.
+arc_id: test_arc_8
+persona: test_persona
+topic: test_topic
+engine: overwhelm
+format: F006
+chapter_count: 8
+emotional_curve: [2, 3, 4, 4, 5, 4, 3, 2]
+emotional_role_sequence:
+  - recognition
+  - destabilization
+  - destabilization
+  - reframe
+  - destabilization
+  - reframe
+  - stabilization
+  - integration
+reflection_strategy_sequence:
+  - didactic
+  - socratic
+  - narrative_embedded
+  - didactic
+  - socratic
+  - narrative_embedded
+  - didactic
+  - socratic
+cost_chapter_index: 6
+resolution_type: internal_shift_only
+motif:
+  primary_symbol: threshold
+  tonal_signature: warm_witness
+emotional_temperature_curve:
+  1: cool
+  2: cool
+  3: warm
+  4: warm
+  5: warm
+  6: hot
+  7: hot
+  8: warm
+chapter_intent:
+  1: establish_mask
+  2: expose_cost
+  3: destabilize_strategy
+  4: reveal_hidden_belief
+  5: confrontation
+  6: somatic_repair
+  7: relational_shift
+  8: embodied_identity

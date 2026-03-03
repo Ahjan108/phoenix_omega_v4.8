@@ -1,0 +1,54 @@
+schema_version: '1.0'
+teacher_id: ahjan
+voice_instruction: Write in a clear, observational tone. Show rather than tell. No
+  motivational language.
+sentence_constraints:
+  preferred_length_range:
+  - 8
+  - 25
+  max_sentence_length: 35
+  preferred_paragraph_length:
+  - 2
+  - 5
+  allowed_opening_words:
+    preferred:
+    - The
+    - He
+    - She
+    - It
+    - This
+    forbidden:
+    - Amazingly
+    - Interestingly
+  forbidden_sentence_patterns:
+  - exclamation marks
+  - rhetorical questions for emphasis
+vocabulary:
+  preferred_words:
+  - notice
+  - observe
+  - ground
+  - shift
+  forbidden_words:
+  - manifest
+  - guaranteed
+  - breakthrough
+  - amazing
+  tone_words:
+  - quiet
+  - precise
+  - observational
+  anti_tone_words:
+  - devotional
+  - inspirational
+  - urgent
+emotional_register:
+  allowed:
+  - calm_observation
+  - matter_of_fact
+  forbidden:
+  - catharsis
+  - triumph
+  - devotional_reverence
+reviewed_by: null
+review_date: null

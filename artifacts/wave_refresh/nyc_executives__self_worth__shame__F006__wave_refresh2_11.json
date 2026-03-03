@@ -1,0 +1,200 @@
+{
+  "plan_hash": "5ba1f9ecb20a6e80ca9efc102fb5a014",
+  "plan_id": "5ba1f9ecb20a6e80ca9efc102fb5a014",
+  "chapter_slot_sequence": [
+    [
+      "HOOK",
+      "SCENE",
+      "STORY",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "STORY",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "STORY",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "STORY",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "STORY",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "STORY",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "STORY",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "STORY",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ]
+  ],
+  "atom_ids": [
+    "placeholder:HOOK:ch0:slot0",
+    "placeholder:SCENE:ch0:slot1",
+    "nyc_executives_self_worth_comparison_MECHANISM_PROOF_SARAH_v02",
+    "placeholder:REFLECTION:ch0:slot3",
+    "placeholder:EXERCISE:ch0:slot4",
+    "placeholder:INTEGRATION:ch0:slot5",
+    "placeholder:HOOK:ch1:slot0",
+    "placeholder:SCENE:ch1:slot1",
+    "nyc_executives_self_worth_comparison_TURNING_POINT_JAMES_v03",
+    "placeholder:REFLECTION:ch1:slot3",
+    "placeholder:EXERCISE:ch1:slot4",
+    "placeholder:INTEGRATION:ch1:slot5",
+    "placeholder:HOOK:ch2:slot0",
+    "placeholder:SCENE:ch2:slot1",
+    "nyc_executives_self_worth_shame_EMBODIMENT_JAMES_v04",
+    "placeholder:REFLECTION:ch2:slot3",
+    "placeholder:EXERCISE:ch2:slot4",
+    "placeholder:INTEGRATION:ch2:slot5",
+    "placeholder:HOOK:ch3:slot0",
+    "placeholder:SCENE:ch3:slot1",
+    "nyc_executives_self_worth_shame_TURNING_POINT_SARAH_v04",
+    "placeholder:REFLECTION:ch3:slot3",
+    "placeholder:EXERCISE:ch3:slot4",
+    "placeholder:INTEGRATION:ch3:slot5",
+    "placeholder:HOOK:ch4:slot0",
+    "placeholder:SCENE:ch4:slot1",
+    "nyc_executives_self_worth_shame_EMBODIMENT_RACHEL_v05",
+    "placeholder:REFLECTION:ch4:slot3",
+    "placeholder:EXERCISE:ch4:slot4",
+    "placeholder:INTEGRATION:ch4:slot5",
+    "placeholder:HOOK:ch5:slot0",
+    "placeholder:SCENE:ch5:slot1",
+    "nyc_executives_self_worth_shame_TURNING_POINT_DAVID_v04",
+    "placeholder:REFLECTION:ch5:slot3",
+    "placeholder:EXERCISE:ch5:slot4",
+    "placeholder:INTEGRATION:ch5:slot5",
+    "placeholder:HOOK:ch6:slot0",
+    "placeholder:SCENE:ch6:slot1",
+    "nyc_executives_self_worth_comparison_TURNING_POINT_RACHEL_v03",
+    "placeholder:REFLECTION:ch6:slot3",
+    "placeholder:EXERCISE:ch6:slot4",
+    "placeholder:INTEGRATION:ch6:slot5",
+    "placeholder:HOOK:ch7:slot0",
+    "placeholder:SCENE:ch7:slot1",
+    "nyc_executives_self_worth_comparison_MECHANISM_PROOF_DAVID_v02",
+    "placeholder:REFLECTION:ch7:slot3",
+    "placeholder:EXERCISE:ch7:slot4",
+    "placeholder:INTEGRATION:ch7:slot5"
+  ],
+  "dominant_band_sequence": [
+    2,
+    3,
+    4,
+    4,
+    5,
+    4,
+    3,
+    2
+  ],
+  "arc_id": "nyc_exec_self_worth_shame_standard_8",
+  "emotional_temperature_sequence": [
+    "cool",
+    "cool",
+    "warm",
+    "warm",
+    "warm",
+    "hot",
+    "hot",
+    "warm"
+  ],
+  "exercise_chapters": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "slot_sig": "F001:5177a66ab4e95ca3",
+  "format_id": "F001",
+  "locale": "en-US",
+  "territory": "US",
+  "engine_id": "shame",
+  "reflection_strategy_sequence": [
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic"
+  ],
+  "narrator_id": "default_narrator",
+  "emotional_role_sequence": [
+    "recognition",
+    "destabilization",
+    "destabilization",
+    "reframe",
+    "stabilization",
+    "reframe",
+    "stabilization",
+    "integration"
+  ],
+  "emotional_role_sig": "r-d-d-f-s-f-s-i",
+  "freebie_bundle": [
+    "breath_reset_structured_v1",
+    "shame_assessment_v1"
+  ],
+  "cta_template_id": "tool_forward",
+  "freebie_slug": "self-worth-nyc-executives-breath-reset-structured-v1",
+  "freebie_bundle_with_formats": [
+    {
+      "freebie_id": "breath_reset_structured_v1",
+      "formats": [
+        "html"
+      ]
+    },
+    {
+      "freebie_id": "shame_assessment_v1",
+      "formats": [
+        "html"
+      ]
+    }
+  ],
+  "topic_id": "self_worth",
+  "persona_id": "nyc_executives"
+}

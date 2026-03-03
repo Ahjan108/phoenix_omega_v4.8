@@ -1,0 +1,31 @@
+schema_version: 2
+spec_id: entropy_planner_spec_v2
+owner: governance
+status: active
+
+preconditions:
+  requires_registry_integrity_check_pass: true
+  requires_catalog_context: true
+
+entropy_policy:
+  catalog_isolated: true
+  planning_unit: catalog_id
+  cross_catalog_pooling: forbidden
+
+inputs:
+  required_files:
+    - config/family_registry.yaml
+    - config/brand_registry.yaml
+    - config/cross_brand_divergence.yaml
+    - config/variant_scheduler_rules.yaml
+    - config/uniqueness_policy.yaml
+
+outputs:
+  artifact: artifacts/full_catalog/entropy_plan.json
+  include_registry_hash: true
+  include_decision_trace: true
+
+constraints:
+  enforce_cdbi_floor: true
+  enforce_uniqueness_floor: true
+  enforce_wave_velocity_limits: true

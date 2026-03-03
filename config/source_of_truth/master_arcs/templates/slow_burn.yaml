@@ -1,0 +1,49 @@
+# Arc template: slow burn. Dev Spec §3.2.
+# Low tension building to single high-intensity crisis, then landing. Best for grief, compassion fatigue.
+
+template_id: slow_burn
+description: "Low tension building to single high-intensity crisis, then landing"
+compatible_formats: [F004, F006, F009, F013]
+compatible_tiers: [A]
+chapter_count_range: [7, 24]
+
+emotional_curve_template: [1, 1, 2, 2, 3, 5, 4, 3, 2, 2]
+emotional_role_template:
+  - recognition
+  - recognition
+  - destabilization
+  - reframe
+  - destabilization
+  - stabilization
+  - reframe
+  - stabilization
+  - reframe
+  - integration
+
+reflection_strategy_cycle: [didactic, socratic, narrative_embedded]
+
+motif_bank:
+  anxiety:
+    primary_symbol: tide
+    recurring_image: shore_and_horizon
+    recurring_question: "What can you hold when the wave passes?"
+    tonal_signature: slow_witness
+  depression:
+    primary_symbol: weight
+    recurring_image: bed_and_ceiling
+    tonal_signature: slow_witness
+  grief:
+    primary_symbol: absence
+    recurring_image: empty_chair
+    tonal_signature: tender_witness
+  compassion_fatigue:
+    primary_symbol: well
+    recurring_image: empty_cup
+    tonal_signature: gentle_boundary
+  default:
+    primary_symbol: threshold
+    recurring_image: doorway
+    tonal_signature: warm_witness
+
+cost_chapter_position: 0.6
+resolution_type: internal_shift_only

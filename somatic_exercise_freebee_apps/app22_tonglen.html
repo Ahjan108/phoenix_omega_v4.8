@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tonglen · Compassion Breath</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200;300;400&family=Manrope:wght@300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Manrope',sans-serif;background:#08060e;color:#ede9fe;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.2rem;padding:1.5rem;width:100%;max-width:460px}
+h1{font-family:'Crimson Pro',serif;font-weight:200;font-size:2.2rem;letter-spacing:.06em}
+.sub{font-size:.7rem;color:#6b7280;letter-spacing:.2em;text-transform:uppercase;margin-top:-.5rem}
+canvas{display:block;width:260px;height:260px}
+.target{text-align:center;padding:.7rem 1.4rem;border:1px solid rgba(255,255,255,.06);border-radius:10px;background:rgba(255,255,255,.02);transition:all .5s}
+.tl{font-size:.6rem;color:#6b7280;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.2rem}
+.tt{font-family:'Crimson Pro',serif;font-size:1.15rem;font-weight:300;font-style:italic}
+.ph{font-family:'Crimson Pro',serif;font-size:1.1rem;letter-spacing:.1em;transition:color .4s}
+.ct{font-family:'Crimson Pro',serif;font-size:2.5rem;font-weight:200}
+.cy{font-size:.68rem;color:#6b7280;letter-spacing:.12em}
+.ctrls{display:flex;gap:1rem}
+.btn{font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.6rem;border:1px solid rgba(255,255,255,.1);border-radius:100px;background:rgba(255,255,255,.03);color:#ede9fe;cursor:pointer;transition:all .25s}
+.btn:hover{background:rgba(255,255,255,.07)}
+.btn.pri{border-color:rgba(251,191,36,.3);background:rgba(251,191,36,.06)}
+.btn-s{padding:.4rem .9rem;font-size:.68rem}
+.done{display:none;flex-direction:column;align-items:center;gap:1.2rem;text-align:center;animation:fu .8s}
+.done.show{display:flex}.main.off{display:none}
+.done h2{font-family:'Crimson Pro',serif;font-weight:200;font-size:1.8rem}
+.done p{color:#6b7280;font-size:.85rem;line-height:1.7;max-width:350px}
+@keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.snd{position:fixed;top:1rem;right:1rem;z-index:10;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);color:#6b7280;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<button class="snd" id="sndBtn">🔔</button>
+<div class="wrap">
+<h1>Tonglen</h1>
+<div class="sub">Giving &amp; Receiving Compassion</div>
+<div class="main" id="mainV">
+<canvas id="cv" width="520" height="520"></canvas>
+<div class="target"><div class="tl">Sending compassion to</div><div class="tt" id="tt">Yourself</div></div>
+<div style="text-align:center"><div class="ph" id="ph">Ready</div><div class="ct" id="ct">—</div><div class="cy" id="cy"></div></div>
+<div class="ctrls"><button class="btn pri" id="goBtn">Begin</button><button class="btn btn-s" id="rstBtn" style="display:none">Reset</button></div>
+</div>
+<div class="done" id="doneV">
+<h2>Tonglen Complete</h2>
+<p>You breathed in suffering and breathed out relief — for yourself, loved ones, strangers, and all beings. This is the heart of Tibetan compassion practice.</p>
+<p style="opacity:.6;font-style:italic">Compassion is the bravest thing your lungs can do.</p>
+<button class="btn pri" id="agBtn">Again</button>
+</div>
+</div>
+<script>
+const INH=5,EXH=5,CYC=20,TARGETS=[{t:'Yourself',n:4},{t:'A Loved One',n:4},{t:'A Neutral Person',n:4},{t:'A Difficult Person',n:4},{t:'All Beings Everywhere',n:4}];
+class Aud{constructor(){this.c=null;this.on=true}init(){if(!this.c)this.c=new(window.AudioContext||window.webkitAudioContext)()}t(f,d){if(!this.on||!this.c)return;const o=this.c.createOscillator(),g=this.c.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,this.c.currentTime);g.gain.linearRampToValueAtTime(.06,this.c.currentTime+.2);g.gain.setValueAtTime(.06,this.c.currentTime+d-.3);g.gain.linearRampToValueAtTime(0,this.c.currentTime+d);o.connect(g);g.connect(this.c.destination);o.start();o.stop(this.c.currentTime+d)}toggle(){this.on=!this.on;return this.on}}
+const au=new Aud();const cv=document.getElementById('cv'),c=cv.getContext('2d'),W=cv.width,H=cv.height,CX=W/2,CY=H/2;
+function drawScene(isIn,prog){c.clearRect(0,0,W,H);const t=Date.now()/1e3;
+if(isIn){const r=140-prog*80;for(let i=0;i<20;i++){const a=(i/20)*Math.PI*2+t*.3,d=r+Math.sin(t*2+i)*15,px=CX+Math.cos(a)*d,py=CY+Math.sin(a)*d,sz=8+Math.sin(t+i*.5)*3;const gr=c.createRadialGradient(px,py,0,px,py,sz*3);gr.addColorStop(0,`rgba(107,33,168,${.25-prog*.15})`);gr.addColorStop(1,'transparent');c.beginPath();c.arc(px,py,sz*3,0,Math.PI*2);c.fillStyle=gr;c.fill()}
+const cg=c.createRadialGradient(CX,CY,0,CX,CY,60+prog*20);cg.addColorStop(0,`rgba(107,33,168,${.15+prog*.2})`);cg.addColorStop(1,'transparent');c.beginPath();c.arc(CX,CY,80,0,Math.PI*2);c.fillStyle=cg;c.fill()
+}else{const r=30+prog*130,b=.3+prog*.4;const cg=c.createRadialGradient(CX,CY,0,CX,CY,r);cg.addColorStop(0,`rgba(251,191,36,${b})`);cg.addColorStop(.4,`rgba(251,191,36,${b*.4})`);cg.addColorStop(1,'transparent');c.beginPath();c.arc(CX,CY,r,0,Math.PI*2);c.fillStyle=cg;c.fill();
+for(let i=0;i<12;i++){const a=(i/12)*Math.PI*2+t*.2;c.beginPath();c.moveTo(CX,CY);c.lineTo(CX+Math.cos(a)*r*.8,CY+Math.sin(a)*r*.8);c.strokeStyle=`rgba(251,191,36,${.08*prog})`;c.lineWidth=2;c.stroke()}}
+// heart
+c.save();c.translate(CX,CY-5);c.scale(.7,.7);c.beginPath();c.moveTo(0,-15);c.bezierCurveTo(-20,-35,-40,-10,-20,10);c.lineTo(0,30);c.lineTo(20,10);c.bezierCurveTo(40,-10,20,-35,0,-15);c.strokeStyle=isIn?'rgba(107,33,168,.4)':'rgba(251,191,36,.5)';c.lineWidth=2;c.stroke();c.restore()}
+function drawIdle(){c.clearRect(0,0,W,H);const t=Date.now()/2e3,p=Math.sin(t)*.1+.15;const g=c.createRadialGradient(CX,CY,0,CX,CY,80);g.addColorStop(0,`rgba(251,191,36,${p})`);g.addColorStop(1,'transparent');c.beginPath();c.arc(CX,CY,80,0,Math.PI*2);c.fillStyle=g;c.fill()}
+let state='idle',cycle=0,isIn=true,phS=0,pa=false,pO=0,pT2=0;
+const ph=document.getElementById('ph'),ct=document.getElementById('ct'),cy=document.getElementById('cy'),tt=document.getElementById('tt');
+const goBtn=document.getElementById('goBtn'),rstBtn=document.getElementById('rstBtn'),mainV=document.getElementById('mainV'),doneV=document.getElementById('doneV');
+function getTarget(c){let s=0;for(const t of TARGETS){if(c<s+t.n)return t.t;s+=t.n}return TARGETS[4].t}
+function setUI(){ph.textContent=isIn?'Breathe In Suffering':'Breathe Out Relief';ph.style.color=isIn?'#a855f7':'#fbbf24';ct.style.color=isIn?'#a855f7':'#fbbf24';cy.textContent=(cycle+1)+' / '+CYC;tt.textContent=getTarget(cycle)}
+function start(){au.init();state='active';cycle=0;isIn=true;pa=false;pO=0;phS=performance.now();goBtn.textContent='Pause';goBtn.classList.remove('pri');rstBtn.style.display='inline-block';doneV.classList.remove('show');mainV.classList.remove('off');setUI();au.t(174,INH);tick()}
+function tick(){if(state!=='active'||pa)return;const now=performance.now(),dur=isIn?INH:EXH,el=(now-phS-pO)/1e3,prog=Math.min(1,el/dur);ct.textContent=Math.ceil(Math.max(0,dur-el));drawScene(isIn,prog);
+if(el>=dur){if(isIn){isIn=false;setUI();au.t(261,EXH)}else{cycle++;if(cycle>=CYC){finish();return}isIn=true;setUI();au.t(174,INH)}pO=0;phS=performance.now()}requestAnimationFrame(tick)}
+function finish(){state='done';mainV.classList.add('off');doneV.classList.add('show')}
+function reset(){state='idle';pa=false;pO=0;goBtn.textContent='Begin';goBtn.classList.add('pri');rstBtn.style.display='none';ph.textContent='Ready';ph.style.color='';ct.textContent='—';ct.style.color='';cy.textContent='';tt.textContent='Yourself';doneV.classList.remove('show');mainV.classList.remove('off');idleL()}
+function toggleP(){if(!pa){pa=true;pT2=performance.now();goBtn.textContent='Resume';goBtn.classList.add('pri')}else{pO+=performance.now()-pT2;pa=false;goBtn.textContent='Pause';goBtn.classList.remove('pri');tick()}}
+goBtn.onclick=()=>{if(state==='idle')start();else if(state==='active')toggleP()};rstBtn.onclick=reset;document.getElementById('agBtn').onclick=()=>{reset();start()};
+document.getElementById('sndBtn').onclick=()=>{au.init();document.getElementById('sndBtn').textContent=au.toggle()?'🔔':'🔇'};
+function idleL(){if(state!=='idle')return;drawIdle();requestAnimationFrame(idleL)}idleL();
+</script>
+</body>
+</html>

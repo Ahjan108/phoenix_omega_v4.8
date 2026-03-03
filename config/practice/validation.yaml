@@ -1,0 +1,80 @@
+# config/practice/validation.yaml
+# Schema and safety checks for practice items. Used by normalize + validate scripts and practice_safety_lint.
+
+version: 1
+
+required_top_level_fields:
+  - practice_id
+  - source
+  - content_type
+  - duration_seconds
+  - text
+
+enums:
+  source:
+    - library_34
+    - ab_tady_37
+    - manual
+  content_type:
+    - affirmations
+    - body_awareness
+    - gratitude_practices
+    - integration_bridges
+    - meditations
+    - reflections
+    - self_inquiry
+    - sensory_grounding
+    - thought_experiments
+    - breath_regulation
+    - grounding_orientation
+    - body_awareness_scan
+    - somatic_release_discharge
+    - nervous_system_downregulation
+    - nervous_system_upregulation
+    - vagal_stimulation_sound
+    - self_contact_touch
+    - emotional_processing_completion
+    - embodied_intention_direction
+    - integration_return_to_baseline
+
+duration_seconds:
+  min: 30
+  max: 1200
+
+text:
+  min_chars: 120
+  max_chars: 12000
+
+banned_phrases:
+  - "cure"
+  - "guarantee"
+  - "diagnose"
+  - "treat"
+  - "medication"
+  - "doctor"
+  - "therapy will"
+  - "this will fix"
+  - "you will be healed"
+  - "always works"
+  - "never fail"
+  - "instant results"
+  - "stop taking"
+  - "replace your medication"
+  - "ignore your doctor"
+
+tts_rhythm:
+  enabled: true
+  max_avg_sentence_words_warn: 18
+  max_long_sentence_ratio_fail: 0.30
+  max_questions_per_item_fail: 4
+
+optional_fields:
+  intensity_band:
+    min: 1
+    max: 5
+  allowed_topics:
+    max_items: 2000
+  allowed_personas:
+    max_items: 2000
+  tags:
+    max_items: 50

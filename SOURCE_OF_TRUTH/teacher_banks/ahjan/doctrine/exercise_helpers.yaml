@@ -1,0 +1,36 @@
+schema_version: '1.0'
+teacher_id: ahjan
+supported_families:
+- family_id: grounding
+  description: Placeholder.
+  example_prompt: Notice the ground.
+  frequency: primary
+- family_id: breath_grounding
+  description: Placeholder.
+  example_prompt: Breathe and notice place.
+  frequency: secondary
+unsupported_families:
+- journaling
+- visualization
+- affirmation
+adaptation_wrappers:
+  intro_templates:
+  - Before you begin, notice where you are. {TEACHER_CONCEPT} begins with location.
+  - This practice works with body and environment.
+  close_templates:
+  - The ground was here before the stress arrived.
+  - Knowing where you are is the first step.
+safety:
+  max_intensity: low_to_moderate
+  notes: Observation-based; low risk.
+  forbidden_exercise_types:
+  - trauma_regression
+  - emotional_catharsis
+mta_mapping:
+  core_teaching_1:
+  - grounding
+  - breath_grounding
+  core_teaching_2:
+  - grounding
+reviewed_by: null
+review_date: null

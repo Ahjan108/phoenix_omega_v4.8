@@ -1,0 +1,58 @@
+# Teacher Mode — production gates and E2E smoke tests.
+# Run on push/PR when teacher config, banks, or tests change.
+# Add "Teacher gates" as required status check in branch protection for main.
+name: Teacher gates
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'config/teachers/**'
+      - 'SOURCE_OF_TRUTH/teacher_banks/**'
+      - 'phoenix_v4/teacher/**'
+      - 'scripts/ci/run_teacher_production_gates.py'
+      - 'scripts/ci/check_doctrine_schema.py'
+      - 'scripts/ci/check_teacher_readiness.py'
+      - 'scripts/ci/check_teacher_synthetic_governance.py'
+      - 'tests/teacher_arc_test.py'
+      - 'tests/test_teacher_mode_e2e_smoke.py'
+      - '.github/workflows/teacher-gates.yml'
+  pull_request:
+    branches: [main, master]
+    paths:
+      - 'config/teachers/**'
+      - 'SOURCE_OF_TRUTH/teacher_banks/**'
+      - 'phoenix_v4/teacher/**'
+      - 'scripts/ci/run_teacher_production_gates.py'
+      - 'scripts/ci/check_doctrine_schema.py'
+      - 'scripts/ci/check_teacher_readiness.py'
+      - 'scripts/ci/check_teacher_synthetic_governance.py'
+      - 'tests/teacher_arc_test.py'
+      - 'tests/test_teacher_mode_e2e_smoke.py'
+      - '.github/workflows/teacher-gates.yml'
+
+jobs:
+  teacher-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install pyyaml pytest
+
+      - name: Teacher production gates (doctrine schema + readiness)
+        run: |
+          PYTHONPATH=. python scripts/ci/run_teacher_production_gates.py
+
+      - name: Teacher Arc unit tests
+        run: |
+          PYTHONPATH=. python -m pytest tests/teacher_arc_test.py -v --tb=short
+
+      - name: Teacher Mode E2E smoke tests
+        run: |
+          PYTHONPATH=. python -m pytest tests/test_teacher_mode_e2e_smoke.py -v --tb=short

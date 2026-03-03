@@ -1,0 +1,11 @@
+atom_id: ahjan_QUOTE_007_mined
+body: Now, put this salt into a cup of water and drink it.
+teacher:
+  teacher_id: ahjan
+  source_refs:
+  - doc_id: raw/BD Blog - Happiness and Purity.rtf
+    span:
+    - 1559
+    - 1613
+    quote_hash: b53af7687e6cf05e
+  synthesis_method: kb_mine_v1

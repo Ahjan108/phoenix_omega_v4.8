@@ -1,0 +1,11 @@
+atom_id: ahjan_QUOTE_006_mined
+body: Bring me a handful of salt.
+teacher:
+  teacher_id: ahjan
+  source_refs:
+  - doc_id: raw/BD Blog - Happiness and Purity.rtf
+    span:
+    - 1476
+    - 1505
+    quote_hash: 2a2d32d7ecd09432
+  synthesis_method: kb_mine_v1

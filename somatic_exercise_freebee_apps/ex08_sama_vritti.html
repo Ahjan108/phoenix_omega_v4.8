@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sama Vritti — Equal Breath</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500&family=Lexend+Deca:wght@300;400&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--inhale:#A0B8D0;--exhale:#D0B8A0;--bg:#0B0E15;--text:#DBD5CA;--muted:#5A5650}
+  body{font-family:'Lexend Deca',sans-serif;background:var(--bg);color:var(--text);height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;user-select:none}
+  .wrap{z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.4rem}
+  h1{font-family:'Bodoni Moda',serif;font-weight:400;font-size:2rem;letter-spacing:.06em}
+  .sub{font-size:.72rem;color:var(--muted);letter-spacing:.13em;text-transform:uppercase}
+  .scale-area{position:relative;width:320px;height:200px}
+  .fulcrum{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-bottom:16px solid rgba(255,255,255,.1)}
+  .beam{position:absolute;bottom:36px;left:30px;right:30px;height:2px;background:rgba(255,255,255,.15);transform-origin:center;transition:transform .1s}
+  .pan{position:absolute;bottom:26px;width:80px;height:60px;display:flex;flex-direction:column;align-items:center;transition:transform .1s}
+  .pan.left{left:10px}.pan.right{right:10px}
+  .pan-bowl{width:60px;height:20px;border:1px solid rgba(255,255,255,.1);border-radius:0 0 30px 30px;border-top:none;overflow:hidden}
+  .pan-fill{width:100%;height:0;background:var(--inhale);transition:height 0.3s,background .5s;position:absolute;bottom:0}
+  .pan.right .pan-fill{background:var(--exhale)}
+  .pan-label{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px;transition:color .3s}
+  .pan-label.active{color:var(--text)}
+  .string{position:absolute;width:1px;background:rgba(255,255,255,.08);height:30px}
+  .pan.left .string{left:50%;bottom:20px}.pan.right .string{left:50%;bottom:20px}
+  .yin-yang{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:60px;height:60px;opacity:.08}
+  .center-orb{position:absolute;top:40px;left:50%;transform:translateX(-50%);width:80px;height:80px;border-radius:50%;border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;flex-direction:column}
+  .orb-phase{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+  .orb-count{font-size:1.8rem;font-weight:300;opacity:.8}
+  .progress{width:200px;height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
+  .pfill{height:100%;width:0;border-radius:2px;background:linear-gradient(90deg,var(--inhale),var(--exhale))}
+  .info-row{display:flex;gap:2rem;font-size:.8rem;color:var(--muted)}
+  .info-row strong{color:var(--text);font-weight:400}
+  .controls{display:flex;gap:1rem}
+  .btn{font-family:'Lexend Deca',sans-serif;padding:.5rem 1.5rem;border:1px solid rgba(255,255,255,.1);border-radius:100px;background:rgba(255,255,255,.03);color:var(--text);font-size:.78rem;cursor:pointer;transition:all .3s}
+  .btn:hover{background:rgba(255,255,255,.08)}
+  .btn.pri{background:rgba(160,184,208,.15);border-color:rgba(160,184,208,.3)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Sama Vritti</h1>
+  <p class="sub">Equal breath · 4 seconds in · 4 seconds out</p>
+  <div class="scale-area">
+    <div class="center-orb">
+      <span class="orb-phase" id="pn">Ready</span>
+      <span class="orb-count" id="pc"></span>
+    </div>
+    <div class="beam" id="beam"></div>
+    <div class="fulcrum"></div>
+    <div class="pan left" id="panL">
+      <div class="string"></div>
+      <div class="pan-bowl"><div class="pan-fill" id="fillL"></div></div>
+      <span class="pan-label" id="llbl">Inhale</span>
+    </div>
+    <div class="pan right" id="panR">
+      <div class="string"></div>
+      <div class="pan-bowl"><div class="pan-fill" id="fillR"></div></div>
+      <span class="pan-label" id="rlbl">Exhale</span>
+    </div>
+  </div>
+  <div class="progress"><div class="pfill" id="pf"></div></div>
+  <div class="info-row">
+    <span>Breaths <strong id="bc">0</strong></span>
+    <span>Remaining <strong id="rem">5:00</strong></span>
+  </div>
+  <div class="controls">
+    <button class="btn pri" id="sb" onclick="toggle()">Begin</button>
+    <button class="btn" onclick="doReset()">Reset</button>
+  </div>
+</div>
+<script>
+const INH=4,EXH=4,CYCLE=8,SESSION=300;
+let running=false,paused=false,t=0,total=0,lastTs=0,breaths=0,lastP='',aCtx=null;
+function audio(){if(!aCtx)aCtx=new(window.AudioContext||window.webkitAudioContext)();return aCtx}
+function tone(f,d=.3){try{const x=audio(),o=x.createOscillator(),g=x.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,x.currentTime);g.gain.linearRampToValueAtTime(.07,x.currentTime+.05);g.gain.exponentialRampToValueAtTime(.001,x.currentTime+d);o.connect(g);g.connect(x.destination);o.start();o.stop(x.currentTime+d)}catch(e){}}
+function fmt(s){return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
+
+function tick(ts){
+  if(!running||paused)return;
+  if(!lastTs)lastTs=ts;
+  const dt=(ts-lastTs)/1000;lastTs=ts;t+=dt;total+=dt;
+  if(total>=SESSION){end();return}
+  const ct=t%CYCLE;
+  const isIn=ct<INH;
+  const frac=isIn?ct/INH:(ct-INH)/EXH;
+  const cur=isIn?'in':'out';
+  if(cur!==lastP){
+    tone(isIn?380:300);
+    if(cur==='in'&&lastP==='out'){breaths++;document.getElementById('bc').textContent=breaths}
+    lastP=cur;
+  }
+  // Scale tilt
+  const tilt=isIn?(frac*4-2):(2-frac*4);
+  document.getElementById('beam').style.transform='rotate('+tilt+'deg)';
+  document.getElementById('panL').style.transform='translateY('+(tilt*2)+'px)';
+  document.getElementById('panR').style.transform='translateY('+(-tilt*2)+'px)';
+  // Fill
+  document.getElementById('fillL').style.height=(isIn?frac*100:100-frac*100)+'%';
+  document.getElementById('fillR').style.height=(isIn?100-frac*100:frac*100)+'%';
+  document.getElementById('llbl').classList.toggle('active',isIn);
+  document.getElementById('rlbl').classList.toggle('active',!isIn);
+  document.getElementById('pn').textContent=isIn?'Inhale':'Exhale';
+  document.getElementById('pc').textContent=Math.ceil(isIn?INH-ct:EXH-(ct-INH));
+  document.getElementById('pf').style.width=(total/SESSION*100)+'%';
+  document.getElementById('rem').textContent=fmt(Math.max(0,SESSION-total));
+  requestAnimationFrame(tick);
+}
+
+function toggle(){
+  const b=document.getElementById('sb');
+  if(!running){running=true;paused=false;t=0;total=0;lastTs=0;breaths=0;lastP='';
+    document.getElementById('bc').textContent='0';b.textContent='Pause';requestAnimationFrame(tick);
+  }else if(!paused){paused=true;lastTs=0;b.textContent='Resume'}
+  else{paused=false;lastTs=0;b.textContent='Pause';requestAnimationFrame(tick)}
+}
+function doReset(){
+  running=false;paused=false;t=0;total=0;lastTs=0;breaths=0;lastP='';
+  document.getElementById('sb').textContent='Begin';document.getElementById('bc').textContent='0';
+  document.getElementById('rem').textContent=fmt(SESSION);document.getElementById('pn').textContent='Ready';
+  document.getElementById('pc').textContent='';document.getElementById('pf').style.width='0';
+  document.getElementById('beam').style.transform='rotate(0deg)';
+  document.getElementById('panL').style.transform='translateY(0)';
+  document.getElementById('panR').style.transform='translateY(0)';
+  document.getElementById('fillL').style.height='0';document.getElementById('fillR').style.height='0';
+}
+function end(){running=false;document.getElementById('sb').textContent='Begin';document.getElementById('pn').textContent='Balance';document.getElementById('pc').textContent='☯';tone(528,.8)}
+</script>
+</body>
+</html>

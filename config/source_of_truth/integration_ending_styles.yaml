@@ -1,0 +1,31 @@
+# Integration ending style — soft ranking bias for final chapter INTEGRATION only.
+# Authority: Controlled Intro/Conclusion Variation plan.
+# Last chapter remains integration; STILL-HERE once. Style ranks INTEGRATION atoms or injects closing phrase.
+
+schema_version: "1.0"
+
+styles:
+  stillness_close:
+    name: "Stillness close"
+    persona_tags: []
+    topic_tags: []
+    weights:
+      default: 1.0
+  action_close:
+    name: "Action close"
+    persona_tags: []
+    topic_tags: []
+    weights:
+      default: 1.0
+  reframing_close:
+    name: "Reframing close"
+    persona_tags: []
+    topic_tags: []
+    weights:
+      default: 1.0
+  witness_close:
+    name: "Witness close"
+    persona_tags: []
+    topic_tags: []
+    weights:
+      default: 1.0

@@ -1,0 +1,78 @@
+arc_id: gen_z_professionals_anxiety_spiral_F006_gen
+persona: gen_z_professionals
+topic: anxiety
+engine: spiral
+format: F006
+chapter_count: 12
+emotional_curve:
+- 2
+- 2
+- 3
+- 3
+- 3
+- 4
+- 3
+- 4
+- 4
+- 3
+- 3
+- 2
+emotional_temperature_curve:
+  1: cool
+  2: cool
+  3: cool
+  4: warm
+  5: warm
+  6: warm
+  7: warm
+  8: warm
+  9: warm
+  10: warm
+  11: warm
+  12: cool
+chapter_intent:
+  1: establish_mask
+  2: expose_cost
+  3: destabilize_strategy
+  4: reveal_hidden_belief
+  5: confrontation
+  6: somatic_repair
+  7: relational_shift
+  8: embodied_identity
+  9: grounded_reframe
+  10: establish_mask
+  11: expose_cost
+  12: embodied_identity
+emotional_role_sequence:
+- recognition
+- recognition
+- destabilization
+- reframe
+- destabilization
+- reframe
+- destabilization
+- reframe
+- reframe
+- integration
+- reframe
+- integration
+reflection_strategy_sequence:
+- didactic
+- socratic
+- narrative_embedded
+- didactic
+- socratic
+- narrative_embedded
+- didactic
+- socratic
+- narrative_embedded
+- didactic
+- socratic
+- narrative_embedded
+cost_chapter_index: 8
+resolution_type: internal_shift_only
+motif:
+  primary_symbol: threshold
+  recurring_image: doorway
+  recurring_question: What wants to shift?
+  tonal_signature: warm_witness

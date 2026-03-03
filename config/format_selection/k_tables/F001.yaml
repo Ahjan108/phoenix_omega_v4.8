@@ -1,0 +1,12 @@
+# K-table for F001 (90-Day). Dev Spec §4.2.2.
+format_id: F001
+tier: B
+chapter_count: 90
+
+k_min_per_slot:
+  HOOK: { k_min: 15 }
+  SCENE: { k_min: 20 }
+  STORY: { k_min: 90 }
+  REFLECTION: { k_min: 20 }
+  EXERCISE: { k_min: 8 }
+  INTEGRATION: { k_min: 10 }

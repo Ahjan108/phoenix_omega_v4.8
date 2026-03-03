@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loving-Kindness Breath — Metta</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;400&family=Quicksand:wght@300;400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--heart:#D46A8F;--glow:#E8A0B8;--warm:#F0C8A0;--bg:#0E0A10;--text:#E0D4DC;--muted:#6A5A64}
+  body{font-family:'Quicksand',sans-serif;background:var(--bg);color:var(--text);height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none}
+  .wrap{z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.2rem}
+  h1{font-family:'Cormorant Infant',serif;font-weight:300;font-size:2rem;letter-spacing:.04em;color:var(--glow)}
+  .sub{font-size:.7rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+  .heart-area{position:relative;width:260px;height:260px;display:flex;align-items:center;justify-content:center}
+  .heart-ring{position:absolute;border-radius:50%;border:1px solid rgba(212,106,143,.1);transition:transform .3s,opacity .3s}
+  .hr1{width:80px;height:80px;border-color:rgba(212,106,143,.3)}
+  .hr2{width:130px;height:130px}
+  .hr3{width:180px;height:180px}
+  .hr4{width:230px;height:230px}
+  .heart-core{font-size:2.5rem;z-index:1;transition:transform .5s}
+  .heart-core.pulse{transform:scale(1.3)}
+  .ring-label{position:absolute;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);transition:color .4s,opacity .4s;opacity:.3}
+  .ring-label.active{opacity:1;color:var(--glow)}
+  .rl1{top:50%;left:50%;transform:translate(50px,-50%)}
+  .rl2{top:50%;left:50%;transform:translate(80px,-50%)}
+  .rl3{top:50%;left:50%;transform:translate(105px,-50%)}
+  .rl4{top:50%;left:50%;transform:translate(132px,-50%)}
+  .metta{font-family:'Cormorant Infant',serif;font-size:1.3rem;font-weight:300;text-align:center;min-height:2rem;letter-spacing:.04em;color:var(--warm);font-style:italic}
+  .pn{font-size:1rem;letter-spacing:.06em;text-align:center;font-weight:300}
+  .pc{font-size:1.8rem;font-weight:300;opacity:.7;text-align:center}
+  .bar{width:220px;height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
+  .bf{height:100%;width:0;border-radius:2px;background:linear-gradient(90deg,var(--heart),var(--warm))}
+  .info-row{display:flex;gap:2rem;font-size:.78rem;color:var(--muted)}
+  .info-row strong{color:var(--text);font-weight:500}
+  .controls{display:flex;gap:1rem}
+  .btn{font-family:'Quicksand',sans-serif;padding:.5rem 1.4rem;border:1px solid rgba(212,106,143,.2);border-radius:100px;background:rgba(212,106,143,.06);color:var(--text);font-size:.78rem;cursor:pointer;transition:all .3s}
+  .btn:hover{background:rgba(212,106,143,.15)}
+  .btn.pri{background:rgba(212,106,143,.12);border-color:rgba(212,106,143,.3)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Loving-Kindness</h1>
+  <p class="sub">Metta breath · expanding circles of compassion</p>
+  <div class="heart-area">
+    <div class="heart-ring hr1" id="r1"></div>
+    <div class="heart-ring hr2" id="r2"></div>
+    <div class="heart-ring hr3" id="r3"></div>
+    <div class="heart-ring hr4" id="r4"></div>
+    <div class="heart-core" id="core">💗</div>
+    <span class="ring-label rl1" id="l1">Self</span>
+    <span class="ring-label rl2" id="l2">Loved</span>
+    <span class="ring-label rl3" id="l3">Neutral</span>
+    <span class="ring-label rl4" id="l4">All</span>
+  </div>
+  <div class="metta" id="metta">May I be happy, may I be at peace</div>
+  <div class="pn" id="pn">Ready</div>
+  <div class="pc" id="pc"></div>
+  <div class="bar"><div class="bf" id="bf"></div></div>
+  <div class="info-row">
+    <span>Circle <strong id="cn">—</strong></span>
+    <span>Remaining <strong id="rem">4:00</strong></span>
+  </div>
+  <div class="controls">
+    <button class="btn pri" id="sb" onclick="toggle()">Begin</button>
+    <button class="btn" onclick="doReset()">Reset</button>
+  </div>
+</div>
+<script>
+const CIRCLES=[
+  {name:'Self',phrases:['May I be happy','May I be healthy','May I be safe','May I live with ease']},
+  {name:'Loved One',phrases:['May you be happy','May you be healthy','May you be safe','May you live with ease']},
+  {name:'Neutral Person',phrases:['May they be happy','May they be healthy','May they be safe','May they live with ease']},
+  {name:'All Beings',phrases:['May all beings be happy','May all beings be healthy','May all beings be safe','May all beings live with ease']},
+];
+const INH=5,EXH=5,CYCLE=10,SESSION=240,CIRCLE_DUR=60;
+let running=false,paused=false,t=0,total=0,lastTs=0,lastP='',lastC=-1,aCtx=null;
+function audio(){if(!aCtx)aCtx=new(window.AudioContext||window.webkitAudioContext)();return aCtx}
+function tone(f,d=.3){try{const x=audio(),o=x.createOscillator(),g=x.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,x.currentTime);g.gain.linearRampToValueAtTime(.06,x.currentTime+.05);g.gain.exponentialRampToValueAtTime(.001,x.currentTime+d);o.connect(g);g.connect(x.destination);o.start();o.stop(x.currentTime+d)}catch(e){}}
+function fmt(s){return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
+
+function tick(ts){
+  if(!running||paused)return;
+  if(!lastTs)lastTs=ts;const dt=(ts-lastTs)/1000;lastTs=ts;t+=dt;total+=dt;
+  if(total>=SESSION){end();return}
+  const ci=Math.min(Math.floor(total/CIRCLE_DUR),3);
+  if(ci!==lastC){
+    for(let i=0;i<4;i++){
+      const ring=document.getElementById('r'+(i+1));
+      const lbl=document.getElementById('l'+(i+1));
+      ring.style.borderColor=i<=ci?'rgba(212,106,143,.3)':'rgba(212,106,143,.1)';
+      ring.style.transform=i===ci?'scale(1.08)':'scale(1)';
+      lbl.classList.toggle('active',i===ci);
+    }
+    document.getElementById('cn').textContent=CIRCLES[ci].name;
+    tone(350+ci*40);lastC=ci;
+  }
+  const ct=t%CYCLE;const isIn=ct<INH;
+  const phraseIdx=Math.floor((total%CIRCLE_DUR)/(CIRCLE_DUR/4))%4;
+  document.getElementById('metta').textContent=CIRCLES[ci].phrases[phraseIdx];
+  
+  const core=document.getElementById('core');
+  core.classList.toggle('pulse',isIn&&ct<INH/2);
+  
+  const cur=isIn?'in':'out';
+  if(cur!==lastP){tone(isIn?420:320,.15);lastP=cur}
+  document.getElementById('pn').textContent=isIn?'Inhale — Receive':'Exhale — Send';
+  document.getElementById('pc').textContent=Math.ceil(isIn?INH-ct:EXH-(ct-INH));
+  document.getElementById('bf').style.width=(total/SESSION*100)+'%';
+  document.getElementById('rem').textContent=fmt(Math.max(0,SESSION-total));
+  requestAnimationFrame(tick);
+}
+function toggle(){
+  const b=document.getElementById('sb');
+  if(!running){running=true;paused=false;t=0;total=0;lastTs=0;lastP='';lastC=-1;
+    b.textContent='Pause';requestAnimationFrame(tick);
+  }else if(!paused){paused=true;lastTs=0;b.textContent='Resume'}
+  else{paused=false;lastTs=0;b.textContent='Pause';requestAnimationFrame(tick)}
+}
+function doReset(){
+  running=false;paused=false;t=0;total=0;lastTs=0;lastP='';lastC=-1;
+  document.getElementById('sb').textContent='Begin';document.getElementById('cn').textContent='—';
+  document.getElementById('rem').textContent=fmt(SESSION);document.getElementById('pn').textContent='Ready';
+  document.getElementById('pc').textContent='';document.getElementById('bf').style.width='0';
+  document.getElementById('metta').textContent='May I be happy, may I be at peace';
+  for(let i=1;i<=4;i++){document.getElementById('r'+i).style.borderColor='rgba(212,106,143,.1)';document.getElementById('r'+i).style.transform='scale(1)';document.getElementById('l'+i).classList.remove('active')}
+}
+function end(){running=false;document.getElementById('sb').textContent='Begin';document.getElementById('pn').textContent='Metta';document.getElementById('pc').textContent='💗';
+  document.getElementById('metta').textContent='May all beings everywhere be happy and free';tone(528,.8)}
+</script>
+</body>
+</html>

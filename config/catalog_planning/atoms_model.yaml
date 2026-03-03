@@ -1,0 +1,22 @@
+# atoms_model.yaml — legacy vs cluster policy (compile + allocation)
+# Policy rule: persona_id in legacy_personas → legacy; else cluster.
+# Single source of truth for atoms_model policy. allocation_personas_file only overrides allocation; it does not change atoms_model.
+# Authority: Legacy vs cluster atoms model plan.
+
+schema_version: 1
+
+legacy_personas:
+  - millennial_women_professionals
+  - tech_finance_burnout
+  - entrepreneurs
+  - working_parents
+  - gen_x_sandwich
+  - corporate_managers
+  - gen_z_professionals
+  - healthcare_rns
+  - gen_alpha_students
+  - first_responders
+
+# Optional: when running ZH or future-EN cluster catalog, use this file for allocation persona list instead of canonical_personas.yaml.
+# Alias: cluster_personas_file (loader supports both).
+allocation_personas_file: null

@@ -1,0 +1,29 @@
+# Domain definitions for Stage 1 (Catalog Planner).
+# Authority: SYSTEMS_DOCUMENTATION describes strategy; this file is machine-readable config.
+# Canonical format IDs (F001–F015) and slot semantics are NOT defined here — see Canonical Spec Part 2.
+
+# Example structure. Expand per PHOENIX_V4_NEW_FORMATS_DEV_SPEC and talp/analyze_intake.
+domains:
+  anxiety_cluster:
+    description: "Anxiety-related mechanisms and patterns"
+    priority: high
+    series:
+      - social_anxiety_arc
+      - panic_response_arc
+    target_book_percentage: 40
+
+  grief_cluster:
+    description: "Loss, grief, and mourning patterns"
+    priority: medium
+    series:
+      - acute_loss_arc
+      - ambiguous_loss_arc
+    target_book_percentage: 20
+
+  shame_cluster:
+    description: "Shame, exposure, and hiding mechanisms"
+    priority: high
+    series:
+      - social_shame_arc
+      - body_shame_arc
+    target_book_percentage: 25

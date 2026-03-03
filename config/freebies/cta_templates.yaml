@@ -1,0 +1,19 @@
+# CTA templates — deterministic wording. Planner injects freebie_name, topic, slug.
+# Authority: specs/PHOENIX_FREEBIE_SYSTEM_SPEC.md §7
+
+tool_forward:
+  script: >
+    If you'd like the guided {freebie_name} tool for {topic},
+    visit PhoenixProtocolBooks.com/free/{slug}.
+
+workbook_forward:
+  script: >
+    Get your free companion workbook for this journey at
+    PhoenixProtocolBooks.com/free/{slug}. Designed for {topic}.
+
+assessment_forward:
+  script: >
+    Take the free {topic} assessment and get your personalized snapshot at
+    PhoenixProtocolBooks.com/free/{slug}.
+
+# Keys must match freebie_registry.yaml cta_style values.

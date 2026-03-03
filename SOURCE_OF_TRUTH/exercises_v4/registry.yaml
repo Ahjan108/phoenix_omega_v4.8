@@ -1,0 +1,239 @@
+# SOURCE_OF_TRUTH/exercises_v4/registry.yaml
+# Canonical registry for V4 somatic and therapeutic exercises.
+# Authority: exercise_yaml_helper.txt, REBUILD_README.txt (§7).
+# Exercises are selected by FUNCTION (type), not by topic or prose.
+
+version: 1
+description: >
+  Canonical registry for V4 somatic and therapeutic exercises.
+  Exercises are selected by FUNCTION (type), not by topic or prose.
+  This registry defines allowed exercise types, slot rules, cadence roles,
+  safety constraints, and auto-promotion policy.
+
+# -------------------------------------------------------------------
+# GLOBAL RULES
+# -------------------------------------------------------------------
+
+global_rules:
+  runtime_source: "approved_only"     # Only approved/ exercises are used at runtime
+  allow_auto_generation: false        # Exercises are human-authored only
+  require_human_approval: true
+  forbid_resolution_language: true
+  forbid_promises: true
+  forbid_outcome_claims: true
+  require_second_person: true
+  require_present_tense: true
+
+  section_requirements:
+    required_sections:
+      - intro
+      - guided_practice
+      - aha_noticing
+      - integration
+    aha_noticing:
+      min_words: 40
+      preferred_word_range: [60, 120]
+      must_contain_one_of: ["notice", "might notice"]
+      must_contain_body_reference: true   # e.g. breath, chest, shoulders, jaw, rhythm, tension
+      # Callout anchors the consolidation moment; prevents drift to weak openers like "You might notice..."
+      must_start_with_one_of:
+        - "Now, I want you"
+        - "Now, I want to"
+        - "Now, pause"
+        - "Now, take a moment"
+        - "Now, take a second"
+        - "Now, let's"
+        - "Now, stop"
+        - "Now, reflect"
+        - "Now, observe"
+        - "Now, notice"
+        - "Now, consider"
+        - "Now, check"
+      callout_validation: warn   # warn = soft; fail = hard gate
+
+    integration:
+      min_words: 40
+      preferred_word_range: [60, 120]
+      max_words: 150
+      must_start_with_one_of:
+        - "Now, before you move on,"
+        - "Now, as you return,"
+        - "Now, for the next few minutes,"
+        - "Now, as you go back to your day,"
+        - "Now, keep it simple,"
+      must_avoid_one_of:   # banned outcome language
+        - "you will"
+        - "this will"
+        - "guarantee"
+        - "cure"
+        - "heal"
+        - "fix"
+        - "transform"
+        - "forever"
+        - "completely"
+      integration_validation: warn
+
+# -------------------------------------------------------------------
+# AUTO-PROMOTION POLICY
+# -------------------------------------------------------------------
+
+auto_promotion:
+  enabled: true
+
+  never_auto_promote_families:
+    - grief_pack
+    - trauma_sensitive
+    - crisis_support
+
+  eligibility_rules:
+    require_zero_lint_errors: true
+    require_zero_lint_warnings: true
+    require_cadence_pass: true
+
+# -------------------------------------------------------------------
+# EXERCISE TYPES (FUNCTIONAL CLASSES)
+# -------------------------------------------------------------------
+
+exercise_types:
+
+  00_breath_regulation:
+    file: "00_breath_regulation.yaml"
+    cadence_role: grounding
+    allowed_modalities: [breath]
+    allowed_intensity: [gentle, medium]
+    description: >
+      Breath-based regulation to stabilize or gently activate the nervous system.
+
+  01_grounding_orientation:
+    file: "01_grounding_orientation.yaml"
+    cadence_role: grounding
+    allowed_modalities: [senses, orientation]
+    allowed_intensity: [gentle]
+    description: >
+      Establish safety in the present moment through sensory orientation.
+
+  02_body_awareness_scan:
+    file: "02_body_awareness_scan.yaml"
+    cadence_role: grounding
+    allowed_modalities: [body_scan, awareness]
+    allowed_intensity: [gentle]
+    description: >
+      Develop interoceptive awareness without attempting to change sensation.
+
+  03_somatic_release_discharge:
+    file: "03_somatic_release_discharge.yaml"
+    cadence_role: release
+    allowed_modalities: [movement, discharge]
+    allowed_intensity: [medium, strong]
+    description: >
+      Allow stored nervous system energy to complete and release.
+
+  04_nervous_system_downregulation:
+    file: "04_nervous_system_downregulation.yaml"
+    cadence_role: grounding
+    allowed_modalities: [parasympathetic]
+    allowed_intensity: [gentle]
+    description: >
+      Shift from fight/flight toward parasympathetic settling.
+
+  05_nervous_system_upregulation:
+    file: "05_nervous_system_upregulation.yaml"
+    cadence_role: activation
+    allowed_modalities: [activation, mobilization]
+    allowed_intensity: [gentle, medium]
+    description: >
+      Restore energy from collapse, freeze, or exhaustion.
+
+  06_vagal_stimulation_sound:
+    file: "06_vagal_stimulation_sound.yaml"
+    cadence_role: grounding
+    allowed_modalities: [sound, vibration]
+    allowed_intensity: [gentle]
+    description: >
+      Use vocalization or vibration to stimulate the vagus nerve.
+
+  07_self_contact_touch:
+    file: "07_self_contact_touch.yaml"
+    cadence_role: grounding
+    allowed_modalities: [touch, self_contact]
+    allowed_intensity: [gentle]
+    description: >
+      Establish safety and reassurance through intentional self-contact.
+
+  08_emotional_processing_completion:
+    file: "08_emotional_processing_completion.yaml"
+    cadence_role: release
+    allowed_modalities: [emotion, completion]
+    allowed_intensity: [medium]
+    description: >
+      Allow emotions to move through without cognitive story loops.
+
+  09_embodied_intention_direction:
+    file: "09_embodied_intention_direction.yaml"
+    cadence_role: integration
+    allowed_modalities: [intention, orientation]
+    allowed_intensity: [gentle]
+    description: >
+      Sense direction or choice at a body level, not goal-setting.
+
+  10_integration_return_to_baseline:
+    file: "10_integration_return_to_baseline.yaml"
+    cadence_role: integration
+    allowed_modalities: [integration]
+    allowed_intensity: [gentle]
+    description: >
+      Stabilize, soften, and return to daily life after inner work.
+
+# -------------------------------------------------------------------
+# SLOT POLICIES (TEMPLATE INTERFACE)
+# -------------------------------------------------------------------
+
+slot_policies:
+
+  slot_07_practice:
+    required: true
+    allowed_exercise_types:
+      - 00_breath_regulation
+      - 01_grounding_orientation
+      - 02_body_awareness_scan
+      - 04_nervous_system_downregulation
+      - 07_self_contact_touch
+      - 10_integration_return_to_baseline
+    max_duration_seconds: 240
+    forbid_strong_intensity: true
+
+# -------------------------------------------------------------------
+# TEMPLATE FAMILY OVERRIDES
+# -------------------------------------------------------------------
+
+template_overrides:
+
+  bestseller_v2_1:
+    slot_07_practice:
+      allowed_exercise_types:
+        - 00_breath_regulation
+        - 01_grounding_orientation
+        - 10_integration_return_to_baseline
+      max_duration_seconds: 180
+
+  grief_pack:
+    slot_07_practice:
+      allowed_exercise_types:
+        - 01_grounding_orientation
+        - 02_body_awareness_scan
+        - 07_self_contact_touch
+        - 10_integration_return_to_baseline
+      forbid_auto_promotion: true
+
+# -------------------------------------------------------------------
+# SELECTION RULES
+# -------------------------------------------------------------------
+
+selection_rules:
+  deterministic: true
+  forbid_adjacent_reuse: true
+  reuse_cooldown_chapters: 2
+  selection_seed_fields:
+    - book_id
+    - chapter_num
+    - slot_id

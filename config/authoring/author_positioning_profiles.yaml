@@ -1,0 +1,44 @@
+# Author Positioning Profiles — Layer 2 Identity Extension
+# Authority: Writer Spec §24, DEV SPEC 1 (Author Positioning Profile).
+# Each compiled book carries a trust posture signature governed by this config.
+# Used by: author_registry (positioning_profile), BookSpec, CI check_author_positioning, CompiledBook.
+
+profiles:
+  somatic_companion:
+    authority_type: lived_experience
+    trust_anchor_style: companion
+    vulnerability_band: moderate
+    allowed_language:
+      - first_person_reflection
+      - embodied_language
+      - gentle_uncertainty
+    forbidden_language:
+      - academic_citation
+      - diagnostic_labels
+      - command_language
+
+  research_guide:
+    authority_type: research_synthesizer
+    trust_anchor_style: analyst
+    vulnerability_band: low
+    allowed_language:
+      - explanatory_clarity
+      - grounded_psychology
+    forbidden_language:
+      - emotional_confession
+      - mystical_claims
+
+  elder_stabilizer:
+    authority_type: seasoned_practitioner
+    trust_anchor_style: elder
+    vulnerability_band: low
+    allowed_language:
+      - calm_certainty
+      - perspective_framing
+    forbidden_language:
+      - slang
+      - self_doubt_language
+
+# Optional: default positioning when BookSpec has no author_id (e.g. teacher-only books).
+# Keys are brand_id; value is profile key from profiles above.
+default_by_brand: {}

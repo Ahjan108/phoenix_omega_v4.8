@@ -1,0 +1,97 @@
+# Structural Variation V4. Per-chapter archetype labels.
+# Derived from structure blueprint + journey shape; mapped to structure IDs.
+
+schema_version: "1.0"
+
+archetypes:
+  establish:
+    name: "Establish"
+    slot_expectations: ["HOOK", "SCENE", "STORY"]
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+
+  expose:
+    name: "Expose cost"
+    slot_expectations: ["STORY", "REFLECTION"]
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+
+  destabilize:
+    name: "Destabilize"
+    slot_expectations: ["STORY", "REFLECTION"]
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+
+  reframe:
+    name: "Reframe"
+    slot_expectations: ["STORY", "REFLECTION", "INTEGRATION"]
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+
+  stabilize:
+    name: "Stabilize"
+    slot_expectations: ["REFLECTION", "EXERCISE", "INTEGRATION"]
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+
+  integrate:
+    name: "Integrate"
+    slot_expectations: ["REFLECTION", "INTEGRATION"]
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+
+  awaken:
+    name: "Awaken"
+    slot_expectations: ["HOOK", "SCENE", "STORY"]
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+
+  unpack:
+    name: "Unpack"
+    slot_expectations: ["STORY", "REFLECTION"]
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+
+  shift:
+    name: "Shift"
+    slot_expectations: ["STORY", "REFLECTION"]
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+
+  embody:
+    name: "Embody"
+    slot_expectations: ["REFLECTION", "EXERCISE", "INTEGRATION"]
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+
+# Mapping: book_structure_id -> ordered list of archetype IDs for chapter positions.
+# Length must match chapter_count; journey shape phases map to these.
+structure_blueprints:
+  classic_linear:
+    sequence: ["establish", "expose", "destabilize", "reframe", "stabilize", "integrate"]
+    repeat_tail: true
+  linear_transformation:
+    sequence: ["establish", "expose", "destabilize", "reframe", "stabilize", "integrate"]
+    repeat_tail: true
+  three_act:
+    sequence: ["establish", "expose", "destabilize", "reframe", "stabilize", "integrate"]
+    repeat_tail: true
+  wave_cycle:
+    sequence: ["awaken", "unpack", "shift", "embody"]
+    repeat_tail: true
+  slow_burn:
+    sequence: ["establish", "expose", "destabilize", "reframe", "stabilize", "integrate"]
+    repeat_tail: true
+  recognition_to_agency:
+    sequence: ["awaken", "unpack", "shift", "embody"]
+    repeat_tail: true

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phoenix Protocol — Free Healing Tools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --bone: #f5f0e8;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a0;
+    --ember: #8b3a2a;
+    --mist: #e8e4de;
+    --deep: #1a1410;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--deep);
+    color: var(--bone);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Atmospheric background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 50% at 20% 20%, rgba(201,168,76,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 80% 80%, rgba(139,58,42,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 80% at 50% 50%, rgba(26,20,16,1) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .grain {
+    position: fixed;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 80px 32px 120px;
+  }
+
+  /* Header */
+  .sigil {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 48px;
+    display: block;
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: rise 0.8s ease forwards 0.2s;
+  }
+
+  h1 {
+    font-size: clamp(2.8rem, 7vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.08;
+    text-align: center;
+    color: var(--bone);
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: rise 0.9s ease forwards 0.4s;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-align: center;
+    color: rgba(245,240,232,0.65);
+    line-height: 1.6;
+    margin: 32px auto;
+    max-width: 520px;
+    opacity: 0;
+    animation: rise 1s ease forwards 0.6s;
+  }
+
+  /* Divider */
+  .rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0;
+    opacity: 0;
+    animation: rise 1s ease forwards 0.7s;
+  }
+  .rule::before, .rule::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.4;
+  }
+  .rule-diamond {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    opacity: 0.6;
+  }
+
+  /* Tools grid */
+  .tools-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: rise 1s ease forwards 0.8s;
+  }
+
+  .tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 56px;
+    opacity: 0;
+    animation: rise 1s ease forwards 0.9s;
+  }
+
+  .tool-card {
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 28px 24px;
+    background: rgba(255,255,255,0.02);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .tool-card:hover {
+    border-color: rgba(201,168,76,0.5);
+    background: rgba(201,168,76,0.04);
+  }
+
+  .tool-card:hover::before { opacity: 1; }
+
+  .tool-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    opacity: 0.7;
+    margin-bottom: 12px;
+  }
+
+  .tool-name {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--bone);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .tool-desc {
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.5);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  /* Audiences */
+  .for-whom {
+    text-align: center;
+    font-size: 1rem;
+    color: rgba(245,240,232,0.45);
+    margin-bottom: 48px;
+    font-style: italic;
+    opacity: 0;
+    animation: rise 1s ease forwards 1s;
+  }
+
+  .for-whom strong {
+    color: rgba(245,240,232,0.75);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  /* Email form */
+  .form-wrap {
+    opacity: 0;
+    animation: rise 1s ease forwards 1.1s;
+  }
+
+  .form-title {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 8px;
+    color: var(--bone);
+  }
+
+  .form-sub {
+    font-size: 0.9rem;
+    text-align: center;
+    color: rgba(245,240,232,0.45);
+    margin-bottom: 32px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .input-row {
+    display: flex;
+    gap: 12px;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    flex: 1;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.25);
+    color: var(--bone);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    padding: 16px 20px;
+    outline: none;
+    transition: border-color 0.3s, background 0.3s;
+    -webkit-appearance: none;
+  }
+
+  input::placeholder { color: rgba(245,240,232,0.3); }
+
+  input:focus {
+    border-color: rgba(201,168,76,0.6);
+    background: rgba(201,168,76,0.04);
+  }
+
+  /* Audience select */
+  .select-wrap {
+    position: relative;
+  }
+
+  select {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.25);
+    color: var(--bone);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    padding: 16px 20px;
+    outline: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: border-color 0.3s;
+  }
+
+  select:focus { border-color: rgba(201,168,76,0.6); }
+  select option { background: var(--deep); color: var(--bone); }
+
+  .select-arrow {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--gold);
+    font-size: 0.7rem;
+  }
+
+  /* Submit */
+  .btn {
+    background: var(--gold);
+    color: var(--deep);
+    border: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 20px 40px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    width: 100%;
+  }
+
+  .btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .btn:active { transform: translateY(0); }
+
+  .privacy {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: rgba(245,240,232,0.25);
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  /* Success state */
+  .success {
+    display: none;
+    text-align: center;
+    padding: 48px 32px;
+    border: 1px solid rgba(201,168,76,0.3);
+    background: rgba(201,168,76,0.04);
+    animation: rise 0.6s ease forwards;
+  }
+
+  .success h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    margin-bottom: 16px;
+  }
+
+  .success p {
+    font-size: 1rem;
+    color: rgba(245,240,232,0.6);
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+
+  .tool-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .tool-link {
+    display: block;
+    padding: 16px 24px;
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light);
+    text-decoration: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .tool-link:hover {
+    background: rgba(201,168,76,0.08);
+    border-color: var(--gold);
+  }
+
+  .tool-link .arrow { opacity: 0.5; }
+
+  /* Footer */
+  footer {
+    margin-top: 80px;
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: rgba(245,240,232,0.2);
+    text-transform: uppercase;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 560px) {
+    .tools { grid-template-columns: 1fr; }
+    .input-row { flex-direction: column; }
+    h1 { font-size: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<div class="wrap">
+
+  <!-- Sigil -->
+  <svg class="sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="24" cy="24" r="23" stroke="#c9a84c" stroke-width="0.5" opacity="0.4"/>
+    <circle cx="24" cy="24" r="16" stroke="#c9a84c" stroke-width="0.5" opacity="0.3"/>
+    <polygon points="24,4 44,40 4,40" fill="none" stroke="#c9a84c" stroke-width="0.6" opacity="0.5"/>
+    <circle cx="24" cy="24" r="3" fill="#c9a84c" opacity="0.8"/>
+  </svg>
+
+  <p class="eyebrow">Phoenix Protocol — Free Healing Tools</p>
+
+  <h1>Your nervous system<br>needs <em>tools,</em><br>not more content.</h1>
+
+  <p class="subtitle">
+    Four therapeutic tools built from 25 years of Buddhist practice, neuroscience, and somatic healing. Free. No fluff. Instant access.
+  </p>
+
+  <div class="rule"><div class="rule-diamond"></div></div>
+
+  <p class="tools-label">What you're getting</p>
+
+  <div class="tools">
+    <div class="tool-card">
+      <div class="tool-num">01</div>
+      <div class="tool-name">Breath Reset Timer</div>
+      <div class="tool-desc">A guided 4-7-8 breath cycle that stops a stress spiral in under 3 minutes.</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-num">02</div>
+      <div class="tool-name">Emotional Audit</div>
+      <div class="tool-desc">Identify exactly what's hijacking your attention. Your personal stress pattern revealed.</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-num">03</div>
+      <div class="tool-name">Nervous System Reset</div>
+      <div class="tool-desc">A somatic body scan that moves stored tension out of your cells — not just your mind.</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-num">04</div>
+      <div class="tool-name">Courage Action Spinner</div>
+      <div class="tool-desc">When you're stuck, this breaks the freeze. One brave action, chosen for you, right now.</div>
+    </div>
+  </div>
+
+  <p class="for-whom">
+    Made for <strong>spiritual seekers, burned-out executives, healthcare workers,</strong> and <strong>Gen Z</strong> who are done with surface-level wellness.
+  </p>
+
+  <!-- FORM -->
+  <div class="form-wrap" id="formWrap">
+    <h2 class="form-title">Get instant access</h2>
+    <p class="form-sub">Free. No spam. Unsubscribe anytime.</p>
+
+    <form class="form" id="captureForm" onsubmit="handleSubmit(event)">
+      <div class="input-row">
+        <input type="text" placeholder="First name" id="fname" required>
+        <input type="email" placeholder="Email address" id="email" required>
+      </div>
+
+      <div class="select-wrap">
+        <select id="persona" required>
+          <option value="" disabled selected>I am a... (choose your path)</option>
+          <option value="spiritual">Spiritual seeker / meditator</option>
+          <option value="executive">Burned-out executive / professional</option>
+          <option value="genz">Gen Z — navigating it all</option>
+          <option value="healthcare">Healthcare worker</option>
+        </select>
+        <span class="select-arrow">▾</span>
+      </div>
+
+      <button type="submit" class="btn">Unlock My Free Tools →</button>
+      <p class="privacy">No spam. Your data is sacred. Unsubscribe in one click.</p>
+    </form>
+  </div>
+
+  <!-- SUCCESS STATE -->
+  <div class="success" id="successState">
+    <h2>The tools are yours.</h2>
+    <p>Check your inbox for a welcome message.<br>Your four tools are waiting below.</p>
+
+    <div class="tool-links">
+      <a href="breath-reset.html" class="tool-link">
+        01 — Breath Reset Timer <span class="arrow">→</span>
+      </a>
+      <a href="emotional-audit.html" class="tool-link">
+        02 — Emotional Audit <span class="arrow">→</span>
+      </a>
+      <a href="nervous-system-reset.html" class="tool-link">
+        03 — Nervous System Reset <span class="arrow">→</span>
+      </a>
+      <a href="courage-spinner.html" class="tool-link">
+        04 — Courage Action Spinner <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    Phoenix Protocol · SpiritualTech Systems · A Nonprofit Initiative
+  </footer>
+
+</div>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+
+  const fname = document.getElementById('fname').value;
+  const email = document.getElementById('email').value;
+  const persona = document.getElementById('persona').value;
+
+  // ───────────────────────────────────────────────
+  // MAILERLITE INTEGRATION
+  // Replace YOUR_MAILERLITE_API_KEY and YOUR_GROUP_ID
+  // after you sign up at mailerlite.com
+  // ───────────────────────────────────────────────
+  /*
+  fetch('https://api.mailerlite.com/api/v2/subscribers', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-MailerLite-ApiKey': 'YOUR_MAILERLITE_API_KEY'
+    },
+    body: JSON.stringify({
+      email: email,
+      name: fname,
+      fields: { persona: persona },
+      groups: ['YOUR_GROUP_ID']
+    })
+  });
+  */
+
+  // Show success
+  document.getElementById('formWrap').style.display = 'none';
+  const success = document.getElementById('successState');
+  success.style.display = 'block';
+
+  // Store locally so tools know user has opted in
+  localStorage.setItem('phoenix_user', JSON.stringify({ fname, email, persona }));
+}
+</script>
+</body>
+</html>

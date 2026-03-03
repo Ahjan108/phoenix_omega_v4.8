@@ -1,0 +1,12 @@
+# K-table for F005 (Rescue Kit). Dev Spec §4.2.2. 10-20 chapters.
+format_id: F005
+tier: C
+chapter_count: 20
+
+k_min_per_slot:
+  HOOK: { k_min: 10 }
+  SCENE: { k_min: 10 }
+  STORY: { k_min: 20 }
+  REFLECTION: { k_min: 10 }
+  EXERCISE: { k_min: 4 }
+  INTEGRATION: { k_min: 6 }

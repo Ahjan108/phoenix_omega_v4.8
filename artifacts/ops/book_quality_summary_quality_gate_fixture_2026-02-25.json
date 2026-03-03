@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "book_id": "quality_gate_fixture",
+  "generated_at_utc": "2026-02-25T03:07:04Z",
+  "overall": "PASS",
+  "signals": {
+    "arc_motion": {
+      "distinct_bands": 3,
+      "rises": 2,
+      "falls": 1,
+      "flat_segments": 1,
+      "status": "PASS",
+      "reasons": []
+    },
+    "transformation": {
+      "transformative_chapters": 5,
+      "total_chapters": 5,
+      "share": 1.0,
+      "status": "PASS",
+      "reasons": []
+    },
+    "specificity": {
+      "abstract_dominant_chapters": 0,
+      "total_chapters": 5,
+      "share": 0.0,
+      "status": "PASS",
+      "reasons": []
+    },
+    "ending_strength": {
+      "last_n": 2,
+      "compression_found": true,
+      "identity_found": true,
+      "action_found": true,
+      "status": "PASS",
+      "reasons": []
+    },
+    "lexical_rhythm": {
+      "sentence_count": 42,
+      "avg_sentence_len": 5.88,
+      "std_sentence_len": 4.25,
+      "status": "PASS",
+      "reasons": []
+    }
+  },
+  "warnings": [],
+  "fails": []
+}

@@ -1,0 +1,427 @@
+
+
+
+
+
+You said:
+
+spec a .py to do: i need to do deep research on persona demogaphics to get all metadata for my system. personas in clude role, generation (like gen z)  , how they relate to all self help topics, location cues (like nyc: westside highway, A train). for my v4 system
+
+ChatGPT said:
+
+Thought for 18s
+Below is a dev-spec + Python skeleton for a “Persona Deep Research Harvester” that produces all persona metadata your Phoenix V4 runtime needs—without putting cultural specifics inside atoms, consistent with your “cultural specificity lives outside prose atoms” rule and the story_bank + registry layout in your Systems Documentation. 
+SYSTEMS_DOCUMENTATION (1)
+What this script must output (V4-aligned)
+Your spec already separates:
+Atoms (location-agnostic, composable)
+Cultural specificity in data/story_bank/…
+Persona definitions in registry/personas.yaml 
+SYSTEMS_DOCUMENTATION (1)
+So the research script should generate three artifact families:
+A) registry/personas.yaml (canonical persona metadata)
+For each persona_id:
+generation cohort (birth years + age band)
+roles / life context (student, new grad, RN, founder, etc.)
+demographics (region, income band, education band—coarse, non-identifying)
+psychographics + media habits (high level)
+“topic-fit” mapping (how anxiety/burnout/stress/grief etc show up)
+Use stable cohort definitions from sources like the U.S. Census cohorts and Pew’s Gen Z framing.
+B) data/story_bank/location_variables/<locale>.yaml (location cue dictionaries)
+Example: nyc.yaml
+transit cues (A train, Q train, etc.)
+neighborhoods, “micro-landmarks,” daily friction points
+ambient sounds, sensory details, weather idioms
+cultural references that are safe + evergreen-ish (avoid fads unless versioned)
+Use primary sources where possible (e.g., MTA line map pages for train-line facts). 
+C) data/story_bank/social_patterns/ + pressure_themes/ overlays
+Persona-specific:
+social pressures
+status games
+identity friction
+work/school rhythms
+“common scenes” (but scene atoms remain placeholders; these are variables injected at hydration time) 
+SYSTEMS_DOCUMENTATION (1)
+Data model (what “complete persona metadata” means)
+Persona schema (normalized JSON -> YAML)
+Each persona becomes a single object:
+:contentReference[oaicite:5]{index=5}z_nyc_professionals
+display_name: "Gen Z NYC Professionals"
+generation:
+  label: "Gen Z"
+  birth_years: [1997, 2012]        # source-defined
+  source: "US Census birth cohorts"
+  notes: "Cohort boundaries are analytical, not identity."
+roles:
+  primary: "young_professional"
+  secondary: ["early_career", "city_renter"]
+demographics:
+  geo: ["New York City"]
+  age_band: "18-29"
+  income_band: "mid"               # coarse bands only
+  education_band: "some_college_plus"
+topic_fit:
+  anxiety:
+    signals: ["hypervigilance", "decision fatigue", "social comparison"]
+    common_triggers: ["rent pressure", "career instability", "always-on messaging"]
+  burnout:
+    signals: ["exhaustion", "cynicism", "reduced efficacy"]
+  stress:
+    signals: ["time pressure", "sleep disruption"]
+location_cues_ref:
+  locale_id: nyc
+  cue_sets: ["transit", "micro_landmarks", "ambient_sounds", "weather", "pace_language"]
+content_constraints:
+  atoms_must_not_include:
+    - "hardcoded neighborhood names"
+    - "proper nouns"
+  allowed_placeholders:
+    - "{{location.transit_line}}"
+    - "{{location.micro_landmark}}"
+    - "{{sensory.ambient_sound}}"
+Important: Your generations definitions should be sourced, not guessed. For U.S.-oriented cohorts, Census has an explicit cohort breakdown (Millennials 1981–1996; Gen Z 1997–2012; Gen Alpha post-2012). 
+The research workflow (what the .py does)
+Step 0 — Inputs
+A list of persona IDs you already use (e.g., gen_z_la, healthcare_rns, atlanta_gen_alpha, etc.)
+A list of topics your system supports (anxiety, burnout, stress, grief…)
+A list of locales you want cue packs for (nyc, la, chicago, tokyo, taipei…)
+Step 1 — Source acquisition (web)
+For each persona:
+Pull generation definitions (birth-year boundaries + caveats)
+Pull high-level demographic anchors (e.g., “Gen Z more racially diverse…” etc.)
+For each locale:
+Pull authoritative civic/transit facts for cues (e.g., NYC MTA line pages)
+Pull a small set of “evergreen” city cues (landmarks, geography, climate patterns) from reputable sources
+Examples of anchor sources:
+Generation cohort boundaries: U.S. Census cohort definitions  and Pew’s generational methodology discussion 
+NYC transit example: MTA A line map page 
+Step 2 — LLM extraction into strict JSON
+Your script should not “summarize into prose.” It should force the model to emit schema-validated JSON:
+persona_profile.json
+topic_fit.json
+locale_cues.json
+Step 3 — Normalization + Safety filters
+Coarsen demographics (avoid sensitive personal inference)
+Remove trend/fad references unless versioned
+Enforce your Phoenix boundary: cultural specificity only in story_bank, not atoms 
+SYSTEMS_DOCUMENTATION (1)
+Step 4 — Emit V4 files
+Update/merge registry/personas.yaml
+Write data/story_bank/location_variables/<locale>.yaml
+Write data/story_bank/social_patterns/<persona_id>.yaml
+Write data/story_bank/pressure_themes/<persona_id>.yaml
+Produce an audit report: artifacts/persona_research/report.json (sources used + timestamps)
+The actual .py skeleton (single-file, production-ish)
+#!/usr/bin/env python3
+"""
+persona_research.py
+
+Deep research harvester for Phoenix V4 personas + location cues.
+
+Outputs (V4-aligned):
+- registry/person:contentReference[oaicite:11]{index=11}bank/location_variables/<locale>.yaml
+- data/story_bank/social_patterns/<persona>.yaml
+- data/story_bank/pressure_themes/<persona>.yaml
+- artifacts/persona_research/report.json
+
+Design goals:
+- schema-first JSON extraction (LLM produces JSON only)
+- citations preserved (source URLs + retrieval timestamps)
+- coarse demographics only (no sensitive inference)
+- location cues live in story_bank (never inside atoms)
+"""
+
+from __future__ import annotations
+
+import argparse
+import dataclasses
+import datetime as dt
+import hashlib
+import json
+import os
+import re
+import time
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
+
+import yaml
+import requests
+
+# -------------------------
+# Config
+# -------------------------
+
+DEFAULT_OUT_ROOT = Path("SOURCE_OF_TRUTH")
+HTTP_TIMEOUT = 30
+
+GENERATION_SOURCES = [
+    # Prefer stable / primary sources; keep a small curated list
+    "https://www.census.gov/newsroom/press-releases/2025/birth-cohorts-geographic-mobility-report.html",
+    "https://www.pewresearch.org/short-reads/2019/01/17/where-millennials-end-and-generation-z-begins/",
+]
+
+LOCALE_SOURCES = {
+    "nyc": [
+        "https://www.mta.info/maps/subway-line-maps/a-line",
+        "https://www.mta.info/maps",
+    ],
+}
+
+# -------------------------
+# Utilities
+# -------------------------
+
+def now_utc_iso() -> str:
+    return dt.datetime.now(dt.timezone.utc).isoformat()
+
+def sha256_text(s: str) -> str:
+    return hashlib.sha256(s.encode("utf-8")).hexdigest()
+
+def http_get(url: str) -> str:
+    r = requests.get(url, timeout=HTTP_TIMEOUT, headers={"User-Agent": "persona-research/1.0"})
+    r.raise_for_status()
+    return r.text
+
+def load_yaml(path: Path) -> Any:
+    if not path.exists():
+        return None
+    return yaml.safe_load(path.read_text(encoding="utf-8"))
+
+def dump_yaml(path: Path, obj: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(yaml.safe_dump(obj, sort_keys=False, allow_unicode=True), encoding="utf-8")
+
+def dump_json(path: Path, obj: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+
+# -------------------------
+# LLM interface (stub)
+# Replace with your local LLM call
+# -------------------------
+
+def call_llm_json(system: str, user: str) -> Dict[str, Any]:
+    """
+    MUST return a Python dict parsed from strict JSON output.
+    Implementation detail depends on your stack.
+    Requirements:
+      - temperature=0
+      - max retries small (e.g. 2)
+      - hard fail if JSON invalid or missing keys
+    """
+    raise NotImplementedError("Wire this to your local LLM. Must return strict JSON.")
+
+# -------------------------
+# Schema validation (minimal, extend as needed)
+# -------------------------
+
+REQUIRED_PERSONA_KEYS = {
+    "persona_id", "display_name", "generation", "roles", "demographics", "topic_fit",
+    "location_cues_ref", "content_constraints", "sources"
+}
+
+def validate_persona_profile(obj: Dict[str, Any]) -> None:
+    missing = REQUIRED_PERSONA_KEYS - set(obj.keys())
+    if missing:
+        raise ValueError(f"persona_profile missing keys: {sorted(missing)}")
+
+# -------------------------
+# Prompts (JSON-only)
+# -------------------------
+
+SYSTEM_JSON_ONLY = (
+    "You are a research extraction engine. "
+    "Return ONLY valid JSON. No markdown. No commentary."
+)
+
+def persona_prompt(persona_id: str, topics: List[str], locale_id: Optional[str], sources: List[Dict[str, str]]) -> str:
+    return json.dumps({
+        "task": "extract_persona_profile",
+        "persona_id": persona_id,
+        "topics": topics,
+        "locale_id": locale_id,
+        "instructions": [
+            "Use the provided sources only; do not invent facts.",
+            "Keep demographics COARSE (bands, not precise numbers) and avoid sensitive inference.",
+            "Return a persona profile that maps how each topic shows up for this persona (signals + triggers).",
+            "Do NOT put hardcoded place names into atoms; output location cues as placeholders + cue set references.",
+            "Include a 'sources' field with URLs used and short justification per URL."
+        ],
+        "desired_schema": {
+            "persona_id": "string",
+            "display_name": "string",
+            "generation": {
+                "label": "string",
+                "birth_years": ["int_start", "int_end_or_null"],
+                "age_band": "string",
+                "source": "string",
+                "notes": "string"
+            },
+            "roles": {"primary": "string", "secondary": ["string"]},
+            "demographics": {
+                "geo": ["string"],
+                "income_band": "low|mid|high",
+                "education_band": "string"
+            },
+            "topic_fit": {
+                "<topic>": {"signals": ["string"], "common_triggers": ["string"], "help_seeking_barriers": ["string"]}
+            },
+            "location_cues_ref": {
+                "locale_id": "string_or_null",
+                "cue_sets": ["transit","micro_landmarks","ambient_sounds","weather","pace_language"]
+            },
+            "content_constraints": {
+                "atoms_must_not_include": ["string"],
+                "allowed_placeholders": ["string"]
+            },
+            "sources": [{"url": "string", "used_for": "string"}]
+        },
+        "sources": sources
+    }, ensure_ascii=False, indent=2)
+
+def locale_cues_prompt(locale_id: str, sources: List[Dict[str, str]]) -> str:
+    return json.dumps({
+        "task": "extract_locale_cues",
+        "locale_id": locale_id,
+        "instructions": [
+            "Use sources only; do not invent.",
+            "Output cue lists that can be used as Story Bank variables.",
+            "Keep cues evergreen; avoid transient slang unless explicitly sourced and versioned."
+        ],
+        "desired_schema": {
+            "locale_id": "string",
+            "transit": [{"line": "string", "notes": "string"}],
+            "micro_landmarks": ["string"],
+            "ambient_sounds": ["string"],
+            "weather_idioms": ["string"],
+            "pace_language": ["string"],
+            "sources": [{"url": "string", "used_for": "string"}]
+        },
+        "sources": sources
+    }, ensure_ascii=False, indent=2)
+
+# -------------------------
+# Main pipeline
+# -------------------------
+
+def run(personas: List[str], topics: List[str], locales: List[str], out_root: Path) -> None:
+    report: Dict[str, Any] = {
+        "run_id": sha256_text(now_utc_iso())[:12],
+        "ran_at": now_utc_iso(),
+        "personas": [],
+        "locales": [],
+        "errors": [],
+    }
+
+    # 1) Fetch sources (cache optional)
+    fetched_pages: Dict[str, str] = {}
+    all_urls = set(GENERATION_SOURCES)
+    for loc in locales:
+        for u in LOCALE_SOURCES.get(loc, []):
+            all_urls.add(u)
+
+    for url in sorted(all_urls):
+        try:
+            fetched_pages[url] = http_get(url)
+        except Exception as e:
+            report["errors"].append({"stage": "fetch", "url": url, "error": str(e)})
+
+    # 2) Locale cue extraction
+    for locale_id in locales:
+        src_urls = LOCALE_SOURCES.get(locale_id, [])
+        src_pack = [{"url": u, "content": fetched_pages.get(u, "")[:12000]} for u in src_urls]
+        if not src_pack:
+            continue
+        try:
+            locale_json = call_llm_json(SYSTEM_JSON_ONLY, locale_cues_prompt(locale_id, src_pack))
+            # Write story_bank location variables
+            dump_yaml(out_root / "data/story_bank/location_variables" / f"{locale_id}.yaml", locale_json)
+            report["locales"].append({"locale_id": locale_id, "sources": [u["url"] for u in locale_json.get("sources", [])]})
+        except Exception as e:
+            report["errors"].append({"stage": "locale_llm", "locale_id": locale_id, "error": str(e)})
+
+    # 3) Persona extraction
+    personas_yaml_path = out_root / "registry/personas.yaml"
+    personas_registry = load_yaml(personas_yaml_path) or {"personas": {}}
+
+    gen_src_pack = [{"url": u, "content": fetched_pages.get(u, "")[:12000]} for u in GENERATION_SOURCES]
+
+    for persona_id in personas:
+        # optional: infer locale from persona_id naming convention
+        locale_id = None
+        m = re.search(r"(nyc|la|chicago|taipei|tokyo)", persona_id)
+        if m:
+            locale_id = m.group(1)
+
+        # assemble sources pack
+        src_pack = list(gen_src_pack)
+        if locale_id and (out_root / "data/story_bank/location_variables" / f"{locale_id}.yaml").exists():
+            # include locale source pages too (for cues)
+            for u in LOCALE_SOURCES.get(locale_id, []):
+                src_pack.append({"url": u, "content": fetched_pages.get(u, "")[:12000]})
+
+        try:
+            persona_json = call_llm_json(SYSTEM_JSON_ONLY, persona_prompt(persona_id, topics, locale_id, src_pack))
+            validate_persona_profile(persona_json)
+
+            # Merge into registry
+            personas_registry["personas"][persona_id] = persona_json
+
+            # Optionally also emit overlays
+            dump_yaml(out_root / "data/story_bank/social_patterns" / f"{persona_id}.yaml",
+                      {"persona_id": persona_id, "social_patterns": persona_json.get("topic_fit", {})})
+            dump_yaml(out_root / "data/story_bank/pressure_themes" / f"{persona_id}.yaml",
+                      {"persona_id": persona_id, "pressure_themes": persona_json.get("topic_fit", {})})
+
+            report["personas"].append({
+                "persona_id": persona_id,
+                "locale_id": locale_id,
+                "sources": [s["url"] for s in persona_json.get("sources", [])]
+            })
+        except Exception as e:
+            report["errors"].append({"stage": "persona_llm", "persona_id": persona_id, "error": str(e)})
+
+    dump_yaml(personas_yaml_path, personas_registry)
+    dump_json(out_root / "artifacts/persona_research/report.json", report)
+
+def parse_args() -> argparse.Namespace:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out-root", default=str(DEFAULT_OUT_ROOT))
+    ap.add_argument("--personas", nargs="+", required=True)
+    ap.add_argument("--topics", nargs="+", required=True)
+    ap.add_argument("--locales", nargs="*", default=[])
+    return ap.parse_args()
+
+if __name__ == "__main__":
+    args = parse_args()
+    run(
+        personas=args.personas,
+        topics=args.topics,
+        locales=args.locales,
+        out_root=Path(args.out_root),
+    )
+Implementation rules (so devs don’t “kinda do it”)
+JSON-only contract with the LLM. If the model outputs anything non-JSON → hard fail.
+Sources are first-class. Every persona and locale output must include a sources[] list.
+Cohort boundaries must be cited and stored. Use Census/Pew anchors for generation cutoffs.
+Location cues go to Story Bank only. Never inside atoms; only placeholders + hydration sets. 
+SYSTEMS_DOCUMENTATION (1)
+Coarse demographics only. Bands, not precise targeting. (You’re building metadata for narrative resonance, not surveillance.)
+Deterministic runs. Cache fetched pages, hash inputs, keep temperature=0, and produce identical outputs for identical inputs (match your determinism doctrine). 
+SYSTEMS_DOCUMENTATION (1)
+Example: NYC cue pack (why “A train” is Story Bank data)
+The fact that the A line exists and its endpoints are a civic/transit reference. 
+Your atoms should only say things like: {{location.transit_line}} and {{sensory.ambient_sound}}
+Hydrator selects “A train” / “platform hum” / “turnstile beep” from da:contentReference[oaicite:16]{index=16}n_variables/nyc.yaml at runtime. 
+SYSTEMS_DOCUMENTATION (1)
+If you tell me your current persona ID list (or the folder where it lives), I can tailor:
+the persona schema fields to exactly match what your assembler expects
+a stronger topic_fit structure keyed to your topic registry
+a loca
+SYSTEMS_DOCUMENTATION (1)
+ that matches your persona naming conventions (e.g., gen_z_la, atlanta_gen_alpha, etc.)
+SYSTEMS_DOCUMENTATION (1)
+
+Sources
+
+

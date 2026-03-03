@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coherence Breathing — 5 BPM</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:wght@300;400&family=Work+Sans:wght@300;400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--inhale:#5B9BD5;--exhale:#6BAF8D;--bg:#070B14;--text:#DED8CF;--muted:#5E5A54}
+  body{font-family:'Work Sans',sans-serif;background:var(--bg);color:var(--text);height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;user-select:none}
+  .grain{position:fixed;inset:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");pointer-events:none}
+  .wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.5rem;width:100%;max-width:400px;padding:0 1.5rem}
+  h1{font-family:'Lora',serif;font-weight:300;font-size:1.9rem;letter-spacing:.05em}
+  .sub{font-size:.75rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase}
+  .wave-area{position:relative;width:100%;height:300px;display:flex;align-items:center;justify-content:center}
+  canvas#waveCanvas{position:absolute;inset:0;width:100%;height:100%;opacity:.3}
+  .ball-track{position:relative;width:60px;height:240px;display:flex;align-items:flex-end;justify-content:center}
+  .ball{width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--inhale),rgba(91,155,213,.2));box-shadow:0 0 40px rgba(91,155,213,.35);transition:background 1s,box-shadow 1s}
+  .ball.exhale-state{background:radial-gradient(circle at 35% 35%,var(--exhale),rgba(107,175,141,.2));box-shadow:0 0 40px rgba(107,175,141,.35)}
+  .labels{position:absolute;right:-70px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:space-between;font-size:.65rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+  .phase-display{font-family:'Lora',serif;font-size:1.6rem;font-weight:300;letter-spacing:.08em;min-height:2rem;text-align:center}
+  .timer-bar{width:100%;height:3px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
+  .timer-fill{height:100%;width:0;background:linear-gradient(90deg,var(--inhale),var(--exhale));border-radius:2px;transition:width .5s linear}
+  .info-row{display:flex;gap:2rem;font-size:.8rem;color:var(--muted)}
+  .info-row strong{color:var(--text);font-weight:500}
+  .controls{display:flex;gap:1rem}
+  .btn{font-family:'Work Sans',sans-serif;padding:.55rem 1.6rem;border:1px solid rgba(255,255,255,.1);border-radius:100px;background:rgba(255,255,255,.03);color:var(--text);font-size:.82rem;letter-spacing:.04em;cursor:pointer;transition:all .3s}
+  .btn:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2)}
+  .btn.pri{background:rgba(91,155,213,.15);border-color:rgba(91,155,213,.3)}
+  .btn.pri:hover{background:rgba(91,155,213,.28)}
+  .bpm-display{font-size:.7rem;color:var(--muted);letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="wrap">
+  <h1>Coherence Breathing</h1>
+  <p class="sub">5 breaths per minute</p>
+  <div class="wave-area">
+    <canvas id="waveCanvas"></canvas>
+    <div class="ball-track">
+      <div class="labels"><span>Inhale</span><span>Exhale</span></div>
+      <div class="ball" id="ball" style="transform:translateY(0)"></div>
+    </div>
+  </div>
+  <div class="phase-display" id="phaseLabel">Ready</div>
+  <div class="timer-bar"><div class="timer-fill" id="timerFill"></div></div>
+  <div class="info-row">
+    <span>Breaths <strong id="breathCount">0</strong></span>
+    <span>Remaining <strong id="remaining">5:00</strong></span>
+    <span class="bpm-display">5 BPM</span>
+  </div>
+  <div class="controls">
+    <button class="btn pri" id="startBtn" onclick="toggle()">Begin</button>
+    <button class="btn" onclick="doReset()">Reset</button>
+  </div>
+</div>
+<script>
+const INHALE=6,EXHALE=6,CYCLE=12,SESSION=300,TRACK_H=192;
+let running=false,paused=false,t=0,total=0,lastTs=0,breaths=0,aCtx=null;
+const canvas=document.getElementById('waveCanvas');
+const ctx2d=canvas.getContext('2d');
+let wavePoints=[];
+
+function resize(){canvas.width=canvas.offsetWidth*2;canvas.height=canvas.offsetHeight*2;ctx2d.scale(2,2)}
+window.addEventListener('resize',resize);resize();
+
+function getAudio(){if(!aCtx)aCtx=new(window.AudioContext||window.webkitAudioContext)();return aCtx}
+function playTone(f,d=.3){try{const c=getAudio(),o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,c.currentTime);g.gain.linearRampToValueAtTime(.08,c.currentTime+.05);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+d);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+d)}catch(e){}}
+
+function fmt(s){const m=Math.floor(s/60);return m+':'+String(Math.floor(s%60)).padStart(2,'0')}
+
+function drawWave(phase){
+  const w=canvas.offsetWidth,h=canvas.offsetHeight;
+  ctx2d.clearRect(0,0,w,h);
+  wavePoints.push(phase);
+  if(wavePoints.length>w)wavePoints.shift();
+  ctx2d.beginPath();
+  for(let i=0;i<wavePoints.length;i++){
+    const y=h/2-wavePoints[i]*(h*0.35);
+    if(i===0)ctx2d.moveTo(i,y);else ctx2d.lineTo(i,y);
+  }
+  ctx2d.strokeStyle='rgba(91,155,213,0.4)';ctx2d.lineWidth=1.5;ctx2d.stroke();
+}
+
+let lastPhase='';
+function tick(ts){
+  if(!running||paused)return;
+  if(!lastTs)lastTs=ts;
+  const dt=(ts-lastTs)/1000;lastTs=ts;
+  t+=dt;total+=dt;
+  if(total>=SESSION){endSession();return}
+
+  const cycleT=t%CYCLE;
+  const isInhale=cycleT<INHALE;
+  const phaseFrac=isInhale?cycleT/INHALE:(cycleT-INHALE)/EXHALE;
+  const sineVal=isInhale?Math.sin(phaseFrac*Math.PI/2):Math.cos(phaseFrac*Math.PI/2);
+
+  // ball position
+  const ball=document.getElementById('ball');
+  ball.style.transform='translateY(-'+(sineVal*TRACK_H)+'px)';
+  if(isInhale){ball.classList.remove('exhale-state');document.getElementById('phaseLabel').textContent='Inhale'}
+  else{ball.classList.add('exhale-state');document.getElementById('phaseLabel').textContent='Exhale'}
+
+  // tone at phase change
+  const curPhase=isInhale?'in':'out';
+  if(curPhase!==lastPhase){
+    playTone(isInhale?396:285);
+    if(curPhase==='in'&&lastPhase==='out'){breaths++;document.getElementById('breathCount').textContent=breaths}
+    lastPhase=curPhase;
+  }
+
+  drawWave(isInhale?Math.sin(phaseFrac*Math.PI):(-Math.sin(phaseFrac*Math.PI)));
+  document.getElementById('remaining').textContent=fmt(Math.max(0,SESSION-total));
+  document.getElementById('timerFill').style.width=(total/SESSION*100)+'%';
+
+  requestAnimationFrame(tick);
+}
+
+function toggle(){
+  const b=document.getElementById('startBtn');
+  if(!running){running=true;paused=false;t=0;total=0;lastTs=0;breaths=0;lastPhase='';wavePoints=[];
+    document.getElementById('breathCount').textContent='0';
+    document.getElementById('remaining').textContent=fmt(SESSION);
+    b.textContent='Pause';requestAnimationFrame(tick);
+  }else if(!paused){paused=true;lastTs=0;b.textContent='Resume'}
+  else{paused=false;lastTs=0;b.textContent='Pause';requestAnimationFrame(tick)}
+}
+
+function doReset(){
+  running=false;paused=false;t=0;total=0;lastTs=0;breaths=0;lastPhase='';wavePoints=[];
+  document.getElementById('startBtn').textContent='Begin';
+  document.getElementById('breathCount').textContent='0';
+  document.getElementById('remaining').textContent=fmt(SESSION);
+  document.getElementById('phaseLabel').textContent='Ready';
+  document.getElementById('timerFill').style.width='0';
+  document.getElementById('ball').style.transform='translateY(0)';
+  document.getElementById('ball').classList.remove('exhale-state');
+  ctx2d.clearRect(0,0,canvas.offsetWidth,canvas.offsetHeight);
+}
+
+function endSession(){
+  running=false;document.getElementById('startBtn').textContent='Begin';
+  document.getElementById('phaseLabel').textContent='Session Complete';
+  playTone(528,.8);
+}
+</script>
+</body>
+</html>

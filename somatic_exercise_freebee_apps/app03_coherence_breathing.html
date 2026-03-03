@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coherence Breathing</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,200;9..144,400;9..144,600&family=Karla:wght@300;400;500&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --bg: #06090f;
+    --inhale: #38bdf8;
+    --exhale: #818cf8;
+    --text: #e2e8f0;
+    --muted: #475569;
+  }
+
+  body {
+    font-family: 'Karla', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  body::before {
+    content:'';position:fixed;inset:0;
+    background: radial-gradient(ellipse at 50% 60%, rgba(56,189,248,0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 40%, rgba(129,140,248,0.03) 0%, transparent 50%);
+    z-index:0;
+  }
+
+  .wrap { position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.6rem;padding:2rem;width:100%;max-width:520px; }
+
+  h1 {
+    font-family:'Fraunces',serif;font-weight:200;font-size:2.2rem;letter-spacing:0.06em;
+  }
+  .sub { font-size:0.78rem;color:var(--muted);letter-spacing:0.2em;text-transform:uppercase;margin-top:-0.8rem; }
+
+  /* Wave canvas */
+  .wave-box { position:relative; width:100%; height:200px; }
+  canvas#waveCanvas { width:100%; height:100%; }
+
+  .wave-overlay {
+    position:absolute;inset:0;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:0.3rem;pointer-events:none;
+  }
+  .ph { font-family:'Fraunces',serif;font-size:1.2rem;font-weight:400;letter-spacing:0.12em;transition:color 0.5s; }
+  .ct { font-family:'Fraunces',serif;font-size:2.8rem;font-weight:200;transition:color 0.5s; }
+  .cy { font-size:0.72rem;color:var(--muted);letter-spacing:0.15em; }
+
+  /* Metrics */
+  .metrics { display:flex;gap:2.5rem;justify-content:center; }
+  .met { display:flex;flex-direction:column;align-items:center;gap:0.15rem; }
+  .met-v { font-family:'Fraunces',serif;font-size:1.3rem; }
+  .met-l { font-size:0.6rem;color:var(--muted);letter-spacing:0.18em;text-transform:uppercase; }
+
+  /* Controls */
+  .ctrls { display:flex;gap:1rem; }
+  .btn {
+    font-family:'Karla',sans-serif;font-size:0.82rem;font-weight:500;
+    letter-spacing:0.12em;text-transform:uppercase;
+    padding:0.7rem 2rem;border:1px solid rgba(255,255,255,0.1);
+    border-radius:100px;background:rgba(255,255,255,0.03);
+    color:var(--text);cursor:pointer;transition:all 0.25s;
+  }
+  .btn:hover{background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.2);}
+  .btn.pri{border-color:rgba(56,189,248,0.35);background:rgba(56,189,248,0.08);}
+  .btn.pri:hover{background:rgba(56,189,248,0.15);}
+  .btn-s{padding:0.5rem 1.2rem;font-size:0.72rem;}
+
+  .done{display:none;flex-direction:column;align-items:center;gap:1.4rem;text-align:center;animation:fu .8s ease;}
+  .done.show{display:flex;}
+  .done h2{font-family:'Fraunces',serif;font-weight:200;font-size:1.9rem;letter-spacing:0.08em;}
+  .done p{color:var(--muted);font-size:0.88rem;line-height:1.7;max-width:360px;}
+  .main{display:flex;flex-direction:column;align-items:center;gap:1.6rem;}
+  .main.off{display:none;}
+  @keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+  .snd{position:fixed;top:1.2rem;right:1.2rem;z-index:10;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:var(--muted);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .25s;}
+  .snd:hover{color:var(--text);}
+</style>
+</head>
+<body>
+<button class="snd" id="sndBtn">🔔</button>
+
+<div class="wrap">
+  <h1>Coherence</h1>
+  <div class="sub">5 Breaths Per Minute</div>
+
+  <div class="main" id="mainV">
+    <div class="metrics">
+      <div class="met"><span class="met-v" style="color:var(--inhale)">6s</span><span class="met-l">Inhale</span></div>
+      <div class="met"><span class="met-v" style="color:var(--exhale)">6s</span><span class="met-l">Exhale</span></div>
+      <div class="met"><span class="met-v">5:00</span><span class="met-l">Duration</span></div>
+      <div class="met"><span class="met-v">25</span><span class="met-l">Cycles</span></div>
+    </div>
+
+    <div class="wave-box">
+      <canvas id="waveCanvas" width="1040" height="400"></canvas>
+      <div class="wave-overlay">
+        <div class="ph" id="ph">Ready</div>
+        <div class="ct" id="ct">—</div>
+        <div class="cy" id="cy"></div>
+      </div>
+    </div>
+
+    <div class="ctrls">
+      <button class="btn pri" id="goBtn">Begin</button>
+      <button class="btn btn-s" id="rstBtn" style="display:none">Reset</button>
+    </div>
+  </div>
+
+  <div class="done" id="doneV">
+    <h2>Five Minutes of Coherence</h2>
+    <p>At 5 breaths per minute, your heart rate variability reaches peak coherence — the sweet spot where your cardiovascular, respiratory, and autonomic systems synchronize.</p>
+    <p style="opacity:0.6;font-style:italic;">This is the rhythm your body was designed for.</p>
+    <button class="btn pri" id="agBtn">Again</button>
+  </div>
+</div>
+
+<script>
+const INH=6, EXH=6, CYCLES=25, TOTAL=CYCLES*(INH+EXH);
+
+class Audio{
+  constructor(){this.ctx=null;this.on=true;this.osc=null;this.g=null;}
+  init(){if(!this.ctx)this.ctx=new(window.AudioContext||window.webkitAudioContext)();}
+  play(f,d){
+    if(!this.on||!this.ctx)return;this.stop();
+    const o=this.ctx.createOscillator(),g=this.ctx.createGain();
+    o.type='sine';o.frequency.value=f;
+    g.gain.setValueAtTime(0,this.ctx.currentTime);
+    g.gain.linearRampToValueAtTime(0.08,this.ctx.currentTime+0.2);
+    g.gain.setValueAtTime(0.08,this.ctx.currentTime+d-0.3);
+    g.gain.linearRampToValueAtTime(0,this.ctx.currentTime+d);
+    o.connect(g);g.connect(this.ctx.destination);
+    o.start();o.stop(this.ctx.currentTime+d);
+    this.osc=o;this.g=g;
+  }
+  stop(){if(this.g&&this.ctx){try{this.g.gain.cancelScheduledValues(this.ctx.currentTime);this.g.gain.linearRampToValueAtTime(0,this.ctx.currentTime+0.05);}catch(e){}}}
+  inhale(){this.play(293.66,INH);} // D4
+  exhale(){this.play(196.00,EXH);} // G3
+  toggle(){this.on=!this.on;if(!this.on)this.stop();return this.on;}
+}
+
+const audio=new Audio();
+
+// Canvas
+const cvs=document.getElementById('waveCanvas');
+const cx=cvs.getContext('2d');
+const W=cvs.width,H=cvs.height,MID=H/2;
+
+function drawWave(sessionElapsed, phaseElapsed, isInhale, overall){
+  cx.clearRect(0,0,W,H);
+
+  // Background sine wave trail
+  const cycleLen=INH+EXH;
+  cx.beginPath();
+  for(let x=0;x<W;x++){
+    const t=(x/W)*4*Math.PI; // show ~2 full waves
+    const y=MID-Math.sin(t)*70;
+    if(x===0)cx.moveTo(x,y);else cx.lineTo(x,y);
+  }
+  cx.strokeStyle='rgba(255,255,255,0.04)';cx.lineWidth=2;cx.stroke();
+
+  // Active wave up to current position
+  const totalPhaseInCycle=isInhale?phaseElapsed/INH:(INH+phaseElapsed)/(INH+EXH);
+  const cyclesDone=Math.floor(sessionElapsed/cycleLen);
+  const progressInSession=sessionElapsed/(CYCLES*cycleLen);
+  const ballX=progressInSession*W;
+
+  // Draw colored wave up to ball
+  const grad=cx.createLinearGradient(0,0,ballX,0);
+  grad.addColorStop(0,'rgba(56,189,248,0.5)');
+  grad.addColorStop(1,isInhale?'rgba(56,189,248,0.8)':'rgba(129,140,248,0.8)');
+
+  cx.beginPath();
+  for(let x=0;x<=Math.min(ballX,W);x++){
+    // Map x position to session time, then to sine
+    const xTime=(x/W)*(CYCLES*cycleLen);
+    const inCycle=xTime%cycleLen;
+    const phase=inCycle/cycleLen;
+    const y=MID-Math.sin(phase*Math.PI*2)*70;
+    if(x===0)cx.moveTo(x,y);else cx.lineTo(x,y);
+  }
+  cx.strokeStyle=grad;cx.lineWidth=2.5;cx.stroke();
+
+  // Ball
+  const currentPhaseInCycle=(sessionElapsed%cycleLen)/cycleLen;
+  const ballY=MID-Math.sin(currentPhaseInCycle*Math.PI*2)*70;
+
+  // Ball glow
+  const glowGrad=cx.createRadialGradient(ballX,ballY,0,ballX,ballY,30);
+  glowGrad.addColorStop(0,isInhale?'rgba(56,189,248,0.4)':'rgba(129,140,248,0.4)');
+  glowGrad.addColorStop(1,'transparent');
+  cx.beginPath();cx.arc(ballX,ballY,30,0,Math.PI*2);cx.fillStyle=glowGrad;cx.fill();
+
+  // Ball solid
+  cx.beginPath();cx.arc(ballX,ballY,8,0,Math.PI*2);
+  cx.fillStyle=isInhale?'#38bdf8':'#818cf8';
+  cx.shadowColor=isInhale?'#38bdf8':'#818cf8';cx.shadowBlur=15;
+  cx.fill();cx.shadowBlur=0;
+
+  // Midline
+  cx.setLineDash([4,8]);
+  cx.beginPath();cx.moveTo(0,MID);cx.lineTo(W,MID);
+  cx.strokeStyle='rgba(255,255,255,0.04)';cx.lineWidth=1;cx.stroke();
+  cx.setLineDash([]);
+}
+
+function drawIdle(){
+  cx.clearRect(0,0,W,H);
+  const t=Date.now()/1500;
+  cx.beginPath();
+  for(let x=0;x<W;x++){
+    const y=MID-Math.sin((x/W)*4*Math.PI+t)*60*Math.sin(t*0.3)*0.5;
+    if(x===0)cx.moveTo(x,y);else cx.lineTo(x,y);
+  }
+  cx.strokeStyle='rgba(255,255,255,0.06)';cx.lineWidth=1.5;cx.stroke();
+  cx.setLineDash([4,8]);cx.beginPath();cx.moveTo(0,MID);cx.lineTo(W,MID);
+  cx.strokeStyle='rgba(255,255,255,0.03)';cx.lineWidth=1;cx.stroke();cx.setLineDash([]);
+}
+
+// State
+let state='idle',cycle=0,isInhale=true,phStart=0,paused=false,pOff=0,pT=0;
+
+const ph=document.getElementById('ph'),ct=document.getElementById('ct'),cy=document.getElementById('cy');
+const goBtn=document.getElementById('goBtn'),rstBtn=document.getElementById('rstBtn');
+const mainV=document.getElementById('mainV'),doneV=document.getElementById('doneV');
+
+function setUI(inhaling){
+  isInhale=inhaling;
+  ph.textContent=inhaling?'Inhale':'Exhale';
+  ph.style.color=inhaling?'var(--inhale)':'var(--exhale)';
+  ct.style.color=inhaling?'var(--inhale)':'var(--exhale)';
+  cy.textContent=`${cycle+1} / ${CYCLES}`;
+}
+
+function start(){
+  audio.init();state='active';cycle=0;isInhale=true;
+  paused=false;pOff=0;phStart=performance.now();
+  goBtn.textContent='Pause';goBtn.classList.remove('pri');
+  rstBtn.style.display='inline-block';
+  doneV.classList.remove('show');mainV.classList.remove('off');
+  setUI(true);audio.inhale();tick();
+}
+
+function tick(){
+  if(state!=='active'||paused)return;
+  const now=performance.now();
+  const dur=isInhale?INH:EXH;
+  const el=(now-phStart-pOff)/1000;
+  const rem=Math.max(0,dur-el);
+
+  // Session elapsed
+  const cycleLen=INH+EXH;
+  const sessEl=cycle*cycleLen+(isInhale?el:INH+el);
+
+  ct.textContent=Math.ceil(rem);
+  drawWave(sessEl,el,isInhale,sessEl/TOTAL);
+
+  if(el>=dur){
+    if(isInhale){isInhale=false;setUI(false);audio.exhale();}
+    else{cycle++;if(cycle>=CYCLES){finish();return;}isInhale=true;setUI(true);audio.inhale();}
+    pOff=0;phStart=performance.now();
+  }
+  requestAnimationFrame(tick);
+}
+
+function finish(){state='done';mainV.classList.add('off');doneV.classList.add('show');}
+
+function reset(){
+  state='idle';paused=false;pOff=0;audio.stop();
+  goBtn.textContent='Begin';goBtn.classList.add('pri');rstBtn.style.display='none';
+  ph.textContent='Ready';ph.style.color='';ct.textContent='—';ct.style.color='';cy.textContent='';
+  doneV.classList.remove('show');mainV.classList.remove('off');idleLoop();
+}
+
+function togglePause(){
+  if(!paused){paused=true;pT=performance.now();goBtn.textContent='Resume';goBtn.classList.add('pri');audio.stop();}
+  else{pOff+=performance.now()-pT;paused=false;goBtn.textContent='Pause';goBtn.classList.remove('pri');if(isInhale)audio.inhale();else audio.exhale();tick();}
+}
+
+goBtn.onclick=()=>{if(state==='idle')start();else if(state==='active')togglePause();};
+rstBtn.onclick=reset;
+document.getElementById('agBtn').onclick=()=>{reset();start();};
+document.getElementById('sndBtn').onclick=()=>{audio.init();const on=audio.toggle();document.getElementById('sndBtn').textContent=on?'🔔':'🔇';};
+
+function idleLoop(){if(state!=='idle')return;drawIdle();requestAnimationFrame(idleLoop);}
+idleLoop();
+</script>
+</body>
+</html>

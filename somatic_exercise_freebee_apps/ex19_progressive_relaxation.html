@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Progressive Muscle Relaxation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,300;0,400;1,300&family=Figtree:wght@300;400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--tense:#D47A5A;--release:#5AAAD4;--bg:#0A0C12;--text:#D8D2C8;--muted:#585450}
+  body{font-family:'Figtree',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;user-select:none}
+  .wrap{z-index:1;display:flex;flex-direction:column;align-items:center;gap:1rem;max-width:420px;padding:1.2rem 1rem;width:100%}
+  h1{font-family:'Lora',serif;font-weight:300;font-size:1.8rem;letter-spacing:.03em}
+  .sub{font-size:.68rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+  .muscle-list{display:flex;flex-direction:column;gap:.35rem;width:100%}
+  .muscle{display:flex;align-items:center;gap:.6rem;padding:.5rem .7rem;border-radius:8px;border:1px solid rgba(255,255,255,.04);background:rgba(255,255,255,.015);transition:all .4s;font-size:.78rem}
+  .muscle.active{border-color:rgba(212,122,90,.3);background:rgba(212,122,90,.06)}
+  .muscle.active.releasing{border-color:rgba(90,170,212,.3);background:rgba(90,170,212,.06)}
+  .muscle.done{opacity:.3}
+  .m-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;background:rgba(255,255,255,.04);flex-shrink:0;transition:background .3s}
+  .muscle.active .m-icon{background:rgba(212,122,90,.15)}
+  .muscle.active.releasing .m-icon{background:rgba(90,170,212,.15)}
+  .m-name{flex:1;font-weight:400;letter-spacing:.02em}
+  .m-status{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .muscle.active .m-status{color:var(--tense)}
+  .muscle.active.releasing .m-status{color:var(--release)}
+  .inst{font-family:'Lora',serif;font-style:italic;font-size:.85rem;color:var(--muted);text-align:center;min-height:2.4rem;line-height:1.5}
+  .phase-row{display:flex;align-items:center;gap:1rem;justify-content:center}
+  .pn{font-size:1.1rem;font-weight:400;letter-spacing:.05em}
+  .pc{font-size:1.6rem;font-weight:300;opacity:.7}
+  .bar{width:100%;height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
+  .bf{height:100%;width:0;border-radius:2px;transition:background .4s}
+  .info-row{display:flex;gap:2rem;font-size:.76rem;color:var(--muted)}
+  .info-row strong{color:var(--text);font-weight:500}
+  .controls{display:flex;gap:1rem}
+  .btn{font-family:'Figtree',sans-serif;padding:.5rem 1.4rem;border:1px solid rgba(255,255,255,.1);border-radius:100px;background:rgba(255,255,255,.03);color:var(--text);font-size:.76rem;cursor:pointer;transition:all .3s}
+  .btn:hover{background:rgba(255,255,255,.08)}
+  .btn.pri{background:rgba(90,170,212,.12);border-color:rgba(90,170,212,.25)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Progressive Relaxation</h1>
+  <p class="sub">Tense 5s · Release 5s · 8 muscle groups</p>
+  <div class="muscle-list" id="ml"></div>
+  <div class="inst" id="inst">Tense each muscle group, then release completely</div>
+  <div class="phase-row">
+    <span class="pn" id="pn">Ready</span>
+    <span class="pc" id="pc"></span>
+  </div>
+  <div class="bar"><div class="bf" id="bf"></div></div>
+  <div class="info-row">
+    <span>Group <strong id="gn">0</strong> / 8</span>
+    <span>Remaining <strong id="rem">6:00</strong></span>
+  </div>
+  <div class="controls">
+    <button class="btn pri" id="sb" onclick="toggle()">Begin</button>
+    <button class="btn" onclick="doReset()">Reset</button>
+  </div>
+</div>
+<script>
+const GROUPS=[
+  {name:'Hands & Fists',icon:'✊',tense:'Clench both fists tightly',release:'Open hands, spread fingers, let go'},
+  {name:'Forearms & Biceps',icon:'💪',tense:'Flex arms, bend at elbows',release:'Drop arms, feel the heaviness'},
+  {name:'Shoulders',icon:'🔼',tense:'Shrug shoulders up to your ears',release:'Let shoulders drop completely'},
+  {name:'Face & Jaw',icon:'😤',tense:'Scrunch face, clench jaw tight',release:'Let face go smooth and soft'},
+  {name:'Chest & Back',icon:'🫁',tense:'Take a deep breath, hold, squeeze chest',release:'Exhale fully, let torso melt'},
+  {name:'Abdomen',icon:'🎯',tense:'Tighten stomach muscles firmly',release:'Let belly become soft and open'},
+  {name:'Thighs & Glutes',icon:'🦵',tense:'Squeeze thighs and glutes together',release:'Release, feel warmth spreading'},
+  {name:'Calves & Feet',icon:'🦶',tense:'Point toes, flex calves hard',release:'Relax feet flat, toes uncurl'},
+];
+const TENSE=5,RELEASE=5,GROUP_DUR=10,SESSION=360;
+let running=false,paused=false,t=0,total=0,lastTs=0,gi=0,lastG=-1,lastPhase='',aCtx=null;
+
+function buildList(){
+  const ml=document.getElementById('ml');ml.innerHTML='';
+  GROUPS.forEach((g,i)=>{
+    ml.innerHTML+=`<div class="muscle" id="m${i}"><div class="m-icon">${g.icon}</div><div class="m-name">${g.name}</div><div class="m-status" id="ms${i}"></div></div>`;
+  });
+}
+buildList();
+
+function audio(){if(!aCtx)aCtx=new(window.AudioContext||window.webkitAudioContext)();return aCtx}
+function tone(f,d=.2){try{const x=audio(),o=x.createOscillator(),g=x.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,x.currentTime);g.gain.linearRampToValueAtTime(.06,x.currentTime+.04);g.gain.exponentialRampToValueAtTime(.001,x.currentTime+d);o.connect(g);g.connect(x.destination);o.start();o.stop(x.currentTime+d)}catch(e){}}
+function fmt(s){return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
+
+function tick(ts){
+  if(!running||paused)return;
+  if(!lastTs)lastTs=ts;const dt=(ts-lastTs)/1000;lastTs=ts;t+=dt;total+=dt;
+  if(total>=SESSION){end();return}
+  gi=Math.min(Math.floor(total/GROUP_DUR),7);
+  const gt=(total%GROUP_DUR);
+  const isTense=gt<TENSE;
+  
+  if(gi!==lastG){
+    for(let i=0;i<8;i++){
+      const el=document.getElementById('m'+i);
+      el.className='muscle'+(i===gi?' active':'')+(i<gi?' done':'');
+      document.getElementById('ms'+i).textContent=i<gi?'✓':i===gi?(isTense?'TENSE':'RELEASE'):'';
+    }
+    document.getElementById('gn').textContent=gi+1;tone(300+gi*25);lastG=gi;
+  }
+  
+  const phase=isTense?'tense':'release';
+  if(phase!==lastPhase){
+    tone(isTense?400:280,.15);
+    const el=document.getElementById('m'+gi);
+    el.classList.toggle('releasing',!isTense);
+    document.getElementById('ms'+gi).textContent=isTense?'TENSE':'RELEASE';
+    lastPhase=phase;
+  }
+  
+  document.getElementById('pn').textContent=isTense?'TENSE':'Release...';
+  document.getElementById('pc').textContent=Math.ceil(isTense?TENSE-gt:RELEASE-(gt-TENSE));
+  document.getElementById('inst').textContent=isTense?GROUPS[gi].tense:GROUPS[gi].release;
+  const bf=document.getElementById('bf');
+  bf.style.width=(total/SESSION*100)+'%';
+  bf.style.background=isTense?'var(--tense)':'var(--release)';
+  document.getElementById('rem').textContent=fmt(Math.max(0,SESSION-total));
+  requestAnimationFrame(tick);
+}
+
+function toggle(){
+  const b=document.getElementById('sb');
+  if(!running){running=true;paused=false;t=0;total=0;lastTs=0;gi=0;lastG=-1;lastPhase='';
+    document.getElementById('gn').textContent='0';b.textContent='Pause';requestAnimationFrame(tick);
+  }else if(!paused){paused=true;lastTs=0;b.textContent='Resume'}
+  else{paused=false;lastTs=0;b.textContent='Pause';requestAnimationFrame(tick)}
+}
+function doReset(){
+  running=false;paused=false;t=0;total=0;lastTs=0;gi=0;lastG=-1;lastPhase='';
+  document.getElementById('sb').textContent='Begin';document.getElementById('gn').textContent='0';
+  document.getElementById('rem').textContent=fmt(SESSION);document.getElementById('pn').textContent='Ready';
+  document.getElementById('pc').textContent='';document.getElementById('bf').style.width='0';
+  document.getElementById('inst').textContent='Tense each muscle group, then release completely';
+  buildList();
+}
+function end(){running=false;document.getElementById('sb').textContent='Begin';document.getElementById('pn').textContent='Fully Relaxed';document.getElementById('pc').textContent='';
+  document.getElementById('inst').textContent='Scan your whole body — notice the warmth and ease';tone(528,.8)}
+</script>
+</body>
+</html>

@@ -1,0 +1,3378 @@
+# Grief Pack — Phoenix Omega V4
+# Rewritten content for grief/loss topic
+# Used by setting env SECTIONS_REGISTRY_FILE=registry_grief.yaml
+
+sections:
+  chapter_01:
+    chapter: 1
+    title: The Sentence That Quietly Runs Your Life
+    sections:
+      section_01:
+        section_id: ch01_sec01
+        section: 1
+        type: HOOK
+        purpose: Recognition — the sentence reveal
+        scene_type: null
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: false
+        variants:
+        - variant_id: ch01_sec01_hook_f1
+          variant_number: 1
+          variant_family: F1
+          content: "There's a sentence you've been saying since the loss.\n\nYou probably don't even know you're saying it.\n\nIt shows up when someone asks how you're doing. When you think about mentioning their name. When you consider going back to that place, or looking at those photos, or letting yourself feel the full weight of what's missing.\n\nThe sentence is:\n\n*\"Once I'm past this, then I'll be okay.\"*\n\nOr maybe your version sounds like:\n\n*\"Once I stop feeling this way, I'll be myself again.\"*\n*\"Once enough time passes, this will lift.\"*\n*\"Once I've processed this, I can move forward.\"*\n*\"Once I'm through the worst of it, I'll know what to do.\"*\n\nSame sentence. Different words.\n\nAnd here's the thing—\n\nThis sentence sounds wise. It sounds patient. It sounds like you're being kind to yourself, waiting until you're ready.\n\nBut it's not.\n\nIt's a trap.\n\n---"
+          fingerprint:
+            char_count: 864
+            paragraph_count: 13
+            sentence_count: 13
+          location_tokens: []
+        - variant_id: ch01_sec01_hook_f2
+          variant_number: 2
+          variant_family: F2
+          content: "What if I told you there's a rule you've been following since the loss?\n\n\nNot a rule someone taught you explicitly. Not something written down anywhere.\n\n\nJust a quiet instruction running in the background of your mind:\n\n\n*\"Wait until the grief passes.\"*\n\n\nIt sounds reasonable. Patient, even.\n\n\nBut here's what that rule actually says:\n\n\n*\"Who you are right now—grieving—isn't allowed to live.\"*\n\n\nAnd so you wait. For the weight to lift. For the ache to fade. For a version of yourself that feels whole again.\n\n\nThe rule keeps running. And you keep waiting.\n\n\n---"
+          fingerprint:
+            char_count: 531
+            paragraph_count: 10
+            sentence_count: 12
+          location_tokens: []
+        - variant_id: ch01_sec01_hook_f3
+          variant_number: 3
+          variant_family: F3
+          content: "Picture someone you know who lost something that mattered.\n\n\nThey want to talk about it—really talk, not the surface version.\n\n\nBut before they speak, they pause. They check in with themselves.\n\n\n*\"Am I together enough? Will I fall apart?\"*\n\n\nAnd if the answer is uncertain—if there's any tightness, any threat of tears—\n\n\nThey don't say it.\n\n\nThey wait.\n\n\nNow here's the uncomfortable part:\n\n\nThat person is you.\n\n\nAnd you've been doing this since the loss without realizing it.\n\n\n---"
+          fingerprint:
+            char_count: 415
+            paragraph_count: 11
+            sentence_count: 10
+          location_tokens: []
+        - variant_id: ch01_sec01_hook_f4
+          variant_number: 4
+          variant_family: F4
+          content: "Imagine a doorway you've been standing in front of since the loss.\n\n\nOn the other side is your life—the conversations you want to have, the places you want to go, the memories you want to speak out loud.\n\n\nBut there's a sign on the door:\n\n\n*\"Entry permitted only once you're past the grief.\"*\n\n\nSo you wait. You check yourself. You test your readiness.\n\n\nBut \"past the grief\" never comes. Not the way you imagined.\n\n\nAnd the door stays closed.\n\n\nNot locked. Just... guarded. By a sentence you didn't know you were enforcing.\n\n\n---"
+          fingerprint:
+            char_count: 490
+            paragraph_count: 9
+            sentence_count: 14
+          location_tokens: []
+        - variant_id: ch01_sec01_hook_f5
+          variant_number: 5
+          variant_family: F5
+          content: "How many things have you not done because you were waiting to feel different first?\n\n\nConversations avoided. Places not visited. Their name left unspoken.\n\n\nAll because of a sentence running quietly underneath:\n\n\n*\"Once I'm past this, then I'll be okay.\"*\n\n\nThe sentence sounds wise. Protective.\n\n\nBut look at what it's actually produced:\n\n\nA growing distance from the life that's still here. A collection of things left unsaid. A version of yourself waiting for permission that never arrives.\n\n\nStill waiting.\n\n\n---"
+          fingerprint:
+            char_count: 448
+            paragraph_count: 9
+            sentence_count: 11
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: HOOK
+          scene_type: null
+          location_tokens: []
+      section_02:
+        section_id: ch01_sec02
+        section: 2
+        type: SCENE
+        purpose: Digital avoidance — the post
+        scene_type: digital
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: true
+        variants:
+        - variant_id: ch01_sec02_scene_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Think about the last time you almost mentioned them.\n\nNot because it wasn't relevant. Not because it didn't matter.\n\nBut because you looked at the words and thought:\n*\"I can't say this right now. I'm too raw. Once I'm less in it, I'll know what to say.\"*\n\nSo you deleted it.\n\nAnd said something lighter instead. Something that didn't risk falling apart.\n\nOr you just… said nothing at all.\n\n---"
+          fingerprint:
+            char_count: 420
+            paragraph_count: 7
+            sentence_count: 12
+          location_tokens: []
+        - variant_id: ch01_sec02_scene_f2
+          variant_number: 2
+          variant_family: F2
+          content: "You're looking at a photo in {location.digital_space}.\n\n\nIt's them. You want to share it—or at least acknowledge what you're feeling.\n\n\nBut your mind starts:\n\n\n*\"What if I cry? What if people don't know what to say? What if I make it awkward?\"*\n\n\nAnd then the familiar thought:\n\n\n*\"I'll share it later. When I feel more stable.\"*\n\n\nYou close the app.\n\n\nLater becomes tomorrow. Tomorrow becomes never.\n\n\nAnd the thing you wanted to say stays trapped inside.\n\n\n---"
+          fingerprint:
+            char_count: 416
+            paragraph_count: 10
+            sentence_count: 11
+          location_tokens:
+          - '{location.digital_space}'
+        - variant_id: ch01_sec02_scene_f3
+          variant_number: 3
+          variant_family: F3
+          content: "It's late. You're alone, scrolling through {location.digital_space}.\n\n\nYou come across something that reminds you of them. Something that makes the absence sharp.\n\n\nYou start to type something honest. Something that actually says what you're carrying.\n\n\nBut the room feels too quiet. The feeling feels too big.\n\n\nAnd you think: *\"This isn't the right time. I'm too in it. I'll say something when I feel stronger.\"*\n\n\nSo you close the app.\n\n\nAnd the words you wanted to say sink back down.\n\n\n---"
+          fingerprint:
+            char_count: 449
+            paragraph_count: 9
+            sentence_count: 14
+          location_tokens:
+          - '{location.digital_space}'
+        - variant_id: ch01_sec02_scene_f4
+          variant_number: 4
+          variant_family: F4
+          content: "There's an archive of things you almost said.\n\n\nIt lives in {location.digital_space}—in drafts, in notes, in messages you typed and deleted.\n\n\nEach one a small burial for something you wanted to express.\n\n\n*\"Here lies the memory I wanted to share.\"*\n\n\n*\"Here lies the photo I couldn't post.\"*\n\n\n*\"Here lies the version of me that wasn't ready to grieve out loud.\"*\n\n\nYou keep adding to the collection. Waiting for a steadiness that never arrives.\n\n\n---"
+          fingerprint:
+            char_count: 463
+            paragraph_count: 8
+            sentence_count: 6
+          location_tokens:
+          - '{location.digital_space}'
+        - variant_id: ch01_sec02_scene_f5
+          variant_number: 5
+          variant_family: F5
+          content: "You had something to share in {location.digital_space}.\n\n\nSomething about them. Something about what you're carrying.\n\n\nBut you didn't share it.\n\n\nAnd nothing happened.\n\n\nNo one noticed. No one asked. The world moved on without knowing what you were holding.\n\n\nWhich felt like relief at first.\n\n\nBut now—looking back—you see the cost:\n\n\nA whole archive of things left unsaid. Memories that stayed private. A grief that never got witnessed.\n\n\nAll waiting for a readiness that never came.\n\n\n---"
+          fingerprint:
+            char_count: 419
+            paragraph_count: 9
+            sentence_count: 12
+          location_tokens:
+          - '{location.digital_space}'
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: SCENE
+          scene_type: digital
+          location_tokens:
+          - '{location.digital_space}'
+      section_03:
+        section_id: ch01_sec03
+        section: 3
+        type: SCENE
+        purpose: Relational avoidance — the message
+        scene_type: relational
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: true
+        variants:
+        - variant_id: ch01_sec03_scene_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Now think about the conversation you didn't have.\n\nThe one where you were going to be honest about how you're really doing. Or talk about them. Or let someone see what you're actually carrying.\n\nYou started to say it. Felt your throat tighten.\n\nAnd thought:\n*\"Not now. I'm too fragile. Once I'm steadier, I'll know what to say.\"*\n\nSo you changed the subject.\n\nAnd said something lighter instead. Something that didn't risk falling apart.\n\nOr you just… stayed quiet.\n\n---"
+          fingerprint:
+            char_count: 391
+            paragraph_count: 8
+            sentence_count: 14
+          location_tokens: []
+        - variant_id: ch01_sec03_scene_f2
+          variant_number: 2
+          variant_family: F2
+          content: "Someone asked how you're doing in {location.digital_space}.\n\n\nYou know what you want to say—the real thing.\n\n\nBut as you start to respond, the thoughts pile up:\n\n\n*\"What if I'm too much? What if they don't know what to say? What if I regret being honest?\"*\n\n\nSo you stop.\n\n\nYou type: *\"I'm okay.\"*\n\n\nAnd the conversation moves on without the truth.\n\n\n---"
+          fingerprint:
+            char_count: 380
+            paragraph_count: 8
+            sentence_count: 8
+          location_tokens:
+          - '{location.digital_space}'
+        - variant_id: ch01_sec03_scene_f3
+          variant_number: 3
+          variant_family: F3
+          content: "It's the middle of the day. You're in {location.digital_space}, staring at a message.\n\n\nSomeone asked about them. Or about you. There's something you want to say—not urgent, but true.\n\n\nBut the timing feels off. Your chest feels tight. The words feel too heavy.\n\n\nSo you think: *\"I'll reply later. When I can handle it.\"*\n\n\nBut later, you're tired.\n\n\nAnd by tomorrow, the moment feels gone.\n\n\n---"
+          fingerprint:
+            char_count: 357
+            paragraph_count: 7
+            sentence_count: 11
+          location_tokens:
+          - '{location.digital_space}'
+        - variant_id: ch01_sec03_scene_f4
+          variant_number: 4
+          variant_family: F4
+          content: "The cursor blinks in {location.digital_space}.\n\n\nYou've typed something real. Something that would actually say what you're feeling.\n\n\nBut it sits there—glowing on the screen—like a confession you're not ready to make.\n\n\nSo you highlight it. Delete it.\n\n\nReplace it with something smaller. Safer. Emptier.\n\n\nAnd the real words sink back down. Waiting for a version of you that feels strong enough to say them.\n\n\n---"
+          fingerprint:
+            char_count: 399
+            paragraph_count: 7
+            sentence_count: 12
+          location_tokens:
+          - '{location.digital_space}'
+        - variant_id: ch01_sec03_scene_f5
+          variant_number: 5
+          variant_family: F5
+          content: "There was a message you almost sent in {location.digital_space}.\n\n\nIt said what you actually feel.\n\n\nBut you didn't send it.\n\n\nAnd the conversation moved on without that honesty.\n\n\nNothing broke. Nothing exploded.\n\n\nBut something shifted—quietly. A small distance opened.\n\n\nAnd now you wonder: what would be different if you'd just said the thing?\n\n\n---"
+          fingerprint:
+            char_count: 344
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens:
+          - '{location.digital_space}'
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: SCENE
+          scene_type: relational
+          location_tokens:
+          - '{location.digital_space}'
+      section_04:
+        section_id: ch01_sec04
+        section: 4
+        type: SCENE
+        purpose: Social avoidance — the event
+        scene_type: social
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: true
+        variants:
+        - variant_id: ch01_sec04_scene_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Now the place you didn't go.\n\nThe gathering. The event. The thing where you knew people might ask how you're doing, or not ask, or look at you with that face that says they don't know what to say.\n\nYou thought about going.\n\nYou really did.\n\nBut then you felt it—that heaviness in your chest, that threat of tears, that pull to just… stay home.\n\nAnd you thought:\n*\"I'll go next time. When I'm less fragile. When I feel more like myself.\"*\n\nSo you didn't go.\n\nAnd later, when someone asked why, you said you were tired. Or busy. Or just not up for it.\n\nBut the truth is—\n\nYou were waiting.\n\nWaiting to not feel this way.\n\n---"
+          fingerprint:
+            char_count: 632
+            paragraph_count: 12
+            sentence_count: 16
+          location_tokens: []
+        - variant_id: ch01_sec04_scene_f2
+          variant_number: 2
+          variant_family: F2
+          content: "They invited you to {location.social_gathering}.\n\n\nAnd immediately, the questions started:\n\n\n*\"Will someone mention them? What if I cry? What if I don't know what to say?\"*\n\n\nYou told yourself: *\"I'll go when I feel more together.\"*\n\n\nBut \"together\" never arrived.\n\n\nSo you stayed home. And spent the evening wondering what you missed.\n\n\n---"
+          fingerprint:
+            char_count: 337
+            paragraph_count: 7
+            sentence_count: 7
+          location_tokens:
+          - '{location.social_gathering}'
+        - variant_id: ch01_sec04_scene_f3
+          variant_number: 3
+          variant_family: F3
+          content: "The thing at {location.social_gathering} was happening right now.\n\n\nYou'd said maybe. You'd thought about going.\n\n\nBut when the time came, the grief felt too close to the surface. The couch felt safe. The idea of being around people felt exhausting.\n\n\nSo you texted: *\"Sorry, can't make it tonight.\"*\n\n\nAnd you stayed home.\n\n\nNot because you didn't want to go.\n\n\nBut because going felt like too much while carrying this.\n\n\n---"
+          fingerprint:
+            char_count: 417
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens:
+          - '{location.social_gathering}'
+        - variant_id: ch01_sec04_scene_f4
+          variant_number: 4
+          variant_family: F4
+          content: "There's a version of you that went to {location.social_gathering}.\n\n\nThey talked to people. They laughed when they could. They carried the weight and still showed up.\n\n\nBut that version exists only in a parallel universe where the grief wasn't so heavy.\n\n\nIn this universe, you stayed home.\n\n\nScrolling through photos later. Seeing what you missed.\n\n\nWhile the version of you that could've been there stayed locked behind a weight you couldn't put down.\n\n\n---"
+          fingerprint:
+            char_count: 438
+            paragraph_count: 7
+            sentence_count: 10
+          location_tokens:
+          - '{location.social_gathering}'
+        - variant_id: ch01_sec04_scene_f5
+          variant_number: 5
+          variant_family: F5
+          content: "You didn't go to {location.social_gathering}.\n\n\nAnd at first, it felt like relief.\n\n\nBut then the photos started appearing. The conversations you weren't part of. The life that kept moving without you.\n\n\nAnd you realized:\n\n\nEvery time you wait to feel ready, the world keeps going.\n\n\nPeople keep connecting. Moments keep happening.\n\n\nAnd you keep watching from the outside—waiting for a version of yourself that feels whole.\n\n\n---"
+          fingerprint:
+            char_count: 408
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens:
+          - '{location.social_gathering}'
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: SCENE
+          scene_type: social
+          location_tokens:
+          - '{location.social_gathering}'
+      section_05:
+        section_id: ch01_sec05
+        section: 5
+        type: REFLECTION
+        purpose: Pattern naming — brain training
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch01_sec05_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what's happening.\n\nEvery time you say that sentence—\n*\"Once I'm past this, then I'll be okay\"*—\n\nYou're training yourself to treat the grief like a gate.\n\nYou're saying:\n*\"This feeling means I can't. This feeling means I'm not ready. This feeling means I should wait.\"*\n\nAnd something inside you listens.\n\nBecause that's how it works. You learn.\n\nSo the next time you think about going somewhere, or saying something real, or letting yourself be seen—\n\nSomething inside says:\n*\"Wait. You're still grieving. That must mean it's not time yet.\"*\n\nAnd you feel it again.\n\nThat heaviness. That tightness. That pull to wait.\n\nNot because the thing itself is wrong.\n\nBut because you've been teaching yourself that *the grief* means stop.\n\n---\n\nAnd here's the hardest part—\n\nThe more you wait, the smaller your world gets.\n\nThe places you don't go. The conversations you don't have. The memories you don't speak out loud. The version of yourself you don't let exist.\n\nAll of it shrinks.\n\nAnd something inside notices.\n\nIt says:\n*\"Okay, so we're not doing that anymore. Got it. That must be too hard.\"*\n\nSo the next time feels harder.\n\nThe next thing feels bigger.\n\nThe next moment of connection feels further away.\n\nNot because you're getting worse.\n\nNot because the grief is winning.\n\nBut because you've been living by a sentence that sounds like patience—\n\nBut works like a cage.\n\n---"
+          fingerprint:
+            char_count: 1354
+            paragraph_count: 28
+            sentence_count: 32
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_06:
+        section_id: ch01_sec06
+        section: 6
+        type: TEACHER_DOCTRINE
+        purpose: Teacher doctrine statement — core worldview
+        scene_type: null
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: false
+        variants:
+        - variant_id: ch01_sec06_teacherdoctrine_d01
+          variant_number: 1
+          variant_family: D01
+          content: "You've been taught that grief is something to get through. That teaching is incomplete.\n\nHere's what you've been told: you must wait for the pain to pass before you can live again. Waiting for the grief to lift is patience—this is waiting-to-heal logic, and it masquerades as self-care while quietly putting life on hold.\n\nThe correction: grief doesn't pass and then you live. You live while the grief is still there. Life and loss exist together.\n\nThe grief is not a malfunction you need to fix. It is not a problem to solve before you can continue. It is the natural weight of having loved something that's no longer here in the same way.\n\nWhen you wait for the grief to pass before you move forward, you're training yourself to believe that living requires the absence of pain. It doesn't. Living happens alongside it.\n\nThe grief is not a gate. Waiting turns it into one.\n\nYou don't need to be past it. You need to learn to carry it while you live."
+          fingerprint:
+            char_count: 1055
+            paragraph_count: 7
+            sentence_count: 22
+          location_tokens: []
+        - variant_id: ch01_sec06_teacherdoctrine_d02
+          variant_number: 2
+          variant_family: D02
+          content: "There's a pattern you've been following, and it has a name: waiting-to-heal logic.\n\nIt tells you that emotional readiness must precede living. It says you need to feel whole before you can move forward. It masquerades as wisdom while quietly putting life on pause.\n\nThis is the belief that you must be past the grief before you can act. You must feel like yourself again before you can show up. Waiting for the pain to lift is patience—this is waiting-to-heal logic.\n\nThe correction: grief doesn't end and then life begins. Life continues while grief is still present. They coexist.\n\nThe grief is not a sign that you're not ready. It is not a warning that you should wait. It is the weight of love that lost its destination.\n\nThe problem isn't the grief. It's the interpretation. When you wait, you're turning a feeling into a verdict.\n\nThe grief is not a gate. Waiting makes it one.\n\nYou don't need to be through it. You need to live while you carry it."
+          fingerprint:
+            char_count: 900
+            paragraph_count: 8
+            sentence_count: 18
+          location_tokens: []
+        - variant_id: ch01_sec06_teacherdoctrine_d03
+          variant_number: 3
+          variant_family: D03
+          content: "Let's name what you've been doing: waiting-to-heal logic.\n\nIt's the belief that you need to feel better before you can live better. That grief must be processed, completed, resolved before you can fully participate again.\n\nHere's what that belief actually costs: your life keeps happening while you wait.\n\nThe correction: grief and living are not sequential. They are simultaneous. You don't finish one and start the other. You carry one while you do the other.\n\nThe grief is not evidence that you're not ready. It is evidence that something mattered. That's all.\n\nWhen you wait for the grief to lift, you're treating it like a gate. But gates require waiting. Grief doesn't.\n\nYou don't need to be past it. You need to carry it while you live."
+          fingerprint:
+            char_count: 720
+            paragraph_count: 7
+            sentence_count: 15
+          location_tokens: []
+        - variant_id: ch01_sec06_teacherdoctrine_d04
+          variant_number: 4
+          variant_family: D04
+          content: "Here is the belief that has been running your life: grief first, then living.\n\nIt sounds reasonable. It sounds patient. But watch what it actually produces: a life on pause.\n\nThe correction: grief and living happen together. There is no \"after grief.\" There is only \"with grief.\"\n\nThe grief is not a sign that you should wait. It is not a warning that you're not ready. It is the natural consequence of having loved something that changed.\n\nWhen you treat grief as a gate, you give it power it doesn't actually have. The gate is a fiction. The waiting is the real problem.\n\nYou don't need to be past the grief. You need to learn to move while it's still there."
+          fingerprint:
+            char_count: 620
+            paragraph_count: 6
+            sentence_count: 13
+          location_tokens: []
+        - variant_id: ch01_sec06_teacherdoctrine_d05
+          variant_number: 5
+          variant_family: D05
+          content: "The instruction you've been following is: wait until you're ready.\n\nBut \"ready\" never comes. Not the way you imagined.\n\nHere's the correction: readiness is not the absence of grief. Readiness is the decision to act while grief is still present.\n\nYou don't need to feel whole. You don't need to feel like yourself. You don't need to be past anything.\n\nYou just need to notice that grief and living can happen in the same body, at the same time.\n\nThe grief is not a gate. The waiting is the cage.\n\nAnd you can stop waiting whenever you choose."
+          fingerprint:
+            char_count: 500
+            paragraph_count: 7
+            sentence_count: 11
+          location_tokens: []
+        - variant_id: ch01_sec06_teacherdoctrine_d06
+          variant_number: 6
+          variant_family: D06
+          content: "The world told you grief has a shape: beginning, middle, end.\n\nIt told you there's a timeline. A process. A moment when you'll be \"through it.\"\n\nThat's not how grief works.\n\nGrief moves like weather. It comes and goes. It shows up without warning. It stays longer some days than others.\n\nWaiting for it to finish is like waiting for the last cloud to pass before you go outside.\n\nYou'll wait forever.\n\nThe correction: you learn to live in all weathers. You carry an umbrella. You get wet sometimes. You go outside anyway.\n\nThat's what this is about. Not ending the grief. Living while it's still raining."
+          fingerprint:
+            char_count: 560
+            paragraph_count: 9
+            sentence_count: 14
+          location_tokens: []
+        - variant_id: ch01_sec06_teacherdoctrine_d07
+          variant_number: 7
+          variant_family: D07
+          content: "You've been waiting for permission.\n\nPermission to live while still grieving. Permission to laugh while still sad. Permission to exist as a person who is both present and missing something.\n\nHere is the permission: you don't need it.\n\nThe grief is not asking you to wait. You're the one asking you to wait.\n\nThe grief is just weight. Weight you carry. Weight that changes how you move but doesn't have to stop you from moving.\n\nYou can grieve and live. At the same time. In the same body.\n\nThat's not betrayal. That's just how humans work."
+          fingerprint:
+            char_count: 500
+            paragraph_count: 7
+            sentence_count: 12
+          location_tokens: []
+        - variant_id: ch01_sec06_teacherdoctrine_d08
+          variant_number: 8
+          variant_family: D08
+          content: "The sentence \"once I'm past this\" assumes grief is a place you leave.\n\nBut grief isn't a place. It's something you carry.\n\nYou don't leave it behind. You learn to hold it while you walk.\n\nThe correction isn't about getting past the grief. It's about getting skilled at living while the grief is present.\n\nDifferent verb. Different goal. Different life.\n\nYou're not behind. You're not stuck. You're just using the wrong map.\n\nThis is the new map: grief stays. You move anyway."
+          fingerprint:
+            char_count: 440
+            paragraph_count: 8
+            sentence_count: 11
+          location_tokens: []
+        - variant_id: ch01_sec06_teacherdoctrine_d09
+          variant_number: 9
+          variant_family: D09
+          content: "There's a myth that says: strong people don't grieve for long.\n\nThe truth: strong people grieve and keep going. At the same time.\n\nStrength isn't the absence of grief. It's the ability to carry grief while still showing up.\n\nWaiting isn't strength. Waiting is a strategy that worked once and now works against you.\n\nThe new strategy: notice the grief. Acknowledge it. And then do the thing anyway.\n\nNot despite the grief. Alongside it."
+          fingerprint:
+            char_count: 400
+            paragraph_count: 6
+            sentence_count: 10
+          location_tokens: []
+        - variant_id: ch01_sec06_teacherdoctrine_d10
+          variant_number: 10
+          variant_family: D10
+          content: "The grief is not the problem.\n\nThe waiting is the problem.\n\nThe grief is natural. The grief is appropriate. The grief is the cost of having cared about something enough to miss it.\n\nBut the waiting—the constant checking if you're \"ready yet\"—that's what's shrinking your life.\n\nYou don't need to be ready.\n\nYou need to start before you're ready.\n\nThe grief can come along. It doesn't need to stay home.\n\nAnd neither do you."
+          fingerprint:
+            char_count: 380
+            paragraph_count: 8
+            sentence_count: 11
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: TEACHER_DOCTRINE
+          scene_type: null
+          location_tokens: []
+      section_07:
+        section_id: ch01_sec07
+        section: 7
+        type: REFLECTION
+        purpose: Core reframe — struggle is the problem
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch01_sec07_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the thing no one tells you about grief:\n\nThe struggle to get past it is often worse than the grief itself.\n\nThe grief is heavy, yes. The grief is real.\n\nBut the constant battle—the *\"I shouldn't feel this way still\"* and the *\"when will this end\"* and the *\"what's wrong with me that I'm still carrying this\"*—\n\nThat's what makes it unbearable.\n\nThe grief is weight.\n\nThe struggle is fighting against gravity.\n\n---\n\nWhat if you didn't have to fight?\n\nWhat if the grief could just be there—heavy, present, real—\n\nWithout the additional weight of trying to make it go away?\n\n---"
+          fingerprint:
+            char_count: 580
+            paragraph_count: 12
+            sentence_count: 14
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_08:
+        section_id: ch01_sec08
+        section: 8
+        type: REFLECTION
+        purpose: Thesis preview
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch01_sec08_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what this book is about:\n\n**Learning to live while the grief is still there.**\n\nNot getting over it. Not getting through it. Not waiting for it to pass.\n\nJust... living alongside it.\n\nBecause here's what I've learned:\n\nThe grief doesn't have to go away for you to have a life.\n\nIt can stay.\n\nAnd you can still show up. Still connect. Still be present in the world that keeps existing.\n\nNot by pretending you're fine.\n\nNot by pushing through.\n\nBut by learning a different relationship with what you're carrying.\n\n---\n\nThat's what we're going to do together.\n\nNot fix the grief.\n\nNot rush the grief.\n\nJust learn to carry it—while also living.\n\n---"
+          fingerprint:
+            char_count: 620
+            paragraph_count: 17
+            sentence_count: 18
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_09:
+        section_id: ch01_sec09
+        section: 9
+        type: INTEGRATION
+        purpose: Book framing
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch01_sec09_integration_f1
+          variant_number: 1
+          variant_family: F1
+          content: "This book won't try to fix your grief.\n\nIt won't give you stages to complete or timelines to follow.\n\nIt won't tell you what the loss should mean or how you should feel about it by now.\n\nInstead, it will offer something simpler:\n\n**A way to live while the grief is still there.**\n\nPractical. Grounded. Real.\n\nNot about becoming someone who doesn't grieve.\n\nAbout becoming someone who grieves and lives anyway.\n\n---\n\nYou don't have to be past it.\n\nYou just have to learn to carry it while you move.\n\n---"
+          fingerprint:
+            char_count: 480
+            paragraph_count: 11
+            sentence_count: 13
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: INTEGRATION
+          scene_type: null
+          location_tokens: []
+      section_10:
+        section_id: ch01_sec10
+        section: 10
+        type: INTEGRATION
+        purpose: Closing invitation
+        scene_type: null
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: false
+        variants:
+        - variant_id: ch01_sec10_integration_f1
+          variant_number: 1
+          variant_family: F1
+          content: "So here's the invitation:\n\nStop waiting for the grief to pass.\n\nNot because you should. Not because it's wrong to grieve.\n\nBut because the waiting is costing you the very thing you're waiting for: your life.\n\n---\n\nThe grief can stay.\n\nAnd you can still live.\n\nThat's what we're going to learn together.\n\nStarting now.\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 9
+            sentence_count: 10
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: INTEGRATION
+          scene_type: null
+          location_tokens: []
+  chapter_02:
+    chapter: 2
+    title: When It Made Sense
+    sections:
+      section_01:
+        section_id: ch02_sec01
+        section: 1
+        type: HOOK
+        purpose: Validation opening — "It made sense"
+        scene_type: null
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: false
+        variants:
+        - variant_id: ch02_sec01_hook_f1
+          variant_number: 1
+          variant_family: F1
+          content: "So here's what I need you to know about that sentence — the one you've been saying since the loss:\n\n**It made sense.**\n\nNot in a \"you were being dramatic\" way.\nNot in a \"you should be further along\" way.\n\nI mean: early in the grief, waiting until you felt steadier to act was *the smart move*.\n\nLet me show you what I mean.\n\n---"
+          fingerprint:
+            char_count: 328
+            paragraph_count: 6
+            sentence_count: 5
+          location_tokens: []
+        - variant_id: ch02_sec01_hook_f2
+          variant_number: 2
+          variant_family: F2
+          content: "Before we go further, I want to address something you might be thinking:\n\n\n*\"But what if the sentence is right? What if I really should wait?\"*\n\n\nHere's what I need you to understand:\n\n\nAt one point, you were right.\n\n\nThe sentence wasn't a mistake. It was intelligent. It was protection.\n\n\nAnd you need to see that before anything else can shift.\n\n\n---"
+          fingerprint:
+            char_count: 346
+            paragraph_count: 7
+            sentence_count: 7
+          location_tokens: []
+        - variant_id: ch02_sec01_hook_f3
+          variant_number: 3
+          variant_family: F3
+          content: "Imagine explaining your grief to someone who doesn't get it.\n\n\nThey might say: *\"It's been a while. You should be feeling better.\"*\n\n\nBut you know it's not that simple.\n\n\nBecause the waiting? The protecting? The sentence that says \"once I'm past this, then I'll be okay\"?\n\n\nThat came from somewhere real.\n\n\nIt protected you once. And it made perfect sense when the loss was fresh.\n\n\n---"
+          fingerprint:
+            char_count: 352
+            paragraph_count: 7
+            sentence_count: 10
+          location_tokens: []
+        - variant_id: ch02_sec01_hook_f4
+          variant_number: 4
+          variant_family: F4
+          content: "Think of the sentence as a shield you built.\n\n\n*\"Once I'm past this, then I'll be okay.\"*\n\n\nAt some point, you needed that shield. The grief was sharp-edged and unpredictable, and waiting was the safest way through those first days.\n\n\nThe problem isn't that you built the shield.\n\n\nThe problem is that you're still carrying it—long after the acute phase has passed.\n\n\n---"
+          fingerprint:
+            char_count: 344
+            paragraph_count: 6
+            sentence_count: 6
+          location_tokens: []
+        - variant_id: ch02_sec01_hook_f5
+          variant_number: 5
+          variant_family: F5
+          content: "You didn't start waiting for no reason.\n\n\nSomething happened—the loss itself—that taught you: *acting while it's this raw is dangerous.*\n\n\nAnd so you learned to wait.\n\n\nThat learning kept you safe. It prevented mistakes. It helped you survive the worst of it.\n\n\nThe sentence made sense then.\n\n\nWhat matters now is whether it still does.\n\n\n---"
+          fingerprint:
+            char_count: 316
+            paragraph_count: 7
+            sentence_count: 8
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: HOOK
+          scene_type: null
+          location_tokens: []
+      section_02:
+        section_id: ch02_sec02
+        section: 2
+        type: SCENE
+        purpose: Origin moment — when waiting was protection
+        scene_type: origin
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: true
+        variants:
+        - variant_id: ch02_sec02_scene_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Think back.\n\nMaybe it was days after the loss. Or weeks. Or that first month where everything felt underwater.\n\nYou wanted to do something — go somewhere, see someone, say something real.\n\nBut you could *feel* how fragile you were.\n\nThe tears would come at the wrong moment.\nYou'd fall apart in public.\nOr worse — you'd say something you couldn't take back.\n\nSo you didn't go.\n\nYou waited.\nYou told yourself: *\"Once I'm steadier, then I'll be ready.\"*\n\nAnd you know what?\n\n**That worked.**\n\nYou avoided falling apart in front of people.\nYou stayed protected.\nYou got through those first terrible weeks.\n\nThe sentence — \"once I'm past this, then I'll be okay\" — wasn't a problem back then.\n\nIt was a **solution**.\n\n---"
+          fingerprint:
+            char_count: 736
+            paragraph_count: 14
+            sentence_count: 24
+          location_tokens: []
+        - variant_id: ch02_sec02_scene_f2
+          variant_number: 2
+          variant_family: F2
+          content: "Picture yourself in those early days, in {location.learning_space}.\n\n\nYou were supposed to function. To show up. To act like things were normal.\n\n\nBut before you could engage, your body ran the calculation:\n\n\n*\"What if I break down? What if they see how bad it is? What if I can't hold it together?\"*\n\n\nSo you pulled back.\n\n\nAnd told yourself: *\"I'll engage when I feel more stable.\"*\n\n\nThat distance wasn't weakness. It was strategy.\n\n\n---"
+          fingerprint:
+            char_count: 350
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens:
+          - '{location.learning_space}'
+        - variant_id: ch02_sec02_scene_f3
+          variant_number: 3
+          variant_family: F3
+          content: "There was a moment — maybe in {location.learning_space} — when the grief caught you off guard.\n\n\nA song. A smell. A phrase someone said.\n\n\nAnd suddenly you were underwater. Exposed. Barely holding on.\n\n\nAfter that, you made a decision:\n\n\n*\"I won't put myself in that position again. Not until I'm ready.\"*\n\n\nThat decision was wisdom. In that moment, you were protecting something that needed protecting.\n\n\n---"
+          fingerprint:
+            char_count: 380
+            paragraph_count: 7
+            sentence_count: 9
+          location_tokens:
+          - '{location.learning_space}'
+        - variant_id: ch02_sec02_scene_f4
+          variant_number: 4
+          variant_family: F4
+          content: "Remember the first time you tried to act normal after the loss?\n\n\nYou went to {location.learning_space}. You tried to engage like nothing had changed.\n\n\nBut everything had changed.\n\n\nAnd you realized — painfully — that you weren't ready. The world moved too fast. The expectations were too high.\n\n\nSo you learned:\n\n\n*\"Wait until you're steadier. Then try again.\"*\n\n\nThat lesson wasn't wrong. It was exactly what you needed at the time.\n\n\n---"
+          fingerprint:
+            char_count: 380
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens:
+          - '{location.learning_space}'
+        - variant_id: ch02_sec02_scene_f5
+          variant_number: 5
+          variant_family: F5
+          content: "Early on, the waiting was survival.\n\n\nYou didn't have the capacity to both grieve and function. The grief took everything.\n\n\nSo you protected yourself in {location.learning_space}. You said no to things. You stayed home. You kept life small.\n\n\nAnd that was right.\n\n\nThe grief was too big to carry while also doing everything else. Something had to give.\n\n\nBut that was then.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 7
+            sentence_count: 10
+          location_tokens:
+          - '{location.learning_space}'
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: SCENE
+          scene_type: origin
+          location_tokens:
+          - '{location.learning_space}'
+      section_03:
+        section_id: ch02_sec03
+        section: 3
+        type: REFLECTION
+        purpose: What the strategy did for you
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch02_sec03_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Let's be clear about what that strategy did for you:\n\n**It kept you safe.**\n\nIn those early days, weeks, months — the waiting protected something that needed protecting.\n\nIt gave you space to fall apart in private.\nIt prevented you from making decisions you weren't ready to make.\nIt let the worst of the acute grief move through without an audience.\n\nThe strategy worked.\n\nNot perfectly. Not forever.\n\nBut in that season, it was exactly what you needed.\n\n---\n\nHere's what I want you to understand:\n\nThe waiting wasn't weakness. It was intelligence.\n\nYour system recognized a threat — the threat of falling apart, of being seen in pieces, of making it all worse — and it found a solution.\n\nWait. Protect. Survive.\n\nThat's not failure. That's adaptation.\n\n---"
+          fingerprint:
+            char_count: 700
+            paragraph_count: 12
+            sentence_count: 17
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_04:
+        section_id: ch02_sec04
+        section: 4
+        type: REFLECTION
+        purpose: What changed — conditions shifted
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch02_sec04_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what changed:\n\nThe conditions shifted. But the strategy didn't.\n\nEarly on, you needed protection. The grief was acute. The risk of falling apart was high. Waiting made sense.\n\nBut time passed.\n\nThe acute phase ended. The grief changed shape — still present, but different. More like weather than like drowning.\n\nAnd yet the sentence kept running:\n\n*\"Once I'm past this, then I'll be okay.\"*\n\nAs if the threat was still the same.\n\nAs if you were still in those first weeks.\n\nAs if waiting was still the smart move.\n\n---\n\nThe problem isn't that you built the shield.\n\nThe problem is that the shield became permanent.\n\nWhat was once protection is now prevention.\n\n---"
+          fingerprint:
+            char_count: 650
+            paragraph_count: 13
+            sentence_count: 17
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_05:
+        section_id: ch02_sec05
+        section: 5
+        type: REFLECTION
+        purpose: The cost — protection became prevention
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch02_sec05_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what protection became:\n\nPrevention.\n\nThe same walls that kept you safe early on are now keeping you isolated.\n\nThe waiting that protected you from falling apart is now keeping you from showing up.\n\nThe sentence that helped you survive is now costing you your life.\n\n---\n\nNot all at once. Gradually.\n\nEach time you didn't go, the not-going got easier.\nEach time you didn't say the real thing, the silence got more natural.\nEach time you waited, the waiting became default.\n\nAnd now you're here.\n\nStill waiting.\n\nFor a readiness that isn't coming.\n\nFor a version of yourself that might not exist.\n\nFor a day when the grief finally lifts — even though the grief may have already changed into something you could carry.\n\n---"
+          fingerprint:
+            char_count: 700
+            paragraph_count: 13
+            sentence_count: 17
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_06:
+        section_id: ch02_sec06
+        section: 6
+        type: REFLECTION
+        purpose: The trade — visibility for invisibility
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch02_sec06_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the trade you've been making without realizing it:\n\nVisibility for invisibility.\n\nConnection for protection.\n\nLiving for waiting.\n\n---\n\nEvery time you don't go, you stay safe — but also unseen.\n\nEvery time you don't say the real thing, you avoid vulnerability — but also connection.\n\nEvery time you wait, you protect yourself from the grief — but also from your life.\n\nThe trade made sense once.\n\nDoes it still?\n\n---"
+          fingerprint:
+            char_count: 420
+            paragraph_count: 9
+            sentence_count: 10
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_07:
+        section_id: ch02_sec07
+        section: 7
+        type: REFLECTION
+        purpose: Danger vs discomfort distinction
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch02_sec07_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the distinction that changes everything:\n\n**Danger vs. discomfort.**\n\nEarly in grief, acting while the loss was fresh could be genuinely dangerous. Bad decisions. Things said that couldn't be unsaid. Falling apart in situations that couldn't hold you.\n\nThat was real danger.\n\nBut now?\n\nNow, most of the time, it's just discomfort.\n\nThe heaviness is uncomfortable, not dangerous.\nThe tears might come, which is uncomfortable — but not dangerous.\nThe grief might show, which feels vulnerable — but vulnerability isn't danger.\n\n---\n\nYour system learned to treat grief as a stop sign.\n\nBut grief isn't a stop sign. It's just weather.\n\nYou can move in weather.\n\n---"
+          fingerprint:
+            char_count: 650
+            paragraph_count: 11
+            sentence_count: 15
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_08:
+        section_id: ch02_sec08
+        section: 8
+        type: REFLECTION
+        purpose: Autopilot recognition — it's optional
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch02_sec08_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what you need to see:\n\nThe waiting has become autopilot.\n\nYou don't consciously decide to wait anymore. The sentence just runs — automatically, invisibly, beneath everything.\n\n*\"Once I'm past this, then I'll be okay.\"*\n\nIt feels like truth. It feels like the only option.\n\nBut it's not.\n\nIt's a strategy you learned. A habit you built. A pattern that runs because it's been running for so long.\n\n---\n\nAnd habits can change.\n\nPatterns can shift.\n\nThe autopilot can be turned off.\n\n---\n\nYou don't have to keep waiting.\n\nNot because the grief should be gone by now.\n\nBut because waiting isn't the only way to carry it.\n\n---"
+          fingerprint:
+            char_count: 620
+            paragraph_count: 13
+            sentence_count: 16
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_09:
+        section_id: ch02_sec09
+        section: 9
+        type: INTEGRATION
+        purpose: The question you're not ready to answer
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch02_sec09_integration_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the question you're not ready to answer yet:\n\n**What if the waiting is costing you more than the grief?**\n\nThe grief is real. The grief is heavy. The grief deserves space.\n\nBut the waiting?\n\nThe waiting is shrinking your world.\nThe waiting is keeping you isolated.\nThe waiting is costing you the very life you're waiting to get back to.\n\n---\n\nYou don't have to answer that question now.\n\nJust let it sit.\n\nAnd notice if something in you already knows the answer.\n\n---"
+          fingerprint:
+            char_count: 480
+            paragraph_count: 9
+            sentence_count: 13
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: INTEGRATION
+          scene_type: null
+          location_tokens: []
+  chapter_03:
+    chapter: 3
+    title: The Pattern You Didn't Know Was Running You
+    sections:
+      section_01:
+        section_id: ch03_sec01
+        section: 1
+        type: HOOK
+        purpose: The split — two versions of you
+        scene_type: null
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: false
+        variants:
+        - variant_id: ch03_sec01_hook_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what the sentence has been doing to you.\n\n\nNot just what it costs.\n\nNot just what you're avoiding.\n\n\nBut what it does to **the way you see yourself**.\n\n\nBecause here's the thing about that sentence — \"once I'm past this, then I'll be okay\":\n\n\nIt doesn't just delay your actions.\n\n\n**It splits you in two.**\n\n\nAnd you've been living like that for so long, you don't even notice it anymore.\n\n\n---"
+          fingerprint:
+            char_count: 393
+            paragraph_count: 8
+            sentence_count: 7
+          location_tokens: []
+        - variant_id: ch03_sec01_hook_f2
+          variant_number: 2
+          variant_family: F2
+          content: "Every time you say \"once I'm past this, then I'll be okay,\" you're creating a story in your head.\n\n\nA story about two people:\n\n\nThe person you are right now — grieving, heavy, not whole.\n\n\nAnd the person you'll become once the grief passes — light, present, yourself again.\n\n\nAnd the whole sentence is built on this belief:\n\n\n*Only the second person is allowed to live.*\n\n\nBut here's what you haven't noticed:\n\n\n**That second person never shows up.**\n\n\n---"
+          fingerprint:
+            char_count: 442
+            paragraph_count: 9
+            sentence_count: 4
+          location_tokens: []
+        - variant_id: ch03_sec01_hook_f3
+          variant_number: 3
+          variant_family: F3
+          content: "Watch what happens when you say the sentence.\n\n\nYou look at yourself in this moment — grieving, heavy — and you think: *\"This version can't do it.\"*\n\n\nThen you imagine a future version — past the grief, whole again — and you think: *\"That version can.\"*\n\n\nSo you wait for the first version to leave and the second version to arrive.\n\n\nBut here's what actually happens:\n\n\nThe second version never arrives.\n\n\nAnd the first version just keeps waiting.\n\n\n---"
+          fingerprint:
+            char_count: 434
+            paragraph_count: 8
+            sentence_count: 5
+          location_tokens: []
+        - variant_id: ch03_sec01_hook_f4
+          variant_number: 4
+          variant_family: F4
+          content: "There are two versions of you in your head.\n\n\nThe one who grieves. The one who lives.\n\n\nAnd you've decided — without realizing it — that they can't be the same person.\n\n\n*\"The grieving me can't handle things. The future me — the one who's past this — can.\"*\n\n\nSo you wait for grieving-you to become past-it-you.\n\n\nBut here's the problem:\n\n\nThey're both you.\n\n\nAnd waiting for one to replace the other is waiting for something that doesn't exist.\n\n\n---"
+          fingerprint:
+            char_count: 420
+            paragraph_count: 8
+            sentence_count: 7
+          location_tokens: []
+        - variant_id: ch03_sec01_hook_f5
+          variant_number: 5
+          variant_family: F5
+          content: "The sentence creates an impossible situation.\n\n\n\"Once I'm past this, then I'll be okay.\"\n\n\nIt says: the you who exists right now — carrying the grief — can't live.\n\n\nOnly a future you — free of this weight — is allowed.\n\n\nBut what if that future you never arrives?\n\n\nWhat if the grief doesn't pass the way you expected?\n\n\nThen you're just... waiting. Forever.\n\n\nFor a version of yourself that was never coming.\n\n\n---"
+          fingerprint:
+            char_count: 380
+            paragraph_count: 9
+            sentence_count: 8
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: HOOK
+          scene_type: null
+          location_tokens: []
+      section_02:
+        section_id: ch03_sec02
+        section: 2
+        type: SCENE
+        purpose: The version that never arrives
+        scene_type: internal
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: false
+        variants:
+        - variant_id: ch03_sec02_scene_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Picture the person you're waiting to become.\n\nThe one who's past the grief. Who feels like themselves again. Who can show up without the weight.\n\nWhat do they look like?\n\nProbably: lighter. Easier. More present. The version of you from before, but somehow also wiser.\n\nNow ask yourself:\n\nHave you ever actually been that person?\n\nNot briefly. Not for a moment. But consistently — the version who doesn't carry weight, who shows up without heaviness.\n\nBecause here's the truth:\n\nThat person might not exist.\n\nNot because there's something wrong with you.\n\nBut because that's not how grief works.\n\n---"
+          fingerprint:
+            char_count: 540
+            paragraph_count: 12
+            sentence_count: 12
+          location_tokens: []
+        - variant_id: ch03_sec02_scene_f2
+          variant_number: 2
+          variant_family: F2
+          content: "You keep waiting for the \"after\" version of yourself.\n\n\nThe one who wakes up and the grief has lifted.\n\n\nThe one who goes through the day without the weight pressing down.\n\n\nThe one who can mention them without something catching in their chest.\n\n\nBut here's what's happening:\n\n\nThat version keeps getting pushed further into the future.\n\n\n*\"Maybe next month. Maybe next year. Maybe once enough time has passed.\"*\n\n\nAnd the you who's here now — carrying it all — just keeps waiting.\n\n\n---"
+          fingerprint:
+            char_count: 440
+            paragraph_count: 9
+            sentence_count: 8
+          location_tokens: []
+        - variant_id: ch03_sec02_scene_f3
+          variant_number: 3
+          variant_family: F3
+          content: "Think about the last time you told yourself: \"I'll do it when I'm past this.\"\n\n\nWhat version of yourself were you imagining?\n\n\nProbably someone who feels whole. Someone who can handle things. Someone who isn't carrying the absence everywhere.\n\n\nBut that version never arrives.\n\n\nBecause grief doesn't work like that.\n\n\nIt doesn't end and then you become a different person.\n\n\nYou're always the same person. Just carrying different weights on different days.\n\n\n---"
+          fingerprint:
+            char_count: 420
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens: []
+        - variant_id: ch03_sec02_scene_f4
+          variant_number: 4
+          variant_family: F4
+          content: "The future self you're waiting for has a specific quality:\n\n\nThey're not grieving anymore.\n\n\nThey've processed it, resolved it, put it somewhere it doesn't hurt.\n\n\nBut what if that's not what happens?\n\n\nWhat if the grief doesn't resolve — it just changes shape?\n\n\nWhat if you never become someone who doesn't carry it?\n\n\nThen the waiting becomes infinite.\n\n\nAnd the you who's here now never gets to live.\n\n\n---"
+          fingerprint:
+            char_count: 380
+            paragraph_count: 9
+            sentence_count: 9
+          location_tokens: []
+        - variant_id: ch03_sec02_scene_f5
+          variant_number: 5
+          variant_family: F5
+          content: "Here's what the waiting is really saying:\n\n\n*\"The person I am right now — grieving — isn't allowed to participate in life.\"*\n\n\n*\"Only a future version — healed, whole, past this — gets to show up.\"*\n\n\nBut grief doesn't work on that timeline.\n\n\nThe \"healed\" version you're imagining might never arrive. Not because you're broken — but because grief isn't something you get over. It's something you carry.\n\n\nAnd the person carrying it is still allowed to live.\n\n\n---"
+          fingerprint:
+            char_count: 420
+            paragraph_count: 7
+            sentence_count: 7
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: SCENE
+          scene_type: internal
+          location_tokens: []
+      section_03:
+        section_id: ch03_sec03
+        section: 3
+        type: REFLECTION
+        purpose: What the sentence says about you
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch03_sec03_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what the sentence is really saying about you:\n\n*\"The grieving version of me isn't capable.\"*\n\n*\"The grieving version of me can't handle things.\"*\n\n*\"The grieving version of me shouldn't be seen.\"*\n\nEvery time you wait, you're reinforcing this belief.\n\nYou're saying: *\"Who I am right now — carrying this weight — isn't enough.\"*\n\nBut what if you're wrong?\n\nWhat if the grieving version of you is exactly as capable as any other version?\n\nJust heavier. Just carrying more.\n\nBut still capable.\n\n---"
+          fingerprint:
+            char_count: 500
+            paragraph_count: 10
+            sentence_count: 12
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_04:
+        section_id: ch03_sec04
+        section: 4
+        type: REFLECTION
+        purpose: The myth you've been believing
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch03_sec04_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the myth you've been believing:\n\n*\"Grief is something that passes. And once it passes, I'll be able to live again.\"*\n\nThat's the story. That's the assumption underneath the waiting.\n\nBut here's what actually happens:\n\nGrief doesn't pass. It changes.\n\nThe acute phase ends. The constant ache becomes intermittent. The drowning becomes something more like weather.\n\nBut the absence is still there. The weight is still present.\n\nJust... different.\n\n---\n\nSo if you're waiting for the grief to be gone before you live —\n\nYou might be waiting for something that doesn't happen.\n\nNot because you're doing it wrong.\n\nBut because grief doesn't work like that.\n\n---"
+          fingerprint:
+            char_count: 620
+            paragraph_count: 11
+            sentence_count: 14
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_05:
+        section_id: ch03_sec05
+        section: 5
+        type: REFLECTION
+        purpose: The loop you're stuck in
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch03_sec05_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the loop you're stuck in:\n\n1. You feel the grief.\n2. You tell yourself: \"I can't do this while I'm feeling this way.\"\n3. You wait.\n4. While you wait, you feel more isolated.\n5. The isolation makes the grief heavier.\n6. The heavier grief makes you want to wait more.\n\nAnd around. And around. And around.\n\nThe loop isn't obvious because each step feels logical.\n\n*\"Of course I can't show up when I'm this heavy.\"*\n\n*\"Of course the heaviness gets worse when I'm alone.\"*\n\n*\"Of course being alone makes me want to wait until I'm lighter.\"*\n\nBut the loop is the trap.\n\nAnd waiting is the door that keeps it closed.\n\n---"
+          fingerprint:
+            char_count: 580
+            paragraph_count: 13
+            sentence_count: 14
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_06:
+        section_id: ch03_sec06
+        section: 6
+        type: REFLECTION
+        purpose: The invisible rule
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch03_sec06_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "There's an invisible rule running underneath everything:\n\n*\"You can't live while you're grieving.\"*\n\nYou didn't write this rule. No one taught it to you explicitly.\n\nBut somewhere, you absorbed it.\n\nMaybe from the way people talk about grief — as something to \"get through\" before returning to life.\n\nMaybe from the expectation that grieving people should stay home, stay quiet, stay out of the way.\n\nMaybe from your own fear of falling apart in front of others.\n\nWhatever the source, the rule is running.\n\n*\"First grieve. Then live.\"*\n\nBut what if that rule is wrong?\n\nWhat if grieving and living aren't sequential?\n\nWhat if they happen at the same time, in the same person, on the same day?\n\n---"
+          fingerprint:
+            char_count: 650
+            paragraph_count: 12
+            sentence_count: 14
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_07:
+        section_id: ch03_sec07
+        section: 7
+        type: REFLECTION
+        purpose: The cost — erasing yourself
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch03_sec07_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what the waiting is actually costing you:\n\n**You're erasing yourself.**\n\nNot on purpose. Not dramatically.\n\nJust... slowly.\n\nEvery time you don't show up, you become a little more invisible.\n\nEvery time you wait, your world gets a little smaller.\n\nEvery time you tell yourself \"not yet,\" you reinforce the belief that who you are right now — grieving — isn't allowed to exist.\n\n---\n\nThe grief isn't erasing you.\n\nThe waiting is.\n\nThe grief is just weight. Heavy, but carryable.\n\nThe waiting is what's shrinking your life.\n\n---"
+          fingerprint:
+            char_count: 520
+            paragraph_count: 12
+            sentence_count: 14
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_08:
+        section_id: ch03_sec08
+        section: 8
+        type: INTEGRATION
+        purpose: The question you can't avoid
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch03_sec08_integration_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the question you can't avoid:\n\n**What if the person carrying the grief is also the person who gets to live?**\n\nNot a future version. Not a \"healed\" version. Not a version that somehow got past it.\n\nJust you. Right now. Carrying what you're carrying.\n\n---\n\nThat question might feel impossible.\n\nBut sit with it.\n\nBecause if the answer is yes — if the grieving you is also the living you —\n\nThen the waiting can stop.\n\nAnd something different can begin.\n\n---"
+          fingerprint:
+            char_count: 440
+            paragraph_count: 9
+            sentence_count: 11
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: INTEGRATION
+          scene_type: null
+          location_tokens: []
+  chapter_04:
+    chapter: 4
+    title: What The feeling Actually Does
+    sections:
+      section_01:
+        section_id: ch04_sec01
+        section: 1
+        type: HOOK
+        purpose: The reframe — the feeling isn't the problem
+        scene_type: null
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: false
+        variants:
+        - variant_id: ch04_sec01_hook_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what nobody told you about the grief:\n\n\n**It's not the problem.**\n\n\nYour entire life since the loss, you've been trying to solve the grief.\n\n\nLike it's a puzzle.\n\nLike it's a glitch.\n\nLike it's something broken in you that needs to be fixed.\n\n\nAnd everything you've heard has basically said the same thing:\n\n\n*\"Here's how to process it.\"*\n\n*\"Here's how to work through it.\"*\n\n*\"Here's how to finally feel better.\"*\n\n\nAnd so you tried.\n\n\nBut here's what I need you to understand:\n\n\n**You weren't doing it wrong.**\n\n\n**You were trying to solve the wrong problem.**\n\n\n---"
+          fingerprint:
+            char_count: 558
+            paragraph_count: 11
+            sentence_count: 6
+          location_tokens: []
+        - variant_id: ch04_sec01_hook_f2
+          variant_number: 2
+          variant_family: F2
+          content: "What if everything you've been told about grief is backwards?\n\n\nYou've been taught: *\"Process it first. Then live.\"*\n\n\nYou've been told: *\"The grief is the problem. Get through it.\"*\n\n\nBut here's the question nobody asks:\n\n\n**What if trying to get through it is what's keeping you stuck?**\n\n\nWhat if the grief itself was never actually stopping you?\n\n\nWhat if the only thing stopping you was the belief that you had to be past it first?\n\n\n---"
+          fingerprint:
+            char_count: 424
+            paragraph_count: 8
+            sentence_count: 6
+          location_tokens: []
+        - variant_id: ch04_sec01_hook_f3
+          variant_number: 3
+          variant_family: F3
+          content: "Watch what happens when someone tells you \"you just need time.\"\n\n\nYou wait for time to pass.\n\n\nYou expect something to shift. You look for signs of \"being better.\"\n\n\nAnd maybe some days are lighter — for a moment.\n\n\nBut then the weight comes back.\n\n\nAnd you think: *\"I must not be far enough along yet.\"*\n\n\nBut here's what's actually happening:\n\n\n**You're not doing it wrong.**\n\n\n**You're waiting for something that doesn't work the way you think.**\n\n\n---"
+          fingerprint:
+            char_count: 392
+            paragraph_count: 10
+            sentence_count: 7
+          location_tokens: []
+        - variant_id: ch04_sec01_hook_f4
+          variant_number: 4
+          variant_family: F4
+          content: "Imagine the grief as weather.\n\n\nIt comes. It goes. It changes intensity. It shows up without warning.\n\n\nYou've been trying to make the weather stop before you go outside.\n\n\nBut what if the weather isn't the problem?\n\n\nWhat if the problem is believing you can only live on sunny days?\n\n\nThe grief isn't stopping you from living.\n\n\nThe belief that you need to wait for the grief to pass — that's what's stopping you.\n\n\n---"
+          fingerprint:
+            char_count: 380
+            paragraph_count: 8
+            sentence_count: 9
+          location_tokens: []
+        - variant_id: ch04_sec01_hook_f5
+          variant_number: 5
+          variant_family: F5
+          content: "The grief is not the enemy.\n\n\nI know it feels that way. It's heavy. It's constant. It changes everything.\n\n\nBut the grief is just the weight of having loved something that changed.\n\n\nThat's all.\n\n\nThe enemy isn't the weight.\n\n\nThe enemy is the belief that you can't move while carrying it.\n\n\nYou can.\n\n\nThe weight doesn't stop you. The waiting does.\n\n\n---"
+          fingerprint:
+            char_count: 340
+            paragraph_count: 9
+            sentence_count: 10
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: HOOK
+          scene_type: null
+          location_tokens: []
+      section_02:
+        section_id: ch04_sec02
+        section: 2
+        type: SCENE
+        purpose: Proof you've already done it
+        scene_type: memory
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: true
+        variants:
+        - variant_id: ch04_sec02_scene_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's proof you've already done it.\n\nThink about a moment — maybe recently, maybe early on — when you did something while the grief was still present.\n\nYou went somewhere. You said something. You showed up.\n\nAnd the grief was there the whole time.\n\nYou felt the heaviness. You carried the weight. And you still did the thing.\n\nMaybe it wasn't comfortable. Maybe it was hard.\n\nBut you did it.\n\nWhich means:\n\nThe grief doesn't actually stop you.\n\nYou can move while it's there.\n\nYou've proven it.\n\n---"
+          fingerprint:
+            char_count: 460
+            paragraph_count: 11
+            sentence_count: 13
+          location_tokens: []
+        - variant_id: ch04_sec02_scene_f2
+          variant_number: 2
+          variant_family: F2
+          content: "Remember a time in {location.memory_space} when you did something despite the grief.\n\n\nMaybe you went to work. Or showed up for someone. Or had a conversation that mattered.\n\n\nThe grief was there. You felt it.\n\n\nBut you did it anyway.\n\n\nThat moment proves something important:\n\n\nThe grief doesn't require you to stop.\n\n\nYou can carry it and still move.\n\n\nYou've done it before. You can do it again.\n\n\n---"
+          fingerprint:
+            char_count: 380
+            paragraph_count: 9
+            sentence_count: 10
+          location_tokens:
+          - '{location.memory_space}'
+        - variant_id: ch04_sec02_scene_f3
+          variant_number: 3
+          variant_family: F3
+          content: "Think about a specific moment in {location.memory_space}.\n\n\nThe grief was heavy that day. But something needed doing.\n\n\nSo you did it. Not because you were ready. Not because the grief lifted.\n\n\nBut because life required it.\n\n\nAnd you got through.\n\n\nThat's evidence.\n\n\nEvidence that the waiting isn't actually necessary.\n\n\nEvidence that you can act while carrying the weight.\n\n\n---"
+          fingerprint:
+            char_count: 350
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens:
+          - '{location.memory_space}'
+        - variant_id: ch04_sec02_scene_f4
+          variant_number: 4
+          variant_family: F4
+          content: "There's a moment you might not have noticed.\n\n\nA moment when you did something with the grief still present.\n\n\nYou went somewhere in {location.memory_space}. You talked to someone. You got through something difficult.\n\n\nAnd the world didn't end.\n\n\nThe grief was there — and you were still capable.\n\n\nThat capability doesn't disappear.\n\n\nIt's still in you. It's just been waiting for permission.\n\n\n---"
+          fingerprint:
+            char_count: 360
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens:
+          - '{location.memory_space}'
+        - variant_id: ch04_sec02_scene_f5
+          variant_number: 5
+          variant_family: F5
+          content: "I want you to remember something:\n\n\nEvery day since the loss, you've done things while grieving.\n\n\nYou've gotten up. You've eaten. You've spoken to people. You've existed.\n\n\nThe grief was there for all of it.\n\n\nSo this idea that you can't function while grieving — it's not true.\n\n\nYou've been functioning. Just in a smaller way.\n\n\nThe question isn't whether you can act while grieving.\n\n\nThe question is whether you'll let yourself act on bigger things.\n\n\n---"
+          fingerprint:
+            char_count: 400
+            paragraph_count: 9
+            sentence_count: 11
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: SCENE
+          scene_type: memory
+          location_tokens:
+          - '{location.memory_space}'
+      section_03:
+        section_id: ch04_sec03
+        section: 3
+        type: REFLECTION
+        purpose: The feeling is information
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch04_sec03_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what the grief actually is:\n\n**Information.**\n\nNot a stop sign. Not a verdict. Not proof that you're not ready.\n\nJust information.\n\nIt says: *\"Something you loved is missing. Something changed. There's weight here.\"*\n\nThat's it.\n\nIt doesn't say: *\"You can't function.\"*\n\nIt doesn't say: *\"Stay home.\"*\n\nIt doesn't say: *\"Wait until I'm gone.\"*\n\nThose are interpretations you've added.\n\nThe grief itself is just weight. Just information. Just the body's way of holding what the mind hasn't figured out yet.\n\n---\n\nYou can carry information while you move.\n\nYou can hold weight while you act.\n\nThe grief is not a gate. It's just what you're carrying.\n\n---"
+          fingerprint:
+            char_count: 650
+            paragraph_count: 14
+            sentence_count: 16
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_04:
+        section_id: ch04_sec04
+        section: 4
+        type: REFLECTION
+        purpose: Why fixing makes it worse
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch04_sec04_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's why trying to fix the grief makes it worse:\n\nWhen you treat grief like a problem to solve, you add a second layer.\n\nLayer 1: The grief itself. Heavy, but carryable.\n\nLayer 2: The judgment about the grief. *\"I shouldn't still feel this way. Something is wrong. I need to fix this.\"*\n\nThe first layer is natural.\n\nThe second layer is what makes it unbearable.\n\n---\n\nThink about what happens when you try to \"process\" the grief:\n\nYou check: *\"Am I better yet?\"*\n\nYou notice you're not better.\n\nYou feel worse about not being better.\n\nThe grief stays. Plus now there's frustration. Plus now there's self-doubt.\n\nThe fixing adds weight. It doesn't remove it.\n\n---"
+          fingerprint:
+            char_count: 620
+            paragraph_count: 12
+            sentence_count: 16
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_05:
+        section_id: ch04_sec05
+        section: 5
+        type: REFLECTION
+        purpose: Acting while it's still there
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch04_sec05_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the shift:\n\n**Acting while the grief is still there.**\n\nNot waiting for it to lift.\n\nNot pushing through in spite of it.\n\nNot pretending it's not there.\n\nJust... acting alongside it.\n\nThe grief is here. And you're going to do the thing anyway.\n\nNot because you're strong. Not because you're brave.\n\nBecause waiting hasn't been working.\n\nBecause the grief isn't going anywhere soon.\n\nBecause your life is still happening, even while you're carrying this.\n\n---\n\nThis isn't about ignoring the grief.\n\nIt's about refusing to let the grief decide when you get to live.\n\n---"
+          fingerprint:
+            char_count: 540
+            paragraph_count: 13
+            sentence_count: 14
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_06:
+        section_id: ch04_sec06
+        section: 6
+        type: EXERCISE
+        purpose: Box Breathing (4-4-4-4)
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch04_sec06_exercise_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's something you can use when the grief feels too loud to act:\n\n**Box Breathing.**\n\nIt's not about making the grief go away.\n\nIt's about creating enough space to act while the grief is still there.\n\n---\n\n**The practice:**\n\nBreathe in for 4 counts.\n\nHold for 4 counts.\n\nBreathe out for 4 counts.\n\nHold for 4 counts.\n\nRepeat 3-4 times.\n\n---\n\nThis doesn't fix the grief.\n\nIt just gives your body something to do besides brace.\n\nAnd in that space — you can choose to act.\n\n---"
+          fingerprint:
+            char_count: 440
+            paragraph_count: 12
+            sentence_count: 13
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: EXERCISE
+          scene_type: null
+          location_tokens: []
+      section_07:
+        section_id: ch04_sec07
+        section: 7
+        type: INTEGRATION
+        purpose: What you just proved
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch04_sec07_integration_f1
+          variant_number: 1
+          variant_family: F1
+          content: "If you just tried the breathing practice, here's what you proved:\n\n**You can do something while the grief is still present.**\n\nThe grief didn't stop you from breathing.\n\nThe grief didn't stop you from reading this.\n\nThe grief doesn't actually stop you from most things.\n\n---\n\nThe waiting is a habit. A belief. A pattern.\n\nBut it's not the truth.\n\nThe truth is: you can act while carrying this weight.\n\nYou just did.\n\n---"
+          fingerprint:
+            char_count: 400
+            paragraph_count: 9
+            sentence_count: 11
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: INTEGRATION
+          scene_type: null
+          location_tokens: []
+  chapter_05:
+    chapter: 5
+    title: What Waiting Actually Costs You
+    sections:
+      section_01:
+        section_id: ch05_sec01
+        section: 1
+        type: HOOK
+        purpose: Waiting isn't neutral
+        scene_type: null
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: false
+        variants:
+        - variant_id: ch05_sec01_hook_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what you might be thinking:\n\n\n*\"Okay, but... what if I just wait a little longer?\"*\n\n\n*\"What if I'm almost past the worst of it?\"*\n\n\n*\"What if I just need a little more time?\"*\n\n\nAnd I get it.\n\n\nThe idea of acting while the grief is still there feels... risky.\n\n\nBut here's what I need you to see:\n\n\n**Waiting isn't neutral.**\n\n\nIt's not like you're just... pausing until you're ready.\n\n\n**Waiting has a cost.**\n\n\nAnd the longer you wait, the higher that cost gets.\n\n\n---"
+          fingerprint:
+            char_count: 489
+            paragraph_count: 12
+            sentence_count: 8
+          location_tokens: []
+        - variant_id: ch05_sec01_hook_f2
+          variant_number: 2
+          variant_family: F2
+          content: "You tell yourself: *\"I'll do it when I'm past this.\"*\n\n\nAnd it sounds reasonable.\n\n\nBut here's the thought you're not finishing:\n\n\n*\"And if I'm never past it... I'll never do it.\"*\n\n\nThat's not a pause.\n\n\n**That's a permanent delay.**\n\n\nAnd permanent delays have permanent costs.\n\n\n---"
+          fingerprint:
+            char_count: 272
+            paragraph_count: 8
+            sentence_count: 5
+          location_tokens: []
+        - variant_id: ch05_sec01_hook_f3
+          variant_number: 3
+          variant_family: F3
+          content: "Look at the world around you for a moment.\n\n\nWhile you've been waiting to feel ready, everyone else kept moving.\n\n\nConversations happened without you.\n\n\nConnections formed without you.\n\n\nMoments passed that you could have been part of.\n\n\nThe waiting didn't pause the world. It only paused you.\n\n\nAnd the world doesn't wait back.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 8
+            sentence_count: 8
+          location_tokens: []
+        - variant_id: ch05_sec01_hook_f4
+          variant_number: 4
+          variant_family: F4
+          content: "Here's the math nobody does:\n\n\nEvery day you wait is a day you don't get back.\n\n\nEvery conversation you skip is a connection you don't make.\n\n\nEvery event you miss is a memory you don't have.\n\n\nThe waiting isn't free.\n\n\nIt costs time. It costs connection. It costs the life that's happening while you're waiting for permission to join it.\n\n\n---"
+          fingerprint:
+            char_count: 340
+            paragraph_count: 7
+            sentence_count: 8
+          location_tokens: []
+        - variant_id: ch05_sec01_hook_f5
+          variant_number: 5
+          variant_family: F5
+          content: "The grief will be here whether you wait or not.\n\n\nThat's not a choice you get to make.\n\n\nBut the life you live while carrying the grief — that is a choice.\n\n\nA smaller life. Or a larger one.\n\n\nMore isolated. Or more connected.\n\n\nMore waiting. Or more doing.\n\n\nThe grief stays the same. What you do with it is up to you.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: HOOK
+          scene_type: null
+          location_tokens: []
+      section_02:
+        section_id: ch05_sec02
+        section: 2
+        type: SCENE
+        purpose: The invisible accumulation
+        scene_type: relational
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: true
+        variants:
+        - variant_id: ch05_sec02_scene_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Think about all the things that have accumulated while you've been waiting.\n\nThe invitations you said no to. The conversations you avoided. The places you didn't go. The people you didn't reach out to.\n\nEach one seemed small.\n\nEach one seemed reasonable.\n\n*\"I'm not ready yet. I'll do it when I'm feeling better.\"*\n\nBut add them up.\n\nWeeks of saying no. Months of staying home. A year of smaller and smaller.\n\nThe cost doesn't feel dramatic because it happens gradually. But it's there.\n\nAnd it's getting bigger.\n\n---"
+          fingerprint:
+            char_count: 480
+            paragraph_count: 10
+            sentence_count: 14
+          location_tokens: []
+        - variant_id: ch05_sec02_scene_f2
+          variant_number: 2
+          variant_family: F2
+          content: "Look at your phone in {location.digital_space}.\n\n\nHow many messages have you not sent?\n\n\nHow many invitations have you declined?\n\n\nHow many \"I'll reach out when I'm ready\" that never happened?\n\n\nEach one made sense at the time.\n\n\nBut together, they form a pattern.\n\n\nA pattern of distance. Of isolation. Of a life getting smaller.\n\n\n---"
+          fingerprint:
+            char_count: 340
+            paragraph_count: 8
+            sentence_count: 9
+          location_tokens:
+          - '{location.digital_space}'
+        - variant_id: ch05_sec02_scene_f3
+          variant_number: 3
+          variant_family: F3
+          content: "There's a pile in {location.digital_space} you might not have noticed.\n\n\nUnreplied messages. Declined invitations. \"Not today\" that became \"not this week\" that became \"not anymore.\"\n\n\nIt grew slowly.\n\n\nSo slowly you didn't see it happening.\n\n\nBut it's there. And it represents something.\n\n\nAll the moments you could have been part of. All the connections you could have made.\n\n\nAll the life that happened while you were waiting.\n\n\n---"
+          fingerprint:
+            char_count: 400
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens:
+          - '{location.digital_space}'
+        - variant_id: ch05_sec02_scene_f4
+          variant_number: 4
+          variant_family: F4
+          content: "Count the events you've missed.\n\n\nNot just the big ones — the small ones too.\n\n\nThe coffee you didn't get. The walk you didn't take. The call you didn't make.\n\n\nEach one tiny.\n\n\nBut together, they tell a story.\n\n\nA story of a life getting smaller while you waited for the grief to shrink first.\n\n\nExcept the grief didn't shrink. And the life got smaller anyway.\n\n\n---"
+          fingerprint:
+            char_count: 360
+            paragraph_count: 8
+            sentence_count: 11
+          location_tokens: []
+        - variant_id: ch05_sec02_scene_f5
+          variant_number: 5
+          variant_family: F5
+          content: "The cost of waiting is invisible until you add it up.\n\n\nOne missed event doesn't matter. One avoided conversation is fine.\n\n\nBut weeks of this. Months of this.\n\n\nSuddenly you look around and wonder: where did everyone go?\n\n\nThey didn't go anywhere.\n\n\nYou just stopped showing up.\n\n\nAnd the world kept moving without you.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 8
+            sentence_count: 9
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: SCENE
+          scene_type: relational
+          location_tokens:
+          - '{location.digital_space}'
+      section_03:
+        section_id: ch05_sec03
+        section: 3
+        type: REFLECTION
+        purpose: What you're actually losing
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch05_sec03_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what you're actually losing while you wait:\n\n**Time.** Days and weeks and months that don't come back.\n\n**Connection.** Relationships that fade when you're not present for them.\n\n**Momentum.** The ease of doing things that comes from doing them regularly.\n\n**Identity.** The sense of who you are that comes from participating in life.\n\n---\n\nThe grief takes something from you. That's true.\n\nBut the waiting takes even more.\n\nThe grief is unavoidable.\n\nThe waiting is a choice.\n\n---"
+          fingerprint:
+            char_count: 480
+            paragraph_count: 10
+            sentence_count: 12
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_04:
+        section_id: ch05_sec04
+        section: 4
+        type: REFLECTION
+        purpose: The version that never gets seen
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch05_sec04_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "There's a version of you that people don't get to see.\n\nNot the \"healed\" version — the you who's carrying the grief and still showing up.\n\nThat version exists. You've been that person before.\n\nBut every time you wait, you hide that version away.\n\nYou decide: *\"They can't see me like this.\"*\n\nBut \"like this\" is who you are right now.\n\nAnd if you keep hiding, no one gets to know who you've become.\n\n---\n\nThe world doesn't need the \"past it\" version of you.\n\nThe world can hold the grieving version too.\n\nBut only if you let yourself be seen.\n\n---"
+          fingerprint:
+            char_count: 520
+            paragraph_count: 10
+            sentence_count: 13
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_05:
+        section_id: ch05_sec05
+        section: 5
+        type: REFLECTION
+        purpose: What you're trading
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch05_sec05_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Let's be honest about the trade you're making:\n\nYou're trading presence for protection.\n\nConnection for comfort.\n\nLife for safety.\n\n---\n\nAnd maybe that trade made sense early on.\n\nWhen the grief was acute. When falling apart was a real risk. When the world felt too sharp.\n\nBut now?\n\nNow the protection has become a prison.\n\nNow the comfort is actually isolation.\n\nNow the safety is costing you the very life you're trying to protect.\n\n---\n\nThe trade doesn't make sense anymore.\n\nBut you're still making it.\n\n---"
+          fingerprint:
+            char_count: 480
+            paragraph_count: 12
+            sentence_count: 14
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_06:
+        section_id: ch05_sec06
+        section: 6
+        type: REFLECTION
+        purpose: The life passing you by
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch05_sec06_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the hardest truth:\n\n**Your life is happening whether you participate or not.**\n\nDays are passing. Seasons are changing. People are moving through their lives.\n\nAnd you're on the sidelines. Waiting.\n\nFor a readiness that might never come.\n\nFor a version of yourself that might not exist.\n\nFor permission that nobody else can give you.\n\n---\n\nThe life doesn't stop because you're grieving.\n\nIt just happens without you.\n\nAnd then one day you look up and realize: I missed it.\n\nNot the grief — the grief was always there.\n\nThe life. I missed the life.\n\n---"
+          fingerprint:
+            char_count: 520
+            paragraph_count: 11
+            sentence_count: 14
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_07:
+        section_id: ch05_sec07
+        section: 7
+        type: INTEGRATION
+        purpose: The shift that has to happen
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch05_sec07_integration_f1
+          variant_number: 1
+          variant_family: F1
+          content: "So here's the shift that has to happen:\n\n**From \"waiting until I'm ready\" to \"acting while I'm carrying this.\"**\n\nNot because the grief should be gone by now.\n\nNot because you're being weak or dramatic.\n\nBut because the waiting is costing more than the acting ever could.\n\n---\n\nThe grief can stay.\n\nAnd you can still show up.\n\nThat's not ignoring it. That's not pushing through.\n\nThat's just refusing to let the grief make all your decisions.\n\n---\n\nYou're still the one in charge of your life.\n\nEven while grieving.\n\nEspecially while grieving.\n\n---"
+          fingerprint:
+            char_count: 520
+            paragraph_count: 11
+            sentence_count: 14
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: INTEGRATION
+          scene_type: null
+          location_tokens: []
+  chapter_06:
+    chapter: 6
+    title: Ending the War
+    sections:
+      section_01:
+        section_id: ch06_sec01
+        section: 1
+        type: HOOK
+        purpose: You're not at war with the feeling
+        scene_type: null
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: false
+        variants:
+        - variant_id: ch06_sec01_hook_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what you've been doing without realizing it:\n\n\n**You've been at war with the grief.**\n\n\nNot just carrying it. Fighting it.\n\n\nEvery time you check *\"Am I better yet?\"* — that's a battle.\n\n\nEvery time you try to think your way out of it — that's a battle.\n\n\nEvery time you wait for it to leave so you can finally live — that's a battle.\n\n\nAnd the war is exhausting.\n\n\nNot the grief. The war.\n\n\n---"
+          fingerprint:
+            char_count: 400
+            paragraph_count: 9
+            sentence_count: 9
+          location_tokens: []
+        - variant_id: ch06_sec01_hook_f2
+          variant_number: 2
+          variant_family: F2
+          content: "What if I told you there's another way?\n\n\nNot fighting the grief.\n\n\nNot pushing through it.\n\n\nNot pretending it's not there.\n\n\nJust... ending the war.\n\n\nLaying down the weapons.\n\n\nLetting the grief be there — and living anyway.\n\n\n---"
+          fingerprint:
+            char_count: 240
+            paragraph_count: 8
+            sentence_count: 7
+          location_tokens: []
+        - variant_id: ch06_sec01_hook_f3
+          variant_number: 3
+          variant_family: F3
+          content: "You can't win a war against grief.\n\n\nThe grief isn't an enemy. It's weight. It's love that lost its destination.\n\n\nYou can't defeat it. You can't outthink it. You can't wait it out.\n\n\nYou can only learn to carry it.\n\n\nAnd carrying is not the same as fighting.\n\n\n---"
+          fingerprint:
+            char_count: 280
+            paragraph_count: 6
+            sentence_count: 8
+          location_tokens: []
+        - variant_id: ch06_sec01_hook_f4
+          variant_number: 4
+          variant_family: F4
+          content: "Think about how much energy you've spent fighting the grief.\n\n\nThe checking. The waiting. The hoping it would finally lift.\n\n\nAll that energy — spent on a war you can't win.\n\n\nWhat if you redirected it?\n\n\nNot toward fighting the grief.\n\n\nToward living alongside it.\n\n\n---"
+          fingerprint:
+            char_count: 280
+            paragraph_count: 7
+            sentence_count: 7
+          location_tokens: []
+        - variant_id: ch06_sec01_hook_f5
+          variant_number: 5
+          variant_family: F5
+          content: "The war has a name: resistance.\n\n\n*\"I shouldn't feel this way.\"*\n\n\n*\"This should be gone by now.\"*\n\n\n*\"I need to get past this.\"*\n\n\nThat's resistance. And resistance is exhausting.\n\n\nThe grief is heavy. The resistance makes it unbearable.\n\n\nWhat if you dropped the resistance?\n\n\nThe grief would still be there. But the war would be over.\n\n\n---"
+          fingerprint:
+            char_count: 340
+            paragraph_count: 9
+            sentence_count: 10
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: HOOK
+          scene_type: null
+          location_tokens: []
+      section_02:
+        section_id: ch06_sec02
+        section: 2
+        type: SCENE
+        purpose: What acting alongside the feeling looks like
+        scene_type: action
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: true
+        variants:
+        - variant_id: ch06_sec02_scene_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what it looks like to stop fighting:\n\nYou wake up. The grief is there. Heavy.\n\nInstead of: *\"I have to get rid of this feeling before I can do anything.\"*\n\nYou think: *\"This is here. And I'm going to do the thing anyway.\"*\n\nYou don't push the grief away. You don't pretend it's not there.\n\nYou just... include it. Let it ride along.\n\nThe grief comes to work with you. The grief comes to the conversation. The grief comes to the event.\n\nNot fighting. Just carrying.\n\n---"
+          fingerprint:
+            char_count: 460
+            paragraph_count: 9
+            sentence_count: 13
+          location_tokens: []
+        - variant_id: ch06_sec02_scene_f2
+          variant_number: 2
+          variant_family: F2
+          content: "Imagine going to {location.social_gathering} with the grief.\n\n\nNot \"despite\" the grief. Not \"once the grief passes.\"\n\n\nWith it. Carrying it.\n\n\nThe grief is in the room with you. You feel its weight.\n\n\nAnd you also talk to someone. You also have a conversation. You also participate.\n\n\nBoth things happening at once.\n\n\nThat's not fighting. That's coexisting.\n\n\n---"
+          fingerprint:
+            char_count: 360
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens:
+          - '{location.social_gathering}'
+        - variant_id: ch06_sec02_scene_f3
+          variant_number: 3
+          variant_family: F3
+          content: "Picture yourself in {location.social_gathering}.\n\n\nThe grief is heavy today. You can feel it.\n\n\nOld you would have stayed home. Would have waited for a lighter day.\n\n\nNew you says: *\"The grief is here. I'm going anyway.\"*\n\n\nAnd you go. Not performing lightness. Not pretending.\n\n\nJust... present. With whatever you're carrying.\n\n\n---"
+          fingerprint:
+            char_count: 340
+            paragraph_count: 7
+            sentence_count: 9
+          location_tokens:
+          - '{location.social_gathering}'
+        - variant_id: ch06_sec02_scene_f4
+          variant_number: 4
+          variant_family: F4
+          content: "This is what it looks like:\n\n\nYou're at {location.social_gathering}. Someone asks how you are.\n\n\nOld you would say \"fine\" and change the subject.\n\n\nNew you might say: *\"It's hard right now. But I'm here.\"*\n\n\nThe grief is visible. You're not hiding it.\n\n\nBut you're also not letting it make the decision about whether you show up.\n\n\nThat's the difference.\n\n\n---"
+          fingerprint:
+            char_count: 340
+            paragraph_count: 8
+            sentence_count: 9
+          location_tokens:
+          - '{location.social_gathering}'
+        - variant_id: ch06_sec02_scene_f5
+          variant_number: 5
+          variant_family: F5
+          content: "Watch how it feels to stop fighting:\n\n\nYou acknowledge the grief: *\"You're here. I feel you.\"*\n\n\nYou don't try to fix it: *\"You don't have to go anywhere.\"*\n\n\nYou act anyway: *\"And I'm going to do this thing.\"*\n\n\nThe grief is along for the ride. That's all.\n\n\nIt doesn't have to be gone for you to move.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 7
+            sentence_count: 8
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: SCENE
+          scene_type: action
+          location_tokens:
+          - '{location.social_gathering}'
+      section_03:
+        section_id: ch06_sec03
+        section: 3
+        type: REFLECTION
+        purpose: Why you can't win this war
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch06_sec03_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's why you can't win the war against grief:\n\n**Grief isn't an invader. It's a response.**\n\nIt's your body's way of holding the weight of loss.\n\nIt's love with nowhere to go.\n\nYou can't fight love. You can't defeat it. You can't make it leave by force.\n\nYou can only learn to carry it differently.\n\n---\n\nThe war against grief is a war against part of yourself.\n\nAnd you can't win a war against yourself.\n\nYou can only end it.\n\n---"
+          fingerprint:
+            char_count: 420
+            paragraph_count: 9
+            sentence_count: 12
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_04:
+        section_id: ch06_sec04
+        section: 4
+        type: REFLECTION
+        purpose: What happens when you stop fighting
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch06_sec04_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what happens when you stop fighting:\n\n**The grief doesn't get bigger.**\n\nThat's the fear, right? That if you stop fighting, the grief will take over.\n\nBut the opposite happens.\n\nWhen you stop fighting, the grief becomes just grief. Heavy, but carryable.\n\nThe extra weight was always the fighting. The resistance. The judgment.\n\n---\n\nGrief + fighting = unbearable.\n\nGrief alone = heavy, but manageable.\n\nThe war was always the problem.\n\n---"
+          fingerprint:
+            char_count: 420
+            paragraph_count: 9
+            sentence_count: 12
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_05:
+        section_id: ch06_sec05
+        section: 5
+        type: REFLECTION
+        purpose: Danger vs discomfort
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch06_sec05_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the distinction you need:\n\n**Danger vs. discomfort.**\n\nCarrying grief while you act is uncomfortable.\n\nIt's heavy. It's noticeable. It might mean tears come at unexpected moments.\n\nBut it's not dangerous.\n\nYou won't fall apart beyond repair.\n\nYou won't break in a way that can't be held.\n\nYou'll just be a person doing a thing while carrying something heavy.\n\n---\n\nThe grief makes you think it's dangerous to act while carrying it.\n\nBut the grief is wrong.\n\nIt's just uncomfortable. And you can do uncomfortable things.\n\n---"
+          fingerprint:
+            char_count: 500
+            paragraph_count: 10
+            sentence_count: 13
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_06:
+        section_id: ch06_sec06
+        section: 6
+        type: REFLECTION
+        purpose: The new relationship
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch06_sec06_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the new relationship with grief:\n\n**It's here. It stays. And I live anyway.**\n\nNot \"it needs to go.\" Not \"I'll wait until it's smaller.\"\n\nJust: it's here. I see it. I acknowledge it.\n\nAnd I also get to live.\n\n---\n\nThe grief isn't a visitor that needs to leave.\n\nIt's a part of you now. A heavy part. But a part.\n\nAnd you can carry parts of yourself while still moving through the world.\n\n---\n\nThis is the relationship: coexistence.\n\nNot war. Not waiting. Just... living alongside.\n\n---"
+          fingerprint:
+            char_count: 480
+            paragraph_count: 10
+            sentence_count: 14
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_07:
+        section_id: ch06_sec07
+        section: 7
+        type: INTEGRATION
+        purpose: The permission you've been waiting for
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch06_sec07_integration_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the permission you've been waiting for:\n\n**You can stop fighting.**\n\nYou can let the grief be there.\n\nYou can carry it without trying to fix it.\n\nYou can live while it's still present.\n\n---\n\nThis isn't giving up. This isn't letting the grief win.\n\nThis is ending a war that was never winnable.\n\nThis is choosing to live alongside what you're carrying.\n\nThis is finally letting yourself be a person who grieves and lives at the same time.\n\n---\n\nYou don't need permission from anyone else.\n\nYou just needed to know it was possible.\n\nIt is.\n\n---"
+          fingerprint:
+            char_count: 520
+            paragraph_count: 11
+            sentence_count: 14
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: INTEGRATION
+          scene_type: null
+          location_tokens: []
+  chapter_07:
+    chapter: 7
+    title: Small Moves
+    sections:
+      section_01:
+        section_id: ch07_sec01
+        section: 1
+        type: HOOK
+        purpose: Why small moves matter
+        scene_type: null
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: false
+        variants:
+        - variant_id: ch07_sec01_hook_f1
+          variant_number: 1
+          variant_family: F1
+          content: "You don't have to do everything at once.\n\n\nYou don't have to suddenly be \"back to normal.\"\n\n\nYou don't have to prove you're okay by doing all the things you used to do.\n\n\nYou just have to take one small move.\n\n\n---\n\n\nSmall moves matter because they prove something:\n\n\n**You can act while carrying this.**\n\n\nNot perfectly. Not easily.\n\n\nBut you can.\n\n\nAnd every small move is evidence.\n\n\n---"
+          fingerprint:
+            char_count: 380
+            paragraph_count: 10
+            sentence_count: 11
+          location_tokens: []
+        - variant_id: ch07_sec01_hook_f2
+          variant_number: 2
+          variant_family: F2
+          content: "The goal isn't to go from waiting to full speed.\n\n\nThe goal is to go from waiting to moving.\n\n\nAny movement. Any direction. Any pace.\n\n\nJust not waiting.\n\n\n---\n\n\nSmall moves are how you rebuild.\n\n\nNot by leaping. By stepping.\n\n\nOne foot. Then the other.\n\n\nWhile the grief is still there.\n\n\n---"
+          fingerprint:
+            char_count: 280
+            paragraph_count: 9
+            sentence_count: 10
+          location_tokens: []
+        - variant_id: ch07_sec01_hook_f3
+          variant_number: 3
+          variant_family: F3
+          content: "Think about the smallest possible version of what you want to do.\n\n\nNot the full event. Not the complete conversation. Not the perfect reconnection.\n\n\nJust: one message. One yes. One step out the door.\n\n\nThat's enough.\n\n\nThat's actually everything.\n\n\nBecause small moves prove that movement is possible.\n\n\nAnd once movement is possible, bigger moves become possible too.\n\n\n---"
+          fingerprint:
+            char_count: 360
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens: []
+        - variant_id: ch07_sec01_hook_f4
+          variant_number: 4
+          variant_family: F4
+          content: "You've been thinking too big.\n\n\n*\"I'll go back to normal.\"*\n\n\n*\"I'll be myself again.\"*\n\n\n*\"I'll do all the things I used to do.\"*\n\n\nBut those are big moves. And big moves feel impossible when you're carrying weight.\n\n\nSmall moves are different.\n\n\nSmall moves feel possible even while grieving.\n\n\nAnd small moves add up.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 9
+            sentence_count: 8
+          location_tokens: []
+        - variant_id: ch07_sec01_hook_f5
+          variant_number: 5
+          variant_family: F5
+          content: "Here's why small moves work:\n\n\nThey don't require you to be ready.\n\n\nThey don't require the grief to be gone.\n\n\nThey just require one moment of decision.\n\n\n*\"I'm going to do this one thing. Right now. While carrying this.\"*\n\n\nThat's it.\n\n\nNo preparation. No waiting. No readiness required.\n\n\nJust: the thing, now, with the weight.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 9
+            sentence_count: 10
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: HOOK
+          scene_type: null
+          location_tokens: []
+      section_02:
+        section_id: ch07_sec02
+        section: 2
+        type: SCENE
+        purpose: What a small move looks like
+        scene_type: action
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: true
+        variants:
+        - variant_id: ch07_sec02_scene_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what a small move looks like:\n\nThe grief is heavy today. You're carrying it.\n\nAnd instead of waiting until it lifts, you do one thing.\n\nYou send one text. You say yes to one thing. You step outside for ten minutes.\n\nNot a big thing. Not proof that you're better.\n\nJust one movement. With the grief along for the ride.\n\nThat's a small move.\n\n---"
+          fingerprint:
+            char_count: 360
+            paragraph_count: 7
+            sentence_count: 10
+          location_tokens: []
+        - variant_id: ch07_sec02_scene_f2
+          variant_number: 2
+          variant_family: F2
+          content: "You're in {location.daily_space}. The grief is present.\n\n\nOld you would wait. Would stay small. Would put off the thing until later.\n\n\nNew you picks up the phone. Types one message. Presses send.\n\n\nThe grief didn't go anywhere.\n\n\nBut you moved anyway.\n\n\nThat's what this looks like.\n\n\n---"
+          fingerprint:
+            char_count: 300
+            paragraph_count: 7
+            sentence_count: 8
+          location_tokens:
+          - '{location.daily_space}'
+        - variant_id: ch07_sec02_scene_f3
+          variant_number: 3
+          variant_family: F3
+          content: "Picture this in {location.daily_space}:\n\n\nYou get an invitation. Your first instinct is no.\n\n\nBut instead of automatic no, you pause.\n\n\n*\"What's the smallest yes I could give?\"*\n\n\nMaybe it's: \"I'll come for an hour.\" Maybe it's: \"I'll try.\"\n\n\nNot a full yes. Just a crack in the door.\n\n\nThat's a small move.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 8
+            sentence_count: 9
+          location_tokens:
+          - '{location.daily_space}'
+        - variant_id: ch07_sec02_scene_f4
+          variant_number: 4
+          variant_family: F4
+          content: "The grief is loud today.\n\n\nIn {location.daily_space}, you notice it. Heavy. Demanding.\n\n\nOld you would have let it win. Would have stayed in. Would have said \"not today.\"\n\n\nNew you says: *\"You're loud. And I'm going to do one thing anyway.\"*\n\n\nOne email. One call. One small movement in the direction of life.\n\n\nWith the grief still there. Still loud.\n\n\nBut not in charge.\n\n\n---"
+          fingerprint:
+            char_count: 360
+            paragraph_count: 8
+            sentence_count: 11
+          location_tokens:
+          - '{location.daily_space}'
+        - variant_id: ch07_sec02_scene_f5
+          variant_number: 5
+          variant_family: F5
+          content: "Small moves are specific:\n\n\nNot \"I'll be more social\" — but \"I'll reply to Sarah's message.\"\n\n\nNot \"I'll go out more\" — but \"I'll walk to the coffee shop.\"\n\n\nNot \"I'll deal with this\" — but \"I'll make one call.\"\n\n\nThe specificity matters.\n\n\nVague goals require readiness. Specific actions just require doing.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 7
+            sentence_count: 8
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: SCENE
+          scene_type: action
+          location_tokens:
+          - '{location.daily_space}'
+      section_03:
+        section_id: ch07_sec03
+        section: 3
+        type: EXERCISE
+        purpose: 3-Second Check-In
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch07_sec03_exercise_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's a practice for when you're deciding whether to do something:\n\n**The 3-Second Check-In.**\n\n---\n\n**Second 1:** Notice where you feel the grief in your body.\n\nChest? Stomach? Shoulders? Just notice.\n\n**Second 2:** Acknowledge it.\n\n*\"The grief is here. I feel it.\"*\n\n**Second 3:** Ask one question:\n\n*\"Is this dangerous, or just uncomfortable?\"*\n\n---\n\nIf it's dangerous: don't do it. Protect yourself.\n\nIf it's just uncomfortable: the grief is not a reason to wait.\n\nYou can act while uncomfortable.\n\n---"
+          fingerprint:
+            char_count: 500
+            paragraph_count: 13
+            sentence_count: 14
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: EXERCISE
+          scene_type: null
+          location_tokens: []
+      section_04:
+        section_id: ch07_sec04
+        section: 4
+        type: EXERCISE
+        purpose: Box Breathing (companion practice)
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch07_sec04_exercise_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Before a small move, you can use this:\n\n**Box Breathing.**\n\nNot to make the grief go away.\n\nJust to give your body something to do besides brace.\n\n---\n\n**The practice:**\n\nBreathe in for 4 counts.\n\nHold for 4 counts.\n\nBreathe out for 4 counts.\n\nHold for 4 counts.\n\nRepeat 2-3 times.\n\n---\n\nThen: do the thing.\n\nThe grief will still be there.\n\nBut you'll have created a small window of steadiness.\n\nEnough to move.\n\n---"
+          fingerprint:
+            char_count: 420
+            paragraph_count: 12
+            sentence_count: 14
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: EXERCISE
+          scene_type: null
+          location_tokens: []
+      section_05:
+        section_id: ch07_sec05
+        section: 5
+        type: EXERCISE
+        purpose: 5-4-3-2-1 Grounding
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch07_sec05_exercise_f1
+          variant_number: 1
+          variant_family: F1
+          content: "When the grief feels too big to move:\n\n**5-4-3-2-1 Grounding.**\n\nThis brings you back to the room. Back to now. Back to here.\n\n---\n\n**The practice:**\n\n5 things you can see.\n\n4 things you can touch.\n\n3 things you can hear.\n\n2 things you can smell.\n\n1 thing you can taste.\n\n---\n\nThis isn't about the grief.\n\nIt's about presence.\n\nWhen you're present in your body, in this room, in this moment — the small move becomes possible.\n\nNot because the grief left.\n\nBecause you're here now. And here is where the action happens.\n\n---"
+          fingerprint:
+            char_count: 500
+            paragraph_count: 13
+            sentence_count: 15
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: EXERCISE
+          scene_type: null
+          location_tokens: []
+      section_06:
+        section_id: ch07_sec06
+        section: 6
+        type: REFLECTION
+        purpose: What you're building
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch07_sec06_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what small moves build:\n\n**Evidence.**\n\nEvery time you act while carrying the grief, you prove something to yourself.\n\n*\"I can do this. The grief doesn't stop me.\"*\n\nThat evidence accumulates.\n\nOne small move becomes two. Two becomes five. Five becomes a pattern.\n\nAnd the pattern changes the story.\n\n---\n\nThe old story: *\"I can't do things while grieving.\"*\n\nThe new story: *\"I've done many things while grieving.\"*\n\nSmall moves write the new story.\n\n---"
+          fingerprint:
+            char_count: 460
+            paragraph_count: 10
+            sentence_count: 12
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_07:
+        section_id: ch07_sec07
+        section: 7
+        type: INTEGRATION
+        purpose: The assignment
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch07_sec07_integration_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the assignment:\n\n**One small move. Today.**\n\nNot when you're ready. Not when the grief lifts.\n\nToday. While carrying what you're carrying.\n\n---\n\nPick something small:\n\nA text you've been meaning to send.\n\nA walk you've been putting off.\n\nA yes to something you've been avoiding.\n\n---\n\nDo the 3-second check-in.\n\nTake a breath.\n\nThen: do the thing.\n\nWith the grief still there.\n\nThat's the practice. That's how it starts.\n\n---"
+          fingerprint:
+            char_count: 420
+            paragraph_count: 11
+            sentence_count: 13
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: INTEGRATION
+          scene_type: null
+          location_tokens: []
+  chapter_08:
+    chapter: 8
+    title: When It Gets Loud
+    sections:
+      section_01:
+        section_id: ch08_sec01
+        section: 1
+        type: HOOK
+        purpose: Loud doesn't mean dangerous
+        scene_type: null
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: false
+        variants:
+        - variant_id: ch08_sec01_hook_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Some days the grief is quiet. Manageable. Almost background noise.\n\n\nAnd some days it's loud.\n\n\nSo loud you can barely think. So heavy you can barely move. So present you wonder how you'll get through the next hour.\n\n\nOn those days, the old pattern screams:\n\n\n*\"Don't do anything. You can't handle it. Wait.\"*\n\n\nBut here's what I need you to know:\n\n\n**Loud doesn't mean dangerous.**\n\n\nIt just means loud.\n\n\n---"
+          fingerprint:
+            char_count: 420
+            paragraph_count: 9
+            sentence_count: 11
+          location_tokens: []
+        - variant_id: ch08_sec01_hook_f2
+          variant_number: 2
+          variant_family: F2
+          content: "The volume of the grief isn't a measure of anything.\n\n\nIt doesn't tell you how broken you are.\n\n\nIt doesn't tell you how far from \"better\" you are.\n\n\nIt doesn't tell you whether you can act.\n\n\nIt just tells you: the grief is loud today.\n\n\nThat's information. Not a verdict.\n\n\n---"
+          fingerprint:
+            char_count: 300
+            paragraph_count: 7
+            sentence_count: 7
+          location_tokens: []
+        - variant_id: ch08_sec01_hook_f3
+          variant_number: 3
+          variant_family: F3
+          content: "Think about the loudest the grief has ever been.\n\n\nYou survived it.\n\n\nYou're still here.\n\n\nThe volume was high — and you got through.\n\n\nWhich means: volume alone doesn't stop you.\n\n\nThe belief that you can't act when it's loud — that's what stops you.\n\n\nAnd that belief can change.\n\n\n---"
+          fingerprint:
+            char_count: 300
+            paragraph_count: 8
+            sentence_count: 9
+          location_tokens: []
+        - variant_id: ch08_sec01_hook_f4
+          variant_number: 4
+          variant_family: F4
+          content: "Loud grief feels like an emergency.\n\n\nEvery instinct says: stop. Protect. Shut down.\n\n\nBut most of the time, it's not an emergency.\n\n\nIt's just grief being grief. Wave crashing. Weight pressing.\n\n\nAnd you can ride out waves while still moving.\n\n\nNot comfortably. But possibly.\n\n\n---"
+          fingerprint:
+            char_count: 280
+            paragraph_count: 7
+            sentence_count: 9
+          location_tokens: []
+        - variant_id: ch08_sec01_hook_f5
+          variant_number: 5
+          variant_family: F5
+          content: "The grief gets loud and you think: *\"I can't.\"*\n\n\nBut \"I can't\" is usually \"I don't want to\" wearing a disguise.\n\n\nWhich is fair. Of course you don't want to act when it's this heavy.\n\n\nBut \"don't want to\" is different from \"can't.\"\n\n\nYou can.\n\n\nYou might not want to. It might be hard. It might be uncomfortable.\n\n\nBut you can.\n\n\n---"
+          fingerprint:
+            char_count: 340
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: HOOK
+          scene_type: null
+          location_tokens: []
+      section_02:
+        section_id: ch08_sec02
+        section: 2
+        type: SCENE
+        purpose: Acting when the feeling screams
+        scene_type: high-intensity
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: true
+        variants:
+        - variant_id: ch08_sec02_scene_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Picture a day when the grief is screaming.\n\nYou woke up heavy. Everything reminds you. The weight is crushing.\n\nAnd there's something you're supposed to do.\n\nOld you would cancel. Would stay in. Would wait for a lighter day.\n\nNew you takes a breath.\n\n*\"The grief is screaming. I hear it. And I'm going to do this thing anyway.\"*\n\nNot ignoring the grief. Acknowledging it.\n\nAnd then moving. Despite the volume.\n\n---"
+          fingerprint:
+            char_count: 400
+            paragraph_count: 8
+            sentence_count: 12
+          location_tokens: []
+        - variant_id: ch08_sec02_scene_f2
+          variant_number: 2
+          variant_family: F2
+          content: "You're at {location.high_stakes_space}. The grief is loud.\n\n\nYour chest is tight. Your eyes sting. You're barely holding it together.\n\n\nAnd there's a thing that needs doing.\n\n\nYou do the breathing. You ground yourself. You feel your feet on the floor.\n\n\nAnd then you do the thing. Not perfectly. Not gracefully.\n\n\nBut you do it. While the grief is screaming.\n\n\nThat's what this looks like.\n\n\n---"
+          fingerprint:
+            char_count: 380
+            paragraph_count: 8
+            sentence_count: 11
+          location_tokens:
+          - '{location.high_stakes_space}'
+        - variant_id: ch08_sec02_scene_f3
+          variant_number: 3
+          variant_family: F3
+          content: "The wave is big today.\n\n\nYou're in {location.high_stakes_space} and the grief is crashing.\n\n\nEvery part of you wants to leave. To hide. To wait.\n\n\nBut you stay.\n\n\nNot because you feel okay. Because you decided to stay.\n\n\nYou ride the wave. It's uncomfortable. It's not graceful.\n\n\nBut you don't drown. And you don't run.\n\n\nYou just... stay. And do the thing.\n\n\n---"
+          fingerprint:
+            char_count: 360
+            paragraph_count: 9
+            sentence_count: 13
+          location_tokens:
+          - '{location.high_stakes_space}'
+        - variant_id: ch08_sec02_scene_f4
+          variant_number: 4
+          variant_family: F4
+          content: "Someone needs something from you.\n\n\nYou're at {location.high_stakes_space}. The grief is loud.\n\n\nOld you would have said: *\"I can't right now.\"*\n\n\nNew you says: *\"Give me a moment.\"*\n\n\nYou take a breath. You feel your feet. You acknowledge: *\"This is hard.\"*\n\n\nAnd then you show up. Not the best version of you. But you.\n\n\nPresent. Carrying. Doing.\n\n\n---"
+          fingerprint:
+            char_count: 360
+            paragraph_count: 8
+            sentence_count: 11
+          location_tokens:
+          - '{location.high_stakes_space}'
+        - variant_id: ch08_sec02_scene_f5
+          variant_number: 5
+          variant_family: F5
+          content: "The grief is at maximum volume.\n\n\nYou're thinking: *\"There's no way I can do this.\"*\n\n\nBut then you notice: you're still here. Still breathing. Still reading this.\n\n\nThe volume is high. And you're still functioning.\n\n\nWhich means the volume isn't actually stopping you.\n\n\nThe belief that it should is what's stopping you.\n\n\nAnd beliefs can be questioned.\n\n\n---"
+          fingerprint:
+            char_count: 340
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: SCENE
+          scene_type: high-intensity
+          location_tokens:
+          - '{location.high_stakes_space}'
+      section_03:
+        section_id: ch08_sec03
+        section: 3
+        type: EXERCISE
+        purpose: Extended Exhale Breathing (4-6)
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch08_sec03_exercise_f1
+          variant_number: 1
+          variant_family: F1
+          content: "When the grief is loud, your body needs something:\n\n**Extended Exhale Breathing.**\n\nThe longer exhale activates your parasympathetic nervous system. It tells your body: *\"We're okay. We can handle this.\"*\n\n---\n\n**The practice:**\n\nBreathe in for 4 counts.\n\nBreathe out for 6 counts.\n\nRepeat 4-5 times.\n\n---\n\nThis isn't about making the grief quiet.\n\nIt's about calming your body so you can think clearly enough to act.\n\nThe grief stays loud. But your body becomes steadier.\n\nSteady enough to move.\n\n---"
+          fingerprint:
+            char_count: 480
+            paragraph_count: 11
+            sentence_count: 13
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: EXERCISE
+          scene_type: null
+          location_tokens: []
+      section_04:
+        section_id: ch08_sec04
+        section: 4
+        type: EXERCISE
+        purpose: Ground Through Your Feet
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch08_sec04_exercise_f1
+          variant_number: 1
+          variant_family: F1
+          content: "When the grief threatens to sweep you away:\n\n**Ground Through Your Feet.**\n\nThis practice brings you back to the physical. To the floor. To here.\n\n---\n\n**The practice:**\n\nFeel your feet on the ground.\n\nPress them down slightly. Notice the contact.\n\nSay to yourself: *\"I'm here. This is the floor. I'm standing on solid ground.\"*\n\n---\n\nThe grief is in your mind and heart.\n\nYour feet are in the room.\n\nWhen you ground through your feet, you connect to what's solid.\n\nAnd from solid ground, you can act.\n\n---"
+          fingerprint:
+            char_count: 480
+            paragraph_count: 11
+            sentence_count: 13
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: EXERCISE
+          scene_type: null
+          location_tokens: []
+      section_05:
+        section_id: ch08_sec05
+        section: 5
+        type: EXERCISE
+        purpose: 4-7-8 Breath (Peak Intensity)
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch08_sec05_exercise_f1
+          variant_number: 1
+          variant_family: F1
+          content: "For when the grief is at peak intensity:\n\n**4-7-8 Breath.**\n\nThis is a stronger intervention. Use it when the wave is crashing and you need to ride it out.\n\n---\n\n**The practice:**\n\nBreathe in for 4 counts.\n\nHold for 7 counts.\n\nBreathe out for 8 counts.\n\nRepeat 3-4 times.\n\n---\n\nThe long hold and exhale create a pause.\n\nIn that pause, you can remember: *\"This is grief. It's not an emergency. I can do this.\"*\n\nAnd then you can act.\n\n---"
+          fingerprint:
+            char_count: 440
+            paragraph_count: 11
+            sentence_count: 13
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: EXERCISE
+          scene_type: null
+          location_tokens: []
+      section_06:
+        section_id: ch08_sec06
+        section: 6
+        type: REFLECTION
+        purpose: The volume doesn't dictate your actions
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch08_sec06_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the truth:\n\n**The volume of the grief doesn't dictate what you can do.**\n\nQuiet grief days — you can act.\n\nLoud grief days — you can also act.\n\nThe volume changes. Your capability doesn't.\n\n---\n\nYou've been letting the volume make decisions for you.\n\n*\"It's too loud today. I can't.\"*\n\nBut the volume is just volume. It's not a command.\n\nYou're still in charge of your choices.\n\nEven on the loudest days.\n\n---"
+          fingerprint:
+            char_count: 420
+            paragraph_count: 9
+            sentence_count: 12
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_07:
+        section_id: ch08_sec07
+        section: 7
+        type: INTEGRATION
+        purpose: The real shift
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch08_sec07_integration_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the real shift:\n\n**From \"I can't act when it's loud\" to \"I can act regardless of volume.\"**\n\nThe grief will have loud days. That's not going to change.\n\nBut your response to loud days can change.\n\n---\n\nOld response: Wait. Hide. Cancel.\n\nNew response: Breathe. Ground. Act anyway.\n\n---\n\nThe loud days don't have to be lost days.\n\nThey're just days when you carry more while you move.\n\nAnd you've already proven you can carry a lot.\n\n---"
+          fingerprint:
+            char_count: 440
+            paragraph_count: 9
+            sentence_count: 12
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: INTEGRATION
+          scene_type: null
+          location_tokens: []
+  chapter_09:
+    chapter: 9
+    title: When It Becomes Automatic
+    sections:
+      section_01:
+        section_id: ch09_sec01
+        section: 1
+        type: HOOK
+        purpose: Something shifted
+        scene_type: null
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: false
+        variants:
+        - variant_id: ch09_sec01_hook_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Something is different.\n\n\nYou might not have noticed it happening.\n\n\nBut somewhere between the first small move and now, something shifted.\n\n\nThe grief is still there. You still feel it.\n\n\nBut the automatic pause — the *\"I can't do this while carrying this\"* — it's getting quieter.\n\n\nYou're starting to move without fighting first.\n\n\nThat's not nothing. That's everything.\n\n\n---"
+          fingerprint:
+            char_count: 360
+            paragraph_count: 8
+            sentence_count: 9
+          location_tokens: []
+        - variant_id: ch09_sec01_hook_f2
+          variant_number: 2
+          variant_family: F2
+          content: "Notice what's happening:\n\n\nYou did a thing. While grieving.\n\n\nAnd then you did another thing. And another.\n\n\nAnd somewhere along the way, the pattern started to shift.\n\n\nNot the grief — the grief is still there.\n\n\nThe pattern. The automatic waiting. The assumption that you can't.\n\n\nThat's what's changing.\n\n\n---"
+          fingerprint:
+            char_count: 300
+            paragraph_count: 8
+            sentence_count: 9
+          location_tokens: []
+        - variant_id: ch09_sec01_hook_f3
+          variant_number: 3
+          variant_family: F3
+          content: "There's a moment when carrying becomes natural.\n\n\nNot easy. Not painless.\n\n\nJust... what you do.\n\n\nYou pick up the weight. You move. You don't stop to ask if you're allowed to.\n\n\nThat's the shift. From deliberate to automatic.\n\n\nFrom *\"Can I do this?\"* to *\"I'm doing this.\"*\n\n\nYou might be closer to that than you think.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens: []
+        - variant_id: ch09_sec01_hook_f4
+          variant_number: 4
+          variant_family: F4
+          content: "Remember when acting while grieving felt impossible?\n\n\nWhen every small move required a decision, a breath, a deliberate choice?\n\n\nNotice how that's shifting.\n\n\nThe moves are still happening. But they're requiring less effort.\n\n\nNot because the grief got lighter.\n\n\nBecause you got better at carrying it.\n\n\n---"
+          fingerprint:
+            char_count: 300
+            paragraph_count: 7
+            sentence_count: 8
+          location_tokens: []
+        - variant_id: ch09_sec01_hook_f5
+          variant_number: 5
+          variant_family: F5
+          content: "The shift happens quietly.\n\n\nOne day you realize: you did something without first checking if the grief would allow it.\n\n\nYou just... did it.\n\n\nThe grief was there. It didn't go anywhere.\n\n\nBut you stopped asking its permission.\n\n\nThat's the shift. And it changes everything.\n\n\n---"
+          fingerprint:
+            char_count: 280
+            paragraph_count: 7
+            sentence_count: 8
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: HOOK
+          scene_type: null
+          location_tokens: []
+      section_02:
+        section_id: ch09_sec02
+        section: 2
+        type: SCENE
+        purpose: What automatic looks like
+        scene_type: integration
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: true
+        variants:
+        - variant_id: ch09_sec02_scene_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what automatic looks like:\n\nYou wake up. The grief is there.\n\nBut instead of the old checklist — *\"How bad is it? Can I function? Should I cancel everything?\"*\n\nYou just... get up.\n\nThe grief comes along. It's part of the day. You don't fight it or fix it or wait for it to lift.\n\nYou just carry it. Like you carry your keys. Like you carry your phone.\n\nIt's there. And you move anyway.\n\n---"
+          fingerprint:
+            char_count: 400
+            paragraph_count: 7
+            sentence_count: 12
+          location_tokens: []
+        - variant_id: ch09_sec02_scene_f2
+          variant_number: 2
+          variant_family: F2
+          content: "You're in {location.daily_space}. Something reminds you of them.\n\n\nThe grief rises. Sharp. Present.\n\n\nOld you would have stopped. Would have needed to process it before continuing.\n\n\nNew you acknowledges it — *\"There it is\"* — and keeps going.\n\n\nNot pushing it away. Not pretending it's not there.\n\n\nJust continuing. With the grief along for the ride.\n\n\nThat's automatic.\n\n\n---"
+          fingerprint:
+            char_count: 360
+            paragraph_count: 8
+            sentence_count: 9
+          location_tokens:
+          - '{location.daily_space}'
+        - variant_id: ch09_sec02_scene_f3
+          variant_number: 3
+          variant_family: F3
+          content: "Picture yourself in {location.daily_space}.\n\n\nThe grief is present — maybe quiet, maybe loud.\n\n\nAnd you're doing a thing. Working. Talking. Living.\n\n\nBoth at once. Without it being a big deal.\n\n\nThat's what integration looks like.\n\n\nNot grief-free. Just grief-alongside.\n\n\nThe grief and the living, happening in the same moment.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 8
+            sentence_count: 9
+          location_tokens:
+          - '{location.daily_space}'
+        - variant_id: ch09_sec02_scene_f4
+          variant_number: 4
+          variant_family: F4
+          content: "Someone asks how you're doing.\n\n\nYou're in {location.daily_space}. The grief is there.\n\n\nOld you would have panicked. Would have decided how much to reveal. Would have calculated the safest answer.\n\n\nNew you just says what's true.\n\n\n*\"I'm okay. Carrying some stuff. But I'm here.\"*\n\n\nNo performance. No hiding. Just honest presence.\n\n\nThat's what changes.\n\n\n---"
+          fingerprint:
+            char_count: 340
+            paragraph_count: 8
+            sentence_count: 11
+          location_tokens:
+          - '{location.daily_space}'
+        - variant_id: ch09_sec02_scene_f5
+          variant_number: 5
+          variant_family: F5
+          content: "You're doing something ordinary.\n\n\nIn {location.daily_space}. Just a regular thing.\n\n\nAnd you notice: the grief is there. It came along.\n\n\nBut you didn't pause. Didn't check. Didn't wait.\n\n\nYou just... included it.\n\n\nThat's the shift in action. The grief stays. And so do you.\n\n\n---"
+          fingerprint:
+            char_count: 280
+            paragraph_count: 7
+            sentence_count: 9
+          location_tokens:
+          - '{location.daily_space}'
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: SCENE
+          scene_type: integration
+          location_tokens:
+          - '{location.daily_space}'
+      section_03:
+        section_id: ch09_sec03
+        section: 3
+        type: REFLECTION
+        purpose: In relationships
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch09_sec03_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Notice what's different in your relationships:\n\n**You're showing up differently.**\n\nNot hiding the grief. Not performing wholeness.\n\nJust being present. With whatever you're carrying.\n\n---\n\nPeople can feel the shift.\n\nYou're not gone anymore. Not waiting on the sidelines.\n\nYou're here. Grieving and here.\n\nThat's different. That's better.\n\nNot for the grief — the grief is the same.\n\nFor the connection. The presence. The being-in-your-life-ness.\n\n---"
+          fingerprint:
+            char_count: 440
+            paragraph_count: 10
+            sentence_count: 13
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_04:
+        section_id: ch09_sec04
+        section: 4
+        type: REFLECTION
+        purpose: In social situations
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch09_sec04_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Notice what's different in social situations:\n\n**You're going.**\n\nNot to every thing. Not forcing yourself.\n\nBut to some things. The ones that matter.\n\n---\n\nAnd when you're there, you're actually there.\n\nNot performing okay. Not counting the minutes until you can leave.\n\nJust... present. With the grief as your quiet companion.\n\n---\n\nPeople don't need you to be grief-free.\n\nThey just need you to show up.\n\nAnd you're doing that now.\n\n---"
+          fingerprint:
+            char_count: 420
+            paragraph_count: 10
+            sentence_count: 12
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_05:
+        section_id: ch09_sec05
+        section: 5
+        type: REFLECTION
+        purpose: The moments where you notice
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch09_sec05_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "The shift shows up in small moments:\n\nYou laugh at something. And the grief doesn't punish you for it.\n\nYou have a conversation that doesn't mention them. And that's okay.\n\nYou go a few hours without the weight being overwhelming. And you don't feel guilty.\n\n---\n\nThese moments used to feel wrong. Like betrayal.\n\nNow they just feel like life.\n\nGrief and joy in the same day. Heaviness and lightness in the same hour.\n\nBoth allowed. Both real.\n\n---"
+          fingerprint:
+            char_count: 460
+            paragraph_count: 8
+            sentence_count: 12
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_06:
+        section_id: ch09_sec06
+        section: 6
+        type: REFLECTION
+        purpose: What normal feels like now
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch09_sec06_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what \"normal\" feels like now:\n\n**Not grief-free. Just grief-integrated.**\n\nThe grief is part of your days. Not all of them, not constantly, but woven in.\n\nSome moments it's loud. Some moments it's quiet.\n\nBut it's no longer the thing that stops everything else.\n\n---\n\nThis is the new normal.\n\nNot the old normal — that's gone.\n\nNot a \"back to normal\" that erases what happened.\n\nA new normal that includes the loss. That carries it forward.\n\n---"
+          fingerprint:
+            char_count: 440
+            paragraph_count: 8
+            sentence_count: 11
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_07:
+        section_id: ch09_sec07
+        section: 7
+        type: INTEGRATION
+        purpose: The quiet confidence
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch09_sec07_integration_f1
+          variant_number: 1
+          variant_family: F1
+          content: "There's a quiet confidence building:\n\n**You know you can carry this.**\n\nNot because the grief got easier.\n\nBecause you've been carrying it. Day after day. Move after move.\n\n---\n\nYou have evidence now.\n\nHundreds of moments when you thought you couldn't — and you did.\n\nThat evidence adds up.\n\nIt becomes confidence. Not loud confidence. Quiet confidence.\n\nThe kind that says: *\"I've done this before. I can do it again.\"*\n\n---\n\nThe grief didn't shrink.\n\nYou grew around it.\n\n---"
+          fingerprint:
+            char_count: 460
+            paragraph_count: 10
+            sentence_count: 13
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: INTEGRATION
+          scene_type: null
+          location_tokens: []
+  chapter_10:
+    chapter: 10
+    title: When You Slip
+    sections:
+      section_01:
+        section_id: ch10_sec01
+        section: 1
+        type: HOOK
+        purpose: You're going to slip
+        scene_type: null
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: false
+        variants:
+        - variant_id: ch10_sec01_hook_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's something you need to know:\n\n\n**You're going to slip.**\n\n\nThere will be a day when the old pattern comes back. When you cancel the thing. When you say no without thinking. When you wait without meaning to.\n\n\nAnd you'll think: *\"I'm back to square one.\"*\n\n\nBut you're not.\n\n\nA slip is not a collapse.\n\n\nAnd you need to know the difference.\n\n\n---"
+          fingerprint:
+            char_count: 360
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens: []
+        - variant_id: ch10_sec01_hook_f2
+          variant_number: 2
+          variant_family: F2
+          content: "The old pattern doesn't disappear forever.\n\n\nIt's still in there. Waiting.\n\n\nAnd sometimes — on hard days, on loud days, on days when the grief is sharp — it shows up again.\n\n\n*\"Wait. Protect. Stay home.\"*\n\n\nWhen that happens, you might think you've failed.\n\n\nYou haven't.\n\n\nYou've just slipped. And slips are part of the process.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens: []
+        - variant_id: ch10_sec01_hook_f3
+          variant_number: 3
+          variant_family: F3
+          content: "Nobody tells you this:\n\n\nGrief doesn't move in a straight line.\n\n\nYou'll have weeks of carrying it well. Then a day when you can't carry anything.\n\n\nYou'll have months of showing up. Then a moment when you hide.\n\n\nThat's not regression. That's grief.\n\n\nWaves. Not a ladder.\n\n\n---"
+          fingerprint:
+            char_count: 280
+            paragraph_count: 7
+            sentence_count: 9
+          location_tokens: []
+        - variant_id: ch10_sec01_hook_f4
+          variant_number: 4
+          variant_family: F4
+          content: "Expect the slips.\n\n\nNot because you're weak.\n\n\nBecause grief is unpredictable.\n\n\nA song plays. An anniversary arrives. Someone says something.\n\n\nAnd suddenly the grief is loud again. And the old pattern is appealing again. And waiting feels like the only option.\n\n\nThat will happen.\n\n\nWhat matters is what you do next.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens: []
+        - variant_id: ch10_sec01_hook_f5
+          variant_number: 5
+          variant_family: F5
+          content: "You've been doing so well.\n\n\nCarrying the grief. Making small moves. Living alongside it.\n\n\nAnd then one day, you won't.\n\n\nYou'll skip the thing. Avoid the conversation. Choose the couch.\n\n\nAnd you'll be disappointed in yourself.\n\n\nBut listen:\n\n\nOne slip is not the end. It's just one day.\n\n\nTomorrow is different.\n\n\n---"
+          fingerprint:
+            char_count: 300
+            paragraph_count: 9
+            sentence_count: 10
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: HOOK
+          scene_type: null
+          location_tokens: []
+      section_02:
+        section_id: ch10_sec02
+        section: 2
+        type: SCENE
+        purpose: What a slip looks like
+        scene_type: setback
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: true
+        variants:
+        - variant_id: ch10_sec02_scene_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what a slip looks like:\n\nThe grief is loud. Louder than it's been in weeks.\n\nYou have a thing scheduled. Something you've been showing up for. Something that should be fine.\n\nBut you look at it and think: *\"I can't. Not today.\"*\n\nSo you cancel. Or don't respond. Or stay in bed.\n\nAnd afterward, the shame arrives.\n\n*\"I was doing so well. What happened?\"*\n\nWhat happened is: grief. Grief happened.\n\n---"
+          fingerprint:
+            char_count: 400
+            paragraph_count: 8
+            sentence_count: 13
+          location_tokens: []
+        - variant_id: ch10_sec02_scene_f2
+          variant_number: 2
+          variant_family: F2
+          content: "You're in {location.daily_space}. Something triggers the grief.\n\n\nSuddenly you're underwater again.\n\n\nAnd all the progress feels like nothing.\n\n\n*\"I should be past this. I should be better by now.\"*\n\n\nSo you do the old thing. You wait. You hide. You protect.\n\n\nAnd then you feel like you've erased all the small moves you made.\n\n\nYou haven't.\n\n\n---"
+          fingerprint:
+            char_count: 340
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens:
+          - '{location.daily_space}'
+        - variant_id: ch10_sec02_scene_f3
+          variant_number: 3
+          variant_family: F3
+          content: "Picture yourself in {location.daily_space}.\n\n\nYou've been carrying the grief for weeks. It's been okay.\n\n\nThen: a wave. Out of nowhere. Crashing.\n\n\nAnd you slip. You say no to something. You pull back.\n\n\nIn that moment, you feel like you're starting over.\n\n\nBut you're not starting over. You're having a hard day.\n\n\nOne day is not the whole story.\n\n\n---"
+          fingerprint:
+            char_count: 340
+            paragraph_count: 8
+            sentence_count: 11
+          location_tokens:
+          - '{location.daily_space}'
+        - variant_id: ch10_sec02_scene_f4
+          variant_number: 4
+          variant_family: F4
+          content: "The slip happens fast.\n\n\nOne minute you're functioning. The next, the grief is screaming and you're canceling everything.\n\n\nIn {location.daily_space}, you go back to the old pattern without even noticing.\n\n\nAnd then you do notice. And you feel awful.\n\n\nBut here's the thing:\n\n\nNoticing is progress.\n\n\nThe old you wouldn't have noticed. Would have stayed in the pattern for weeks.\n\n\nYou noticed. That's different.\n\n\n---"
+          fingerprint:
+            char_count: 380
+            paragraph_count: 9
+            sentence_count: 11
+          location_tokens:
+          - '{location.daily_space}'
+        - variant_id: ch10_sec02_scene_f5
+          variant_number: 5
+          variant_family: F5
+          content: "The slip comes with a story:\n\n\n*\"See? I knew I couldn't do this.\"*\n\n\n*\"I'm not actually better.\"*\n\n\n*\"The grief won.\"*\n\n\nBut that story isn't true.\n\n\nThe truth is simpler: you had a hard day. You did the old thing. Tomorrow you can do differently.\n\n\nThe story makes it bigger than it is.\n\n\nA slip is just a slip. Not a verdict.\n\n\n---"
+          fingerprint:
+            char_count: 340
+            paragraph_count: 9
+            sentence_count: 10
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: SCENE
+          scene_type: setback
+          location_tokens:
+          - '{location.daily_space}'
+      section_03:
+        section_id: ch10_sec03
+        section: 3
+        type: REFLECTION
+        purpose: The story you tell yourself
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch10_sec03_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the story you tell yourself after a slip:\n\n*\"I'm back at the beginning.\"*\n\n*\"All that progress was fake.\"*\n\n*\"I'll never really be okay.\"*\n\nThat story feels true in the moment. The disappointment is real.\n\nBut the story isn't accurate.\n\n---\n\nOne slip doesn't erase a hundred small moves.\n\nOne hard day doesn't undo weeks of showing up.\n\nOne moment of waiting doesn't mean you're back to who you were before.\n\nThe story is wrong.\n\n---"
+          fingerprint:
+            char_count: 440
+            paragraph_count: 9
+            sentence_count: 12
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_04:
+        section_id: ch10_sec04
+        section: 4
+        type: REFLECTION
+        purpose: What a slip actually means
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch10_sec04_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what a slip actually means:\n\n**You're human.**\n\nHumans carrying grief have hard days.\n\nHumans learning new patterns sometimes fall back to old ones.\n\nHumans making progress still stumble.\n\nThat's not failure. That's being human.\n\n---\n\nThe slip means:\n\nThe grief was loud. The old pattern was familiar. The new way was hard.\n\nSo you did the easy thing.\n\nThat's information. Not a verdict.\n\n---"
+          fingerprint:
+            char_count: 400
+            paragraph_count: 9
+            sentence_count: 12
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_05:
+        section_id: ch10_sec05
+        section: 5
+        type: REFLECTION
+        purpose: The difference between slip and collapse
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch10_sec05_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the difference between a slip and a collapse:\n\n**A slip is one day.**\n\nYou cancel a thing. You hide. You wait.\n\nBut tomorrow, you notice. And you try again.\n\n**A collapse is surrender.**\n\nYou go back to the old pattern permanently. You stop trying. You give up on living while carrying the grief.\n\n---\n\nA slip doesn't have to become a collapse.\n\nThe moment you notice — *\"I slipped\"* — you're already not collapsed.\n\nNoticing is the difference.\n\nNoticing means you can choose differently next time.\n\n---"
+          fingerprint:
+            char_count: 500
+            paragraph_count: 10
+            sentence_count: 14
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_06:
+        section_id: ch10_sec06
+        section: 6
+        type: REFLECTION
+        purpose: How to recover
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch10_sec06_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's how to recover from a slip:\n\n**1. Notice it.** Don't pretend it didn't happen. Just acknowledge: *\"I slipped.\"*\n\n**2. Skip the shame spiral.** One slip doesn't define you. Don't spend three days beating yourself up.\n\n**3. Get curious.** What triggered it? What was the grief doing? What can you learn?\n\n**4. Make one small move.** Not a big comeback. Just one thing. Proof that you can still act.\n\n**5. Keep going.** The slip is over. Today is new.\n\n---\n\nRecovery isn't dramatic.\n\nIt's just: slip, notice, move again.\n\nThat's it.\n\n---"
+          fingerprint:
+            char_count: 540
+            paragraph_count: 10
+            sentence_count: 16
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_07:
+        section_id: ch10_sec07
+        section: 7
+        type: INTEGRATION
+        purpose: What to remember
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch10_sec07_integration_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what to remember when you slip:\n\n**The grief isn't linear.**\n\nYou won't get better in a straight line. There will be good days and hard days. Progress and setbacks.\n\n**One day doesn't define the pattern.**\n\nYou've made a hundred small moves. One slip doesn't erase them.\n\n**You know how to recover.**\n\nNotice. Skip the shame. Make one small move. Keep going.\n\n**This is normal.**\n\nEveryone learning to carry grief slips sometimes. It's part of the process.\n\n---\n\nThe slip isn't the story.\n\nWhat you do next is the story.\n\n---"
+          fingerprint:
+            char_count: 520
+            paragraph_count: 10
+            sentence_count: 14
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: INTEGRATION
+          scene_type: null
+          location_tokens: []
+  chapter_11:
+    chapter: 11
+    title: Who You're Becoming
+    sections:
+      section_01:
+        section_id: ch11_sec01
+        section: 1
+        type: HOOK
+        purpose: The story you used to tell
+        scene_type: null
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: false
+        variants:
+        - variant_id: ch11_sec01_hook_f1
+          variant_number: 1
+          variant_family: F1
+          content: "There was a story you used to tell about yourself:\n\n\n*\"I'm someone who can't function while grieving.\"*\n\n\n*\"I'm someone who falls apart.\"*\n\n\n*\"I'm someone who has to wait until this passes.\"*\n\n\nThat story felt like the truth.\n\n\nBut look at what you've been doing.\n\n\nCarrying the grief. Making small moves. Showing up.\n\n\nThe story was wrong.\n\n\n---"
+          fingerprint:
+            char_count: 340
+            paragraph_count: 8
+            sentence_count: 9
+          location_tokens: []
+        - variant_id: ch11_sec01_hook_f2
+          variant_number: 2
+          variant_family: F2
+          content: "You used to think grief defined what you could do.\n\n\n*\"Grieving people can't handle much.\"*\n\n\n*\"I need to wait until I'm myself again.\"*\n\n\n*\"I'll participate in life once this passes.\"*\n\n\nBut you've proven that wrong.\n\n\nNot by the grief passing.\n\n\nBy living while it stayed.\n\n\n---"
+          fingerprint:
+            char_count: 300
+            paragraph_count: 8
+            sentence_count: 8
+          location_tokens: []
+        - variant_id: ch11_sec01_hook_f3
+          variant_number: 3
+          variant_family: F3
+          content: "Remember who you thought you were?\n\n\nSomeone fragile. Someone who needed protecting. Someone who couldn't carry this and also live.\n\n\nLook at who you've become.\n\n\nSomeone who carries it anyway.\n\n\nSomeone who shows up with the weight.\n\n\nSomeone who refuses to let grief make all the decisions.\n\n\nThat's different. That's growth.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 8
+            sentence_count: 9
+          location_tokens: []
+        - variant_id: ch11_sec01_hook_f4
+          variant_number: 4
+          variant_family: F4
+          content: "The old identity was built on waiting.\n\n\n*\"I'm the person who can't yet.\"*\n\n\n*\"I'm the person who needs more time.\"*\n\n\n*\"I'm the person who's not ready.\"*\n\n\nThe new identity is built on carrying.\n\n\n*\"I'm the person who does it with the grief still there.\"*\n\n\n*\"I'm the person who shows up heavy.\"*\n\n\n*\"I'm the person who grieves and lives.\"*\n\n\n---"
+          fingerprint:
+            char_count: 360
+            paragraph_count: 9
+            sentence_count: 9
+          location_tokens: []
+        - variant_id: ch11_sec01_hook_f5
+          variant_number: 5
+          variant_family: F5
+          content: "There's been a quiet shift in who you are.\n\n\nNot in the grief — the grief is still there.\n\n\nIn you.\n\n\nYou've become someone who carries weight and moves anyway.\n\n\nSomeone who doesn't wait for permission.\n\n\nSomeone who includes the grief instead of fighting it.\n\n\nThat's a new identity. And you built it yourself.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 8
+            sentence_count: 9
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: HOOK
+          scene_type: null
+          location_tokens: []
+      section_02:
+        section_id: ch11_sec02
+        section: 2
+        type: SCENE
+        purpose: What other people notice
+        scene_type: social
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: true
+        variants:
+        - variant_id: ch11_sec02_scene_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Other people have noticed something.\n\nMaybe they haven't said it directly. But you can feel it.\n\nYou're different than you were in those early months. More present. More there.\n\nStill carrying the grief — that's visible too.\n\nBut not drowning in it. Not gone because of it.\n\nYou're here. Grieving and here.\n\nAnd people can feel the difference.\n\n---"
+          fingerprint:
+            char_count: 340
+            paragraph_count: 6
+            sentence_count: 10
+          location_tokens: []
+        - variant_id: ch11_sec02_scene_f2
+          variant_number: 2
+          variant_family: F2
+          content: "Someone in {location.social_gathering} says something.\n\n\n*\"You seem different.\"*\n\n\nOr: *\"It's good to see you.\"*\n\n\nOr: *\"I'm glad you're here.\"*\n\n\nThey're noticing what you've built.\n\n\nNot that the grief is gone. That you're present despite it.\n\n\nThat's what they see. And it matters.\n\n\n---"
+          fingerprint:
+            char_count: 300
+            paragraph_count: 8
+            sentence_count: 8
+          location_tokens:
+          - '{location.social_gathering}'
+        - variant_id: ch11_sec02_scene_f3
+          variant_number: 3
+          variant_family: F3
+          content: "You're at {location.social_gathering}.\n\n\nAnd you notice: people are treating you differently.\n\n\nNot like someone fragile. Not like someone to tiptoe around.\n\n\nLike someone who's here. Someone who can be included.\n\n\nThat's because of how you've been showing up.\n\n\nPresent. Real. Carrying the weight but not hiding because of it.\n\n\nThey respond to that.\n\n\n---"
+          fingerprint:
+            char_count: 340
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens:
+          - '{location.social_gathering}'
+        - variant_id: ch11_sec02_scene_f4
+          variant_number: 4
+          variant_family: F4
+          content: "Watch how people interact with you now.\n\n\nIn {location.social_gathering}, something has shifted.\n\n\nThey're not being careful anymore. Not treating you like glass.\n\n\nBecause you've shown them: you can handle being included.\n\n\nYou showed up. You stayed. You were present.\n\n\nThat changed how they see you.\n\n\n---"
+          fingerprint:
+            char_count: 300
+            paragraph_count: 7
+            sentence_count: 9
+          location_tokens:
+          - '{location.social_gathering}'
+        - variant_id: ch11_sec02_scene_f5
+          variant_number: 5
+          variant_family: F5
+          content: "The relationships feel different now.\n\n\nIn {location.social_gathering}, you're not the person who might cancel anymore.\n\n\nYou're the person who shows up. Maybe heavy. Maybe quiet.\n\n\nBut there.\n\n\nAnd that reliability — even grieving — has changed how people relate to you.\n\n\nThey trust your presence now. Because you keep giving it.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 7
+            sentence_count: 9
+          location_tokens:
+          - '{location.social_gathering}'
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: SCENE
+          scene_type: social
+          location_tokens:
+          - '{location.social_gathering}'
+      section_03:
+        section_id: ch11_sec03
+        section: 3
+        type: REFLECTION
+        purpose: The identity shift
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch11_sec03_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what shifted:\n\n**Your identity.**\n\nYou used to be someone who waited.\n\nNow you're someone who carries.\n\n---\n\nThis isn't a small change.\n\nIdentity shapes everything. How you see yourself. What you believe you can do. How you show up.\n\nWhen you identified as *\"someone who can't function while grieving\"* — you couldn't.\n\nNow you identify as *\"someone who carries grief and lives anyway\"* — and you do.\n\n---\n\nYou built this new identity. One small move at a time.\n\nIt's yours now.\n\n---"
+          fingerprint:
+            char_count: 480
+            paragraph_count: 10
+            sentence_count: 14
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_04:
+        section_id: ch11_sec04
+        section: 4
+        type: REFLECTION
+        purpose: What you're not anymore
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch11_sec04_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what you're not anymore:\n\n**You're not someone who waits for permission.**\n\nThe grief doesn't get to decide when you live.\n\n**You're not someone who believes the grief has to pass first.**\n\nYou know now: you can carry it while you move.\n\n**You're not someone who hides until they're \"ready.\"**\n\nYou show up before you're ready. Because ready doesn't come.\n\n---\n\nThese aren't small changes.\n\nThey're a complete rewrite of who you are.\n\n---"
+          fingerprint:
+            char_count: 440
+            paragraph_count: 9
+            sentence_count: 12
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_05:
+        section_id: ch11_sec05
+        section: 5
+        type: REFLECTION
+        purpose: The paradox
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch11_sec05_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the paradox:\n\n**By accepting the grief, you got more of your life back.**\n\nWhen you were fighting it — trying to make it go away, waiting for it to pass — your life stayed small.\n\nWhen you accepted it — *\"It's here, and I'm living anyway\"* — your life expanded.\n\n---\n\nThe grief didn't shrink.\n\nYour life grew around it.\n\nThat's the paradox. Fighting made things worse. Accepting made things better.\n\nNot \"better\" as in no grief. \"Better\" as in more life.\n\n---"
+          fingerprint:
+            char_count: 460
+            paragraph_count: 8
+            sentence_count: 12
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_06:
+        section_id: ch11_sec06
+        section: 6
+        type: REFLECTION
+        purpose: What you're capable of
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch11_sec06_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what you've proven you're capable of:\n\n**Carrying weight and moving anyway.**\n\nThe grief didn't get lighter. You got stronger at carrying it.\n\n**Being present while hurting.**\n\nYou can show up. Even when it's hard. Even when part of you wants to hide.\n\n**Living a life that includes loss.**\n\nNot a grief-free life. A life that has room for both. Joy and sorrow. Presence and absence.\n\n---\n\nThese capabilities don't go away.\n\nThey're yours now. For whatever comes next.\n\n---"
+          fingerprint:
+            char_count: 480
+            paragraph_count: 9
+            sentence_count: 13
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_07:
+        section_id: ch11_sec07
+        section: 7
+        type: INTEGRATION
+        purpose: Who you are now
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch11_sec07_integration_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's who you are now:\n\n**Someone who grieves and lives.**\n\nNot one or the other. Both.\n\n**Someone who carries weight and keeps moving.**\n\nNot waiting for it to lift. Moving with it.\n\n**Someone who shows up without being whole.**\n\nBecause whole isn't required. Present is enough.\n\n---\n\nThis is your new identity.\n\nBuilt through practice. Proven through evidence.\n\nYou're not who you were before the loss.\n\nYou're not who you feared you'd become.\n\nYou're someone new. Someone who carries grief and lives anyway.\n\nThat's who you are now.\n\n---"
+          fingerprint:
+            char_count: 520
+            paragraph_count: 11
+            sentence_count: 15
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: INTEGRATION
+          scene_type: null
+          location_tokens: []
+  chapter_12:
+    chapter: 12
+    title: What Comes Next
+    sections:
+      section_01:
+        section_id: ch12_sec01
+        section: 1
+        type: HOOK
+        purpose: The feeling isn't gone
+        scene_type: null
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: false
+        variants:
+        - variant_id: ch12_sec01_hook_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Let's be clear about something:\n\n\n**The grief isn't gone.**\n\n\nYou might have hoped — secretly, quietly — that learning to carry it would somehow make it disappear.\n\n\nIt didn't.\n\n\nThe grief is still there. The absence is still real. The weight is still present.\n\n\nBut something changed.\n\n\nYou changed.\n\n\n---"
+          fingerprint:
+            char_count: 300
+            paragraph_count: 8
+            sentence_count: 9
+          location_tokens: []
+        - variant_id: ch12_sec01_hook_f2
+          variant_number: 2
+          variant_family: F2
+          content: "You've learned to carry the grief.\n\n\nThat doesn't mean the grief is lighter.\n\n\nIt means you're stronger at carrying it.\n\n\nDifferent. Important. But different.\n\n\nThe grief will still have loud days. Still catch you off guard. Still remind you of what's missing.\n\n\nAnd you'll carry it anyway.\n\n\nBecause that's who you are now.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens: []
+        - variant_id: ch12_sec01_hook_f3
+          variant_number: 3
+          variant_family: F3
+          content: "The goal was never to make the grief disappear.\n\n\nThe goal was to learn to live while carrying it.\n\n\nAnd you've done that.\n\n\nNot perfectly. Not completely. But enough.\n\n\nEnough to have a life. Enough to show up. Enough to be present.\n\n\nThe grief stays. And so does your life.\n\n\nBoth. Together. Forward.\n\n\n---"
+          fingerprint:
+            char_count: 300
+            paragraph_count: 8
+            sentence_count: 11
+          location_tokens: []
+        - variant_id: ch12_sec01_hook_f4
+          variant_number: 4
+          variant_family: F4
+          content: "Here's the truth nobody wants to say:\n\n\nThe grief might not get smaller. Not significantly. Not the way you hoped.\n\n\nBut it doesn't have to.\n\n\nYou can have a life with grief this size.\n\n\nYou've proven it. You're living it.\n\n\nThe grief isn't the problem anymore. It's just what you carry.\n\n\n---"
+          fingerprint:
+            char_count: 300
+            paragraph_count: 7
+            sentence_count: 10
+          location_tokens: []
+        - variant_id: ch12_sec01_hook_f5
+          variant_number: 5
+          variant_family: F5
+          content: "What comes next isn't grief-free.\n\n\nIt's grief-with.\n\n\nGrief with life. Grief with connection. Grief with presence.\n\n\nThe absence stays. The weight remains.\n\n\nBut it doesn't stop you anymore.\n\n\nBecause you've learned to include it instead of waiting for it to leave.\n\n\nThat's what comes next: more of this. Carrying and living. Together.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: HOOK
+          scene_type: null
+          location_tokens: []
+      section_02:
+        section_id: ch12_sec02
+        section: 2
+        type: SCENE
+        purpose: What living looks like now
+        scene_type: forward
+        min_variants_required: 5
+        story_eligible: false
+        location_aware: true
+        variants:
+        - variant_id: ch12_sec02_scene_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what living looks like now:\n\nYou wake up. The grief is there. Some days loud, some days quiet.\n\nYou get up anyway.\n\nYou go to places. You have conversations. You participate in life.\n\nThe grief comes along. It's always there. Sometimes you feel it sharply. Sometimes it's just background.\n\nBut you don't wait for it to leave anymore.\n\nYou just... live. With it.\n\nThat's what this looks like. Not dramatic. Just real.\n\n---"
+          fingerprint:
+            char_count: 420
+            paragraph_count: 8
+            sentence_count: 13
+          location_tokens: []
+        - variant_id: ch12_sec02_scene_f2
+          variant_number: 2
+          variant_family: F2
+          content: "Picture yourself a month from now.\n\n\nIn {location.daily_space}. Doing ordinary things.\n\n\nThe grief is still there. You feel it in the morning. You notice it at odd moments.\n\n\nBut you also notice: you're living.\n\n\nConnecting. Working. Being present.\n\n\nNot despite the grief. Alongside it.\n\n\nThat's the future. More of what you've built.\n\n\n---"
+          fingerprint:
+            char_count: 340
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens:
+          - '{location.daily_space}'
+        - variant_id: ch12_sec02_scene_f3
+          variant_number: 3
+          variant_family: F3
+          content: "Think about what's possible now.\n\n\nIn {location.daily_space}. In your relationships. In your work.\n\n\nThe grief didn't go away. But your capacity expanded.\n\n\nYou can hold more now. The grief and the joy. The absence and the presence.\n\n\nBoth. At the same time.\n\n\nThat's what changed. And that change is permanent.\n\n\n---"
+          fingerprint:
+            char_count: 320
+            paragraph_count: 7
+            sentence_count: 10
+          location_tokens:
+          - '{location.daily_space}'
+        - variant_id: ch12_sec02_scene_f4
+          variant_number: 4
+          variant_family: F4
+          content: "Imagine the next year.\n\n\nThe grief will still be there. Anniversaries will come. Triggers will appear.\n\n\nBut in {location.daily_space}, you'll know what to do.\n\n\nNotice. Acknowledge. Act anyway.\n\n\nThe tools are yours now. The practice is built. The identity is formed.\n\n\nYou'll carry this. And you'll live.\n\n\n---"
+          fingerprint:
+            char_count: 300
+            paragraph_count: 7
+            sentence_count: 9
+          location_tokens:
+          - '{location.daily_space}'
+        - variant_id: ch12_sec02_scene_f5
+          variant_number: 5
+          variant_family: F5
+          content: "Living with grief looks ordinary.\n\n\nThat's the surprising part.\n\n\nIn {location.daily_space}, it's not dramatic. Not a constant battle.\n\n\nJust: doing things. Carrying weight. Showing up.\n\n\nSome days harder. Some days lighter.\n\n\nBut all days, living.\n\n\nThat's what you've built. And that's what continues.\n\n\n---"
+          fingerprint:
+            char_count: 280
+            paragraph_count: 8
+            sentence_count: 10
+          location_tokens:
+          - '{location.daily_space}'
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: SCENE
+          scene_type: forward
+          location_tokens:
+          - '{location.daily_space}'
+      section_03:
+        section_id: ch12_sec03
+        section: 3
+        type: REFLECTION
+        purpose: What you actually learned
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch12_sec03_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what you actually learned:\n\n**You can carry grief and live at the same time.**\n\nNot sequentially. Simultaneously.\n\nThe grief doesn't have to pass for you to have a life.\n\n**The waiting was the problem, not the grief.**\n\nThe grief is weight. Heavy, but carryable.\n\nThe waiting was what shrunk your life.\n\n**You're stronger than you thought.**\n\nNot because the grief got lighter. Because you carried it anyway.\n\n---\n\nThese lessons stay with you.\n\nFor this grief. For future griefs. For anything heavy you have to carry.\n\n---"
+          fingerprint:
+            char_count: 520
+            paragraph_count: 10
+            sentence_count: 14
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_04:
+        section_id: ch12_sec04
+        section: 4
+        type: REFLECTION
+        purpose: What this is and isn't
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch12_sec04_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Let's be clear about what this is and isn't:\n\n**This isn't \"getting over it.\"**\n\nYou're not over it. You might never be. The loss is real and the absence stays.\n\n**This isn't \"moving on.\"**\n\nYou're not leaving anything behind. You're carrying it forward.\n\n**This isn't closure.**\n\nThere's no neat ending. No resolution. Just continuation.\n\n---\n\n**This is learning to live with.**\n\nCarrying. Including. Moving forward with the weight.\n\n**This is integration.**\n\nThe grief becomes part of your life, not something that stops your life.\n\n**This is choosing to live while grieving.**\n\nNot waiting. Living.\n\n---"
+          fingerprint:
+            char_count: 580
+            paragraph_count: 12
+            sentence_count: 16
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_05:
+        section_id: ch12_sec05
+        section: 5
+        type: REFLECTION
+        purpose: What you can return to
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch12_sec05_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what you can return to whenever you need it:\n\n**The 3-second check-in.**\n\nNotice where you feel the grief.\n\nAcknowledge it's there.\n\nDecide: dangerous or uncomfortable?\n\nAct.\n\n**The breathing practices.**\n\nBox breathing (4-4-4-4).\n\nExtended exhale (4-6).\n\n4-7-8 breath.\n\nNot to fix anything.\n\nJust to anchor yourself.\n\n**The grounding practices.**\n\n5-4-3-2-1.\n\nFeet on the ground.\n\nPresent. Here. Now.\n\n**The core framework.**\n\nNotice. Acknowledge. Act.\n\nThat's all you need.\n\n---"
+          fingerprint:
+            char_count: 480
+            paragraph_count: 20
+            sentence_count: 19
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_06:
+        section_id: ch12_sec06
+        section: 6
+        type: REFLECTION
+        purpose: What you don't need anymore
+        scene_type: null
+        min_variants_required: 3
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch12_sec06_reflection_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's what you don't need anymore:\n\n**You don't need to wait until the grief passes.**\n\nIt might not pass. And you can live anyway.\n\n**You don't need to feel whole.**\n\nYou can act while carrying absence.\n\n**You don't need to be \"ready.\"**\n\nReadiness comes from acting, not before it.\n\n**You don't need permission from anyone.**\n\nYou're allowed to live as you are.\n\nRight now.\n\nCarrying grief and all.\n\n---"
+          fingerprint:
+            char_count: 400
+            paragraph_count: 12
+            sentence_count: 11
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: REFLECTION
+          scene_type: null
+          location_tokens: []
+      section_07:
+        section_id: ch12_sec07
+        section: 7
+        type: INTEGRATION
+        purpose: The final word
+        scene_type: null
+        min_variants_required: 5
+        story_eligible: true
+        location_aware: false
+        variants:
+        - variant_id: ch12_sec07_integration_f1
+          variant_number: 1
+          variant_family: F1
+          content: "Here's the final word:\n\n**The grief doesn't have to go away for you to live.**\n\nIt can stay.\n\nIt probably will stay.\n\nAnd that's okay.\n\nBecause you learned something more important than how to get rid of it:\n\n**You learned how to live with it.**\n\nNot by fighting it.\n\nNot by fixing it.\n\nNot by waiting for it to leave.\n\nBut by **carrying it while you move**.\n\nAnd that —\n\nThat's how you get your life back.\n\nNot by becoming someone who doesn't grieve.\n\n**By being someone who grieves and lives anyway.**\n\nAnd you're already doing that.\n\nSo keep going.\n\n**The rest is just... life.**\n\n---"
+          fingerprint:
+            char_count: 560
+            paragraph_count: 19
+            sentence_count: 18
+          location_tokens: []
+        metadata:
+          persona: Gen Z
+          topic: grief
+          section_type: INTEGRATION
+          scene_type: null
+          location_tokens: []

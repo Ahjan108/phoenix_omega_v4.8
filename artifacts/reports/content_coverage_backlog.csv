@@ -1,0 +1,5 @@
+persona,topic,engine,required_bands,story_pool_exists,story_atoms_total,count_b1,count_b2,count_b3,count_b4,count_b5,target_per_required_band,deficit_b1,deficit_b2,deficit_b3,deficit_b4,deficit_b5,deficit_total,missing_required_bands,status,arc_files
+educators,anxiety,overwhelm,"2,3,4",True,20,5,5,5,5,0,2,0,0,0,0,0,0,,OK,educators__anxiety__overwhelm__F006.yaml
+gen_z_professionals,anxiety,overwhelm,"1,2,3,4",True,20,2,5,9,4,0,2,0,0,0,0,0,0,,OK,gen_z_professionals__anxiety__overwhelm__F002.yaml
+nyc_executives,boundaries,shame,"2,3,4,5",True,25,5,5,5,5,5,2,0,0,0,0,0,0,,OK,nyc_executives__boundaries__shame__F006.yaml
+nyc_executives,self_worth,shame,"2,3,4,5",True,20,5,5,5,3,2,2,0,0,0,0,0,0,,OK,nyc_executives__self_worth__shame__F006.yaml

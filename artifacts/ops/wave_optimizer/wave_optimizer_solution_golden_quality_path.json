@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "status": "SOLVED",
+  "wave_id": "golden_quality_path",
+  "target_size": 1,
+  "candidate_count": 1,
+  "selected_count": 1,
+  "selected": [
+    "book_001"
+  ],
+  "selected_candidates": [
+    "book_001"
+  ],
+  "selected_items": [
+    {
+      "candidate_id": "book_001",
+      "book_id": "book_001",
+      "candidate_sort_key": "book_001",
+      "tuple_id": "persona|topic|E1|F006",
+      "brand_id": "phoenix",
+      "persona_id": "gen_z",
+      "topic_id": "overthinking",
+      "engine_id": "E1",
+      "arc_id": "arc1",
+      "slot_sig": "sig1",
+      "band_sig": "3-3-4",
+      "variation_signature": "V1",
+      "teacher_mode": false,
+      "risk": "GREEN",
+      "volatility": 0.5,
+      "quality": {
+        "csi_score": 32.8,
+        "csi_band": "F",
+        "ending_strength": 0.0,
+        "transformation": 0.0,
+        "memorable_lines": 80.0,
+        "quote_density": 85.0,
+        "cta_fitness": 40.0,
+        "status": "fail",
+        "line_type_buckets": {
+          "identity": 2
+        }
+      },
+      "wave_fingerprint": "arc1|sig1|3-3-4|V1"
+    }
+  ],
+  "constraint_satisfaction": "all hard constraints satisfied",
+  "determinism_note": "Same inputs + config yield identical selection.",
+  "quality_summary": {
+    "mean_csi": 32.8,
+    "mean_ending_strength": 70.0,
+    "bucket_coverage": 0.25,
+    "low_ending_ratio": 0.0
+  }
+}

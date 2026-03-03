@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "generated_at_utc": "2026-02-25T01:36:21Z",
+  "report_date": "2026-03-04",
+  "window_days": 90,
+  "source": {
+    "history_index": null,
+    "plans_dir": "artifacts/plans",
+    "cache_dir": "/Users/ahjan/phoenix_omega/artifacts/ops/cache"
+  },
+  "global": {
+    "book_count": 0,
+    "chapter_band_distribution": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5": 0.0
+    },
+    "band_entropy_norm": 0.0,
+    "avg_volatility": 0.0,
+    "band_5_share": 0.0
+  },
+  "by_brand": {},
+  "by_persona": {},
+  "drift": null,
+  "alerts": [
+    {
+      "severity": "WARN",
+      "code": "GLOBAL_ENTROPY_LOW",
+      "metric": "band_entropy_norm",
+      "value": 0.0,
+      "threshold": 0.86,
+      "recommendation": "Reduce mid-band dominance by adjusting release mix (more high/low band arcs) in next 2 waves.",
+      "detail": ""
+    },
+    {
+      "severity": "WARN",
+      "code": "GLOBAL_VOLATILITY_LOW",
+      "metric": "avg_volatility",
+      "value": 0.0,
+      "threshold": 0.42,
+      "recommendation": "Catalog emotional curves are too flat. Prefer arcs with higher chapter-to-chapter band variation.",
+      "detail": ""
+    },
+    {
+      "severity": "WARN",
+      "code": "GLOBAL_BAND5_SHARE_LOW",
+      "metric": "band_5_share",
+      "value": 0.0,
+      "threshold": 0.06,
+      "recommendation": "High-intensity (band 5) share is low. Include more high-intensity arcs in release mix.",
+      "detail": ""
+    }
+  ]
+}

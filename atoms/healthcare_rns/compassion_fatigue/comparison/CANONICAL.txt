@@ -1,0 +1,241 @@
+
+
+## RECOGNITION v01
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/recognition/micro/v01.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Rosa watches another hospice nurse engage with a dying family. The nurse seems present. Warm. Rosa is going through the motions. The comparison arrives: this nurse still has compassion. I've lost it. The fatigue is showing as absence. The other nurse still has presence. Rosa's chest is heavy. The comparison is evidence that Rosa has burned out while others haven't. Her shoulders drop.
+---
+
+## RECOGNITION v02
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/recognition/micro/v02.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Tyler sees a newer nurse handle a code with emotional intensity. The nurse is nervous. Engaged. Tyler executes codes efficiently but without feeling. The comparison lands: this nurse is still human. I'm a robot. The compassion fatigue has turned him into a machine. The newer nurse is still feeling. The gap between them is the fatigue. His shoulders are tight.
+---
+
+## RECOGNITION v03
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/recognition/micro/v03.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Amy watches another pediatric nurse play with patients between tasks. There's genuine joy. Amy can't access the joy. The work is getting done. The heart isn't in it. The comparison shows her what she's lost. This nurse has compassion. Amy has efficiency. Her chest is tight. The fatigue is creating the distance between her and the feeling.
+---
+
+## RECOGNITION v04
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/recognition/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Dani watches a trauma nurse new to the unit get emotionally activated by patient stories. Dani hears the same stories and feels nothing. The comparison reveals the gap. This nurse is still moved. Dani is shut down. The compassion fatigue is showing as numbness beside engagement. Her chest is completely closed.
+---
+
+## RECOGNITION v05
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/recognition/micro/v05.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Maria watches a peer comfort a frightened family. The comfort is real. The care is palpable. Maria comforts the same family and it feels like acting. The comparison shows the difference. This nurse has compassion reserves. Maria is empty. Her throat is closed. The fatigue has taken what used to be natural.
+---
+
+## MECHANISM_PROOF v01
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/mechanism_proof/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+Rosa is now comparing herself daily to the engaged nurse. The mechanism is that the comparison is evidence of her loss. She's fixated on what she doesn't have. The comparison has become a proof of her inadequacy. She's stopped engaging with the work because the work is showing her how fatigued she is. The mechanism has created paralysis. Her chest is rigid. She's observing her own absence.
+---
+
+## MECHANISM_PROOF v02
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/mechanism_proof/micro/v02.txt
+BAND: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+Tyler has internalized the comparison as permanent status. He's not a robot temporarily. He's become a robot. The mechanism is that the comparison has created an identity around the fatigue. He's the nurse without feeling. The newer nurse is the nurse with feeling. The hierarchy is fixed. The mechanism prevents him from imagining change. His hands are cold. His chest is closed. The fatigue has become his identity because the comparison made it visible.
+---
+
+## MECHANISM_PROOF v03
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/mechanism_proof/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+Amy is measuring her compassion against the other nurse's. The mechanism is that the measurement is reinforcing her belief that she's lost something permanent. The comparison happens daily. The fatigue is being confirmed constantly. The mechanism has turned the comparison into evidence. Her chest stays tight. The work is becoming unbearable because it's constant proof of her inadequacy.
+---
+
+## MECHANISM_PROOF v04
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/mechanism_proof/micro/v04.txt
+BAND: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+Dani is watching the new nurse get activated and feeling shame about her own numbness. The mechanism is that the comparison is making the fatigue worse. She's not just numb. She's numb while watching someone engage. The mechanism has turned the comparison into torture. She's stuck in her own dissociation while observing what's possible. Her chest is completely sealed.
+---
+
+## MECHANISM_PROOF v05
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/mechanism_proof/micro/v05.txt
+BAND: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+Maria is exhausted by the comparison. The mechanism is that she's not just fatigued. She's fatigued and aware of it every moment. The peer's genuine presence is a constant reminder of what Maria has lost. The mechanism has created a double fatigue. Fatigue plus awareness of fatigue. Her throat is completely tight.
+---
+
+## TURNING_POINT v01
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/turning_point/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Rosa stops watching the other nurse. The experiment is to focus on addressing her own fatigue instead of comparing. If she rests, will the compassion return? She takes a week off. The experiment is to see if the fatigue is temporary. Her chest opens slightly.
+---
+
+## TURNING_POINT v02
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/turning_point/micro/v02.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Tyler acknowledges what he's observing. The other nurse feels. He doesn't. The experiment is to ask: is this permanent or is this the fatigue talking? He seeks support. He's not a robot. He's fatigued. The distinction matters. His hands begin to warm.
+---
+
+## TURNING_POINT v03
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/turning_point/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Amy stops measuring herself against the other nurse. The experiment is to accept where she is right now. Fatigued. Still doing good work. The comparison is released. Her chest eases slightly.
+---
+
+## TURNING_POINT v04
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/turning_point/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Dani acknowledges the numbness. She's not broken. She's dissociated as a response to fatigue. The experiment is to address the fatigue and see if the feeling returns. Her chest begins to open slightly.
+---
+
+## TURNING_POINT v05
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/turning_point/micro/v05.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Maria asks the peer: how do you do this? The answer includes rest. Boundaries. Support. The experiment is that Maria has been missing these things. The comparison was showing her not an inferiority but an absence of care. She begins to take care of herself.
+---
+
+## EMBODIMENT v01
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/embodiment/micro/v01.txt
+BAND: 2
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Rosa has addressed her fatigue. The compassion is returning. She's not comparing anymore. She's present. Her chest is open.
+---
+
+## EMBODIMENT v02
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/embodiment/micro/v02.txt
+BAND: 2
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Tyler has addressed his fatigue. He's not a robot. He's human. The feeling is returning. His hands are warm. His chest is open.
+---
+
+## EMBODIMENT v03
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/embodiment/micro/v03.txt
+BAND: 2
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Amy is addressing her fatigue. The joy is returning gradually. She's not comparing. She's just present.
+---
+
+## EMBODIMENT v04
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/embodiment/micro/v04.txt
+BAND: 1
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Dani's numbness is resolving. The feeling is coming back. She's not broken. She was fatigued.
+---
+
+## EMBODIMENT v05
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/comparison/embodiment/micro/v05.txt
+BAND: 2
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Maria has compassion again because she's resting. The comparison was useful. It showed her what she'd lost. Now she's getting it back.
+---

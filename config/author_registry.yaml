@@ -1,0 +1,51 @@
+# Author registry — pen-name content identities (distinct from teacher_id).
+# Authority: PLANNING_STATUS.md, deli/ author assets; Writer Spec §24 (Author Positioning Profile).
+# Pipeline uses this to resolve author-bound books separately from teacher-bound books. No collision with brand_teacher_assignments.
+# When run_pipeline receives --author (or author is inferred from brand/persona/topic), resolver looks up here for author_id → brand, persona_ids, topic_ids.
+# positioning_profile: mandatory per author; must exist in config/authoring/author_positioning_profiles.yaml.
+
+authors:
+  luna_hart:
+    pen_name: "Luna Hart"
+    brand_id: phoenix_somatic
+    persona_ids: [gen_z_professional]
+    topic_ids: [burnout]
+    positioning_profile: somatic_companion
+    assets_path: deli/mnt/user-data/outputs/luna_hart
+
+  kai_nakamura:
+    pen_name: "Kai Nakamura"
+    brand_id: phoenix_focus
+    persona_ids: [gen_z_professional]
+    topic_ids: [burnout]
+    positioning_profile: research_guide
+    assets_path: deli/kai_nakamura_all_assets.yaml
+
+  marcus_cole:
+    pen_name: "Marcus Cole"
+    brand_id: phoenix_executive
+    persona_ids: [nyc_executive]
+    topic_ids: [social_anxiety]
+    positioning_profile: research_guide
+    assets_path: deli
+
+  diane_reyes:
+    pen_name: "Diane Reyes"
+    brand_id: phoenix_healthcare
+    persona_ids: [healthcare_rn]
+    topic_ids: [overthinking]
+    positioning_profile: elder_stabilizer
+    assets_path: deli/mnt/user-data/outputs/diane_reyes
+
+# Resolution rule (Option B): Author registry is for pre-intro/asset resolution only.
+# Atoms remain persona/topic keyed. No author_id on atoms; no author-scoped atom pool.
+# When --author is set: use this registry only to resolve bio, why_this_book, authority_position,
+# audiobook_pre_intro (and author-level metadata). Atom selection is unchanged: persona_id + topic_id
+# (and teacher when set). Authors sharing the same persona/topic (e.g. luna_hart and kai_nakamura
+# on gen_z_professional × burnout) share the same story pool; voice separation is intro/outro and
+# author assets only. brand_teacher_assignments stays for teacher resolution; this file is author-only.
+#
+# Pipeline use (when implemented):
+# - If caller passes --author <author_id>, validate against this registry and set brand_id, persona_ids, topic_ids from here.
+# - Resolve author assets (bio, why_this_book, audiobook_pre_intro, authority_position) from assets/authors/<author_id>/ or deli/ paths.
+# - Do not filter or key atom pools by author_id; use existing persona/topic pools only.

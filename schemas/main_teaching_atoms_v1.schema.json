@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MainTeachingAtoms",
+  "description": "Teacher Authoring Layer — main teaching atoms (doctrine/main_teaching_atoms.yaml)",
+  "type": "object",
+  "required": ["schema_version", "teacher_id", "main_teaching_atoms"],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": { "type": "string" },
+    "teacher_id": { "type": "string" },
+    "extraction_date": { "type": "string" },
+    "reviewed_by": { "type": ["string", "null"] },
+    "review_date": { "type": ["string", "null"] },
+    "main_teaching_atoms": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "required": ["concept_id", "teaching_statement", "mechanism", "counter_pattern", "story_seed", "exercise_seed", "band_affinity", "allowed_topics"],
+        "additionalProperties": true,
+        "properties": {
+          "concept_id": { "type": "string" },
+          "teaching_statement": { "type": "string" },
+          "mechanism": { "type": "string" },
+          "counter_pattern": { "type": "string" },
+          "story_seed": { "type": "string" },
+          "exercise_seed": { "type": "string" },
+          "band_affinity": { "type": "array", "items": { "type": "integer", "minimum": 1, "maximum": 5 } },
+          "allowed_topics": { "type": "array", "items": { "type": "string" } },
+          "tags": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

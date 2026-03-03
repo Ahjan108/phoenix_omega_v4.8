@@ -1,0 +1,44 @@
+# Arc template: wave cycle. Dev Spec §3.2.
+# 3 peaks with recovery valleys between each. Best for boundaries, self-worth, courage.
+
+template_id: wave_cycle
+description: "3 peaks with recovery valleys between each"
+compatible_formats: [F001, F002, F008]
+compatible_tiers: [A, B]
+chapter_count_range: [9, 30]
+
+emotional_curve_template: [2, 3, 2, 4, 3, 5, 3, 4, 2, 2]
+emotional_role_template:
+  - recognition
+  - destabilization
+  - reframe
+  - destabilization
+  - reframe
+  - stabilization
+  - reframe
+  - stabilization
+  - reframe
+  - integration
+
+reflection_strategy_cycle: [didactic, socratic, narrative_embedded]
+
+motif_bank:
+  boundaries:
+    primary_symbol: door
+    recurring_image: threshold_moment
+    tonal_signature: quiet_firmness
+  self_worth:
+    primary_symbol: armor
+    recurring_image: conference_room_glass
+    tonal_signature: restrained_intensity
+  courage:
+    primary_symbol: edge
+    recurring_image: cliff_and_step
+    tonal_signature: steady_invitation
+  default:
+    primary_symbol: threshold
+    recurring_image: doorway
+    tonal_signature: warm_witness
+
+cost_chapter_position: 0.55
+resolution_type: grounded_reframe

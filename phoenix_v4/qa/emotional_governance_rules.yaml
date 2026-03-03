@@ -1,0 +1,122 @@
+# Phoenix V4.5 — Emotional Governance Rules (CI-Enforced)
+# Machine-readable rule definitions for dev/CI integration
+# See: specs/PHOENIX_V4_5_WRITER_SPEC.md Section 16; Canonical Spec Part 1 (emotional_intensity_band), Part 3.1/3.4
+
+version: 1.0
+mode: production
+
+atom_level:
+
+  story_emotional_intensity_band:
+    required_for: story
+    field: emotional_intensity_band
+    valid_values: [1, 2, 3, 4, 5]
+    on_missing: HARD_FAIL
+    # 1=mild discomfort, 2=tension, 3=strain, 4=breaking point, 5=crisis/rupture
+    # Exception: Canonical Spec §5.3 permits default BAND 3 for CANONICAL.txt file format when BAND absent; applies until atoms promoted to full schema or BAND added to files.
+
+chapter_level:
+
+  volatile_requirement:
+    required_high_chapter: 1
+    thresholds:
+      escalation_verbs: 3
+      sensory_words: 2
+      reaction_markers: 1
+    on_fail: HARD_FAIL
+
+  cognitive_body_ratio:
+    formula: cognitive_count / body_count
+    warn_threshold: 3
+    fail_threshold: 5
+
+  action_reaction:
+    action_minimum: 2
+    reaction_required: 1
+    on_fail: HARD_FAIL
+
+tts_rhythm:
+
+  sentence_distribution:
+    short_max_words: 10
+    medium_max_words: 15
+    long_warn_threshold: 18
+    max_long_percent: 0.20
+    max_long_fail_percent: 0.30
+
+  question_density:
+    max_questions_per_chapter: 2
+    default_zero_sections:
+      - recognition
+      - mechanism
+      - integration
+
+  monotone_detection:
+    max_identical_paragraph_runs: 2
+    on_repeat_across_chapters: HARD_FAIL
+
+book_level:
+
+  # Emotional impact patterns (Writer Spec §16.8; source: EMOTIONAL_IMPACT_SPEC)
+  misfire_tax:
+    min_standard_book: 2
+    min_micro_book: 1
+    tag: misfire_tax
+    on_fail: HARD_FAIL
+  silence_beat:
+    min_standard_book: 2
+    min_micro_book: 1
+    tag: silence_beat
+    on_fail: HARD_FAIL
+  never_know:
+    min_standard_book: 2
+    min_micro_book: 1
+    tag: never_know
+    on_fail: HARD_FAIL
+  integration_modes:
+    min_modes_standard_book: 3
+    min_modes_micro_book: 2
+    no_consecutive_same: true
+    still_here_only_final: true
+    tag: integration_mode
+    valid_values: [still_here, cost_visible, body_landed, question_open, someone_else]
+    on_fail: HARD_FAIL
+  # Flinch audit: human-performed; min 5 (standard) / 2 (micro) flinch points
+
+  emotional_flattening:
+    max_same_temperature_run: 2
+    require_escalation_if_high: true
+
+  reassurance_cap:
+    warn_percent: 0.40
+    fail_percent: 0.60
+    phrases:
+      - "You are not broken"
+      - "You're safe"
+      - "You've got this"
+      - "Trust the process"
+      - "You are enough"
+      - "Still here"
+
+  metaphor_family:
+    rolling_window: 10
+    max_percent: 0.40
+
+catalog_level:
+
+  structural_similarity:
+    max_structural_overlap: 0.20
+    max_story_overlap: 0.15
+
+  waveform_entropy:
+    rolling_window: 10
+    min_distinct_curves: 3
+
+  reflection_density:
+    max_consecutive_same_tier: 2
+
+failure_protocol:
+  atom: quarantine
+  chapter: block_assembly
+  book: block_export
+  catalog: freeze_batch

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "catalog_health_summary_v1.schema.json",
+  "title": "CatalogHealthSummaryV1",
+  "description": "Operator-facing summary of catalog health from validated Ops artifacts.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generated_at", "quality", "duplication_risk", "coverage", "release_readiness"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "generated_at": { "type": "string", "description": "ISO-8601" },
+    "quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mean_csi_per_brand": { "type": "object", "additionalProperties": { "type": "number" } },
+        "mean_csi_per_persona": { "type": "object", "additionalProperties": { "type": "number" } },
+        "mean_csi_per_topic": { "type": "object", "additionalProperties": { "type": "number" } },
+        "pass_count": { "type": "integer", "minimum": 0 },
+        "warn_count": { "type": "integer", "minimum": 0 },
+        "fail_count": { "type": "integer", "minimum": 0 },
+        "ending_strength_distribution": { "type": "object" },
+        "low_ending_ratio_per_wave": { "type": "object", "additionalProperties": { "type": "number" } }
+      }
+    },
+    "duplication_risk": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "memorable_line_collision_count": { "type": "integer", "minimum": 0 },
+        "top_repeated_great_lines": { "type": "array", "items": { "type": "object" } },
+        "wave_collision_hotspots": { "type": "array" }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tuple_risk_trend": { "type": "string" },
+        "deficits_by_code_delta": { "type": "object" }
+      }
+    },
+    "release_readiness": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "candidates_blocked_by_quality": { "type": "integer", "minimum": 0 },
+        "infeasible_waves_due_to_quality": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "series_health": {
+      "type": "object",
+      "description": "Series quality (read-only)",
+      "additionalProperties": true
+    }
+  }
+}

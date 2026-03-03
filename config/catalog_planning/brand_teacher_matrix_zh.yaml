@@ -1,0 +1,113 @@
+# Brand × Teacher matrix for Chinese locale catalog (24 brands: 6 base × 4 locales).
+# Use with --brand-matrix and --locale-group chinese_all. Diversity guard applies (diversity_guards.yaml).
+# Release cadence: from config/release_velocity and generate_weekly_schedule.py (70–84/wk per brand ramp). See docs/RELEASE_VELOCITY_AND_SCHEDULE.md.
+
+brands:
+  # zh-TW (6)
+  sleep_repair_tw:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  stabilizer_tw:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  panic_first_aid_tw:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  gen_z_grounding_tw:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  grief_companion_tw:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  inner_security_tw:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  # zh-HK (6)
+  sleep_repair_hk:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  stabilizer_hk:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  panic_first_aid_hk:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  gen_z_grounding_hk:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  grief_companion_hk:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  inner_security_hk:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  # zh-CN (6)
+  sleep_repair_cn:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  stabilizer_cn:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  panic_first_aid_cn:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  gen_z_grounding_cn:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  grief_companion_cn:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  inner_security_cn:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  # zh-SG (6)
+  sleep_repair_sg:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  stabilizer_sg:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  panic_first_aid_sg:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  gen_z_grounding_sg:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  grief_companion_sg:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  inner_security_sg:
+    teachers: [ahjan, ajahn_x]
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+
+teacher_constraints:
+  ahjan:
+    max_books_per_topic: 42
+    max_books_per_persona: 42
+  ajahn_x:
+    max_books_per_topic: 42
+    max_books_per_persona: 42

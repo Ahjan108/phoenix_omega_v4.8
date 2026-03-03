@@ -1,0 +1,93 @@
+# Structural Variation V4. Reframe line bank (constraint / worldview / micro-reframe).
+# Per profile; injection at reflection/integration/reframe-compatible sections only.
+# Banned-pattern and non-cure constraints must be obeyed.
+
+schema_version: "1.0"
+
+profiles:
+  balanced:
+    name: "Balanced"
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+    constraint_lines:
+      - "This isn't about fixing yourself—it's about meeting yourself."
+      - "Progress isn't linear."
+      - "You don't have to do it all at once."
+    worldview_lines:
+      - "Your nervous system is doing its best."
+      - "Change happens in relationship, not in isolation."
+      - "Safety comes before growth."
+    micro_reframe_lines:
+      - "What if this moment could be different?"
+      - "One breath can reset the script."
+      - "You're not behind; you're exactly where you are."
+    banned_patterns: []
+    weights:
+      default: 1.0
+
+  somatic_companion:
+    name: "Somatic companion"
+    persona_tags: ["healthcare_rns", "educators"]
+    topic_tags: []
+    arc_tags: []
+    constraint_lines:
+      - "The body holds what the mind can't yet process."
+      - "Sensation before story."
+      - "You don't have to name it to feel it."
+    worldview_lines:
+      - "Your body is your ally."
+      - "Regulation is a skill, not a trait."
+      - "Grounding isn't escape—it's presence."
+    micro_reframe_lines:
+      - "Feel your feet on the floor."
+      - "Where do you feel this in your body?"
+      - "Let the exhale be longer than the inhale."
+    banned_patterns: ["cure", "fix you", "should"]
+    weights:
+      default: 0.9
+
+  research_guide:
+    name: "Research guide"
+    persona_tags: ["nyc_executives", "gen_z_professionals"]
+    topic_tags: []
+    arc_tags: []
+    constraint_lines:
+      - "Evidence suggests small steps compound."
+      - "This isn't advice—it's a map of what works for many."
+      - "You're the experiment; you get to decide."
+    worldview_lines:
+      - "The nervous system follows patterns we can learn."
+      - "Context shapes behavior more than we like to think."
+      - "Curiosity beats judgment for change."
+    micro_reframe_lines:
+      - "What would you notice if you weren't trying to fix it?"
+      - "What does the data of your own experience say?"
+      - "One variable at a time."
+    banned_patterns: []
+    weights:
+      default: 0.9
+
+  elder_stabilizer:
+    name: "Elder stabilizer"
+    persona_tags: []
+    topic_tags: ["grief", "compassion_fatigue"]
+    arc_tags: []
+    constraint_lines:
+      - "Some things take the time they take."
+      - "You don't have to be ready to begin."
+      - "Rest is part of the work."
+    worldview_lines:
+      - "You've already survived every hard moment so far."
+      - "Stability is a practice, not a destination."
+      - "Being with is sometimes enough."
+    micro_reframe_lines:
+      - "What would support look like right now?"
+      - "You can pause here."
+      - "No need to push through."
+    banned_patterns: ["just", "simply", "all you need"]
+    weights:
+      default: 0.85
+
+# Default profile when reframe_profile_id missing or invalid.
+default_profile_id: balanced

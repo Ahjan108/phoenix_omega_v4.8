@@ -1,0 +1,81 @@
+# Arc template: standard escalation. Dev Spec §3.1.1.
+# Classic escalation arc: recognition -> cost -> mechanism -> identity shift.
+# Scaled from 10-phase template to actual chapter_count.
+
+template_id: standard_escalation
+description: "Classic escalation arc: recognition -> cost -> mechanism -> identity shift"
+compatible_formats: [F001, F002, F003, F006, F007, F010, F011, F014]
+compatible_tiers: [A, B]
+chapter_count_range: [7, 30]
+
+# Fixed structural shape (10 phases); generator interpolates to chapter_count.
+emotional_curve_template: [1, 2, 2, 3, 3, 4, 4, 5, 3, 2]
+emotional_role_template:
+  - recognition
+  - destabilization
+  - destabilization
+  - reframe
+  - destabilization
+  - reframe
+  - destabilization
+  - stabilization
+  - reframe
+  - integration
+
+reflection_strategy_cycle: [didactic, socratic, narrative_embedded]
+
+# Parameterized by topic at generation time.
+motif_bank:
+  anxiety:
+    primary_symbol: alarm
+    recurring_image: chest_and_phone
+    recurring_question: "What is your body trying to tell you?"
+    tonal_signature: restrained_clarity
+  depression:
+    primary_symbol: weight
+    recurring_image: bed_and_ceiling
+    recurring_question: "What would one small step look like?"
+    tonal_signature: slow_witness
+  boundaries:
+    primary_symbol: door
+    recurring_image: threshold_moment
+    recurring_question: "Where do you draw the line?"
+    tonal_signature: quiet_firmness
+  grief:
+    primary_symbol: absence
+    recurring_image: empty_chair
+    recurring_question: "What remains true when everything else shifts?"
+    tonal_signature: tender_witness
+  self_worth:
+    primary_symbol: armor
+    recurring_image: conference_room_glass
+    recurring_question: "Who are you trying to impress?"
+    tonal_signature: restrained_intensity
+  compassion_fatigue:
+    primary_symbol: well
+    recurring_image: empty_cup
+    recurring_question: "What do you need before you can give?"
+    tonal_signature: gentle_boundary
+  courage:
+    primary_symbol: edge
+    recurring_image: cliff_and_step
+    recurring_question: "What is one thing you can do before you feel ready?"
+    tonal_signature: steady_invitation
+  financial_stress:
+    primary_symbol: ledger
+    recurring_image: screen_and_body
+    recurring_question: "What does this cost you?"
+    tonal_signature: restrained_clarity
+  default:
+    primary_symbol: threshold
+    recurring_image: doorway
+    recurring_question: "What wants to shift?"
+    tonal_signature: warm_witness
+
+# Fraction of chapter_count (rounded) for cost chapter. 0.75 = late-mid.
+cost_chapter_position: 0.75
+resolution_type: internal_shift_only
+
+# Optional: arc_requirements for callback-heavy arcs.
+# requires_callback: false
+# callback_min_count: 0

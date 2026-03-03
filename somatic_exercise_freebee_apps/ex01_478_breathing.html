@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4-7-8 Breathing</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --inhale: #5B8FB9;
+    --hold: #9B7EC8;
+    --exhale: #2D6A6A;
+    --bg: #0B0F1A;
+    --text: #E8E4DF;
+    --muted: #6B6A6A;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  .bg-grain {
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0;
+  }
+
+  .container {
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 2rem;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300; font-size: 2.2rem;
+    letter-spacing: 0.08em; opacity: 0.9;
+  }
+
+  .circle-wrap {
+    position: relative;
+    width: 280px; height: 280px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .breath-circle {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, var(--inhale), transparent);
+    box-shadow: 0 0 60px rgba(91,143,185,0.3);
+    transition: width 0.3s, height 0.3s, background 0.5s, box-shadow 0.5s;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+  }
+
+  .breath-circle.inhale {
+    width: 240px; height: 240px;
+    background: radial-gradient(circle at 40% 40%, var(--inhale), rgba(91,143,185,0.15));
+    box-shadow: 0 0 80px rgba(91,143,185,0.4);
+  }
+
+  .breath-circle.hold {
+    width: 240px; height: 240px;
+    background: radial-gradient(circle at 40% 40%, var(--hold), rgba(155,126,200,0.15));
+    box-shadow: 0 0 80px rgba(155,126,200,0.4);
+  }
+
+  .breath-circle.exhale {
+    width: 100px; height: 100px;
+    background: radial-gradient(circle at 40% 40%, var(--exhale), rgba(45,106,106,0.15));
+    box-shadow: 0 0 60px rgba(45,106,106,0.3);
+  }
+
+  .phase-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 300;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--text); opacity: 0.95;
+    transition: opacity 0.3s;
+  }
+
+  .countdown {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 2.4rem; font-weight: 300;
+    margin-top: 0.2rem;
+    opacity: 0.8;
+  }
+
+  .ring {
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .ring-progress {
+    position: absolute; inset: -4px;
+  }
+
+  .ring-progress circle {
+    fill: none; stroke-width: 2;
+    stroke-linecap: round;
+    transform: rotate(-90deg); transform-origin: center;
+    transition: stroke 0.5s;
+  }
+
+  .info-row {
+    display: flex; gap: 2.5rem;
+    font-size: 0.85rem; color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .info-row span strong {
+    color: var(--text); font-weight: 500;
+  }
+
+  .controls {
+    display: flex; gap: 1rem; margin-top: 0.5rem;
+  }
+
+  .btn {
+    font-family: 'DM Sans', sans-serif;
+    padding: 0.65rem 2rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+    font-size: 0.9rem; letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .btn:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.3);
+  }
+
+  .btn.primary {
+    background: rgba(91,143,185,0.2);
+    border-color: rgba(91,143,185,0.4);
+  }
+
+  .btn.primary:hover {
+    background: rgba(91,143,185,0.35);
+  }
+
+  .pattern-display {
+    font-size: 0.8rem; color: var(--muted);
+    letter-spacing: 0.12em;
+    margin-top: -0.5rem;
+  }
+
+  .pattern-display em {
+    font-style: normal; color: var(--text); opacity: 0.7;
+  }
+
+  .complete-msg {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 300;
+    opacity: 0; transition: opacity 0.8s;
+    position: absolute; bottom: -3rem;
+  }
+
+  .complete-msg.show { opacity: 0.8; }
+</style>
+</head>
+<body>
+<div class="bg-grain"></div>
+<div class="container">
+  <h1>4 · 7 · 8 Breathing</h1>
+  <p class="pattern-display">Inhale <em>4s</em> · Hold <em>7s</em> · Exhale <em>8s</em></p>
+
+  <div class="circle-wrap">
+    <div class="ring"></div>
+    <svg class="ring-progress" viewBox="0 0 288 288">
+      <circle id="progressRing" cx="144" cy="144" r="140"
+        stroke="rgba(91,143,185,0.5)" stroke-dasharray="879.6" stroke-dashoffset="879.6"/>
+    </svg>
+    <div class="breath-circle" id="circle">
+      <span class="phase-label" id="phaseLabel">Ready</span>
+      <span class="countdown" id="countdown"></span>
+    </div>
+    <div class="complete-msg" id="completeMsg">Session complete. Breathe naturally.</div>
+  </div>
+
+  <div class="info-row">
+    <span>Cycle <strong id="cycleNum">0</strong> / <strong>6</strong></span>
+    <span>Elapsed <strong id="elapsed">0:00</strong></span>
+  </div>
+
+  <div class="controls">
+    <button class="btn primary" id="startBtn" onclick="toggleSession()">Begin</button>
+    <button class="btn" id="resetBtn" onclick="resetSession()">Reset</button>
+  </div>
+</div>
+
+<script>
+const PHASES = [
+  { name: 'Inhale', duration: 4, cls: 'inhale', color: 'rgba(91,143,185,0.5)', freq: 396 },
+  { name: 'Hold',   duration: 7, cls: 'hold',   color: 'rgba(155,126,200,0.5)', freq: 285 },
+  { name: 'Exhale', duration: 8, cls: 'exhale',  color: 'rgba(45,106,106,0.5)', freq: 174 },
+];
+const TOTAL_CYCLES = 6;
+const CIRCUMFERENCE = 2 * Math.PI * 140;
+
+let running = false, paused = false;
+let currentCycle = 0, phaseIndex = 0, phaseTime = 0;
+let elapsedTotal = 0, lastTick = 0, animId = null;
+let audioCtx = null;
+
+function getAudioCtx() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  return audioCtx;
+}
+
+function playTone(freq, dur = 0.4) {
+  try {
+    const ctx = getAudioCtx();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0, ctx.currentTime);
+    gain.gain.linearRampToValueAtTime(0.12, ctx.currentTime + 0.08);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.start(); osc.stop(ctx.currentTime + dur);
+  } catch(e) {}
+}
+
+function updateUI(phaseName, cls, remaining, color) {
+  const circle = document.getElementById('circle');
+  const label = document.getElementById('phaseLabel');
+  const cd = document.getElementById('countdown');
+  const ring = document.getElementById('progressRing');
+
+  circle.className = 'breath-circle ' + cls;
+  label.textContent = phaseName;
+  cd.textContent = Math.ceil(remaining);
+  ring.style.stroke = color;
+}
+
+function updateProgress(phaseElapsed, phaseDuration) {
+  const ring = document.getElementById('progressRing');
+  const frac = phaseElapsed / phaseDuration;
+  ring.style.strokeDashoffset = CIRCUMFERENCE * (1 - frac);
+}
+
+function formatTime(s) {
+  const m = Math.floor(s / 60);
+  const sec = Math.floor(s % 60);
+  return m + ':' + String(sec).padStart(2, '0');
+}
+
+let lastPhaseIndex = -1;
+
+function tick(ts) {
+  if (!running || paused) return;
+  if (!lastTick) lastTick = ts;
+  const dt = (ts - lastTick) / 1000;
+  lastTick = ts;
+
+  phaseTime += dt;
+  elapsedTotal += dt;
+
+  const phase = PHASES[phaseIndex];
+
+  if (phaseIndex !== lastPhaseIndex) {
+    playTone(phase.freq);
+    lastPhaseIndex = phaseIndex;
+  }
+
+  const remaining = Math.max(0, phase.duration - phaseTime);
+  updateUI(phase.name, phase.cls, remaining, phase.color);
+  updateProgress(phaseTime, phase.duration);
+  document.getElementById('elapsed').textContent = formatTime(elapsedTotal);
+
+  // Transition speed based on phase
+  const circle = document.getElementById('circle');
+  if (phase.cls === 'inhale') {
+    circle.style.transition = 'width ' + phase.duration + 's ease-out, height ' + phase.duration + 's ease-out, background 0.5s, box-shadow 0.5s';
+  } else if (phase.cls === 'exhale') {
+    circle.style.transition = 'width ' + phase.duration + 's ease-in, height ' + phase.duration + 's ease-in, background 0.5s, box-shadow 0.5s';
+  } else {
+    circle.style.transition = 'width 0.5s, height 0.5s, background 0.5s, box-shadow 0.5s';
+  }
+
+  if (phaseTime >= phase.duration) {
+    phaseTime = 0;
+    phaseIndex++;
+    if (phaseIndex >= PHASES.length) {
+      phaseIndex = 0;
+      currentCycle++;
+      document.getElementById('cycleNum').textContent = currentCycle;
+      if (currentCycle >= TOTAL_CYCLES) {
+        endSession();
+        return;
+      }
+    }
+  }
+
+  animId = requestAnimationFrame(tick);
+}
+
+function toggleSession() {
+  const btn = document.getElementById('startBtn');
+  if (!running) {
+    running = true; paused = false;
+    currentCycle = 0; phaseIndex = 0; phaseTime = 0;
+    elapsedTotal = 0; lastTick = 0; lastPhaseIndex = -1;
+    document.getElementById('cycleNum').textContent = '0';
+    document.getElementById('completeMsg').classList.remove('show');
+    btn.textContent = 'Pause';
+    animId = requestAnimationFrame(tick);
+  } else if (!paused) {
+    paused = true; lastTick = 0;
+    btn.textContent = 'Resume';
+  } else {
+    paused = false; lastTick = 0;
+    btn.textContent = 'Pause';
+    animId = requestAnimationFrame(tick);
+  }
+}
+
+function resetSession() {
+  running = false; paused = false;
+  if (animId) cancelAnimationFrame(animId);
+  currentCycle = 0; phaseIndex = 0; phaseTime = 0;
+  elapsedTotal = 0; lastTick = 0; lastPhaseIndex = -1;
+  document.getElementById('startBtn').textContent = 'Begin';
+  document.getElementById('cycleNum').textContent = '0';
+  document.getElementById('elapsed').textContent = '0:00';
+  document.getElementById('completeMsg').classList.remove('show');
+  const circle = document.getElementById('circle');
+  circle.className = 'breath-circle';
+  circle.style.transition = 'all 0.5s';
+  document.getElementById('phaseLabel').textContent = 'Ready';
+  document.getElementById('countdown').textContent = '';
+  document.getElementById('progressRing').style.strokeDashoffset = CIRCUMFERENCE;
+}
+
+function endSession() {
+  running = false;
+  document.getElementById('startBtn').textContent = 'Begin';
+  document.getElementById('phaseLabel').textContent = 'Done';
+  document.getElementById('countdown').textContent = '';
+  document.getElementById('completeMsg').classList.add('show');
+  playTone(528, 1.2);
+}
+</script>
+</body>
+</html>

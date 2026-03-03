@@ -1,0 +1,20 @@
+{
+  "source": "genz_overthinking_spiral_book.txt chapter 1",
+  "status": "FAIL",
+  "score": 40,
+  "errors": [
+    "DELIVERY_ARTIFACT_PRESENT",
+    "WEAK_TRANSITIONS",
+    "MISSING_CLEAR_POINT",
+    "NO_ACTIONABLE_STEP"
+  ],
+  "warnings": [],
+  "metrics": {
+    "paragraphs": 9,
+    "sentences": 41,
+    "transition_hits": 2,
+    "thesis_hits": 0,
+    "avg_adjacent_overlap": 0.062,
+    "sentence_len_std": 6.0
+  }
+}

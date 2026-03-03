@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HRV Coherence</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@200;300;400&family=Karla:wght@300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Karla',sans-serif;background:#060d12;color:#e2e8f0;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.2rem;padding:1.5rem;width:100%;max-width:500px}
+h1{font-family:'Fraunces',serif;font-weight:200;font-size:2rem;letter-spacing:.05em}
+.sub{font-size:.7rem;color:#0e7490;letter-spacing:.2em;text-transform:uppercase;margin-top:-.5rem}
+canvas{display:block;width:100%;max-width:460px;height:160px}
+.score-row{display:flex;align-items:center;gap:2rem}
+.score{text-align:center}.sv2{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:200;color:#06b6d4}.slb{font-size:.6rem;color:#0e7490;letter-spacing:.15em;text-transform:uppercase}
+.heart{font-size:2rem;animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.ph{font-family:'Fraunces',serif;font-size:1.1rem;transition:color .4s}
+.ct{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:200}
+.cy,.tm{font-size:.68rem;color:#0e7490;letter-spacing:.12em}
+.ctrls{display:flex;gap:1rem}
+.btn{font-family:'Karla',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.6rem;border:1px solid rgba(6,182,212,.2);border-radius:100px;background:rgba(6,182,212,.05);color:#e2e8f0;cursor:pointer;transition:all .25s}
+.btn:hover{background:rgba(6,182,212,.1)}
+.btn.pri{border-color:rgba(6,182,212,.4);background:rgba(6,182,212,.08)}
+.btn-s{padding:.4rem .9rem;font-size:.68rem}
+.done{display:none;flex-direction:column;align-items:center;gap:1.2rem;text-align:center;animation:fu .8s}
+.done.show{display:flex}.main.off{display:none}
+.done h2{font-family:'Fraunces',serif;font-weight:200;font-size:1.7rem}
+.done p{color:#0e7490;font-size:.85rem;line-height:1.7;max-width:360px}
+@keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.snd{position:fixed;top:1rem;right:1rem;z-index:10;width:34px;height:34px;border-radius:50%;border:1px solid rgba(6,182,212,.15);background:rgba(6,182,212,.03);color:#0e7490;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<button class="snd" id="sndBtn">🔔</button>
+<div class="wrap">
+<h1>HRV Coherence</h1>
+<div class="sub">Heart Rate Variability · 5 minutes</div>
+<div class="main" id="mainV">
+<canvas id="cv" width="920" height="320"></canvas>
+<div class="score-row">
+<div class="heart" id="hrt">❤️</div>
+<div class="score"><div class="sv2" id="scr">0</div><div class="slb">Coherence Score</div></div>
+<div class="score"><div class="sv2" id="bpm2">72</div><div class="slb">Est. BPM</div></div>
+</div>
+<div style="text-align:center"><div class="ph" id="ph">Ready</div><div class="ct" id="ct">—</div><div class="cy" id="cy"></div></div>
+<div class="ctrls"><button class="btn pri" id="goBtn">Begin</button><button class="btn btn-s" id="rstBtn" style="display:none">Reset</button></div>
+</div>
+<div class="done" id="doneV">
+<h2>Coherence Achieved</h2>
+<p>Five minutes at 6 breaths per minute — the resonance frequency where heart rate variability reaches peak coherence. This synchronizes your heart, lungs, and blood pressure rhythms into a single, powerful wave.</p>
+<p style="opacity:.6;font-style:italic">Your heart and breath are now in harmony.</p>
+<button class="btn pri" id="agBtn">Again</button>
+</div>
+</div>
+<script>
+const INH=5,EXH=5,CYCLES=30,DUR=300;
+class Aud{constructor(){this.c=null;this.on=true}init(){if(!this.c)this.c=new(window.AudioContext||window.webkitAudioContext)()}t(f,d){if(!this.on||!this.c)return;const o=this.c.createOscillator(),g=this.c.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,this.c.currentTime);g.gain.linearRampToValueAtTime(.05,this.c.currentTime+.15);g.gain.setValueAtTime(.05,this.c.currentTime+d-.2);g.gain.linearRampToValueAtTime(0,this.c.currentTime+d);o.connect(g);g.connect(this.c.destination);o.start();o.stop(this.c.currentTime+d)}toggle(){this.on=!this.on;return this.on}}
+const au=new Aud();const cv=document.getElementById('cv'),c=cv.getContext('2d'),W=cv.width,H=cv.height;
+let waveData=[];
+function drawWave(isIn,prog,cycle){
+c.clearRect(0,0,W,H);
+// Generate HRV-like wave point
+const t=Date.now()/1e3;
+const breathPhase=(isIn?prog:1+prog)*Math.PI;// 0-2PI per full cycle
+const baseHR=72;const hrv=Math.sin(breathPhase)*8;// HRV modulation
+const noise=Math.sin(t*7)*.8+Math.sin(t*11)*.4;
+const bpm=baseHR+hrv+noise;
+waveData.push(bpm);if(waveData.length>W/2)waveData.shift();
+// Draw wave
+c.beginPath();c.moveTo(0,H/2);
+for(let i=0;i<waveData.length;i++){const x=i*2;const y=H/2-(waveData[i]-baseHR)*8;if(i===0)c.moveTo(x,y);else c.lineTo(x,y)}
+c.strokeStyle='rgba(6,182,212,.6)';c.lineWidth=2;c.stroke();
+// Fill under
+const lastX=(waveData.length-1)*2;c.lineTo(lastX,H);c.lineTo(0,H);c.closePath();
+const gr=c.createLinearGradient(0,0,0,H);gr.addColorStop(0,'rgba(6,182,212,.1)');gr.addColorStop(1,'transparent');c.fillStyle=gr;c.fill();
+// Center line
+c.beginPath();c.moveTo(0,H/2);c.lineTo(W,H/2);c.strokeStyle='rgba(6,182,212,.08)';c.lineWidth=1;c.setLineDash([4,8]);c.stroke();c.setLineDash([]);
+// Update displays
+const coherence=Math.min(100,Math.floor(20+cycle*2.8));
+document.getElementById('scr').textContent=coherence;
+document.getElementById('bpm2').textContent=Math.round(bpm);
+document.getElementById('hrt').style.animationDuration=(60/bpm)+'s';
+}
+let state='idle',cycle=0,isIn=true,phS=0,pa=false,pO=0,pT2=0,sS=0;
+const ph=document.getElementById('ph'),ct2=document.getElementById('ct'),cy=document.getElementById('cy');
+const goBtn=document.getElementById('goBtn'),rstBtn=document.getElementById('rstBtn'),mainV=document.getElementById('mainV'),doneV=document.getElementById('doneV');
+function fmt(s){const m=Math.floor(s/60),sec=Math.floor(s%60);return m+':'+(sec<10?'0':'')+sec}
+function setUI(){ph.textContent=isIn?'Inhale':'Exhale';ph.style.color=isIn?'#22d3ee':'#0891b2';ct2.style.color=isIn?'#22d3ee':'#0891b2';cy.textContent=(cycle+1)+'/'+CYCLES}
+function start(){au.init();state='active';cycle=0;isIn=true;pa=false;pO=0;phS=performance.now();sS=performance.now();waveData=[];goBtn.textContent='Pause';goBtn.classList.remove('pri');rstBtn.style.display='inline-block';doneV.classList.remove('show');mainV.classList.remove('off');setUI();au.t(293.66,INH);tick()}
+function tick(){if(state!=='active'||pa)return;const now=performance.now(),dur=isIn?INH:EXH,el=(now-phS-pO)/1e3,prog=Math.min(1,el/dur);
+ct2.textContent=Math.ceil(Math.max(0,dur-el));drawWave(isIn,prog,cycle);
+if(el>=dur){if(isIn){isIn=false;setUI();au.t(196,EXH)}else{cycle++;if(cycle>=CYCLES){finish();return}isIn=true;setUI();au.t(293.66,INH)}pO=0;phS=performance.now()}requestAnimationFrame(tick)}
+function finish(){state='done';mainV.classList.add('off');doneV.classList.add('show')}
+function reset(){state='idle';pa=false;pO=0;waveData=[];goBtn.textContent='Begin';goBtn.classList.add('pri');rstBtn.style.display='none';ph.textContent='Ready';ct2.textContent='—';cy.textContent='';document.getElementById('scr').textContent='0';c.clearRect(0,0,W,H);doneV.classList.remove('show');mainV.classList.remove('off')}
+function toggleP(){if(!pa){pa=true;pT2=performance.now();goBtn.textContent='Resume';goBtn.classList.add('pri')}else{pO+=performance.now()-pT2;pa=false;goBtn.textContent='Pause';goBtn.classList.remove('pri');tick()}}
+goBtn.onclick=()=>{if(state==='idle')start();else if(state==='active')toggleP()};rstBtn.onclick=reset;document.getElementById('agBtn').onclick=()=>{reset();start()};
+document.getElementById('sndBtn').onclick=()=>{au.init();document.getElementById('sndBtn').textContent=au.toggle()?'🔔':'🔇'};
+</script>
+</body>
+</html>

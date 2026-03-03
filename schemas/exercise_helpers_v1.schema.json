@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExerciseHelpers",
+  "description": "Teacher Authoring Layer — exercise helpers (doctrine/exercise_helpers.yaml)",
+  "type": "object",
+  "required": ["schema_version", "teacher_id", "supported_families", "unsupported_families", "adaptation_wrappers", "safety", "mta_mapping"],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": { "type": "string" },
+    "teacher_id": { "type": "string" },
+    "supported_families": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["family_id", "description", "example_prompt", "frequency"],
+        "properties": {
+          "family_id": { "type": "string" },
+          "description": { "type": "string" },
+          "example_prompt": { "type": "string" },
+          "frequency": { "type": "string", "enum": ["primary", "secondary", "occasional"] }
+        }
+      }
+    },
+    "unsupported_families": { "type": "array", "items": { "type": "string" } },
+    "adaptation_wrappers": {
+      "type": "object",
+      "required": ["intro_templates", "close_templates"],
+      "properties": {
+        "intro_templates": { "type": "array", "minItems": 2, "items": { "type": "string" } },
+        "close_templates": { "type": "array", "minItems": 2, "items": { "type": "string" } }
+      }
+    },
+    "safety": {
+      "type": "object",
+      "required": ["max_intensity", "notes", "forbidden_exercise_types"],
+      "properties": {
+        "max_intensity": { "type": "string" },
+        "notes": { "type": "string" },
+        "forbidden_exercise_types": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "mta_mapping": { "type": "object", "additionalProperties": { "type": "array", "items": { "type": "string" } } }
+  }
+}

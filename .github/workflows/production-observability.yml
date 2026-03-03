@@ -1,0 +1,37 @@
+# Production observability — collect signals, trend tracking.
+# Runs on schedule and workflow_dispatch. Does not block merge.
+name: Production observability
+
+on:
+  schedule:
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+jobs:
+  collect-signals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements-test.txt
+
+      - name: Collect production signals
+        run: |
+          PYTHONPATH=. python scripts/observability/collect_signals.py \
+            --signals gate_production_readiness atoms_coverage \
+            --out artifacts/observability/signal_snapshot.json
+
+      - name: Upload observability snapshot
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: observability-snapshot
+          path: artifacts/observability/
+          if-no-files-found: ignore

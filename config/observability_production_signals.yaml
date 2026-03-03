@@ -1,0 +1,64 @@
+# Production signal registry — 100% repo observability.
+# Authority: docs/PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md
+# Collector: scripts/observability/collect_signals.py
+
+signals:
+  - id: gate_production_readiness
+    category: core
+    source: script
+    script: scripts/run_production_readiness_gates.py
+    timeout_sec: 90
+    evidence_path: artifacts/observability/gates_{timestamp}.json
+
+  - id: systems_test
+    category: core
+    source: script
+    script: scripts/systems_test/run_systems_test.py
+    args: ["--all"]
+    timeout_sec: 300
+    evidence_path: artifacts/systems_test/report_{timestamp}.json
+
+  - id: atoms_coverage
+    category: coverage
+    source: pytest
+    test: tests/test_atoms_coverage_100_percent.py
+    timeout_sec: 120
+    evidence_path: null
+
+  - id: ci_core_tests
+    category: core
+    source: workflow
+    workflow: core-tests.yml
+    evidence_path: null
+
+  - id: ci_teacher_gates
+    category: teacher_mode
+    source: workflow
+    workflow: teacher-gates.yml
+    evidence_path: null
+
+  - id: ci_brand_guards
+    category: brand
+    source: workflow
+    workflow: brand-guards.yml
+    evidence_path: null
+
+  - id: ci_pearl_news_gates
+    category: pearl_news
+    source: workflow
+    workflow: pearl_news_gates.yml
+    evidence_path: null
+
+  - id: ci_docs
+    category: docs
+    source: workflow
+    workflow: docs-ci.yml
+    evidence_path: null
+
+  - id: simulation_10k
+    category: simulation
+    source: script
+    script: scripts/ci/run_simulation_10k.py
+    args: ["--n", "1000", "--out", "artifacts/observability/sim_1000_{timestamp}.json"]
+    timeout_sec: 180
+    evidence_path: artifacts/observability/sim_1000_{timestamp}.json

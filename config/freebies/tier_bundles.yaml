@@ -1,0 +1,18 @@
+# Tier bundles for marketing/packaging (Good / Better / Best).
+# Authority: V4 Freebies + Immersion Ecosystem plan §4.
+# Pipeline generates all; this config tags which freebie types belong to which tier.
+
+good:
+  name: "Listener's Kit"
+  freebie_types: [checklist_pdf, identity_sheet_pdf]
+  description: "Included with purchase"
+
+better:
+  name: "Transformation Bundle"
+  freebie_types: [companion_workbook_pdf, checklist_pdf, identity_sheet_pdf, somatic_html_tool, assessment_html]
+  description: "All PDFs + assessment + somatic tool"
+
+best:
+  name: "Immersion Experience"
+  freebie_types: [companion_workbook_pdf, checklist_pdf, identity_sheet_pdf, journal_pdf, thirty_day_tracker_pdf, environment_guide_pdf, somatic_html_tool, assessment_html, emergency_kit_html, guided_audio, affirmations_audio, audio_journal_prompts, conversation_scripts_pdf, resistance_mapping_html, accountability_partner_pdf]
+  description: "Everything above + emergency kit + all audio bonuses + conversation scripts, resistance mapping, accountability partner"

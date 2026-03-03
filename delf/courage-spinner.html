@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courage Action Spinner — Phoenix Protocol</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bone: #f5f0e8;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a0;
+    --deep: #0a0a0f;
+    --violet: #1a1030;
+    --ember: #c4522a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--deep);
+    color: var(--bone);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 50% 60% at 50% 30%, rgba(26,16,48,0.9) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 50% at 50% 80%, rgba(196,82,42,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .back {
+    position: fixed;
+    top: 24px; left: 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.3);
+    text-decoration: none;
+    transition: color 0.3s;
+    z-index: 10;
+  }
+  .back:hover { color: var(--gold); }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    max-width: 560px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    opacity: 0.7;
+  }
+
+  h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 300;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .tagline {
+    font-size: 1rem;
+    color: rgba(245,240,232,0.4);
+    margin-bottom: 48px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* Spinner wheel */
+  .spinner-wrap {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    margin: 0 auto 40px;
+  }
+
+  .spinner-canvas {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    transition: transform 0s;
+    cursor: pointer;
+  }
+
+  .spinner-pointer {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid var(--gold);
+    filter: drop-shadow(0 0 6px rgba(201,168,76,0.6));
+  }
+
+  .spin-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 18px 48px;
+    cursor: pointer;
+    border: none;
+    background: var(--gold);
+    color: var(--deep);
+    transition: all 0.3s;
+    display: block;
+    margin: 0 auto 32px;
+  }
+
+  .spin-btn:hover { background: var(--gold-light); }
+  .spin-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* Result reveal */
+  .result-card {
+    display: none;
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 36px 32px;
+    background: rgba(201,168,76,0.03);
+    animation: rise 0.6s ease forwards;
+    margin-bottom: 24px;
+    text-align: left;
+  }
+
+  .result-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    opacity: 0.7;
+  }
+
+  .result-action {
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--bone);
+    margin-bottom: 16px;
+  }
+
+  .result-why {
+    font-size: 0.95rem;
+    color: rgba(245,240,232,0.45);
+    line-height: 1.65;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .commit-section {
+    display: none;
+    text-align: center;
+    animation: rise 0.5s ease forwards;
+  }
+
+  .commit-q {
+    font-size: 1.2rem;
+    color: rgba(245,240,232,0.7);
+    margin-bottom: 20px;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .commit-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-yes {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    cursor: pointer;
+    background: var(--gold);
+    border: none;
+    color: var(--deep);
+    transition: all 0.3s;
+  }
+
+  .btn-yes:hover { background: var(--gold-light); }
+
+  .btn-spin-again {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold);
+    transition: all 0.3s;
+  }
+
+  .btn-spin-again:hover { background: rgba(201,168,76,0.08); }
+
+  .committed-msg {
+    display: none;
+    animation: rise 0.6s ease forwards;
+  }
+
+  .committed-msg h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+  }
+
+  .committed-msg p {
+    font-size: 1rem;
+    color: rgba(245,240,232,0.5);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(var(--target)); }
+  }
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back">← All tools</a>
+
+<div class="content">
+  <p class="eyebrow">Phoenix Protocol — 04</p>
+  <h1>Courage Action Spinner</h1>
+  <p class="tagline">Stuck? Frozen? Let the wheel choose your next brave act.<br>One micro-action. Right now.</p>
+
+  <div class="spinner-wrap">
+    <div class="spinner-pointer"></div>
+    <canvas class="spinner-canvas" id="spinnerCanvas" width="260" height="260"></canvas>
+  </div>
+
+  <button class="spin-btn" id="spinBtn" onclick="spin()">Spin the Wheel</button>
+
+  <div class="result-card" id="resultCard">
+    <p class="result-label">Your courage action</p>
+    <p class="result-action" id="resultAction"></p>
+    <p class="result-why" id="resultWhy"></p>
+  </div>
+
+  <div class="commit-section" id="commitSection">
+    <p class="commit-q">Will you do this within the next 10 minutes?</p>
+    <div class="commit-btns">
+      <button class="btn-yes" onclick="commit()">Yes — I commit</button>
+      <button class="btn-spin-again" onclick="spinAgain()">Spin again</button>
+    </div>
+  </div>
+
+  <div class="committed-msg" id="committedMsg">
+    <h2>That's courage.</h2>
+    <p>The action itself is almost less important than the act of choosing to move.<br>Go. The wheel has spoken.</p>
+  </div>
+</div>
+
+<script>
+const actions = [
+  {
+    action: "Send the message you've been drafting in your head for days.",
+    why: "The longer it sits unsent, the more power it collects. Sending it is not the scary part — the waiting is.",
+    color: "#8b3a2a"
+  },
+  {
+    action: "Close all tabs. Open one. Work on that one thing for 25 minutes.",
+    why: "Fragmented attention is a form of hiding. Focus is an act of commitment — to yourself first.",
+    color: "#2a4a33"
+  },
+  {
+    action: "Tell one person something real about how you're doing.",
+    why: "Isolation masquerades as self-sufficiency. One honest sentence breaks the spell.",
+    color: "#1a3a5c"
+  },
+  {
+    action: "Book the appointment you've been postponing for your health.",
+    why: "The thing you keep putting off is usually the thing that matters most. Your body is asking to be seen.",
+    color: "#4a2a5c"
+  },
+  {
+    action: "Write down the decision you've been avoiding. Then write: if not now, when?",
+    why: "Indecision is a decision — to stay stuck. Naming the choice removes its power to paralyze you.",
+    color: "#3a2a10"
+  },
+  {
+    action: "Ask for what you actually need from someone in your life.",
+    why: "The fear of asking is always larger than the ask itself. People can't give what they don't know you need.",
+    color: "#0a2a1a"
+  },
+  {
+    action: "Do the creative thing for 15 minutes — the one you keep saying you 'don't have time for.'",
+    why: "You are not waiting for time. You are waiting for permission. This is the permission.",
+    color: "#2a1a3a"
+  },
+  {
+    action: "Say no to one thing on your to-do list today. Delete it, not reschedule it.",
+    why: "Every task you keep carries weight. Choosing what not to do is a radical act of self-respect.",
+    color: "#3a1a0a"
+  }
+];
+
+const canvas = document.getElementById('spinnerCanvas');
+const ctx = canvas.getContext('2d');
+const total = actions.length;
+let currentRotation = 0;
+let isSpinning = false;
+
+function drawWheel(rotation) {
+  const cx = 130, cy = 130, r = 120;
+  ctx.clearRect(0, 0, 260, 260);
+
+  actions.forEach((a, i) => {
+    const startAngle = rotation + (i / total) * Math.PI * 2 - Math.PI / 2;
+    const endAngle = rotation + ((i + 1) / total) * Math.PI * 2 - Math.PI / 2;
+
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.arc(cx, cy, r, startAngle, endAngle);
+    ctx.closePath();
+    ctx.fillStyle = a.color;
+    ctx.fill();
+
+    // Separator lines
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + r * Math.cos(startAngle), cy + r * Math.sin(startAngle));
+    ctx.strokeStyle = 'rgba(245,240,232,0.08)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // Number label
+    const midAngle = (startAngle + endAngle) / 2;
+    const lx = cx + (r * 0.65) * Math.cos(midAngle);
+    const ly = cy + (r * 0.65) * Math.sin(midAngle);
+    ctx.font = '300 11px "DM Mono"';
+    ctx.fillStyle = 'rgba(245,240,232,0.4)';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(String(i + 1).padStart(2, '0'), lx, ly);
+  });
+
+  // Center circle
+  ctx.beginPath();
+  ctx.arc(cx, cy, 20, 0, Math.PI * 2);
+  ctx.fillStyle = '#0a0a0f';
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(cx, cy, 16, 0, Math.PI * 2);
+  ctx.fillStyle = '#c9a84c';
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(cx, cy, 10, 0, Math.PI * 2);
+  ctx.fillStyle = '#0a0a0f';
+  ctx.fill();
+
+  // Outer ring
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI * 2);
+  ctx.strokeStyle = 'rgba(201,168,76,0.25)';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+}
+
+drawWheel(0);
+
+let selectedAction = null;
+
+function spin() {
+  if (isSpinning) return;
+  isSpinning = true;
+
+  document.getElementById('spinBtn').disabled = true;
+  document.getElementById('resultCard').style.display = 'none';
+  document.getElementById('commitSection').style.display = 'none';
+  document.getElementById('committedMsg').style.display = 'none';
+
+  const extraSpins = (Math.floor(Math.random() * 3) + 3) * Math.PI * 2;
+  const targetAngle = Math.random() * Math.PI * 2;
+  const totalRotation = extraSpins + targetAngle;
+  const duration = 3500;
+  const start = performance.now();
+  const startRot = currentRotation;
+
+  function easeOut(t) {
+    return 1 - Math.pow(1 - t, 3);
+  }
+
+  function animate(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = easeOut(progress);
+    const rotation = startRot + totalRotation * eased;
+    currentRotation = rotation;
+    drawWheel(rotation);
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      isSpinning = false;
+      showResult();
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
+function showResult() {
+  // Determine which segment is at top (12 o'clock = -PI/2)
+  const normalizedRot = ((currentRotation % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
+  const topAngle = (Math.PI / 2 + normalizedRot) % (Math.PI * 2);
+  const segmentIndex = Math.floor((topAngle / (Math.PI * 2)) * total) % total;
+  selectedAction = actions[segmentIndex];
+
+  document.getElementById('resultAction').textContent = selectedAction.action;
+  document.getElementById('resultWhy').textContent = selectedAction.why;
+
+  const card = document.getElementById('resultCard');
+  card.style.display = 'block';
+  document.getElementById('commitSection').style.display = 'block';
+  document.getElementById('spinBtn').disabled = false;
+  document.getElementById('spinBtn').textContent = 'Spin again';
+}
+
+function commit() {
+  document.getElementById('commitSection').style.display = 'none';
+  document.getElementById('committedMsg').style.display = 'block';
+}
+
+function spinAgain() {
+  document.getElementById('resultCard').style.display = 'none';
+  document.getElementById('commitSection').style.display = 'none';
+  spin();
+}
+</script>
+</body>
+</html>

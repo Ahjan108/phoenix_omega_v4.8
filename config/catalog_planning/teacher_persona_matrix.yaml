@@ -1,0 +1,84 @@
+# Persona × Teacher compatibility for Teacher Mode planning.
+# Authority: Teacher Mode structural design — prevents teacher misfit and platform similarity.
+# Planner: persona must be in allowed_personas; engine in allowed_engines.
+# Aligned with config/catalog_planning/canonical_personas.yaml (10 active personas) for full US/ZH catalog.
+
+teachers:
+  ahjan:
+    allowed_personas:
+      - millennial_women_professionals
+      - tech_finance_burnout
+      - entrepreneurs
+      - working_parents
+      - gen_x_sandwich
+      - corporate_managers
+      - gen_z_professionals
+      - healthcare_rns
+      - gen_alpha_students
+      - first_responders
+      # Legacy (kept for backward compatibility)
+      - nyc_executives
+      - burned_out_professional
+    disallowed_personas: []
+    preferred_locales:
+      - nyc_metro
+      - coastal_california
+    allowed_engines:
+      - shame
+      - false_alarm
+      - overwhelm
+      - spiral
+      - watcher
+      - grief
+      - comparison
+    constraints:
+      peak_intensity_limit: 5
+      identity_shift_allowed: false
+      min_tps_per_chapter: 5
+
+    persona_overlays:
+      nyc_executives:
+        default_angle: at_work
+        preferred_story_style: case_study
+        locale_overlays:
+          - "West Side Highway"
+          - "A train"
+          - "midtown lobby"
+      healthcare_rns:
+        default_angle: on_shift
+        preferred_story_style: micro_failure
+        locale_overlays:
+          - "handoff"
+          - "night shift"
+      gen_z_professionals:
+        default_angle: at_work
+        preferred_story_style: narrative
+
+  ajahn_x:
+    allowed_personas:
+      - millennial_women_professionals
+      - tech_finance_burnout
+      - entrepreneurs
+      - working_parents
+      - gen_x_sandwich
+      - corporate_managers
+      - gen_z_professionals
+      - healthcare_rns
+      - gen_alpha_students
+      - first_responders
+      - nyc_executives
+    disallowed_personas: []
+    preferred_locales: []
+    allowed_engines:
+      - shame
+      - anxiety
+      - false_alarm
+      - overwhelm
+      - spiral
+      - watcher
+      - grief
+      - comparison
+    constraints:
+      peak_intensity_limit: 5
+      identity_shift_allowed: false
+      min_tps_per_chapter: 5

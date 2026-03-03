@@ -1,0 +1,152 @@
+# gen_z_professionals × anxiety × overwhelm × F002 (30 chapters)
+# Arc-First Canonical Spec v1.1. short_book_30 format.
+
+arc_id: gen_z_anxiety_overwhelm_30
+persona: gen_z_professionals
+topic: anxiety
+engine: overwhelm
+format: F002
+
+chapter_count: 30
+
+# STORY pool: 1× BAND 1, 8× BAND 2, 16× BAND 3, 4× BAND 4, 1× BAND 5. Max 3 consecutive same BAND.
+emotional_curve: [1, 2, 2, 3, 2, 3, 3, 4, 3, 3, 4, 3, 3, 3, 4, 3, 3, 4, 3, 3, 4, 3, 3, 3, 2, 2, 2, 3, 2, 2]
+
+emotional_temperature_curve:
+  1: cool
+  2: cool
+  3: cool
+  4: warm
+  5: warm
+  6: warm
+  7: warm
+  8: hot
+  9: warm
+  10: warm
+  11: warm
+  12: warm
+  13: cool
+  14: warm
+  15: warm
+  16: hot
+  17: warm
+  18: warm
+  19: warm
+  20: cool
+  21: cool
+  22: warm
+  23: warm
+  24: warm
+  25: hot
+  26: warm
+  27: warm
+  28: cool
+  29: cool
+  30: cool
+
+# DEV SPEC 3: Emotional Role Taxonomy. Required; length must equal chapter_count (30).
+emotional_role_sequence:
+  - recognition
+  - destabilization
+  - destabilization
+  - reframe
+  - stabilization
+  - stabilization
+  - reframe
+  - destabilization
+  - reframe
+  - stabilization
+  - reframe
+  - destabilization
+  - reframe
+  - destabilization
+  - reframe
+  - destabilization
+  - reframe
+  - stabilization
+  - reframe
+  - destabilization
+  - reframe
+  - stabilization
+  - reframe
+  - destabilization
+  - reframe
+  - stabilization
+  - reframe
+  - stabilization
+  - reframe
+  - integration
+
+chapter_intent:
+  1: establish_mask
+  2: expose_cost
+  3: destabilize_strategy
+  4: reveal_hidden_belief
+  5: establish_mask
+  6: expose_cost
+  7: destabilize_strategy
+  8: confrontation
+  9: somatic_repair
+  10: relational_shift
+  11: establish_mask
+  12: expose_cost
+  13: destabilize_strategy
+  14: reveal_hidden_belief
+  15: confrontation
+  16: somatic_repair
+  17: relational_shift
+  18: establish_mask
+  19: expose_cost
+  20: destabilize_strategy
+  21: reveal_hidden_belief
+  22: confrontation
+  23: somatic_repair
+  24: relational_shift
+  25: confrontation
+  26: somatic_repair
+  27: relational_shift
+  28: embodied_identity
+  29: grounded_reframe
+  30: embodied_identity
+
+reflection_strategy_sequence:
+  - didactic
+  - socratic
+  - narrative_embedded
+  - didactic
+  - socratic
+  - narrative_embedded
+  - didactic
+  - socratic
+  - narrative_embedded
+  - didactic
+  - socratic
+  - narrative_embedded
+  - didactic
+  - socratic
+  - narrative_embedded
+  - didactic
+  - socratic
+  - narrative_embedded
+  - didactic
+  - socratic
+  - narrative_embedded
+  - didactic
+  - socratic
+  - narrative_embedded
+  - didactic
+  - socratic
+  - narrative_embedded
+  - didactic
+  - socratic
+  - narrative_embedded
+
+cost_chapter_index: 25
+
+resolution_type: internal_shift_only
+
+motif:
+  primary_symbol: ledger
+  recurring_image: screen_and_body
+  recurring_question: "What does this cost you?"
+  tonal_signature: restrained_clarity

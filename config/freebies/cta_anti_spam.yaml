@@ -1,0 +1,20 @@
+# CTA anti-spam: signature index caps and density thresholds.
+# Authority: specs/PHOENIX_FREEBIE_SYSTEM_SPEC.md §10, §10.5.
+# Used by: phoenix_v4.qa.validate_freebie_density, phoenix_v4.qa.cta_signature_caps (optional).
+
+schema_version: 1
+
+# Per-brand, per-quarter cap: max books with the same CTA signature (exact wording) in that window.
+# CTA signature = normalized (cta_template_id + freebie_slug) or hash of rendered text.
+cta_signature_caps:
+  max_same_cta_signature_per_brand_per_quarter: 5
+  # Quarter: calendar quarter (e.g. 2026-Q1) or rolling 13-week window; implementation may use release_week.
+
+# Wave-level density thresholds (override defaults in validate_freebie_density.py when this file is loaded).
+# "Wave" = current index rows (e.g. artifacts/freebies/index.jsonl); "nearby" = same wave or last N books.
+density_thresholds:
+  identical_bundle_ratio: 0.40
+  identical_cta_ratio: 0.50
+  identical_slug_pattern_ratio: 0.60
+  # Optional: enforce over nearby releases (e.g. last N books in index). Not yet implemented.
+  # nearby_releases_window: 20

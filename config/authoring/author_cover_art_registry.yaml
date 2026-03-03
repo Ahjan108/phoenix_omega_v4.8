@@ -1,0 +1,119 @@
+# Author Signature Cover Art Base Background Registry
+# Authority: docs/authoring/AUTHOR_COVER_ART_SYSTEM.md
+# Maps each author (teacher) to their signature cover art base background asset.
+# Used when rendering book covers: base background + brand color overlay + title.
+# First 10 authors of every catalog (24 brands) use these assets.
+#
+# Asset path: assets/authors/cover_art/{author_id}_base.png
+# Dimensions: 1600×2400 (audiobook cover ratio) or 1080×1920 (mobile)
+# Format: PNG, no text, no faces — base layer only.
+
+version: 1
+registry_type: author_cover_art
+
+# Token-to-hex map for palette tokens used in author signatures (optional override)
+# Falls back to brand cover_art_identity.color_palette when author appears in catalog
+palette_tokens:
+  contemplative: ["#4A5568", "#E2E8F0", "#718096"]
+  grounded: ["#5D4E37", "#C4B896", "#8B7355"]
+  compassionate: ["#6B7B8C", "#A8B5C4", "#4A5568"]
+  calm: ["#5C6B73", "#B8C5CE", "#3D4F56"]
+  warm: ["#8B6914", "#E8D5A3", "#C9A227"]
+  serene: ["#4A6B7C", "#B5D4E3", "#2C4A5A"]
+  earthy: ["#6B5344", "#D4C4B8", "#8B7355"]
+  reflective: ["#3D5A6C", "#A8C5D8", "#2C4050"]
+  gentle: ["#7B6B8C", "#D4C8E8", "#5A4A6B"]
+  wise: ["#5C4A3A", "#C9B8A8", "#8B7355"]
+
+authors:
+  # First 10 authors (teachers) — one signature base per author
+  ahjan:
+    display_name: "Ahjan"
+    cover_art_base: assets/authors/cover_art/ahjan_base.png
+    style_hint: contemplative
+    palette_tokens: [contemplative]
+
+  master_feung:
+    display_name: "Master Feung"
+    cover_art_base: assets/authors/cover_art/master_feung_base.png
+    style_hint: grounded
+    palette_tokens: [grounded]
+
+  sai_ma:
+    display_name: "Sai Maa"
+    cover_art_base: assets/authors/cover_art/sai_ma_base.png
+    style_hint: compassionate
+    palette_tokens: [compassionate]
+
+  ra:
+    display_name: "Ra"
+    cover_art_base: assets/authors/cover_art/ra_base.png
+    style_hint: calm
+    palette_tokens: [calm]
+
+  junko:
+    display_name: "Junko"
+    cover_art_base: assets/authors/cover_art/junko_base.png
+    style_hint: warm
+    palette_tokens: [warm]
+
+  miki:
+    display_name: "Miki"
+    cover_art_base: assets/authors/cover_art/miki_base.png
+    style_hint: serene
+    palette_tokens: [serene]
+
+  master_wu:
+    display_name: "Master Wu"
+    cover_art_base: assets/authors/cover_art/master_wu_base.png
+    style_hint: earthy
+    palette_tokens: [earthy]
+
+  pamela_fellows:
+    display_name: "Pamela Fellows"
+    cover_art_base: assets/authors/cover_art/pamela_fellows_base.png
+    style_hint: reflective
+    palette_tokens: [reflective]
+
+  joshin:
+    display_name: "Joshin"
+    cover_art_base: assets/authors/cover_art/joshin_base.png
+    style_hint: gentle
+    palette_tokens: [gentle]
+
+  maat:
+    display_name: "Maat"
+    cover_art_base: assets/authors/cover_art/maat_base.png
+    style_hint: wise
+    palette_tokens: [wise]
+
+  # Launchable from brand_teacher_matrix or author_registry (CI gate requires registry + PNG)
+  ajahn_x:
+    display_name: "Ajahn X"
+    cover_art_base: assets/authors/cover_art/ajahn_x_base.png
+    style_hint: contemplative
+    palette_tokens: [contemplative]
+
+  luna_hart:
+    display_name: "Luna Hart"
+    cover_art_base: assets/authors/cover_art/luna_hart_base.png
+    style_hint: gentle
+    palette_tokens: [gentle]
+
+  kai_nakamura:
+    display_name: "Kai Nakamura"
+    cover_art_base: assets/authors/cover_art/kai_nakamura_base.png
+    style_hint: reflective
+    palette_tokens: [reflective]
+
+  marcus_cole:
+    display_name: "Marcus Cole"
+    cover_art_base: assets/authors/cover_art/marcus_cole_base.png
+    style_hint: grounded
+    palette_tokens: [grounded]
+
+  diane_reyes:
+    display_name: "Diane Reyes"
+    cover_art_base: assets/authors/cover_art/diane_reyes_base.png
+    style_hint: wise
+    palette_tokens: [wise]

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moon Breath — Chandra Bhedana</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Karla:wght@300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#050b1a;--moon:#c4b5fd;--cool:#818cf8;--silver:#e2e8f0;--text:#c7d2fe;--m:#4c566a}
+body{font-family:'Karla',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 60% 30%,rgba(196,181,253,.04),transparent 40%),radial-gradient(ellipse at 40% 70%,rgba(129,140,248,.03),transparent 50%);z-index:0}
+.w{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.2rem;padding:1.5rem;width:100%;max-width:460px}
+h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:2.2rem;letter-spacing:.05em;font-style:italic}
+.sb{font-size:.68rem;color:var(--m);letter-spacing:.2em;text-transform:uppercase;margin-top:-.5rem}
+canvas{width:260px;height:260px;display:block;margin:0 auto}
+.nostril-guide{display:flex;align-items:center;gap:1.5rem;justify-content:center}
+.nostril{display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.nostril-dot{width:16px;height:16px;border-radius:50%;border:2px solid rgba(196,181,253,.15);transition:all .4s}
+.nostril-dot.active{border-color:var(--moon);background:rgba(196,181,253,.25);box-shadow:0 0 12px rgba(196,181,253,.3)}
+.nostril-label{font-size:.58rem;color:var(--m);letter-spacing:.15em;text-transform:uppercase}
+.nose-bridge{width:1px;height:30px;background:rgba(255,255,255,.08)}
+.inf{text-align:center}
+.ph{font-family:'Cormorant Garamond',serif;font-size:1.1rem;letter-spacing:.1em;transition:color .5s;font-style:italic}
+.tm{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;transition:color .5s}
+.cy{font-size:.65rem;color:var(--m);letter-spacing:.12em}
+.pr{width:100%;height:3px;background:rgba(255,255,255,.04);border-radius:2px;overflow:hidden}
+.pf{height:100%;width:0;background:linear-gradient(90deg,var(--cool),var(--moon));transition:width .3s}
+.ct{display:flex;gap:1rem}
+.btn{font-family:'Karla',sans-serif;font-size:.75rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.6rem;border:1px solid rgba(196,181,253,.15);border-radius:100px;background:rgba(196,181,253,.03);color:var(--text);cursor:pointer;transition:.25s}
+.btn:hover{background:rgba(196,181,253,.08)}.btn.p{border-color:rgba(196,181,253,.35);background:rgba(196,181,253,.06)}
+.bs{padding:.4rem .9rem;font-size:.65rem}
+.ds{display:none;flex-direction:column;align-items:center;gap:1rem;text-align:center;animation:fu .8s}
+.ds.show{display:flex}
+.ds h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.7rem;font-style:italic}
+.ds p{color:var(--m);font-size:.82rem;line-height:1.7;max-width:350px}
+.mn{display:flex;flex-direction:column;align-items:center;gap:1.2rem}.mn.off{display:none}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.sn{position:fixed;top:1rem;right:1rem;z-index:10;width:34px;height:34px;border-radius:50%;border:1px solid rgba(196,181,253,.12);background:rgba(196,181,253,.02);color:var(--m);cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<button class="sn" id="sB">🔔</button>
+<div class="w">
+<h1>Moon Breath</h1>
+<div class="sb">Chandra Bhedana · Left Nostril</div>
+<div class="mn" id="mV">
+<canvas id="cv" width="520" height="520"></canvas>
+<div class="nostril-guide">
+  <div class="nostril"><div class="nostril-dot active" id="nL"></div><div class="nostril-label">Left</div></div>
+  <div class="nose-bridge"></div>
+  <div class="nostril"><div class="nostril-dot" id="nR"></div><div class="nostril-label">Right (closed)</div></div>
+</div>
+<div class="inf"><div class="ph" id="ph">Ready</div><div class="tm" id="tm">—</div><div class="cy" id="cy"></div></div>
+<div class="pr"><div class="pf" id="pf"></div></div>
+<div class="ct"><button class="btn p" id="go">Begin</button><button class="btn bs" id="rs" style="display:none">Reset</button></div>
+</div>
+<div class="ds" id="dV">
+<h2>Moonlight Session Complete</h2>
+<p>Six minutes of left-nostril breathing activates the ida nadi — the lunar, cooling channel. This calms the sympathetic nervous system, lowers body temperature, and promotes parasympathetic dominance. It's the yogic equivalent of turning down the thermostat on your stress response.</p>
+<p style="opacity:.6;font-style:italic">The moon doesn't push. It pulls gently. So does this breath.</p>
+<button class="btn p" id="ag">Again</button>
+</div>
+</div>
+<script>
+const INH=4,EXH=6,CYC=30,TOT=CYC*(INH+EXH); // 300s ≈ intentionally slightly shorter
+class Au{constructor(){this.c=null;this.on=true}init(){if(!this.c)this.c=new(window.AudioContext||window.webkitAudioContext)}t(f,d){if(!this.on||!this.c)return;const o=this.c.createOscillator(),g=this.c.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,this.c.currentTime);g.gain.linearRampToValueAtTime(.05,this.c.currentTime+.3);g.gain.setValueAtTime(.05,this.c.currentTime+d-.4);g.gain.linearRampToValueAtTime(0,this.c.currentTime+d);o.connect(g);g.connect(this.c.destination);o.start();o.stop(this.c.currentTime+d)}inh(){this.t(293.66,INH)}exh(){this.t(196,EXH)}toggle(){this.on=!this.on;return this.on}}
+const au=new Au(),cv=document.getElementById('cv'),c=cv.getContext('2d'),W=cv.width,H=cv.height,CX=W/2,CY=H/2;
+const ph$=document.getElementById('ph'),tm$=document.getElementById('tm'),cy$=document.getElementById('cy'),pf$=document.getElementById('pf');
+const nL=document.getElementById('nL'),nR=document.getElementById('nR');
+const go$=document.getElementById('go'),rs$=document.getElementById('rs'),mV=document.getElementById('mV'),dV=document.getElementById('dV');
+let st='idle',cyc=0,isI=true,ps=0,pa=false,pO=0,pT=0;
+
+function drawMoon(isInhale,bProg,tProg){
+  c.clearRect(0,0,W,H);const t=Date.now()/1000;
+  // Stars
+  for(let i=0;i<40;i++){
+    const sx=(Math.sin(i*73.7)*0.5+0.5)*W;
+    const sy=(Math.cos(i*91.3)*0.5+0.5)*H;
+    const tw=Math.sin(t+i*2)*.5+.5;
+    c.beginPath();c.arc(sx,sy,1+tw,0,Math.PI*2);
+    c.fillStyle=`rgba(196,181,253,${tw*.2})`;c.fill();
+  }
+  // Moon — phase changes with total progress (new→crescent→half→full)
+  const moonR=70;
+  // Full moon circle
+  const glow=c.createRadialGradient(CX,CY,moonR*.5,CX,CY,moonR*1.5);
+  glow.addColorStop(0,`rgba(196,181,253,${.08+tProg*.12})`);glow.addColorStop(1,'transparent');
+  c.beginPath();c.arc(CX,CY,moonR*1.5,0,Math.PI*2);c.fillStyle=glow;c.fill();
+  // Moon body
+  c.beginPath();c.arc(CX,CY,moonR,0,Math.PI*2);
+  c.fillStyle=`rgba(196,181,253,${.1+tProg*.2})`;c.fill();
+  c.strokeStyle=`rgba(196,181,253,${.2+tProg*.3})`;c.lineWidth=1.5;c.stroke();
+  // Shadow overlay (crescent effect) — shrinks with progress
+  const shadowOffset=moonR*(1-tProg)*1.2;
+  if(tProg<.95){
+    c.save();c.globalCompositeOperation='destination-out';
+    c.beginPath();c.arc(CX+shadowOffset,CY,moonR*.95,0,Math.PI*2);
+    c.fillStyle=`rgba(0,0,0,${1-tProg*.5})`;c.fill();
+    c.restore();
+    // Redraw shadow as dark area
+    c.beginPath();c.arc(CX+shadowOffset,CY,moonR*.95,0,Math.PI*2);
+    c.fillStyle=`rgba(5,11,26,${.7-tProg*.5})`;c.fill();
+  }
+  // Breathing pulse around moon
+  const pulse=isInhale?bProg:1-bProg;
+  const pR=moonR+10+pulse*20;
+  c.beginPath();c.arc(CX,CY,pR,0,Math.PI*2);
+  c.strokeStyle=`rgba(129,140,248,${.1+pulse*.15})`;c.lineWidth=1;c.stroke();
+}
+function drawIdle(){c.clearRect(0,0,W,H);drawMoon(false,0,0)}
+
+function start(){au.init();st='active';cyc=0;isI=true;pa=false;pO=0;ps=performance.now();go$.textContent='Pause';go$.classList.remove('p');rs$.style.display='inline-block';dV.classList.remove('show');mV.classList.remove('off');setUI();au.inh();tk()}
+function setUI(){
+  ph$.textContent=isI?'Inhale · Left Nostril':'Exhale · Left Nostril';
+  ph$.style.color=isI?'var(--moon)':'var(--cool)';tm$.style.color=isI?'var(--moon)':'var(--cool)';
+  cy$.textContent=`${cyc+1} / ${CYC}`;
+  nL.classList.add('active');nR.classList.remove('active');
+}
+function tk(){
+  if(st!=='active'||pa)return;const now=performance.now();const dur=isI?INH:EXH;
+  const el=(now-ps-pO)/1000;const rem=Math.max(0,dur-el);const bp=Math.min(1,el/dur);
+  tm$.textContent=Math.ceil(rem);
+  const tp=Math.min(1,(cyc*(INH+EXH)+(isI?el:INH+el))/TOT);
+  pf$.style.width=(tp*100)+'%';
+  drawMoon(isI,bp,tp);
+  if(el>=dur){if(isI){isI=false;setUI();au.exh()}else{cyc++;if(cyc>=CYC){fin();return}isI=true;setUI();au.inh()}pO=0;ps=performance.now()}
+  requestAnimationFrame(tk);
+}
+function fin(){st='done';mV.classList.add('off');dV.classList.add('show')}
+function rst(){st='idle';pa=false;pO=0;go$.textContent='Begin';go$.classList.add('p');rs$.style.display='none';ph$.textContent='Ready';ph$.style.color='';tm$.textContent='—';tm$.style.color='';cy$.textContent='';pf$.style.width='0';nL.classList.add('active');nR.classList.remove('active');dV.classList.remove('show');mV.classList.remove('off');il()}
+function tp(){if(!pa){pa=true;pT=performance.now();go$.textContent='Resume';go$.classList.add('p')}else{pO+=performance.now()-pT;pa=false;go$.textContent='Pause';go$.classList.remove('p');tk()}}
+go$.onclick=()=>{if(st==='idle')start();else if(st==='active')tp()};
+rs$.onclick=rst;document.getElementById('ag').onclick=()=>{rst();start()};
+document.getElementById('sB').onclick=()=>{au.init();const on=au.toggle();document.getElementById('sB').textContent=on?'🔔':'🔇'};
+function il(){if(st!=='idle')return;drawIdle();requestAnimationFrame(il)}il();
+</script>
+</body>
+</html>

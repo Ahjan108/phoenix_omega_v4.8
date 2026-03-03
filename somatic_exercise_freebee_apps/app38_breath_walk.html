@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breath Walk — Movement + Breath</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;600&family=Quicksand:wght@300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a1210;--earth:#78716c;--green:#22c55e;--sage:#86efac;--sky:#38bdf8;--text:#dcfce7;--m:#6b7280}
+body{font-family:'Quicksand',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(34,197,94,.04),transparent 50%),radial-gradient(ellipse at 50% 20%,rgba(56,189,248,.03),transparent 40%);z-index:0}
+.w{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.1rem;padding:1.5rem;width:100%;max-width:460px}
+h1{font-family:'Josefin Sans',sans-serif;font-weight:200;font-size:2rem;letter-spacing:.12em;text-transform:uppercase}
+.sb{font-size:.65rem;color:var(--m);letter-spacing:.2em;text-transform:uppercase}
+canvas{width:280px;height:200px;display:block;margin:0 auto}
+
+.step-row{display:flex;gap:.4rem;justify-content:center;align-items:center}
+.step-dot{width:20px;height:20px;border-radius:50%;border:2px solid rgba(34,197,94,.12);transition:all .2s;display:flex;align-items:center;justify-content:center;font-size:.5rem;color:var(--m)}
+.step-dot.lit{border-color:var(--green);background:rgba(34,197,94,.15);color:var(--green)}
+.step-divider{width:1px;height:20px;background:rgba(255,255,255,.08);margin:0 .3rem}
+
+.inf{text-align:center}
+.ph{font-family:'Josefin Sans',sans-serif;font-size:1.1rem;font-weight:300;letter-spacing:.1em;transition:color .4s}
+.tm{font-family:'Josefin Sans',sans-serif;font-size:2.8rem;font-weight:200;transition:color .4s}
+.cy{font-size:.65rem;color:var(--m);letter-spacing:.12em}
+
+.pr{width:100%;height:3px;background:rgba(255,255,255,.04);border-radius:2px;overflow:hidden}
+.pf{height:100%;width:0;border-radius:2px;transition:width .5s;background:linear-gradient(90deg,var(--earth),var(--green),var(--sky))}
+
+.tempo{display:flex;align-items:center;gap:.8rem}
+.tempo-l{font-size:.6rem;color:var(--m);letter-spacing:.12em;text-transform:uppercase}
+.tempo-v{font-family:'Josefin Sans',sans-serif;font-size:1.1rem;font-weight:400;color:var(--green);min-width:55px;text-align:center}
+.tempo-b{width:28px;height:28px;border-radius:50%;border:1px solid rgba(34,197,94,.2);background:rgba(34,197,94,.05);color:var(--sage);cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:.2s}
+.tempo-b:hover{background:rgba(34,197,94,.15)}
+
+.ct{display:flex;gap:1rem}
+.btn{font-family:'Quicksand',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.6rem;border:1px solid rgba(34,197,94,.15);border-radius:100px;background:rgba(34,197,94,.04);color:var(--text);cursor:pointer;transition:.25s}
+.btn:hover{background:rgba(34,197,94,.1)}.btn.p{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.08)}
+.bs{padding:.4rem .9rem;font-size:.65rem}
+.ds{display:none;flex-direction:column;align-items:center;gap:1rem;text-align:center;animation:fu .8s}
+.ds.show{display:flex}
+.ds h2{font-family:'Josefin Sans',sans-serif;font-weight:200;font-size:1.7rem;letter-spacing:.1em}
+.ds p{color:var(--m);font-size:.82rem;line-height:1.7;max-width:360px}
+.mn{display:flex;flex-direction:column;align-items:center;gap:1rem}.mn.off{display:none}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.sn{position:fixed;top:1rem;right:1rem;z-index:10;width:34px;height:34px;border-radius:50%;border:1px solid rgba(34,197,94,.12);background:rgba(34,197,94,.02);color:var(--m);cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<button class="sn" id="sB">🔔</button>
+<div class="w">
+<h1>Breath Walk</h1>
+<div class="sb">Kundalini Walking Meditation · 10 Minutes</div>
+<div class="mn" id="mV">
+<canvas id="cv" width="560" height="400"></canvas>
+
+<div class="step-row">
+  <div class="step-dot" id="si1">1</div>
+  <div class="step-dot" id="si2">2</div>
+  <div class="step-dot" id="si3">3</div>
+  <div class="step-dot" id="si4">4</div>
+  <div class="step-divider"></div>
+  <div class="step-dot" id="so1">1</div>
+  <div class="step-dot" id="so2">2</div>
+  <div class="step-dot" id="so3">3</div>
+  <div class="step-dot" id="so4">4</div>
+</div>
+
+<div class="tempo">
+  <div class="tempo-l">Steps/min</div>
+  <button class="tempo-b" id="tD">−</button>
+  <div class="tempo-v" id="tV">60</div>
+  <button class="tempo-b" id="tU">+</button>
+</div>
+
+<div class="inf"><div class="ph" id="ph">Ready</div><div class="tm" id="tm">10:00</div><div class="cy" id="cy">Inhale 4 steps · Exhale 4 steps</div></div>
+<div class="pr"><div class="pf" id="pf"></div></div>
+<div class="ct"><button class="btn p" id="go">Begin Walk</button><button class="btn bs" id="rs" style="display:none">Reset</button></div>
+</div>
+<div class="ds" id="dV">
+<h2>Walk Complete</h2>
+<p>Ten minutes of breath-synchronized walking. This Kundalini practice, popularized by Yogi Bhajan, activates both brain hemispheres through bilateral movement while regulating the autonomic nervous system through rhythmic breathing. The coordination of step and breath creates a moving meditation that enhances cardiovascular efficiency and mental clarity.</p>
+<p style="opacity:.6;font-style:italic">Every step was a breath. Every breath was a step home.</p>
+<button class="btn p" id="ag">Walk Again</button>
+</div>
+</div>
+<script>
+const TOTAL=600;// 10min
+const STEPS_PER_BREATH=4;// 4 in, 4 out
+let spm=60;// steps per minute
+
+class Au{
+  constructor(){this.c=null;this.on=true}
+  init(){if(!this.c)this.c=new(window.AudioContext||window.webkitAudioContext)}
+  step(isInhale){
+    if(!this.on||!this.c)return;
+    const o=this.c.createOscillator(),g=this.c.createGain();
+    o.type=isInhale?'sine':'triangle';
+    o.frequency.value=isInhale?330:220;
+    g.gain.setValueAtTime(.04,this.c.currentTime);
+    g.gain.linearRampToValueAtTime(0,this.c.currentTime+.08);
+    o.connect(g);g.connect(this.c.destination);o.start();o.stop(this.c.currentTime+.1);
+  }
+  toggle(){this.on=!this.on;return this.on}
+}
+const au=new Au(),cv=document.getElementById('cv'),c=cv.getContext('2d'),W=cv.width,H=cv.height;
+const ph$=document.getElementById('ph'),tm$=document.getElementById('tm'),cy$=document.getElementById('cy'),pf$=document.getElementById('pf'),tV$=document.getElementById('tV');
+const go$=document.getElementById('go'),rs$=document.getElementById('rs'),mV=document.getElementById('mV'),dV=document.getElementById('dV');
+let st='idle',ss=0,pa=false,pO=0,pT2=0,lastStep=-1,totalSteps=0;
+
+function fmt(s){return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
+
+function drawPath(totalSteps,isInhale,stepInPhase){
+  c.clearRect(0,0,W,H);const t=Date.now()/1000;
+  // Ground line
+  c.beginPath();c.moveTo(0,H*.75);c.lineTo(W,H*.75);
+  c.strokeStyle='rgba(120,113,108,.15)';c.lineWidth=1;c.stroke();
+  // Footprints trail
+  const footCount=Math.min(20,totalSteps);
+  const walkerX=W*.7;
+  for(let i=0;i<footCount;i++){
+    const x=walkerX-i*25-10;
+    if(x<0)continue;
+    const isLeft=i%2===0;
+    const y=H*.75+(isLeft?-6:6);
+    const alpha=Math.max(.03,(1-i/footCount)*.2);
+    drawFoot(x,y,isLeft,alpha);
+  }
+  // Walker dot
+  const bobY=Math.sin(t*spm/60*Math.PI)*4;
+  c.beginPath();c.arc(walkerX,H*.75-20+bobY,8,0,Math.PI*2);
+  const wCol=isInhale?'rgba(34,197,94,.5)':'rgba(56,189,248,.5)';
+  c.fillStyle=wCol;c.fill();
+  // Breath indicator above walker
+  const breathR=isInhale?12+stepInPhase*4:28-stepInPhase*4;
+  c.beginPath();c.arc(walkerX,H*.75-50+bobY,breathR,0,Math.PI*2);
+  c.strokeStyle=isInhale?'rgba(34,197,94,.25)':'rgba(56,189,248,.25)';c.lineWidth=1.5;c.stroke();
+  // Nature elements
+  // Trees
+  drawTree(80,H*.75,.1+Math.sin(t*.5)*.02);
+  drawTree(200,H*.75,.08);
+  drawTree(450,H*.75,.12+Math.sin(t*.7)*.02);
+  // Sky gradient
+  const skyG=c.createLinearGradient(0,0,0,H*.4);
+  skyG.addColorStop(0,'rgba(56,189,248,.03)');skyG.addColorStop(1,'transparent');
+  c.fillStyle=skyG;c.fillRect(0,0,W,H*.4);
+}
+
+function drawFoot(x,y,isLeft,alpha){
+  c.save();c.translate(x,y);
+  if(!isLeft)c.scale(1,-1);
+  c.beginPath();
+  c.ellipse(0,0,5,8,-.1,0,Math.PI*2);
+  c.fillStyle=`rgba(134,239,172,${alpha})`;c.fill();
+  c.restore();
+}
+
+function drawTree(x,baseY,alpha){
+  // Trunk
+  c.fillStyle=`rgba(120,113,108,${alpha})`;
+  c.fillRect(x-2,baseY-30,4,30);
+  // Canopy
+  c.beginPath();c.arc(x,baseY-38,15,0,Math.PI*2);
+  c.fillStyle=`rgba(34,197,94,${alpha*.8})`;c.fill();
+}
+
+function drawIdle(){
+  c.clearRect(0,0,W,H);
+  c.beginPath();c.moveTo(0,H*.75);c.lineTo(W,H*.75);
+  c.strokeStyle='rgba(120,113,108,.1)';c.lineWidth=1;c.stroke();
+  drawTree(80,H*.75,.06);drawTree(200,H*.75,.05);drawTree(450,H*.75,.07);
+}
+
+function setStepDots(isInhale,stepInPhase){
+  for(let i=1;i<=4;i++){
+    document.getElementById('si'+i).classList.toggle('lit',isInhale&&i<=stepInPhase);
+    document.getElementById('so'+i).classList.toggle('lit',!isInhale&&i<=stepInPhase);
+  }
+}
+
+function start(){
+  au.init();st='active';ss=performance.now();pa=false;pO=0;lastStep=-1;totalSteps=0;
+  go$.textContent='Pause';go$.classList.remove('p');rs$.style.display='inline-block';
+  dV.classList.remove('show');mV.classList.remove('off');tk();
+}
+
+function tk(){
+  if(st!=='active'||pa)return;
+  const el=(performance.now()-ss-pO)/1000;
+  if(el>=TOTAL){fin();return}
+  const stepInterval=60/spm;
+  const currentStep=Math.floor(el/stepInterval);
+  const breathCycleDur=STEPS_PER_BREATH*2*stepInterval;// 8 steps per breath cycle
+  const cyclePos=(el%breathCycleDur)/breathCycleDur;
+  const isInhale=cyclePos<.5;
+  const halfPos=isInhale?cyclePos*2:(cyclePos-.5)*2;
+  const stepInPhase=Math.min(4,Math.floor(halfPos*4)+1);
+
+  if(currentStep!==lastStep){
+    lastStep=currentStep;totalSteps++;
+    au.step(isInhale);
+  }
+
+  setStepDots(isInhale,stepInPhase);
+  ph$.textContent=isInhale?'Inhale · Step':'Exhale · Step';
+  ph$.style.color=isInhale?'var(--green)':'var(--sky)';
+  tm$.textContent=fmt(TOTAL-el);tm$.style.color=isInhale?'var(--green)':'var(--sky)';
+  cy$.textContent=`${totalSteps} steps · ${Math.floor(totalSteps/(STEPS_PER_BREATH*2))} breath cycles`;
+  pf$.style.width=(el/TOTAL*100)+'%';
+  drawPath(totalSteps,isInhale,stepInPhase);
+  requestAnimationFrame(tk);
+}
+
+function fin(){st='done';mV.classList.add('off');dV.classList.add('show')}
+function rst(){
+  st='idle';pa=false;pO=0;lastStep=-1;totalSteps=0;
+  go$.textContent='Begin Walk';go$.classList.add('p');rs$.style.display='none';
+  ph$.textContent='Ready';ph$.style.color='';tm$.textContent='10:00';tm$.style.color='';
+  cy$.textContent='Inhale 4 steps · Exhale 4 steps';pf$.style.width='0';
+  for(let i=1;i<=4;i++){document.getElementById('si'+i).classList.remove('lit');document.getElementById('so'+i).classList.remove('lit')}
+  dV.classList.remove('show');mV.classList.remove('off');il();
+}
+function tp(){if(!pa){pa=true;pT2=performance.now();go$.textContent='Resume';go$.classList.add('p')}else{pO+=performance.now()-pT2;pa=false;go$.textContent='Pause';go$.classList.remove('p');tk()}}
+go$.onclick=()=>{if(st==='idle')start();else if(st==='active')tp()};
+rs$.onclick=rst;document.getElementById('ag').onclick=()=>{rst();start()};
+document.getElementById('sB').onclick=()=>{au.init();const on=au.toggle();document.getElementById('sB').textContent=on?'🔔':'🔇'};
+document.getElementById('tU').onclick=()=>{spm=Math.min(120,spm+5);tV$.textContent=spm};
+document.getElementById('tD').onclick=()=>{spm=Math.max(30,spm-5);tV$.textContent=spm};
+function il(){if(st!=='idle')return;drawIdle();requestAnimationFrame(il)}il();
+</script>
+</body>
+</html>

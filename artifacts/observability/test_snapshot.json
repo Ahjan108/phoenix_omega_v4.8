@@ -1,0 +1,26 @@
+{
+  "timestamp": "20260303T092540Z",
+  "signals": [
+    {
+      "signal_id": "gate_production_readiness",
+      "category": "core",
+      "timestamp": "20260303T092540Z",
+      "status": "fail",
+      "exit_code": 1,
+      "stdout_tail": "OPTIMIZATION_LAYER.md\n  \u2713 PASS  14. config/registry/atoms integrity\n      config=True registry=True atoms(2393 CANONICAL.txt)=True\n  \u2713 PASS  15. Full pipeline (Stage 1\u21922\u21923) runnable\n      run_pipeline.py + catalog_planner + assembly_compiler; one run produces valid CompiledBook\n  \u2713 PASS  16. Freebie density (wave)\n      Density within thresholds\n  \u2717 FAIL  17. jsonschema required (ops validation non-optional)\n      jsonschema not installed; pip install jsonschema\n\nFAILED: 1 condition(s) not met.\n",
+      "stderr_tail": null
+    },
+    {
+      "signal_id": "atoms_coverage",
+      "category": "coverage",
+      "timestamp": "20260303T092540Z",
+      "status": "fail",
+      "exit_code": 1,
+      "stdout_tail": null,
+      "stderr_tail": "/Library/Developer/CommandLineTools/usr/bin/python3: No module named pytest\n"
+    }
+  ],
+  "passed": 0,
+  "failed": 2,
+  "skipped": 0
+}

@@ -1,0 +1,9 @@
+# Asset lifecycle: when to regenerate or prune the freebie asset store.
+# Authority: V4 Freebies + Immersion Ecosystem plan §8.
+
+regenerate_when:
+  template_modified: true   # template file newer than asset
+  tts_engine_upgraded: true # TTS config changed
+  canonical_topics_changed: true
+
+auto_prune: true  # remove assets for topics no longer in canonical

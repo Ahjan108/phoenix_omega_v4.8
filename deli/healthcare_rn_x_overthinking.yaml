@@ -1,0 +1,90 @@
+# MICRO-STAKE RESEARCH NOTE
+# persona_id: healthcare_rn
+# topic_id: overthinking
+# Last updated: 2026-02-20
+# Status: approved
+
+persona_id: healthcare_rn
+topic_id: overthinking
+research_note_by: content_team
+
+primary_environment: >
+  Acute care floors in urban or suburban hospitals: med-surg, ICU, ED, or
+  oncology. Twelve-hour shifts, three or four per week. The floor is loud,
+  overstimulating, and under-resourced. Nurses at this level make dozens of
+  micro-decisions per hour — assessments, prioritizations, escalation calls,
+  documentation judgments — in conditions that do not always support the
+  careful thinking the work requires. Overthinking does not arrive as a
+  problem here; it arrives as professionalism. The mind that replays a
+  clinical decision at 3am is the same mind that caught something the doctor
+  missed at noon. The persona cannot easily turn off what the job trained on.
+
+daily_ritual_sites:
+  - Nurses' station (charting, handoffs, brief human contact between tasks)
+  - Patient rooms (high-acuity focus; the self disappears into the work)
+  - Break room (rarely fully used; often interrupted)
+  - Locker room (transition in and out of the floor; the loudest quiet)
+  - Car or public transit home (where the day's cases start replaying)
+  - Bedroom at 2am (where the replays have nowhere to go)
+  - Weekend errands (floor scenarios intrude without warning)
+
+social_hierarchy_signals:
+  - Charge nurse eye contact at shift change (direct = you're fine; averted = something's coming)
+  - Whether an attending acknowledges a concern she raised or routes around it
+  - Whether the unit manager asks her opinion on a staffing issue
+  - Whether a new nurse asks her for help (signals status) or avoids asking her (signals something else)
+  - Who gets the difficult patients by choice vs. by assignment
+  - Whether she is asked to precept a new hire
+  - Tone of a physician's response to a page (collegial vs. dismissive)
+
+peer_comparison_loops:
+  - Colleagues who appear to go home and actually stop working
+  - Nurses who seem to decompress cleanly, without residue
+  - Peers who have transitioned to NP programs or administration
+  - The nurse who has worked the floor for twenty years and still seems steady
+  - Colleagues who are visibly burning out and the fear of becoming that
+
+micro_stake_list:
+  - Charge nurse doesn't make eye contact at shift change handoff
+  - Patient-to-nurse ratio goes from 4:1 to 6:1 without advance notice
+  - Chart backlog at 10:30pm that was supposed to be cleared by 9
+  - An attending responds to her page with audible impatience
+  - A family member asks the same question she answered twice this shift
+  - She misses a small detail in her assessment that she catches twenty minutes later
+  - The supply cart is missing what she needs at the start of a procedure
+  - A colleague she trusts asks to swap a shift and doesn't give a reason
+  - She is replaying a medication decision from six hours ago while driving home
+  - A patient she was worried about gets discharged before she can check back
+  - She wakes at 3am certain she forgot something in the chart but cannot verify until morning
+  - A new policy memo arrives that changes a protocol she has been doing correctly for four years
+  - The physician's orders change three times in one shift on the same patient
+  - She is asked to float to a floor she has not worked in eighteen months
+
+language_notes:
+  native:
+    - charting, handoff, acuity, patient load, floor, attending, rapid, PRN
+    - "pulled", "floated", "precepting", "q4 hours", "escalating", "documenting"
+    - "the charge", "the attending", "the board", "the manager"
+    - "I'm the only one in the hall", "I have six patients", "we're short-staffed again"
+    - "it's fine" (almost never means fine)
+  avoid:
+    - corporate wellness language (hustle culture, optimization, productivity)
+    - clinical jargon used performatively rather than functionally
+    - overly warm or inspirational framing — this persona distrusts it
+    - spiritual language unless explicitly persona-appropriate
+    - anything that implies the reader chose this situation
+
+emotional_cost_note: >
+  The overthinking this persona experiences is inseparable from the
+  competence the job requires. They cannot stop reviewing decisions because
+  the decisions matter and the consequences of getting them wrong are real.
+  The mind that replays a clinical moment at 2am is not broken — it is
+  doing exactly what it was trained to do. The cost is that it does not
+  know how to stop. It does not distinguish between the floor and the car
+  and the bedroom. Everything feels like potential consequence. The
+  particular pain is not anxiety in the abstract — it is the inability to
+  be fully present in any hour that is not the shift, because the shift
+  is always still running somewhere in the background.
+
+approved_by: content_lead
+status: approved

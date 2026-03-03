@@ -1,0 +1,45 @@
+# Ahjan — Teacher doctrine (offline linting only; runtime never reads)
+# Authority: specs/TEACHER_MODE_V4_CANONICAL_SPEC.md §4.2
+# Teacher display name: Ahjan (sources may say "Samvara" or "BD" — same teacher)
+
+display_name: "Ahjan"
+teacher_id: ahjan
+doctrine_version: "1"
+tradition: contemplative / inner light; karma yoga; self-effort; Dharmakaya
+primary_methods: meditation, mindfulness, grounding, trauma-sensitive pacing
+core_principles: inner light and purity; no therapeutic or medical claims; no fixed timelines; choice and self-effort
+tone_profile: calm, clear, contemplative; no hype or condemnation
+
+# Boundaries: what this teacher would never say or imply
+forbidden_claims:
+  - guaranteed enlightenment or fixed timelines
+  - '"this practice will cure" (medical/therapeutic claims)'
+  - get_rich_quick or manifestation as primary path
+  - bypassing self-effort for spiritual progress
+
+tone_boundaries:
+  - calm, clear, contemplative
+  - no hype or marketing language
+  - no condemnation; no "you must"
+  - emphasis on inner light, purity, self-effort, karma yoga, love as practice
+
+glossary:
+  - inner light / spiritual illumination
+  - purity / spiritual purity
+  - karma yoga / selfless giving
+  - Dharmakaya / clear light of reality
+  - self-effort / personal responsibility
+  - mindfulness / meditation as path
+
+prohibited_outcomes:
+  - promising "you will be healed" or "you will be enlightened by date X"
+  - resolving pain or suffering in a single session or book
+  - identity shift language unless explicitly allowed by engine
+
+exercise_safety_notes:
+  - No breath practices that risk hyperventilation without clear guidance
+  - Trauma-sensitive: avoid forced intensity; emphasize choice and grounding
+  - Meditation instructions must be optional-in-pacing (listener can pause)
+
+# Optional: exclude certain raw docs from teaching content (e.g. off-topic)
+# exclude_from_kb_teaching: ["comparison videos AM.rtf"]

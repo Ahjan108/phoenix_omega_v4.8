@@ -1,0 +1,10 @@
+# Capacity constraints for Stage 1 (Catalog Planner).
+# Used for capacity feasibility gate: coarse check that atom pools can support a wave.
+# Stage 3 remains the true gate (hard fail if K-table not fillable).
+
+# Example: max books per topic per wave, min atoms per slot, etc.
+# Expand with production velocity and K-table alignment (see SYSTEMS_DOCUMENTATION).
+constraints:
+  max_books_per_topic_per_wave: 20
+  min_story_atoms_per_topic_persona: 24
+  capacity_guard_mode: strict  # strict | relaxed

@@ -1,0 +1,13 @@
+# Diversity guards: max share of wave from a single topic or persona.
+# Prevents concentration when using high per-wave caps (e.g. 42/42/42).
+# Check runs after allocation in generate_full_catalog when --locale-group or --brand-matrix is used.
+
+schema_version: 1
+
+# Max fraction of allocation from a single topic_id (0.0-1.0). E.g. 0.30 = 30%.
+max_share_per_topic: 0.30
+# Max fraction of allocation from a single persona_id (0.0-1.0).
+max_share_per_persona: 0.30
+
+# If true, fail when any topic/persona exceeds the share. If false, only warn.
+fail_on_violation: true

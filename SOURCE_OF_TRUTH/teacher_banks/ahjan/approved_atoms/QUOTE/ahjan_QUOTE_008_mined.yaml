@@ -1,0 +1,12 @@
+atom_id: ahjan_QUOTE_008_mined
+body: Now take another handful of salt and put it in the nearby river. Then, bring
+  me water from the river.
+teacher:
+  teacher_id: ahjan
+  source_refs:
+  - doc_id: raw/BD Blog - Happiness and Purity.rtf
+    span:
+    - 1710
+    - 1813
+    quote_hash: 1630d5a3b10de55c
+  synthesis_method: kb_mine_v1

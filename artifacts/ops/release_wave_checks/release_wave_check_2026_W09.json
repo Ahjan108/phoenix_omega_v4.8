@@ -1,0 +1,20 @@
+{
+  "calendar_week": "2026-W09",
+  "status": "FAIL",
+  "total_plans": 1,
+  "valid_plans": 1,
+  "anti_homogeneity_score": 0.0,
+  "violations": [
+    {
+      "code": "ANTI_HOMOGENEITY_SCORE_TOO_LOW",
+      "metric": "anti_homogeneity_score",
+      "actual": 0.0,
+      "cap": 0.62,
+      "detail": ""
+    }
+  ],
+  "exact_clusters": [],
+  "near_clusters": [],
+  "remediation_hints": [],
+  "warnings": []
+}

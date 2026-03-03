@@ -1,0 +1,46 @@
+{
+  "valid": false,
+  "errors": [
+    "mechanism_gate: Chapter 11 (mid): max mechanism_depth must be >= 2 (behavioral), got 1.",
+    "mechanism_gate: Final third of book must contain at least one mechanism_depth=4 (identity-level) atom.",
+    "mechanism_gate: Chapter 21 (late): max mechanism_depth must be >= 3 (nervous_system), got 2.",
+    "mechanism_gate: Chapter 23 (late): max mechanism_depth must be >= 3 (nervous_system), got 2.",
+    "mechanism_gate: Chapter 21: mechanism_depth decreased from 3 to 2 (late-stage regression).",
+    "mechanism_gate: Chapter 23: mechanism_depth decreased from 3 to 2 (late-stage regression).",
+    "cost_gate: Cost gradient: highest cost occurs at chapter 6 (before midpoint 13). Peak should be at or after midpoint.",
+    "cost_gate: Cost gradient: no chapter with average cost_intensity >= 4 in second half of book.",
+    "cost_gate: Cost gradient: average cost across book is 2.5; minimum 2.5 required.",
+    "identity_gate: Identity shift: chapter 4 has max stage 1 after chapter 3 with 2 (regression).",
+    "identity_gate: Identity shift: chapter 7 has max stage 1 after chapter 6 with 2 (regression).",
+    "identity_gate: Identity shift: chapter 8 has max stage 0 after chapter 7 with 1 (regression).",
+    "identity_gate: Identity shift: chapter 11 has max stage 0 after chapter 10 with 2 (regression).",
+    "identity_gate: Identity shift: chapter 21 has max stage 1 after chapter 20 with 2 (regression).",
+    "identity_gate: Identity shift: chapter 23 has max stage 0 after chapter 22 with 2 (regression).",
+    "identity_gate: Identity shift: final chapter must contain at least one self_claim atom.",
+    "callback_gate: Callback 'permission_slip': phase=setup has no matching phase=return (orphaned thread).",
+    "book_pass: no forward-agency increase by final third."
+  ],
+  "warnings": [
+    "mechanism_gate: Chapter 18: mechanism_depth does not increase from chapter 17 (plateau).",
+    "mechanism_gate: Chapter 19: mechanism_depth does not increase from chapter 18 (plateau).",
+    "mechanism_gate: Chapter 20: mechanism_depth does not increase from chapter 19 (plateau).",
+    "mechanism_gate: Chapter 21: mechanism_depth does not increase from chapter 20 (plateau).",
+    "mechanism_gate: Chapter 23: mechanism_depth does not increase from chapter 22 (plateau)."
+  ],
+  "metrics": {
+    "chapter_count": 24,
+    "claim_coverage": 1.0,
+    "max_claim_share": 0.042,
+    "unique_claim_keys": 24,
+    "adjacent_claim_similarity_mean": 0.086,
+    "adjacent_claim_similarity_hi_pairs": 0,
+    "act_scores": {
+      "act1_recognition_first": 0.125,
+      "act2_mechanism_mid": 0.875,
+      "act3_agency_last": 0.0,
+      "act3_agency_first": 0.625
+    },
+    "ending_has_contrast": true,
+    "ending_has_forward": true
+  }
+}

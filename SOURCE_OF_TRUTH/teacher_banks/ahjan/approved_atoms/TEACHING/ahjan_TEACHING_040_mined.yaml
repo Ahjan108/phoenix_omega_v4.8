@@ -1,0 +1,19 @@
+atom_id: ahjan_TEACHING_040_mined
+body: 'True happiness comes from within when you release the burdens that weigh you
+  down."To achieve this state of happiness and spiritual purity, there are two primary
+  paths: the outer way and the inner way. The outer way involves practicing mindfulness,
+  letting go of negativity, and reflecting on the concept that "happiness is a warm
+  puppy." This path emphasizes simplicity, positivity, and the importance of releasing
+  negative thoughts and emotions.'
+teacher:
+  teacher_id: ahjan
+  source_refs:
+  - doc_id: raw/BD Blog - Happiness and Purity.rtf
+    span:
+    - 2175
+    - 2623
+    quote_hash: 544111523cdb89a3
+  synthesis_method: kb_mine_v1
+tags:
+- core:purity
+- core:spiritual_purity

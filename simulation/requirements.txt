@@ -1,0 +1,2 @@
+# Optional: load config from YAML files. Simulator works without it (uses built-in fallback).
+pyyaml>=5.0

@@ -1,0 +1,240 @@
+
+## RECOGNITION v01
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/recognition/micro/v01.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: pre_awareness
+---
+Chen makes an error in patient care. It's caught before harm occurs. She did the right thing by catching it. Yet the shame arrives. Her face flushes. She feels seen in her inadequacy. The error proves something she already suspected: she's not good enough. The shame is not about this specific mistake. It's the feeling that this mistake proves something fundamental about her worthiness.
+---
+
+## RECOGNITION v02
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/recognition/micro/v02.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: pre_awareness
+---
+Alicia realizes she didn't remember a detail about a patient. Another nurse had to remind her. The shame settles. Alicia feels exposed. Not incompetent in a specific way, but incompetent in a fundamental way. The forgotten detail becomes evidence that she's not cut out for this work. The shame is not proportional to the mistake. It's about worth.
+---
+
+## RECOGNITION v03
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/recognition/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Dominique speaks up in a meeting and later feels shame. Her voice was shaky. She stumbled over her words. The shame says: You see, you can't even speak clearly. You don't belong in these conversations. The shame makes the content of what she said invisible. All she can see is her own perceived inadequacy in saying it.
+---
+
+## RECOGNITION v04
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/recognition/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Keisha doesn't know the answer to a question a patient asks. She looks it up. The patient waits. The shame is acute. The feeling is that she should have known. The feeling that her not knowing proves she's a bad nurse. The shame creates a sense of being exposed as a fraud.
+---
+
+## RECOGNITION v05
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/recognition/micro/v05.txt
+BAND: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+The accumulation of shame creates a pervasive sense that the nurses are not worthy of their roles. Each mistake, each moment of uncertainty, each gap between what they think they should know and what they actually know becomes evidence. The nurses begin to see themselves as imposters. The shame is not about specific failures. It's about fundamental unworthiness.
+---
+
+## MECHANISM_PROOF v01
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/mechanism_proof/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: destabilization
+---
+The mechanism is: My mistakes prove my fundamental unworthiness. Chen's error, caught before harm, is turned into proof by the mechanism. The mechanism says: If you were worth your role, this wouldn't have happened. The error becomes evidence of inadequacy. The proof is circular. The mechanism uses the mistake to confirm the unworthiness.
+---
+
+## MECHANISM_PROOF v02
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/mechanism_proof/micro/v02.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: destabilization
+---
+The mechanism produces proof through the internal narrative. Alicia forgot a detail. The mechanism reads this as: You don't have the capacity for this work. The proof is the internal conviction that grows with each mistake. The mechanism is not based on actual performance. It's based on the belief that mistakes indicate fundamental inadequacy.
+---
+
+## MECHANISM_PROOF v03
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/mechanism_proof/micro/v03.txt
+BAND: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+The mechanism makes visible presence into shame. Dominique spoke in a meeting. Other people might see her contribution. The mechanism sees only her voice shaking. The mechanism focuses the proof on her perceived inadequacy while ignoring what she actually said. The mechanism is selective in what counts as evidence.
+---
+
+## MECHANISM_PROOF v04
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/mechanism_proof/micro/v04.txt
+BAND: 4
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+The mechanism creates impossibly high standards. Keisha doesn't know something. The mechanism says she should know everything. The mechanism produces proof that she's inadequate by comparing her to an impossible standard. The proof is designed to fail. She can never meet the standard because the standard is not real.
+---
+
+## MECHANISM_PROOF v05
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/mechanism_proof/micro/v05.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: destabilization
+---
+The mechanism's deepest proof is the imposter narrative. The nurses begin to believe they don't actually belong. Other people are real nurses. They are frauds. The mechanism produces proof through the conviction that they're faking competence. The proof is felt as absolute truth.
+---
+
+## TURNING_POINT v01
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/turning_point/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Chen talks to a colleague about the error. The colleague mentions their own recent errors. Chen realizes she's not the only one. Mistakes are part of the work. The mechanism that turned the error into proof of unworthiness begins to crack. The error becomes what it actually is: a learning opportunity.
+---
+
+## TURNING_POINT v02
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/turning_point/micro/v02.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Alicia asks a manager about the imposter feeling. The manager responds: Everyone feels that sometimes. It doesn't mean you don't belong. The statement opens something. Maybe the feeling is not evidence. Maybe it's just a feeling. The experimentation is toward separating the feeling of inadequacy from the belief in inadequacy.
+---
+
+## TURNING_POINT v03
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/turning_point/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Dominique reviews feedback from her speaking in the meeting. People thanked her. She made a good point. Her voice shaking didn't invalidate what she said. The mechanism has been using her nervousness as proof while ignoring the content. The experimentation is toward separating her performance from her worth.
+---
+
+## TURNING_POINT v04
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/turning_point/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Keisha talks to a senior nurse she admires. The senior nurse admits: I still have to look things up. I still don't know everything. Keisha realizes the mechanism has been comparing her to an impossible standard. The senior nurse, whom Keisha sees as competent, also doesn't know things. Knowledge gaps are not proof of unworthiness.
+---
+
+## TURNING_POINT v05
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/turning_point/micro/v05.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Over weeks, the nurses begin to challenge the imposter narrative. They're doing the work. They're doing it well. The feeling that they don't belong is not the same as the fact that they don't belong. The experimentation is toward trusting their actual performance over the mechanism's narrative.
+---
+
+## EMBODIMENT v01
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/embodiment/micro/v01.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Chen makes an error. The shame shows up. She feels it. She doesn't fuse with it. She says: Okay, I felt ashamed. Now I learn from this. The mistake becomes information instead of proof. She's claimed her own capacity to make mistakes and be worthy.
+---
+
+## EMBODIMENT v02
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/embodiment/micro/v02.txt
+BAND: 1
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Alicia forgets something. The shame is present but quieter. She looks it up. She continues her work. The forgotten detail doesn't make her unworthy. She's worthy of her role despite the gaps in her knowledge.
+---
+
+## EMBODIMENT v03
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/embodiment/micro/v03.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Dominique speaks in a meeting. Her voice might shake. But the content is good. The nervousness doesn't invalidate her contribution. She's claimed the right to be imperfect while still being valuable.
+---
+
+## EMBODIMENT v04
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/embodiment/micro/v04.txt
+BAND: 1
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Keisha doesn't know something. She looks it up. She's not a fraud. She's someone with knowledge gaps who's willing to learn. She's claimed her worth independent of knowing everything.
+---
+
+## EMBODIMENT v05
+---
+path: story_atoms/healthcare_rns/anchored/self_worth/shame/embodiment/micro/v05.txt
+BAND: 1
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+The nurses have released the imposter narrative. They're real nurses. The shame is quieter. They move through their work with a sense of belonging that's based on their actual performance, not on the mechanism's impossible standards.
+---

@@ -1,0 +1,45 @@
+# Freebie selection rules — Phase 1: hard rules only, deterministic.
+# Authority: specs/PHOENIX_FREEBIE_SYSTEM_SPEC.md
+# No density logic, no wave math, no reseed. Phase 3 = anti-spam/density/CTSS.
+
+# Rule 1 — Companion: attach companion_workbook_pdf when book_duration_minutes >= 60
+companion_rule:
+  min_duration_minutes: 60
+  freebie_type: companion_workbook_pdf
+  mandatory: true
+
+# Rule 2 — Somatic: if book has >= 1 EXERCISE slot, attach exactly one somatic_html_tool
+somatic_rule:
+  freebie_type: somatic_html_tool
+  max_per_book: 1
+  trigger_slot: EXERCISE
+
+# Rule 3 — Assessment: if engine in anxiety | burnout | shame, attach assessment_html
+assessment_rule:
+  freebie_type: assessment_html
+  engines: [shame, false_alarm, spiral, overwhelm, watcher, comparison, grief]
+  max_per_book: 1
+
+# Rule 4 & 5 — Persona prioritization (which compatible freebie to pick)
+# executive → prefer tool_style: structured; gen_z → prefer tool_style: interactive
+persona_priorities:
+  structured: [nyc_executives, healthcare_rns, educators]
+  interactive: [gen_z_professionals, gen_alpha_students]
+
+# Slug formula: {topic}-{persona}-{primary_freebie} (e.g. burnout-gen_z_professional-breath_reset)
+# Primary freebie = first in bundle (deterministic sort by freebie_id).
+
+# --- Phase 3 (scale hardening) ---
+anti_cluster:
+  identical_bundle_ratio_max: 0.40
+  identical_cta_ratio_max: 0.50
+  identical_slug_pattern_ratio_max: 0.60
+
+# --- Series-aware (V4 Immersion Ecosystem); planner receives series_context ---
+# Optional directives for future use (series_id, installment_number, total_in_series, previous_primary_freebies):
+# series_aware:
+#   guided_audio:
+#     anti_cluster: true
+#     max_per_series: 1
+#   companion_workbook_pdf:
+#     required_installments: [1, 3, 5]

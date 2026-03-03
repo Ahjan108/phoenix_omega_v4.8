@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ujjayi — Ocean Breath</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Source+Sans+3:wght@300;400&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--wave1:#2D5F7A;--wave2:#1A3D52;--foam:#8FBDD4;--bg:#060D14;--text:#D0DDE5;--muted:#4A6070}
+  body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;user-select:none}
+  .wrap{z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.2rem;width:100%;max-width:440px;padding:0 1rem}
+  h1{font-family:'Libre Caslon Display',serif;font-size:2rem;letter-spacing:.04em}
+  .sub{font-size:.72rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+  .ocean{position:relative;width:100%;height:220px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,#0A1A24 0%,#0D2535 50%,#132D3F 100%)}
+  canvas#waves{width:100%;height:100%}
+  .horizon{position:absolute;top:30%;left:0;right:0;height:1px;background:rgba(255,255,255,.04)}
+  .moon{position:absolute;top:12%;right:15%;width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 40% 40%,rgba(200,210,220,.15),transparent);box-shadow:0 0 20px rgba(200,210,220,.08)}
+  .throat-hint{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);font-size:.6rem;color:var(--muted);letter-spacing:.08em;text-align:center;opacity:.6}
+  .phase-area{text-align:center}
+  .pn{font-family:'Libre Caslon Display',serif;font-size:1.5rem;letter-spacing:.08em}
+  .pc{font-size:2rem;font-weight:300;opacity:.7}
+  .instruction{font-size:.75rem;color:var(--muted);letter-spacing:.04em;font-style:italic;min-height:1.2rem}
+  .bar{width:100%;height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
+  .bf{height:100%;width:0;border-radius:2px;background:var(--foam)}
+  .info-row{display:flex;gap:2rem;font-size:.8rem;color:var(--muted)}
+  .info-row strong{color:var(--text);font-weight:400}
+  .controls{display:flex;gap:1rem}
+  .btn{font-family:'Source Sans 3',sans-serif;padding:.55rem 1.6rem;border:1px solid rgba(255,255,255,.1);border-radius:100px;background:rgba(255,255,255,.03);color:var(--text);font-size:.8rem;cursor:pointer;transition:all .3s}
+  .btn:hover{background:rgba(255,255,255,.08)}
+  .btn.pri{background:rgba(45,95,122,.25);border-color:rgba(45,95,122,.5)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Ujjayi Breath</h1>
+  <p class="sub">Ocean breath · constrict the throat gently</p>
+  <div class="ocean">
+    <div class="moon"></div>
+    <div class="horizon"></div>
+    <canvas id="waves"></canvas>
+    <div class="throat-hint">Slight throat constriction — like fogging a mirror</div>
+  </div>
+  <div class="phase-area">
+    <div class="pn" id="pn">Ready</div>
+    <div class="pc" id="pc"></div>
+    <div class="instruction" id="inst"></div>
+  </div>
+  <div class="bar"><div class="bf" id="bf"></div></div>
+  <div class="info-row">
+    <span>Breaths <strong id="bc">0</strong></span>
+    <span>Remaining <strong id="rem">3:00</strong></span>
+  </div>
+  <div class="controls">
+    <button class="btn pri" id="sb" onclick="toggle()">Begin</button>
+    <button class="btn" onclick="doReset()">Reset</button>
+  </div>
+</div>
+<script>
+const INH=5,EXH=5,CYCLE=10,SESSION=180;
+const canvas=document.getElementById('waves');
+const c=canvas.getContext('2d');
+let running=false,paused=false,t=0,total=0,lastTs=0,breaths=0,lastP='',aCtx=null,animT=0;
+
+function resize(){canvas.width=canvas.offsetWidth*2;canvas.height=canvas.offsetHeight*2}
+window.addEventListener('resize',resize);resize();
+
+function audio(){if(!aCtx)aCtx=new(window.AudioContext||window.webkitAudioContext)();return aCtx}
+function tone(f,d=.4){try{const x=audio(),o=x.createOscillator(),g=x.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,x.currentTime);g.gain.linearRampToValueAtTime(.06,x.currentTime+.08);g.gain.exponentialRampToValueAtTime(.001,x.currentTime+d);o.connect(g);g.connect(x.destination);o.start();o.stop(x.currentTime+d)}catch(e){}}
+function fmt(s){return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
+
+function drawWaves(breathLevel,dt){
+  const w=canvas.offsetWidth,h=canvas.offsetHeight;
+  c.clearRect(0,0,w*2,h*2);
+  c.save();c.scale(2,2);
+  animT+=dt;
+  const baseY=h*0.55-breathLevel*h*0.2;
+  // Draw 3 wave layers
+  for(let layer=0;layer<3;layer++){
+    const speed=[0.4,0.25,0.15][layer];
+    const amp=[15,10,6][layer];
+    const alpha=[0.3,0.2,0.12][layer];
+    const yOff=layer*12;
+    c.beginPath();
+    for(let x=0;x<=w;x+=2){
+      const y=baseY+yOff+Math.sin(x*0.015+animT*speed)*amp+Math.sin(x*0.008-animT*speed*0.7)*amp*0.5;
+      x===0?c.moveTo(x,y):c.lineTo(x,y);
+    }
+    c.lineTo(w,h);c.lineTo(0,h);c.closePath();
+    c.fillStyle='rgba(45,95,122,'+alpha+')';c.fill();
+  }
+  // foam line
+  c.beginPath();
+  for(let x=0;x<=w;x+=2){
+    const y=baseY+Math.sin(x*0.015+animT*0.4)*15+Math.sin(x*0.008-animT*0.28)*7;
+    x===0?c.moveTo(x,y):c.lineTo(x,y);
+  }
+  c.strokeStyle='rgba(143,189,212,0.15)';c.lineWidth=1;c.stroke();
+  c.restore();
+}
+
+function tick(ts){
+  if(!running||paused)return;
+  if(!lastTs)lastTs=ts;
+  const dt=(ts-lastTs)/1000;lastTs=ts;t+=dt;total+=dt;
+  if(total>=SESSION){end();return}
+  const ct=t%CYCLE;
+  const isIn=ct<INH;
+  const frac=isIn?ct/INH:(ct-INH)/EXH;
+  const breathLevel=isIn?Math.sin(frac*Math.PI/2):Math.cos(frac*Math.PI/2);
+
+  drawWaves(breathLevel,dt);
+
+  const cur=isIn?'in':'out';
+  if(cur!==lastP){
+    tone(isIn?280:180,.5);
+    if(cur==='in'&&lastP==='out'){breaths++;document.getElementById('bc').textContent=breaths}
+    lastP=cur;
+  }
+  document.getElementById('pn').textContent=isIn?'Inhale':'Exhale';
+  document.getElementById('pc').textContent=Math.ceil(isIn?INH-ct:EXH-(ct-INH));
+  document.getElementById('inst').textContent=isIn?'Draw breath in through the nose':'Release with a soft "haaa" sound';
+  document.getElementById('bf').style.width=(total/SESSION*100)+'%';
+  document.getElementById('rem').textContent=fmt(Math.max(0,SESSION-total));
+  requestAnimationFrame(tick);
+}
+
+function toggle(){
+  const b=document.getElementById('sb');
+  if(!running){running=true;paused=false;t=0;total=0;lastTs=0;breaths=0;lastP='';animT=0;
+    document.getElementById('bc').textContent='0';b.textContent='Pause';requestAnimationFrame(tick);
+  }else if(!paused){paused=true;lastTs=0;b.textContent='Resume'}
+  else{paused=false;lastTs=0;b.textContent='Pause';requestAnimationFrame(tick)}
+}
+function doReset(){
+  running=false;paused=false;t=0;total=0;lastTs=0;breaths=0;lastP='';animT=0;
+  document.getElementById('sb').textContent='Begin';document.getElementById('bc').textContent='0';
+  document.getElementById('rem').textContent=fmt(SESSION);document.getElementById('pn').textContent='Ready';
+  document.getElementById('pc').textContent='';document.getElementById('inst').textContent='';
+  document.getElementById('bf').style.width='0';
+  c.clearRect(0,0,canvas.width,canvas.height);
+}
+function end(){running=false;document.getElementById('sb').textContent='Begin';document.getElementById('pn').textContent='Waves Settle';document.getElementById('pc').textContent='';document.getElementById('inst').textContent='';tone(220,.8)}
+</script>
+</body>
+</html>

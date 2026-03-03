@@ -1,0 +1,240 @@
+
+## RECOGNITION v01
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/recognition/micro/v01.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: pre_awareness
+---
+Chen realizes she's not excited about anything anymore. The sunrise that used to move her is just a change in light. The patient who recovered is just a good outcome, not a joy. Music, which she used to love, is now background noise. She's grieving the loss of pleasure itself. The world hasn't changed. Her capacity to be moved by it has. She's mourning the self who could feel delight.
+---
+
+## RECOGNITION v02
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/recognition/micro/v02.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: pre_awareness
+---
+Maria looks at her family and feels distant. They love her. They want to connect. She has nothing to give them. She's grieving the version of herself that had energy for relationships. That self has been consumed by the work, the losses, the unprocessed pain. She's mourning not a person who died but a self that's become unavailable.
+---
+
+## RECOGNITION v03
+---
+path: story_atoms/healthcare_rns/anchored/compassion_fatigue/grief/recognition/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Dominique sits in her apartment on a day off and feels the weight. The heaviness is not sadness that comes and goes. It's a constant weight. She's grieving the lightness she used to know. She's mourning the capacity to have a day off that feels restful. Every moment is heavy now. Every experience is filtered through a layer of gray.
+---
+
+## RECOGNITION v04
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/recognition/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Keisha watches herself from the inside. She's going through motions. Getting up. Going to work. Coming home. She's hollow. The person inside the body is gone. She's grieving her own absence. The body moves but the animating force has withdrawn. She's mourning not something external but her own disappearance.
+---
+
+## RECOGNITION v05
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/recognition/micro/v05.txt
+BAND: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+The accumulation is loss upon loss. Each patient who dies is a loss. Each colleague who leaves is a loss. Each shift where something inside doesn't respond properly is a loss. The losses are internal and external and the nurses cannot grieve them because there's no time. They move from loss to loss without pause. The grief becomes depression when it has nowhere to go. It settles into the body as heaviness. It becomes the air they breathe.
+---
+
+## MECHANISM_PROOF v01
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/mechanism_proof/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: destabilization
+---
+The mechanism is: I have experienced too much loss. I cannot continue to be affected by it. The mechanism produces depression as a protective response to cumulative grief. Chen's inability to feel delight is the mechanism at work. She has lost too many patients. She has felt too much pain. The system has learned that feeling leads to pain, so it shuts feeling down. The proof is the flatness of her experience.
+---
+
+## MECHANISM_PROOF v02
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/mechanism_proof/micro/v02.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: destabilization
+---
+The mechanism proves itself through the isolation it creates. Maria cannot easily explain to her family why she's distant. The grief of losing her own capacity to connect has no language. She's mourning something internal. The proof is the way the mechanism makes her presence invisible while her body continues to function.
+---
+
+## MECHANISM_PROOF v03
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/mechanism_proof/micro/v03.txt
+BAND: 4
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+The mechanism's proof is in the body. Dominique's heaviness is not metaphorical. It's in her muscles. It's in the way she moves. The depression is the physicalization of ungrieved loss. Her body holds what her mind cannot process. The proof is the way the world feels thick, resistant, difficult to move through.
+---
+
+## MECHANISM_PROOF v04
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/mechanism_proof/micro/v04.txt
+BAND: 4
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+The mechanism creates a particular kind of grief: the loss of self. Keisha is mourning not people but her own animation. The depression is the lived experience of disappearance. The mechanism has convinced the system that ceasing to feel is the same as ceasing to suffer. But ceasing to feel is its own kind of suffering.
+---
+
+## MECHANISM_PROOF v05
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/mechanism_proof/micro/v05.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: destabilization
+---
+The mechanism makes depression feel like the natural state. The nurses cannot imagine feeling otherwise. They have accommodated so much loss that the absence of feeling seems normal. The proof is the way they describe depression as a fact of their work rather than as a crisis requiring attention.
+---
+
+## TURNING_POINT v01
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/turning_point/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Chen sits with a colleague who mentions their own depression. The colleague speaks of the grief underlying it. The loss of hope. The loss of the future they'd imagined. For the first time, Chen has language for what she's experiencing. It's not weakness. It's grief. The naming allows for the possibility of movement.
+---
+
+## TURNING_POINT v02
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/turning_point/micro/v02.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Maria talks to someone about the depression. She says: I've lost something inside myself. The person asks: What would help you grieve it? The question opens something. Maria realizes she hasn't been allowing herself to grieve. The mechanism has required her to move past loss without stopping. The experimentation is toward pausing, acknowledging, grieving.
+---
+
+## TURNING_POINT v03
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/turning_point/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Dominique takes a week off. She doesn't do anything productive. She allows herself to feel the heaviness without trying to fix it. The heaviness begins to shift. Not disappear. But shift. It becomes sadness instead of numbness. The sadness is actually progress because it means something is moving again.
+---
+
+## TURNING_POINT v04
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/turning_point/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Keisha begins to acknowledge her own absence. She talks to a therapist about the way she's disappeared. Not dramatic disappearance. Just the slow withdrawal of her own presence. In the acknowledgment, there's the possibility of return. The mechanism that required disappearance begins to loosen.
+---
+
+## TURNING_POINT v05
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/turning_point/micro/v05.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: identity
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Over weeks, the nurses begin to grieve explicitly. They sit with the losses they've accumulated. They allow themselves to feel the weight of them. The depression becomes a place to work from rather than a place to hide in. The experimentation is toward integration of the grief rather than toward suppression of it.
+---
+
+## EMBODIMENT v01
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/embodiment/micro/v01.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Chen feels something shift inside. A small pleasure. A patient's recovery moves her. It's quiet but it's real. The capacity to feel is returning because she's allowed herself to grieve the losses. The depression is not gone. But it's no longer complete. The return of small feelings is the return of her own presence.
+---
+
+## EMBODIMENT v02
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/embodiment/micro/v02.txt
+BAND: 1
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Maria looks at her family and feels something. Not the fullness of before, but a warmth. A presence. She's returning. The grief of the losses she's experienced is settled in her body now, not dissolving her. She can be present and grieving simultaneously.
+---
+
+## EMBODIMENT v03
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/embodiment/micro/v03.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Dominique's heaviness is different now. It's the weight of real experience, not the suffocation of unprocessed loss. She moves with her grief. She's integrated it. The body that was resistant is beginning to move more freely.
+---
+
+## EMBODIMENT v04
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/embodiment/micro/v04.txt
+BAND: 1
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+Keisha is present again. The absence has lifted. Not entirely. There are still moments of withdrawal. But the animating force has returned. She's claiming her presence again. The mechanism that required disappearance no longer governs her.
+---
+
+## EMBODIMENT v05
+---
+path: story_atoms/healthcare_rns/anchored/depression/grief/embodiment/micro/v05.txt
+BAND: 1
+MECHANISM_DEPTH: 1
+COST_TYPE: identity
+COST_INTENSITY: 1
+IDENTITY_STAGE: self_claim
+---
+The nurses have learned to grieve. They're no longer pretending that the losses don't matter. They're allowing themselves to be affected by what they've experienced. The depression is lifting because the grief has somewhere to live. They're reclaiming their own humanity through the act of mourning.
+---

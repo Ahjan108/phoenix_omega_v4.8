@@ -1,0 +1,245 @@
+
+
+## RECOGNITION v01
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/recognition/micro/v01.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Nora has six patients tonight instead of four. The charge nurse apologized—short-staffed. Two of the six are high-acuity. She stands at the nurses' station looking at the assignment board and the board looks like it's vibrating. Not literally. But the six names and their medications and their allergies and their call light patterns create a visual density that her brain reads as volume. The volume is too high. She hasn't started the shift yet. The overwhelm arrived before the first assessment.
+---
+
+## RECOGNITION v02
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/recognition/micro/v02.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: social
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+Tomás receives three admissions in two hours. Standard ICU turnover. Each admission is a packet: assessment, orders, drip calculations, family notification, documentation. Three packets simultaneously is a volume his brain can handle sequentially but not in parallel. The admissions arrive in parallel. His hands are in Room 2 while his mind is running calculations for Room 4 while Room 6's family is waiting for an update. He's physically in one place and cognitively in three. The splitting is the overwhelm: too many channels, one brain, no mute button.
+---
+
+## RECOGNITION v03
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/recognition/micro/v03.txt
+BAND: 2
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Aisha walks into the unit and the sound hits first. Monitors beeping, phones ringing, a child crying in Room 3, parents talking in the hallway, the overhead paging system, a pump alarming. Each sound is information. Each piece of information requires a triage decision: urgent or not, mine or not, now or later. Her brain runs twelve triage decisions before she reaches the nurses' station. The decisions are correct. The processing cost is invisible. By the time she sits down to review her assignment, she's already spent cognitive energy that won't be accounted for anywhere.
+---
+
+## RECOGNITION v04
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/recognition/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 1
+COST_TYPE: social
+COST_INTENSITY: 3
+IDENTITY_STAGE: pre_awareness
+---
+Claire manages two laboring patients simultaneously. Both are active. Both are progressing. Both need her attention and neither can wait. She moves between rooms with the focus required to be fully present in each one and the impossibility of being fully present in two places. She gives 60% to each room. The 60% is competent and safe. The 60% is also not the care she wants to provide. She wants to give 100% to one patient. The staffing model gives her two patients. The gap between the care she wants to give and the care the model allows produces a specific kind of distress that has no name on any assessment tool.
+---
+
+## RECOGNITION v05
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/recognition/micro/v05.txt
+BAND: 4
+MECHANISM_DEPTH: 1
+COST_TYPE: internal
+COST_INTENSITY: 4
+IDENTITY_STAGE: pre_awareness
+---
+Derek hits the wall at hour nine. The wall is not fatigue—he's felt fatigue before and this is different. The wall is cognitive saturation: his brain cannot process one more input. A call light goes off and his response time doubles. Not because he doesn't care. Because the processing queue is full. New inputs wait in line behind the inputs still being processed. His movements slow. His charting lags. His personality retreats behind a flat affect that his patients read as calm and is actually the face of a system operating at maximum capacity with no buffer left.
+---
+
+## MECHANISM_PROOF v01
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/mechanism_proof/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+Nora maps the overwhelm's structure. It's not the tasks—she can do each task competently. It's the simultaneity. Six patients producing six streams of data, six sets of needs, six potential emergencies. Her brain can process one stream at full fidelity. Every additional stream reduces the fidelity of all streams. At six streams, each one gets roughly seventeen percent of her attention. The seventeen percent catches most things. The things it misses are the things that keep her awake at night. The overwhelm isn't about volume. It's about the fidelity loss that volume produces.
+---
+
+## MECHANISM_PROOF v02
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/mechanism_proof/micro/v02.txt
+BAND: 2
+MECHANISM_DEPTH: 2
+COST_TYPE: social
+COST_INTENSITY: 2
+IDENTITY_STAGE: destabilization
+---
+Tomás discovers the overwhelm creates a prioritization hierarchy that erases the non-urgent. Acute needs get attention. Chronic needs get deferred. Emotional needs get nothing. His patient in Room 2 needs a medication adjustment—acute. His patient in Room 4 needs pain reassessment—chronic. His patient in Room 6 needs someone to listen—emotional. The hierarchy ensures Room 6 waits. Room 6 always waits. The patient in Room 6 is scared and alone and their nurse is competent and overwhelmed and the overwhelm decides what kind of care gets delivered.
+---
+
+## MECHANISM_PROOF v03
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/mechanism_proof/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 2
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: destabilization
+---
+Aisha realizes the sound environment is the overwhelm's delivery system. Each sound is a demand for triage. The triage decisions are small—one second each. The small decisions accumulate into a massive cognitive tax. She's making hundreds of micro-decisions per shift that don't appear in any workload metric. The metric counts patients, medications, procedures. The metric doesn't count the four hundred triage decisions she makes about sounds that aren't her patients. The invisible labor is the overwhelm's infrastructure. Nobody accounts for it because nobody measures it.
+---
+
+## MECHANISM_PROOF v04
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/mechanism_proof/micro/v04.txt
+BAND: 4
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 4
+IDENTITY_STAGE: destabilization
+---
+Claire identifies the moral distress inside the overwhelm. The overwhelm isn't just cognitive overload—it's the experience of providing less care than she knows is needed. She sees the gap between actual care and optimal care on every shift. The gap is not her fault. The gap exists because the system assigns two laboring patients to one nurse. But the gap feels personal. Her body holds the gap as though she chose it. The overwhelm creates a condition where a competent nurse consistently delivers sub-optimal care and carries the emotional weight of the sub-optimality despite having no control over its cause.
+---
+
+## MECHANISM_PROOF v05
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/mechanism_proof/micro/v05.txt
+BAND: 2
+MECHANISM_DEPTH: 2
+COST_TYPE: opportunity
+COST_INTENSITY: 2
+IDENTITY_STAGE: pre_awareness
+---
+Derek tracks the wall's arrival time over ten shifts. Shift 1: hour ten. Shift 5: hour nine. Shift 10: hour eight. The wall is moving earlier. The trend is clear and concerning. His capacity is shrinking because the recovery between shifts doesn't fully restore it. Each shift depletes to the wall. Each recovery restores to slightly below the previous starting point. The deficit accumulates. The wall will keep moving earlier unless the recovery changes or the load decreases. Neither is in Derek's control. The wall is a system failure presenting as a personal limit.
+---
+
+## TURNING_POINT v01
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/turning_point/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Nora writes down her six patients' priorities on a notecard. Not the full assignment—just the one thing each patient needs most right now. Six lines. Six priorities. The notecard reduces six streams to six items. The items can be sequenced. The sequencing creates order inside the overwhelm. The overwhelm is still present—six patients is still too many—but the notecard gives her brain a structure to hold the volume. She works the notecard from top to bottom. The overwhelm runs alongside the list. The list doesn't cure the overwhelm. The list makes the overwhelm navigable.
+---
+
+## TURNING_POINT v02
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/turning_point/micro/v02.txt
+BAND: 2
+MECHANISM_DEPTH: 3
+COST_TYPE: social
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Tomás asks for help. Three words to the charge nurse: "I need help." The words cost more than they should. The overwhelm said: asking means you can't handle it. He asks anyway. The charge nurse takes the Room 6 admission. Tomás has two admissions instead of three. Two is manageable. The asking didn't reduce his competence. The asking restored his capacity. He completes the two admissions with full fidelity. Room 6's patient gets a nurse who can give them full attention. The help improved care for everyone. The overwhelm said asking was weakness. The outcomes say asking was judgment.
+---
+
+## TURNING_POINT v03
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/turning_point/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+CALLBACK_ID: sound_triage
+CALLBACK_PHASE: setup
+---
+Aisha puts in earplugs during charting time. Not in patient rooms—at the station, during the twenty minutes of documentation. The earplugs reduce the sound environment by about forty percent. The forty percent reduction produces a disproportionate relief. The hundreds of micro-triage decisions drop to dozens. Her charting improves—fewer errors, faster completion. The earplugs are a boundary between her and the unit's ambient demand. The demand doesn't stop. Her exposure to it pauses for twenty minutes. The twenty minutes of reduced input produce an hour of restored capacity.
+---
+
+## TURNING_POINT v04
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/turning_point/micro/v04.txt
+BAND: 4
+MECHANISM_DEPTH: 3
+COST_TYPE: social
+COST_INTENSITY: 4
+IDENTITY_STAGE: experimentation
+---
+Claire says it in the debrief: "I can't give two laboring patients the care they deserve." The room is quiet. Everyone knows. No one says it. Claire said it. The saying doesn't change the staffing model. The saying names the gap as a system problem instead of a personal failure. The naming matters to Claire's body—her shoulders drop an inch when the words leave her mouth. The weight of the gap shifts from her frame to the room. The room can't solve it either. But the gap is now shared information instead of private shame.
+---
+
+## TURNING_POINT v05
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/turning_point/micro/v05.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Derek identifies the wall and walks toward it differently. Hour eight approaches. He feels the saturation building. Instead of pushing through with diminishing returns, he takes five minutes. Break room. Water. No phone. No charting. Just five minutes of reduced input. The five minutes don't eliminate the wall. The five minutes move it from hour eight to hour nine. One hour of restored capacity. The five-minute investment returns sixty minutes. The math is absurd in its efficiency. He's been running twelve hours without a cognitive break. The break was always available. The overwhelm said breaks were a luxury. The math says breaks are infrastructure.
+---
+
+## EMBODIMENT v01
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/embodiment/micro/v01.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Nora works the notecard. Six patients, six priorities. The overwhelm is present—the volume hasn't changed. But the notecard structures the volume into a sequence. She completes priority one. Crosses it off. The crossing-off produces a micro-relief that the overwhelm can't override. Priority two. Cross off. The rhythm of the notecard—task, completion, mark—creates a counter-rhythm to the overwhelm's constant roar. The roar continues. The rhythm continues inside it. She finishes the shift with a notecard full of crossed-off lines. The notecard is evidence that the volume was navigated.
+---
+
+## EMBODIMENT v02
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/embodiment/micro/v02.txt
+BAND: 2
+MECHANISM_DEPTH: 3
+COST_TYPE: social
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Tomás asks for help again. Different shift, same phrase: "I need help." The words are slightly easier this time. The charge nurse sends a float. The float takes the highest-acuity admission. Tomás manages the other two at full capacity. The patients get better care. Tomás gets through the shift without hitting the wall. The asking is becoming a clinical tool rather than a confession of failure. He's learning to assess his own capacity with the same objectivity he assesses his patients'. The assessment says: currently at maximum, need redistribution. The assessment is accurate. The action matches.
+---
+
+## EMBODIMENT v03
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/embodiment/micro/v03.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+CALLBACK_ID: sound_triage
+CALLBACK_PHASE: return
+---
+Aisha puts in the earplugs for her charting block. The sound drops. Her attention narrows to the screen. She charts three patients in the time it usually takes for two. The efficiency produces a surplus: twenty minutes that can go to the patient in Room 3 whose parent needs to talk. She walks to Room 3 with capacity that didn't exist before the earplugs created it. The parent talks. Aisha listens. Really listens—not at seventeen percent but at something closer to full. The earplugs didn't give her more time. The earplugs gave her more attention. The attention is what the parent needed.
+---
+
+## EMBODIMENT v04
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/embodiment/micro/v04.txt
+BAND: 3
+MECHANISM_DEPTH: 3
+COST_TYPE: social
+COST_INTENSITY: 3
+IDENTITY_STAGE: experimentation
+---
+Claire manages two laboring patients. The gap between optimal and actual care still exists. The gap is a system feature, not a personal failure. She holds this distinction while moving between rooms. In Room 1, she gives sixty percent with the awareness that sixty is the maximum the system allows. The awareness changes the sixty—it's intentional instead of anxious. She's not failing at a hundred. She's succeeding at sixty within impossible constraints. The mother in Room 1 says: "You're wonderful." Claire receives the words. The overwhelm says: you're only at sixty. The mother says: you're wonderful. Claire holds both.
+---
+
+## EMBODIMENT v05
+---
+path: story_atoms/healthcare_rns/anchored/anxiety/overwhelm/embodiment/micro/v05.txt
+BAND: 2
+MECHANISM_DEPTH: 3
+COST_TYPE: internal
+COST_INTENSITY: 2
+IDENTITY_STAGE: experimentation
+---
+Derek takes his five minutes at hour seven. Preventive instead of reactive. Water, break room, no input. The wall doesn't arrive at hour eight. The wall arrives at hour ten—an hour later than last week. The five minutes are an investment in his own cognitive infrastructure. The infrastructure isn't visible to anyone else. The patients don't know about the five minutes. They know that their nurse at hour eleven is still present, still sharp, still responding at appropriate speed. The presence at hour eleven is the five minutes' return on investment. The investment looks like rest. The return looks like care.
+---

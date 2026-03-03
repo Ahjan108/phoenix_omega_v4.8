@@ -1,0 +1,14 @@
+# Stage 2 input: topic + persona + installment → FormatPlan (no format_id).
+# Run: python3 -m phoenix_v4.planning.format_selector --topic relationship_anxiety --persona nyc_exec --installment 1 --out artifacts/golden_plans/example_format_plan.json
+# Then use example_format_plan.json (or its fields) as compiler input for Stage 3.
+# Ref: specs/OMEGA_LAYER_CONTRACTS.md (Stage 1→2 BookSpec, Stage 2→3 FormatPlan)
+
+topic_id: relationship_anxiety
+persona_id: nyc_exec
+installment_number: 1
+series_id: null
+
+# Optional identity for Stage 3 (passed through):
+# teacher_id: sai_maa
+# brand_id: phoenix
+# seed: phase2_golden_fixture_001

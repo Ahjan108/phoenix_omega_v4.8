@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Extended Exhale — 4:8</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400&family=Karla:wght@300;400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--inhale:#D4956B;--exhale:#5A7FA0;--bg:#0C0A0F;--text:#E0DAD0;--muted:#6A6460}
+  body{font-family:'Karla',sans-serif;background:var(--bg);color:var(--text);height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;user-select:none}
+  .wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.5rem;width:100%;max-width:460px;padding:0 1.5rem}
+  h1{font-family:'Crimson Pro',serif;font-weight:300;font-size:2rem;letter-spacing:.05em}
+  .sub{font-size:.75rem;color:var(--muted);letter-spacing:.14em}
+  .ratio{display:flex;gap:.5rem;align-items:baseline;margin-top:-.3rem}
+  .ratio span{font-size:1.6rem;font-weight:300;opacity:.5}.ratio .active{opacity:1;font-size:1.8rem}
+  .wave-wrap{width:100%;height:200px;position:relative}
+  canvas#wave{width:100%;height:100%}
+  .phase-bar{width:100%;display:flex;gap:4px;height:6px}
+  .phase-seg{flex:1;border-radius:3px;background:rgba(255,255,255,.05);position:relative;overflow:hidden}
+  .phase-seg .fill{position:absolute;inset:0;border-radius:3px;transform:scaleX(0);transform-origin:left}
+  .phase-seg.inhale .fill{background:var(--inhale)}
+  .phase-seg.exhale .fill{background:var(--exhale)}
+  .phase-label{font-family:'Crimson Pro',serif;font-size:1.5rem;font-weight:300;letter-spacing:.08em;min-height:2rem;text-align:center}
+  .countdown{font-size:2rem;font-weight:300;opacity:.7;text-align:center}
+  .info-row{display:flex;gap:2rem;font-size:.8rem;color:var(--muted)}
+  .info-row strong{color:var(--text);font-weight:500}
+  .controls{display:flex;gap:1rem}
+  .btn{font-family:'Karla',sans-serif;padding:.55rem 1.6rem;border:1px solid rgba(255,255,255,.1);border-radius:100px;background:rgba(255,255,255,.03);color:var(--text);font-size:.82rem;cursor:pointer;transition:all .3s}
+  .btn:hover{background:rgba(255,255,255,.08)}
+  .btn.pri{background:rgba(212,149,107,.15);border-color:rgba(212,149,107,.3)}
+  .btn.pri:hover{background:rgba(212,149,107,.28)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Extended Exhale</h1>
+  <p class="sub">1 : 2 ratio — vagal activation</p>
+  <div class="ratio">
+    <span id="rIn" class="active">4s in</span>
+    <span style="opacity:.3">·</span>
+    <span id="rOut">8s out</span>
+  </div>
+  <div class="wave-wrap"><canvas id="wave"></canvas></div>
+  <div class="phase-bar">
+    <div class="phase-seg inhale"><div class="fill" id="fillIn"></div></div>
+    <div class="phase-seg exhale" style="flex:2"><div class="fill" id="fillOut"></div></div>
+  </div>
+  <div class="phase-label" id="phaseLabel">Ready</div>
+  <div class="countdown" id="cd"></div>
+  <div class="info-row">
+    <span>Breaths <strong id="bc">0</strong></span>
+    <span>Remaining <strong id="rem">6:00</strong></span>
+  </div>
+  <div class="controls">
+    <button class="btn pri" id="startBtn" onclick="toggle()">Begin</button>
+    <button class="btn" onclick="doReset()">Reset</button>
+  </div>
+</div>
+<script>
+const INH=4,EXH=8,CYCLE=12,SESSION=360;
+const canvas=document.getElementById('wave');
+const c=canvas.getContext('2d');
+let running=false,paused=false,t=0,total=0,lastTs=0,breaths=0,aCtx=null,lastP='',history=[];
+
+function resize(){canvas.width=canvas.offsetWidth*2;canvas.height=canvas.offsetHeight*2;c.scale(2,2)}
+window.addEventListener('resize',resize);resize();
+
+function audio(){if(!aCtx)aCtx=new(window.AudioContext||window.webkitAudioContext)();return aCtx}
+function tone(f,d=.3){try{const x=audio(),o=x.createOscillator(),g=x.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,x.currentTime);g.gain.linearRampToValueAtTime(.08,x.currentTime+.05);g.gain.exponentialRampToValueAtTime(.001,x.currentTime+d);o.connect(g);g.connect(x.destination);o.start();o.stop(x.currentTime+d)}catch(e){}}
+function fmt(s){return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
+
+function draw(){
+  const w=canvas.offsetWidth,h=canvas.offsetHeight;
+  c.clearRect(0,0,w,h);
+  if(history.length<2)return;
+  // gradient
+  const grad=c.createLinearGradient(0,0,0,h);
+  grad.addColorStop(0,'rgba(212,149,107,0.4)');
+  grad.addColorStop(1,'rgba(90,127,160,0.4)');
+  c.beginPath();
+  for(let i=0;i<history.length;i++){
+    const x=(i/history.length)*w;
+    const y=h/2-history[i]*(h*0.38);
+    i===0?c.moveTo(x,y):c.lineTo(x,y);
+  }
+  c.strokeStyle=grad;c.lineWidth=2;c.stroke();
+  // fill
+  c.lineTo((history.length-1)/history.length*w,h);c.lineTo(0,h);c.closePath();
+  const fg=c.createLinearGradient(0,0,0,h);
+  fg.addColorStop(0,'rgba(212,149,107,0.08)');fg.addColorStop(1,'rgba(90,127,160,0.02)');
+  c.fillStyle=fg;c.fill();
+}
+
+function tick(ts){
+  if(!running||paused)return;
+  if(!lastTs)lastTs=ts;
+  const dt=(ts-lastTs)/1000;lastTs=ts;
+  t+=dt;total+=dt;
+  if(total>=SESSION){end();return}
+
+  const ct=t%CYCLE;
+  const isIn=ct<INH;
+  const frac=isIn?ct/INH:(ct-INH)/EXH;
+  const val=isIn?Math.sin(frac*Math.PI/2):Math.cos(frac*Math.PI/2);
+
+  history.push(isIn?val:-val*0.6);
+  if(history.length>canvas.offsetWidth)history.shift();
+  draw();
+
+  const cur=isIn?'in':'out';
+  if(cur!==lastP){
+    tone(isIn?350:220);
+    if(cur==='in'&&lastP==='out'){breaths++;document.getElementById('bc').textContent=breaths}
+    lastP=cur;
+  }
+
+  document.getElementById('phaseLabel').textContent=isIn?'Inhale':'Exhale';
+  document.getElementById('cd').textContent=Math.ceil(isIn?INH-ct:EXH-(ct-INH));
+  document.getElementById('rIn').classList.toggle('active',isIn);
+  document.getElementById('rOut').classList.toggle('active',!isIn);
+  document.getElementById('fillIn').style.transform=isIn?'scaleX('+frac+')':'scaleX(1)';
+  document.getElementById('fillOut').style.transform=isIn?'scaleX(0)':'scaleX('+frac+')';
+  document.getElementById('rem').textContent=fmt(Math.max(0,SESSION-total));
+
+  requestAnimationFrame(tick);
+}
+
+function toggle(){
+  const b=document.getElementById('startBtn');
+  if(!running){running=true;paused=false;t=0;total=0;lastTs=0;breaths=0;lastP='';history=[];
+    document.getElementById('bc').textContent='0';b.textContent='Pause';requestAnimationFrame(tick);
+  }else if(!paused){paused=true;lastTs=0;b.textContent='Resume'}
+  else{paused=false;lastTs=0;b.textContent='Pause';requestAnimationFrame(tick)}
+}
+
+function doReset(){
+  running=false;paused=false;t=0;total=0;lastTs=0;breaths=0;lastP='';history=[];
+  document.getElementById('startBtn').textContent='Begin';
+  document.getElementById('bc').textContent='0';document.getElementById('rem').textContent=fmt(SESSION);
+  document.getElementById('phaseLabel').textContent='Ready';document.getElementById('cd').textContent='';
+  document.getElementById('fillIn').style.transform='scaleX(0)';
+  document.getElementById('fillOut').style.transform='scaleX(0)';
+  c.clearRect(0,0,canvas.offsetWidth,canvas.offsetHeight);
+}
+
+function end(){
+  running=false;document.getElementById('startBtn').textContent='Begin';
+  document.getElementById('phaseLabel').textContent='Session Complete';
+  document.getElementById('cd').textContent='';tone(528,.8);
+}
+</script>
+</body>
+</html>

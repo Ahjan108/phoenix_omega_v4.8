@@ -1,0 +1,102 @@
+# Structural Variation V4. Recurring motif bank.
+# One motif selected per book; injection: max 2 per chapter, max 12 per book, min word distance 250.
+# Content contract: 6 motifs x 3 variants minimum for production.
+
+schema_version: "1.0"
+
+motifs:
+  motif_pattern:
+    name: "Pattern recognition"
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+    weights:
+      default: 1.0
+    variants:
+      - "You've seen this before."
+      - "It shows up again and again."
+      - "The same pattern, different day."
+    injection_roles: ["recognition", "reframe"]
+    max_per_chapter: 2
+    max_per_book: 12
+    min_word_distance: 250
+
+  motif_cost:
+    name: "Cost of staying the same"
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+    weights:
+      default: 0.95
+    variants:
+      - "What does it cost you to keep going like this?"
+      - "The cost of not changing is already here."
+      - "Staying the same has a price."
+    injection_roles: ["destabilization", "reframe"]
+    max_per_chapter: 2
+    max_per_book: 12
+    min_word_distance: 250
+
+  motif_body:
+    name: "Body knows"
+    persona_tags: ["healthcare_rns", "nyc_executives"]
+    topic_tags: ["anxiety", "boundaries", "self_worth"]
+    arc_tags: []
+    weights:
+      default: 0.9
+    variants:
+      - "Your body already knows."
+      - "Notice what your body is saying."
+      - "The body doesn't lie."
+    injection_roles: ["recognition", "stabilization"]
+    max_per_chapter: 2
+    max_per_book: 12
+    min_word_distance: 250
+
+  motif_choice:
+    name: "Small choice"
+    persona_tags: []
+    topic_tags: []
+    arc_tags: []
+    weights:
+      default: 0.9
+    variants:
+      - "One small choice can change the direction."
+      - "You get to choose what happens next."
+      - "This is where you choose."
+    injection_roles: ["reframe", "integration"]
+    max_per_chapter: 2
+    max_per_book: 12
+    min_word_distance: 250
+
+  motif_witness:
+    name: "Witnessing"
+    persona_tags: ["educators", "healthcare_rns"]
+    topic_tags: ["compassion_fatigue", "grief"]
+    arc_tags: []
+    weights:
+      default: 0.85
+    variants:
+      - "You are allowed to witness yourself."
+      - "Simply witnessing changes the relationship."
+      - "To witness is to care."
+    injection_roles: ["recognition", "stabilization", "integration"]
+    max_per_chapter: 2
+    max_per_book: 12
+    min_word_distance: 250
+
+  motif_ground:
+    name: "Grounding"
+    persona_tags: []
+    topic_tags: ["anxiety", "financial_stress"]
+    arc_tags: []
+    weights:
+      default: 0.9
+    variants:
+      - "Come back to what's solid."
+      - "Ground first, then respond."
+      - "Your feet are on the ground."
+    injection_roles: ["stabilization", "reframe"]
+    max_per_chapter: 2
+    max_per_book: 12
+    min_word_distance: 250

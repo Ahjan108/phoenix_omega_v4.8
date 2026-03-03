@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buteyko · CO₂ Tolerance</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Sora:wght@200;300;400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Sora',sans-serif;background:#0a1628;color:#e2e8f0;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wrap{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1rem;padding:1.5rem;width:100%;max-width:440px}
+h1{font-family:'Space Mono',monospace;font-size:1.5rem;letter-spacing:.05em}
+.sub{font-size:.68rem;color:#475569;letter-spacing:.18em;text-transform:uppercase;margin-top:-.4rem}
+.rounds{display:flex;flex-direction:column;gap:.6rem;width:100%}
+.rd{border:1px solid rgba(34,211,238,.1);border-radius:8px;padding:.7rem .9rem;display:flex;justify-content:space-between;align-items:center;transition:all .3s;background:rgba(34,211,238,.02)}
+.rd.act{border-color:rgba(34,211,238,.4);background:rgba(34,211,238,.07)}
+.rd.dn{opacity:.4}
+.rt{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.08em}
+.rd2{font-size:.6rem;color:#475569}
+.rs{font-family:'Space Mono',monospace;font-size:1.1rem;color:#22d3ee}
+.ta{text-align:center;padding:1rem 0}
+.tp{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:#22d3ee;margin-bottom:.2rem;transition:color .3s}
+.tb{font-family:'Space Mono',monospace;font-size:3.5rem;font-weight:700;letter-spacing:.05em;transition:color .3s}
+.ts{font-size:.68rem;color:#475569;margin-top:.2rem}
+.co{width:100%;height:6px;background:rgba(255,255,255,.04);border-radius:3px;overflow:hidden}
+.cf{height:100%;width:0%;border-radius:3px;transition:width .3s,background .5s}
+.tap{width:100%;padding:1rem;border:2px solid rgba(34,211,238,.3);border-radius:10px;background:rgba(34,211,238,.05);color:#22d3ee;font-family:'Space Mono',monospace;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;display:none;transition:all .2s}
+.tap:hover{background:rgba(34,211,238,.12)}
+.tap.show{display:block}
+.ctrls{display:flex;gap:1rem}
+.btn{font-family:'Sora',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.6rem;border:1px solid rgba(34,211,238,.2);border-radius:8px;background:rgba(34,211,238,.05);color:#e2e8f0;cursor:pointer;transition:all .25s}
+.btn:hover{background:rgba(34,211,238,.12)}
+.btn.pri{border-color:rgba(34,211,238,.4);background:rgba(34,211,238,.1)}
+.btn-s{padding:.4rem .9rem;font-size:.68rem}
+.done{display:none;flex-direction:column;align-items:center;gap:1rem;text-align:center;animation:fu .8s}
+.done.show{display:flex}.main.off{display:none}
+.done h2{font-family:'Space Mono',monospace;font-size:1.2rem}
+.done p{color:#64748b;font-size:.82rem;line-height:1.7;max-width:360px}
+.fs{font-family:'Space Mono',monospace;font-size:2.5rem;color:#22d3ee}
+.fl{font-size:.68rem;color:#475569;letter-spacing:.15em;text-transform:uppercase}
+@keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.snd{position:fixed;top:1rem;right:1rem;z-index:10;width:34px;height:34px;border-radius:50%;border:1px solid rgba(34,211,238,.15);background:rgba(34,211,238,.03);color:#475569;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<button class="snd" id="sndBtn">🔔</button>
+<div class="wrap">
+<h1>Buteyko Method</h1>
+<div class="sub">CO₂ Tolerance Training</div>
+<div class="main" id="mainV">
+<div class="rounds">
+<div class="rd" id="r1"><div><div class="rt">Round 1 · Baseline</div><div class="rd2">Normal breath → exhale → hold</div></div><div class="rs" id="s1">—</div></div>
+<div class="rd" id="r2"><div><div class="rt">Round 2 · Reduced</div><div class="rd2">Gentle nasal → exhale → hold</div></div><div class="rs" id="s2">—</div></div>
+<div class="rd" id="r3"><div><div class="rt">Round 3 · Extended</div><div class="rd2">Slow nasal → exhale → hold</div></div><div class="rs" id="s3">—</div></div>
+<div class="rd" id="r4"><div><div class="rt">Round 4 · Final</div><div class="rd2">Minimal → exhale → hold</div></div><div class="rs" id="s4">—</div></div>
+</div>
+<div class="ta"><div class="tp" id="tp">Ready</div><div class="tb" id="tb2">0.0</div><div class="ts" id="ts2">Tap when you feel the first urge to breathe</div></div>
+<div class="co"><div class="cf" id="cf"></div></div>
+<button class="tap" id="tapBtn">↓ First Urge to Breathe ↓</button>
+<div class="ctrls"><button class="btn pri" id="goBtn">Start Protocol</button><button class="btn btn-s" id="rstBtn" style="display:none">Reset</button></div>
+</div>
+<div class="done" id="doneV">
+<h2>Protocol Complete</h2>
+<div class="fs" id="fsc">0s</div><div class="fl">Best Control Pause</div>
+<p>Below 20s = chronic overbreathing. 25-40s = healthy. Above 40s = excellent respiratory efficiency. Consistent practice lengthens your control pause over weeks.</p>
+<p style="opacity:.6;font-style:italic">Breathe less. Live more.</p>
+<button class="btn pri" id="agBtn">Again</button>
+</div>
+</div>
+<script>
+const RDS=4,BREATHE=25,RECOVERY=12;
+class Aud{constructor(){this.c=null;this.on=true}init(){if(!this.c)this.c=new(window.AudioContext||window.webkitAudioContext)()}b(f,d){if(!this.on||!this.c)return;const o=this.c.createOscillator(),g=this.c.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(.08,this.c.currentTime);g.gain.linearRampToValueAtTime(0,this.c.currentTime+d);o.connect(g);g.connect(this.c.destination);o.start();o.stop(this.c.currentTime+d)}toggle(){this.on=!this.on;return this.on}}
+const au=new Aud();
+const tp=document.getElementById('tp'),tb2=document.getElementById('tb2'),ts2=document.getElementById('ts2'),cf=document.getElementById('cf'),tapBtn=document.getElementById('tapBtn');
+const goBtn=document.getElementById('goBtn'),rstBtn=document.getElementById('rstBtn'),mainV=document.getElementById('mainV'),doneV=document.getElementById('doneV');
+let state='idle',round=0,phase='',phS=0,scores=[];
+function setRd(r){for(let i=1;i<=4;i++){const e=document.getElementById('r'+i);e.classList.remove('act','dn');if(i<r+1)e.classList.add('dn');else if(i===r+1)e.classList.add('act')}}
+function startProto(){au.init();state='active';round=0;scores=[];goBtn.style.pointerEvents='none';goBtn.textContent='—';rstBtn.style.display='inline-block';doneV.classList.remove('show');mainV.classList.remove('off');for(let i=1;i<=4;i++)document.getElementById('s'+i).textContent='—';startPh('breathe')}
+function startPh(p){phase=p;phS=performance.now();setRd(round);
+if(p==='breathe'){tp.textContent='Round '+(round+1)+' · Nasal Breathing';tp.style.color='#22d3ee';tb2.style.color='#22d3ee';ts2.textContent='Breathe gently through your nose';tapBtn.classList.remove('show')}
+else if(p==='exhale'){tp.textContent='Exhale Now';tp.style.color='#f59e0b';tb2.textContent='Out';tb2.style.color='#f59e0b';ts2.textContent='Gentle exhale, then pinch nose and hold';tapBtn.classList.remove('show');setTimeout(()=>{if(phase==='exhale')startPh('hold')},3e3);return}
+else if(p==='hold'){tp.textContent='Control Pause';tp.style.color='#ef4444';tb2.style.color='#ef4444';ts2.textContent='TAP when first urge to breathe';tapBtn.classList.add('show');au.b(440,.3)}
+else if(p==='recovery'){tp.textContent='Recovery';tp.style.color='#10b981';tb2.style.color='#10b981';ts2.textContent='Resume gentle nasal breathing';tapBtn.classList.remove('show')}
+tick()}
+function tick(){if(state!=='active')return;const el=(performance.now()-phS)/1e3;
+if(phase==='breathe'){const r=Math.max(0,BREATHE-el);tb2.textContent=Math.ceil(r);cf.style.width=(el/BREATHE*100)+'%';cf.style.background='#22d3ee';if(el>=BREATHE){startPh('exhale');return}}
+else if(phase==='hold'){tb2.textContent=el.toFixed(1)+'s';const p=Math.min(1,el/60);cf.style.width=(p*100)+'%';cf.style.background=el<15?'#22d3ee':el<30?'#f59e0b':'#ef4444'}
+else if(phase==='recovery'){const r=Math.max(0,RECOVERY-el);tb2.textContent=Math.ceil(r);cf.style.width=((1-r/RECOVERY)*100)+'%';cf.style.background='#10b981';if(el>=RECOVERY){round++;if(round>=RDS){finishP();return}startPh('breathe');return}}
+requestAnimationFrame(tick)}
+function tapHold(){if(phase!=='hold')return;const ht=(performance.now()-phS)/1e3;scores.push(ht);document.getElementById('s'+(round+1)).textContent=ht.toFixed(1)+'s';au.b(660,.5);startPh('recovery')}
+function finishP(){state='done';document.getElementById('fsc').textContent=Math.max(...scores).toFixed(1)+'s';mainV.classList.add('off');doneV.classList.add('show')}
+function reset(){state='idle';round=0;scores=[];phase='';goBtn.textContent='Start Protocol';goBtn.style.pointerEvents='auto';goBtn.classList.add('pri');rstBtn.style.display='none';tp.textContent='Ready';tb2.textContent='0.0';tb2.style.color='';ts2.textContent='Tap when you feel the first urge to breathe';cf.style.width='0%';tapBtn.classList.remove('show');for(let i=1;i<=4;i++){document.getElementById('s'+i).textContent='—';document.getElementById('r'+i).classList.remove('act','dn')}doneV.classList.remove('show');mainV.classList.remove('off')}
+goBtn.onclick=()=>{if(state==='idle')startProto()};tapBtn.onclick=tapHold;rstBtn.onclick=reset;document.getElementById('agBtn').onclick=()=>{reset();startProto()};
+document.getElementById('sndBtn').onclick=()=>{au.init();document.getElementById('sndBtn').textContent=au.toggle()?'🔔':'🔇'};
+</script>
+</body>
+</html>

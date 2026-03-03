@@ -1,0 +1,25 @@
+# Authority: SYSTEMS_DOCUMENTATION §29.2.5
+# Persona-specific vocabulary for title tone and {PersonaDescription}.
+
+personas:
+  nyc_exec:
+    title_tone: "Professionals"
+    persona_role: "Busy Professionals"
+  nyc_executives:
+    title_tone: "Executives"
+    persona_role: "Leaders and Executives"
+  gen_z_la:
+    title_tone: "Gen Z"
+    persona_role: "Content Creators and Hustlers"
+  healthcare_worker:
+    title_tone: "Healthcare Workers"
+    persona_role: "Healthcare Workers"
+  burned_out_professional:
+    title_tone: "Professionals"
+    persona_role: "Burned-Out Professionals"
+  bereaved_adult:
+    title_tone: "Adults"
+    persona_role: "Those Grieving"
+  default:
+    title_tone: "Readers"
+    persona_role: "Readers"
