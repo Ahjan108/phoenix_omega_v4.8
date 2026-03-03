@@ -19,14 +19,20 @@ jobs:
       WORDPRESS_APP_PASSWORD: ${{ secrets.WORDPRESS_APP_PASSWORD }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Debug - list repo contents
         run: |
           echo "=== Branch: ${{ github.ref_name }} ==="
           ls -la
+          echo "---"
           ls -la tests/ 2>/dev/null || echo "tests/ not found"
           ls -la tests/test_pearl_news/ 2>/dev/null || echo "tests/test_pearl_news/ not found"
           ls -la pearl_news/ 2>/dev/null || echo "pearl_news/ not found"
+          echo "--- find test_pearl_news ---"
+          find . -name "test_pearl_news" -type d 2>/dev/null
+          find . -name "test_feed_ingest.py" 2>/dev/null
 
       - uses: actions/setup-python@v5
         with:
