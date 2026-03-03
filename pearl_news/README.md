@@ -5,6 +5,7 @@ Editorial article pipeline for **Pearl News** (civic media: world news + spiritu
 **Mode:** `pearl_news` — separate from v4 (book pipeline) and Pearl Prime (template books). Produces **articles**, not books.
 
 **Authority:** [docs/PEARL_NEWS_ARCHITECTURE_SPEC.md](../docs/PEARL_NEWS_ARCHITECTURE_SPEC.md)  
+**Writer spec:** [docs/PEARL_NEWS_WRITER_SPEC.md](../docs/PEARL_NEWS_WRITER_SPEC.md) — voice, atom types, 4-layer blend, quality gates.  
 **Production:** [docs/PEARL_NEWS_PRODUCTION_NONNEGOTIABLES.md](../docs/PEARL_NEWS_PRODUCTION_NONNEGOTIABLES.md) — all 10 items required for production-grade.
 
 ## Structure
