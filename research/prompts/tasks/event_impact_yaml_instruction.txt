@@ -1,0 +1,12 @@
+Using only the following analysis, output a single valid YAML object. No thinking, no markdown fences, only YAML.
+
+Schema:
+identity_fracture_score: (1-10)
+activism_profile: "string"
+narrative_pivot: "string"
+persona_switching:
+  gen_z_high_income: "string"
+  gen_alpha_conflict_zone: "string"
+
+Analysis to convert to YAML:
+{{ANALYSIS_SUMMARY}}

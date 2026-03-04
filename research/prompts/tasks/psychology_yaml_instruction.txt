@@ -1,0 +1,10 @@
+Using only the following analysis, output a single valid YAML object. No thinking, no markdown fences, only YAML.
+
+Schema:
+anxiety_score: (1-10)
+trigger_mechanism: "string"
+generational_difference: "string - Gen Z therapy vs Gen Alpha digital/AI support"
+editorial_hook: "string"
+
+Analysis to convert to YAML:
+{{ANALYSIS_SUMMARY}}

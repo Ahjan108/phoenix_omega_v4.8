@@ -60,3 +60,17 @@ The script appends the Pearl News legal disclaimer to the content by default (se
 ## Dependencies
 
 - `requests` — install with `pip install requests`.
+
+## Troubleshooting (post not working)
+
+1. **Credentials** — Run with `--dry-run` to confirm env vars are set:  
+   `python scripts/pearl_news_post_to_wp.py --article path/to/article.json --dry-run`  
+   You must set `WORDPRESS_SITE_URL`, `WORDPRESS_USERNAME`, and `WORDPRESS_APP_PASSWORD` (Application Password from WP, not your normal login password).
+
+2. **REST API** — Ensure the site has the REST API enabled (default on WordPress). Test: open `https://yoursite.com/wp-json/wp/v2/posts` in a browser; you should see JSON (or an auth prompt).
+
+3. **Application Password** — In WP Admin go to **Users → Profile → Application Passwords**, create a new app password, and use that exact string as `WORDPRESS_APP_PASSWORD`. Spaces in the value are OK (the script strips them).
+
+4. **401 / 403** — Wrong username, wrong app password, or the user lacks permission to create posts. Confirm the user has Editor or Administrator role.
+
+5. **Errors** — The script prints the WordPress API error code and message when a request fails; use that to fix config or permissions.

@@ -211,9 +211,12 @@ def post_article(
     if not response.ok:
         try:
             err = response.json()
+            # Common WP REST errors: code + message are most helpful
+            code = err.get("code", "")
+            msg = err.get("message", err.get("data", {}).get("message", str(err)))
+            detail = f"WordPress API error {response.status_code}: {code or response.reason} — {msg}"
         except Exception:
             err = {"message": response.text or response.reason}
-        raise WordPressPublishError(
-            f"WordPress API error {response.status_code}: {err}"
-        )
+            detail = f"WordPress API error {response.status_code}: {response.text or response.reason}"
+        raise WordPressPublishError(detail)
     return response.json()

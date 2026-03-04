@@ -1,0 +1,47 @@
+# Youth and generational research — feed URLs and platform links.
+# Used by research_feeds_ingest workflow or manual paste into Qwen3 prompts.
+# See docs/continue_gen_research3.md and docs/RESEARCH_FEED_SOURCES.md.
+
+schema_version: 1
+
+# RSS feeds (fetch to artifacts/research/raw/ or youth_feed_snapshots/)
+rss:
+  - id: unicef_news
+    url: https://www.unicef.org/rss/media_17653.xml
+    description: UNICEF news and youth
+    refresh: weekly
+  - id: un_youth
+    url: https://www.un.org/youthenvoy/feed/
+    description: UN Youth Envoy
+    refresh: weekly
+  # Add more as needed, e.g.:
+  # - id: pew_research
+  #   url: https://www.pewresearch.org/feed/
+  #   refresh: weekly
+
+# Platforms where youth conversation lives (no API; manual paste or link list)
+platforms:
+  - name: TikTok
+    importance: extremely_high
+    note: Curate trend/comment snippets; paste into paste-and-extract prompts
+  - name: Reddit
+    importance: high
+    note: Subreddit RSS or manual paste to youth_feed_snapshots/
+  - name: YouTube
+    importance: high
+    note: Manual paste of comments or transcript
+  - name: Discord
+    importance: medium
+    note: Manual paste of server summaries or quotes
+  - name: Instagram
+    importance: medium
+    note: Manual paste or link list
+
+# Optional: Teen Vogue Politics, Pew Youth, etc. (add url when available)
+curated_links:
+  - label: Teen Vogue Politics
+    url: https://www.teenvogue.com/tag/politics
+    refresh: manual
+  - label: Pew Research
+    url: https://www.pewresearch.org/topic/generations-age/generation-z/
+    refresh: manual
