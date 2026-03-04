@@ -1,0 +1,11 @@
+# Motion distribution and limits. Therapeutic content targets 70–80% static shots.
+
+motion_distribution:
+  static: 0.75
+  slow_zoom: 0.15
+  slow_pan: 0.10
+speed_limits:
+  zoom_per_second_pct: 2
+  pan_per_second_px: 30
+one_movement_per_shot: true
+rhythm_rule: no_consecutive_motion  # avoid back-to-back motion shots

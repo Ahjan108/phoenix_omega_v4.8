@@ -1,0 +1,6 @@
+# Target aspect ratios for format branching. One ShotPlan -> FormatAdapter -> per-format timelines.
+
+presets:
+  landscape_16_9: { width: 1920, height: 1080 }
+  portrait_9_16: { width: 1080, height: 1920 }
+  square_1_1: { width: 1080, height: 1080 }

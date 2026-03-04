@@ -1,0 +1,15 @@
+# Caption layout and strategy. CaptionAdapter consumes this per format/locale.
+
+default:
+  max_chars_per_line: 42
+  max_lines: 2
+  strategy: reflow  # reflow | truncate
+  hook_caption_max_words: 8
+
+by_language:
+  en:
+    max_chars_per_line: 42
+    max_lines: 2
+  ja:
+    max_chars_per_line: 20
+    max_lines: 2

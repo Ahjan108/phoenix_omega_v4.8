@@ -1,0 +1,28 @@
+{
+  "plan_id": "plan-therapeutic-001",
+  "segments": [
+    {
+      "segment_id": "seg-1",
+      "text": "When anxiety shows up, it's your brain trying to protect you.",
+      "start_char": 0,
+      "end_char": 52,
+      "slot_id": "slot-intro",
+      "primary_atom_id": "atom-intro-001",
+      "atom_refs": [
+        { "atom_id": "atom-intro-001", "weight": 1.0, "role": "primary" }
+      ]
+    },
+    {
+      "segment_id": "seg-2",
+      "text": "Notice it without fighting it.",
+      "start_char": 53,
+      "end_char": 79,
+      "slot_id": "slot-body-1",
+      "primary_atom_id": "atom-body-001",
+      "atom_refs": [
+        { "atom_id": "atom-body-001", "weight": 0.8, "role": "primary" },
+        { "atom_id": "atom-body-002", "weight": 0.2, "role": "secondary" }
+      ]
+    }
+  ]
+}

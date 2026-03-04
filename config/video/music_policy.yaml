@@ -1,0 +1,10 @@
+# Arc/emotional_band -> preferred mood; segment-level override supported.
+
+arc_to_mood:
+  hook: subtle_curiosity
+  build: gentle_rise
+  release: calm_resolution
+emotional_band_overrides:
+  high_arousal_negative: subdued
+  low_arousal_positive: warm_neutral
+segment_level_override_supported: true

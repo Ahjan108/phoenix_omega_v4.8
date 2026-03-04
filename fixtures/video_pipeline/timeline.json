@@ -1,0 +1,25 @@
+{
+  "plan_id": "plan-therapeutic-001",
+  "fps": 24,
+  "resolution": { "width": 1920, "height": 1080 },
+  "aspect_ratio": "16:9",
+  "duration_s": 7.0,
+  "thumbnail_frame_ref": { "shot_id": "shot-1", "frame_offset": 0 },
+  "audio_tracks": [],
+  "clips": [
+    {
+      "shot_id": "shot-1",
+      "asset_id": "asset-hook-001",
+      "start_time_s": 0.0,
+      "end_time_s": 4.5,
+      "caption_ref": "seg-1"
+    },
+    {
+      "shot_id": "shot-2",
+      "asset_id": "asset-body-001",
+      "start_time_s": 4.5,
+      "end_time_s": 7.0,
+      "caption_ref": "seg-2"
+    }
+  ]
+}

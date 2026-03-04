@@ -1,0 +1,16 @@
+# Pacing rules per content_type. Used by Shot Planner and Timeline Builder.
+# min_duration_s / max_duration_s apply to segments; hook_timing drives first-shot rules.
+
+content_types:
+  therapeutic:
+    min_duration_s: 3
+    max_duration_s: 12
+    hook_timing: "0-3s"
+  short_mythbust:
+    min_duration_s: 2
+    max_duration_s: 8
+    hook_timing: "0-2s"
+  default:
+    min_duration_s: 2
+    max_duration_s: 10
+    hook_timing: "0-3s"
