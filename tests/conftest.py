@@ -35,3 +35,13 @@ def atoms_root() -> Path:
     import os
     raw = os.environ.get("ATOMS_ROOT")
     return Path(raw) if raw else (REPO_ROOT / "atoms")
+
+
+@pytest.fixture
+def golden_bindings_path(fixtures_dir: Path) -> Path | None:
+    """
+    Path to golden_test_bindings.yaml, or None if missing.
+    Use with pytest.skip() in tests that need it instead of silent return.
+    """
+    p = fixtures_dir / "bindings" / "golden_test_bindings.yaml"
+    return p if p.exists() else None

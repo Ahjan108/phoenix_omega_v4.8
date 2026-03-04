@@ -8,7 +8,7 @@
 
 **Last updated:** 2026-03-03
 
-**Status:** Complete plan for all 12 locales (en-US, zh-CN, zh-TW, zh-HK, zh-SG, ja-JP, ko-KR, es-US, es-ES, fr-FR, de-DE, hu-HU).
+**Status:** Complete plan for all 13 locales (en-US, zh-CN, zh-TW, zh-HK, zh-SG, ja-JP, ko-KR, es-US, es-ES, fr-FR, de-DE, it-IT, hu-HU). EU catalogue includes de-DE, es-ES, fr-FR, it-IT, hu-HU.
 
 ---
 
@@ -37,6 +37,7 @@ This is not merely a YAML entry in locale_registry.yaml — it is a full operati
 | **ko-KR** | 3 | Mo 5–7 | 28 (4 brands × 7 books) | 1,008 (long-term) | 4 → 24 |
 | **de-DE** | 4 | Mo 7–12 | 21 (3 brands × 7 books) | 1,008 (long-term) | 3 → 24 |
 | **fr-FR** | 4 | Mo 7–12 | 14 (2 brands × 7 books) | 1,008 (long-term) | 2 → 24 |
+| **it-IT** | 4 | Mo 7–12 | 14 (2 brands × 7 books) | 1,008 (long-term) | 2 → 24 |
 | **hu-HU** | 4 | Mo 7–12 | 14 (2 brands × 7 books) | 1,008 (long-term) | 2 → 24 |
 | **es-US** | 4 | Mo 7–12 | 21 (3 brands × 7 books) | 1,008 (long-term) | 3 → 24 |
 | **es-ES** | 4 | Mo 7–12 | 14 (2 brands × 7 books) | 1,008 (long-term) | 2 → 24 |
@@ -50,7 +51,7 @@ This is not merely a YAML entry in locale_registry.yaml — it is a full operati
 
 ## 2. Marketing Positioning Per Locale
 
-This section defines the marketing strategy and "invisible script" — the hidden belief that makes a title resonate — for each of the twelve locales. Each locale has a different cultural context, search language, and positioning angle.
+This section defines the marketing strategy and "invisible script" — the hidden belief that makes a title resonate — for each of the thirteen locales (including EU: de-DE, es-ES, fr-FR, it-IT, hu-HU). Each locale has a different cultural context, search language, and positioning angle.
 
 ### en-US: The Baseline Market
 
@@ -443,6 +444,38 @@ This section defines the marketing strategy and "invisible script" — the hidde
 - `contemplative_wisdom_fr` — hook: "Sagesse stoïque et système nerveux: rétablir le contrôle"
 
 **TTS voice:** ElevenLabs (fr-FR) or Google Neural2 (fr-FR-Neural2-A). Validate tone for philosophical, contemplative positioning.
+
+---
+
+### it-IT (Italian): Italy Market (EU catalogue)
+
+**Invisible script:** *"Non sono debole. È il mio sistema nervoso. Ora scelgo di ripararlo." ("I'm not weak. It's my nervous system. I'm now choosing to repair it.")*
+
+**Cultural context:**
+- **Strong audiobook and podcast market:** Italy has growing consumption of wellness and self-development audio.
+- **Wellness framing preferred:** Avoid clinical language in titles; use "benessere," "sistema nervoso," "autocura."
+- **EU catalogue:** Part of European locale group (with de-DE, es-ES, fr-FR, hu-HU).
+
+**High-value search keywords:**
+- "Riparazione del sonno" / "Insonnia rimedi naturali" (sleep repair, insomnia natural remedies)
+- "Recupero burnout" / "Stress lavoro" (burnout recovery, work stress)
+- "Gestione ansia" / "Attacchi di panico" (anxiety management, panic attacks)
+- "Sistema nervoso" / "Nervo vago" (nervous system, vagus nerve)
+- "Benessere emotivo" / "Autocura" (emotional wellness, self-care)
+
+**Title philosophy notes:**
+- Use "sistema nervoso" (nervous system), "benessere" (wellness), "autocura" (self-care); avoid "salute mentale" in titles.
+- Phase 4 EU rollout; 2 brands × 7 books = 14 pilot titles.
+
+**Platform-specific positioning:**
+- **Spotify IT:** Sleep, focus, wellness
+- **Apple Books IT:** Self-development, wellness, nervous system
+- **Google Play IT:** Accessibility, affordability
+- **Findaway IT:** Distribution to Italian retailers
+
+**Phase 4 timeline:** Months 7–12 with other EU locales. Pilot brands: e.g. `stabilizer_it`, `sleep_repair_it`.
+
+**TTS voice:** ElevenLabs (it-IT) or Google Neural2 (it-IT-Neural2-A).
 
 ---
 
@@ -964,6 +997,41 @@ This section defines the exact criteria that must be complete before a locale ca
 
 - **Target:** Phase 4 pilot live by Month 12
 - **Success criteria:** 14 titles live, >80% reviews positive, philosophical positioning resonates with educated French audience, native speaker feedback incorporated
+
+---
+
+### it-IT Go-Live Checklist (EU catalogue)
+
+**Target status:** Complete by Month 12 (Phase 4 launch).
+
+#### Content
+
+- [ ] Locale persona definitions written (LOCALE_PERSONAS.md, it-IT personas: e.g. anxious_insomniac_it, burned_out_professional_it)
+- [ ] Atoms directory created: atoms/it-IT/ (fully populated with Italian)
+- [ ] All required (persona, topic) pairs have atom pools for 2 pilot brands (coverage gate 100% for pilot scope)
+- [ ] Translation quality validated by native Italian speaker review (wellness framing, no clinical language)
+- [ ] Invisible script hook testing: native speaker validation of "sistema nervoso," "benessere," "autocura" positioning
+
+#### Technical
+
+- [ ] locale_registry.yaml entry present and validated (locale: it-IT, script: Latin, tts_locale_code: it-IT)
+- [ ] brand_registry_locale_extension.yaml has Phase 4 pilot brands (e.g. stabilizer_it, sleep_repair_it)
+- [ ] content_roots_by_locale.yaml entry added for it-IT
+- [ ] CI gate #49 (locale_territory_consistency) passes for all it-IT pilot books (locale: it-IT, territory: IT)
+- [ ] TTS voice auditioned and approved (ElevenLabs it-IT primary, Google Neural2 it-IT-Neural2-A fallback)
+- [ ] BookSpec locale/territory fields validated (locale: it-IT, territory: IT)
+
+#### Distribution
+
+- [ ] Storefront accounts created for IT territory (Google Play IT, Findaway IT, Apple Books IT, Kobo IT, Spotify IT)
+- [ ] Metadata schema validated for it-IT (title, description, keywords in Italian; wellness/benessere framing)
+- [ ] First 2 pilot brands with 7 books each (14 titles total) uploaded and approved on primary IT platforms
+- [ ] ISBNs/ASINs assigned per book (IT ISBNs distinct from en-US)
+
+#### Launch Status
+
+- **Target:** Phase 4 EU pilot live by Month 12
+- **Success criteria:** 14 titles live, >80% reviews positive, wellness positioning validated, native speaker feedback incorporated
 
 ---
 

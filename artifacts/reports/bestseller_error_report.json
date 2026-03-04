@@ -1,0 +1,36 @@
+{
+  "bestseller_failed": 0,
+  "total_failed": 1659,
+  "bestseller_errors_sample": [],
+  "error_reasons_summary": {
+    "insufficient pool for plan": 1659
+  },
+  "root_cause_buckets": {
+    "insufficient_pool": 1659
+  },
+  "root_causes_with_recommendations": [
+    {
+      "category": "insufficient_pool",
+      "count": 1659,
+      "recommendation": "Increase mock pool size or relax plan slot counts for sim; for real pipeline add atoms to pools."
+    }
+  ],
+  "high_risk_formats": [
+    "extended_book_2h"
+  ],
+  "high_risk_tiers": [
+    "B"
+  ],
+  "failure_rate_by_format": {
+    "standard_book": 0.1987995198079232,
+    "deep_book_4h": 0.0,
+    "short_book_30": 0.0,
+    "micro_book_15": 0.0,
+    "extended_book_2h": 1.0
+  },
+  "failure_rate_by_tier": {
+    "A": 0.0,
+    "B": 0.3323317307692307,
+    "C": 0.0
+  }
+}

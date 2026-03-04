@@ -1128,7 +1128,16 @@ All payout package files (`payouts/cli.py`, `payouts/setup.py`, `payouts/plaid_s
 
 ## Translation, validation & multilingual
 
-Translation and validation pipeline: parallel sharded translation (atoms + exercises) to all locales (zh-CN, zh-TW, zh-HK, zh-SG, yue, ja-JP, ko-KR), deterministic validation (schema, locale script, coverage, meta/leakage, repetition), merge + global QA, golden regression. Infrastructure now complete: all scripts & CI workflows deployed.
+Translation and validation pipeline: parallel sharded translation (atoms + exercises) to **all system languages** (see [Translate / prompt via Qwen GitHub pipeline CLI](#translate--prompt-via-qwen-github-pipeline-cli-all-system-languages)), deterministic validation (schema, locale script, coverage, meta/leakage, repetition), merge + global QA, golden regression. Infrastructure now complete: all scripts & CI workflows deployed.
+
+### Translate / prompt via Qwen GitHub pipeline CLI (all system languages)
+
+**Purpose:** Run translation and prompt for every system locale via the Qwen-based GitHub pipeline (scheduled or manual). EU catalogue includes de-DE, es-ES, fr-FR, **it-IT (Italian)**, hu-HU.
+
+| Item | Location |
+|------|----------|
+| **Translate/prompt CLI & system languages** | [docs/TRANSLATE_QWEN_PIPELINE_CLI.md](./TRANSLATE_QWEN_PIPELINE_CLI.md) — All 13 system locales (en-US, zh-CN, zh-TW, zh-HK, zh-SG, ja-JP, ko-KR, es-US, es-ES, fr-FR, de-DE, it-IT, hu-HU); how to run from phoenix_omega or from Qwen/Qwen-Agent forks; EU catalogue; index to locale_registry, content_roots, Pearl News scheduling |
+| **Pearl News scheduling (Qwen)** | [docs/PEARL_NEWS_GITHUB_SCHEDULING.md](./PEARL_NEWS_GITHUB_SCHEDULING.md) — Scheduled pipeline runs, WordPress posting, running from Ahjan108/Qwen or Ahjan108/Qwen-Agent |
 
 ### All-locale production readiness (verified state)
 
@@ -1147,8 +1156,9 @@ Translation and validation pipeline: parallel sharded translation (atoms + exerc
 
 | Item | Location |
 |------|----------|
+| **Translate/prompt via Qwen pipeline CLI** | [docs/TRANSLATE_QWEN_PIPELINE_CLI.md](./TRANSLATE_QWEN_PIPELINE_CLI.md) — All system languages; translate/prompt via Qwen GitHub pipeline CLI; EU catalogue (incl. it-IT) |
 | **Locale personas** | [docs/LOCALE_PERSONAS.md](./LOCALE_PERSONAS.md) — 40 persona definitions across 11 non-en-US locales (anxious_insomniac_tw, burned_out_professional_tw, etc.) |
-| **All-locale catalog marketing plan** | [docs/LOCALE_CATALOG_MARKETING_PLAN.md](./LOCALE_CATALOG_MARKETING_PLAN.md) — Per-locale positioning, go-live checklists, readiness tracker for all 12 locales |
+| **All-locale catalog marketing plan** | [docs/LOCALE_CATALOG_MARKETING_PLAN.md](./LOCALE_CATALOG_MARKETING_PLAN.md) — Per-locale positioning, go-live checklists, readiness tracker for all 13 locales (incl. it-IT EU catalogue) |
 | **zh-CN distribution plan** | [docs/ZH_CN_DISTRIBUTION_PLAN.md](./ZH_CN_DISTRIBUTION_PLAN.md) — Local platform pipeline (Ximalaya, NetEase, WeChat Read, Dedao); Phase 5 prerequisite checklist |
 | **Locale strategy (rollout phases)** | [del_location_plan/locale_strategy.md](../del_location_plan/locale_strategy.md) — One brand = one locale; Phase 1–5 rollout; distribution routing; CI gate #49 |
 | **Locale prose & prompting** | `docs/LOCALE_PROSE_AND_PROMPTING.md` ⚠️ *file not present* |
@@ -1171,8 +1181,8 @@ Translation and validation pipeline: parallel sharded translation (atoms + exerc
 
 | Item | Location |
 |------|----------|
-| **Content roots by locale** | [config/localization/content_roots_by_locale.yaml](../config/localization/content_roots_by_locale.yaml) — Maps all 12 locales to atoms_root, translation paths, TTS constraints, rollout phase, and distribution blockers. |
-| **Locale registry** | [config/localization/locale_registry.yaml](../config/localization/locale_registry.yaml) — All 12 locale definitions: language, script, TTS provider, storefront IDs, distribution rules. |
+| **Content roots by locale** | [config/localization/content_roots_by_locale.yaml](../config/localization/content_roots_by_locale.yaml) — Maps all 13 locales to atoms_root, translation paths, TTS constraints, rollout phase, and distribution blockers (incl. it-IT). |
+| **Locale registry** | [config/localization/locale_registry.yaml](../config/localization/locale_registry.yaml) — All 13 locale definitions: language, script, TTS provider, storefront IDs, distribution rules; EU group includes it-IT. |
 | **Brand locale extension** | [config/localization/brand_registry_locale_extension.yaml](../config/localization/brand_registry_locale_extension.yaml) — Per-brand locale and territory. One brand = one locale. |
 
 **Quality contracts** — `config/localization/quality_contracts/` — Present on disk. Contains: `glossary.yaml` (28 terms × 11 locales), `release_thresholds.yaml` (phase-based thresholds), `golden_translation_regression.yaml` (5 golden samples), `README.md`, `INTEGRATION_GUIDE.md`.
@@ -1194,7 +1204,7 @@ Translation and validation pipeline: parallel sharded translation (atoms + exerc
 
 **Status:** Locale atom stub infrastructure 100% complete; translation execution pending API run.
 
-Atoms for non-en-US locales (`atoms/zh-CN/`, `atoms/zh-TW/`, `atoms/zh-HK/`, `atoms/zh-SG/`, `atoms/yue/`, `atoms/ja-JP/`, `atoms/ko-KR/`) now exist with TRANSLATION PENDING stubs created by `scripts/scaffold_locale_atom_stubs.py`. Each locale directory mirrors the en-US atoms/ structure with stub ATOM_<locale>.yaml files.
+Atoms for non-en-US locales (`atoms/zh-CN/`, `atoms/zh-TW/`, `atoms/zh-HK/`, `atoms/zh-SG/`, `atoms/yue/`, `atoms/ja-JP/`, `atoms/ko-KR/`, `atoms/it-IT/`, etc.) now exist with TRANSLATION PENDING stubs created by `scripts/scaffold_locale_atom_stubs.py`. Each locale directory mirrors the en-US atoms/ structure with stub ATOM_<locale>.yaml files.
 
 ### Coverage by locale
 
@@ -1207,6 +1217,7 @@ Atoms for non-en-US locales (`atoms/zh-CN/`, `atoms/zh-TW/`, `atoms/zh-HK/`, `at
 | yue | Multiple (>100) | ✓ Ready | Pending API execution |
 | ja-JP | Multiple (>100) | ✓ Ready | Pending API execution |
 | ko-KR | Multiple (>100) | ✓ Ready | Pending API execution |
+| it-IT | Multiple (>100) | ✓ Ready | Pending API execution |
 
 ### Related scripts
 
@@ -1472,8 +1483,9 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [adr/README.md](./adr/README.md) | ADRs | ✓ |
 | [SCHEMA_CHANGELOG.md](./SCHEMA_CHANGELOG.md) | Schema & audit | ✓ |
 | [AUDIT_OLD_CHAT_SPECS_VS_V4.md](./AUDIT_OLD_CHAT_SPECS_VS_V4.md) | Schema & audit | ✓ |
-| [LOCALE_PERSONAS.md](./LOCALE_PERSONAS.md) | Locale personas | ✓ — 40 persona definitions across all 11 non-en-US locales (zh-TW, zh-HK, zh-CN, zh-SG, ja-JP, ko-KR, es-US, es-ES, fr-FR, de-DE, hu-HU) |
-| [LOCALE_CATALOG_MARKETING_PLAN.md](./LOCALE_CATALOG_MARKETING_PLAN.md) | All-locale marketing plan | ✓ — Per-locale positioning, go-live checklists, readiness tracker for all 12 locales |
+| [LOCALE_PERSONAS.md](./LOCALE_PERSONAS.md) | Locale personas | ✓ — 40 persona definitions across non-en-US locales (zh-TW, zh-HK, zh-CN, zh-SG, ja-JP, ko-KR, es-US, es-ES, fr-FR, de-DE, it-IT, hu-HU) |
+| [LOCALE_CATALOG_MARKETING_PLAN.md](./LOCALE_CATALOG_MARKETING_PLAN.md) | All-locale marketing plan | ✓ — Per-locale positioning, go-live checklists, readiness tracker for all 13 locales (incl. it-IT EU catalogue) |
+| [TRANSLATE_QWEN_PIPELINE_CLI.md](./TRANSLATE_QWEN_PIPELINE_CLI.md) | Translate/prompt via Qwen pipeline CLI | ✓ — All system languages; Qwen GitHub pipeline CLI; EU catalogue (it-IT) |
 | [NEW_LANGUAGE_LOCATION_ONBOARDING.md](./NEW_LANGUAGE_LOCATION_ONBOARDING.md) | Marketing & deep research / Locale onboarding | ✓ — Process and deep research prompts for new language/location/topic/persona; market-driven; personas, topics, authors, platforms, metadata, stories, writing spec, book titles |
 | [ZH_CN_DISTRIBUTION_PLAN.md](./ZH_CN_DISTRIBUTION_PLAN.md) | zh-CN distribution | ✓ — Local platform pipeline (Ximalaya, NetEase, WeChat Read, Dedao); Phase 5 prerequisite checklist |
 | `LOCALE_PROSE_AND_PROMPTING.md` | Translation | ⚠️ missing |

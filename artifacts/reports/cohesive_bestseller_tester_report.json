@@ -1,0 +1,243 @@
+{
+  "config_read": {
+    "personas_count": 10,
+    "topics_count": 15,
+    "teachers_count": 13,
+    "structural_formats": [
+      "F001",
+      "F002",
+      "F003",
+      "F004",
+      "F005",
+      "F006",
+      "F007",
+      "F008",
+      "F009",
+      "F010",
+      "F011",
+      "F012",
+      "F013",
+      "F014",
+      "F015"
+    ],
+    "runtime_formats": [
+      "standard_book",
+      "deep_book_4h",
+      "micro_book_15",
+      "short_book_30",
+      "extended_book_2h",
+      "micro_book_20",
+      "deep_book_6h"
+    ]
+  },
+  "validation_errors": [],
+  "health_score": 61.1,
+  "severity": {
+    "CRITICAL": [],
+    "HIGH": [
+      {
+        "kind": "pearl_failure",
+        "count": 1659,
+        "message": "Phase 1 failures: 1659"
+      },
+      {
+        "kind": "phase2_failure",
+        "count": 1661,
+        "message": "Phase 2 (waveform/arc/drift) failures"
+      },
+      {
+        "kind": "phase3_failure",
+        "count": 2686,
+        "message": "Phase 3 (content/emotional) failures"
+      }
+    ],
+    "MEDIUM": [
+      {
+        "kind": "pass_rate_below_95",
+        "rate": 0.8341,
+        "message": "Overall pass rate 83.4% < 95%"
+      }
+    ],
+    "LOW": []
+  },
+  "pearl_prime_10k": {
+    "total": 10000,
+    "passed": 8341,
+    "failed": 1659,
+    "bestseller_failed": 0,
+    "error_reasons_summary": {
+      "insufficient pool for plan": 1659
+    },
+    "bestseller_errors_sample": []
+  },
+  "pearl_dimension_analysis": {
+    "n": 10000,
+    "passed": 8341,
+    "overall_pass_rate": 0.8341,
+    "pass_rate_by_format": {
+      "standard_book": 0.8012004801920768,
+      "deep_book_4h": 1.0,
+      "short_book_30": 1.0,
+      "micro_book_15": 1.0,
+      "extended_book_2h": 0.0
+    },
+    "pass_rate_by_tier": {
+      "A": 1.0,
+      "B": 0.6676682692307693,
+      "C": 1.0
+    },
+    "phase2_failed_count": 1661,
+    "phase3_failed_count": 2686,
+    "worst_formats": [
+      {
+        "format_id": "extended_book_2h",
+        "pass_rate": 0.0
+      },
+      {
+        "format_id": "standard_book",
+        "pass_rate": 0.8012004801920768
+      },
+      {
+        "format_id": "deep_book_4h",
+        "pass_rate": 1.0
+      },
+      {
+        "format_id": "short_book_30",
+        "pass_rate": 1.0
+      },
+      {
+        "format_id": "micro_book_15",
+        "pass_rate": 1.0
+      }
+    ],
+    "worst_tiers": [
+      {
+        "tier": "B",
+        "pass_rate": 0.6676682692307693
+      },
+      {
+        "tier": "A",
+        "pass_rate": 1.0
+      },
+      {
+        "tier": "C",
+        "pass_rate": 1.0
+      }
+    ],
+    "summary_phase2": {
+      "phase2_passed": 8339,
+      "phase2_failed": 2,
+      "phase2_skipped": 1659,
+      "waveform_failed": 2,
+      "arc_failed": 0,
+      "drift_stacks_checked": 833,
+      "drift_stacks_failed": 0,
+      "drift_failures": []
+    },
+    "summary_phase3": {
+      "phase3_passed": 7314,
+      "phase3_failed": 1027,
+      "phase3_skipped": 1659
+    }
+  },
+  "coverage": {
+    "formats_seen": [
+      "deep_book_4h",
+      "extended_book_2h",
+      "micro_book_15",
+      "short_book_30",
+      "standard_book"
+    ],
+    "formats_count": 5,
+    "personas_mentioned": [
+      "1000",
+      "1001",
+      "1002",
+      "1003",
+      "1004",
+      "1005",
+      "1006",
+      "1007",
+      "1008",
+      "1009",
+      "1010",
+      "1011",
+      "1012",
+      "1013",
+      "1014",
+      "1015",
+      "1016",
+      "1017",
+      "1018",
+      "1019"
+    ],
+    "topics_mentioned": [
+      "1000",
+      "1001",
+      "1002",
+      "1003",
+      "1004",
+      "1005",
+      "1006",
+      "1007",
+      "1008",
+      "1009",
+      "1010",
+      "1011",
+      "1012",
+      "1013",
+      "1014",
+      "1015",
+      "1016",
+      "1017",
+      "1018",
+      "1019"
+    ]
+  },
+  "teacher_mode_matrix_size": 6300,
+  "ei_v2_included": true,
+  "ei_v2_dimension_analysis": {
+    "dimension_fails": [
+      {
+        "dimension": "engagement",
+        "score": 0.2689,
+        "threshold": 0.5
+      },
+      {
+        "dimension": "cohesion",
+        "score": 0.4239,
+        "threshold": 0.5
+      },
+      {
+        "dimension": "marketability",
+        "score": 0.2984,
+        "threshold": 0.5
+      },
+      {
+        "dimension": "content_uniqueness",
+        "score": 0.0207,
+        "threshold": 0.5
+      },
+      {
+        "dimension": "somatic_precision",
+        "score": 0.3625,
+        "threshold": 0.5
+      }
+    ],
+    "overall_composite": 0.5625,
+    "threshold_used": 0.5,
+    "all_scores": {
+      "therapeutic_value": 0.7099,
+      "emotional_coherence": 0.9389,
+      "engagement": 0.2689,
+      "chapter_journey": 0.6186,
+      "cohesion": 0.4239,
+      "listen_experience": 0.5897,
+      "marketability": 0.2984,
+      "safety_compliance": 0.9947,
+      "content_uniqueness": 0.0207,
+      "somatic_precision": 0.3625
+    }
+  },
+  "llm_analysis": null
+}

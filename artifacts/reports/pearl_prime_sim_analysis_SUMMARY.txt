@@ -1,0 +1,23 @@
+Pearl Prime Simulation Analysis
+n=10000 passed=8341 failed=1659
+overall_pass_rate=83.41% (±0.37%)
+
+Best combos (format_id, tier, rate, count):
+  standard_book / A: 100.00% (n=1669)
+  deep_book_4h / A: 100.00% (n=1668)
+  short_book_30 / B: 100.00% (n=1665)
+  micro_book_15 / C: 100.00% (n=3)
+  short_book_30 / A: 100.00% (n=1668)
+
+Worst combos:
+  extended_book_2h / B: 0.00% (n=831)
+  standard_book / B: 66.83% (n=2496)
+  standard_book / A: 100.00% (n=1669)
+  deep_book_4h / A: 100.00% (n=1668)
+  short_book_30 / B: 100.00% (n=1665)
+
+Phase 2 pass rate: 99.98% (n=8341)
+Phase 3 pass rate: 87.69% (n=8341)
+
+Error reasons:
+  1659: insufficient pool for plan
