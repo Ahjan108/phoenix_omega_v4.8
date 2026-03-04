@@ -1,6 +1,6 @@
 # EI V2 gates — unit tests + rigorous eval + promotion gate check.
-# Runs on push/PR when EI-related code changes, and weekly for trend tracking.
-# V1 remains authoritative; V2 is advisory until promotion criteria are met.
+# Runs on every PR (reports success when no EI paths change so branch protection is satisfied).
+# On push/schedule: path-filtered or weekly. V1 remains authoritative; V2 is advisory until promotion.
 name: EI V2 gates
 
 on:
@@ -16,69 +16,71 @@ on:
       - '.github/workflows/ei-v2-gates.yml'
   pull_request:
     branches: [main, master]
-    paths:
-      - 'phoenix_v4/quality/**'
-      - 'config/quality/ei_v2*'
-      - 'config/quality/ei_v2_promotion*'
-      - 'tests/test_ei_v2*'
-      - 'scripts/ci/run_ei_v2*'
-      - 'scripts/ci/check_ei_v2*'
+    # No path filter: run on every PR so required check "EI V2 gates" is always reported (skip when no EI paths).
   schedule:
     - cron: '0 4 * * 1'  # Weekly Monday 4am UTC for trend tracking
   workflow_dispatch:
 
 jobs:
-  ei-v2-unit-tests:
-    name: EI V2 unit tests
+  # Single job so one check "EI V2 gates" is reported; skips when no EI paths changed.
+  ei-v2-gates:
+    name: EI V2 gates
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
 
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            ei:
+              - 'phoenix_v4/quality/**'
+              - 'config/quality/ei_v2*'
+              - 'config/quality/ei_v2_promotion*'
+              - 'tests/test_ei_v2*'
+              - 'scripts/ci/run_ei_v2*'
+              - 'scripts/ci/check_ei_v2*'
+
+      - name: Skip (no EI V2 paths changed)
+        if: steps.filter.outputs.ei != 'true'
+        run: echo "No EI V2 paths changed; check passes for branch protection."
+
       - uses: actions/setup-python@v5
+        if: steps.filter.outputs.ei == 'true'
         with:
           python-version: '3.11'
 
       - name: Install test dependencies
+        if: steps.filter.outputs.ei == 'true'
         run: pip install -r requirements-test.txt
 
       - name: Run EI V2 test suite
+        if: steps.filter.outputs.ei == 'true'
         run: |
           PYTHONPATH=. python -m pytest tests/test_ei_v2.py tests/test_ei_v2_hybrid.py \
             -v --tb=short -x
 
-  ei-v2-rigorous-eval:
-    name: EI V2 rigorous eval (3 books)
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    needs: ei-v2-unit-tests
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: pip install -r requirements-test.txt
-
       - name: Run rigorous evaluation (3-book sample)
+        if: steps.filter.outputs.ei == 'true'
         run: |
           PYTHONPATH=. python scripts/ci/run_ei_v2_rigorous_eval.py --sample 3
 
       - name: Catalog calibration + dimension gates
+        if: steps.filter.outputs.ei == 'true'
         run: |
           PYTHONPATH=. python scripts/ci/run_ei_v2_catalog_calibration.py --learn
 
       - name: Check V2 promotion readiness
+        if: steps.filter.outputs.ei == 'true'
         run: |
           PYTHONPATH=. python scripts/ci/check_ei_v2_promotion_gate.py \
             --eval-report artifacts/ei_v2/eval_rigorous_report.json \
             --criteria config/quality/ei_v2_promotion_criteria.yaml
 
       - name: Upload EI V2 evidence
+        if: always() && steps.filter.outputs.ei == 'true'
         uses: actions/upload-artifact@v4
-        if: always()
         with:
           name: ei-v2-evidence
           path: |
