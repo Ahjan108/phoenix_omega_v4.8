@@ -1,163 +1,89 @@
-# Robust & Intelligent Testing — Plan and How to Fix
+# Robust, intelligent testing
 
-**Purpose:** Make the Phoenix test suite more robust (reliable, deterministic, well-covered) and more intelligent (smarter coverage, parametrization, contract and property-style tests).  
-**Authority:** Complements [FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md) and [DOCS_INDEX.md](./DOCS_INDEX.md) Test suite section.  
+**Purpose:** Strategy and inventory for robust, intelligent testing — fast sanity checks, data-driven parametrized tests over configs and locales, timeouts to avoid hung CI, and consistent fixtures. Catches regressions early without slowing the fast CI run.
+
+**Authority:** Complements [FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md). Core CI runs `pytest -m "not slow"` (includes sanity and intelligent tests).
+
 **Last updated:** 2026-03-04
 
 ---
 
-## 1. What “robust” and “intelligent” mean here
+## 1. Goals
 
-| Term | Meaning | Examples |
-|------|--------|----------|
-| **Robust** | Tests are reliable, deterministic, and fail only for real regressions. | No silent skips when fixtures are missing; fail fast with clear errors; no flake from time/network; shared fixtures in conftest. |
-| **Intelligent** | Tests exercise more behavior with less brittle, repetitive code. | Parametrize over inputs; property-based or fuzz for invariants; contract tests for boundaries; coverage of edge cases and error paths. |
-
----
-
-## 2. Current gaps (summary)
-
-- **Silent skips:** Some tests `return` or skip when a fixture path is missing, so missing fixtures go unnoticed.
-- **No coverage gate:** No pytest-cov (or similar) in CI; coverage is not measured or enforced.
-- **Little parametrization:** Only a couple of test files use `@pytest.mark.parametrize`; most tests are one-off cases.
-- **Missing test module:** `tests/test_ei_v2_hybrid.py` was referenced in DOCS_INDEX and EI V2 gates workflow but did not exist (now added).
-- **Slow tests never in CI:** Tests marked `@pytest.mark.slow` are excluded from core-tests; they only run in release-gates or manually.
-- **No property-based tests:** No Hypothesis (or similar) for invariants (e.g. slot resolver always returns index in range, safety score in [0,1]).
+- **Robust:** Config and registry consistency validated on every run; no silent breakage from YAML or schema drift.
+- **Intelligent:** Data-driven tests parametrized over all locales and critical configs; one test definition, many assertions.
+- **Fast:** Sanity and intelligent tests are not marked `slow`; they run in core-tests and complete in seconds.
+- **Bounded:** Default per-test timeout (e.g. 120s) so a hung test does not block CI.
 
 ---
 
-## 3. How to fix — prioritized
+## 2. Markers
 
-### 3.1 Immediate (already done or quick wins)
+| Marker         | Use | CI (core-tests) |
+|----------------|-----|------------------|
+| `slow`         | Long-running (atoms coverage, E2E smoke) | Excluded (`-m "not slow"`) |
+| `integration`  | Needs external resources or full pipeline | Excluded if not run | 
+| `e2e`          | End-to-end (compile, render) | Excluded if not run |
+| `sanity`       | Fast sanity (config load, registry consistency) | **Included** |
+| `intelligent`  | Data-driven / parametrized over configs and locales | **Included** |
 
-| Fix | Action |
-|-----|--------|
-| **Add missing EI V2 hybrid tests** | **Done.** `tests/test_ei_v2_hybrid.py` exists with 17 tests: one always runs (EI V2 package + `run_ei_v2_analysis`); 16 require `learner`, `dimension_gates`, `hybrid_selector` and skip with a clear message until those modules exist in the repo. EI V2 gates workflow and DOCS_INDEX no longer reference a missing file. |
-| **Fail fast on missing fixtures** | In `conftest.py`, add optional fixtures that raise a clear error if a required path is missing (e.g. `bindings_path`), and use them in tests that currently do `if not path.exists(): return`. |
-| **Parametrize key behaviors** | In at least one high-value file (e.g. `test_ei_v2.py` or `test_book_renderer.py`), add `@pytest.mark.parametrize` for multiple inputs (safe/unsafe text, different slot types) so one test function covers several cases. |
+Run only sanity tests for quick feedback:  
+`pytest -m sanity -v`
 
-### 3.2 Short term (robustness)
-
-| Fix | Action |
-|-----|--------|
-| **Replace silent skips with explicit skip or fail** | Where tests do `if not bindings_path.exists(): return`, replace with `pytest.skip("Fixture missing: ...")` or `pytest.importorskip` / require fixture and `pytest.raise` so CI and developers see the reason. |
-| **Add pytest-cov to CI** | Add `pytest-cov` to `requirements-test.txt`; in core-tests (or a separate job), run `pytest --cov=phoenix_v4 --cov-report=term-missing --cov-fail-under=50` (or a chosen threshold). Start low (e.g. 40%); raise over time. |
-| **Mark and document slow tests** | Ensure every long-running test is marked `@pytest.mark.slow` and listed in FULL_REPO_TEST_SUITE_PLAN; add a weekly or release job that runs the full suite including slow. |
-
-### 3.3 Medium term (intelligence)
-
-| Fix | Action |
-|-----|--------|
-| **Property-based tests for resolvers and scoring** | Add Hypothesis for: `_selector_index(key, n)` always in `[0, n)`; safety classifier output risk in [0,1]; composite scores bounded. One new file e.g. `tests/test_property_resolvers.py`. |
-| **Contract tests for renderer and delivery** | Encode “delivery contract” (no `---`, no `===CHAPTER`, no unresolved `{var}`) and word-count bounds in a small contract test that runs on a set of plan + rendered outputs (golden or generated). |
-| **Golden / snapshot for critical outputs** | For Tier 0 manuscript output or EI V2 comparison report shape, add a golden file and a test that compares structure (and optionally key fields) so format regressions are caught. |
-
-### 3.4 Optional (further intelligence)
-
-| Fix | Action |
-|-----|--------|
-| **Mutation testing** | Use `mutmut` or similar on a subset of modules (e.g. slot_resolver, safety_classifier) to find tests that don’t actually detect changes. |
-| **Fuzz safety classifier** | Feed random or mutated text into the safety classifier and assert it never crashes and risk stays in [0,1]. |
-| **Structured coverage** | Use coverage to find untested branches in `phoenix_v4/quality/` and `phoenix_v4/rendering/` and add targeted tests. |
+Run sanity + intelligent (no slow):  
+`pytest -m "sanity or intelligent" -v`
 
 ---
 
-## 4. Conftest improvements (fail fast)
+## 3. Test inventory (robust / intelligent)
 
-**Current:** `conftest.py` provides `repo_root`, `fixtures_dir`, `config_root`, `atoms_root`.
+| Test file | What it does |
+|-----------|---------------|
+| **tests/test_robust_intelligent.py** | Locale-registry ↔ content_roots consistency; required fields per locale; EU catalogue presence; no duplicate IDs; locale_groups subset; critical YAML load; marketing config structure; tts_locale_code vs locale ID. |
 
-**Add (optional):**
-
-- **`require_fixtures_dir`** — fixture that fails the test with a clear message if `fixtures_dir` is missing or empty for required subdirs (e.g. `fixtures/atoms`, `fixtures/bindings`). Tests that need these request `require_fixtures_dir` instead of silently returning.
-- **`golden_bindings_path`** — returns `fixtures_dir / "bindings" / "golden_test_bindings.yaml"` and uses `pytest.skip("...")` if missing, so the skip is visible in the run.
-
-Example pattern for tests that currently do silent return:
-
-```python
-def test_used_ids_excluded(golden_bindings_path):
-    if golden_bindings_path is None:
-        pytest.skip("golden_test_bindings.yaml not found")
-    # ... rest of test
-```
-
-Or a strict fixture that fails:
-
-```python
-@pytest.fixture
-def require_golden_bindings(fixtures_dir):
-    p = fixtures_dir / "bindings" / "golden_test_bindings.yaml"
-    if not p.exists():
-        raise FileNotFoundError(f"Required fixture missing: {p}")
-    return p
-```
+All tests in this file are fast and run in core-tests.
 
 ---
 
-## 5. Coverage in CI
+## 4. Fixtures (conftest.py)
 
-1. Add to `requirements-test.txt`: `pytest-cov>=4.0`
-2. In `.github/workflows/core-tests.yml`, add an optional step (or a separate job) after “Run fast/core pytest”:
-   - Run: `PYTHONPATH=. python -m pytest tests/ -m "not slow" --cov=phoenix_v4 --cov-report=term-missing --cov-fail-under=40 -v --tb=short`
-   - Start with `--cov-fail-under=40`; once green, raise to 50 and then 60 as you add tests.
-3. Optionally upload `coverage.xml` and use a coverage badge or status check.
+| Fixture | Scope | Purpose |
+|---------|--------|---------|
+| `repo_root` | function | Repo root path |
+| `fixtures_dir` | function | tests/fixtures |
+| `config_root` | function | config/ |
+| `atoms_root` | function | atoms/ (or ATOMS_ROOT env) |
+| `locale_registry_path` | session | Path to locale_registry.yaml |
+| `locale_registry` | session | Loaded locale_registry.yaml |
+| `content_roots_path` | session | Path to content_roots_by_locale.yaml |
+| `content_roots` | session | Loaded content_roots_by_locale.yaml |
+| `all_locale_ids` | session | List of all locale IDs (for parametrization) |
 
----
-
-## 6. Parametrization examples
-
-**Safety classifier (test_ei_v2.py):**
-
-```python
-@pytest.mark.parametrize("text,expect_high_risk", [
-    (SAMPLE_STORY_SAFE, False),
-    (SAMPLE_STORY_UNSAFE, True),
-    ("Sign up now for my exclusive program.", True),
-    ("", False),
-])
-def test_safety_classifier_parametrized(text, expect_high_risk):
-    from phoenix_v4.quality.ei_v2.safety_classifier import classify_safety
-    r = classify_safety(text)
-    if expect_high_risk:
-        assert r["risk_score"] > 0.3
-    else:
-        assert r["risk_score"] <= 0.5
-```
-
-**Placeholder / silence (test_book_renderer.py):**
-
-```python
-@pytest.mark.parametrize("atom_id,is_placeholder,slot_type", [
-    ("placeholder:STORY:ch0:slot2", True, "STORY"),
-    ("silence:REFLECTION:ch1:slot3", True, "REFLECTION"),
-    ("nyc_executives_self_worth_shame_EMBODIMENT_v04", False, None),
-])
-def test_placeholder_silence_helpers_parametrized(atom_id, is_placeholder, slot_type):
-    assert _is_placeholder_or_silence(atom_id) == is_placeholder
-    if slot_type:
-        assert _slot_type_from_placeholder_or_silence(atom_id) == slot_type
-```
+Session-scoped config fixtures avoid reloading the same YAML for every test.
 
 ---
 
-## 7. Property-based example (Hypothesis)
+## 5. Timeout
 
-Optional dependency: `hypothesis` in `requirements-test.txt`.
-
-```python
-# tests/test_property_resolvers.py
-from hypothesis import given, strategies as st
-
-@given(key=st.text(min_size=1, max_size=200), n=st.integers(min_value=1, max_value=1000))
-def test_selector_index_in_range(key, n):
-    from phoenix_v4.planning.slot_resolver import _selector_index
-    idx = _selector_index(key, n)
-    assert 0 <= idx < n
-```
+- **pytest-timeout** is in `requirements-test.txt`.
+- **pytest.ini** sets `timeout = 120` (seconds per test) by default.
+- Override per test: `@pytest.mark.timeout(30)`.
+- Prevents a single hung test from blocking CI; on timeout pytest reports the test and continues (or fails the run, depending on config).
 
 ---
 
-## 8. References
+## 6. Adding more robust / intelligent tests
 
-- [FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md) — Test inventory, CI matrix, phases
+1. **New sanity check:** Validate a critical config or contract; use `@pytest.mark.sanity`; keep it fast (no I/O beyond config load).
+2. **New data-driven check:** Parametrize over `all_locale_ids` or over a list of config paths; use `locale_registry` / `content_roots` fixtures; use `@pytest.mark.intelligent`.
+3. **Required keys:** If the schema gains new required keys, update `LOCALE_REGISTRY_REQUIRED_KEYS` or `CONTENT_ROOTS_REQUIRED_KEYS` in `test_robust_intelligent.py` and extend the assertion.
+
+---
+
+## 7. References
+
+- [FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md) — Full test suite plan, CI coverage, phases
 - [DOCS_INDEX.md](./DOCS_INDEX.md) — Test suite (document all) section
-- [RIGOROUS_SYSTEM_TEST.md](./RIGOROUS_SYSTEM_TEST.md) — Production 100% and simulation vs real canaries
+- [.github/workflows/core-tests.yml](../.github/workflows/core-tests.yml) — Core CI: `pytest -m "not slow"`, production gates
+- [tests/conftest.py](../tests/conftest.py) — Shared fixtures
+- [pytest.ini](../pytest.ini) — Markers, timeout, testpaths
