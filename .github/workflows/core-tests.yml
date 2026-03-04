@@ -11,6 +11,7 @@ on:
 
 jobs:
   core-tests:
+    name: Core tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
