@@ -43,6 +43,8 @@ REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
 from phoenix_v4.quality.ei_v2.config import load_ei_v2_config
+from phoenix_v4.quality.ei_v2.dimension_gates import enforce_chapter_gates
+from phoenix_v4.quality.ei_v2.hybrid_selector import hybrid_select
 from phoenix_v4.quality.ei_v2.safety_classifier import classify_safety
 from phoenix_v4.quality.ei_v2.tts_readability import score_tts_readability
 from phoenix_v4.quality.ei_v2.emotion_arc_validator import validate_emotion_arc
@@ -270,6 +272,17 @@ class BookEvalResult:
     v1v2_avg_v1_ms: float = 0.0
     v1v2_avg_v2_ms: float = 0.0
     v1v2_details: Dict[str, Any] = field(default_factory=dict)
+    # Dimension gates (from enforce_chapter_gates)
+    dim_gate_fail_count: int = 0
+    dim_gate_warn_count: int = 0
+    dim_gate_chapters_with_fail: int = 0
+    dim_gate_chapters_with_warn: int = 0
+    dim_gate_per_dim_pass: Dict[str, int] = field(default_factory=dict)
+    # Hybrid override (from hybrid_select)
+    hybrid_total_slots: int = 0
+    hybrid_override_count: int = 0
+    hybrid_block_count: int = 0
+    hybrid_override_success_count: int = 0
     # Timing
     compile_ms: float = 0.0
     render_ms: float = 0.0
@@ -399,15 +412,37 @@ def evaluate_book(persona_id: str, topic_id: str, engine: str, fmt: str) -> Opti
             if "arc" in iss.lower() or "deviation" in iss.lower() or "band" in iss.lower():
                 result.arc_issues.append(f"ch{ev.chapter_index}: {iss}")
 
-    # ── V1 vs V2 Parallel Slot Comparison ──
+    # ── Dimension gates (enforce_chapter_gates) ──
+    v2_cfg = load_ei_v2_config()
+    dim_gate_cfg = v2_cfg.get("dimension_gates", {})
+    dim_names = ("uniqueness", "engagement", "somatic_precision", "listen_experience", "cohesion")
+    per_dim_pass: Dict[str, int] = {d: 0 for d in dim_names}
+    chapters_with_fail = 0
+    chapters_with_warn = 0
+    for ch_idx, ch_text in enumerate(chapter_texts):
+        gate_report = enforce_chapter_gates(ch_text, ch_idx, chapter_texts, dim_gate_cfg)
+        result.dim_gate_fail_count += gate_report.fail_count
+        result.dim_gate_warn_count += gate_report.warn_count
+        if gate_report.fail_count > 0:
+            chapters_with_fail += 1
+        if gate_report.warn_count > 0:
+            chapters_with_warn += 1
+        for g in gate_report.gates:
+            if g.dimension in per_dim_pass and g.status == "PASS":
+                per_dim_pass[g.dimension] += 1
+    result.dim_gate_per_dim_pass = per_dim_pass
+    result.dim_gate_chapters_with_fail = chapters_with_fail
+    result.dim_gate_chapters_with_warn = chapters_with_warn
+
+    # ── V1 vs V2 Parallel Slot Comparison + Hybrid Override ──
     t0 = time.monotonic()
     v1_cfg = {"selector": "ga_best"}
-    v2_cfg = load_ei_v2_config()
     slot_comparisons = []
 
     for ch_idx, (ch_text, slot_atoms) in enumerate(zip(chapter_texts, chapter_slot_atoms)):
         band = band_seq[ch_idx] if ch_idx < len(band_seq) else None
         role = role_seq[ch_idx] if ch_idx < len(role_seq) else ""
+        arc_intent = {"band": band, "emotional_role": role, "chapter_index": ch_idx}
         for s_idx, sa in enumerate(slot_atoms):
             all_candidates_for_slot = [
                 {"id": a["atom_id"], "text": a["prose"]}
@@ -428,9 +463,33 @@ def evaluate_book(persona_id: str, topic_id: str, engine: str, fmt: str) -> Opti
                     v1_cfg=v1_cfg,
                     v2_cfg=v2_cfg,
                     chapter_text=ch_text,
-                    arc_intent={"band": band, "emotional_role": role, "chapter_index": ch_idx},
+                    arc_intent=arc_intent,
                 )
                 slot_comparisons.append(comparison)
+            except Exception:
+                pass
+            # Hybrid override stats (same slots as compare_slot)
+            try:
+                hd = hybrid_select(
+                    slot=sa["slot"],
+                    chapter_index=ch_idx,
+                    slot_index=s_idx,
+                    candidates_raw=all_candidates_for_slot,
+                    persona_id=persona_id,
+                    topic_id=topic_id,
+                    thesis=thesis,
+                    v1_cfg=v1_cfg,
+                    v2_cfg=v2_cfg,
+                    chapter_text=ch_text,
+                    arc_intent=arc_intent,
+                )
+                result.hybrid_total_slots += 1
+                if hd.override_applied:
+                    result.hybrid_override_count += 1
+                    if hd.v2_composite_v2winner > hd.v1_composite:
+                        result.hybrid_override_success_count += 1
+                if hd.block_applied:
+                    result.hybrid_block_count += 1
             except Exception:
                 pass
 
@@ -586,6 +645,22 @@ def build_summary(results: List[BookEvalResult], total_time_s: float) -> str:
     return "\n".join(lines)
 
 
+def _build_dimension_gate_summary(results: List[BookEvalResult]) -> Dict[str, Any]:
+    total_chapters = sum(r.total_chapters for r in results)
+    dim_names = ("uniqueness", "engagement", "somatic_precision", "listen_experience", "cohesion")
+    pass_rates = {}
+    for dim in dim_names:
+        passed = sum(r.dim_gate_per_dim_pass.get(dim, 0) for r in results)
+        pass_rates[dim] = round(passed / max(1, total_chapters), 4)
+    return {
+        "total_chapters": total_chapters,
+        "total_fail_count": sum(r.dim_gate_chapters_with_fail for r in results),
+        "total_warn_count": sum(r.dim_gate_chapters_with_warn for r in results),
+        "dimension_pass_rates": pass_rates,
+        "failures_per_book": [r.dim_gate_fail_count for r in results],
+    }
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--full", action="store_true", help="Run all 7 working books")
@@ -657,6 +732,13 @@ def main() -> int:
             "avg_eval_ms": round(statistics.mean(r.eval_ms for r in results), 1),
             "avg_v1v2_ms": round(statistics.mean(r.v1v2_ms for r in results), 1),
             "avg_total_ms": round(statistics.mean(r.total_ms for r in results), 1),
+        },
+        "dimension_gate_summary": _build_dimension_gate_summary(results),
+        "hybrid_override": {
+            "total_slots": sum(r.hybrid_total_slots for r in results),
+            "override_count": sum(r.hybrid_override_count for r in results),
+            "block_count": sum(r.hybrid_block_count for r in results),
+            "override_success_count": sum(r.hybrid_override_success_count for r in results),
         },
         "books": [asdict(r) for r in results],
     }

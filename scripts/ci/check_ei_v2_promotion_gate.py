@@ -211,6 +211,116 @@ def check_safety_gate(
     return len(issues) == 0, issues
 
 
+def check_dimension_gates_gate(
+    eval_data: Dict[str, Any],
+    criteria: Dict[str, Any],
+) -> tuple[bool, List[str]]:
+    """Gate 4: Dimension enforcement — per-chapter quality gates must pass."""
+    dg_cfg = criteria.get("dimension_gates", {})
+    issues: List[str] = []
+
+    dg_summary = eval_data.get("dimension_gate_summary")
+    if not dg_summary:
+        issues.append(
+            "dimension_gate_summary missing in eval report — "
+            "run rigorous eval with dimension gates enabled"
+        )
+        return False, issues
+
+    total_chapters = int(dg_summary.get("total_chapters", 0))
+    if total_chapters == 0:
+        return True, []
+
+    fail_count = int(dg_summary.get("total_fail_count", 0))
+    warn_count = int(dg_summary.get("total_warn_count", 0))
+
+    max_fail_rate = float(dg_cfg.get("max_chapter_fail_rate", 0.20))
+    fail_rate = fail_count / total_chapters
+    if fail_rate > max_fail_rate:
+        issues.append(
+            f"chapter_fail_rate {fail_rate:.2%} > max {max_fail_rate:.0%} "
+            f"({fail_count} fails / {total_chapters} chapters)"
+        )
+
+    max_warn_rate = float(dg_cfg.get("max_warn_rate", 0.50))
+    warn_rate = warn_count / total_chapters
+    if warn_rate > max_warn_rate:
+        issues.append(
+            f"chapter_warn_rate {warn_rate:.2%} > max {max_warn_rate:.0%} "
+            f"({warn_count} warns / {total_chapters} chapters)"
+        )
+
+    min_pass_rates = dg_cfg.get("min_dimension_pass_rates", {})
+    dim_pass_rates = dg_summary.get("dimension_pass_rates", {})
+    for dim, min_rate in min_pass_rates.items():
+        actual = dim_pass_rates.get(dim, 0)
+        if actual < float(min_rate):
+            issues.append(f"{dim} pass_rate {actual:.2%} < min {min_rate:.0%}")
+
+    max_failures_per_book = int(dg_cfg.get("max_total_gate_failures_per_book", 3))
+    per_book_failures = dg_summary.get("failures_per_book", [])
+    for i, count in enumerate(per_book_failures):
+        if count > max_failures_per_book:
+            issues.append(
+                f"book {i} gate_failures {count} > max {max_failures_per_book}"
+            )
+
+    return len(issues) == 0, issues
+
+
+def check_hybrid_override_gate(
+    eval_data: Dict[str, Any],
+    criteria: Dict[str, Any],
+) -> tuple[bool, List[str]]:
+    """Gate 5: Hybrid override quality — overrides must improve outcomes."""
+    ho_cfg = criteria.get("hybrid_override", {})
+    issues: List[str] = []
+
+    ho_data = eval_data.get("hybrid_override")
+    if not ho_data:
+        issues.append(
+            "hybrid_override data missing in eval report — "
+            "run rigorous eval with --hybrid to collect override/block statistics"
+        )
+        return False, issues
+
+    total_slots = int(ho_data.get("total_slots", 0))
+    override_count = int(ho_data.get("override_count", 0))
+    block_count = int(ho_data.get("block_count", 0))
+    override_success_count = int(ho_data.get("override_success_count", 0))
+
+    if total_slots == 0:
+        return True, []
+
+    min_success_rate = float(ho_cfg.get("min_override_success_rate", 0.60))
+    if override_count > 0:
+        success_rate = override_success_count / override_count
+        if success_rate < min_success_rate:
+            issues.append(
+                f"override_success_rate {success_rate:.2%} < min {min_success_rate:.0%} "
+                f"({override_success_count}/{override_count} overrides improved)"
+            )
+    # When override_count==0, success rate is vacuously 1.0 — pass
+
+    max_override_rate = float(ho_cfg.get("max_override_rate", 0.40))
+    override_rate = override_count / total_slots
+    if override_rate > max_override_rate:
+        issues.append(
+            f"override_rate {override_rate:.2%} > max {max_override_rate:.0%} "
+            f"({override_count}/{total_slots} slots)"
+        )
+
+    max_block_rate = float(ho_cfg.get("max_block_rate", 0.20))
+    block_rate = block_count / total_slots
+    if block_rate > max_block_rate:
+        issues.append(
+            f"block_rate {block_rate:.2%} > max {max_block_rate:.0%} "
+            f"({block_count}/{total_slots} slots)"
+        )
+
+    return len(issues) == 0, issues
+
+
 def update_history(
     history_path: Path,
     passed: bool,
@@ -273,19 +383,29 @@ def main() -> int:
     q_pass, q_issues = check_quality_gate(eval_data, criteria)
     p_pass, p_issues = check_performance_gate(eval_data, criteria)
     s_pass, s_issues = check_safety_gate(eval_data, criteria)
+    dg_pass, dg_issues = check_dimension_gates_gate(eval_data, criteria)
+    ho_pass, ho_issues = check_hybrid_override_gate(eval_data, criteria)
 
-    all_pass = q_pass and p_pass and s_pass
+    all_pass = q_pass and p_pass and s_pass and dg_pass and ho_pass
 
-    print(f"\n  Gate 1 — Quality:      {'PASS' if q_pass else 'FAIL'}")
+    print(f"\n  Gate 1 — Quality:         {'PASS' if q_pass else 'FAIL'}")
     for iss in q_issues:
         print(f"    - {iss}")
 
-    print(f"  Gate 2 — Performance:  {'PASS' if p_pass else 'FAIL'}")
+    print(f"  Gate 2 — Performance:   {'PASS' if p_pass else 'FAIL'}")
     for iss in p_issues:
         print(f"    - {iss}")
 
-    print(f"  Gate 3 — Safety:       {'PASS' if s_pass else 'FAIL'}")
+    print(f"  Gate 3 — Safety:        {'PASS' if s_pass else 'FAIL'}")
     for iss in s_issues:
+        print(f"    - {iss}")
+
+    print(f"  Gate 4 — Dimension gates: {'PASS' if dg_pass else 'FAIL'}")
+    for iss in dg_issues:
+        print(f"    - {iss}")
+
+    print(f"  Gate 5 — Hybrid override: {'PASS' if ho_pass else 'FAIL'}")
+    for iss in ho_issues:
         print(f"    - {iss}")
 
     promo_cfg = criteria.get("promotion", {})
@@ -326,6 +446,8 @@ def main() -> int:
         "gate_1_quality": {"pass": q_pass, "issues": q_issues},
         "gate_2_performance": {"pass": p_pass, "issues": p_issues},
         "gate_3_safety": {"pass": s_pass, "issues": s_issues},
+        "gate_4_dimension_gates": {"pass": dg_pass, "issues": dg_issues},
+        "gate_5_hybrid_override": {"pass": ho_pass, "issues": ho_issues},
         "eval_summary": {
             "overall_composite": eval_data.get("quality_scores", {}).get("overall_composite"),
             "safety_compliance": eval_data.get("quality_scores", {}).get("safety_compliance"),

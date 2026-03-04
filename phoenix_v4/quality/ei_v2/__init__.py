@@ -182,18 +182,18 @@ def _select_v2_best(
         if cr.rerank_score is not None:
             score += w_rerank * cr.rerank_score
 
-        if cr.safety:
+        if isinstance(cr.safety, dict):
             risk = float(cr.safety.get("risk_score", 0.0))
             score += w_safety * (1.0 - risk)
 
         if cr.domain_similarity is not None:
             score += w_domain * cr.domain_similarity
 
-        if cr.tts_readability:
+        if isinstance(cr.tts_readability, dict):
             readability = float(cr.tts_readability.get("composite", 0.5))
             score += w_tts * readability
 
-        if score > best_score:
+        if score > best_score or (score == best_score and cid < best_id):
             best_score = score
             best_id = cid
 

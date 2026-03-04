@@ -65,6 +65,26 @@ safety:
   # V2 must not flag 0 issues when V1 flags >0 (no silent drops)
   require_v2_catches_v1_flags: true
 
+# ── Gate 4: Dimension Enforcement ──
+# Per-chapter quality gates must pass. Fail = too many weak chapters.
+dimension_gates:
+  max_chapter_fail_rate: 0.20    # Max fraction of chapters with FAIL gates
+  max_warn_rate: 0.50            # Max fraction of chapters with WARN gates
+  min_dimension_pass_rates:
+    uniqueness: 0.70
+    engagement: 0.60
+    somatic_precision: 0.60
+    listen_experience: 0.70
+    cohesion: 0.60
+  max_total_gate_failures_per_book: 3
+
+# ── Gate 5: Hybrid Override Quality ──
+# When V2 overrides V1, the override must improve outcomes.
+hybrid_override:
+  min_override_success_rate: 0.60  # Fraction of overrides that improved outcome
+  max_override_rate: 0.40          # V2 shouldn't override too aggressively
+  max_block_rate: 0.20             # Block rate should be low (V1 isn't usually dangerous)
+
 # ── Promotion Lock ──
 # How many consecutive CI passes are required before V2 can be promoted.
 # Prevents a single lucky run from triggering promotion.
