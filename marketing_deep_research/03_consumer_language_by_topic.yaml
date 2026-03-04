@@ -1,0 +1,121 @@
+# ============================================================
+# SCAFFOLD: Consumer Language by Topic (Prompt 3)
+# Target: config/marketing/consumer_language_by_topic.yaml (NEW)
+# Also feeds: title engine config, compliance filter
+# DO NOT EDIT: canonical_topics.yaml topic IDs,
+#              canonical_personas.yaml persona IDs
+# ============================================================
+
+provenance:
+  run_date: "2026-03-04"
+  model: "claude-opus-4-6 via deep research"
+  temperature: 0.0
+  prompt_id: "3"
+  source_links: []
+  confidence: "TBD"
+  reviewer: "TBD"
+  notes: ""
+
+# ── Per-topic consumer language mapping ─────────────────────
+
+topics:
+
+  - topic_id: anxiety
+    consumer_phrases:              # how real people search
+      - ""                         # e.g. "how to stop feeling anxious all the time"
+      - ""                         # e.g. "why do I feel anxious for no reason"
+      - ""
+      - ""
+      - ""
+      - ""
+      - ""
+      - ""
+      - ""
+      - ""
+    banned_clinical_terms:         # NEVER use in consumer titles
+      - ""                         # e.g. "generalized anxiety disorder"
+      - ""                         # e.g. "anxiolytic"
+    culture_specific_phrases:
+      - ""                         # e.g. "Sunday scaries"
+      - ""                         # e.g. "doom scrolling anxiety"
+    persona_subtitle_patterns:     # subtitle signals
+      - ""                         # e.g. "for overthinkers who can't turn it off"
+      - ""                         # e.g. "when your mind won't stop"
+
+  - topic_id: burnout
+    consumer_phrases: []
+    banned_clinical_terms: []
+    culture_specific_phrases: []
+    persona_subtitle_patterns: []
+
+  - topic_id: overthinking
+    consumer_phrases: []
+    banned_clinical_terms: []
+    culture_specific_phrases: []
+    persona_subtitle_patterns: []
+
+  - topic_id: imposter_syndrome
+    consumer_phrases: []
+    banned_clinical_terms: []
+    culture_specific_phrases: []
+    persona_subtitle_patterns: []
+
+  - topic_id: sleep_anxiety
+    consumer_phrases: []
+    banned_clinical_terms: []
+    culture_specific_phrases: []
+    persona_subtitle_patterns: []
+
+  - topic_id: financial_stress
+    consumer_phrases: []
+    banned_clinical_terms: []
+    culture_specific_phrases: []
+    persona_subtitle_patterns: []
+
+  - topic_id: grief
+    consumer_phrases: []
+    banned_clinical_terms: []
+    culture_specific_phrases: []
+    persona_subtitle_patterns: []
+
+  - topic_id: boundaries
+    consumer_phrases: []
+    banned_clinical_terms: []
+    culture_specific_phrases: []
+    persona_subtitle_patterns: []
+
+  - topic_id: somatic_healing
+    consumer_phrases: []
+    banned_clinical_terms: []
+    culture_specific_phrases: []
+    persona_subtitle_patterns: []
+
+  - topic_id: depression
+    consumer_phrases: []
+    banned_clinical_terms: []
+    culture_specific_phrases: []
+    persona_subtitle_patterns: []
+
+  - topic_id: compassion_fatigue
+    consumer_phrases: []
+    banned_clinical_terms: []
+    culture_specific_phrases: []
+    persona_subtitle_patterns: []
+
+  - topic_id: courage
+    consumer_phrases: []
+    banned_clinical_terms: []
+    culture_specific_phrases: []
+    persona_subtitle_patterns: []
+
+  - topic_id: self_worth
+    consumer_phrases: []
+    banned_clinical_terms: []
+    culture_specific_phrases: []
+    persona_subtitle_patterns: []
+
+  - topic_id: social_anxiety
+    consumer_phrases: []
+    banned_clinical_terms: []
+    culture_specific_phrases: []
+    persona_subtitle_patterns: []

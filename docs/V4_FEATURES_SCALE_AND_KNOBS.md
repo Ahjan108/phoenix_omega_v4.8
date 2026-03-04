@@ -3,6 +3,8 @@
 **Purpose:** Single reference for (1) all V4 features, (2) scale-related components and anti-spam assurance, (3) every configurable knob (config, thresholds, CLI).  
 **Authority:** Backed by [docs/SYSTEMS_V4.md](SYSTEMS_V4.md), [specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md](../specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md), and the scripts/config listed below.
 
+**Document all:** Full inventory of every doc, script, config, and artifact for this domain is in [docs/DOCS_INDEX.md](DOCS_INDEX.md) § [V4 features, scale & knobs (document all)](DOCS_INDEX.md#v4-features-scale--knobs-document-all). Use that section to verify coverage or find an asset by role.
+
 ---
 
 ## 1. All V4 Features

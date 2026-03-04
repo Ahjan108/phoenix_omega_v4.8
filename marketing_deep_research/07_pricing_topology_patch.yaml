@@ -1,0 +1,115 @@
+# ============================================================
+# SCAFFOLD: Pricing Topology & Discount Psychology (Prompt 7)
+# Target: config/catalog_planning/brand_archetype_registry.yaml
+# Patchable fields: pricing_posture.micro_sessions,
+#                   pricing_posture.deep_dives,
+#                   pricing_posture.discount_ratio
+# Constraint: discount_ratio >= 0.20
+# DO NOT EDIT: brand_id, admin_id
+# ============================================================
+
+provenance:
+  run_date: "2026-03-04"
+  model: "claude-opus-4-6 via deep research"
+  temperature: 0.0
+  prompt_id: "7"
+  source_links: []
+  confidence: "TBD"
+  reviewer: "TBD"
+  notes: ""
+
+# ── Market-level pricing data ───────────────────────────────
+
+competitor_benchmarks:
+  micro_sessions:                      # 15–30 min
+    market_low: 0.00
+    market_avg: 0.00
+    market_high: 0.00
+    currency: "USD"
+  mid_form:                            # 45–90 min
+    market_low: 0.00
+    market_avg: 0.00
+    market_high: 0.00
+  deep_dives:                          # 3–6 hr
+    market_low: 0.00
+    market_avg: 0.00
+    market_high: 0.00
+
+platform_constraints:
+  google_play:
+    parity_rule: "price ≤ price on any other platform"
+    bundle_tiers:
+      - { discount_pct: 15, min_items: 0, notes: "" }
+      - { discount_pct: 25, min_items: 0, notes: "" }
+      - { discount_pct: 35, min_items: 0, notes: "" }
+    notes: ""
+  audible:
+    credit_model_notes: ""             # how credits affect perceived pricing
+    a_la_carte_notes: ""
+  spotify:
+    pricing_model: ""                  # e.g. "included in subscription" or "premium audiobook"
+    notes: ""
+
+# ── Price psychology findings ───────────────────────────────
+
+anchoring_strategy:
+  higher_base_with_discount:
+    effectiveness: ""                  # e.g. "outperforms by 15–25%"
+    evidence: ""
+  lower_everyday_price:
+    effectiveness: ""
+    evidence: ""
+  recommendation: ""
+
+discount_psychology:
+  optimal_catalog_discount_ratio: 0.0  # % of catalog on discount at any time
+  discount_fatigue_threshold: ""       # at what point do discounts devalue
+  notes: ""
+
+price_sensitivity_by_audience:
+  burnout: ""                          # e.g. "low sensitivity — willing to pay premium"
+  adhd_focus: ""
+  career: ""
+  sleep: ""
+  grief: ""
+  gen_z: ""
+
+# ── Recommended pricing posture ─────────────────────────────
+
+recommended_posture:
+  micro_sessions:
+    range_low: 0.00
+    range_high: 0.00
+    sweet_spot: 0.00
+  mid_form:
+    range_low: 0.00
+    range_high: 0.00
+    sweet_spot: 0.00
+  deep_dives:
+    range_low: 0.00
+    range_high: 0.00
+    sweet_spot: 0.00
+  discount_ratio: 0.20                 # minimum per validator
+
+# ── Per-brand pricing_posture patches ───────────────────────
+
+brand_pricing_patches:
+  - brand_id: nervous_system_regulation
+    pricing_posture:
+      micro_sessions: { range_low: 0.00, range_high: 0.00 }
+      deep_dives: { range_low: 0.00, range_high: 0.00 }
+      discount_ratio: 0.20
+
+  - brand_id: sleep_repair
+    pricing_posture:
+      micro_sessions: { range_low: 0.00, range_high: 0.00 }
+      deep_dives: { range_low: 0.00, range_high: 0.00 }
+      discount_ratio: 0.20
+
+  - brand_id: adhd_systems
+    pricing_posture:
+      micro_sessions: { range_low: 0.00, range_high: 0.00 }
+      deep_dives: { range_low: 0.00, range_high: 0.00 }
+      discount_ratio: 0.20
+
+  # ... (all 24 brands — populated from research)

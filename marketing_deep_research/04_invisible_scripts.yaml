@@ -1,0 +1,498 @@
+# ============================================================
+# SCAFFOLD: Invisible Scripts by Persona × Topic (Prompt 4)
+# Target: config/marketing/invisible_scripts_by_persona_topic.yaml (NEW)
+# Also feeds: HOOK atoms, title engine seeds
+# DO NOT EDIT: unified_personas.md persona IDs,
+#              canonical_topics.yaml topic IDs
+# ============================================================
+
+provenance:
+  run_date: "2026-03-04"
+  model: "claude-opus-4-6 via deep research"
+  temperature: 0.0
+  prompt_id: "4"
+  source_links: []
+  confidence: "TBD"
+  reviewer: "TBD"
+  notes: ""
+
+# 10 personas × 14 topics = up to 140 entries
+# Skip nonsensical combos and note reason in `skip_reason`
+
+personas:
+  - millennial_women_professionals
+  - tech_finance_burnout
+  - entrepreneurs
+  - working_parents
+  - gen_x_sandwich
+  - corporate_managers
+  - gen_z_professionals
+  - healthcare_rns
+  - gen_alpha_students
+  - first_responders
+
+topics:
+  - anxiety
+  - burnout
+  - boundaries
+  - grief
+  - overthinking
+  - imposter_syndrome
+  - sleep_anxiety
+  - financial_stress
+  - compassion_fatigue
+  - self_worth
+  - somatic_healing
+  - social_anxiety
+  - courage
+  - depression
+
+# ── Scripts ─────────────────────────────────────────────────
+
+scripts:
+
+  # ── millennial_women_professionals ────────────────────────
+  - persona_id: millennial_women_professionals
+    topic_id: anxiety
+    invisible_script: ""
+  - persona_id: millennial_women_professionals
+    topic_id: burnout
+    invisible_script: ""
+  - persona_id: millennial_women_professionals
+    topic_id: boundaries
+    invisible_script: ""
+  - persona_id: millennial_women_professionals
+    topic_id: grief
+    invisible_script: ""
+  - persona_id: millennial_women_professionals
+    topic_id: overthinking
+    invisible_script: ""
+  - persona_id: millennial_women_professionals
+    topic_id: imposter_syndrome
+    invisible_script: ""
+  - persona_id: millennial_women_professionals
+    topic_id: sleep_anxiety
+    invisible_script: ""
+  - persona_id: millennial_women_professionals
+    topic_id: financial_stress
+    invisible_script: ""
+  - persona_id: millennial_women_professionals
+    topic_id: compassion_fatigue
+    invisible_script: ""
+  - persona_id: millennial_women_professionals
+    topic_id: self_worth
+    invisible_script: ""
+  - persona_id: millennial_women_professionals
+    topic_id: somatic_healing
+    invisible_script: ""
+  - persona_id: millennial_women_professionals
+    topic_id: social_anxiety
+    invisible_script: ""
+  - persona_id: millennial_women_professionals
+    topic_id: courage
+    invisible_script: ""
+  - persona_id: millennial_women_professionals
+    topic_id: depression
+    invisible_script: ""
+
+  # ── tech_finance_burnout ──────────────────────────────────
+  - persona_id: tech_finance_burnout
+    topic_id: anxiety
+    invisible_script: ""
+  - persona_id: tech_finance_burnout
+    topic_id: burnout
+    invisible_script: ""
+  - persona_id: tech_finance_burnout
+    topic_id: boundaries
+    invisible_script: ""
+  - persona_id: tech_finance_burnout
+    topic_id: grief
+    invisible_script: ""
+  - persona_id: tech_finance_burnout
+    topic_id: overthinking
+    invisible_script: ""
+  - persona_id: tech_finance_burnout
+    topic_id: imposter_syndrome
+    invisible_script: ""
+  - persona_id: tech_finance_burnout
+    topic_id: sleep_anxiety
+    invisible_script: ""
+  - persona_id: tech_finance_burnout
+    topic_id: financial_stress
+    invisible_script: ""
+  - persona_id: tech_finance_burnout
+    topic_id: compassion_fatigue
+    invisible_script: ""
+  - persona_id: tech_finance_burnout
+    topic_id: self_worth
+    invisible_script: ""
+  - persona_id: tech_finance_burnout
+    topic_id: somatic_healing
+    invisible_script: ""
+  - persona_id: tech_finance_burnout
+    topic_id: social_anxiety
+    invisible_script: ""
+  - persona_id: tech_finance_burnout
+    topic_id: courage
+    invisible_script: ""
+  - persona_id: tech_finance_burnout
+    topic_id: depression
+    invisible_script: ""
+
+  # ── entrepreneurs ─────────────────────────────────────────
+  - persona_id: entrepreneurs
+    topic_id: anxiety
+    invisible_script: ""
+  - persona_id: entrepreneurs
+    topic_id: burnout
+    invisible_script: ""
+  - persona_id: entrepreneurs
+    topic_id: boundaries
+    invisible_script: ""
+  - persona_id: entrepreneurs
+    topic_id: grief
+    invisible_script: ""
+  - persona_id: entrepreneurs
+    topic_id: overthinking
+    invisible_script: ""
+  - persona_id: entrepreneurs
+    topic_id: imposter_syndrome
+    invisible_script: ""
+  - persona_id: entrepreneurs
+    topic_id: sleep_anxiety
+    invisible_script: ""
+  - persona_id: entrepreneurs
+    topic_id: financial_stress
+    invisible_script: ""
+  - persona_id: entrepreneurs
+    topic_id: compassion_fatigue
+    invisible_script: ""
+  - persona_id: entrepreneurs
+    topic_id: self_worth
+    invisible_script: ""
+  - persona_id: entrepreneurs
+    topic_id: somatic_healing
+    invisible_script: ""
+  - persona_id: entrepreneurs
+    topic_id: social_anxiety
+    invisible_script: ""
+  - persona_id: entrepreneurs
+    topic_id: courage
+    invisible_script: ""
+  - persona_id: entrepreneurs
+    topic_id: depression
+    invisible_script: ""
+
+  # ── working_parents ───────────────────────────────────────
+  - persona_id: working_parents
+    topic_id: anxiety
+    invisible_script: ""
+  - persona_id: working_parents
+    topic_id: burnout
+    invisible_script: ""
+  - persona_id: working_parents
+    topic_id: boundaries
+    invisible_script: ""
+  - persona_id: working_parents
+    topic_id: grief
+    invisible_script: ""
+  - persona_id: working_parents
+    topic_id: overthinking
+    invisible_script: ""
+  - persona_id: working_parents
+    topic_id: imposter_syndrome
+    invisible_script: ""
+  - persona_id: working_parents
+    topic_id: sleep_anxiety
+    invisible_script: ""
+  - persona_id: working_parents
+    topic_id: financial_stress
+    invisible_script: ""
+  - persona_id: working_parents
+    topic_id: compassion_fatigue
+    invisible_script: ""
+  - persona_id: working_parents
+    topic_id: self_worth
+    invisible_script: ""
+  - persona_id: working_parents
+    topic_id: somatic_healing
+    invisible_script: ""
+  - persona_id: working_parents
+    topic_id: social_anxiety
+    invisible_script: ""
+  - persona_id: working_parents
+    topic_id: courage
+    invisible_script: ""
+  - persona_id: working_parents
+    topic_id: depression
+    invisible_script: ""
+
+  # ── gen_x_sandwich ────────────────────────────────────────
+  - persona_id: gen_x_sandwich
+    topic_id: anxiety
+    invisible_script: ""
+  - persona_id: gen_x_sandwich
+    topic_id: burnout
+    invisible_script: ""
+  - persona_id: gen_x_sandwich
+    topic_id: boundaries
+    invisible_script: ""
+  - persona_id: gen_x_sandwich
+    topic_id: grief
+    invisible_script: ""
+  - persona_id: gen_x_sandwich
+    topic_id: overthinking
+    invisible_script: ""
+  - persona_id: gen_x_sandwich
+    topic_id: imposter_syndrome
+    invisible_script: ""
+  - persona_id: gen_x_sandwich
+    topic_id: sleep_anxiety
+    invisible_script: ""
+  - persona_id: gen_x_sandwich
+    topic_id: financial_stress
+    invisible_script: ""
+  - persona_id: gen_x_sandwich
+    topic_id: compassion_fatigue
+    invisible_script: ""
+  - persona_id: gen_x_sandwich
+    topic_id: self_worth
+    invisible_script: ""
+  - persona_id: gen_x_sandwich
+    topic_id: somatic_healing
+    invisible_script: ""
+  - persona_id: gen_x_sandwich
+    topic_id: social_anxiety
+    invisible_script: ""
+  - persona_id: gen_x_sandwich
+    topic_id: courage
+    invisible_script: ""
+  - persona_id: gen_x_sandwich
+    topic_id: depression
+    invisible_script: ""
+
+  # ── corporate_managers ────────────────────────────────────
+  - persona_id: corporate_managers
+    topic_id: anxiety
+    invisible_script: ""
+  - persona_id: corporate_managers
+    topic_id: burnout
+    invisible_script: ""
+  - persona_id: corporate_managers
+    topic_id: boundaries
+    invisible_script: ""
+  - persona_id: corporate_managers
+    topic_id: grief
+    invisible_script: ""
+  - persona_id: corporate_managers
+    topic_id: overthinking
+    invisible_script: ""
+  - persona_id: corporate_managers
+    topic_id: imposter_syndrome
+    invisible_script: ""
+  - persona_id: corporate_managers
+    topic_id: sleep_anxiety
+    invisible_script: ""
+  - persona_id: corporate_managers
+    topic_id: financial_stress
+    invisible_script: ""
+  - persona_id: corporate_managers
+    topic_id: compassion_fatigue
+    invisible_script: ""
+  - persona_id: corporate_managers
+    topic_id: self_worth
+    invisible_script: ""
+  - persona_id: corporate_managers
+    topic_id: somatic_healing
+    invisible_script: ""
+  - persona_id: corporate_managers
+    topic_id: social_anxiety
+    invisible_script: ""
+  - persona_id: corporate_managers
+    topic_id: courage
+    invisible_script: ""
+  - persona_id: corporate_managers
+    topic_id: depression
+    invisible_script: ""
+
+  # ── gen_z_professionals ───────────────────────────────────
+  - persona_id: gen_z_professionals
+    topic_id: anxiety
+    invisible_script: ""
+  - persona_id: gen_z_professionals
+    topic_id: burnout
+    invisible_script: ""
+  - persona_id: gen_z_professionals
+    topic_id: boundaries
+    invisible_script: ""
+  - persona_id: gen_z_professionals
+    topic_id: grief
+    invisible_script: ""
+  - persona_id: gen_z_professionals
+    topic_id: overthinking
+    invisible_script: ""
+  - persona_id: gen_z_professionals
+    topic_id: imposter_syndrome
+    invisible_script: ""
+  - persona_id: gen_z_professionals
+    topic_id: sleep_anxiety
+    invisible_script: ""
+  - persona_id: gen_z_professionals
+    topic_id: financial_stress
+    invisible_script: ""
+  - persona_id: gen_z_professionals
+    topic_id: compassion_fatigue
+    invisible_script: ""
+  - persona_id: gen_z_professionals
+    topic_id: self_worth
+    invisible_script: ""
+  - persona_id: gen_z_professionals
+    topic_id: somatic_healing
+    invisible_script: ""
+  - persona_id: gen_z_professionals
+    topic_id: social_anxiety
+    invisible_script: ""
+  - persona_id: gen_z_professionals
+    topic_id: courage
+    invisible_script: ""
+  - persona_id: gen_z_professionals
+    topic_id: depression
+    invisible_script: ""
+
+  # ── healthcare_rns ────────────────────────────────────────
+  - persona_id: healthcare_rns
+    topic_id: anxiety
+    invisible_script: ""
+  - persona_id: healthcare_rns
+    topic_id: burnout
+    invisible_script: ""
+  - persona_id: healthcare_rns
+    topic_id: boundaries
+    invisible_script: ""
+  - persona_id: healthcare_rns
+    topic_id: grief
+    invisible_script: ""
+  - persona_id: healthcare_rns
+    topic_id: overthinking
+    invisible_script: ""
+  - persona_id: healthcare_rns
+    topic_id: imposter_syndrome
+    invisible_script: ""
+  - persona_id: healthcare_rns
+    topic_id: sleep_anxiety
+    invisible_script: ""
+  - persona_id: healthcare_rns
+    topic_id: financial_stress
+    invisible_script: ""
+  - persona_id: healthcare_rns
+    topic_id: compassion_fatigue
+    invisible_script: ""
+  - persona_id: healthcare_rns
+    topic_id: self_worth
+    invisible_script: ""
+  - persona_id: healthcare_rns
+    topic_id: somatic_healing
+    invisible_script: ""
+  - persona_id: healthcare_rns
+    topic_id: social_anxiety
+    invisible_script: ""
+  - persona_id: healthcare_rns
+    topic_id: courage
+    invisible_script: ""
+  - persona_id: healthcare_rns
+    topic_id: depression
+    invisible_script: ""
+
+  # ── gen_alpha_students ────────────────────────────────────
+  - persona_id: gen_alpha_students
+    topic_id: anxiety
+    invisible_script: ""
+  - persona_id: gen_alpha_students
+    topic_id: burnout
+    invisible_script: ""
+  - persona_id: gen_alpha_students
+    topic_id: boundaries
+    invisible_script: ""
+  - persona_id: gen_alpha_students
+    topic_id: grief
+    invisible_script: ""
+  - persona_id: gen_alpha_students
+    topic_id: overthinking
+    invisible_script: ""
+  - persona_id: gen_alpha_students
+    topic_id: imposter_syndrome
+    invisible_script: ""
+  - persona_id: gen_alpha_students
+    topic_id: sleep_anxiety
+    invisible_script: ""
+  - persona_id: gen_alpha_students
+    topic_id: financial_stress
+    invisible_script: ""
+    skip_reason: ""                # note if combo doesn't apply
+  - persona_id: gen_alpha_students
+    topic_id: compassion_fatigue
+    invisible_script: ""
+    skip_reason: ""
+  - persona_id: gen_alpha_students
+    topic_id: self_worth
+    invisible_script: ""
+  - persona_id: gen_alpha_students
+    topic_id: somatic_healing
+    invisible_script: ""
+  - persona_id: gen_alpha_students
+    topic_id: social_anxiety
+    invisible_script: ""
+  - persona_id: gen_alpha_students
+    topic_id: courage
+    invisible_script: ""
+  - persona_id: gen_alpha_students
+    topic_id: depression
+    invisible_script: ""
+
+  # ── first_responders ──────────────────────────────────────
+  - persona_id: first_responders
+    topic_id: anxiety
+    invisible_script: ""
+  - persona_id: first_responders
+    topic_id: burnout
+    invisible_script: ""
+  - persona_id: first_responders
+    topic_id: boundaries
+    invisible_script: ""
+  - persona_id: first_responders
+    topic_id: grief
+    invisible_script: ""
+  - persona_id: first_responders
+    topic_id: overthinking
+    invisible_script: ""
+  - persona_id: first_responders
+    topic_id: imposter_syndrome
+    invisible_script: ""
+  - persona_id: first_responders
+    topic_id: sleep_anxiety
+    invisible_script: ""
+  - persona_id: first_responders
+    topic_id: financial_stress
+    invisible_script: ""
+  - persona_id: first_responders
+    topic_id: compassion_fatigue
+    invisible_script: ""
+  - persona_id: first_responders
+    topic_id: self_worth
+    invisible_script: ""
+  - persona_id: first_responders
+    topic_id: somatic_healing
+    invisible_script: ""
+  - persona_id: first_responders
+    topic_id: social_anxiety
+    invisible_script: ""
+  - persona_id: first_responders
+    topic_id: courage
+    invisible_script: ""
+  - persona_id: first_responders
+    topic_id: depression
+    invisible_script: ""
+
+# ── Skipped combinations ────────────────────────────────────
+skipped:
+  # - { persona_id: "gen_alpha_students", topic_id: "financial_stress", reason: "..." }

@@ -1,0 +1,11 @@
+# Governance and CI: require review from repo admins or designated owners.
+# Update the path below to your team or usernames.
+/.github/workflows/           @Ahjan108
+/scripts/ci/verify_github_governance.py   @Ahjan108
+/config/governance/           @Ahjan108
+/docs/GITHUB_GOVERNANCE.md    @Ahjan108
+/docs/GITHUB_GOVERNANCE_PLAN.md           @Ahjan108
+/docs/GITHUB_GOVERNANCE_INCIDENT_RUNBOOK.md @Ahjan108
+/docs/BRANCH_PROTECTION_REQUIREMENTS.md   @Ahjan108
+/docs/PRODUCTION_READINESS_GO_NO_GO.md    @Ahjan108
+/docs/RELEASE_PRODUCTION_READINESS_CHECKLIST.md @Ahjan108

@@ -241,6 +241,7 @@ Before merging research output into config, all of the following must pass:
 ## Related docs
 
 - [DOCS_INDEX.md](DOCS_INDEX.md) — Full doc index; this file is in [Marketing & deep research (document all)](DOCS_INDEX.md#marketing--deep-research-document-all)
+- [NEW_LANGUAGE_LOCATION_ONBOARDING.md](NEW_LANGUAGE_LOCATION_ONBOARDING.md) — **Locale onboarding:** Process and deep research prompts for adding a new language/location/topic/persona; market-driven; personas + topics (topic families) + authors + platforms + metadata + stories + writing spec + book titles.
 - [TITLE_AND_CATALOG_MARKETING_SYSTEM.md](TITLE_AND_CATALOG_MARKETING_SYSTEM.md)
 - [PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md)
 - [unified_personas.md](../unified_personas.md)
