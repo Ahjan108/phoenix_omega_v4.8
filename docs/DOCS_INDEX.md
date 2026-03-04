@@ -2,7 +2,7 @@
 
 **Purpose:** Canonical index for documentation authority and navigation.  
 **Missing-file policy:** Only existing files are linked; planned or missing files are listed as backlog items (plain text or `path` with ⚠️ *file not present*).  
-**Last updated:** 2026-03-03
+**Last updated:** 2026-03-04
 
 ---
 
@@ -262,27 +262,36 @@ Single index: every doc, spec, script, and config that uses or is fed by marketi
 | Item | Location |
 |------|----------|
 | **Deep research integration spec** | [specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md) — Narrative Depth Layer v1.0: `invisible_script` HOOK subtype, `belief_flip` STORY pattern, SCENE micro-failure, INTEGRATION `milestone_type`, arc quality test. Subordinate to Arc-First Canonical. Feeds: title philosophy, HOOK atoms, marketing brief (invisible_script, belief flip). |
+| **Title engine marketing config spec** | [specs/TITLE_ENGINE_MARKETING_CONFIG_SPEC.md](../specs/TITLE_ENGINE_MARKETING_CONFIG_SPEC.md) — Config layer authority: consumer_language_by_topic.yaml replaces COMPLIANCE_FILTER and topic-level vocabulary; invisible_scripts_by_persona_topic.yaml replaces TOPIC_VOCABULARY.invisible_scripts; config-driven loader with fallback; generate_invisible_script() persona×topic sourcing. **Implementation complete** (config, loader, compliance + invisible_script wiring, check_marketing_config.py, marketing-config-gate.yml). COMPLIANCE_FILTER is currently parallel; deprecation to single source of truth in spec §9. |
 
 ### Scripts / code (consumers of deep research outputs)
 
 | Item | Location |
 |------|----------|
 | **Title engine (v3)** | [phoenix_title_engine_v3.py](../phoenix_title_engine_v3.py) — `generate_invisible_script()`; title = search keyword + invisible script; persona×topic invisible_scripts in topic vocab |
-| **Title engine (v4)** | [phoenix_title_engine_v4.py](../phoenix_title_engine_v4.py) — Same; invisible_script in title generation pipeline |
+| **Title engine (v4)** | [phoenix_title_engine_v4.py](../phoenix_title_engine_v4.py) — Config-driven invisible_script + compliance; loads `MarketingConfigLoader` from `config/marketing/`; falls back to hardcoded TOPIC_VOCABULARY if config absent; generates persona×topic scripts deterministically |
 | **Title engine (legacy)** | [phoenix_title_engine.py](../phoenix_title_engine.py) — `invisible_script` in title model; picks from topic invisible_scripts |
 
-### Config (planned / output targets)
+### Config (marketing layer)
 
 | Item | Location |
 |------|----------|
-| **Invisible scripts by persona×topic** | `config/marketing/invisible_scripts_by_persona_topic.yaml` ⚠️ *file not present* — Target output from MARKETING_DEEP_RESEARCH_PROMPTS sub-prompt 4; fields: `persona_id`, `topic_id`, `invisible_script`. Feeds HOOK seeds and title engine. |
+| **Consumer language by topic** | [config/marketing/consumer_language_by_topic.yaml](../config/marketing/consumer_language_by_topic.yaml) — 14 topics × consumer_phrases, banned_clinical_terms, bridge_language, search_clusters, platform_risk_terms, persona_subtitle_patterns. Feeds title engine compliance filter and CI gate. Authority: marketing_deep_research/ scaffold 03. |
+| **Invisible scripts by persona×topic** | [config/marketing/invisible_scripts_by_persona_topic.yaml](../config/marketing/invisible_scripts_by_persona_topic.yaml) — 140 entries (10 personas × 14 topics), 2 persona-specific invisible scripts each. Feeds HOOK atom seeds and title engine `generate_invisible_script()`. Authority: marketing_deep_research/ scaffold 04. |
+
+### CI / validation
+
+| Item | Location |
+|------|----------|
+| **Marketing config gate** | [scripts/ci/check_marketing_config.py](../scripts/ci/check_marketing_config.py) — Validates consumer_language_by_topic.yaml and invisible_scripts_by_persona_topic.yaml: referential integrity vs canonical topics/personas, required fields, minimum content, cross-file consistency, brand allowed_tokens vs clinical terms. Exit 1 on ERROR. `--strict` promotes WARNs to ERRORs. |
+| **Marketing config CI workflow** | [.github/workflows/marketing-config-gate.yml](../.github/workflows/marketing-config-gate.yml) — Runs check_marketing_config.py on PRs touching config/marketing/**. Uses --strict on main branch pushes. |
 
 ### Use flow
 
 1. **Run prompts:** Use [MARKETING_DEEP_RESEARCH_PROMPTS.md](./MARKETING_DEEP_RESEARCH_PROMPTS.md) (master or sub-prompts) in your deep research workflow.
 2. **Outputs:** Structured YAML/JSON (e.g. per-brand GTM, emotional vocabulary, consumer language, invisible scripts, duration bands, cover language, pricing).
-3. **Ingestion:** Invisible scripts → `config/marketing/invisible_scripts_by_persona_topic.yaml` (when created) or direct input to title engine / HOOK atom authoring.
-4. **Authority:** [PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md) defines how invisible_script and belief_flip integrate into atoms and title philosophy.
+3. **Ingestion:** Consumer language → [config/marketing/consumer_language_by_topic.yaml](../config/marketing/consumer_language_by_topic.yaml); Invisible scripts → [config/marketing/invisible_scripts_by_persona_topic.yaml](../config/marketing/invisible_scripts_by_persona_topic.yaml). Both are now populated and loaded by the title engine.
+4. **Authority:** [PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md) defines how invisible_script and belief_flip integrate into atoms and title philosophy. Config layer (consumer language, invisible scripts, loader, fallback) is specified in [TITLE_ENGINE_MARKETING_CONFIG_SPEC](../specs/TITLE_ENGINE_MARKETING_CONFIG_SPEC.md).
 
 ---
 
@@ -1414,7 +1423,10 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | `config/payouts/fill_template.csv` | Phoenix Churches Payout | ⚠️ missing |
 | [config/teachers/teacher_registry.yaml](../config/teachers/teacher_registry.yaml) | Teacher Mode | ✓ |
 | [config/authoring/author_cover_art_registry.yaml](../config/authoring/author_cover_art_registry.yaml) | Book & authoring (Author cover art) | ✓ |
-| `config/marketing/invisible_scripts_by_persona_topic.yaml` | Marketing & deep research | ⚠️ missing — target output from MARKETING_DEEP_RESEARCH_PROMPTS sub-prompt 4 |
+| [config/marketing/consumer_language_by_topic.yaml](../config/marketing/consumer_language_by_topic.yaml) | Marketing & deep research | ✓ — 14 topics, consumer phrases, banned clinical terms, bridge language, search clusters, platform risk terms |
+| [config/marketing/invisible_scripts_by_persona_topic.yaml](../config/marketing/invisible_scripts_by_persona_topic.yaml) | Marketing & deep research | ✓ — 140 entries (10 personas × 14 topics), 2 scripts each; loaded by title engine |
+| [scripts/ci/check_marketing_config.py](../scripts/ci/check_marketing_config.py) | Marketing & deep research | ✓ — CI gate: referential integrity, required fields, brand×clinical cross-check, strict mode |
+| [.github/workflows/marketing-config-gate.yml](../.github/workflows/marketing-config-gate.yml) | Marketing & deep research | ✓ — PR gate for config/marketing/** changes |
 | [.github/workflows/teacher-gates.yml](../.github/workflows/teacher-gates.yml) | Teacher Mode | ✓ |
 | [.github/workflows/brand-guards.yml](../.github/workflows/brand-guards.yml) | Church & payout (NorCal Dharma brand guards) | ✓ |
 | `config/localization/quality_contracts/README.md` | Translation | ✓ — Quality contract definitions and thresholds |

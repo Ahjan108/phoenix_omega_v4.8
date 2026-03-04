@@ -1,6 +1,6 @@
 {
-  "plan_hash": "a0ac6fdc331340edb1682c9880d746d9",
-  "plan_id": "a0ac6fdc331340edb1682c9880d746d9",
+  "plan_hash": "68685967b077a72f6071e8fec83113ee",
+  "plan_id": "68685967b077a72f6071e8fec83113ee",
   "chapter_slot_sequence": [
     [
       "HOOK",
@@ -61,46 +61,46 @@
     ]
   ],
   "atom_ids": [
-    "educators_anxiety_HOOK_v09",
-    "educators_anxiety_SCENE_v27",
+    "educators_anxiety_HOOK_v01",
+    "educators_anxiety_SCENE_v04",
     "educators_anxiety_REFLECTION_v07",
     "educators_anxiety_INTEGRATION_v01",
-    "educators_anxiety_overwhelm_MECHANISM_PROOF_v03",
-    "educators_anxiety_HOOK_v18",
-    "educators_anxiety_SCENE_v03",
-    "educators_anxiety_REFLECTION_v13",
-    "educators_anxiety_EXERCISE_v12",
-    "educators_anxiety_INTEGRATION_v04",
-    "educators_anxiety_shame_RECOGNITION_v03",
-    "educators_anxiety_HOOK_v22",
-    "educators_anxiety_SCENE_v26",
-    "educators_anxiety_REFLECTION_v17",
-    "educators_anxiety_EXERCISE_v06",
-    "educators_anxiety_INTEGRATION_v05",
-    "educators_anxiety_shame_RECOGNITION_v04",
-    "educators_anxiety_HOOK_v02",
-    "educators_anxiety_SCENE_v06",
-    "educators_anxiety_REFLECTION_v01",
+    "educators_anxiety_shame_RECOGNITION_v02",
+    "educators_anxiety_HOOK_v11",
+    "educators_anxiety_SCENE_v22",
+    "educators_anxiety_REFLECTION_v03",
+    "educators_anxiety_EXERCISE_v22",
     "educators_anxiety_INTEGRATION_v07",
-    "educators_anxiety_spiral_RECOGNITION_v04",
-    "educators_anxiety_HOOK_v19",
-    "educators_anxiety_SCENE_v20",
-    "educators_anxiety_REFLECTION_v29",
+    "educators_anxiety_overwhelm_TURNING_POINT_v03",
+    "educators_anxiety_HOOK_v09",
+    "educators_anxiety_SCENE_v23",
+    "educators_anxiety_REFLECTION_v05",
     "educators_anxiety_EXERCISE_v20",
-    "educators_anxiety_INTEGRATION_v03",
-    "educators_anxiety_HOOK_v14",
-    "educators_anxiety_SCENE_v16",
-    "educators_anxiety_REFLECTION_v19",
-    "educators_anxiety_INTEGRATION_v06",
-    "educators_anxiety_HOOK_v16",
-    "educators_anxiety_SCENE_v04",
-    "educators_anxiety_REFLECTION_v11",
-    "educators_anxiety_EXERCISE_v19",
     "educators_anxiety_INTEGRATION_v02",
-    "educators_anxiety_HOOK_v24",
-    "educators_anxiety_SCENE_v19",
+    "educators_anxiety_overwhelm_EMBODIMENT_v05",
+    "educators_anxiety_HOOK_v22",
+    "educators_anxiety_SCENE_v27",
     "educators_anxiety_REFLECTION_v27",
-    "educators_anxiety_EXERCISE_v03",
+    "educators_anxiety_INTEGRATION_v06",
+    "educators_anxiety_spiral_RECOGNITION_v04",
+    "educators_anxiety_HOOK_v17",
+    "educators_anxiety_SCENE_v11",
+    "educators_anxiety_REFLECTION_v13",
+    "educators_anxiety_EXERCISE_v02",
+    "educators_anxiety_INTEGRATION_v04",
+    "educators_anxiety_HOOK_v30",
+    "educators_anxiety_SCENE_v07",
+    "educators_anxiety_REFLECTION_v25",
+    "educators_anxiety_INTEGRATION_v05",
+    "educators_anxiety_HOOK_v23",
+    "educators_anxiety_SCENE_v26",
+    "educators_anxiety_REFLECTION_v29",
+    "educators_anxiety_EXERCISE_v10",
+    "educators_anxiety_INTEGRATION_v03",
+    "educators_anxiety_HOOK_v13",
+    "educators_anxiety_SCENE_v30",
+    "educators_anxiety_REFLECTION_v09",
+    "educators_anxiety_EXERCISE_v06",
     "placeholder:INTEGRATION:ch7:slot4"
   ],
   "dominant_band_sequence": [
@@ -193,6 +193,12 @@
     "micro"
   ],
   "narrator_id": "default_narrator",
+  "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
+  "cover_art_style_hint": "contemplative",
+  "cover_art_palette_tokens": [
+    "contemplative"
+  ],
+  "cover_variant_id": "ahjan",
   "emotional_role_sequence": [
     "recognition",
     "destabilization",
@@ -224,27 +230,27 @@
     {
       "chapter_index": 0,
       "slot_index": 2,
-      "phrase": "One small choice can change the direction."
+      "phrase": "This is where you choose."
     },
     {
       "chapter_index": 0,
       "slot_index": 4,
+      "phrase": "You get to choose what happens next."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 2,
       "phrase": "One small choice can change the direction."
     },
     {
       "chapter_index": 1,
-      "slot_index": 2,
-      "phrase": "This is where you choose."
-    },
-    {
-      "chapter_index": 1,
       "slot_index": 4,
-      "phrase": "You get to choose what happens next."
+      "phrase": "One small choice can change the direction."
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
-      "phrase": "This is where you choose."
+      "phrase": "You get to choose what happens next."
     },
     {
       "chapter_index": 2,
@@ -259,7 +265,7 @@
     {
       "chapter_index": 3,
       "slot_index": 4,
-      "phrase": "You get to choose what happens next."
+      "phrase": "One small choice can change the direction."
     },
     {
       "chapter_index": 4,
@@ -269,17 +275,17 @@
     {
       "chapter_index": 4,
       "slot_index": 4,
-      "phrase": "This is where you choose."
+      "phrase": "One small choice can change the direction."
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
-      "phrase": "You get to choose what happens next."
+      "phrase": "This is where you choose."
     },
     {
       "chapter_index": 6,
       "slot_index": 2,
-      "phrase": "This is where you choose."
+      "phrase": "You get to choose what happens next."
     }
   ],
   "reframe_injections": [
@@ -293,13 +299,13 @@
       "chapter_index": 1,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Your nervous system is doing its best."
+      "text": "Safety comes before growth."
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "What if this moment could be different?"
+      "text": "One breath can reset the script."
     },
     {
       "chapter_index": 3,
@@ -317,7 +323,7 @@
       "chapter_index": 5,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "One breath can reset the script."
+      "text": "You're not behind; you're exactly where you are."
     },
     {
       "chapter_index": 6,
@@ -329,7 +335,7 @@
       "chapter_index": 7,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Safety comes before growth."
+      "text": "Your nervous system is doing its best."
     }
   ],
   "freebie_bundle": [

@@ -1,0 +1,684 @@
+{
+  "plan_hash": "b7030d8717925d2f5e05f191eacedcc5",
+  "plan_id": "b7030d8717925d2f5e05f191eacedcc5",
+  "chapter_slot_sequence": [
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ]
+  ],
+  "atom_ids": [
+    "first_responders_anxiety_HOOK_v17",
+    "first_responders_anxiety_SCENE_v03",
+    "first_responders_anxiety_REFLECTION_v11",
+    "first_responders_anxiety_INTEGRATION_v05",
+    "first_responders_anxiety_shame_EMBODIMENT_v04",
+    "first_responders_anxiety_HOOK_v15",
+    "first_responders_anxiety_SCENE_v06",
+    "first_responders_anxiety_REFLECTION_v02",
+    "first_responders_anxiety_INTEGRATION_v03",
+    "first_responders_anxiety_HOOK_v05",
+    "first_responders_anxiety_SCENE_v13",
+    "first_responders_anxiety_REFLECTION_v25",
+    "first_responders_anxiety_EXERCISE_v02",
+    "first_responders_anxiety_INTEGRATION_v07",
+    "first_responders_anxiety_comparison_RECOGNITION_v01",
+    "first_responders_anxiety_HOOK_v30",
+    "first_responders_anxiety_SCENE_v08",
+    "first_responders_anxiety_REFLECTION_v17",
+    "first_responders_anxiety_INTEGRATION_v01",
+    "first_responders_anxiety_false_alarm_EMBODIMENT_v02",
+    "first_responders_anxiety_HOOK_v13",
+    "first_responders_anxiety_SCENE_v15",
+    "first_responders_anxiety_REFLECTION_v13",
+    "placeholder:INTEGRATION:ch4:slot3",
+    "first_responders_anxiety_HOOK_v20",
+    "first_responders_anxiety_SCENE_v22",
+    "first_responders_anxiety_REFLECTION_v15",
+    "first_responders_anxiety_EXERCISE_v01",
+    "placeholder:INTEGRATION:ch5:slot4",
+    "first_responders_anxiety_HOOK_v08",
+    "first_responders_anxiety_SCENE_v11",
+    "first_responders_anxiety_REFLECTION_v10",
+    "placeholder:INTEGRATION:ch6:slot3",
+    "first_responders_anxiety_overwhelm_TURNING_POINT_v03",
+    "first_responders_anxiety_HOOK_v27",
+    "first_responders_anxiety_SCENE_v16",
+    "first_responders_anxiety_REFLECTION_v08",
+    "placeholder:INTEGRATION:ch7:slot3",
+    "first_responders_anxiety_HOOK_v12",
+    "first_responders_anxiety_SCENE_v28",
+    "first_responders_anxiety_REFLECTION_v06",
+    "first_responders_anxiety_EXERCISE_v03",
+    "placeholder:INTEGRATION:ch8:slot4",
+    "first_responders_anxiety_shame_RECOGNITION_v07",
+    "first_responders_anxiety_HOOK_v07",
+    "first_responders_anxiety_SCENE_v02",
+    "first_responders_anxiety_REFLECTION_v05",
+    "placeholder:EXERCISE:ch9:slot3",
+    "placeholder:INTEGRATION:ch9:slot4",
+    "first_responders_anxiety_grief_TURNING_POINT_v03",
+    "first_responders_anxiety_HOOK_v24",
+    "first_responders_anxiety_SCENE_v14",
+    "first_responders_anxiety_REFLECTION_v27",
+    "placeholder:INTEGRATION:ch10:slot3",
+    "first_responders_anxiety_false_alarm_RECOGNITION_v03",
+    "first_responders_anxiety_HOOK_v28",
+    "first_responders_anxiety_SCENE_v30",
+    "first_responders_anxiety_REFLECTION_v28",
+    "placeholder:INTEGRATION:ch11:slot3",
+    "first_responders_anxiety_HOOK_v25",
+    "first_responders_anxiety_SCENE_v24",
+    "first_responders_anxiety_REFLECTION_v26",
+    "placeholder:EXERCISE:ch12:slot3",
+    "placeholder:INTEGRATION:ch12:slot4",
+    "first_responders_anxiety_HOOK_v29",
+    "first_responders_anxiety_SCENE_v19",
+    "first_responders_anxiety_REFLECTION_v20",
+    "placeholder:EXERCISE:ch13:slot3",
+    "placeholder:INTEGRATION:ch13:slot4",
+    "first_responders_anxiety_overwhelm_MECHANISM_PROOF_v02",
+    "first_responders_anxiety_HOOK_v11",
+    "first_responders_anxiety_SCENE_v20",
+    "first_responders_anxiety_REFLECTION_v04",
+    "placeholder:EXERCISE:ch14:slot3",
+    "placeholder:INTEGRATION:ch14:slot4",
+    "first_responders_anxiety_HOOK_v18",
+    "first_responders_anxiety_SCENE_v12",
+    "first_responders_anxiety_REFLECTION_v29",
+    "placeholder:EXERCISE:ch15:slot3",
+    "placeholder:INTEGRATION:ch15:slot4",
+    "first_responders_anxiety_HOOK_v14",
+    "first_responders_anxiety_SCENE_v18",
+    "first_responders_anxiety_REFLECTION_v14",
+    "placeholder:INTEGRATION:ch16:slot3",
+    "first_responders_anxiety_HOOK_v03",
+    "first_responders_anxiety_SCENE_v23",
+    "first_responders_anxiety_REFLECTION_v12",
+    "placeholder:INTEGRATION:ch17:slot3",
+    "first_responders_anxiety_comparison_RECOGNITION_v07",
+    "first_responders_anxiety_HOOK_v06",
+    "first_responders_anxiety_SCENE_v29",
+    "first_responders_anxiety_REFLECTION_v03",
+    "placeholder:EXERCISE:ch18:slot3",
+    "placeholder:INTEGRATION:ch18:slot4",
+    "first_responders_anxiety_HOOK_v16",
+    "first_responders_anxiety_SCENE_v17",
+    "first_responders_anxiety_REFLECTION_v07",
+    "placeholder:EXERCISE:ch19:slot3",
+    "placeholder:INTEGRATION:ch19:slot4"
+  ],
+  "dominant_band_sequence": [
+    1,
+    null,
+    2,
+    2,
+    null,
+    null,
+    3,
+    null,
+    3,
+    3,
+    4,
+    null,
+    null,
+    4,
+    null,
+    null,
+    null,
+    3,
+    null,
+    null
+  ],
+  "arc_id": "first_responders_anxiety_grief_F006_gen",
+  "emotional_temperature_sequence": [
+    "cool",
+    "cool",
+    "cool",
+    "cool",
+    "cool",
+    "cool",
+    "warm",
+    "warm",
+    "warm",
+    "warm",
+    "warm",
+    "warm",
+    "warm",
+    "warm",
+    "warm",
+    "hot",
+    "hot",
+    "warm",
+    "warm",
+    "warm"
+  ],
+  "exercise_chapters": [
+    2,
+    5,
+    8,
+    9,
+    12,
+    13,
+    14,
+    15,
+    18,
+    19
+  ],
+  "slot_sig": "MOD_pocket_guide:ab7b86c03f0c6766",
+  "format_id": "MOD_pocket_guide",
+  "runtime_format_id": "",
+  "output_format_id": "pocket_guide",
+  "output_format_name": "Pocket Guide",
+  "v4_freeze_enabled": true,
+  "locale": "en-US",
+  "territory": "US",
+  "atoms_model": "legacy",
+  "engine_id": "grief",
+  "angle_id": "at_work",
+  "reflection_strategy_sequence": [
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic"
+  ],
+  "chapter_archetypes": [
+    "intro_hook_heavy",
+    "legacy_uniform",
+    "deepen_mechanism",
+    "challenge_cost",
+    "legacy_uniform",
+    "practice_heavy",
+    "challenge_cost",
+    "legacy_uniform",
+    "deepen_mechanism",
+    "deepen_mechanism",
+    "challenge_cost",
+    "legacy_uniform",
+    "practice_heavy",
+    "deepen_mechanism",
+    "resolve_integration",
+    "resolve_integration",
+    "legacy_uniform",
+    "challenge_cost",
+    "resolve_integration",
+    "resolve_integration"
+  ],
+  "chapter_exercise_modes": [
+    "none",
+    "none",
+    "micro",
+    "none",
+    "none",
+    "full",
+    "none",
+    "none",
+    "micro",
+    "micro",
+    "none",
+    "none",
+    "full",
+    "micro",
+    "micro",
+    "micro",
+    "none",
+    "none",
+    "micro",
+    "micro"
+  ],
+  "chapter_reflection_weights": [
+    "light",
+    "standard",
+    "standard",
+    "heavy",
+    "standard",
+    "light",
+    "heavy",
+    "standard",
+    "standard",
+    "standard",
+    "heavy",
+    "standard",
+    "light",
+    "standard",
+    "standard",
+    "standard",
+    "standard",
+    "heavy",
+    "standard",
+    "standard"
+  ],
+  "chapter_story_depths": [
+    "standard",
+    "standard",
+    "standard",
+    "deep",
+    "standard",
+    "micro",
+    "deep",
+    "standard",
+    "standard",
+    "standard",
+    "deep",
+    "standard",
+    "micro",
+    "standard",
+    "micro",
+    "micro",
+    "standard",
+    "deep",
+    "micro",
+    "micro"
+  ],
+  "chapter_planner_warnings": [
+    "arc_role_distribution[long] challenge=8 outside target [3,5]"
+  ],
+  "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
+  "cover_art_style_hint": "contemplative",
+  "cover_art_palette_tokens": [
+    "contemplative"
+  ],
+  "cover_variant_id": "ahjan",
+  "emotional_role_sequence": [
+    "recognition",
+    "recognition",
+    "destabilization",
+    "reframe",
+    "reframe",
+    "destabilization",
+    "reframe",
+    "reframe",
+    "destabilization",
+    "destabilization",
+    "reframe",
+    "reframe",
+    "destabilization",
+    "destabilization",
+    "stabilization",
+    "stabilization",
+    "reframe",
+    "reframe",
+    "integration",
+    "integration"
+  ],
+  "emotional_role_sig": "r-r-d-f-f-d-f-f-d-d-f-f-d-d-s-s-f-f-i-i",
+  "book_structure_id": "three_act",
+  "journey_shape_id": "wave_three_peaks",
+  "motif_id": "motif_choice",
+  "section_reorder_mode": "none",
+  "reframe_profile_id": "balanced",
+  "variation_chapter_archetypes": [
+    "establish",
+    "expose",
+    "destabilize",
+    "reframe",
+    "stabilize",
+    "integrate",
+    "establish",
+    "expose",
+    "destabilize",
+    "reframe",
+    "stabilize",
+    "integrate",
+    "establish",
+    "expose",
+    "destabilize",
+    "reframe",
+    "stabilize",
+    "integrate",
+    "establish",
+    "expose"
+  ],
+  "variation_signature": "af1d395f613d365b569adb3bf9acd941",
+  "motif_injections": [
+    {
+      "chapter_index": 0,
+      "slot_index": 2,
+      "phrase": "You get to choose what happens next."
+    },
+    {
+      "chapter_index": 0,
+      "slot_index": 4,
+      "phrase": "This is where you choose."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 2,
+      "phrase": "You get to choose what happens next."
+    },
+    {
+      "chapter_index": 2,
+      "slot_index": 2,
+      "phrase": "This is where you choose."
+    },
+    {
+      "chapter_index": 2,
+      "slot_index": 4,
+      "phrase": "One small choice can change the direction."
+    },
+    {
+      "chapter_index": 3,
+      "slot_index": 2,
+      "phrase": "One small choice can change the direction."
+    },
+    {
+      "chapter_index": 3,
+      "slot_index": 4,
+      "phrase": "One small choice can change the direction."
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 2,
+      "phrase": "You get to choose what happens next."
+    },
+    {
+      "chapter_index": 5,
+      "slot_index": 2,
+      "phrase": "You get to choose what happens next."
+    },
+    {
+      "chapter_index": 5,
+      "slot_index": 4,
+      "phrase": "You get to choose what happens next."
+    },
+    {
+      "chapter_index": 6,
+      "slot_index": 2,
+      "phrase": "This is where you choose."
+    },
+    {
+      "chapter_index": 6,
+      "slot_index": 4,
+      "phrase": "This is where you choose."
+    }
+  ],
+  "reframe_injections": [
+    {
+      "chapter_index": 0,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "Progress isn't linear."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Safety comes before growth."
+    },
+    {
+      "chapter_index": 2,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "What if this moment could be different?"
+    },
+    {
+      "chapter_index": 3,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "You don't have to do it all at once."
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Change happens in relationship, not in isolation."
+    },
+    {
+      "chapter_index": 5,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "You're not behind; you're exactly where you are."
+    },
+    {
+      "chapter_index": 6,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
+    },
+    {
+      "chapter_index": 7,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Change happens in relationship, not in isolation."
+    },
+    {
+      "chapter_index": 8,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "What if this moment could be different?"
+    },
+    {
+      "chapter_index": 9,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
+    },
+    {
+      "chapter_index": 10,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Your nervous system is doing its best."
+    },
+    {
+      "chapter_index": 11,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "What if this moment could be different?"
+    },
+    {
+      "chapter_index": 12,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "You don't have to do it all at once."
+    },
+    {
+      "chapter_index": 13,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Change happens in relationship, not in isolation."
+    },
+    {
+      "chapter_index": 14,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "One breath can reset the script."
+    },
+    {
+      "chapter_index": 15,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "You don't have to do it all at once."
+    },
+    {
+      "chapter_index": 16,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Your nervous system is doing its best."
+    },
+    {
+      "chapter_index": 17,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "One breath can reset the script."
+    },
+    {
+      "chapter_index": 18,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "You don't have to do it all at once."
+    },
+    {
+      "chapter_index": 19,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Safety comes before growth."
+    }
+  ],
+  "freebie_bundle": [
+    "journal_reflection_v1"
+  ],
+  "cta_template_id": "workbook_forward",
+  "freebie_slug": "anxiety-first-responders-journal-reflection-v1",
+  "freebie_bundle_with_formats": [
+    {
+      "freebie_id": "journal_reflection_v1",
+      "formats": [
+        "html",
+        "pdf"
+      ]
+    }
+  ],
+  "topic_id": "anxiety",
+  "persona_id": "first_responders"
+}

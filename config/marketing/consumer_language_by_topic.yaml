@@ -1,0 +1,627 @@
+# config/marketing/consumer_language_by_topic.yaml
+# Consumer language mapping by topic — feeds title engine compliance, HOOK atom seeds, CI gate.
+# Authority: marketing_deep_research/ scaffold 03.
+# DO NOT EDIT: canonical topic IDs
+# Last updated: 2026-03-04
+
+version: "1.0"
+topics:
+
+  - topic_id: anxiety
+    consumer_phrases:
+      - "why is my heart racing for no reason"
+      - "i can't stop worrying about everything"
+      - "that weird tight feeling in my chest"
+      - "how to stop spiraling at 3am"
+      - "my mind won't shut up"
+      - "feels like something bad is about to happen"
+      - "constantly on edge like i'm waiting for disaster"
+      - "my body is freaking out but i'm fine"
+      - "can't breathe right what's wrong with me"
+      - "this anxious feeling won't go away"
+    banned_clinical_terms:
+      - "generalized anxiety disorder"
+      - "panic attack protocol"
+      - "GAD diagnostic criteria"
+      - "anxiolytic intervention"
+      - "rumination patterns"
+      - "hyperarousal state"
+      - "autonomic dysregulation"
+    culture_specific_phrases:
+      - "main character energy gone wrong"
+      - "stress-coded in my DNA"
+      - "doomscrolling spiral"
+    bridge_language:
+      - "That racing feeling in your chest actually has a name and a rhythm"
+      - "Your body's alarm system is working overtime — here's why"
+      - "The constant mental loop is exhausting and fixable"
+      - "That 'something bad will happen' voice isn't predicting the future"
+      - "Settling your nervous system is a learnable skill"
+      - "Your worry spiral is a pattern, not a prophecy"
+    search_clusters:
+      - "anxiety at night can't sleep"
+      - "chest tightness anxiety how to calm down"
+      - "why do i worry about everything"
+      - "how to stop anxiety spiraling"
+      - "constant worry exhaustion"
+    persona_subtitle_patterns:
+      - "For the overthinker caught in their own thoughts"
+      - "For when your mind won't let you rest"
+    platform_risk_terms:
+      - "panic attack"
+      - "mental health crisis"
+      - "anxiety disorder treatment"
+      - "medical advice anxiety"
+
+  - topic_id: burnout
+    consumer_phrases:
+      - "i'm completely drained and work is killing me"
+      - "went from loving my job to hating every second"
+      - "i can't remember the last time i felt rested"
+      - "checking email at midnight because of guilt"
+      - "running on fumes no matter how much i sleep"
+      - "used to be ambitious now i just feel dead inside"
+      - "my job is eating my entire life"
+      - "accomplished everything and still feel empty"
+      - "burnout isn't just being tired it's soul-tired"
+      - "how did i become this cynical about work"
+    banned_clinical_terms:
+      - "occupational burnout syndrome"
+      - "depressive episode secondary to work stress"
+      - "emotional exhaustion scale"
+      - "job-related adjustment disorder"
+      - "chronic stress-induced demoralization"
+      - "neuroendocrine burnout response"
+    culture_specific_phrases:
+      - "quiet quitting energy"
+      - "hustle culture killed my soul"
+      - "corporate wellness gaslighting"
+    bridge_language:
+      - "Burnout isn't laziness — it's your system hitting the limit"
+      - "That emptiness you feel is your worth beyond work calling out"
+      - "The cynicism is a symptom, not your personality"
+      - "Your body is screaming for a different kind of rest"
+      - "Rebuilding after burnout means redefining what matters"
+    search_clusters:
+      - "am i burned out quiz or signs"
+      - "burnout recovery how to get energy back"
+      - "job burnout what to do"
+      - "exhausted all the time work"
+      - "burnout depression vs sadness"
+    persona_subtitle_patterns:
+      - "For the one who gave everything and got empty in return"
+      - "For the high-achiever running on fumes"
+    platform_risk_terms:
+      - "depression from work"
+      - "severe burnout treatment"
+      - "occupational health disorder"
+      - "workplace mental health crisis"
+
+  - topic_id: overthinking
+    consumer_phrases:
+      - "replaying conversations from 5 years ago at 2am"
+      - "my brain won't stop analyzing what i said"
+      - "what did they mean by that text exactly"
+      - "i can think myself into an anxiety attack"
+      - "stuck in my head with fifty different stories"
+      - "analyzing the tone of a simple text for an hour"
+      - "could've should've would've on loop"
+      - "my thoughts are a broken record i can't stop"
+      - "way too in my head about everything"
+      - "thinking in circles about the same thing"
+    banned_clinical_terms:
+      - "obsessive rumination disorder"
+      - "metacognitive dysfunction"
+      - "chronic rumination pathology"
+      - "analysis paralysis disorder"
+      - "thought-action fusion pattern"
+      - "maladaptive cognitive processing"
+      - "mind-wandering dysregulation"
+    culture_specific_phrases:
+      - "analysis paralysis is real"
+      - "having main character brain but the script is wrong"
+      - "cortisol coded"
+    bridge_language:
+      - "Your brain got stuck in investigate mode"
+      - "That mental loop is looking for certainty you can't find"
+      - "Overthinking is your mind trying to protect you from surprise"
+      - "The spiral feels productive but it's draining your battery"
+      - "Breaking the loop starts with noticing it"
+    search_clusters:
+      - "how to stop overthinking everything"
+      - "overthinking relationships what does it mean"
+      - "brain won't shut up overthinking"
+      - "stuck in my head anxiety"
+      - "overthinking anxiety spirals"
+    persona_subtitle_patterns:
+      - "For the mind that never stops working"
+      - "For those who think in circles"
+    platform_risk_terms:
+      - "obsessive thinking patterns"
+      - "rumination treatment"
+      - "intrusive thoughts disorder"
+      - "cognitive disorder overthinking"
+
+  - topic_id: imposter_syndrome
+    consumer_phrases:
+      - "i don't deserve to be here everyone will figure me out"
+      - "they hired me by mistake"
+      - "everyone else seems to know what they're doing"
+      - "one bad day proves i'm a fraud"
+      - "even my accomplishments feel like luck"
+      - "why is everyone so confident except me"
+      - "faking it till i make it but i'm still faking"
+      - "scared they're going to realize i'm not actually qualified"
+      - "my success doesn't feel real"
+      - "everyone's smarter than me at work"
+    banned_clinical_terms:
+      - "impostor phenomenon diagnostic criteria"
+      - "persistent self-doubt pathology"
+      - "narcissistic defense mechanism sublimation"
+      - "achievement gap disorder"
+      - "chronic self-efficacy deficit"
+      - "validation-dependent personality trait"
+    culture_specific_phrases:
+      - "trust fall energy required"
+      - "the competence gap is a lie gen z is telling themselves"
+      - "LinkedIn made imposter syndrome profitable"
+    bridge_language:
+      - "That voice saying you don't belong? It's talking to the insecure version of you, not the real one"
+      - "Everyone feels like they don't belong sometimes — you're not alone"
+      - "Your doubt is usually louder than your evidence"
+      - "Fake it till you make it worked for you — now trust it"
+      - "Belonging isn't something you earn, it's something you accept"
+    search_clusters:
+      - "imposter syndrome am i the only one"
+      - "how to get over feeling like a fraud"
+      - "imposter syndrome at work tips"
+      - "why do successful people feel like frauds"
+      - "imposter syndrome confidence building"
+    persona_subtitle_patterns:
+      - "For the brilliant person who feels like a fraud"
+      - "For the high-achiever doubting everything"
+    platform_risk_terms:
+      - "personality disorder imposter"
+      - "narcissism imposter syndrome"
+      - "mental health diagnosis imposter"
+      - "psychological disorder confidence"
+
+  - topic_id: sleep_anxiety
+    consumer_phrases:
+      - "can't sleep mind racing about tomorrow"
+      - "dreading bedtime because of thoughts"
+      - "the second i close my eyes my brain explodes"
+      - "catastrophizing about not sleeping"
+      - "that 4am panic oh no i need sleep"
+      - "sleeping is hard when your brain won't cooperate"
+      - "anxious about being anxious at night"
+      - "knowing i can't sleep makes it worse"
+      - "lying awake spiraling about sleep deprivation"
+      - "my body's tired but my mind is a thunderstorm"
+    banned_clinical_terms:
+      - "insomnia secondary to generalized anxiety"
+      - "sleep architecture disruption protocol"
+      - "nocturnal anxiety disorder"
+      - "psychophysiological insomnia"
+      - "hyperarousal sleep state"
+      - "circadian rhythm disorder"
+    culture_specific_phrases:
+      - "the 4am thoughts are hitting different"
+      - "phone doom spiral before bed"
+      - "sleep debt that no amount of naps fixes"
+    bridge_language:
+      - "Your brain is trying to solve tomorrow at midnight"
+      - "The anxiety about sleep is actually the thing keeping you awake"
+      - "Rest is deeper than sleep — your body needs both"
+      - "That racing mind has a rhythm you can learn to interrupt"
+      - "Bed became a stage for your worries instead of rest"
+    search_clusters:
+      - "can't sleep because of anxiety"
+      - "sleep anxiety how to relax at night"
+      - "racing thoughts before bed"
+      - "anxiety waking up at 3am"
+      - "how to sleep when worried"
+    persona_subtitle_patterns:
+      - "For the night-time overthinker"
+      - "For when bedtime brings dread"
+    platform_risk_terms:
+      - "insomnia treatment sleep disorder"
+      - "anxiety medication sleep"
+      - "clinical sleep deprivation"
+      - "sleep health medical advice"
+
+  - topic_id: financial_stress
+    consumer_phrases:
+      - "constantly stressed about money even when i'm okay"
+      - "checking my bank account like it will change"
+      - "one unexpected bill and i panic"
+      - "never enough no matter how much i make"
+      - "money conversations make me want to vomit"
+      - "guilt about spending anything on myself"
+      - "can't enjoy things because i'm thinking about cost"
+      - "financial anxiety is ruining my relationships"
+      - "what if something happens and i'm not prepared"
+      - "money makes me feel powerless and small"
+    banned_clinical_terms:
+      - "financial anxiety disorder"
+      - "money-related adjustment disorder"
+      - "economic stress pathology"
+      - "scarcity mindset dysfunction"
+      - "financial PTSD diagnostic protocol"
+      - "compulsive financial checking behavior"
+    culture_specific_phrases:
+      - "rich people trauma coded"
+      - "poverty mindset is real"
+      - "side hustle culture exhaustion"
+    bridge_language:
+      - "That pit in your stomach about money? It's inherited, not inevitable"
+      - "Financial anxiety tells you stories that aren't true"
+      - "Your relationship with money started before your first paycheck"
+      - "Security isn't about the number — it's about knowing yourself"
+      - "Money stress has a voice in your head — we can turn down the volume"
+    search_clusters:
+      - "money anxiety how to manage stress"
+      - "financial anxiety sleep problems"
+      - "constant worry about money"
+      - "financial stress relationships"
+      - "can't enjoy money because of guilt"
+    persona_subtitle_patterns:
+      - "For the one caught between dreams and financial fear"
+      - "For when every dollar feels weighted"
+    platform_risk_terms:
+      - "financial advice mental health"
+      - "money disorder treatment"
+      - "financial crisis mental health"
+      - "investment anxiety disorder"
+
+  - topic_id: grief
+    consumer_phrases:
+      - "they're gone and i don't know how to do this"
+      - "missing them in a way that physically hurts"
+      - "some days it hits out of nowhere and i break"
+      - "their voice in my head and they're not here"
+      - "how long is this supposed to hurt"
+      - "everyone else seems fine and i'm still drowning"
+      - "their stuff is still here and i can't look"
+      - "i don't want to move on because it feels like forgetting"
+      - "grief hit me different than i expected"
+      - "feeling guilty for laughing when they're gone"
+    banned_clinical_terms:
+      - "complicated grief disorder"
+      - "prolonged grief pathology"
+      - "adjustment reaction to bereavement"
+      - "grief-related depressive episode"
+      - "DSM-5 persistent complex bereavement"
+      - "pathological mourning protocol"
+    culture_specific_phrases:
+      - "grief has no timeline and that's radical"
+      - "chosen family loss hits different"
+      - "death doulas and grief workers are having a moment"
+    bridge_language:
+      - "This depth of pain means they mattered deeply to you"
+      - "Grief doesn't have stages — it's more like waves"
+      - "Honoring them means feeling this fully, not moving on fast"
+      - "Your guilt about laughing is proof you're still human"
+      - "There's no timeline and no wrong way through this"
+    search_clusters:
+      - "grief how to cope after loss"
+      - "how long does grief last"
+      - "grieving someone close to you"
+      - "dealing with sudden death"
+      - "is my grief normal too much"
+    persona_subtitle_patterns:
+      - "For the one learning to live with absence"
+      - "For when everything reminds you of them"
+    platform_risk_terms:
+      - "suicide grief complicated"
+      - "traumatic death grief treatment"
+      - "severe depression grief"
+      - "grief medication mental health"
+
+  - topic_id: boundaries
+    consumer_phrases:
+      - "why do i always say yes when i mean no"
+      - "people pleasing is destroying my mental health"
+      - "setting a boundary feels selfish and mean"
+      - "they got mad when i said no and i feel guilty"
+      - "my family treats me like i still live at home"
+      - "coworkers dump everything on me and i let them"
+      - "how to stop being everyone's therapist"
+      - "i'd rather suffer than make someone uncomfortable"
+      - "boundary breaking feels like betrayal to me"
+      - "standing up for myself makes me anxious"
+    banned_clinical_terms:
+      - "boundary personality disorder"
+      - "people-pleasing attachment dysfunction"
+      - "codependency pathology protocol"
+      - "assertiveness deficit disorder"
+      - "enmeshment trauma syndrome"
+      - "relational boundary violation therapy"
+    culture_specific_phrases:
+      - "people pleasing is a trauma response and a lifestyle"
+      - "emotional labor isn't a personality trait"
+      - "the audacity it takes to have boundaries"
+    bridge_language:
+      - "Setting a boundary is an act of self-respect, not rejection"
+      - "No is a complete sentence and you don't owe an explanation"
+      - "People who matter will respect your limits"
+      - "Your discomfort with boundaries is learnable and changeable"
+      - "Saying yes to yourself means sometimes saying no to them"
+    search_clusters:
+      - "how to set boundaries without feeling guilty"
+      - "boundary setting anxiety"
+      - "setting boundaries with family"
+      - "people pleasing how to stop"
+      - "boundary setting scripts examples"
+    persona_subtitle_patterns:
+      - "For the kind person learning to protect themselves"
+      - "For the yes-sayer ready to say no"
+    platform_risk_terms:
+      - "toxic relationship boundary"
+      - "family abuse boundaries"
+      - "narcissistic relationship boundaries"
+      - "emotional abuse boundary setting"
+
+  - topic_id: somatic_healing
+    consumer_phrases:
+      - "my body holds all my stress and i can feel it"
+      - "trauma is literally in my shoulders and jaw"
+      - "can't breathe right because of stress"
+      - "my nervous system is absolutely fried"
+      - "this body scan thing actually helped"
+      - "shaking and releasing things i didn't know i was holding"
+      - "my gut knows things my brain doesn't"
+      - "tension is what my anxiety looks like"
+      - "noticing where i go when i dissociate"
+      - "healing feels like learning to live in my body again"
+    banned_clinical_terms:
+      - "somatic symptom disorder"
+      - "traumatic somatization pathology"
+      - "psychosomatic disorder diagnosis"
+      - "dissociative disorder protocol"
+      - "polyvagal dysregulation treatment"
+      - "neuroplasticity retraining therapy"
+    culture_specific_phrases:
+      - "the nervous system has entered the chat"
+      - "embodiment is not just yoga girl culture"
+      - "your body is keeping the score"
+    bridge_language:
+      - "Your body is smarter than your thoughts about what you need"
+      - "Healing moves through tissue, not just thoughts"
+      - "That tightness is information, not a problem"
+      - "Learning to sense your own safety is a superpower"
+      - "Your nervous system can learn new patterns"
+    search_clusters:
+      - "somatic therapy what is it"
+      - "body scanning anxiety relief"
+      - "nervous system regulation techniques"
+      - "trauma stored in body how to release"
+      - "somatic exercises for anxiety"
+    persona_subtitle_patterns:
+      - "For the one reconnecting with their body"
+      - "For healing that starts below the neck"
+    platform_risk_terms:
+      - "trauma therapy somatic"
+      - "dissociation treatment"
+      - "nervous system disorder"
+      - "trauma healing clinical"
+
+  - topic_id: depression
+    consumer_phrases:
+      - "nothing sounds good anymore even things i love"
+      - "this heaviness that won't lift"
+      - "moving through life in slow motion"
+      - "that fog in my brain where thoughts should be"
+      - "going through the motions but i'm not really here"
+      - "everything feels pointless and gray"
+      - "too tired to try even small things"
+      - "that numbness that feels worse than sad"
+      - "depression is a liar that sounds like truth"
+      - "how to want things when nothing tastes right"
+    banned_clinical_terms:
+      - "major depressive disorder"
+      - "clinical depression diagnostic protocol"
+      - "treatment-resistant depression"
+      - "depressive episode acute phase"
+      - "MDD diagnostic criteria DSM-5"
+      - "antidepressant medication pathway"
+    culture_specific_phrases:
+      - "the void was calling and i answered"
+      - "depression isn't sadness it's static"
+      - "the nothing is actually something"
+    bridge_language:
+      - "That heaviness isn't weakness — it's real and it's manageable"
+      - "Depression tells you lies about your worth"
+      - "Numbness is your system protecting you until you can feel more"
+      - "Nothing tastes right, but that can change"
+      - "Small movements count when everything is heavy"
+    search_clusters:
+      - "depression what does it feel like"
+      - "depression vs sadness how to know"
+      - "how to help someone with depression"
+      - "depression fog anxiety"
+      - "depression no motivation"
+    persona_subtitle_patterns:
+      - "For the one living in gray"
+      - "For when nothing sounds good anymore"
+    platform_risk_terms:
+      - "severe depression treatment"
+      - "suicidal depression"
+      - "depression medication psychiatric"
+      - "clinical depression diagnosis"
+
+  - topic_id: compassion_fatigue
+    consumer_phrases:
+      - "i care about people but i have nothing left"
+      - "giving to others is literally draining my life"
+      - "empathy burnout is a real thing and i'm there"
+      - "everyone's trauma is becoming my trauma"
+      - "caregiver guilt about needing a break"
+      - "how to help people without losing yourself"
+      - "my nervous system mirrors theirs and i'm exhausted"
+      - "being there for everyone means there's nothing for me"
+      - "emotional labor without pay or gratitude"
+      - "i want to care but i can't afford the cost"
+    banned_clinical_terms:
+      - "compassion fatigue syndrome"
+      - "secondary traumatic stress disorder"
+      - "caregiver burden pathology"
+      - "empathic distress protocol"
+      - "vicarious trauma diagnostic framework"
+      - "emotional contagion dysfunction"
+    culture_specific_phrases:
+      - "emotional labor pricing conversations"
+      - "the therapist becoming the patient"
+      - "chosen family caregiver burden"
+    bridge_language:
+      - "Caring deeply doesn't mean emptying yourself"
+      - "Your own oxygen mask comes first and that's not selfish"
+      - "Empathy without boundaries becomes exhaustion"
+      - "Taking a break from others is how you show up better"
+      - "Your feelings matter as much as theirs"
+    search_clusters:
+      - "compassion fatigue caregivers"
+      - "empathy burnout how to recover"
+      - "being an empath is exhausting"
+      - "caregiver stress relief"
+      - "secondary trauma helper"
+    persona_subtitle_patterns:
+      - "For the healer who forgot to heal themselves"
+      - "For the empath learning to protect their energy"
+    platform_risk_terms:
+      - "trauma secondary exposure"
+      - "caregiver mental health crisis"
+      - "psychiatric burnout compassion"
+      - "emotional abuse secondary trauma"
+
+  - topic_id: courage
+    consumer_phrases:
+      - "want to do it but terrified of what happens"
+      - "how to be brave when my body is screaming no"
+      - "taking the leap feels impossible"
+      - "what if i fail and it's public"
+      - "everyone makes it look easy i'm struggling"
+      - "courage doesn't feel like in the movies"
+      - "scared and doing it anyway is apparently courage"
+      - "that moment right before you commit"
+      - "how to trust yourself when you've been wrong"
+      - "doubt is so loud but maybe i go anyway"
+    banned_clinical_terms:
+      - "anxiety response fear conditioning"
+      - "avoidance disorder protocol"
+      - "risk aversion pathology"
+      - "decision-making paralysis dysfunction"
+      - "confidence deficit disorder"
+      - "exposure therapy anxiety treatment"
+    culture_specific_phrases:
+      - "the main character energy we're all craving"
+      - "girl boss era taught us courage has a price"
+      - "fake it till you make it is actually real"
+    bridge_language:
+      - "Courage is fear plus action, not fear's absence"
+      - "Your body will be scared — your mind can decide anyway"
+      - "Doing it scared means you're already brave"
+      - "Trust yourself by taking small steps in the right direction"
+      - "That moment right before? You're stronger than you know"
+    search_clusters:
+      - "how to be brave even when scared"
+      - "overcoming fear to take a chance"
+      - "courage and fear can coexist"
+      - "how to make big life changes"
+      - "finding courage when terrified"
+    persona_subtitle_patterns:
+      - "For the one standing at the edge"
+      - "For the terrified person ready to leap"
+    platform_risk_terms:
+      - "fear anxiety disorder"
+      - "phobia treatment exposure"
+      - "panic response fear"
+      - "clinical anxiety courage"
+
+  - topic_id: self_worth
+    consumer_phrases:
+      - "i don't feel like i deserve good things"
+      - "my value is tied to what i produce"
+      - "constantly comparing myself to everyone"
+      - "why do i feel like everyone's better than me"
+      - "my worth is conditional and i'm always failing"
+      - "seeking validation from people who won't give it"
+      - "feeling small in rooms full of people"
+      - "imposter syndrome and low self-esteem are killing me"
+      - "how to believe in yourself"
+      - "my brain keeps telling me i'm not enough"
+    banned_clinical_terms:
+      - "low self-esteem disorder"
+      - "negative self-schema pathology"
+      - "self-worth deficit condition"
+      - "narcissistic injury response"
+      - "cognitive distortion protocol"
+      - "identity disturbance diagnosis"
+    culture_specific_phrases:
+      - "self-worth is not a flex on the gram"
+      - "quiet confidence is the opposite of main character energy"
+      - "learned inadequacy is intergenerational"
+    bridge_language:
+      - "Your worth isn't earned — it's inherent and unchanging"
+      - "That voice saying you're not enough is old, not true"
+      - "Believing in yourself starts with listening to yourself"
+      - "Comparison steals peace but your path is yours"
+      - "You're enough exactly as you are right now"
+    search_clusters:
+      - "how to love yourself when you don't"
+      - "building self-worth and confidence"
+      - "why do i feel worthless"
+      - "comparison trap social media"
+      - "self-esteem exercises that work"
+    persona_subtitle_patterns:
+      - "For the one learning they're enough"
+      - "For those rebuilding from the ground up"
+    platform_risk_terms:
+      - "depression low self-worth"
+      - "self-esteem mental health treatment"
+      - "worthlessness suicidal ideation"
+      - "identity disorder self-worth"
+
+  - topic_id: social_anxiety
+    consumer_phrases:
+      - "rooms full of people make me want to disappear"
+      - "what if i say something stupid and they judge me"
+      - "can't go to social events without panic"
+      - "people are staring at me i know it"
+      - "small talk is absolute torture"
+      - "my face gets hot and i can't hide it"
+      - "why can't i just be normal and chill"
+      - "knowing everyone is judging me on sight"
+      - "social situations are terrifying not fun"
+      - "how to survive a party without dying"
+    banned_clinical_terms:
+      - "social anxiety disorder"
+      - "SAD diagnostic criteria"
+      - "social phobia pathology"
+      - "performance anxiety protocol"
+      - "avoidant personality disorder"
+      - "exposure hierarchy anxiety treatment"
+    culture_specific_phrases:
+      - "introversion is not a flaw it's a feature"
+      - "social battery is drained"
+      - "awkward is the vibe now"
+    bridge_language:
+      - "Social anxiety is your threat detector working overtime"
+      - "People aren't judging you as harshly as your brain says"
+      - "That red face and racing heart are uncomfortable but not dangerous"
+      - "Being quiet in rooms is okay — you don't have to perform"
+      - "Social skill is learned, not an innate personality flaw"
+    search_clusters:
+      - "social anxiety how to cope"
+      - "social anxiety tips party"
+      - "why am i so awkward around people"
+      - "fear of judgment social situations"
+      - "social anxiety relief techniques"
+    persona_subtitle_patterns:
+      - "For the one who'd rather be home"
+      - "For the introverts navigating a loud world"
+    platform_risk_terms:
+      - "social anxiety disorder treatment"
+      - "phobia anxiety clinical"
+      - "avoidant disorder social"
+      - "psychiatric anxiety social"

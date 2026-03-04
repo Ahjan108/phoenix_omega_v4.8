@@ -30,6 +30,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Validate asset store against manifest")
     ap.add_argument("--store", type=Path, required=True, help="Asset store root")
     ap.add_argument("--manifest", type=Path, required=True, help="manifest.jsonl path")
+    ap.add_argument("--formats", type=str, default=None, help="Comma-separated formats to validate (e.g. html,pdf). Default: all manifest formats")
     ap.add_argument("--rules", type=Path, default=None, help="Optional validation rules YAML")
     args = ap.parse_args()
 
@@ -48,12 +49,18 @@ def main() -> int:
                 continue
             manifest_rows.append(json.loads(line))
 
+    formats_wanted: set[str] | None = None
+    if args.formats:
+        formats_wanted = {f.strip().lower() for f in args.formats.split(",") if f.strip()}
+
     errors: list[str] = []
     for row in manifest_rows:
         topic = row.get("topic") or ""
         persona = row.get("persona") or ""
         freebie_id = row.get("freebie_id") or ""
         fmt = (row.get("format") or "html").strip().lower()
+        if formats_wanted is not None and fmt not in formats_wanted:
+            continue
         ext = "html" if fmt == "html" else "pdf" if fmt == "pdf" else "epub" if fmt == "epub" else "mp3"
         path = args.store / fmt / topic / persona / f"{freebie_id}.{ext}"
         if not path.exists():

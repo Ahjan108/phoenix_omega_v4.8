@@ -1,0 +1,847 @@
+# config/marketing/invisible_scripts_by_persona_topic.yaml
+# Persona × topic invisible scripts — feeds title engine, HOOK atom seeds.
+# Authority: marketing_deep_research/ scaffold 04.
+# 10 personas × 14 topics = 140 entries.
+# Last updated: 2026-03-04
+
+version: "1.0"
+scripts:
+  - persona_id: millennial_women_professionals
+    topic_id: anxiety
+    scripts:
+      - "I'm managing my anxiety well enough that no one can see it, but 'well enough' is a full-time job on top of my actual job."
+      - "Everyone at work thinks I have it together because I learned to perform calm before the anxiety even hits."
+
+  - persona_id: millennial_women_professionals
+    topic_id: burnout
+    scripts:
+      - "I burned out quietly, so quietly that even I didn't notice until I did."
+      - "The worst part is knowing exactly which optimization I missed, which would have prevented this."
+
+  - persona_id: millennial_women_professionals
+    topic_id: overthinking
+    scripts:
+      - "I've made success by thinking three steps ahead, so now my brain won't stop doing it and I'm exhausted by things that haven't happened."
+      - "I analyze conversations for hours after, finding the micro-moment where I could have said something better."
+
+  - persona_id: millennial_women_professionals
+    topic_id: imposter_syndrome
+    scripts:
+      - "I know I got here because I worked harder than everyone else, but I still feel like I'm about to be exposed as someone who just works harder than everyone else."
+      - "Promotions don't fix it — they just raise the bar for who I have to fake being."
+
+  - persona_id: millennial_women_professionals
+    topic_id: sleep_anxiety
+    scripts:
+      - "I can't sleep because I'm thinking about not being able to sleep, and that spiral is the most honest thing about me."
+      - "Sleep is the one thing I can't optimize my way into, and that terrifies me more than actual insomnia."
+
+  - persona_id: millennial_women_professionals
+    topic_id: financial_stress
+    scripts:
+      - "I make good money and still live like I'm one mistake away from losing everything."
+      - "I calculate my financial safety margin like other people count sheep."
+
+  - persona_id: millennial_women_professionals
+    topic_id: grief
+    scripts:
+      - "I don't have time to grieve properly so I grieve in my car on the way to meetings."
+      - "I'm supposed to be the strong one in my family, which means my losses get filed under 'will process later.'"
+
+  - persona_id: millennial_women_professionals
+    topic_id: boundaries
+    scripts:
+      - "Setting a boundary feels like admitting I'm not enough to handle everything, and I'm not done being everything yet."
+      - "I say yes to everything because no one's ever asked me what I actually wanted."
+
+  - persona_id: millennial_women_professionals
+    topic_id: somatic_healing
+    scripts:
+      - "My body has been keeping score longer than I've been paying attention to it."
+      - "I only notice I'm holding tension when someone points it out, and that makes me realize how long I've been white-knuckling."
+
+  - persona_id: millennial_women_professionals
+    topic_id: depression
+    scripts:
+      - "Depression doesn't look like I thought it would on me, so I thought it wasn't real."
+      - "I'm depressed but still functional, which somehow makes it feel less valid and more isolating."
+
+  - persona_id: millennial_women_professionals
+    topic_id: compassion_fatigue
+    scripts:
+      - "I've been the therapist in every room, and somewhere I stopped knowing how to ask for help."
+      - "Everyone brings me their problems because I'm good at making space for them, and I've made no space for myself."
+
+  - persona_id: millennial_women_professionals
+    topic_id: courage
+    scripts:
+      - "I'm brave at work but terrified in my own life, which means I haven't actually figured out what bravery is."
+      - "I can advocate for anyone but myself without feeling like I'm being selfish."
+
+  - persona_id: millennial_women_professionals
+    topic_id: self_worth
+    scripts:
+      - "My worth is tied to my output, which is why I can't rest without feeling guilty."
+      - "I know logically I'm worthy, but I'm still waiting for the moment it finally feels true."
+
+  - persona_id: millennial_women_professionals
+    topic_id: social_anxiety
+    scripts:
+      - "I can network and present to hundreds, but a casual dinner party feels impossible."
+      - "The more successful I become, the more convinced I am that people are only tolerating me."
+
+  - persona_id: tech_finance_burnout
+    topic_id: anxiety
+    scripts:
+      - "I built my life on eliminating variables, but anxiety is the variable I can't engineer away."
+      - "My anxiety is most acute when I have nothing to optimize, which means rest feels dangerous."
+
+  - persona_id: tech_finance_burnout
+    topic_id: burnout
+    scripts:
+      - "I optimized everything — sleep, diet, supplements — and I'm still burnt out, which means it must be something wrong with me rather than the pace."
+      - "I burned out at velocity, not gradually, which made it feel less real when it happened."
+
+  - persona_id: tech_finance_burnout
+    topic_id: overthinking
+    scripts:
+      - "I'm trained to stress-test every decision, so I'm constantly running worst-case scenarios in my head."
+      - "My brain treats life decisions like they're high-stakes trades, and I can't turn that mode off."
+
+  - persona_id: tech_finance_burnout
+    topic_id: imposter_syndrome
+    scripts:
+      - "Everyone around me seems to know a secret about the market or the industry that I'm missing."
+      - "I've made money but I still feel like I'm faking my way through and the market will eventually call me out."
+
+  - persona_id: tech_finance_burnout
+    topic_id: sleep_anxiety
+    scripts:
+      - "Markets operate while I sleep, so my sleep always feels irresponsible."
+      - "I wake up at 3am calculating whether I made the right moves yesterday."
+
+  - persona_id: tech_finance_burnout
+    topic_id: financial_stress
+    scripts:
+      - "I have money but I don't have security, which is the opposite problem but feels just as terrifying."
+      - "I optimize to the point where one bad quarter or decision could unravel everything."
+
+  - persona_id: tech_finance_burnout
+    topic_id: grief
+    scripts:
+      - "I'm grieving the person I was before this, the one who didn't think in probabilities."
+      - "I've lost time and relationships to the grind, and it's hard to grieve that when the tradeoff is supposed to be worth it."
+
+  - persona_id: tech_finance_burnout
+    topic_id: boundaries
+    scripts:
+      - "Setting boundaries in this space feels like financial suicide, so I haven't."
+      - "I say I have boundaries but I check my phone every 10 minutes, which is not a boundary."
+
+  - persona_id: tech_finance_burnout
+    topic_id: somatic_healing
+    scripts:
+      - "My body is screaming at me through chest pain and I still minimize it as stress."
+      - "I know the physiology of stress response but I can't stop triggering it in myself."
+
+  - persona_id: tech_finance_burnout
+    topic_id: depression
+    scripts:
+      - "I can't tell if I'm depressed or just rationally cynical about the state of things."
+      - "I have everything I thought would make me happy and I feel numb, which is a different kind of crisis."
+
+  - persona_id: tech_finance_burnout
+    topic_id: compassion_fatigue
+    scripts:
+      - "I've killed off empathy to survive in this world, and now I can't seem to turn it back on."
+      - "Everyone wants my help navigating their finances or career, and I have nothing left to give."
+
+  - persona_id: tech_finance_burnout
+    topic_id: courage
+    scripts:
+      - "I'm brave with risk but terrified of stillness."
+      - "It would take more courage to stop than it took to start, which is why I haven't."
+
+  - persona_id: tech_finance_burnout
+    topic_id: self_worth
+    scripts:
+      - "My net worth and my self-worth got tangled somewhere and now they're the same metric."
+      - "I measure myself in basis points and that's not a way to be human."
+
+  - persona_id: tech_finance_burnout
+    topic_id: social_anxiety
+    scripts:
+      - "I can pitch anything but I panic in unstructured social settings."
+      - "Everyone in my circle is succeeding in ways I'm not and I'm convinced they see right through me."
+
+  - persona_id: entrepreneurs
+    topic_id: anxiety
+    scripts:
+      - "I created this chaos so the anxiety is self-inflicted, which makes it harder to forgive myself for having it."
+      - "Every decision is mine alone and the weight of that is crushing sometimes."
+
+  - persona_id: entrepreneurs
+    topic_id: burnout
+    scripts:
+      - "There's no separation between the business failing and me failing, so I can't take a break."
+      - "Burnout would mean admitting the dream isn't working, and I'm not there yet."
+
+  - persona_id: entrepreneurs
+    topic_id: overthinking
+    scripts:
+      - "I run 47 scenarios in my head before every decision because I can't afford to be wrong."
+      - "My brain won't stop working because it thinks stopping means losing momentum."
+
+  - persona_id: entrepreneurs
+    topic_id: imposter_syndrome
+    scripts:
+      - "I built something from nothing but I still feel like I don't belong in the rooms I'm now in."
+      - "Confidence on the outside is the only thing keeping the doubt from showing."
+
+  - persona_id: entrepreneurs
+    topic_id: sleep_anxiety
+    scripts:
+      - "I can't sleep because there's no off-switch when you are the business."
+      - "My brain runs the business 24/7, and sleep feels like irresponsible time off."
+
+  - persona_id: entrepreneurs
+    topic_id: financial_stress
+    scripts:
+      - "I'm responsible for other people's paychecks, which means my financial stress is also their stress."
+      - "Profit margins and cash flow are things I think about instead of thinking about anything else."
+
+  - persona_id: entrepreneurs
+    topic_id: grief
+    scripts:
+      - "I'm grieving the version of the business that didn't work out, and it feels selfish to mourn that."
+      - "I've lost relationships and years to building this, and some days I'm not sure if it's worth it."
+
+  - persona_id: entrepreneurs
+    topic_id: boundaries
+    scripts:
+      - "I haven't set boundaries because the business is 24/7 and boundaries feel like giving up."
+      - "Everyone calls me for everything and I answer because it's my business."
+
+  - persona_id: entrepreneurs
+    topic_id: somatic_healing
+    scripts:
+      - "My stress lives in my chest and I keep pushing through it instead of dealing with it."
+      - "I've been running on adrenaline for so long that calm feels suspicious."
+
+  - persona_id: entrepreneurs
+    topic_id: depression
+    scripts:
+      - "I'm depressed but still showing up every day, which is the loneliest way to be depressed."
+      - "Success is supposed to feel good and it doesn't, which means something is fundamentally broken."
+
+  - persona_id: entrepreneurs
+    topic_id: compassion_fatigue
+    scripts:
+      - "I carry everyone's stress and fears about the business even though I'm supposed to be the confident one."
+      - "I don't have anyone to lean on because I have to be the source of stability."
+
+  - persona_id: entrepreneurs
+    topic_id: courage
+    scripts:
+      - "I had the courage to start but not the courage to ask for help when it got hard."
+      - "I'm brave on stage but terrified in the quiet moments."
+
+  - persona_id: entrepreneurs
+    topic_id: self_worth
+    scripts:
+      - "I built my entire identity around building this, so if the business fails, who am I?"
+      - "I know my worth isn't tied to success but I can't actually separate them yet."
+
+  - persona_id: entrepreneurs
+    topic_id: social_anxiety
+    scripts:
+      - "I can pitch to thousands but I'm anxious one-on-one because then they're really seeing me."
+      - "The more public I am, the more I withdraw privately."
+
+  - persona_id: working_parents
+    topic_id: anxiety
+    scripts:
+      - "I'm anxious that I'm failing at both things equally when I'm only supposed to be excellent at one."
+      - "Something is going to fall through the cracks and most days I'm waiting for it to be something important."
+
+  - persona_id: working_parents
+    topic_id: burnout
+    scripts:
+      - "I'm burnt out on both ends and I can't quit either one, so burnout is just my baseline now."
+      - "There's no version of this that involves rest, so I've stopped expecting it."
+
+  - persona_id: working_parents
+    topic_id: overthinking
+    scripts:
+      - "I'm constantly recalculating the cost-benefit of every decision and how it affects both roles."
+      - "I replay every moment with my kids wondering if I'm screwing them up by not being there more."
+
+  - persona_id: working_parents
+    topic_id: imposter_syndrome
+    scripts:
+      - "I'm not good enough at work because I leave at 5pm, and I'm not good enough at parenting because I left at 5pm."
+      - "I'm failing at both and someone's going to find out I'm just pretending to have this figured out."
+
+  - persona_id: working_parents
+    topic_id: sleep_anxiety
+    scripts:
+      - "I can't sleep because there's a mental checklist that won't stop."
+      - "When I finally get to bed, I'm asleep instantly because I'm destroying myself."
+
+  - persona_id: working_parents
+    topic_id: financial_stress
+    scripts:
+      - "I need the money but the money is what keeps me from being the parent I want to be."
+      - "Daycare and school costs mean I'm working to pay someone else to watch my kids."
+
+  - persona_id: working_parents
+    topic_id: grief
+    scripts:
+      - "I'm grieving the time I'm not getting with them, and that grief is ongoing."
+      - "I'm mourning the version of myself that had more flexibility and presence."
+
+  - persona_id: working_parents
+    topic_id: boundaries
+    scripts:
+      - "I can't set boundaries without feeling guilty, either toward work or toward my kids."
+      - "Something always has to give and the guilt is the same either way."
+
+  - persona_id: working_parents
+    topic_id: somatic_healing
+    scripts:
+      - "My shoulders are at my ears from tension and I forget about it until I catch my reflection."
+      - "I'm running on cortisol and coffee and my body is keeping score."
+
+  - persona_id: working_parents
+    topic_id: depression
+    scripts:
+      - "I'm depressed and I can't afford to show it, so I'm depressed in private."
+      - "I'm going through the motions so well that nobody knows I'm underwater."
+
+  - persona_id: working_parents
+    topic_id: compassion_fatigue
+    scripts:
+      - "I'm everyone's emotional support and I have nothing left at the end of the day."
+      - "My kids need me to be present and my partner needs me and I'm running on empty."
+
+  - persona_id: working_parents
+    topic_id: courage
+    scripts:
+      - "It would take courage to admit I can't do both, and I'm not brave enough to do that."
+      - "I'm brave in every other way but I'm afraid to ask for help."
+
+  - persona_id: working_parents
+    topic_id: self_worth
+    scripts:
+      - "I'm measuring myself against an impossible standard and failing at it daily."
+      - "I know I'm doing my best but my best never feels like enough."
+
+  - persona_id: working_parents
+    topic_id: social_anxiety
+    scripts:
+      - "I'm too tired to socialize but also isolated from not socializing."
+      - "Other parents seem like they have it together and I'm clearly the one falling apart."
+
+  - persona_id: gen_x_sandwich
+    topic_id: anxiety
+    scripts:
+      - "I'm managing my own life, my kids' lives, and my parents' decline simultaneously."
+      - "I can feel the rug being pulled out from under everyone and I can't stop it."
+
+  - persona_id: gen_x_sandwich
+    topic_id: burnout
+    scripts:
+      - "I'm burnt out from competing demands and I'm supposed to be the responsible generation."
+      - "There's no end date to this, which is the most burnout-inducing thing about it."
+
+  - persona_id: gen_x_sandwich
+    topic_id: overthinking
+    scripts:
+      - "I'm running financial scenarios around my parents' care and my kids' education simultaneously."
+      - "I replay conversations with both generations looking for ways I could have handled it better."
+
+  - persona_id: gen_x_sandwich
+    topic_id: imposter_syndrome
+    scripts:
+      - "I'm holding everything up and I feel like it's all about to collapse on me."
+      - "Everyone else seems to have a plan and I'm just barely keeping things from falling apart."
+
+  - persona_id: gen_x_sandwich
+    topic_id: sleep_anxiety
+    scripts:
+      - "I lie awake thinking about what I forgot to handle or what's coming."
+      - "Sleep feels irresponsible when there's so much that needs my attention."
+
+  - persona_id: gen_x_sandwich
+    topic_id: financial_stress
+    scripts:
+      - "I'm supporting my parents while saving for my kids and my own retirement is deprioritized."
+      - "Every dollar has multiple claims on it and there's never enough."
+
+  - persona_id: gen_x_sandwich
+    topic_id: grief
+    scripts:
+      - "I'm grieving my parents while they're still here, and nobody talks about that kind of grief."
+      - "I'm losing my role as the young one and gaining the role as the responsible one and it's hard."
+
+  - persona_id: gen_x_sandwich
+    topic_id: boundaries
+    scripts:
+      - "I can't set boundaries without feeling like I'm abandoning someone."
+      - "My parents need me and my kids need me and I'm the only one holding the middle."
+
+  - persona_id: gen_x_sandwich
+    topic_id: somatic_healing
+    scripts:
+      - "My body is exhausted in a way sleep doesn't fix."
+      - "I carry everyone else's stress physically and I don't know how to put it down."
+
+  - persona_id: gen_x_sandwich
+    topic_id: depression
+    scripts:
+      - "I'm depressed but I can't afford to sit with it, so I keep moving."
+      - "I feel hollowed out and I don't know when it started."
+
+  - persona_id: gen_x_sandwich
+    topic_id: compassion_fatigue
+    scripts:
+      - "I've been the family problem-solver for so long that I'm burnt out on understanding."
+      - "Everyone comes to me and I have nothing left."
+
+  - persona_id: gen_x_sandwich
+    topic_id: courage
+    scripts:
+      - "It would take courage to step back from any of these roles and I can't afford to."
+      - "I'm brave in crisis but terrified when I think about what happens if I stop."
+
+  - persona_id: gen_x_sandwich
+    topic_id: self_worth
+    scripts:
+      - "I measure myself by how well I'm managing everything and I'm measuring wrong."
+      - "My worth is tied to usefulness and I'm barely keeping up with the demand."
+
+  - persona_id: gen_x_sandwich
+    topic_id: social_anxiety
+    scripts:
+      - "I don't have time to maintain friendships and I'm lonely because of it."
+      - "I avoid social situations because I don't have the bandwidth to be present."
+
+  - persona_id: corporate_managers
+    topic_id: anxiety
+    scripts:
+      - "I'm responsible for people's careers and livelihoods and that responsibility is crushing sometimes."
+      - "I'm anxious that I'm not strategic enough or aggressive enough or empathetic enough."
+
+  - persona_id: corporate_managers
+    topic_id: burnout
+    scripts:
+      - "I'm burnt out from being in the middle of everything — above me is demanding, below me is needing."
+      - "Leadership is lonelier than I thought and I'm burning out in the isolation."
+
+  - persona_id: corporate_managers
+    topic_id: overthinking
+    scripts:
+      - "I analyze every interaction for political implications and power dynamics."
+      - "I replay performance reviews and one-on-ones looking for missed signals or mishandled moments."
+
+  - persona_id: corporate_managers
+    topic_id: imposter_syndrome
+    scripts:
+      - "I was promoted because I was good at the previous job, and I'm terrified I don't belong in this one."
+      - "Everyone in the room with more tenure seems like they know what I'm still figuring out."
+
+  - persona_id: corporate_managers
+    topic_id: sleep_anxiety
+    scripts:
+      - "I wake up thinking about a conversation from two weeks ago that went wrong."
+      - "I can't sleep because my brain is running through scenarios of things that could go wrong tomorrow."
+
+  - persona_id: corporate_managers
+    topic_id: financial_stress
+    scripts:
+      - "I make decent money but it never feels like enough for the responsibility."
+      - "I'm one bad quarter away from the company restructuring and that keeps me up."
+
+  - persona_id: corporate_managers
+    topic_id: grief
+    scripts:
+      - "I'm grieving the version of work that felt fun, before the responsibility weighed so much."
+      - "I've lost friendships with people I used to report to, and that's a strange kind of loss."
+
+  - persona_id: corporate_managers
+    topic_id: boundaries
+    scripts:
+      - "I can't set boundaries because people report to me and they need access."
+      - "My boundaries would have to extend to people I care about, so I don't have any."
+
+  - persona_id: corporate_managers
+    topic_id: somatic_healing
+    scripts:
+      - "I hold tension in my jaw and neck from forced composure."
+      - "I'm performing confidence while feeling completely fraudulent inside."
+
+  - persona_id: corporate_managers
+    topic_id: depression
+    scripts:
+      - "I'm depressed but I have to show up as the steady one for everyone."
+      - "I feel numb at work and I don't know if it's depression or just what happens in corporate."
+
+  - persona_id: corporate_managers
+    topic_id: compassion_fatigue
+    scripts:
+      - "I listen to everyone's problems and I have no one to tell mine to."
+      - "I've become cynical about people because I see the worst of them regularly."
+
+  - persona_id: corporate_managers
+    topic_id: courage
+    scripts:
+      - "I'm brave professionally but I'm afraid to admit what I actually want."
+      - "It would take courage to leave and that scares me more than staying."
+
+  - persona_id: corporate_managers
+    topic_id: self_worth
+    scripts:
+      - "My self-worth is tied to my title and I'm terrified of losing it."
+      - "I know my worth isn't tied to my role but I can't actually separate them."
+
+  - persona_id: corporate_managers
+    topic_id: social_anxiety
+    scripts:
+      - "I'm confident leading meetings but anxious in unstructured social settings with my team."
+      - "The more power I have, the more isolated I feel."
+
+  - persona_id: gen_z_professionals
+    topic_id: anxiety
+    scripts:
+      - "I'm anxious that I'm doing it wrong because there's no blueprint for how to do this."
+      - "Everyone seems more certain and I'm convinced it's because I'm the only one struggling."
+
+  - persona_id: gen_z_professionals
+    topic_id: burnout
+    scripts:
+      - "I'm burnt out at 26 and I'm not sure if that's normal or if something is wrong with me."
+      - "I was supposed to have work-life balance but I seem to just have constant low-grade stress."
+
+  - persona_id: gen_z_professionals
+    topic_id: overthinking
+    scripts:
+      - "I'm in my own head constantly, analyzing whether I'm authentic or performing authenticity."
+      - "I replay every interaction looking for ways I could have been less awkward."
+
+  - persona_id: gen_z_professionals
+    topic_id: imposter_syndrome
+    scripts:
+      - "I got here and I'm still not sure if I actually know what I'm doing."
+      - "Everyone else seems confident and I'm terrified that confidence is a scam I haven't figured out yet."
+
+  - persona_id: gen_z_professionals
+    topic_id: sleep_anxiety
+    scripts:
+      - "I can't sleep because of FOMO and also because sleep feels like missing out on something important."
+      - "My phone is right there and my brain won't stop checking it."
+
+  - persona_id: gen_z_professionals
+    topic_id: financial_stress
+    scripts:
+      - "I'm making money but I feel like it's not enough because the cost of living keeps rising."
+      - "I'm supposed to be saving but I'm barely keeping up with my own expenses."
+
+  - persona_id: gen_z_professionals
+    topic_id: grief
+    scripts:
+      - "I'm grieving the world I was supposed to have before it fell apart."
+      - "I'm mourning the version of growing up that previous generations had."
+
+  - persona_id: gen_z_professionals
+    topic_id: boundaries
+    scripts:
+      - "I don't know how to set boundaries without ghosting."
+      - "Boundaries feel like rejection and I'm afraid of rejecting people or being rejected."
+
+  - persona_id: gen_z_professionals
+    topic_id: somatic_healing
+    scripts:
+      - "I live in my head and I'm disconnected from my body in ways I don't fully understand."
+      - "My nervous system is constantly activated and I've normalized that feeling."
+
+  - persona_id: gen_z_professionals
+    topic_id: depression
+    scripts:
+      - "I'm depressed but it's hard to tell if it's depression or just how everyone feels."
+      - "I'm numb and I don't know if that's an symptom or just being an adult."
+
+  - persona_id: gen_z_professionals
+    topic_id: compassion_fatigue
+    scripts:
+      - "I care deeply about everything and it's exhausting me."
+      - "I've become defensive about my ideals because the world is beating them out of me."
+
+  - persona_id: gen_z_professionals
+    topic_id: courage
+    scripts:
+      - "I want to say what I really think but the cost of being wrong is too high."
+      - "Authenticity is valued until it's inconvenient, and I'm afraid to test that boundary."
+
+  - persona_id: gen_z_professionals
+    topic_id: self_worth
+    scripts:
+      - "My worth is wrapped up in external validation and I hate that but I can't unwire it."
+      - "I know social media is fake but I measure myself against it anyway."
+
+  - persona_id: gen_z_professionals
+    topic_id: social_anxiety
+    scripts:
+      - "I'm connected to everyone and lonely all the time."
+      - "I'm anxious in real-time social situations because I can't edit or delete my words."
+
+  - persona_id: healthcare_rns
+    topic_id: anxiety
+    scripts:
+      - "I hold people's lives in my hands and the anxiety of that never goes away."
+      - "I'm anxious that I'm missing something, that I'm not catching something critical."
+
+  - persona_id: healthcare_rns
+    topic_id: burnout
+    scripts:
+      - "I went into nursing to help people and I'm too burnt out to help anyone, including myself."
+      - "The system is broken and I'm burning out trying to fix it with my bare hands."
+
+  - persona_id: healthcare_rns
+    topic_id: overthinking
+    scripts:
+      - "I replay every shift looking for what I could have missed or done differently."
+      - "I'm constantly running through worst-case scenarios because I've seen what goes wrong."
+
+  - persona_id: healthcare_rns
+    topic_id: imposter_syndrome
+    scripts:
+      - "I know what I'm doing but I'm still terrified I'm going to hurt someone."
+      - "I see the nurses who seem like they have it all together and I know I'm still fumbling."
+
+  - persona_id: healthcare_rns
+    topic_id: sleep_anxiety
+    scripts:
+      - "I can't sleep because I'm reviewing the day for mistakes."
+      - "When I do sleep, I'm on alert for my phone."
+
+  - persona_id: healthcare_rns
+    topic_id: financial_stress
+    scripts:
+      - "I sacrifice my health for a paycheck and the paycheck barely covers my expenses."
+      - "I'm underpaid for what I do and I'm too burnt out to look for something else."
+
+  - persona_id: healthcare_rns
+    topic_id: grief
+    scripts:
+      - "I've held dying people's hands and I'm supposed to compartmentalize that grief."
+      - "I'm grieving people I cared for and I'm supposed to be professional about it."
+
+  - persona_id: healthcare_rns
+    topic_id: boundaries
+    scripts:
+      - "I can't set boundaries with patients who need me."
+      - "Boundaries would mean protecting myself and that feels selfish when people are suffering."
+
+  - persona_id: healthcare_rns
+    topic_id: somatic_healing
+    scripts:
+      - "My body is exhausted in a way that days off don't fix."
+      - "I'm holding trauma in my nervous system and I don't know how to release it."
+
+  - persona_id: healthcare_rns
+    topic_id: depression
+    scripts:
+      - "I'm depressed and I'm supposed to show up and be bright for patients."
+      - "I'm empty and I still have to pour from an empty cup."
+
+  - persona_id: healthcare_rns
+    topic_id: compassion_fatigue
+    scripts:
+      - "I've given all my compassion to patients and I have none left for myself."
+      - "I'm numb to suffering because I see so much of it."
+
+  - persona_id: healthcare_rns
+    topic_id: courage
+    scripts:
+      - "I'm brave with other people's suffering but I'm afraid to acknowledge my own."
+      - "It would take courage to leave and I'm not sure I can afford to."
+
+  - persona_id: healthcare_rns
+    topic_id: self_worth
+    scripts:
+      - "I'm worth something because I help people, but what if I can't help anymore?"
+      - "My value is tied to my ability to care and that's unsustainable."
+
+  - persona_id: healthcare_rns
+    topic_id: social_anxiety
+    scripts:
+      - "I'm present with patients but withdrawn from friends."
+      - "I'm isolated because I've seen too much of what humans do to each other."
+
+  - persona_id: gen_alpha_students
+    topic_id: anxiety
+    scripts:
+      - "I'm anxious about my future and I have no idea if I'm on the right path."
+      - "Everyone expects me to figure out my life and I'm not even sure what I want to figure out."
+
+  - persona_id: gen_alpha_students
+    topic_id: burnout
+    scripts:
+      - "I'm burnt out from school and extracurriculars and I'm only in high school."
+      - "The pressure to optimize every moment is killing my ability to enjoy anything."
+
+  - persona_id: gen_alpha_students
+    topic_id: overthinking
+    scripts:
+      - "I'm in my head constantly about grades and college and what comes after."
+      - "I replay conversations at school looking for ways I was awkward or stupid."
+
+  - persona_id: gen_alpha_students
+    topic_id: imposter_syndrome
+    scripts:
+      - "I'm in advanced classes and I feel like I don't belong there."
+      - "Everyone else seems smarter and I'm convinced I'm going to be figured out."
+
+  - persona_id: gen_alpha_students
+    topic_id: sleep_anxiety
+    scripts:
+      - "I can't sleep because I'm thinking about tests or assignments due."
+      - "My phone is right there and I can't put it down even though I need to sleep."
+
+  - persona_id: gen_alpha_students
+    topic_id: financial_stress
+    scripts:
+      - "I'm stressed about college costs and how I'm going to pay for it."
+      - "I feel guilty spending money because I know it's going toward my future."
+
+  - persona_id: gen_alpha_students
+    topic_id: grief
+    scripts:
+      - "I'm grieving my childhood because I was so focused on the future."
+      - "I'm mourning friendships that dissolved because everyone was too busy optimizing."
+
+  - persona_id: gen_alpha_students
+    topic_id: boundaries
+    scripts:
+      - "I can't say no to opportunities because they might be important for my future."
+      - "Boundaries feel like limiting myself when I'm supposed to be open to everything."
+
+  - persona_id: gen_alpha_students
+    topic_id: somatic_healing
+    scripts:
+      - "I feel my anxiety in my chest and I've learned to ignore it."
+      - "I'm disconnected from my body because I live in my head so much."
+
+  - persona_id: gen_alpha_students
+    topic_id: depression
+    scripts:
+      - "I feel empty but I'm supposed to be excited about my future."
+      - "I'm depressed and it's hard to talk about it because everyone is fine."
+
+  - persona_id: gen_alpha_students
+    topic_id: compassion_fatigue
+    scripts:
+      - "I care about everyone's problems and I'm exhausted by caring."
+      - "I'm the listener in my friend group and I have no one to talk to."
+
+  - persona_id: gen_alpha_students
+    topic_id: courage
+    scripts:
+      - "I want to be authentic but authenticity feels risky when everything is being recorded."
+      - "I'm afraid to be different or stand out in ways that might hurt my future."
+
+  - persona_id: gen_alpha_students
+    topic_id: self_worth
+    scripts:
+      - "My worth is measured in grades and test scores and that's a vulnerable place."
+      - "I know my worth isn't just my achievements but I measure myself that way anyway."
+
+  - persona_id: gen_alpha_students
+    topic_id: social_anxiety
+    scripts:
+      - "I'm connected to everyone online and terrified in real social situations."
+      - "I'm anxious about saying the wrong thing because everyone remembers everything."
+
+  - persona_id: first_responders
+    topic_id: anxiety
+    scripts:
+      - "I'm holding other people's emergencies and I can feel the cumulative weight of them."
+      - "I'm trained to handle chaos but my anxiety about things I can't control is rising."
+
+  - persona_id: first_responders
+    topic_id: burnout
+    scripts:
+      - "I signed up to help and I'm being destroyed by the system and the people I'm helping."
+      - "The burnout is moral — I'm unable to do the job the way it's supposed to be done."
+
+  - persona_id: first_responders
+    topic_id: overthinking
+    scripts:
+      - "I replay calls and scenes looking for what I could have done differently."
+      - "My brain is constantly analyzing threat levels in every situation."
+
+  - persona_id: first_responders
+    topic_id: imposter_syndrome
+    scripts:
+      - "I made it through training but I'm terrified I'll freeze when it matters."
+      - "Everyone else seems confident and I'm convinced I'm going to be the weak link."
+
+  - persona_id: first_responders
+    topic_id: sleep_anxiety
+    scripts:
+      - "I'm on alert even when I'm off shift, sleep is never fully restful."
+      - "I wake up in a panic and have to remember that I'm not in a crisis."
+
+  - persona_id: first_responders
+    topic_id: financial_stress
+    scripts:
+      - "I'm underpaid for what I do and I'm too burnt out to do anything else."
+      - "I'm one bad call away from a lawsuit and that financial anxiety is constant."
+
+  - persona_id: first_responders
+    topic_id: grief
+    scripts:
+      - "I've seen enough death to know grief is normal, which somehow makes it harder to let myself actually grieve."
+      - "I'm mourning people I've lost professionally and I'm supposed to keep showing up."
+
+  - persona_id: first_responders
+    topic_id: boundaries
+    scripts:
+      - "I can't set boundaries when people need help."
+      - "My job is to help people and boundaries would mean protecting myself over them."
+
+  - persona_id: first_responders
+    topic_id: somatic_healing
+    scripts:
+      - "My nervous system is stuck in fight-or-flight and I don't know how to get it out."
+      - "I'm holding trauma in my body and I'm not sure how to release it."
+
+  - persona_id: first_responders
+    topic_id: depression
+    scripts:
+      - "I'm depressed and I'm supposed to be the strong one for everyone else."
+      - "I feel numb and empty and I can't show that to my team."
+
+  - persona_id: first_responders
+    topic_id: compassion_fatigue
+    scripts:
+      - "I've given all my compassion to strangers and I have none left for the people I love."
+      - "I'm burnt out on helping and that conflicts with who I thought I was."
+
+  - persona_id: first_responders
+    topic_id: courage
+    scripts:
+      - "I'm brave on calls but I'm afraid to admit I can't do this anymore."
+      - "Courage looks different when you've seen what courage actually costs."
+
+  - persona_id: first_responders
+    topic_id: self_worth
+    scripts:
+      - "I'm worth something because I save lives, but what if I can't save someone?"
+      - "My value is tied to my ability to respond and that's an impossible standard."
+
+  - persona_id: first_responders
+    topic_id: social_anxiety
+    scripts:
+      - "I'm isolated because nobody understands what I see and experience."
+      - "I'm withdrawn because I'm afraid of burdening people with what I've seen."

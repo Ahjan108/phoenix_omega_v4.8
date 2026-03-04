@@ -32,6 +32,11 @@ jobs:
             -x
         continue-on-error: false
 
+      - name: Validate marketing config
+        run: |
+          PYTHONPATH=. python -m phoenix_v4.qa.validate_marketing_config
+        continue-on-error: false
+
       - name: Run production readiness gates
         run: |
           PYTHONPATH=. python scripts/run_production_readiness_gates.py

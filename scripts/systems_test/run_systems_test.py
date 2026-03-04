@@ -570,7 +570,7 @@ def run_phase_5_asset_pipeline(output_dir: Path) -> None:
 
     validate_store_script = REPO_ROOT / "scripts" / "validate_asset_store.py"
     if validate_store_script.exists() and manifest_path.exists():
-        r = subprocess.run([sys.executable, str(validate_store_script), "--store", str(store_dir), "--manifest", str(manifest_path)], cwd=str(REPO_ROOT), capture_output=True, text=True, timeout=30)
+        r = subprocess.run([sys.executable, str(validate_store_script), "--store", str(store_dir), "--manifest", str(manifest_path), "--formats", "html"], cwd=str(REPO_ROOT), capture_output=True, text=True, timeout=30)
         if r.returncode != 0 and store_dir.exists():
             record("phase5_validate_asset_store", False, "asset_validate_fail", r.stderr or r.stdout or "Exit non-zero", str(store_dir), "Ensure store matches manifest or run create_freebie_assets")
         else:

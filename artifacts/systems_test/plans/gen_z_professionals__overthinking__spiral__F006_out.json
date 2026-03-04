@@ -1,6 +1,6 @@
 {
-  "plan_hash": "2fe6d57c3eaff41088e59bcab1f0682a",
-  "plan_id": "2fe6d57c3eaff41088e59bcab1f0682a",
+  "plan_hash": "c071ca543b4fe54276a19f84088f4328",
+  "plan_id": "c071ca543b4fe54276a19f84088f4328",
   "chapter_slot_sequence": [
     [
       "SCENE",
@@ -92,7 +92,7 @@
     "gen_z_professionals_anxiety_HOOK_v29",
     "gen_z_professionals_anxiety_REFLECTION_v13",
     "gen_z_professionals_anxiety_INTEGRATION_v06",
-    "gen_z_professionals_anxiety_overwhelm_EMBODIMENT_v04",
+    "gen_z_professionals_anxiety_shame_RECOGNITION_v06",
     "gen_z_professionals_anxiety_SCENE_v26",
     "gen_z_professionals_anxiety_HOOK_v08",
     "gen_z_professionals_anxiety_REFLECTION_v17",
@@ -268,6 +268,12 @@
     "micro"
   ],
   "narrator_id": "default_narrator",
+  "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
+  "cover_art_style_hint": "contemplative",
+  "cover_art_palette_tokens": [
+    "contemplative"
+  ],
+  "cover_variant_id": "ahjan",
   "emotional_role_sequence": [
     "recognition",
     "recognition",
