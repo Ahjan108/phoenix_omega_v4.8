@@ -1,0 +1,42 @@
+# Autonomous loop — promotion policy (daily promotion + auto-PR).
+# Authority: docs/ML_AUTONOMOUS_LOOP_SPEC.md
+
+version: 1
+
+# Global kill switch: set to false to disable auto-PR and auto-merge.
+autonomy_enabled: false
+
+# Paths that may be modified by auto-PR (low-risk only).
+allowlist_paths:
+  - requirements*.txt
+  - config/ml_loop/
+  - config/ml_editorial/
+  - artifacts/ml_loop/
+  - artifacts/ml_editorial/
+
+# Confidence and gain floors for promotion.
+confidence_floor_ranker: 0.7
+confidence_floor_fit: 0.6
+rewrite_expected_gain_floor: 0.15
+
+# Queue paths (artifacts).
+promotion_queue_path: artifacts/ml_loop/promotion_queue.jsonl
+continuous_candidates_path: artifacts/ml_loop/continuous_candidates.jsonl
+operations_board_path: artifacts/observability/operations_board.jsonl
+
+# Fast gates run in continuous loop (hourly); slow gates only in daily or weekly.
+fast_gates:
+  - schema
+  - safety
+  - compliance
+  - basic_quality
+slow_gates:
+  - systems_test
+  - drift_calibration
+  - production_readiness
+
+# Delegate PR creation to observability agent for dependency/config fixes.
+agent_open_fix_pr_script: scripts/observability/agent_open_fix_pr.py
+
+# Merge policy: only when required checks pass and label policy matches (see AUTO_MERGE_POLICY).
+auto_merge_label: bot-fix

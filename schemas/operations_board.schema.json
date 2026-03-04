@@ -20,7 +20,13 @@
     "impact": { "type": "string", "description": "Before/after or pass/fail outcome (e.g. signal X went from fail to pass)" },
     "issue_id": { "type": "string", "description": "Optional issue or run identifier" },
     "artifact_path": { "type": "string", "description": "Path to evidence artifact" },
-    "run_url": { "type": "string", "format": "uri", "description": "CI or workflow run URL" }
+    "run_url": { "type": "string", "format": "uri", "description": "CI or workflow run URL" },
+    "ts": { "type": "string", "format": "date-time", "description": "ISO 8601 UTC (alias or in addition to timestamp)" },
+    "book_id": { "type": "string", "description": "Book or issue identifier" },
+    "source": { "type": "string", "description": "Agent or component: detector_agent, section_scoring, governance_agent, pr_agent" },
+    "decision": { "type": "string", "description": "promote, hold, fix, pr_opened, fail" },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "evidence_path": { "type": "string", "description": "Path to artifact or run URL" }
   },
   "additionalProperties": true
 }

@@ -1,0 +1,19 @@
+# Autonomous loop — drift thresholds (block promotion when exceeded).
+# Authority: docs/ML_AUTONOMOUS_LOOP_SPEC.md §10
+
+version: 1
+
+# Per-dimension max delta vs baseline; exceed → block promotion.
+max_drift:
+  section_quality_clarity: 0.15
+  section_quality_pacing: 0.15
+  section_quality_arc_drift: 0.15
+  reader_fit: 0.12
+  variant_rank_score: 0.12
+  marketing_compliance: 0.10
+
+# Calibration gate (same pattern as EI V2): block rollout if drift exceeds.
+calibration_block_rollout: true
+
+# Baseline source: previous weekly_report or baseline.json.
+baseline_source: artifacts/ml_loop/weekly_report.json

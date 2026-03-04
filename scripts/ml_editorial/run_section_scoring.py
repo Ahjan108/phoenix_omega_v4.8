@@ -63,13 +63,15 @@ def _heuristic_pacing(segment_lengths: list[int]) -> float:
     return 0.7
 
 
-def _heuristic_arc_drift(plan_chapters: list[dict]) -> float:
-    """Arc drift: deviation from expected BAND progression (if present)."""
+def _heuristic_arc_drift(plan: dict | None) -> float:
+    """Arc drift: deviation from expected BAND progression (if present). Uses dominant_band_sequence."""
     bands = []
-    for ch in (plan_chapters or []):
-        b = ch.get("band") or ch.get("BAND") or ch.get("emotional_temperature")
-        if b is not None:
-            bands.append(int(b) if isinstance(b, (int, float)) else 3)
+    if plan and isinstance(plan, dict):
+        seq = plan.get("dominant_band_sequence") or plan.get("emotional_temperature_sequence")
+        if isinstance(seq, list):
+            for b in seq:
+                if b is not None:
+                    bands.append(int(b) if isinstance(b, (int, float)) else 3)
     if len(bands) < 2:
         return 0.0
     # Simple: monotonic rise then fall is ideal; flat or erratic = drift
@@ -100,11 +102,10 @@ def run_section_scoring(plans_dir: Path, out_path: Path, config: dict) -> int:
         text_file = plan_dir / "book.txt"
         if not text_file.exists():
             text_file = plan_dir / "book" / "book.txt"
-        plan_chapters = []
+        plan_obj = None
         if plan_file.exists():
             try:
-                plan = json.loads(plan_file.read_text())
-                plan_chapters = plan.get("chapter_slot_sequence") or plan.get("chapters") or []
+                plan_obj = json.loads(plan_file.read_text())
             except Exception:
                 pass
         chapter_texts = []
@@ -115,7 +116,7 @@ def run_section_scoring(plans_dir: Path, out_path: Path, config: dict) -> int:
                     chapter_texts.append(block.strip())
         if not chapter_texts:
             chapter_texts = [""]
-        arc_drift = _heuristic_arc_drift(plan_chapters)
+        arc_drift = _heuristic_arc_drift(plan_obj)
         for i, seg in enumerate(chapter_texts):
             chapter_id = f"ch_{i+1}"
             clarity = _heuristic_clarity(seg)

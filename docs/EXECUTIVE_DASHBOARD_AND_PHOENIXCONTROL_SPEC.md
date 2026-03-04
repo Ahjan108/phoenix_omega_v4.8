@@ -217,8 +217,9 @@ A short **test checklist** must be run to confirm handoff:
 | 8 | **Autonomous loop UI** | Loop Status panel; Agent Queue view (pending/active/completed, safe-fix reason, scope); PR Automation panel (bot PRs, auto-merge eligibility, blocked reason); KPI Trigger board; Weekly Orchestrator run page; Operations Board tab (signal_id, suggested_fix, PR link, merge status, before/after impact); Manual override controls (pause/resume, disable auto-merge, rerun one stage). |
 | 9 | **App distribution** | PhoenixControl built as .app bundle; installable to /Applications or ~/Applications; appears in Finder → Applications and can be docked with other apps. |
 | 10 | **Safety Kill Switch visibility** | Top-level “Autonomy OFF/ON” state visible in UI; immutable audit log for every state change (who, when, why); no autonomous loop activity when OFF. |
+| 11 | **Autonomous loop dashboard (minimal set)** | Loop Health card (Continuous/Daily/Weekly status + last run time); Operations Board table (operations_board.jsonl with filters: source, decision, severity); Promotion Queue panel (queue size, top candidates, why held/skipped); Autonomy toggle state (ON/OFF + policy file source); Artifact freshness (last-updated for weekly_report, baseline, loop logs); Run-now actions (buttons for continuous/daily/weekly scripts + links to workflow runs). |
 
-When all 6 acceptance criteria, the test checklist (including minimal UI, autonomous loop UI, app distribution, Safety Kill Switch), the 5 operator-completeness requirements plus 2 final items, and the 7 autonomous loop UI items pass, the implementation is ready for handoff. With Dock/Applications and Safety Kill Switch visibility, the spec is **complete**.
+When all 6 acceptance criteria, the test checklist (including minimal UI, autonomous loop UI, autonomous loop dashboard minimal set, app distribution, Safety Kill Switch), the 5 operator-completeness requirements plus 2 final items, and the 7 autonomous loop UI items pass, the implementation is ready for handoff. With Dock/Applications and Safety Kill Switch visibility, the spec is **complete**.
 
 ---
 
@@ -466,6 +467,23 @@ Operator controls to **manage the autonomous system** safely:
 
 ---
 
+### Autonomous loop dashboard (minimal set)
+
+A **small set** of UI elements is enough to operate the loop safely. All six must be present.
+
+| # | Element | What to show |
+|---|---------|----------------|
+| 1 | **Loop Health card** | Status of Continuous / Daily / Weekly jobs (e.g. last run result: pass/fail/skip); **last run time** for each (from workflow run or local script timestamp). |
+| 2 | **Operations Board table** | Render `artifacts/observability/operations_board.jsonl` (or equivalent) with **filters**: source, decision, severity (if present). Table columns: ts, book_id/issue_id, source, decision, confidence, evidence_path, suggested_fix. |
+| 3 | **Promotion Queue panel** | **Queue size** (e.g. row count of promotion_queue.jsonl); **top candidates** (first N rows with book_id, decision, confidence); **why items are held/skipped** (e.g. below_confidence_floor, autonomy_disabled, gate_fail). |
+| 4 | **Autonomy toggle state** | Display **autonomy_enabled** clearly as **ON** or **OFF**; show **current policy file source** (e.g. `config/ml_loop/promotion_policy.yaml`). Same as Safety Kill Switch “Autonomy OFF/ON” where the loop is the autonomous system. |
+| 5 | **Artifact freshness** | **Last-updated** timestamp for: `weekly_report.json`, `baseline.json`, and loop logs (e.g. operations_board.jsonl last write, or audit log). So operator knows how stale the view is. |
+| 6 | **Run-now actions** | **Buttons** for local script runs: run continuous loop, run daily promotion (optional dry-run), run weekly recalibration. **Links** to GitHub workflow runs (e.g. “Open workflow run” for ML loop continuous, daily promotion, weekly recalibration). |
+
+**Rule:** When these 6 are present, the UI can operate the autonomous loop safely (health visibility, operations board with filters, promotion queue and hold reasons, autonomy state, freshness, and run-now + workflow links).
+
+---
+
 ## Safety Kill Switch visibility
 
 A **top-level** “Autonomy OFF/ON” state with **audit log** so operators can see and control the autonomous loop and who changed it.
@@ -484,13 +502,89 @@ A **top-level** “Autonomy OFF/ON” state with **audit log** so operators can 
 
 ---
 
+## Blockers & Completeness Contracts
+
+For operator goals, the following must be **explicit** and implemented. This section is the single reference for blockers and completeness.
+
+### Completeness: exact formulas and thresholds
+
+| Dimension | Formula | Green | Yellow | Red |
+|-----------|---------|-------|--------|-----|
+| **Locale** | `(locales_with_required_content / locales_in_scope) * 100` | ≥ 100% | &lt; 100% and ≥ 90% | &lt; 90% |
+| **Language** | `(languages_with_required_content / languages_in_scope) * 100` | ≥ 100% | &lt; 100% and ≥ 90% | &lt; 90% |
+| **Persona** | `(personas_with_min_atoms / personas_in_scope) * 100` | ≥ 100% | &lt; 100% and ≥ 90% | &lt; 90% |
+| **Topic** | `(topics_with_min_atoms / topics_in_scope) * 100` | ≥ 100% | &lt; 100% and ≥ 90% | &lt; 90% |
+| **Catalog** | `(books_meeting_quality_gates / books_in_catalog_scope) * 100` | ≥ 95% (or config) | &lt; 95% and ≥ 85% | &lt; 85% |
+
+**Contract:** UI shows one card per dimension with completion % and color (red/yellow/green). Source: coverage/validation scripts (e.g. `book_script_content_validation.py`). Thresholds may be overridden in config; document the keys.
+
+### Approval blocker states and hard release-stop rules
+
+| State | Definition | Release blocked? |
+|-------|------------|------------------|
+| **missing** | SOT file or checklist row absent. | Yes. |
+| **pending** | File/row present but not submitted or signed. | Yes. |
+| **approved** | Checklist signed with name/date; not past expiry. | No. |
+| **expired** | Approval date older than policy; re-approval required. | Yes. |
+
+**Hard release-stop rules:** (1) **Pearl** — Pearl News church/governance approvals must be `approved` before Pearl News launch. (2) **Church** — Church/brand approvals (e.g. NorCal Dharma) must be `approved` for that domain’s release. (3) **Governance evidence** — Any approval marked “blocks release” in config must be `approved` before release. **UI:** Show approval id, name, state, SOT path; if state ≠ `approved`, show red blocker and disable release/go-live actions.
+
+---
+
+## Autonomous Loop Operations UI
+
+Dedicated views and explicit failure→action mapping so the operator can run and debug the autonomous loop.
+
+### Dedicated views (required)
+
+| View | Purpose |
+|------|---------|
+| **Loop health** | Status of Continuous/Daily/Weekly jobs; last run time and result (pass/fail/skip). |
+| **Agent queue** | Pending/active/completed fix jobs; safe-fix reason and scope per row. |
+| **Promotion queue** | Queue size; top candidates; why items are held or skipped (e.g. below_confidence_floor, autonomy_disabled). |
+| **KPI triggers** | Week-over-week KPIs, thresholds, and which enhancement job fired for each breach. |
+| **Decision log** | Immutable log of blocker lifecycle: detected → assigned → fixed → verified; commit/PR/evidence links. |
+
+**Contract:** Each view has a data contract (source path, refresh, stale, fallback). No view ships without it.
+
+### Explicit mapping: failure → next command / owner / SLA / evidence
+
+For **every** failed or blocked item (governance blocker, operations board row, promotion hold, gate fail), the UI must show:
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| **Next command** | Yes | Exact CLI or UI action to fix (e.g. `python scripts/ci/check_docs_governance.py`, “Sign checklist at docs/…”). |
+| **Owner** | Yes | Team or person responsible (e.g. “platform”, “on-call”). |
+| **SLA** | Yes | Time expectation (e.g. “Fix within 24h”, “Before release”) or “Document exception”. |
+| **Evidence path** | Yes | Path or URL to prove fix (e.g. `artifacts/governance/system_governance_report.json`, workflow run URL). |
+
+**Rule:** No failed status without all four. The UI must answer “what to do next” with a concrete command, owner, SLA, and where to verify.
+
+---
+
+## Acceptance Matrix
+
+Testable **Definition of Done** proving the UI always answers the four operator questions. Every scenario must be testable (automated or manual).
+
+| # | Operator question | UI must show | Pass criterion |
+|---|-------------------|--------------|----------------|
+| 1 | **What is broken?** | The specific broken item (e.g. locale gap, approval missing, gate fail, promotion hold). | Operator sees the exact broken item; no guessing. |
+| 2 | **Why does it block?** | The blocking reason (e.g. “Blocks release”, “Gate 16b fail”, “Below confidence floor”). | Operator sees why it blocks (release, merge, promotion). |
+| 3 | **What to do next?** | Next command, owner, SLA, and evidence path (per Action Mapping). | Operator can run the stated fix and know where to verify. |
+| 4 | **Did the fix work?** | Verification state or evidence (e.g. re-run result, evidence path updated, decision log “Verified”). | Operator can confirm fix (e.g. check passed, approval approved, board row updated). |
+
+**DoD:** For each of the four questions, define test scenarios (e.g. “completeness gap exists”, “approval pending”, “governance blocker fail”). Put the system in that state and assert the “Pass criterion” holds. The spec is **100% handoff-ready** when the Acceptance Matrix is implemented and all four questions are answerable for every blocker and failure path.
+
+---
+
 ## Summary
 
 - **Best fit:** Streamlit + Plotly in Python, with tabs for System operations, Sales, Marketing, and All system, all fed from existing artifacts under repo root.
 - **Mac integration:** PhoenixControl launches this dashboard (with repo path) and opens http://localhost:8501 in the browser (or later in a WKWebView).
 - **Stack:** Streamlit + Plotly + Pandas; optional GitHub API for CI/workflows; no DB.
 - **Operator-completeness (5 + 2):** (1) Completeness Board with locale/lang/persona/topic/catalog % and red/yellow/green thresholds; (2) Approval Blockers with formal states and hard stop rules (Pearl/church/governance evidence); (3) Governance Blockers Panel showing and running DOCS link integrity, Gate 16/16b, Gate 17, freebies index health, and next fix command; (4) Action Mapping with exact next command, owner, due/SLA, and evidence path for every failed status; (5) Acceptance Matrix proving “UI shows what is missing, why it blocks, and how to fix”; (6) Weekly Loop Automation Contract (what runs weekly, auto-PRs allowed, merge rules); (7) Decision Log (immutable log of blocker transitions: detected → assigned → fixed → verified, with commit/PR/evidence links).
-- **Autonomous loop UI (7):** Loop Status panel (detect → fix proposed → PR open → checks → merged → impact); Agent Queue view (pending/active/completed fix jobs, safe-fix reason, scope); PR Automation panel (bot PRs, auto-merge eligibility, blocked reason); KPI Trigger board (week-over-week KPIs, thresholds, which enhancement job fired); Weekly Orchestrator run page (last run inputs, decisions, outputs, failures); Operations Board tab (unified issue: signal_id, suggested_fix, PR link, merge status, before/after impact); Manual override controls (pause/resume agent loop, disable auto-merge, rerun one stage safely). When present, the UI can manage the autonomous system end-to-end.
+- **Autonomous loop UI (7):** Loop Status panel; Agent Queue view; PR Automation panel; KPI Trigger board; Weekly Orchestrator run page; Operations Board tab; Manual override controls. **Minimal set (6):** Loop Health card, Operations Board table with filters, Promotion Queue panel, Autonomy toggle state, Artifact freshness, Run-now actions — enough for UI to operate the loop safely.
 - **App distribution:** PhoenixControl is a proper .app bundle, installable to Applications, and appears in Finder and the Dock like other Mac apps.
 - **Safety Kill Switch visibility:** Top-level “Autonomy OFF/ON” state with immutable audit log (who changed it, when, why); visible in UI; no autonomous activity when OFF.
-- **Handoff:** The 6 acceptance bullets (§ Acceptance criteria), the test checklist (including minimal UI, autonomous loop UI, app distribution, Safety Kill Switch), the 5 operator-completeness requirements plus 2 final items (§ Operator completeness), and the 7 autonomous loop UI items (§ Autonomous loop UI) make this the **full operator-grade spec**. With Dock/Applications and Safety Kill Switch visibility, the spec is **complete**.
+- **100% handoff-ready:** Three explicit sections close operator goals: (1) **Blockers & Completeness Contracts** — exact formulas/thresholds for locale/lang/persona/topic/catalog completion; approval blocker states and hard release-stop rules. (2) **Autonomous Loop Operations UI** — dedicated views (loop health, agent queue, promotion queue, KPI triggers, decision log); explicit mapping from failure → next command/owner/SLA/evidence. (3) **Acceptance Matrix** — testable DoD: UI always answers what is broken, why it blocks, what to do next, whether fix worked.
+- **Handoff:** The 6 acceptance bullets (§ Acceptance criteria), the test checklist (including minimal UI, autonomous loop UI, autonomous loop dashboard minimal set, app distribution, Safety Kill Switch), the 5 operator-completeness requirements plus 2 final items (§ Operator completeness), the 7 autonomous loop UI items (§ Autonomous loop UI), and the 3 sections above (Blockers & Completeness Contracts, Autonomous Loop Operations UI, Acceptance Matrix) make this the **full operator-grade spec**. With these 3 sections, the spec is **100% handoff-ready**.

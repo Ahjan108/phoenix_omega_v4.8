@@ -1,0 +1,33 @@
+# Autonomous loop — continuous (24/7): hourly run.
+# Score, fast gates, queue candidates, operations board. See docs/ML_AUTONOMOUS_LOOP_SPEC.md §6.
+name: ML loop continuous
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  continuous:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r requirements-test.txt
+      - name: Run continuous loop
+        run: |
+          PYTHONPATH=. python scripts/ml_loop/run_continuous_loop.py
+        continue-on-error: true
+      - name: Upload ml_loop artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ml-loop-continuous
+          path: |
+            artifacts/ml_loop/
+            artifacts/observability/operations_board.jsonl
+          if-no-files-found: ignore

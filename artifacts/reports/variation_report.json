@@ -1,12 +1,125 @@
 {
   "variation_knob_distribution": {
-    "total_plans": 0,
-    "book_structure_id": {},
-    "journey_shape_id": {},
-    "motif_id": {},
-    "reframe_profile_id": {},
-    "section_reorder_mode": {},
-    "top_combos": []
+    "total_plans": 13,
+    "book_structure_id": {
+      "recognition_to_agency": 2,
+      "linear_transformation": 4,
+      "classic_linear": 3,
+      "three_act": 4
+    },
+    "journey_shape_id": {
+      "scaffold_deepen": 2,
+      "linear_rise": 3,
+      "recognition_to_agency": 4,
+      "wave_three_peaks": 3,
+      "crisis_landing": 1
+    },
+    "motif_id": {
+      "motif_ground": 2,
+      "motif_choice": 4,
+      "motif_cost": 4,
+      "motif_pattern": 3
+    },
+    "reframe_profile_id": {
+      "balanced": 10,
+      "somatic_companion": 3
+    },
+    "section_reorder_mode": {
+      "none": 12,
+      "local_reflection_integration": 1
+    },
+    "top_combos": [
+      {
+        "combo": [
+          "classic_linear",
+          "recognition_to_agency",
+          "motif_pattern",
+          "balanced"
+        ],
+        "count": 3
+      },
+      {
+        "combo": [
+          "linear_transformation",
+          "linear_rise",
+          "motif_cost",
+          "balanced"
+        ],
+        "count": 2
+      },
+      {
+        "combo": [
+          "recognition_to_agency",
+          "scaffold_deepen",
+          "motif_ground",
+          "balanced"
+        ],
+        "count": 1
+      },
+      {
+        "combo": [
+          "linear_transformation",
+          "linear_rise",
+          "motif_choice",
+          "balanced"
+        ],
+        "count": 1
+      },
+      {
+        "combo": [
+          "three_act",
+          "wave_three_peaks",
+          "motif_choice",
+          "balanced"
+        ],
+        "count": 1
+      },
+      {
+        "combo": [
+          "three_act",
+          "wave_three_peaks",
+          "motif_cost",
+          "balanced"
+        ],
+        "count": 1
+      },
+      {
+        "combo": [
+          "three_act",
+          "crisis_landing",
+          "motif_choice",
+          "somatic_companion"
+        ],
+        "count": 1
+      },
+      {
+        "combo": [
+          "recognition_to_agency",
+          "scaffold_deepen",
+          "motif_ground",
+          "somatic_companion"
+        ],
+        "count": 1
+      },
+      {
+        "combo": [
+          "three_act",
+          "wave_three_peaks",
+          "motif_choice",
+          "somatic_companion"
+        ],
+        "count": 1
+      },
+      {
+        "combo": [
+          "linear_transformation",
+          "recognition_to_agency",
+          "motif_cost",
+          "balanced"
+        ],
+        "count": 1
+      }
+    ]
   },
   "collision_heatmap_by_section_id": {},
   "first_sentence_collision_by_section_type": {}

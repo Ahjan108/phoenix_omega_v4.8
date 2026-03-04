@@ -232,11 +232,13 @@ Defined in `config/ml_editorial/kpi_targets.yaml`. Used for week-over-week targe
 
 ## 9. Safety and governance
 
+See **[ML_EDITORIAL_SAFETY_AND_GOVERNANCE.md](ML_EDITORIAL_SAFETY_AND_GOVERNANCE.md)** for full detail.
+
 - **Kill switch:** Global toggle in `config/ml_editorial/ml_editorial_config.yaml` (`ml_actions_enabled: false` disables automated writes/PRs).
 - **Allowlist:** Only paths in `automation.allowlist_paths` may be written by automation.
-- **Audit log:** Every model decision and action logged to `artifacts/ml_editorial/audit_log.jsonl` (book_id, action, ts, rationale, outcome).
-- **Rollback:** Script or procedure to revert all generated changes; documented in runbook.
-- **Calibration gate:** Block rollout if drift exceeds locked thresholds (same pattern as EI V2 marketing calibration).
+- **Audit log:** Every model decision and action logged to `artifacts/ml_editorial/audit_log.jsonl` (action, outcome, ts, detail).
+- **Rollback:** Procedure documented in safety doc; optional rollback script.
+- **Calibration gate:** Block rollout if drift exceeds locked thresholds in `config/ml_editorial/kpi_targets.yaml` (same pattern as EI V2 marketing calibration).
 
 ---
 
@@ -252,7 +254,8 @@ Defined in `config/ml_editorial/kpi_targets.yaml`. Used for week-over-week targe
 | Config | `config/ml_editorial/ml_editorial_config.yaml` |
 | KPI targets | `config/ml_editorial/kpi_targets.yaml` |
 | Artifacts | `artifacts/ml_editorial/*.jsonl` |
-| Dashboard | UI tab "ML Editorial & Market Intelligence" (contract: scripts/dashboard/ml_editorial_tab.py or equivalent) |
+| Dashboard | UI tab "ML Editorial & Market Intelligence": [scripts/dashboard/ml_editorial_tab.py](../scripts/dashboard/ml_editorial_tab.py) (`get_ml_editorial_summary`, `render_ml_editorial_tab`) |
+| Safety and governance | [ML_EDITORIAL_SAFETY_AND_GOVERNANCE.md](ML_EDITORIAL_SAFETY_AND_GOVERNANCE.md) |
 
 ---
 

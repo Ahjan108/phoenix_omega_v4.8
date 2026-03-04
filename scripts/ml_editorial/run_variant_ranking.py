@@ -21,6 +21,24 @@ import sys
 sys.path.insert(0, str(REPO_ROOT))
 
 
+def load_marketing_lexicons(config: dict) -> tuple[dict, dict] | None:
+    """Load persona/topic lexicons from EI V2 marketing when enabled. Returns (persona_lexicons, topic_lexicons) or None."""
+    ms = (config.get("marketing_sources") or {}).get("enabled", False)
+    if not ms:
+        return None
+    try:
+        from phoenix_v4.quality.ei_v2.config import load_ei_v2_config
+        from phoenix_v4.quality.ei_v2.marketing_lexicons import load_marketing_lexicons as load_lex
+        cfg = load_ei_v2_config()
+        out = load_lex(cfg, REPO_ROOT)
+        if out is None:
+            return None
+        persona_lex, topic_lex, _banned, _forbidden, _hashes = out
+        return (persona_lex or {}, topic_lex or {})
+    except Exception:
+        return None
+
+
 def load_config() -> dict:
     path = REPO_ROOT / "config" / "ml_editorial" / "ml_editorial_config.yaml"
     if not path.exists():
@@ -39,6 +57,7 @@ def run_variant_ranking(index_path: Path | None, out_path: Path, config: dict) -
     out_path.parent.mkdir(parents=True, exist_ok=True)
     count = 0
     books_seen = set()
+    lexicons = load_marketing_lexicons(config)
     if index_path and index_path.exists():
         with index_path.open(encoding="utf-8") as f:
             for line in f:
@@ -56,12 +75,15 @@ def run_variant_ranking(index_path: Path | None, out_path: Path, config: dict) -
                     persona_id = row.get("persona_id", "")
                     topic_id = row.get("topic_id", "")
                     locale = row.get("locale", "en")
+                    rank_base = 0.8
+                    if lexicons and (persona_id or topic_id):
+                        rank_base = min(0.95, rank_base + 0.05)
                     for vt in variant_types:
                         rec = {
                             "book_id": book_id,
                             "variant_type": vt,
                             "variant_id": f"{book_id}_{vt}_1",
-                            "rank_score": 0.8,
+                            "rank_score": rank_base,
                             "confidence": confidence_floor,
                             "ts": ts,
                             "persona_id": persona_id,

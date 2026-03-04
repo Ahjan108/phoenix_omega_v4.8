@@ -11,6 +11,7 @@
 | Task | Where to go |
 |------|-------------|
 | **Document all (single source)** | This file: [Document all — complete inventory](#document-all--complete-inventory) lists every doc/spec/config/script; domain "(document all)" subsections list every asset per domain. |
+| **Document all (autonomous & ML)** | [docs/AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md](./AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md) — Full inventory: observability, operations board, agent PRs, auto-merge, weekly pipeline, KPI triggers, ML editorial, ML autonomous loop (24/7 + daily + weekly). |
 | **Find a doc** | Browse sections below, or search [Document all — complete inventory](#document-all--complete-inventory). |
 | **Add a doc** | Follow [Document all — usage](#document-all--usage): place in correct section, add to inventory, reference canonical anchors if authority doc. |
 | **Check domain coverage** | Use "(document all)" subsections (e.g. [V4 features, scale & knobs](#v4-features-scale--knobs-document-all), [Marketing & deep research](#marketing--deep-research-document-all), [Teacher Mode](#teacher-mode--production-readiness-document-all)) — each lists every asset for that domain. |
@@ -245,6 +246,60 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 
 ---
 
+## Autonomous improvement & ML system (document all)
+
+Single inventory: observability, operations board, agent PRs, auto-merge, weekly pipeline, KPI triggers, ML editorial, and autonomous loop (24/7 + daily + weekly). **Full list:** [docs/AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md](./AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md).
+
+### Docs
+
+| Item | Location |
+|------|----------|
+| **Master inventory (document all)** | [docs/AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md](./AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md) — Every doc, config, script, workflow, artifact for observability, operations board, agent, auto-merge, weekly pipeline, KPI, ML editorial, ML loop |
+| **Production observability & learning** | [docs/PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md](./PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md) — POLES: observe, document, elevate/fix, learn; signals, evidence, KPI evaluator, operations board |
+| **Auto-merge policy** | [docs/AUTO_MERGE_POLICY.md](./AUTO_MERGE_POLICY.md) — Low-risk agent PRs; label bot-fix; allowed paths; required checks |
+| **ML Editorial + Market Intelligence** | [docs/ML_EDITORIAL_MARKET_LOOP_SPEC.md](./ML_EDITORIAL_MARKET_LOOP_SPEC.md) — Section quality, variant ranking, reader-fit, rewrite recs, market router; data contracts |
+| **ML Editorial safety** | [docs/ML_EDITORIAL_SAFETY_AND_GOVERNANCE.md](./ML_EDITORIAL_SAFETY_AND_GOVERNANCE.md) — Kill switch, allowlist, audit log, rollback, calibration gate |
+| **ML Autonomous loop (24/7 + daily + weekly)** | [docs/ML_AUTONOMOUS_LOOP_SPEC.md](./ML_AUTONOMOUS_LOOP_SPEC.md) — Continuous, daily promotion, weekly recalibration; agent roles; optional proof (§15) |
+
+### Config
+
+| Item | Location |
+|------|----------|
+| **Observability signals** | [config/observability_production_signals.yaml](../config/observability_production_signals.yaml) |
+| **Observability KPI targets** | [config/observability_kpi_targets.yaml](../config/observability_kpi_targets.yaml) |
+| **ML editorial** | [config/ml_editorial/ml_editorial_config.yaml](../config/ml_editorial/ml_editorial_config.yaml), [config/ml_editorial/kpi_targets.yaml](../config/ml_editorial/kpi_targets.yaml) |
+| **ML loop** | [config/ml_loop/promotion_policy.yaml](../config/ml_loop/promotion_policy.yaml), [config/ml_loop/kpi_targets.yaml](../config/ml_loop/kpi_targets.yaml), [config/ml_loop/drift_thresholds.yaml](../config/ml_loop/drift_thresholds.yaml) |
+
+### Scripts
+
+| Item | Location |
+|------|----------|
+| **Observability** | [scripts/observability/collect_signals.py](../scripts/observability/collect_signals.py), [write_operations_board.py](../scripts/observability/write_operations_board.py), [evaluate_kpi_targets.py](../scripts/observability/evaluate_kpi_targets.py), [agent_open_fix_pr.py](../scripts/observability/agent_open_fix_pr.py) |
+| **Weekly pipeline** | [scripts/release/weekly_pipeline_with_marketing.py](../scripts/release/weekly_pipeline_with_marketing.py) |
+| **ML editorial** | [scripts/ml_editorial/run_section_scoring.py](../scripts/ml_editorial/run_section_scoring.py), run_variant_ranking, run_reader_fit, run_rewrite_recs, run_market_router, [run_weekly_ml_editorial.py](../scripts/ml_editorial/run_weekly_ml_editorial.py); [scripts/dashboard/ml_editorial_tab.py](../scripts/dashboard/ml_editorial_tab.py) |
+| **ML loop** | [scripts/ml_loop/run_continuous_loop.py](../scripts/ml_loop/run_continuous_loop.py), [run_daily_promotion.py](../scripts/ml_loop/run_daily_promotion.py), [run_weekly_market_recalibration.py](../scripts/ml_loop/run_weekly_market_recalibration.py), [agent_open_fix_pr.py](../scripts/ml_loop/agent_open_fix_pr.py), [verify_workflows_and_artifacts.sh](../scripts/ml_loop/verify_workflows_and_artifacts.sh) |
+
+### Artifacts
+
+| Item | Location |
+|------|----------|
+| **Observability** | artifacts/observability/signal_snapshot*.json, evidence_log.jsonl, elevated_failures.jsonl, operations_board.jsonl, kpi_trigger.json |
+| **ML editorial** | artifacts/ml_editorial/section_scores.jsonl, variant_rankings.jsonl, reader_fit_scores.jsonl, rewrite_recs.jsonl, market_actions.jsonl, audit_log.jsonl |
+| **ML loop** | artifacts/ml_loop/continuous_candidates.jsonl, promotion_queue.jsonl, weekly_report.json, baseline.json |
+| **EI V2 marketing** | artifacts/ei_v2/marketing_integration.log |
+
+### Workflows
+
+| Item | Location |
+|------|----------|
+| **Observability + agent** | [.github/workflows/production-observability.yml](../.github/workflows/production-observability.yml) |
+| **Auto-merge** | [.github/workflows/auto-merge-bot-fix.yml](../.github/workflows/auto-merge-bot-fix.yml) |
+| **Weekly pipeline** | [.github/workflows/weekly-pipeline.yml](../.github/workflows/weekly-pipeline.yml) |
+| **ML editorial weekly** | [.github/workflows/ml-editorial-weekly.yml](../.github/workflows/ml-editorial-weekly.yml) |
+| **ML loop** | [.github/workflows/ml-loop-continuous.yml](../.github/workflows/ml-loop-continuous.yml), [ml-loop-daily-promotion.yml](../.github/workflows/ml-loop-daily-promotion.yml), [ml-loop-weekly-recalibration.yml](../.github/workflows/ml-loop-weekly-recalibration.yml) |
+
+---
+
 ## Marketing & deep research (document all)
 
 Single index: every doc, spec, script, and config that uses or is fed by marketing deep research (prompts, invisible scripts, title philosophy, belief flip, consumer language). Outputs feed brand registry, title engine, persona metadata, and content briefs.
@@ -267,6 +322,8 @@ Single index: every doc, spec, script, and config that uses or is fed by marketi
 | **Deep research integration spec** | [specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md) — Narrative Depth Layer v1.0: `invisible_script` HOOK subtype, `belief_flip` STORY pattern, SCENE micro-failure, INTEGRATION `milestone_type`, arc quality test. Subordinate to Arc-First Canonical. Feeds: title philosophy, HOOK atoms, marketing brief (invisible_script, belief flip). |
 | **Title engine marketing config spec** | [specs/TITLE_ENGINE_MARKETING_CONFIG_SPEC.md](../specs/TITLE_ENGINE_MARKETING_CONFIG_SPEC.md) — Config layer authority: consumer_language_by_topic.yaml replaces COMPLIANCE_FILTER and topic-level vocabulary; invisible_scripts_by_persona_topic.yaml replaces TOPIC_VOCABULARY.invisible_scripts; config-driven loader with fallback; generate_invisible_script() persona×topic sourcing. **Implementation complete** (config, loader, compliance + invisible_script wiring, validate_marketing_config.py, marketing-config-gate.yml). COMPLIANCE_FILTER is currently parallel; deprecation to single source of truth in spec §9. |
 | **EI V2 marketing integration spec** | [docs/EI_V2_MARKETING_INTEGRATION_SPEC.md](./EI_V2_MARKETING_INTEGRATION_SPEC.md) — marketing_deep_research → EI V2: loader, domain_embeddings/safety_classifier wiring, 6 locked decisions, calibration + logging, 7 must-have UI requirements, implementation plan and definition of done |
+| **ML Editorial + Market Intelligence loop** | [docs/ML_EDITORIAL_MARKET_LOOP_SPEC.md](./ML_EDITORIAL_MARKET_LOOP_SPEC.md) — Section quality, variant ranking, reader-fit, rewrite recs, market router; artifacts in `artifacts/ml_editorial/`; config `config/ml_editorial/`; scripts `scripts/ml_editorial/`; dashboard tab [scripts/dashboard/ml_editorial_tab.py](../scripts/dashboard/ml_editorial_tab.py); safety [ML_EDITORIAL_SAFETY_AND_GOVERNANCE.md](./ML_EDITORIAL_SAFETY_AND_GOVERNANCE.md). Weekly workflow: `.github/workflows/ml-editorial-weekly.yml`. |
+| **Autonomous Improvement (24/7 + Daily + Weekly)** | [docs/ML_AUTONOMOUS_LOOP_SPEC.md](./ML_AUTONOMOUS_LOOP_SPEC.md) — Continuous loop (hourly): score, fast gates, queue, operations board. Daily promotion: queue → auto-PR (allowlist). Weekly: market recalibration, report, baseline. Config `config/ml_loop/` (promotion_policy, kpi_targets, drift_thresholds); scripts `scripts/ml_loop/`. Workflows: `ml-loop-continuous.yml`, `ml-loop-daily-promotion.yml`, `ml-loop-weekly-recalibration.yml`. |
 
 ### Scripts / code (consumers of deep research outputs)
 
@@ -938,6 +995,7 @@ Single index: every test file, how to run, markers, CI workflows, and test infra
 | **Check wave density** | [scripts/ci/check_wave_density.py](../scripts/ci/check_wave_density.py) — Arc/band/slot/ex/role share limits |
 | **Validate freebie density** | [phoenix_v4/qa/validate_freebie_density.py](../phoenix_v4/qa/validate_freebie_density.py) — Bundle/CTA/slug thresholds |
 | **CTA signature caps** | [phoenix_v4/qa/cta_signature_caps.py](../phoenix_v4/qa/cta_signature_caps.py) — Per brand/quarter cap |
+| **Rebuild freebie index** | [scripts/rebuild_freebie_index_from_plans.py](../scripts/rebuild_freebie_index_from_plans.py) — Rebuild `artifacts/freebies/index.jsonl` from blessed plan JSONs; use `--plans-dir artifacts/freebies/blessed_plans --out artifacts/freebies/index.jsonl` for curated index (Gate 16/16b) |
 | **Check book output no placeholders** | [scripts/ci/check_book_output_no_placeholders.py](../scripts/ci/check_book_output_no_placeholders.py) — Delivery gate (§10.6) |
 | **Run production readiness gates** | [scripts/run_production_readiness_gates.py](../scripts/run_production_readiness_gates.py) — 19 conditions; Gate 16+16b freebie governance (both density + CTA caps, same index) |
 | **Run systems test** | [scripts/systems_test/run_systems_test.py](../scripts/systems_test/run_systems_test.py) — Phases 1–7 |
@@ -988,7 +1046,8 @@ Single index: every test file, how to run, markers, CI workflows, and test infra
 |------|----------|
 | **Similarity index** | `artifacts/catalog_similarity/index.jsonl` — CTSS fingerprint per plan |
 | **Drift dashboard** | `artifacts/drift/` — Role distribution, signatures (from build_structural_drift_dashboard.py) |
-| **Freebies index** | `artifacts/freebies/index.jsonl` — Plan rows for freebie density gate |
+| **Freebies index** | [artifacts/freebies/index.jsonl](../artifacts/freebies/index.jsonl) — Plan rows for freebie density + CTA caps (Gate 16/16b); rebuild from blessed plans when needed |
+| **Blessed plans (freebies)** | [artifacts/freebies/blessed_plans/](../artifacts/freebies/blessed_plans/) — Curated plan JSONs; source for deterministic index rebuild (diverse bundle/CTA/slug; max 5 per (brand, quarter, cta_signature)) |
 | **CTA signature index** | `artifacts/freebies/cta_signature_index.jsonl` — Optional; CTA caps |
 | **Rendered books** | `artifacts/rendered/<plan_id>/book.txt` — Stage 6 output |
 | **Practice store** | `SOURCE_OF_TRUTH/practice_library/store/practice_items.jsonl` — EXERCISE backstop source |
@@ -1168,6 +1227,7 @@ All root-level `scripts/*.py` files confirmed present on disk.
 | [scripts/validate_book_001_readiness.py](../scripts/validate_book_001_readiness.py) | Validate Book_001 readiness against assembly contract |
 | [scripts/validate_canonical_sources.py](../scripts/validate_canonical_sources.py) | Validate canonical source YAML files for schema correctness |
 | [scripts/validate_golden_plan.py](../scripts/validate_golden_plan.py) | Validate a golden plan JSON against compiled plan schema |
+| [scripts/rebuild_freebie_index_from_plans.py](../scripts/rebuild_freebie_index_from_plans.py) | Rebuild freebie index from blessed plan JSONs; Gate 16/16b curated source |
 
 ---
 
@@ -1291,6 +1351,7 @@ All docs that declare authority must reference the three canonical anchors: `SYS
 | [Rigorous system test & simulation](#rigorous-system-test--simulation-document-all) | § Rigorous system test | Simulation, 10k/100k, analyzer, variation report, config, artifacts, CI |
 | [Pearl News](#pearl-news-document-all) | § Pearl News | Pipeline, docs, scripts, config, tests, artifacts, workflows |
 | [Marketing & deep research](#marketing--deep-research-document-all) | § Marketing | Deep research prompts, invisible script, marketing brief |
+| [Autonomous improvement & ML system](#autonomous-improvement--ml-system-document-all) | § Autonomous & ML | Observability, operations board, agent PRs, auto-merge, weekly pipeline, KPI triggers, ML editorial, ML loop (24/7 + daily + weekly) |
 | [Church & payout](#church--payout-distribution-only-brands) | § Church | Church docs, brand config, scripts, tests, CI |
 | [Teacher Mode & production readiness](#teacher-mode--production-readiness-document-all) | § Teacher Mode | Teacher gates, doctrine, config, tests, artifacts, workflows |
 | [Mechanism alias system](#mechanism-alias-system-document-all) | § Mechanism alias | Schema, alias files, renderer integration |
@@ -1301,7 +1362,7 @@ All docs that declare authority must reference the three canonical anchors: `SYS
 ### Governance
 
 - **Link integrity:** [scripts/ci/check_docs_governance.py](../scripts/ci/check_docs_governance.py) — Fails if any linked file is missing; warns on stale date.
-- **System governance status:** [scripts/ci/check_system_governance_status.py](../scripts/ci/check_system_governance_status.py) — Runs all governance checks and report scripts (docs, GitHub, production gates, teacher, brand guards, variation report); writes `artifacts/governance/system_governance_report.json`; optional `--fix` for DOCS_INDEX Last updated.
+- **System governance status:** [scripts/ci/check_system_governance_status.py](../scripts/ci/check_system_governance_status.py) — Runs all governance checks and report scripts (docs, GitHub, production gates, teacher, brand guards, variation report); writes [artifacts/governance/system_governance_report.json](../artifacts/governance/system_governance_report.json); optional `--fix` for DOCS_INDEX Last updated.
 - **North star for go/no-go:** [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md) §6 Hard NOs.
 
 ---
@@ -1322,6 +1383,7 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [DISASTER_RECOVERY_DRILL_CHECKLIST.md](./DISASTER_RECOVERY_DRILL_CHECKLIST.md) | Core system docs | ✓ |
 | [MARKETING_DEEP_RESEARCH_PROMPTS.md](./MARKETING_DEEP_RESEARCH_PROMPTS.md) | Marketing & deep research | ✓ |
 | [PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md](./PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md) | Core system docs | ✓ |
+| [AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md](./AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md) | Autonomous improvement & ML system (document all) | ✓ |
 | [SYSTEMS_V4.md](./SYSTEMS_V4.md) | Core system docs | ✓ |
 | [PLANNING_STATUS.md](./PLANNING_STATUS.md) | Core system docs | ✓ |
 | [SYSTEMS_AUDIT.md](./SYSTEMS_AUDIT.md) | Core system docs | ✓ |
@@ -1467,6 +1529,8 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [config/source_of_truth/intro_ending_variation.yaml](../config/source_of_truth/intro_ending_variation.yaml) | Atom coverage | ✓ |
 | [config/source_of_truth/master_arcs/README.md](../config/source_of_truth/master_arcs/README.md) | Master arcs | ✓ |
 | [atoms/INDEX.md](../atoms/INDEX.md) | Atom coverage | ✓ |
+| [artifacts/freebies/README.md](../artifacts/freebies/README.md) | Freebies index, blessed_plans, rebuild command | ✓ |
+| [artifacts/governance/system_governance_report.json](../artifacts/governance/system_governance_report.json) | Governance status report (from check_system_governance_status.py) | ✓ |
 
 ### Config
 
@@ -1571,6 +1635,8 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [scripts/release/rollback_smoke.sh](../scripts/release/rollback_smoke.sh) | Release / DR | ✓ |
 | [scripts/ci/check_norcal_dharma_brand_guards.py](../scripts/ci/check_norcal_dharma_brand_guards.py) | Church & payout | ✓ |
 | [scripts/ci/check_church_yaml_no_sensitive_tokens.py](../scripts/ci/check_church_yaml_no_sensitive_tokens.py) | Church & payout | ✓ |
+| [scripts/ci/check_system_governance_status.py](../scripts/ci/check_system_governance_status.py) | Governance — all checks + report; optional --fix | ✓ |
+| [scripts/rebuild_freebie_index_from_plans.py](../scripts/rebuild_freebie_index_from_plans.py) | Freebies — rebuild index from blessed plans (Gate 16/16b) | ✓ |
 | [scripts/ops/smoke_church_brand_resolution.py](../scripts/ops/smoke_church_brand_resolution.py) | Church & payout | ✓ |
 | [phoenix_v4/ops/church_loader.py](../phoenix_v4/ops/church_loader.py) | Church & payout | ✓ |
 | `scripts/translate_atoms_all_locales_cloud.py` | Translation | ✓ — Parallel sharded translation to all locales |
