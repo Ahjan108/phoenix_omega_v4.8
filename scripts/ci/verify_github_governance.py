@@ -159,8 +159,20 @@ def run_api(strict: bool) -> bool:
         if not isinstance(rulesets, list):
             rulesets = [rulesets]
         for rs in rulesets:
-            name = rs.get("name", "?")
-            cond = rs.get("conditions", {}) or {}
+            # List endpoint can be partial; fetch detail by id for reliable rule checks.
+            rs_id = rs.get("id")
+            detail = rs
+            if rs_id is not None:
+                try:
+                    full = api_get(token, f"/rulesets/{rs_id}")
+                    if isinstance(full, dict):
+                        detail = full
+                except Exception:
+                    # Fall back to list payload if detail fetch is unavailable.
+                    pass
+
+            name = detail.get("name", rs.get("name", "?"))
+            cond = detail.get("conditions", {}) or {}
             ref = cond.get("ref_name", {}) or {}
             include = ref.get("include") or []
             if not include or (len(include) == 1 and (include[0] in ("refs/heads/main", "~DEFAULT_BRANCH"))):
@@ -168,8 +180,8 @@ def run_api(strict: bool) -> bool:
             else:
                 print(f"  FAIL: Ruleset {name} does not target main only: {include}")
                 ok = False
-            rules = rs.get("rules") or []
-            has_pr = any(r.get("type") == "pull_request" for r in rules)
+            rules = detail.get("rules") or []
+            has_pr = any(isinstance(r, dict) and r.get("type") == "pull_request" for r in rules)
             if has_pr:
                 print(f"  PASS: Ruleset {name} requires PR before merge")
             else:

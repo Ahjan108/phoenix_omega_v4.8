@@ -238,6 +238,7 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 - [docs/PHOENIX_24_BRAND_MINIMUM_GOVERNANCE_CORE.md](./PHOENIX_24_BRAND_MINIMUM_GOVERNANCE_CORE.md) — Minimum governance core
 - [docs/GOVERNANCE_HARDENING_BLUEPRINT.md](./GOVERNANCE_HARDENING_BLUEPRINT.md) — Candidate controls backlog (reference only, non-authoritative)
 - [docs/governance/registry_integrity_checker_v1.md](./governance/registry_integrity_checker_v1.md) — Registry integrity checker
+- [docs/GITHUB_SUPPORT_SYSTEM_SPEC.md](./GITHUB_SUPPORT_SYSTEM_SPEC.md) — GitHub support system spec (v1): branch/PR workflow, command delivery format, recovery runbooks, governance checks; dev instruction format and PR checklist
 
 ---
 
@@ -1265,6 +1266,7 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [PHOENIX_24_BRAND_MINIMUM_GOVERNANCE_CORE.md](./PHOENIX_24_BRAND_MINIMUM_GOVERNANCE_CORE.md) | Governance | ✓ |
 | [GOVERNANCE_HARDENING_BLUEPRINT.md](./GOVERNANCE_HARDENING_BLUEPRINT.md) | Governance | ✓ |
 | [governance/registry_integrity_checker_v1.md](./governance/registry_integrity_checker_v1.md) | Governance | ✓ |
+| [GITHUB_SUPPORT_SYSTEM_SPEC.md](./GITHUB_SUPPORT_SYSTEM_SPEC.md) | Governance | ✓ |
 | [RELEASE_VELOCITY_AND_SCHEDULE.md](./RELEASE_VELOCITY_AND_SCHEDULE.md) | Brand & release | ✓ |
 | [PLATFORM_HARDENING_PHASES_3-8_OUTLINE.md](./PLATFORM_HARDENING_PHASES_3-8_OUTLINE.md) | Brand & release | ✓ |
 | [church_docs/README.md](./church_docs/README.md) | Church & payout | ✓ |

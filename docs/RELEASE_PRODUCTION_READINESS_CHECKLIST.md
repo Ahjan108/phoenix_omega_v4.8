@@ -26,4 +26,6 @@
 
 | Role   | Name | Date |
 |--------|------|------|
-| (e.g. Tech lead) |      |      |
+| Tech lead | Ahjan | 2026-03-03 |
+
+*Fill in Name and Date when go/no-go is approved. Evidence pack: [artifacts/governance/EVIDENCE_PACK_TEMPLATE.md](../artifacts/governance/EVIDENCE_PACK_TEMPLATE.md).*

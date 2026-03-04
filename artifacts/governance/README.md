@@ -10,6 +10,20 @@ Store here (or link from here):
 
 ---
 
+## What remains for 100% (after merge)
+
+1. **Run API governance check once** (token in env, not file):
+   ```bash
+   GITHUB_TOKEN=<your_token> python3 scripts/ci/verify_github_governance.py --mode api
+   ```
+
+2. **Complete evidence pack** using the template: [EVIDENCE_PACK_TEMPLATE.md](EVIDENCE_PACK_TEMPLATE.md)  
+   Paste: 3 green main run URLs, branch protection evidence path, rollback drill proof path, and confirm sign-off in [docs/RELEASE_PRODUCTION_READINESS_CHECKLIST.md](../../docs/RELEASE_PRODUCTION_READINESS_CHECKLIST.md).
+
+3. **Fill sign-off** in [docs/RELEASE_PRODUCTION_READINESS_CHECKLIST.md](../../docs/RELEASE_PRODUCTION_READINESS_CHECKLIST.md) § Sign-off (Role, Name, Date).
+
+---
+
 ## Governance 100% completion checklist (user-side)
 
 Governance 100% is **not complete** until these 5 steps are done:
