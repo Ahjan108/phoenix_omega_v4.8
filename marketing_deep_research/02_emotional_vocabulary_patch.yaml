@@ -1,0 +1,108 @@
+# ============================================================
+# SCAFFOLD: Controlled Emotional Vocabulary (Prompt 2)
+# Target: config/catalog_planning/brand_archetype_registry.yaml
+# Patchable fields: global_constraints.emotional_token_global_caps,
+#                   global_constraints.forbidden_title_tokens,
+#                   per-brand emotional_vocabulary.allowed_tokens,
+#                   emotional_vocabulary.quota_exceptions
+# DO NOT EDIT: brand_id, admin_id, required_fields
+# ============================================================
+
+provenance:
+  run_date: "2026-03-04"
+  model: "claude-opus-4-6 via deep research"
+  temperature: 0.0
+  prompt_id: "2"
+  source_links: []
+  confidence: "TBD"
+  reviewer: "TBD"
+  notes: ""
+
+# ── Global constraints (patch into registry top-level) ──────
+
+global_constraints:
+  emotional_token_global_caps:
+    # word: { max_global: N, per_brand_max: N, min_gap_weeks: N }
+    reset:       { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    calm:        { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    clarity:     { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    grounded:    { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    regulation:  { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    safety:      { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    release:     { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    momentum:    { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    focus:       { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    discipline:  { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    rest:        { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    repair:      { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    anchor:      { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    steady:      { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    flow:        { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    choice:      { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    unstuck:     { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    restore:     { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    reclaim:     { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    rewire:      { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    regulate:    { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    settle:      { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    soothe:      { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    trust:       { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    enough:      { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    worthy:      { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    seen:        { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    held:        { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+    supported:   { max_global: 0, per_brand_max: 0, min_gap_weeks: 0 }
+
+  forbidden_title_tokens: []
+    # ← words flagged/banned across all platforms
+
+# ── Per-word analysis ───────────────────────────────────────
+
+vocabulary_analysis:
+  # For each word: conversion, risk, topic_affinity, notes
+  - word: "reset"
+    conversion_signal: ""       # high | medium | low | unknown
+    platform_risk: ""           # safe | monitor | flagged | banned
+    topic_affinity: []          # e.g. [burnout, nervous_system, sleep]
+    saturation_status: ""       # overused | balanced | underused
+    notes: ""
+
+  - word: "calm"
+    conversion_signal: ""
+    platform_risk: ""
+    topic_affinity: []
+    saturation_status: ""
+    notes: ""
+
+  - word: "clarity"
+    conversion_signal: ""
+    platform_risk: ""
+    topic_affinity: []
+    saturation_status: ""
+    notes: ""
+
+  # ... (repeat for all 30 words — populated from research)
+
+# ── Saturation & opportunity summary ────────────────────────
+
+saturation_risk_words: []
+  # words currently overused in self-help titles
+
+opportunity_words: []
+  # underused but high-converting — prioritize in title engine
+
+# ── Per-brand emotional_vocabulary patches ──────────────────
+# (example — repeat for all 24 brands)
+
+brand_vocabulary_patches:
+  - brand_id: nervous_system_regulation
+    emotional_vocabulary:
+      allowed_tokens: []          # e.g. [reset, regulate, calm, safety, settle]
+      quota_exceptions: {}        # e.g. { reset: { per_brand_max: 5 } }
+
+  - brand_id: sleep_repair
+    emotional_vocabulary:
+      allowed_tokens: []
+      quota_exceptions: {}
+
+  # ... (all 24 brands)

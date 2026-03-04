@@ -1,0 +1,128 @@
+# ============================================================
+# SCAFFOLD: Cover Design Language by Audience (Prompt 6)
+# Target: config/catalog_planning/brand_archetype_registry.yaml
+# Patchable fields: cover_art_identity.style_pool,
+#                   cover_art_identity.color_palette
+# Constraint: no 100% style_pool overlap between brands
+# DO NOT EDIT: brand_id, admin_id
+# ============================================================
+
+provenance:
+  run_date: "2026-03-04"
+  model: "claude-opus-4-6 via deep research"
+  temperature: 0.0
+  prompt_id: "6"
+  source_links: []
+  confidence: "TBD"
+  reviewer: "TBD"
+  notes: ""
+
+# ── Market-level cover art findings ─────────────────────────
+
+platform_requirements:
+  google_play:
+    aspect_ratio: ""                   # e.g. "1:1 square, 3200×3200 px"
+    text_legibility_notes: ""
+    thumbnail_size_px: ""
+  audible:
+    aspect_ratio: ""
+    text_legibility_notes: ""
+    thumbnail_size_px: ""
+  spotify:
+    aspect_ratio: ""
+    text_legibility_notes: ""
+    thumbnail_size_px: ""
+
+trends:
+  oversaturated_styles: []             # e.g. ["sunset gradient", "watercolor blob"]
+  emerging_styles: []                  # e.g. ["dark minimal", "geometric anchor"]
+
+# ── Per-segment style recommendations ───────────────────────
+
+segment_styles:
+
+  - segment: burnout_professionals
+    style_pool:
+      recommended: []                  # e.g. ["minimalist gradient", "muted editorial"]
+      banned: []                       # e.g. ["neon bold", "busy collage"]
+    color_palette:
+      primary: []                      # e.g. ["#4A6741", "#D4C5A9"]
+      accent: []
+      avoid: []                        # e.g. ["bright red", "hot pink"]
+    click_drivers: ""                  # what gets clicked
+    ignore_triggers: ""                # what gets scrolled past
+
+  - segment: focus_adhd_seekers
+    style_pool:
+      recommended: []
+      banned: []
+    color_palette:
+      primary: []
+      accent: []
+      avoid: []
+    click_drivers: ""
+    ignore_triggers: ""
+
+  - segment: sleep_anxiety
+    style_pool:
+      recommended: []
+      banned: []
+    color_palette:
+      primary: []
+      accent: []
+      avoid: []
+    click_drivers: ""
+    ignore_triggers: ""
+
+  - segment: career_transition
+    style_pool:
+      recommended: []
+      banned: []
+    color_palette:
+      primary: []
+      accent: []
+      avoid: []
+    click_drivers: ""
+    ignore_triggers: ""
+
+  - segment: grief
+    style_pool:
+      recommended: []
+      banned: []
+    color_palette:
+      primary: []
+      accent: []
+      avoid: []
+    click_drivers: ""
+    ignore_triggers: ""
+
+  - segment: relationships_boundaries
+    style_pool:
+      recommended: []
+      banned: []
+    color_palette:
+      primary: []
+      accent: []
+      avoid: []
+    click_drivers: ""
+    ignore_triggers: ""
+
+# ── Per-brand cover_art_identity patches ────────────────────
+
+brand_cover_patches:
+  - brand_id: nervous_system_regulation
+    cover_art_identity:
+      style_pool: []
+      color_palette: []
+
+  - brand_id: sleep_repair
+    cover_art_identity:
+      style_pool: []
+      color_palette: []
+
+  - brand_id: adhd_systems
+    cover_art_identity:
+      style_pool: []
+      color_palette: []
+
+  # ... (all 24 brands — populated from research)

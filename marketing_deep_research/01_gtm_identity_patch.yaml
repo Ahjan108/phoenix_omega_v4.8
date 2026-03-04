@@ -1,0 +1,480 @@
+# ============================================================
+# SCAFFOLD: Per-Brand GTM & Audience Funnel (Prompt 1)
+# Target: config/catalog_planning/brand_archetype_registry.yaml
+# Patchable fields: gtm_identity.*, discovery_contract.*
+# DO NOT EDIT: brand_id, admin_id, structural_signature,
+#              voice_identity, cover_art_identity, pricing_posture,
+#              duration_strategy
+# ============================================================
+
+provenance:
+  run_date: "2026-03-04"
+  model: "claude-opus-4-6 via deep research"
+  temperature: 0.0
+  prompt_id: "1"
+  source_links: []       # ← populate from research
+  confidence: "TBD"
+  reviewer: "TBD"
+  notes: ""
+
+# Repeat this block for each of 24 brands
+brands:
+
+  - brand_id: nervous_system_regulation    # DO NOT CHANGE
+    gtm_identity:
+      primary_persona: ""                  # e.g. "burned-out professional, 30–45, female-skewing"
+      age_range: ""                        # e.g. "28–48"
+      primary_moment: ""                   # trigger moment — e.g. "panic attack at work"
+      emotional_job: ""                    # JTBD emotional — e.g. "feel safe in my own body again"
+      functional_job: ""                   # JTBD functional — e.g. "reduce acute anxiety in <10 min"
+      psychographics: ""                   # values, lifestyle, identity markers
+    discovery_contract:
+      primary_channels:                    # ranked list
+        - ""                               # e.g. "Google Play search"
+        - ""                               # e.g. "Spotify wellness playlists"
+        - ""                               # e.g. "YouTube breathwork clips"
+      keyword_clusters:
+        primary: []                        # e.g. ["nervous system reset", "vagus nerve calm"]
+        secondary: []                      # e.g. ["polyvagal exercises", "regulate anxiety"]
+        search_volume_notes: ""            # any volume estimates found
+      funnel:
+        awareness: ""                      # how they first hear
+        consideration: ""                  # what makes them click
+        purchase: ""                       # what closes the sale
+
+  - brand_id: somatic_reset
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: sleep_repair
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: panic_first_aid
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: emotional_resilience
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: grief_companion
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: gentle_recovery
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: inner_security
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: breathwork
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: focus_training
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: adhd_systems
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: dopamine_balance
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: habit_building
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: clarity_decision
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: high_efficiency
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: energy_return
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: movement_flow
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: metabolic_stability
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: boundaries
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: attachment_repair
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: communication_clarity
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: gen_z_anxiety
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: identity_rebuild
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""
+
+  - brand_id: shadow_work
+    gtm_identity:
+      primary_persona: ""
+      age_range: ""
+      primary_moment: ""
+      emotional_job: ""
+      functional_job: ""
+      psychographics: ""
+    discovery_contract:
+      primary_channels: []
+      keyword_clusters:
+        primary: []
+        secondary: []
+        search_volume_notes: ""
+      funnel:
+        awareness: ""
+        consideration: ""
+        purchase: ""

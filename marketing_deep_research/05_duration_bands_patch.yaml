@@ -1,0 +1,101 @@
+# ============================================================
+# SCAFFOLD: Duration Bands & Consumption Behavior (Prompt 5)
+# Target: config/catalog_planning/brand_archetype_registry.yaml
+# Patchable fields: duration_strategy.micro_sessions,
+#                   duration_strategy.deep_dives,
+#                   duration_strategy.mid_form
+#                   global_constraints.max_mid_form_ratio
+# Constraint: micro + mid + deep must = 1.0 per brand
+#             mid_form ≤ max_mid_form_ratio
+# DO NOT EDIT: brand_id, admin_id
+# ============================================================
+
+provenance:
+  run_date: "2026-03-04"
+  model: "claude-opus-4-6 via deep research"
+  temperature: 0.0
+  prompt_id: "5"
+  source_links: []
+  confidence: "TBD"
+  reviewer: "TBD"
+  notes: ""
+
+# ── Market-level findings ───────────────────────────────────
+
+market_data:
+  duration_bands:
+    micro:
+      range_minutes: "15–30"
+      listener_preference_pct: 0.0     # % who prefer this
+      avg_completion_rate: 0.0         # 0–1
+      perceived_value: ""              # high | medium | low
+      primary_use_cases: []            # e.g. [commute, gym, break]
+    mid_form:
+      range_minutes: "45–90"
+      listener_preference_pct: 0.0
+      avg_completion_rate: 0.0
+      perceived_value: ""
+      primary_use_cases: []
+    deep_dives:
+      range_minutes: "180–360"
+      listener_preference_pct: 0.0
+      avg_completion_rate: 0.0
+      perceived_value: ""
+      primary_use_cases: []            # e.g. [Audible credit, weekend]
+
+  platform_behavior:
+    google_play:
+      preferred_duration: ""
+      notes: ""
+    audible:
+      preferred_duration: ""
+      notes: ""                        # e.g. "credit model favors longer"
+    spotify:
+      preferred_duration: ""
+      notes: ""                        # e.g. "playlist behavior, micro-dominant"
+
+  bifurcation_evidence: ""
+    # Does mid-form underperform? Cite data.
+
+# ── Global recommendation ──────────────────────────────────
+
+catalog_allocation:
+  total_titles: 1008
+  recommended_split:
+    micro_sessions: 0.0               # e.g. 0.40
+    mid_form: 0.0                     # e.g. 0.25
+    deep_dives: 0.0                   # e.g. 0.35
+    # MUST sum to 1.0
+
+global_constraints_patch:
+  max_mid_form_ratio: 0.0             # e.g. 0.30
+
+# ── Per-brand duration_strategy patches ─────────────────────
+# (brands with topic-specific skew get custom splits)
+
+brand_duration_patches:
+  - brand_id: nervous_system_regulation
+    duration_strategy:
+      micro_sessions: 0.0
+      mid_form: 0.0
+      deep_dives: 0.0
+
+  - brand_id: sleep_repair
+    duration_strategy:
+      micro_sessions: 0.0
+      mid_form: 0.0
+      deep_dives: 0.0
+
+  - brand_id: adhd_systems
+    duration_strategy:
+      micro_sessions: 0.0
+      mid_form: 0.0
+      deep_dives: 0.0
+
+  - brand_id: breathwork
+    duration_strategy:
+      micro_sessions: 0.0
+      mid_form: 0.0
+      deep_dives: 0.0
+
+  # ... (all 24 brands — populated from research)

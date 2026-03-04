@@ -13,7 +13,7 @@
 | **Document all (single source)** | This file: [Document all — complete inventory](#document-all--complete-inventory) lists every doc/spec/config/script; domain "(document all)" subsections list every asset per domain. |
 | **Find a doc** | Browse sections below, or search [Document all — complete inventory](#document-all--complete-inventory). |
 | **Add a doc** | Follow [Document all — usage](#document-all--usage): place in correct section, add to inventory, reference canonical anchors if authority doc. |
-| **Check domain coverage** | Use "(document all)" subsections (e.g. [Marketing & deep research](#marketing--deep-research-document-all), [Teacher Mode](#teacher-mode--production-readiness-document-all)) — each lists every asset for that domain. |
+| **Check domain coverage** | Use "(document all)" subsections (e.g. [V4 features, scale & knobs](#v4-features-scale--knobs-document-all), [Marketing & deep research](#marketing--deep-research-document-all), [Teacher Mode](#teacher-mode--production-readiness-document-all)) — each lists every asset for that domain. |
 | **Go/no-go decision** | [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md) §6 Hard NOs. |
 
 ---
@@ -252,6 +252,7 @@ Single index: every doc, spec, script, and config that uses or is fed by marketi
 | **Marketing deep research prompts** | [docs/MARKETING_DEEP_RESEARCH_PROMPTS.md](./MARKETING_DEEP_RESEARCH_PROMPTS.md) — One-to-many deep research prompts; master + 7 sub-prompts (per-brand GTM, emotional vocabulary, consumer vs clinical language, persona×topic invisible scripts, duration bands, cover design, pricing). **Use:** Run via deep research workflow; output feeds brand registry, title engine, persona metadata, content briefs. Downstream: [PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md), HOOK atoms, title engine seeds. |
 | **Title & catalog marketing system** | [docs/TITLE_AND_CATALOG_MARKETING_SYSTEM.md](./TITLE_AND_CATALOG_MARKETING_SYSTEM.md) — Title philosophy (search keyword, invisible script, brand voice); deep research integration; ops-manual dimensions (templates, imprints, validation); title engine v2→v4. Authority: [PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md). |
 | **Locale catalog marketing plan** | [docs/LOCALE_CATALOG_MARKETING_PLAN.md](./LOCALE_CATALOG_MARKETING_PLAN.md) — Per-locale positioning, go-live checklists, invisible script per locale; extends title philosophy; references deep research briefs. |
+| **New language/location onboarding** | [docs/NEW_LANGUAGE_LOCATION_ONBOARDING.md](./NEW_LANGUAGE_LOCATION_ONBOARDING.md) — Market-driven process and deep research prompts for onboarding a new language, location, topic, or persona. Covers personas, topics (topic families), authors, platforms, metadata, marketing, writing spec, book titles, stories. Use when adding a new locale or expanding persona/topic in a locale. |
 | **Release velocity and schedule** | [docs/RELEASE_VELOCITY_AND_SCHEDULE.md](./RELEASE_VELOCITY_AND_SCHEDULE.md) — Release velocity and schedule |
 | **Platform hardening phases** | [docs/PLATFORM_HARDENING_PHASES_3-8_OUTLINE.md](./PLATFORM_HARDENING_PHASES_3-8_OUTLINE.md) — Platform hardening phases 3–8 |
 
@@ -828,6 +829,113 @@ All test files under `tests/`. Core tests workflow runs fast set (`-m "not slow"
 
 ---
 
+## V4 features, scale & knobs (document all)
+
+**Single reference:** [docs/V4_FEATURES_SCALE_AND_KNOBS.md](./V4_FEATURES_SCALE_AND_KNOBS.md) — All V4 features (§1), scale parts and anti-spam assurance (§2), and every knob: pipeline CLI (§3.1), asset/observability CLI (§3.2), CI/QA flags (§3.3), full catalog and quality tools (§3.4), thresholds in code (§3.5), emotional governance (§3.6), config YAML (§3.7), Teacher Mode knobs (§3.8), CTSS weights (§3.9), systems test (§3.10). **Use:** To change behavior, adjust the relevant config or script constant; then run systems test and production gates. Full inventory below.
+
+### Docs
+
+| Item | Location |
+|------|----------|
+| **V4 features, scale, knobs** | [docs/V4_FEATURES_SCALE_AND_KNOBS.md](./V4_FEATURES_SCALE_AND_KNOBS.md) — Single reference (this domain) |
+| **Systems V4** | [docs/SYSTEMS_V4.md](./SYSTEMS_V4.md) — V4 systems overview; §8 systems test |
+| **Arc-First canonical spec** | [specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md](../specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md) — Sole architecture authority |
+| **Rigorous system test** | [docs/RIGOROUS_SYSTEM_TEST.md](./RIGOROUS_SYSTEM_TEST.md) — Simulation = readiness; production 100% requirements |
+| **Practice library teacher fallback** | [docs/PRACTICE_LIBRARY_TEACHER_FALLBACK.md](./PRACTICE_LIBRARY_TEACHER_FALLBACK.md) — Doctrine wrapper for EXERCISE backstop |
+| **Practice item schema** | [specs/PRACTICE_ITEM_SCHEMA.md](../specs/PRACTICE_ITEM_SCHEMA.md) — Practice item YAML schema |
+| **Compiled plan schema contract** | [specs/COMPILED_PLAN_SCHEMA_CONTRACT.md](../specs/COMPILED_PLAN_SCHEMA_CONTRACT.md) — BookSpec, FormatPlan, CompiledBook |
+| **Creative quality validation checklist** | [docs/CREATIVE_QUALITY_VALIDATION_CHECKLIST.md](./CREATIVE_QUALITY_VALIDATION_CHECKLIST.md) — Human checkpoint |
+| **First 10 books evaluation protocol** | [docs/FIRST_10_BOOKS_EVALUATION_PROTOCOL.md](./FIRST_10_BOOKS_EVALUATION_PROTOCOL.md) — Human checkpoint |
+| **Quality tools README** | [phoenix_v4/quality/README.md](../phoenix_v4/quality/README.md) — Story lint, heatmap, memorable lines, marketing assets |
+| **Release velocity and schedule** | [docs/RELEASE_VELOCITY_AND_SCHEDULE.md](./RELEASE_VELOCITY_AND_SCHEDULE.md) — Pacing; generate_weekly_schedule.py |
+| **Unified personas** | [unified_personas.md](../unified_personas.md) — 10 active personas, 12 active topics (canonical source) |
+
+### Scripts (pipeline, asset, CI/QA, quality)
+
+| Item | Location |
+|------|----------|
+| **Run pipeline** | [scripts/run_pipeline.py](../scripts/run_pipeline.py) — Full 6-stage; --topic, --persona, --arc, --teacher, --author, --render-book, --generate-freebies, etc. |
+| **Render plan to txt** | [scripts/render_plan_to_txt.py](../scripts/render_plan_to_txt.py) — Stage 6 standalone render |
+| **Plan freebie assets** | [scripts/plan_freebie_assets.py](../scripts/plan_freebie_assets.py) — Catalog or canonical; manifest output |
+| **Create freebie assets** | [scripts/create_freebie_assets.py](../scripts/create_freebie_assets.py) — HTML, PDF, EPUB, MP3 |
+| **Validate asset store** | [scripts/validate_asset_store.py](../scripts/validate_asset_store.py) — Store vs manifest |
+| **Update similarity index** | [scripts/update_similarity_index.py](../scripts/update_similarity_index.py) — Append CTSS row |
+| **Build structural drift dashboard** | [scripts/build_structural_drift_dashboard.py](../scripts/build_structural_drift_dashboard.py) — artifacts/drift/ |
+| **Run simulation** | [simulation/run_simulation.py](../simulation/run_simulation.py) — --n, --phase2, --phase3 |
+| **Pre-export check (Gate #49)** | [scripts/distribution/pre_export_check.py](../scripts/distribution/pre_export_check.py) — Locale/territory consistency |
+| **Check structural entropy** | [scripts/ci/check_structural_entropy.py](../scripts/ci/check_structural_entropy.py) — Min words, family dominance, teacher-mode checks |
+| **Check author positioning** | [scripts/ci/check_author_positioning.py](../scripts/ci/check_author_positioning.py) — Profile language bands |
+| **Check platform similarity** | [scripts/ci/check_platform_similarity.py](../scripts/ci/check_platform_similarity.py) — CTSS block/review thresholds |
+| **Check wave density** | [scripts/ci/check_wave_density.py](../scripts/ci/check_wave_density.py) — Arc/band/slot/ex/role share limits |
+| **Validate freebie density** | [phoenix_v4/qa/validate_freebie_density.py](../phoenix_v4/qa/validate_freebie_density.py) — Bundle/CTA/slug thresholds |
+| **CTA signature caps** | [phoenix_v4/qa/cta_signature_caps.py](../phoenix_v4/qa/cta_signature_caps.py) — Per brand/quarter cap |
+| **Check book output no placeholders** | [scripts/ci/check_book_output_no_placeholders.py](../scripts/ci/check_book_output_no_placeholders.py) — Delivery gate (§10.6) |
+| **Run production readiness gates** | [scripts/run_production_readiness_gates.py](../scripts/run_production_readiness_gates.py) — 15 + optional gate 16 |
+| **Run systems test** | [scripts/systems_test/run_systems_test.py](../scripts/systems_test/run_systems_test.py) — Phases 1–7 |
+| **Generate full catalog** | [scripts/generate_full_catalog.py](../scripts/generate_full_catalog.py) — Portfolio → BookSpec → compile → wave |
+| **Story atom lint** | [phoenix_v4/quality/story_atom_lint.py](../phoenix_v4/quality/story_atom_lint.py) — STORY specificity, conflict, cost, pivot |
+| **Transformation heatmap** | [phoenix_v4/quality/transformation_heatmap.py](../phoenix_v4/quality/transformation_heatmap.py) — Per-chapter recognition/reframe/challenge |
+| **Memorable line detector** | [phoenix_v4/quality/memorable_line_detector.py](../phoenix_v4/quality/memorable_line_detector.py) — Highlight-density candidates |
+| **Marketing assets from lines** | [phoenix_v4/quality/marketing_assets_from_lines.py](../phoenix_v4/quality/marketing_assets_from_lines.py) — Quotes, pin captions, trailer lines |
+| **Practice library scripts** | `scripts/practice/` — Ingest, normalize, validate (practice_items store) |
+| **Practice safety lint** | [phoenix_v4/qa/practice_safety_lint.py](../phoenix_v4/qa/practice_safety_lint.py) — EXERCISE backstop safety |
+| **Teacher gap-fill / approve** | [tools/teacher_mining/gap_fill.py](../tools/teacher_mining/gap_fill.py); approve_atoms, report_teacher_gaps (see Teacher Mode section) |
+| **Wave orchestrator** | [phoenix_v4/planning/wave_orchestrator.py](../phoenix_v4/planning/wave_orchestrator.py) — Balanced wave from candidates |
+| **Monte Carlo CTSS** | [simulation/run_monte_carlo_ctss.py](../simulation/run_monte_carlo_ctss.py) — Duplication risk vs index |
+
+### Config (knobs per V4_FEATURES §3.6, 3.7, 3.8)
+
+| Item | Location |
+|------|----------|
+| **Topic/engine bindings** | [config/topic_engine_bindings.yaml](../config/topic_engine_bindings.yaml) — allowed_engines per topic |
+| **Identity aliases** | [config/identity_aliases.yaml](../config/identity_aliases.yaml) — persona_aliases, topic_aliases |
+| **Format registry** | [config/format_selection/format_registry.yaml](../config/format_selection/format_registry.yaml) — structural/runtime formats, tier |
+| **Format selection rules** | [config/format_selection/selection_rules.yaml](../config/format_selection/selection_rules.yaml) — topic_complexity, installment_strategy |
+| **Emotional role slot requirements** | [config/format_selection/emotional_role_slot_requirements.yaml](../config/format_selection/emotional_role_slot_requirements.yaml) — Role→slot |
+| **Chapter planner policies** | [config/source_of_truth/chapter_planner_policies.yaml](../config/source_of_truth/chapter_planner_policies.yaml) — Arc-role, quotas, slot policy |
+| **Master arcs / engines** | [config/source_of_truth/master_arcs/](../config/source_of_truth/master_arcs/), [config/source_of_truth/engines/](../config/source_of_truth/engines/) |
+| **Capacity constraints** | [config/catalog_planning/capacity_constraints.yaml](../config/catalog_planning/capacity_constraints.yaml) |
+| **Brand teacher matrix** | [config/catalog_planning/brand_teacher_matrix.yaml](../config/catalog_planning/brand_teacher_matrix.yaml) |
+| **Teacher persona matrix** | [config/catalog_planning/teacher_persona_matrix.yaml](../config/catalog_planning/teacher_persona_matrix.yaml) |
+| **Brand teacher assignments** | [config/catalog_planning/brand_teacher_assignments.yaml](../config/catalog_planning/brand_teacher_assignments.yaml) |
+| **Teacher registry** | [config/teachers/teacher_registry.yaml](../config/teachers/teacher_registry.yaml) |
+| **Brand archetype registry** | [config/catalog_planning/brand_archetype_registry.yaml](../config/catalog_planning/brand_archetype_registry.yaml) |
+| **Author positioning profiles** | [config/authoring/author_positioning_profiles.yaml](../config/authoring/author_positioning_profiles.yaml) |
+| **Freebie selection rules** | [config/freebies/freebie_selection_rules.yaml](../config/freebies/freebie_selection_rules.yaml) |
+| **CTA anti-spam** | [config/freebies/cta_anti_spam.yaml](../config/freebies/cta_anti_spam.yaml) — density_thresholds, max_same_cta_signature |
+| **Emotional governance rules** | [phoenix_v4/qa/emotional_governance_rules.yaml](../phoenix_v4/qa/emotional_governance_rules.yaml) — chapter, tts_rhythm, book, catalog |
+| **Release wave controls** | [config/release_wave_controls.yaml](../config/release_wave_controls.yaml) — weekly_caps, anti_homogeneity |
+| **Practice selection rules** | [config/practice/selection_rules.yaml](../config/practice/selection_rules.yaml) — EXERCISE_BACKSTOP |
+| **Practice validation** | [config/practice/validation.yaml](../config/practice/validation.yaml) |
+| **Angle registry** | [config/angles/angle_registry.yaml](../config/angles/angle_registry.yaml) |
+| **Validation (assets)** | [config/validation.yaml](../config/validation.yaml) — duration, file_size (MP3) |
+| **TTS engines** | [config/tts/engines.yaml](../config/tts/engines.yaml) |
+| **Asset lifecycle** | [config/asset_lifecycle.yaml](../config/asset_lifecycle.yaml) — regenerate_when, auto_prune |
+| **Canonical topics/personas** | [config/catalog_planning/canonical_topics.yaml](../config/catalog_planning/canonical_topics.yaml), [config/catalog_planning/canonical_personas.yaml](../config/catalog_planning/canonical_personas.yaml) |
+
+### Artifacts
+
+| Item | Location |
+|------|----------|
+| **Similarity index** | `artifacts/catalog_similarity/index.jsonl` — CTSS fingerprint per plan |
+| **Drift dashboard** | `artifacts/drift/` — Role distribution, signatures (from build_structural_drift_dashboard.py) |
+| **Freebies index** | `artifacts/freebies/index.jsonl` — Plan rows for freebie density gate |
+| **CTA signature index** | `artifacts/freebies/cta_signature_index.jsonl` — Optional; CTA caps |
+| **Rendered books** | `artifacts/rendered/<plan_id>/book.txt` — Stage 6 output |
+| **Practice store** | `SOURCE_OF_TRUTH/practice_library/store/practice_items.jsonl` — EXERCISE backstop source |
+
+### Pipeline modules (phoenix_v4)
+
+| Item | Location |
+|------|----------|
+| **Chapter planner** | [phoenix_v4/planning/chapter_planner.py](../phoenix_v4/planning/chapter_planner.py) — Stage 3 policy layer |
+| **Angle resolver / bias** | [phoenix_v4/planning/angle_resolver.py](../phoenix_v4/planning/angle_resolver.py), angle_bias.py |
+| **Practice selector** | [phoenix_v4/planning/practice_selector.py](../phoenix_v4/planning/practice_selector.py) — get_backstop_pool() |
+| **Prose resolver / book renderer** | phoenix_v4.rendering — atom_id → prose; TxtWriter, render_book |
+| **Validate compiled plan / arc alignment** | phoenix_v4 validators |
+
+---
+
 ## Email sequences
 
 - [docs/email_sequences/README.md](./email_sequences/README.md) — Email sequences overview (Formspree, MailerLite, freebie landing pages)
@@ -1208,6 +1316,7 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [AUDIT_OLD_CHAT_SPECS_VS_V4.md](./AUDIT_OLD_CHAT_SPECS_VS_V4.md) | Schema & audit | ✓ |
 | [LOCALE_PERSONAS.md](./LOCALE_PERSONAS.md) | Locale personas | ✓ — 40 persona definitions across all 11 non-en-US locales (zh-TW, zh-HK, zh-CN, zh-SG, ja-JP, ko-KR, es-US, es-ES, fr-FR, de-DE, hu-HU) |
 | [LOCALE_CATALOG_MARKETING_PLAN.md](./LOCALE_CATALOG_MARKETING_PLAN.md) | All-locale marketing plan | ✓ — Per-locale positioning, go-live checklists, readiness tracker for all 12 locales |
+| [NEW_LANGUAGE_LOCATION_ONBOARDING.md](./NEW_LANGUAGE_LOCATION_ONBOARDING.md) | Marketing & deep research / Locale onboarding | ✓ — Process and deep research prompts for new language/location/topic/persona; market-driven; personas, topics, authors, platforms, metadata, stories, writing spec, book titles |
 | [ZH_CN_DISTRIBUTION_PLAN.md](./ZH_CN_DISTRIBUTION_PLAN.md) | zh-CN distribution | ✓ — Local platform pipeline (Ximalaya, NetEase, WeChat Read, Dedao); Phase 5 prerequisite checklist |
 | `LOCALE_PROSE_AND_PROMPTING.md` | Translation | ⚠️ missing |
 | `MULTILINGUAL_ARCHITECTURE.md` | Translation | ⚠️ missing |
