@@ -46,37 +46,101 @@ struct ContentView: View {
     @ObservedObject var state: AppState
     let artifactReader: ArtifactReader
     let scriptRunner: ScriptRunner
+    let githubService: GitHubService
     @State private var selectedTab: TabTag = .dashboard
     @State private var showingPathSheet = false
     @State private var pathInput: String = ""
 
+    private var startupBlocked: Bool {
+        guard let passed = state.healthCheckPassed else { return true }
+        return !passed
+    }
+
     var body: some View {
-        NavigationSplitView {
-            List(TabTag.allCases, selection: $selectedTab) { tab in
-                Label(tab.title, systemImage: tab.systemImage)
-                    .tag(tab)
+        Group {
+            if startupBlocked {
+                ErrorStateView(
+                    severity: .critical,
+                    title: "Repo path not set or invalid.",
+                    message: state.healthCheckMessage ?? "The app could not validate the repo path, scripts directory, artifacts/observability, or Python 3.",
+                    suggestion: "Open Settings and set a valid repo root path that contains scripts/ and where artifacts/observability can exist. Ensure Python 3 is on PATH.",
+                    primaryAction: ("Open Settings", { pathInput = state.repoPath; showingPathSheet = true }),
+                    secondaryAction: nil
+                )
+            } else {
+                mainContent
             }
-            .listStyle(.sidebar)
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
-        } detail: {
-            detailContent
-                .frame(minWidth: 500, minHeight: 400)
         }
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                HStack(spacing: 8) {
-                    Text(state.repoPath.isEmpty ? "Set repo path" : abbreviatedPath(state.repoPath))
-                        .lineLimit(1)
-                        .truncationMode(.middle)
-                        .foregroundColor(state.repoPath.isEmpty ? .red : .primary)
-                    Button(action: { pathInput = state.repoPath; showingPathSheet = true }) {
-                        Image(systemName: "folder")
+        .onAppear { runStartupHealthCheckIfNeeded() }
+        .onChange(of: state.repoPath) { _, _ in runStartupHealthCheckIfNeeded() }
+        .sheet(isPresented: $showingPathSheet) {
+            pathSheet
+        }
+        .onChange(of: pathInput) { _, _ in
+            if !showingPathSheet { return }
+            let (valid, _) = artifactReader.validateRepoPath(pathInput)
+            state.repoPathValid = valid
+        }
+        .onChange(of: showingPathSheet) { _, visible in
+            if !visible {
+                runStartupHealthCheckIfNeeded()
+            }
+        }
+        .alert("Error", isPresented: Binding(
+            get: { state.errorMessage != nil },
+            set: { if !$0 { state.errorMessage = nil } }
+        )) {
+            Button("OK") { state.errorMessage = nil }
+        } message: {
+            if let msg = state.errorMessage {
+                Text(msg)
+            }
+        }
+    }
+
+    private var mainContent: some View {
+        VStack(spacing: 0) {
+            if state.repoPathValid == false {
+                ToolbarErrorStrip(message: "Repo path is invalid. Update it in Settings.", openSettings: {
+                    pathInput = state.repoPath
+                    showingPathSheet = true
+                })
+            }
+            NavigationSplitView {
+                List(TabTag.allCases, selection: $selectedTab) { tab in
+                    Label(tab.title, systemImage: tab.systemImage)
+                        .tag(tab)
+                }
+                .listStyle(.sidebar)
+                .navigationSplitViewColumnWidth(min: 180, ideal: 200)
+            } detail: {
+                detailContent
+                    .frame(minWidth: 500, minHeight: 400)
+            }
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    HStack(spacing: 8) {
+                        Text(state.repoPath.isEmpty ? "Set repo path" : abbreviatedPath(state.repoPath))
+                            .lineLimit(1)
+                            .truncationMode(.middle)
+                            .foregroundColor(state.repoPath.isEmpty ? .red : .primary)
+                        Button(action: { pathInput = state.repoPath; showingPathSheet = true }) {
+                            Image(systemName: "folder")
+                        }
                     }
                 }
             }
         }
-        .sheet(isPresented: $showingPathSheet) {
-            pathSheet
+    }
+    .commands {
+        CommandGroup(after: .sidebar) {
+            ForEach(Array(TabTag.allCases.enumerated()), id: \.element) { index, tab in
+                let key: KeyEquivalent = index == 9 ? "0" : KeyEquivalent(Character("\(index + 1)"))
+                Button(tab.title) { selectedTab = tab }
+                    .keyboardShortcut(key, modifiers: .command)
+            }
+            Button("Refresh") { runStartupHealthCheckIfNeeded(); refreshCurrentTab() }
+                .keyboardShortcut("r", modifiers: .command)
         }
     }
 
@@ -100,7 +164,7 @@ struct ContentView: View {
             case .teacher:
                 TeacherView(state: state, scriptRunner: scriptRunner)
             case .ci:
-                CIWorkflowsView(state: state)
+                CIWorkflowsView(state: state, githubService: githubService)
             case .docs:
                 DocsConfigView(state: state, scriptRunner: scriptRunner)
             }
@@ -131,6 +195,23 @@ struct ContentView: View {
         }
         .padding(24)
         .frame(width: 420)
+    }
+
+    private func runStartupHealthCheckIfNeeded() {
+        if state.repoPath.isEmpty {
+            state.healthCheckPassed = false
+            state.healthCheckMessage = "Repo path not set."
+            state.repoPathValid = false
+            return
+        }
+        let (passed, message) = artifactReader.runStartupHealthCheck(repoPath: state.repoPath)
+        state.healthCheckPassed = passed
+        state.healthCheckMessage = passed ? nil : message
+        state.repoPathValid = passed
+    }
+
+    private func refreshCurrentTab() {
+        state.refreshTrigger = UUID()
     }
 
     private func abbreviatedPath(_ path: String) -> String {

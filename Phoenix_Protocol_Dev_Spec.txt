@@ -1,0 +1,238 @@
+
+PHOENIX PROTOCOL BOOKS
+Marketing Funnel — Developer Implementation Spec
+v1.0  ·  SpiritualTech Systems  ·  PhoenixProtocolBooks.com
+
+
+
+
+
+1. System Overview
+Phoenix Protocol Books is a therapeutic audiobook catalog targeting 1,200+ titles organized by topic × persona. The marketing system's job is to connect each book to the right person through a freebie → email → book recommendation funnel.
+
+1.1 What Already Exists (Do Not Rebuild)
+27 breathwork landing pages at public/breathwork/
+Formspree email capture on all 27 pages (exercise_tag field present)
+freebie_registry.yaml and freebie_selection_rules.yaml — freebie assignment logic
+15 canonical topics in canonical_topics.yaml
+10 canonical personas in canonical_personas.yaml
+Series metadata (series_id, installment_number) on all books
+Marketing intelligence in marketing_deep_research/ and config/marketing/ — feeds title engine only
+
+1.2 What Does Not Exist Yet (The Build List)
+
+
+1.3 The Single Validation Question
+
+2. MVP Build Spec
+Build exactly this — nothing more. Estimated dev time: 3–5 hours with existing stack.
+
+2.1 The MVP Funnel
+
+
+2.2 Page: /burnout-reset
+URL
+
+
+Page Section Order
+Identity headline (see copy below)
+Authority narrative — WRITTEN BY NIHALA, NOT GENERATED (see Section 2.3)
+Burnout explanation — 2 paragraphs, plain language, one research citation
+Practice preview — breathing rhythm, optional 30-sec audio preview
+Email capture form (see Section 2.4)
+Single book recommendation (see Section 2.5)
+
+Headline Options to A/B Test
+
+
+
+
+2.3 The Authority Narrative — CRITICAL
+
+
+The authority narrative is a single paragraph (100–150 words) placed immediately below the headline. It must contain:
+A specific moment or observation from lived experience
+A connection between that experience and the practice on this page
+No generic inspiration language
+
+Nihala's actual authority elements to draw from:
+25 years of Buddhist monastic training
+MIT robotics background — systems that respond to feedback loops
+McKinsey strategy experience
+Work with therapeutic breathwork across professional burnout populations
+
+
+
+2.4 Form Specification
+Fields — Visible
+
+
+Fields — Hidden
+
+
+
+
+Optional Persona Field
+
+
+CTA Button Copy
+
+
+Form Endpoint
+
+
+2.5 Book Recommendation Section
+Exactly one book recommended on the page. Do not list multiple. The recommendation appears below the form, not before it.
+
+
+
+
+
+2.6 Email System: Brevo
+Why Brevo
+
+
+Formspree → Brevo Connection
+
+
+Brevo Contact Attributes to Create
+
+
+Brevo List Structure
+Create one list per freebie slug. Do not use a single master list — segmentation breaks down at scale.
+
+
+2.7 The 4-Email MVP Sequence
+Load this sequence into Brevo as an automation triggered by list membership. All delays are from signup time.
+
+
+
+
+
+Email 4 Book Link Format
+
+
+2.8 Analytics: GA4
+Events to Track
+
+
+The Conversion Funnel to Monitor
+
+
+2.9 MVP Success Criteria
+
+
+
+
+The funnel is validated when you have 100+ visitors from a single source and see email → book click rate above the target for that source. Do not declare failure or success with fewer than 100 visitors per source.
+3. Tagging Architecture
+This section defines the tagging standard for all future freebie pages. Establish this before launching more than one page — retroactive retagging is expensive.
+
+3.1 Tag Structure
+
+
+3.2 Canonical Topic Tags
+
+
+3.3 Canonical Persona Tags
+These are the values for the PERSONA attribute. They match the 10 personas in canonical_personas.yaml.
+
+
+
+4. Phase 2 — SEO Topic Hubs
+Do not build Phase 2 until MVP is validated (100+ visitors, measurable conversion). This section is planning-only until that threshold is met.
+
+4.1 The Thin Content Risk
+
+
+4.2 Hub Page Requirements
+Each topic hub must contain at least ONE of the following irreplaceable elements — content that could not be generated from a template:
+A practitioner observation from Nihala's monastic or therapeutic work (specific, not generic)
+A real anonymized case story: specific profession, specific moment, specific outcome
+A primary research citation with a specific finding (not 'studies show...')
+A quote from a named expert with direct attribution
+
+
+
+4.3 Hub Page Structure
+
+
+4.4 Hub Build Order
+Build in this order — highest search intent + lowest competition first:
+
+
+
+5. Phase 2 — Freebie to Book Mapping
+Add this file to the repo after MVP is validated. It enables the email sequence to generate book recommendations automatically from catalog metadata rather than manually.
+
+5.1 File: freebie_to_book_map.yaml
+
+
+5.2 Book Recommendation Logic
+The recommendation engine at MVP stage is a simple lookup, not a behavioral scoring system. Behavioral scoring (weighted clicks + downloads) is a Phase 3 build after you have real usage data.
+
+
+
+6. Phase 2 — Series Upsell
+6.1 Trigger Conditions
+
+
+6.2 Series Upsell Email (1 email)
+
+7. Traffic Strategy
+7.1 Priority Order
+
+
+
+
+7.2 Pinterest — Correct Approach
+Pinterest rewards consistency and re-pinning of high-performing content, not volume. The correct workflow:
+Create 5 pin styles per freebie (not 30)
+Post over 2 weeks — one pin every 2–3 days
+At day 14: identify top performer by saves and clicks
+Create 10 variations of the top-performing style only
+Never bulk-upload — algorithm treats it as spam
+
+7.3 SEO — Cluster Ownership Strategy
+The opportunity is not individual keyword volume — it is owning a cluster of 40–80 low-competition long-tail terms per topic. Individual terms may have 20–50 searches/month. Owning 60 terms in a cluster = 1,200–3,000 monthly visitors from one hub over time.
+
+Example cluster for /burnout-recovery:
+
+8. Decisions Required Before Build Starts
+The developer cannot start without answers to these questions. They are listed in order of blocking priority.
+
+
+9. Explicitly Out of Scope for MVP
+These items are listed because they appeared in planning discussions and may seem urgent. They are not. Build them after MVP validation only.
+
+
+10. Implementation Checklist
+Week 1: Infrastructure
+☐  Answer all 7 decisions in Section 8
+☐  Nihala writes authority narrative paragraph
+☐  Nihala writes or approves Email 3 story
+☐  Create Brevo account + set up 8 contact attribute fields
+☐  Create list: burnout_reset in Brevo
+☐  Set up Formspree → Brevo connection (Make.com or API)
+☐  Set up /books/{slug} redirect page for primary burnout book
+
+Week 2: Build
+☐  Build /burnout-reset page with all 6 sections
+☐  Implement form with hidden fields + UTM capture JS
+☐  Build /free/burnout-reset thank-you page with audio player
+☐  Load 4-email sequence into Brevo automation
+☐  Install GA4 + configure 4 custom events
+☐  Test full flow: page → form → email → sequence triggers
+
+Week 3: Launch & Measure
+☐  Share to personal network only — document traffic source in UTM
+☐  Post LinkedIn article — separate UTM campaign
+☐  Monitor GA4 daily: page views, signups, book clicks
+☐  Monitor Brevo: email open rates, click rates
+☐  At 100 visitors: evaluate against Section 2.9 benchmarks
+☐  Identify what to adjust before scaling
+
+
+
+Phoenix Protocol Books · Marketing Funnel Developer Spec v1.0
+SpiritualTech Systems · Questions: direct to Nihala before building

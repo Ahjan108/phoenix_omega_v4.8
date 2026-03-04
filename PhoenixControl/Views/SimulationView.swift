@@ -9,7 +9,11 @@ struct SimulationView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Button("Run simulation 10k (CI preset)") {
-                runSim()
+                runScript("scripts/ci/run_simulation_10k.py", args: [])
+            }
+            .disabled(state.repoPath.isEmpty || isRunning)
+            Button("Analyze Pearl Prime sim") {
+                runScript("scripts/ci/analyze_pearl_prime_sim.py", args: [])
             }
             .disabled(state.repoPath.isEmpty || isRunning)
             if isRunning {
@@ -21,7 +25,7 @@ struct SimulationView: View {
         .background(PhoenixColors.phoenixBackground)
     }
 
-    private func runSim() {
+    private func runScript(_ path: String, args: [String]) {
         guard !state.repoPath.isEmpty else { return }
         logOutput = ""
         isRunning = true
@@ -29,8 +33,8 @@ struct SimulationView: View {
             do {
                 _ = try await scriptRunner.run(
                     repoPath: state.repoPath,
-                    scriptPath: "scripts/ci/run_simulation_10k.py",
-                    arguments: [],
+                    scriptPath: path,
+                    arguments: args,
                     timeoutSeconds: 600,
                     onOutput: { logOutput += $0 + "\n" }
                 )

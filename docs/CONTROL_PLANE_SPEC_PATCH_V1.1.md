@@ -10,6 +10,7 @@
 - [CONTROL_PLANE_RUNBOOK.md](./CONTROL_PLANE_RUNBOOK.md) — Runbook proving each tab runs real commands/artifacts; evidence per tab.
 - [PRODUCTION_100_PLAN.md](./PRODUCTION_100_PLAN.md) — Production 100% handoff; blockers; freeze policy.
 - [RELEASE_POLICY.md](./RELEASE_POLICY.md) — Freeze policy: release/* only, tagged vX.Y.Z to ship.
+- [PHOENIX_OMEGA_ERROR_STATE_UX_SPEC.md](./PHOENIX_OMEGA_ERROR_STATE_UX_SPEC.md) — Error state UX: taxonomy, surfaces, per-tab patterns, SwiftUI component contracts, copy rules, recovery actions, startup health check.
 
 ---
 

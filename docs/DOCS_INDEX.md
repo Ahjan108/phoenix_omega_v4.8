@@ -32,6 +32,7 @@
 | [ML_AUTONOMOUS_LOOP_SPEC.md](./ML_AUTONOMOUS_LOOP_SPEC.md) | Loop health, agent queue, promotion queue, KPI triggers, operations board; UI requirements for 24/7 + daily + weekly loop. |
 | [CONTROL_PLANE_GO_NO_GO.md](./CONTROL_PLANE_GO_NO_GO.md) | Pass/fail checklist per tab; production-ready when all pass and evidenced. |
 | [CONTROL_PLANE_RUNBOOK.md](./CONTROL_PLANE_RUNBOOK.md) | Runbook proving each tab runs real repo commands and reads real artifacts; evidence procedure per tab. |
+| [PHOENIX_OMEGA_ERROR_STATE_UX_SPEC.md](./PHOENIX_OMEGA_ERROR_STATE_UX_SPEC.md) | Error state taxonomy, surfaces, per-tab patterns, SwiftUI components (ErrorStateView, StatusBadge, ToastManager, ToolbarErrorStrip), copy rules, recovery actions, startup health check. |
 
 **Master spec rule:** [EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md](./EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md) is the **master spec**. When you run (implement) the master spec, **all specs in this bundle must be 100% coded** — no partial implementation. Every requirement in each doc must be implemented before the master spec is considered done.
 
