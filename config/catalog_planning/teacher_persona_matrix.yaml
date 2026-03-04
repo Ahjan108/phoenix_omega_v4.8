@@ -82,3 +82,272 @@ teachers:
       peak_intensity_limit: 5
       identity_shift_allowed: false
       min_tps_per_chapter: 5
+
+  master_feung:
+    allowed_personas:
+      - millennial_women_professionals
+      - tech_finance_burnout
+      - entrepreneurs
+      - working_parents
+      - gen_x_sandwich
+      - corporate_managers
+      - gen_z_professionals
+      - healthcare_rns
+      - gen_alpha_students
+      - first_responders
+      - nyc_executives
+      - burned_out_professional
+    disallowed_personas: []
+    preferred_locales: []
+    allowed_engines:
+      - overwhelm
+      - shame
+    constraints:
+      peak_intensity_limit: 5
+      identity_shift_allowed: false
+      min_tps_per_chapter: 5
+
+  sai_ma:
+    allowed_personas:
+      - millennial_women_professionals
+      - tech_finance_burnout
+      - entrepreneurs
+      - working_parents
+      - gen_x_sandwich
+      - corporate_managers
+      - gen_z_professionals
+      - healthcare_rns
+      - gen_alpha_students
+      - first_responders
+      - nyc_executives
+      - burned_out_professional
+    disallowed_personas: []
+    preferred_locales: []
+    allowed_engines:
+      - overwhelm
+      - shame
+      - spiral
+    constraints:
+      peak_intensity_limit: 5
+      identity_shift_allowed: false
+      min_tps_per_chapter: 5
+
+  ra:
+    allowed_personas:
+      - millennial_women_professionals
+      - tech_finance_burnout
+      - entrepreneurs
+      - working_parents
+      - gen_x_sandwich
+      - corporate_managers
+      - gen_z_professionals
+      - healthcare_rns
+      - gen_alpha_students
+      - first_responders
+      - nyc_executives
+      - burned_out_professional
+    disallowed_personas: []
+    preferred_locales: []
+    allowed_engines:
+      - overwhelm
+      - spiral
+      - grief
+    constraints:
+      peak_intensity_limit: 5
+      identity_shift_allowed: false
+      min_tps_per_chapter: 5
+
+  junko:
+    allowed_personas:
+      - millennial_women_professionals
+      - tech_finance_burnout
+      - entrepreneurs
+      - working_parents
+      - gen_x_sandwich
+      - corporate_managers
+      - gen_z_professionals
+      - healthcare_rns
+      - gen_alpha_students
+      - first_responders
+      - nyc_executives
+      - burned_out_professional
+    disallowed_personas: []
+    preferred_locales: []
+    allowed_engines:
+      - overwhelm
+      - shame
+    constraints:
+      peak_intensity_limit: 5
+      identity_shift_allowed: false
+      min_tps_per_chapter: 5
+
+  miki:
+    allowed_personas:
+      - millennial_women_professionals
+      - tech_finance_burnout
+      - entrepreneurs
+      - working_parents
+      - gen_x_sandwich
+      - corporate_managers
+      - gen_z_professionals
+      - healthcare_rns
+      - gen_alpha_students
+      - first_responders
+      - nyc_executives
+      - burned_out_professional
+    disallowed_personas: []
+    preferred_locales: []
+    allowed_engines:
+      - overwhelm
+      - shame
+    constraints:
+      peak_intensity_limit: 5
+      identity_shift_allowed: false
+      min_tps_per_chapter: 5
+
+  master_wu:
+    allowed_personas:
+      - millennial_women_professionals
+      - tech_finance_burnout
+      - entrepreneurs
+      - working_parents
+      - gen_x_sandwich
+      - corporate_managers
+      - gen_z_professionals
+      - healthcare_rns
+      - gen_alpha_students
+      - first_responders
+      - nyc_executives
+      - burned_out_professional
+    disallowed_personas: []
+    preferred_locales: []
+    allowed_engines:
+      - overwhelm
+      - shame
+    constraints:
+      peak_intensity_limit: 5
+      identity_shift_allowed: false
+      min_tps_per_chapter: 5
+
+  pamela_fellows:
+    allowed_personas:
+      - millennial_women_professionals
+      - tech_finance_burnout
+      - entrepreneurs
+      - working_parents
+      - gen_x_sandwich
+      - corporate_managers
+      - gen_z_professionals
+      - healthcare_rns
+      - gen_alpha_students
+      - first_responders
+      - nyc_executives
+      - burned_out_professional
+    disallowed_personas: []
+    preferred_locales: []
+    allowed_engines:
+      - overwhelm
+      - shame
+      - spiral
+    constraints:
+      peak_intensity_limit: 5
+      identity_shift_allowed: false
+      min_tps_per_chapter: 5
+
+  joshin:
+    allowed_personas:
+      - millennial_women_professionals
+      - tech_finance_burnout
+      - entrepreneurs
+      - working_parents
+      - gen_x_sandwich
+      - corporate_managers
+      - gen_z_professionals
+      - healthcare_rns
+      - gen_alpha_students
+      - first_responders
+      - nyc_executives
+      - burned_out_professional
+    disallowed_personas: []
+    preferred_locales: []
+    allowed_engines:
+      - overwhelm
+      - shame
+    constraints:
+      peak_intensity_limit: 5
+      identity_shift_allowed: false
+      min_tps_per_chapter: 5
+
+  maat:
+    allowed_personas:
+      - millennial_women_professionals
+      - tech_finance_burnout
+      - entrepreneurs
+      - working_parents
+      - gen_x_sandwich
+      - corporate_managers
+      - gen_z_professionals
+      - healthcare_rns
+      - gen_alpha_students
+      - first_responders
+      - nyc_executives
+      - burned_out_professional
+    disallowed_personas: []
+    preferred_locales: []
+    allowed_engines:
+      - overwhelm
+      - shame
+      - spiral
+    constraints:
+      peak_intensity_limit: 5
+      identity_shift_allowed: false
+      min_tps_per_chapter: 5
+
+  omote:
+    allowed_personas:
+      - millennial_women_professionals
+      - tech_finance_burnout
+      - entrepreneurs
+      - working_parents
+      - gen_x_sandwich
+      - corporate_managers
+      - gen_z_professionals
+      - healthcare_rns
+      - gen_alpha_students
+      - first_responders
+      - nyc_executives
+      - burned_out_professional
+    disallowed_personas: []
+    preferred_locales: []
+    allowed_engines:
+      - overwhelm
+      - shame
+    constraints:
+      peak_intensity_limit: 5
+      identity_shift_allowed: false
+      min_tps_per_chapter: 5
+
+  master_sha:
+    allowed_personas:
+      - millennial_women_professionals
+      - tech_finance_burnout
+      - entrepreneurs
+      - working_parents
+      - gen_x_sandwich
+      - corporate_managers
+      - gen_z_professionals
+      - healthcare_rns
+      - gen_alpha_students
+      - first_responders
+      - nyc_executives
+      - burned_out_professional
+    disallowed_personas: []
+    preferred_locales: []
+    allowed_engines:
+      - overwhelm
+      - shame
+      - spiral
+    constraints:
+      peak_intensity_limit: 5
+      identity_shift_allowed: false
+      min_tps_per_chapter: 5

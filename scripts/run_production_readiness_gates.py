@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Run V4.5 Production Readiness gates (17 conditions).
+Run V4.5 Production Readiness gates (19 conditions).
+Gate 16 + 16b: freebie governance — validate_freebie_density and cta_signature_caps run with same index (single scope).
 Usage: from repo root: python scripts/run_production_readiness_gates.py
        or: python -m scripts.run_production_readiness_gates
 """
@@ -298,16 +299,21 @@ def main() -> int:
     if not pipeline_ok:
         failed += 1
 
-    # --- 16. Freebie density (Phase 3; run when index has ≥2 plan rows) ---
+    # --- 16. Freebie governance (Phase 3): density + CTA signature caps, same scope/index ---
+    # Criterion: run_production_readiness_gates.py must run BOTH validate_freebie_density and
+    # cta_signature_caps with the same scope/index. No separate or optional gate.
     freebie_index = REPO_ROOT / "artifacts" / "freebies" / "index.jsonl"
     if freebie_index.exists():
         lines = [ln for ln in freebie_index.read_text().strip().splitlines() if ln.strip()]
         if len(lines) >= 2:
+            env = os.environ.copy()
+            env["PYTHONPATH"] = str(REPO_ROOT)
+            index_str = str(freebie_index)
+            freebie_density_ok = False
+            freebie_detail = ""
             try:
-                env = os.environ.copy()
-                env["PYTHONPATH"] = str(REPO_ROOT)
                 r = subprocess.run(
-                    [sys.executable, "-m", "phoenix_v4.qa.validate_freebie_density", "--index", str(freebie_index)],
+                    [sys.executable, "-m", "phoenix_v4.qa.validate_freebie_density", "--index", index_str],
                     cwd=str(REPO_ROOT),
                     env=env,
                     capture_output=True,
@@ -317,14 +323,32 @@ def main() -> int:
                 freebie_density_ok = r.returncode == 0
                 freebie_detail = "Density within thresholds" if freebie_density_ok else (r.stderr.strip() or "validate_freebie_density.py FAIL")
             except Exception:
-                freebie_density_ok = False
                 freebie_detail = "validate_freebie_density.py FAIL"
+            cta_caps_ok = False
+            cta_detail = ""
+            try:
+                r2 = subprocess.run(
+                    [sys.executable, "-m", "phoenix_v4.qa.cta_signature_caps", "--index", index_str],
+                    cwd=str(REPO_ROOT),
+                    env=env,
+                    capture_output=True,
+                    text=True,
+                    timeout=10,
+                )
+                cta_caps_ok = r2.returncode == 0
+                cta_detail = (r2.stderr.strip() or r2.stdout.strip() or "").strip() or ("CTA caps OK" if cta_caps_ok else "cta_signature_caps.py FAIL")
+            except Exception:
+                cta_detail = "cta_signature_caps.py FAIL"
             if not gate("16. Freebie density (wave)", freebie_density_ok, freebie_detail):
+                failed += 1
+            if not gate("16b. CTA signature caps (same index)", cta_caps_ok, cta_detail):
                 failed += 1
         else:
             gate("16. Freebie density (wave)", True, f"Index has {len(lines)} row(s); need ≥2 for wave density check; skip", skip=True)
+            gate("16b. CTA signature caps (same index)", True, "skip (same scope: index has <2 rows)", skip=True)
     else:
         gate("16. Freebie density (wave)", True, "No freebie index; skip", skip=True)
+        gate("16b. CTA signature caps (same index)", True, "skip (same scope: no index)", skip=True)
 
     # --- 17. jsonschema required + ops artifact validation (CI must not skip) ---
     try:
@@ -376,7 +400,7 @@ def main() -> int:
         failed += 1
 
     # --- Report ---
-    print("V4.5 Production Readiness — 18 conditions\n")
+    print("V4.5 Production Readiness — 19 conditions\n")
     for name, status, detail in RESULTS:
         sym = "✓" if status == "PASS" else ("○" if status == "SKIP" else "✗")
         print(f"  {sym} {status:4}  {name}")

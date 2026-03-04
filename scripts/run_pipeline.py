@@ -105,6 +105,7 @@ def main() -> int:
     ap.add_argument("--out", default=None, help="Write CompiledBook JSON here")
     ap.add_argument("--generate-freebies", action="store_true", help="Generate HTML freebie artifacts (public/free/<slug>/)")
     ap.add_argument("--no-generate-freebies", action="store_true", help="Disable freebie HTML generation when writing plan (default: generate when --out)")
+    ap.add_argument("--no-update-freebie-index", action="store_true", help="Do not upsert plan row into artifacts/freebies/index.jsonl (use for test runs; DoD freebies governance)")
     ap.add_argument("--formats", default=None, help="Comma-separated freebie formats: html,pdf,epub,mp3 (default: html, or html+pdf if store has assets)")
     ap.add_argument("--skip-audio", action="store_true", help="Do not include mp3 in freebie formats")
     ap.add_argument("--publish-dir", default=None, help="Copy freebies to this dir for public/free (e.g. public/free)")
@@ -927,20 +928,21 @@ def main() -> int:
                 row["ending_signature"] = out["ending_signature"]
             with open(sig_path, "a", encoding="utf-8") as sf:
                 sf.write(json.dumps(row) + "\n")
-        # Upsert plan row into freebie plan index (one row per book_id)
-        index_path = REPO_ROOT / "artifacts" / "freebies" / "index.jsonl"
-        index_row = {
-            "book_id": out.get("plan_id") or out.get("plan_hash", ""),
-            "freebie_bundle": freebie_bundle,
-            "cta_template_id": cta_template_id,
-            "slug": freebie_slug,
-            "freebie_slug": freebie_slug,
-        }
-        # Structural Variation V4: include variation knobs in index for wave density / collision
-        for key in ("book_structure_id", "journey_shape_id", "motif_id", "section_reorder_mode", "reframe_profile_id", "variation_signature", "chapter_archetypes"):
-            if out.get(key) is not None:
-                index_row[key] = out[key]
-        _upsert_plan_index_row(index_path, index_row)
+        # Upsert plan row into freebie plan index (one row per book_id) unless test run
+        if not getattr(args, "no_update_freebie_index", False):
+            index_path = REPO_ROOT / "artifacts" / "freebies" / "index.jsonl"
+            index_row = {
+                "book_id": out.get("plan_id") or out.get("plan_hash", ""),
+                "freebie_bundle": freebie_bundle,
+                "cta_template_id": cta_template_id,
+                "slug": freebie_slug,
+                "freebie_slug": freebie_slug,
+            }
+            # Structural Variation V4: include variation knobs in index for wave density / collision
+            for key in ("book_structure_id", "journey_shape_id", "motif_id", "section_reorder_mode", "reframe_profile_id", "variation_signature", "chapter_archetypes"):
+                if out.get(key) is not None:
+                    index_row[key] = out[key]
+            _upsert_plan_index_row(index_path, index_row)
         # Generate freebies (HTML, optional PDF) when writing plan (default on; use --no-generate-freebies to disable)
         do_generate_freebies = (bool(args.out) and not args.no_generate_freebies) or args.generate_freebies
         if do_generate_freebies and freebie_slug:

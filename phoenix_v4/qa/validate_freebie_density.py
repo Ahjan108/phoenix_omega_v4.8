@@ -170,6 +170,12 @@ def main() -> int:
         default=THRESHOLD_SLUG,
         help=f"FAIL if identical slug pattern ratio >= this (default {THRESHOLD_SLUG})",
     )
+    ap.add_argument(
+        "--last-n",
+        type=int,
+        default=None,
+        help="When using --index: use only the last N plan rows (after dedupe by book_id). Wave scope.",
+    )
     args = ap.parse_args()
 
     rows: list[dict[str, Any]] = []
@@ -204,6 +210,15 @@ def main() -> int:
     if not rows:
         print("FREEBIE DENSITY: PASS (no plans or index)")
         return 0
+
+    # Optional scope: last N plan rows (wave) when using index
+    plan_rows = _normalize_plan_rows(rows)
+    if getattr(args, "last_n", None) is not None and getattr(args, "last_n", None) > 0:
+        plan_rows = plan_rows[-args.last_n:]
+    if not plan_rows:
+        print("FREEBIE DENSITY: PASS (no plan rows after scope filter)")
+        return 0
+    rows = plan_rows
 
     tb, tc, ts = _load_thresholds()
     # Config overrides built-in defaults; CLI args override config

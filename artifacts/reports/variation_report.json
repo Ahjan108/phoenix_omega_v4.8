@@ -1,0 +1,137 @@
+{
+  "variation_knob_distribution": {
+    "total_plans": 630,
+    "book_structure_id": {
+      "": 17,
+      "linear_transformation": 181,
+      "three_act": 145,
+      "recognition_to_agency": 92,
+      "classic_linear": 194,
+      "wave_cycle": 1
+    },
+    "journey_shape_id": {
+      "": 17,
+      "recognition_to_agency": 205,
+      "linear_rise": 130,
+      "wave_three_peaks": 103,
+      "crisis_landing": 101,
+      "scaffold_deepen": 74
+    },
+    "motif_id": {
+      "": 17,
+      "motif_pattern": 126,
+      "motif_cost": 248,
+      "motif_choice": 151,
+      "motif_ground": 60,
+      "motif_body": 23,
+      "motif_witness": 5
+    },
+    "reframe_profile_id": {
+      "": 17,
+      "balanced": 550,
+      "research_guide": 22,
+      "somatic_companion": 23,
+      "elder_stabilizer": 18
+    },
+    "section_reorder_mode": {
+      "": 17,
+      "none": 607,
+      "local_reflection_integration": 4,
+      "conservative": 2
+    },
+    "top_combos": [
+      {
+        "combo": [
+          "classic_linear",
+          "recognition_to_agency",
+          "motif_pattern",
+          "balanced"
+        ],
+        "count": 94
+      },
+      {
+        "combo": [
+          "classic_linear",
+          "recognition_to_agency",
+          "motif_cost",
+          "balanced"
+        ],
+        "count": 93
+      },
+      {
+        "combo": [
+          "linear_transformation",
+          "linear_rise",
+          "motif_cost",
+          "balanced"
+        ],
+        "count": 78
+      },
+      {
+        "combo": [
+          "three_act",
+          "crisis_landing",
+          "motif_choice",
+          "balanced"
+        ],
+        "count": 42
+      },
+      {
+        "combo": [
+          "linear_transformation",
+          "wave_three_peaks",
+          "motif_cost",
+          "balanced"
+        ],
+        "count": 30
+      },
+      {
+        "combo": [
+          "recognition_to_agency",
+          "scaffold_deepen",
+          "motif_choice",
+          "balanced"
+        ],
+        "count": 30
+      },
+      {
+        "combo": [
+          "linear_transformation",
+          "linear_rise",
+          "motif_pattern",
+          "balanced"
+        ],
+        "count": 28
+      },
+      {
+        "combo": [
+          "three_act",
+          "wave_three_peaks",
+          "motif_cost",
+          "balanced"
+        ],
+        "count": 22
+      },
+      {
+        "combo": [
+          "recognition_to_agency",
+          "scaffold_deepen",
+          "motif_ground",
+          "balanced"
+        ],
+        "count": 21
+      },
+      {
+        "combo": [
+          "three_act",
+          "wave_three_peaks",
+          "motif_choice",
+          "balanced"
+        ],
+        "count": 19
+      }
+    ]
+  },
+  "collision_heatmap_by_section_id": {},
+  "first_sentence_collision_by_section_type": {}
+}

@@ -221,17 +221,18 @@ Run: `python scripts/run_pipeline.py --topic relationship_anxiety --persona nyc_
 
 ---
 
-## 16. Freebie Density (Phase 3, when using freebies)
+## 16. Freebie governance (Phase 3, when using freebies) — Criterion 3 strict
 
-When releasing a wave that includes freebie attachment:
+When releasing a wave that includes freebie attachment, **one rule:** `scripts/run_production_readiness_gates.py` must run **both** `validate_freebie_density` and `cta_signature_caps` with the **same scope/index** (`artifacts/freebies/index.jsonl`).
 
-- Run freebie density gate on the wave so no more than 40% identical bundle, 50% identical CTA, 60% identical slug pattern.
+- Gate 16: Density — no more than 40% identical bundle, 50% identical CTA, 60% identical slug pattern.
+- Gate 16b: CTA signature caps — per brand/quarter cap (config: `config/freebies/cta_anti_spam.yaml`).
 
-Run: `PYTHONPATH=. python3 phoenix_v4/qa/validate_freebie_density.py --index artifacts/freebies/index.jsonl` (or `--plans-dir <dir>` with compiled plan JSONs). Production readiness script runs this when index has ≥2 rows (skipped only when index is missing or has 0–1 rows).
+Both run when index has ≥2 plan rows; both skipped when index is missing or has 0–1 rows. No separate or optional gate.
 
-**If wave exceeds freebie density thresholds → Not ready for release.**
+**If wave exceeds freebie density or CTA caps → Not ready for release.**
 
-*Ref:* specs/PHOENIX_FREEBIE_SYSTEM_SPEC.md §10; phoenix_v4/qa/validate_freebie_density.py.
+*Ref:* specs/PHOENIX_FREEBIE_SYSTEM_SPEC.md §10; phoenix_v4/qa/validate_freebie_density.py; phoenix_v4/qa/cta_signature_caps.py.
 
 ---
 

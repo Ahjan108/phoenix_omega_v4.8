@@ -10,6 +10,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import subprocess
@@ -336,7 +337,7 @@ def run_phase_3_pipeline(output_dir: Path) -> None:
 
         out_path = plans_dir / f"{arc_path.stem}_out.json"
         r = subprocess.run(
-            [sys.executable, str(pipeline_script), "--topic", topic, "--persona", persona, "--arc", str(arc_path), "--out", str(out_path), "--no-generate-freebies"],
+            [sys.executable, str(pipeline_script), "--topic", topic, "--persona", persona, "--arc", str(arc_path), "--out", str(out_path), "--no-generate-freebies", "--no-update-freebie-index"],
             cwd=str(REPO_ROOT),
             capture_output=True,
             text=True,
@@ -423,7 +424,7 @@ def run_phase_4_freebies(output_dir: Path) -> None:
             record("phase4_freebies", False, "freebie_planner_fail", "No plan and no arc for freebie test", None, "Run phase 3 first or add arc")
             return
         r = subprocess.run(
-            [sys.executable, str(REPO_ROOT / "scripts" / "run_pipeline.py"), "--topic", "self_worth", "--persona", "nyc_executives", "--arc", str(arc_path), "--out", str(output_dir / "plans" / "freebie_test_out.json"), "--no-generate-freebies"],
+            [sys.executable, str(REPO_ROOT / "scripts" / "run_pipeline.py"), "--topic", "self_worth", "--persona", "nyc_executives", "--arc", str(arc_path), "--out", str(output_dir / "plans" / "freebie_test_out.json"), "--no-generate-freebies", "--no-update-freebie-index"],
             cwd=str(REPO_ROOT), capture_output=True, text=True, timeout=120,
         )
         if r.returncode != 0:
@@ -750,6 +751,12 @@ def main() -> int:
     output_dir = Path(args.output_dir or str(REPO_ROOT / "artifacts" / "systems_test"))
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # DoD: freebies index must not be modified by test runs (checksum assertion)
+    freebie_index = REPO_ROOT / "artifacts" / "freebies" / "index.jsonl"
+    freebie_index_checksum_before: str | None = None
+    if (3 in phases or 4 in phases) and freebie_index.exists():
+        freebie_index_checksum_before = hashlib.sha256(freebie_index.read_bytes()).hexdigest()
+
     if 1 in phases:
         run_phase_1_config(output_dir)
     if 2 in phases:
@@ -764,6 +771,17 @@ def main() -> int:
         run_phase_6_ci_qa(output_dir)
     if 7 in phases:
         run_phase_7_contracts(output_dir)
+
+    # Assert freebies index unchanged (DoD criterion 3: test pollution check)
+    if freebie_index_checksum_before is not None:
+        if not freebie_index.exists():
+            record("freebie_index_unchanged", False, "gate_fail", "artifacts/freebies/index.jsonl was removed during systems test", str(freebie_index), "Do not delete index in tests; use --no-update-freebie-index")
+        else:
+            checksum_after = hashlib.sha256(freebie_index.read_bytes()).hexdigest()
+            if checksum_after != freebie_index_checksum_before:
+                record("freebie_index_unchanged", False, "gate_fail", "artifacts/freebies/index.jsonl was modified during systems test (test pollution)", str(freebie_index), "Ensure every pipeline call uses --no-update-freebie-index")
+            else:
+                record("freebie_index_unchanged", True, "gate_fail", "Freebie index unchanged after systems test (no test pollution)")
 
     json_path, md_path = write_report(output_dir)
     failed = sum(1 for r in RESULTS if not r["passed"])

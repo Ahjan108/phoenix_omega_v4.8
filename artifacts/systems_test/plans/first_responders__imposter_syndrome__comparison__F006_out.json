@@ -667,16 +667,17 @@
     }
   ],
   "freebie_bundle": [
-    "journal_reflection_v1"
+    "environment_guide_v1"
   ],
-  "cta_template_id": "workbook_forward",
-  "freebie_slug": "imposter-syndrome-first-responders-journal-reflection-v1",
+  "cta_template_id": "tool_forward",
+  "freebie_slug": "imposter-syndrome-first-responders-environment-guide-v1",
   "freebie_bundle_with_formats": [
     {
-      "freebie_id": "journal_reflection_v1",
+      "freebie_id": "environment_guide_v1",
       "formats": [
         "html",
-        "pdf"
+        "pdf",
+        "epub"
       ]
     }
   ],

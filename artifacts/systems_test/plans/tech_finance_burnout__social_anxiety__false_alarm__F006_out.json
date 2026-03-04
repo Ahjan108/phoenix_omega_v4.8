@@ -667,15 +667,16 @@
     }
   ],
   "freebie_bundle": [
-    "emergency_kit_v1"
+    "journal_reflection_v1"
   ],
-  "cta_template_id": "tool_forward",
-  "freebie_slug": "anxiety-tech-finance-burnout-emergency-kit-v1",
+  "cta_template_id": "workbook_forward",
+  "freebie_slug": "anxiety-tech-finance-burnout-journal-reflection-v1",
   "freebie_bundle_with_formats": [
     {
-      "freebie_id": "emergency_kit_v1",
+      "freebie_id": "journal_reflection_v1",
       "formats": [
-        "html"
+        "html",
+        "pdf"
       ]
     }
   ],

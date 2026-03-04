@@ -14,6 +14,7 @@
 | **Find a doc** | Browse sections below, or search [Document all — complete inventory](#document-all--complete-inventory). |
 | **Add a doc** | Follow [Document all — usage](#document-all--usage): place in correct section, add to inventory, reference canonical anchors if authority doc. |
 | **Check domain coverage** | Use "(document all)" subsections (e.g. [V4 features, scale & knobs](#v4-features-scale--knobs-document-all), [Marketing & deep research](#marketing--deep-research-document-all), [Teacher Mode](#teacher-mode--production-readiness-document-all)) — each lists every asset for that domain. |
+| **Run tests / understand test suite** | [Test suite (document all)](#test-suite-document-all): how to run (local + CI), markers, workflows, full file list (36 files, 222 tests), fixtures, [FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md). |
 | **Go/no-go decision** | [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md) §6 Hard NOs. |
 
 ---
@@ -41,6 +42,7 @@
 - [docs/DISASTER_RECOVERY_DRILL_CHECKLIST.md](./DISASTER_RECOVERY_DRILL_CHECKLIST.md) — DR drill steps, evidence template
 - `docs/CONTROL_PLANE_GO_NO_GO.md` — Control Plane macOS app: pass/fail checks per tab; production-ready when all pass and evidenced
 - `docs/CONTROL_PLANE_RUNBOOK.md` — Runbook proving each tab runs real repo commands and reads real artifacts
+- [docs/CONTROL_PLANE_SPEC_PATCH_V1.1.md](./CONTROL_PLANE_SPEC_PATCH_V1.1.md) — **Spec Patch v1.1:** completeness engine, approval state, metadata inventory, agents & learning, Pearl News board, data contracts, Missing/Blocked queue
 - `docs/PRODUCTION_100_PLAN.md` — **Production 100% handoff:** scope lock, source-of-truth files, quality system, V2 policy, CI baseline, evidence, release-week commands, hu-HU rules, docs governance, do-not-ship, start-now sequence, definition of 100%; **blockers** and **freeze policy**
 - `docs/RELEASE_POLICY.md` — Freeze policy: release/* only, required checks on release branch, only tagged vX.Y.Z can ship
 - [docs/PRODUCTION_READINESS_GO_NO_GO.md](./PRODUCTION_READINESS_GO_NO_GO.md) — Go/no-go gate for production readiness
@@ -262,7 +264,7 @@ Single index: every doc, spec, script, and config that uses or is fed by marketi
 | Item | Location |
 |------|----------|
 | **Deep research integration spec** | [specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md) — Narrative Depth Layer v1.0: `invisible_script` HOOK subtype, `belief_flip` STORY pattern, SCENE micro-failure, INTEGRATION `milestone_type`, arc quality test. Subordinate to Arc-First Canonical. Feeds: title philosophy, HOOK atoms, marketing brief (invisible_script, belief flip). |
-| **Title engine marketing config spec** | [specs/TITLE_ENGINE_MARKETING_CONFIG_SPEC.md](../specs/TITLE_ENGINE_MARKETING_CONFIG_SPEC.md) — Config layer authority: consumer_language_by_topic.yaml replaces COMPLIANCE_FILTER and topic-level vocabulary; invisible_scripts_by_persona_topic.yaml replaces TOPIC_VOCABULARY.invisible_scripts; config-driven loader with fallback; generate_invisible_script() persona×topic sourcing. **Implementation complete** (config, loader, compliance + invisible_script wiring, check_marketing_config.py, marketing-config-gate.yml). COMPLIANCE_FILTER is currently parallel; deprecation to single source of truth in spec §9. |
+| **Title engine marketing config spec** | [specs/TITLE_ENGINE_MARKETING_CONFIG_SPEC.md](../specs/TITLE_ENGINE_MARKETING_CONFIG_SPEC.md) — Config layer authority: consumer_language_by_topic.yaml replaces COMPLIANCE_FILTER and topic-level vocabulary; invisible_scripts_by_persona_topic.yaml replaces TOPIC_VOCABULARY.invisible_scripts; config-driven loader with fallback; generate_invisible_script() persona×topic sourcing. **Implementation complete** (config, loader, compliance + invisible_script wiring, validate_marketing_config.py, marketing-config-gate.yml). COMPLIANCE_FILTER is currently parallel; deprecation to single source of truth in spec §9. |
 
 ### Scripts / code (consumers of deep research outputs)
 
@@ -283,8 +285,15 @@ Single index: every doc, spec, script, and config that uses or is fed by marketi
 
 | Item | Location |
 |------|----------|
-| **Marketing config gate** | [scripts/ci/check_marketing_config.py](../scripts/ci/check_marketing_config.py) — Validates consumer_language_by_topic.yaml and invisible_scripts_by_persona_topic.yaml: referential integrity vs canonical topics/personas, required fields, minimum content, cross-file consistency, brand allowed_tokens vs clinical terms. Exit 1 on ERROR. `--strict` promotes WARNs to ERRORs. |
-| **Marketing config CI workflow** | [.github/workflows/marketing-config-gate.yml](../.github/workflows/marketing-config-gate.yml) — Runs check_marketing_config.py on PRs touching config/marketing/**. Uses --strict on main branch pushes. |
+| **Marketing config validator** | [phoenix_v4/qa/validate_marketing_config.py](../phoenix_v4/qa/validate_marketing_config.py) — Validates consumer_language_by_topic.yaml and invisible_scripts_by_persona_topic.yaml: required topic/persona IDs, field count ranges, and full 10×14 persona×topic coverage with exactly 2 scripts per cell. Exit 1 on any ERROR. |
+| **Marketing config CI workflow** | [.github/workflows/marketing-config-gate.yml](../.github/workflows/marketing-config-gate.yml) — Runs `python -m phoenix_v4.qa.validate_marketing_config` on PRs/pushes touching config/marketing/**. |
+| **Core tests CI gate** | [.github/workflows/core-tests.yml](../.github/workflows/core-tests.yml) — Includes `Validate marketing config` step before production readiness gates; required for branch protection. |
+
+### Tests
+
+| Item | Location |
+|------|----------|
+| **Marketing config integration tests** | [tests/test_marketing_config_integration.py](../tests/test_marketing_config_integration.py) — Verifies validator pass, config-backed invisible script selection, config-backed keyword selection, and compliance block/monitor behavior. |
 
 ### Use flow
 
@@ -777,38 +786,76 @@ Teacher Mode is **100% production-ready** when: (1) strict validation and CI gat
 
 ---
 
-## Tests (full inventory)
+## Test suite (document all)
 
-All test files under `tests/`. Core tests workflow runs fast set (`-m "not slow"`); slow tests (atoms coverage, teacher E2E) run in release-gates or separately.
+Single index: every test file, how to run, markers, CI workflows, and test infrastructure. **Plan and gap analysis:** [FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md).
+
+### How to run
+
+| Command | What runs |
+|---------|-----------|
+| `PYTHONPATH=. python -m pytest tests/ -v --tb=short` | All tests (default: 222 collected). Run from repo root. |
+| `PYTHONPATH=. python -m pytest tests/ -m "not slow"` | Fast set only (excludes slow: atoms coverage, teacher E2E). Used by core-tests CI. |
+| `PYTHONPATH=. python -m pytest tests/ -m slow` | Slow tests only (atoms coverage 100%, teacher E2E smoke). |
+| `PYTHONPATH=. python -m pytest tests/test_arc_loader.py -v` | Single file. |
+| `pip install -r requirements-test.txt` | Install pytest, pyyaml, jsonschema, feedparser (required before running). |
+
+**Environment:** Run from repo root. `PYTHONPATH=.` (or repo root on `PYTHONPATH`) required so `phoenix_v4` and other packages resolve. Optional: `ATOMS_ROOT` to override atoms directory.
 
 ### Test infrastructure
 
 | Item | Location |
 |------|----------|
 | **Test dependencies** | [requirements-test.txt](../requirements-test.txt) — pytest, pyyaml, jsonschema, feedparser |
-| **Pytest config** | [pytest.ini](../pytest.ini) — markers (slow, integration, e2e), testpaths |
+| **Pytest config** | [pytest.ini](../pytest.ini) — testpaths=`tests`, markers: `slow`, `integration`, `e2e`; addopts `-v --tb=short` |
 | **Shared fixtures** | [tests/conftest.py](../tests/conftest.py) — repo_root, fixtures_dir, config_root, atoms_root |
+| **Test plan (gaps, CI matrix)** | [docs/FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md) — inventory, CI coverage, missing runs, pipeline matrix |
+
+### Pytest markers
+
+| Marker | Meaning | Used by |
+|--------|---------|---------|
+| `slow` | Long-running (atoms coverage, teacher E2E). Excluded from core-tests. | test_atoms_coverage_100_percent, test_teacher_mode_e2e_smoke |
+| `integration` | Needs external resources or full pipeline. | (see pytest.ini) |
+| `e2e` | End-to-end (compile, render). | (see pytest.ini) |
+
+### CI workflows that run tests
+
+| Workflow | Trigger | Tests / steps |
+|----------|---------|----------------|
+| **Core tests** | [.github/workflows/core-tests.yml](../.github/workflows/core-tests.yml) | Push/PR to main/master. Pytest `-m "not slow"` (-x), then validate_marketing_config, then run_production_readiness_gates. **Required for branch protection.** |
+| **Teacher gates** | [.github/workflows/teacher-gates.yml](../.github/workflows/teacher-gates.yml) | Teacher-related path changes. run_teacher_production_gates.py, pytest teacher_arc_test, pytest test_teacher_mode_e2e_smoke. **Required for branch protection.** |
+| **Pearl News gates** | [.github/workflows/pearl_news_gates.yml](../.github/workflows/pearl_news_gates.yml) | pearl_news/**, test files. pytest test_pearl_news_quality_gates_minimal, test_pearl_news_pipeline_e2e. |
+| **Brand guards** | [.github/workflows/brand-guards.yml](../.github/workflows/brand-guards.yml) | Brand registry, locale, brand_teacher_*. check_norcal_dharma_brand_guards, check_church_yaml_no_sensitive_tokens, pytest test_norcal_dharma_brand_smoke. |
+| **EI V2 gates** | [.github/workflows/ei-v2-gates.yml](../.github/workflows/ei-v2-gates.yml) | EI code + weekly. pytest test_ei_v2.py test_ei_v2_hybrid.py, then rigorous eval, calibration, promotion gate. |
+| **Release gates** | [.github/workflows/release-gates.yml](../.github/workflows/release-gates.yml) | Release path. Production gates + rigorous test + canary + rollback smoke (includes slow tests / systems test). |
+| **Marketing config gate** | [.github/workflows/marketing-config-gate.yml](../.github/workflows/marketing-config-gate.yml) | config/marketing/**. phoenix_v4.qa.validate_marketing_config (validates YAML; not pytest). |
+
+### Full test file inventory
 
 | Test file | Purpose |
 |-----------|---------|
-| [tests/teacher_arc_test.py](../tests/teacher_arc_test.py) | Teacher arc blueprint schema, planner determinism (**required**) |
-| [tests/test_teacher_mode_e2e_smoke.py](../tests/test_teacher_mode_e2e_smoke.py) | Teacher Mode E2E compile per teacher (**required**) |
-| [tests/test_atoms_coverage_100_percent.py](../tests/test_atoms_coverage_100_percent.py) | 450/450 atom pool coverage gate — EXIT:0 = 100% |
+| [tests/teacher_arc_test.py](../tests/teacher_arc_test.py) | Teacher arc blueprint schema, planner determinism (**required** for Teacher gates) |
+| [tests/test_teacher_mode_e2e_smoke.py](../tests/test_teacher_mode_e2e_smoke.py) | Teacher Mode E2E compile per teacher — one topic/persona/arc per teacher (**required** for Teacher gates) |
+| [tests/test_atoms_coverage_100_percent.py](../tests/test_atoms_coverage_100_percent.py) | 450/450 atom pool coverage gate; STORY + non-STORY (HOOK, SCENE, REFLECTION, EXERCISE, INTEGRATION). EXIT:0 = 100%. Marked `slow`. |
 | [tests/test_arc_loader.py](../tests/test_arc_loader.py) | Arc YAML loading and validation |
 | [tests/test_assembly_compiler.py](../tests/test_assembly_compiler.py) | Assembly compiler unit tests |
 | [tests/test_atoms_model.py](../tests/test_atoms_model.py) | Atom data model and pool indexing |
 | [tests/test_book_pass_gate.py](../tests/test_book_pass_gate.py) | Book-level pass gate (Tier 0 contract) |
-| [tests/test_book_renderer.py](../tests/test_book_renderer.py) | Renderer: clean_for_delivery, delivery_contract_gate, word_count_gate |
+| [tests/test_book_renderer.py](../tests/test_book_renderer.py) | Renderer: clean_for_delivery, delivery_contract_gate, word_count_gate, placeholder/silence, plan context |
 | [tests/test_brand_identity_stability.py](../tests/test_brand_identity_stability.py) | Brand identity stability across builds |
 | [tests/test_catalog_emotional_distribution.py](../tests/test_catalog_emotional_distribution.py) | Emotional distribution across catalog |
 | [tests/test_chapter_flow_gate.py](../tests/test_chapter_flow_gate.py) | Chapter-level flow gate |
 | [tests/test_creative_quality_v1.py](../tests/test_creative_quality_v1.py) | Creative quality gate v1 |
 | [tests/test_cross_brand_divergence.py](../tests/test_cross_brand_divergence.py) | Cross-brand divergence validation |
+| [tests/test_ei_v2.py](../tests/test_ei_v2.py) | EI V2: 28 tests — cross-encoder, safety, dedup, emotion arc, TTS readability, domain embeddings, V2 orchestration, config, parallel adapter |
+| [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py) | EI V2 hybrid: 25 tests — learner, dimension gates, hybrid selector, config, integration |
 | [tests/test_emotional_curve_golden.py](../tests/test_emotional_curve_golden.py) | Emotional curve golden regression |
 | [tests/test_format_selector.py](../tests/test_format_selector.py) | Format selector Stage 2 logic |
 | [tests/test_intro_ending_variation.py](../tests/test_intro_ending_variation.py) | Intro/ending variation feature flag |
+| [tests/test_marketing_config_integration.py](../tests/test_marketing_config_integration.py) | Marketing config: validator pass, config-backed invisible_script, config-backed search keyword, compliance block/monitor terms |
 | [tests/test_narrative_gates.py](../tests/test_narrative_gates.py) | Narrative gate checks |
-| [tests/test_norcal_dharma_brand_smoke.py](../tests/test_norcal_dharma_brand_smoke.py) | NorCal Dharma church brand smoke |
+| [tests/test_norcal_dharma_brand_smoke.py](../tests/test_norcal_dharma_brand_smoke.py) | NorCal Dharma church brand smoke — wave allocation, default_teacher, no Teacher Mode |
 | [tests/test_pearl_news_pipeline_e2e.py](../tests/test_pearl_news_pipeline_e2e.py) | Pearl News E2E pipeline |
 | [tests/test_pearl_news_quality_gates_minimal.py](../tests/test_pearl_news_quality_gates_minimal.py) | Pearl News quality gates minimal |
 | [tests/test_platform_health_scorecard.py](../tests/test_platform_health_scorecard.py) | Platform health scorecard |
@@ -825,7 +872,8 @@ All test files under `tests/`. Core tests workflow runs fast set (`-m "not slow"
 | [tests/test_validators.py](../tests/test_validators.py) | Core validators |
 | [tests/test_variation.py](../tests/test_variation.py) | Variation knob distribution |
 | [tests/test_wave_optimizer_constraint_solver.py](../tests/test_wave_optimizer_constraint_solver.py) | Wave optimizer constraint solver |
-| [tests/test_ei_v2.py](../tests/test_ei_v2.py) | EI V2 test suite: 28 tests — cross-encoder, safety, dedup, arc, TTS, domain embeddings, V2 orchestration, config, parallel adapter |
+
+**Count:** 36 test files (35 `test_*.py` + `teacher_arc_test.py`). Full run: 222 tests (as of 2026-03-04).
 
 ---
 
@@ -880,7 +928,7 @@ All test files under `tests/`. Core tests workflow runs fast set (`-m "not slow"
 | **Validate freebie density** | [phoenix_v4/qa/validate_freebie_density.py](../phoenix_v4/qa/validate_freebie_density.py) — Bundle/CTA/slug thresholds |
 | **CTA signature caps** | [phoenix_v4/qa/cta_signature_caps.py](../phoenix_v4/qa/cta_signature_caps.py) — Per brand/quarter cap |
 | **Check book output no placeholders** | [scripts/ci/check_book_output_no_placeholders.py](../scripts/ci/check_book_output_no_placeholders.py) — Delivery gate (§10.6) |
-| **Run production readiness gates** | [scripts/run_production_readiness_gates.py](../scripts/run_production_readiness_gates.py) — 15 + optional gate 16 |
+| **Run production readiness gates** | [scripts/run_production_readiness_gates.py](../scripts/run_production_readiness_gates.py) — 19 conditions; Gate 16+16b freebie governance (both density + CTA caps, same index) |
 | **Run systems test** | [scripts/systems_test/run_systems_test.py](../scripts/systems_test/run_systems_test.py) — Phases 1–7 |
 | **Generate full catalog** | [scripts/generate_full_catalog.py](../scripts/generate_full_catalog.py) — Portfolio → BookSpec → compile → wave |
 | **Story atom lint** | [phoenix_v4/quality/story_atom_lint.py](../phoenix_v4/quality/story_atom_lint.py) — STORY specificity, conflict, cost, pivot |
@@ -1119,6 +1167,7 @@ All `scripts/ci/` files confirmed present on disk.
 | Script | Purpose |
 |--------|---------|
 | [scripts/ci/check_docs_governance.py](../scripts/ci/check_docs_governance.py) | **DOCS_INDEX link integrity + Last updated staleness** — fails if any linked file is missing; warns on stale date |
+| [scripts/ci/check_system_governance_status.py](../scripts/ci/check_system_governance_status.py) | **System governance status** — runs all governance/report checks; JSON report to artifacts/governance/; optional --fix (DOCS_INDEX Last updated) |
 | [scripts/ci/check_author_positioning.py](../scripts/ci/check_author_positioning.py) | Author positioning validation: pen name, bio, positioning consistency |
 | [scripts/ci/check_author_cover_art.py](../scripts/ci/check_author_cover_art.py) | Author cover art: every launchable author has registry + PNG + style/palette (Gate 18) |
 | [scripts/ci/check_book_output_no_placeholders.py](../scripts/ci/check_book_output_no_placeholders.py) | Hard-fail if any placeholder pattern survives rendered output |
@@ -1241,6 +1290,7 @@ All docs that declare authority must reference the three canonical anchors: `SYS
 ### Governance
 
 - **Link integrity:** [scripts/ci/check_docs_governance.py](../scripts/ci/check_docs_governance.py) — Fails if any linked file is missing; warns on stale date.
+- **System governance status:** [scripts/ci/check_system_governance_status.py](../scripts/ci/check_system_governance_status.py) — Runs all governance checks and report scripts (docs, GitHub, production gates, teacher, brand guards, variation report); writes `artifacts/governance/system_governance_report.json`; optional `--fix` for DOCS_INDEX Last updated.
 - **North star for go/no-go:** [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md) §6 Hard NOs.
 
 ---
@@ -1425,7 +1475,7 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [config/authoring/author_cover_art_registry.yaml](../config/authoring/author_cover_art_registry.yaml) | Book & authoring (Author cover art) | ✓ |
 | [config/marketing/consumer_language_by_topic.yaml](../config/marketing/consumer_language_by_topic.yaml) | Marketing & deep research | ✓ — 14 topics, consumer phrases, banned clinical terms, bridge language, search clusters, platform risk terms |
 | [config/marketing/invisible_scripts_by_persona_topic.yaml](../config/marketing/invisible_scripts_by_persona_topic.yaml) | Marketing & deep research | ✓ — 140 entries (10 personas × 14 topics), 2 scripts each; loaded by title engine |
-| [scripts/ci/check_marketing_config.py](../scripts/ci/check_marketing_config.py) | Marketing & deep research | ✓ — CI gate: referential integrity, required fields, brand×clinical cross-check, strict mode |
+| [phoenix_v4/qa/validate_marketing_config.py](../phoenix_v4/qa/validate_marketing_config.py) | Marketing & deep research | ✓ — CI validator: required topic/persona IDs, field count ranges, and 10×14 persona×topic coverage |
 | [.github/workflows/marketing-config-gate.yml](../.github/workflows/marketing-config-gate.yml) | Marketing & deep research | ✓ — PR gate for config/marketing/** changes |
 | [.github/workflows/teacher-gates.yml](../.github/workflows/teacher-gates.yml) | Teacher Mode | ✓ |
 | [.github/workflows/brand-guards.yml](../.github/workflows/brand-guards.yml) | Church & payout (NorCal Dharma brand guards) | ✓ |
