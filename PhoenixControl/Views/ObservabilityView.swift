@@ -14,6 +14,7 @@ struct ObservabilityView: View {
                 Button("Collect signals") {
                     runCollector()
                 }
+                .keyboardShortcut(.return, modifiers: .command)
                 .disabled(state.repoPath.isEmpty || isRunning)
                 Button("Refresh") {
                     refresh()
@@ -25,6 +26,16 @@ struct ObservabilityView: View {
                     }
                 }
             }
+            if let phase = state.observabilityPhaseStatus {
+                HStack(spacing: 12) {
+                    Text("P1: \(phase.p1Observe.rawValue)")
+                    Text("P2: \(phase.p2Document.rawValue)")
+                    Text("P3: \(phase.p3ElevateFix.rawValue)")
+                    Text("P4: \(phase.p4LearnEnhance.rawValue)")
+                }
+                .font(.caption)
+                .foregroundColor(.secondary)
+            }
             if let snap = state.lastSnapshot {
                 HStack(spacing: 12) {
                     StatusBadge(status: "pass")
@@ -35,7 +46,7 @@ struct ObservabilityView: View {
                     Text("\(snap.skipped)")
                 }
             }
-            LiveLogView(logText: $logOutput, isRunning: isRunning)
+            LiveLogView(logText: $logOutput, isRunning: isRunning, exitCode: lastExitCode)
             Divider()
             evidenceTable
             Divider()
@@ -44,6 +55,7 @@ struct ObservabilityView: View {
         .padding()
         .background(PhoenixColors.phoenixBackground)
         .onAppear { refresh() }
+        .onChange(of: state.refreshTrigger) { _, _ in refresh() }
     }
 
     private var identifiableEvidence: [IdentifiableEvidenceRow] {
@@ -55,31 +67,11 @@ struct ObservabilityView: View {
     }
 
     private var evidenceTable: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text("Evidence log (last 100)")
-                .font(.headline)
-            Table(identifiableEvidence) {
-                TableColumn("Time") { item in Text(item.row.timestamp ?? "-") }
-                TableColumn("Signal") { item in Text(item.row.signal_id ?? "-") }
-                TableColumn("Category") { item in Text(item.row.category ?? "-") }
-                TableColumn("Status") { item in StatusBadge(status: item.row.status ?? "?") }
-                TableColumn("Message") { item in Text(item.row.message ?? "-").lineLimit(1) }
-            }
-        }
+        EvidenceLogTable(title: "Evidence log (last 100)", rows: identifiableEvidence, highlightFailure: false)
     }
 
     private var elevatedTable: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text("Elevated failures")
-                .font(.headline)
-                .foregroundColor(.red)
-            Table(identifiableElevated) {
-                TableColumn("Time") { item in Text(item.row.timestamp ?? "-") }
-                TableColumn("Signal") { item in Text(item.row.signal_id ?? "-") }
-                TableColumn("Status") { item in StatusBadge(status: item.row.status ?? "fail") }
-                TableColumn("Message") { item in Text(item.row.message ?? "-").lineLimit(2) }
-            }
-        }
+        EvidenceLogTable(title: "Elevated failures", rows: identifiableElevated, highlightFailure: true)
     }
 
     private func runCollector() {
@@ -106,6 +98,7 @@ struct ObservabilityView: View {
             } catch {
                 await MainActor.run {
                     logOutput += "\nError: \(error)"
+                    state.errorMessage = String(describing: error)
                     isRunning = false
                     refresh()
                 }
@@ -118,5 +111,6 @@ struct ObservabilityView: View {
         state.lastSnapshot = artifactReader.loadLatestSnapshot(repoPath: state.repoPath)
         state.evidenceLogRows = artifactReader.loadEvidenceLog(repoPath: state.repoPath, limit: 100)
         state.elevatedFailures = artifactReader.loadElevatedFailures(repoPath: state.repoPath, limit: 200)
+        state.observabilityPhaseStatus = artifactReader.loadObservabilityPhaseStatus(repoPath: state.repoPath)
     }
 }

@@ -22,6 +22,7 @@ struct PipelineView: View {
                 Button("Run pipeline") {
                     runPipeline()
                 }
+                .keyboardShortcut(.return, modifiers: .command)
                 .disabled(state.repoPath.isEmpty || isRunning)
                 if isRunning {
                     Button("Cancel") { scriptRunner.cancel() }

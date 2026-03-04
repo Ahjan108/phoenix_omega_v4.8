@@ -82,9 +82,7 @@ struct ContentView: View {
             state.repoPathValid = valid
         }
         .onChange(of: showingPathSheet) { _, visible in
-            if !visible {
-                runStartupHealthCheckIfNeeded()
-            }
+            if !visible { runStartupHealthCheckIfNeeded() }
         }
         .alert("Error", isPresented: Binding(
             get: { state.errorMessage != nil },
@@ -135,9 +133,8 @@ struct ContentView: View {
     .commands {
         CommandGroup(after: .sidebar) {
             ForEach(Array(TabTag.allCases.enumerated()), id: \.element) { index, tab in
-                let key: KeyEquivalent = index == 9 ? "0" : KeyEquivalent(Character("\(index + 1)"))
                 Button(tab.title) { selectedTab = tab }
-                    .keyboardShortcut(key, modifiers: .command)
+                    .keyboardShortcut(KeyEquivalent(Character(Unicode.Scalar(48 + (index == 9 ? 0 : index + 1))!)), modifiers: .command)
             }
             Button("Refresh") { runStartupHealthCheckIfNeeded(); refreshCurrentTab() }
                 .keyboardShortcut("r", modifiers: .command)
@@ -148,7 +145,7 @@ struct ContentView: View {
         Group {
             switch selectedTab {
             case .dashboard:
-                DashboardView(state: state, artifactReader: artifactReader)
+                DashboardView(state: state, artifactReader: artifactReader, onSelectObservability: { selectedTab = .observability })
             case .pipeline:
                 PipelineView(state: state, scriptRunner: scriptRunner)
             case .simulation:
