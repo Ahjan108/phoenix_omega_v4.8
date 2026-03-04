@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phoenix/schemas/ml_editorial/rewrite_recs_v1.schema.json",
+  "title": "ML Editorial rewrite recommendation row",
+  "type": "object",
+  "required": ["book_id", "chapter_id", "issue_type", "recommendation", "ts"],
+  "properties": {
+    "book_id": { "type": "string" },
+    "chapter_id": { "type": "string" },
+    "issue_type": { "type": "string" },
+    "recommendation": { "type": "string" },
+    "constraint_set": { "type": ["string", "array"] },
+    "expected_gain": { "type": "number", "minimum": 0, "maximum": 1 },
+    "ts": { "type": "string", "format": "date-time" }
+  }
+}

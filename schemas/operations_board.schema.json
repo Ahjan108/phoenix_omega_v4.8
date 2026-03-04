@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phoenix/schemas/operations_board.schema.json",
+  "title": "Operations Board Row",
+  "description": "Single row in the operations board feed: detected issue → proposed fix → PR → merged → impact",
+  "type": "object",
+  "required": ["timestamp", "signal_id", "status"],
+  "properties": {
+    "timestamp": { "type": "string", "format": "date-time" },
+    "signal_id": { "type": "string", "description": "Production signal that failed or was fixed" },
+    "category": { "type": "string", "description": "Signal category (core, coverage, etc.)" },
+    "status": {
+      "type": "string",
+      "enum": ["detected", "fix_proposed", "pr_opened", "merged", "impact_recorded"],
+      "description": "Stage in the chain: detected → fix_proposed → pr_opened → merged → impact_recorded"
+    },
+    "suggested_fix": { "type": "string", "description": "Human or agent-proposed fix (e.g. from systems test)" },
+    "pr_url": { "type": "string", "format": "uri", "description": "GitHub PR URL when opened" },
+    "merged": { "type": "boolean", "description": "Whether the fix PR was merged" },
+    "impact": { "type": "string", "description": "Before/after or pass/fail outcome (e.g. signal X went from fail to pass)" },
+    "issue_id": { "type": "string", "description": "Optional issue or run identifier" },
+    "artifact_path": { "type": "string", "description": "Path to evidence artifact" },
+    "run_url": { "type": "string", "format": "uri", "description": "CI or workflow run URL" }
+  },
+  "additionalProperties": true
+}

@@ -19,7 +19,9 @@ Each violation category returns a score in [0, 1] and reason codes.
 from __future__ import annotations
 
 import re
-from typing import Any, Callable, Dict, List, Optional, Tuple
+from typing import Any, Callable, Dict, List, Optional, Set, Tuple
+
+from phoenix_v4.quality.ei_v2.marketing_lexicons import get_banned_clinical_and_forbidden
 
 
 # --- Expanded pattern banks (beyond V1 exact phrase lists) ---
@@ -139,15 +141,18 @@ def classify_safety(
     *,
     slot: str = "",
     cfg: Optional[Dict[str, Any]] = None,
+    full_cfg: Optional[Dict[str, Any]] = None,
     call_llm_fn: Optional[Callable] = None,
 ) -> Dict[str, Any]:
     """
     Classify text for safety violations.
 
+    cfg: safety_classifier subsection (thresholds, etc.).
+    full_cfg: full EI V2 config (for marketing_sources / get_banned_clinical_and_forbidden). If None, uses cfg.
     Returns dict with per-category scores and an aggregate risk_score in [0, 1].
-    Each category includes: score (0-1), hits (int), excerpts (list), reason_codes (list).
     """
     cfg = cfg or {}
+    full_cfg = full_cfg or cfg
     mode = cfg.get("mode", "heuristic_plus")
     text = text or ""
 
@@ -223,6 +228,30 @@ def classify_safety(
     if path_score >= 0.4:
         result["reason_codes"].append("pathologizing_detected")
 
+    # Marketing compliance: separate signal (1.0 = no hit, 0.0 = hit). Blended via config weight.
+    marketing_compliance_score = 1.0
+    ms = (full_cfg.get("marketing_sources") or {}).get("use_marketing_safety_bans", False)
+    if ms and full_cfg:
+        banned_clinical, forbidden_tokens = get_banned_clinical_and_forbidden(full_cfg)
+        if banned_clinical or forbidden_tokens:
+            text_lower = text.lower()
+            for term in banned_clinical:
+                if term and term in text_lower:
+                    marketing_compliance_score = 0.0
+                    result["reason_codes"].append("marketing_banned_clinical")
+                    break
+            if marketing_compliance_score > 0 and forbidden_tokens:
+                for token in forbidden_tokens:
+                    if token and re.search(r"\b" + re.escape(token) + r"\b", text_lower):
+                        marketing_compliance_score = 0.0
+                        result["reason_codes"].append("marketing_forbidden_token")
+                        break
+    result["categories"]["marketing_compliance"] = {
+        "score": round(marketing_compliance_score, 3),
+        "hits": 0 if marketing_compliance_score >= 1.0 else 1,
+        "excerpts": [],
+    }
+
     # Aggregate risk score (weighted)
     weights = {
         "medical_claims": 0.30,
@@ -236,6 +265,11 @@ def classify_safety(
         for cat, w in weights.items()
         if cat in result["categories"]
     )
-    result["risk_score"] = round(min(1.0, total), 4)
+    # Blend in marketing_compliance via config weight (no hardwired penalty)
+    mc_weight = float(cfg.get("marketing_compliance_weight", 0.2))
+    mc_score = result["categories"].get("marketing_compliance", {}).get("score", 1.0)
+    result["risk_score"] = round(
+        min(1.0, (1.0 - mc_weight) * total + mc_weight * (1.0 - mc_score)), 4
+    )
 
     return result

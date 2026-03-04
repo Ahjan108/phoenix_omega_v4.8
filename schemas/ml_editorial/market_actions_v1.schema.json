@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phoenix/schemas/ml_editorial/market_actions_v1.schema.json",
+  "title": "ML Editorial market action row",
+  "type": "object",
+  "required": ["book_id", "ts"],
+  "properties": {
+    "book_id": { "type": "string" },
+    "recommended_segment": { "type": "string" },
+    "positioning_angle": { "type": "string" },
+    "distribution_channels": { "type": "array", "items": { "type": "string" } },
+    "priority": { "type": "string", "enum": ["high", "medium", "low"] },
+    "rationale": { "type": "string" },
+    "ts": { "type": "string", "format": "date-time" }
+  }
+}

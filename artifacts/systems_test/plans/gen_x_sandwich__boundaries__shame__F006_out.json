@@ -1,6 +1,6 @@
 {
-  "plan_hash": "90f2c2f537e1a200a07e687c23ef6af4",
-  "plan_id": "90f2c2f537e1a200a07e687c23ef6af4",
+  "plan_hash": "58588dc59dd74d396ade596245d6d815",
+  "plan_id": "58588dc59dd74d396ade596245d6d815",
   "chapter_slot_sequence": [
     [
       "HOOK",
@@ -61,7 +61,8 @@
       "SCENE",
       "REFLECTION",
       "EXERCISE",
-      "INTEGRATION"
+      "INTEGRATION",
+      "STORY"
     ],
     [
       "HOOK",
@@ -89,8 +90,7 @@
       "SCENE",
       "REFLECTION",
       "EXERCISE",
-      "INTEGRATION",
-      "STORY"
+      "INTEGRATION"
     ],
     [
       "HOOK",
@@ -143,104 +143,104 @@
     ]
   ],
   "atom_ids": [
-    "gen_x_sandwich_boundaries_HOOK_v14",
-    "gen_x_sandwich_boundaries_SCENE_v12",
-    "gen_x_sandwich_boundaries_REFLECTION_v27",
-    "gen_x_sandwich_boundaries_INTEGRATION_v01",
-    "gen_x_sandwich_boundaries_comparison_EMBODIMENT_v02",
-    "gen_x_sandwich_boundaries_HOOK_v22",
-    "gen_x_sandwich_boundaries_SCENE_v15",
-    "gen_x_sandwich_boundaries_REFLECTION_v18",
-    "gen_x_sandwich_boundaries_INTEGRATION_v05",
-    "gen_x_sandwich_boundaries_HOOK_v16",
+    "gen_x_sandwich_boundaries_HOOK_v17",
     "gen_x_sandwich_boundaries_SCENE_v22",
-    "gen_x_sandwich_boundaries_REFLECTION_v07",
-    "gen_x_sandwich_boundaries_EXERCISE_v05",
+    "gen_x_sandwich_boundaries_REFLECTION_v19",
     "gen_x_sandwich_boundaries_INTEGRATION_v07",
-    "gen_x_sandwich_boundaries_comparison_RECOGNITION_v03",
+    "gen_x_sandwich_boundaries_shame_EMBODIMENT_v02",
     "gen_x_sandwich_boundaries_HOOK_v07",
-    "gen_x_sandwich_boundaries_SCENE_v16",
-    "gen_x_sandwich_boundaries_REFLECTION_v25",
-    "gen_x_sandwich_boundaries_INTEGRATION_v03",
-    "gen_x_sandwich_boundaries_comparison_RECOGNITION_v16",
-    "gen_x_sandwich_boundaries_HOOK_v02",
-    "gen_x_sandwich_boundaries_SCENE_v13",
-    "gen_x_sandwich_boundaries_REFLECTION_v09",
-    "placeholder:INTEGRATION:ch4:slot3",
+    "gen_x_sandwich_boundaries_SCENE_v04",
+    "gen_x_sandwich_boundaries_REFLECTION_v17",
+    "gen_x_sandwich_boundaries_INTEGRATION_v01",
     "gen_x_sandwich_boundaries_HOOK_v13",
-    "gen_x_sandwich_boundaries_SCENE_v18",
-    "gen_x_sandwich_boundaries_REFLECTION_v29",
-    "gen_x_sandwich_boundaries_EXERCISE_v21",
-    "placeholder:INTEGRATION:ch5:slot4",
-    "gen_x_sandwich_boundaries_HOOK_v10",
-    "gen_x_sandwich_boundaries_SCENE_v25",
-    "gen_x_sandwich_boundaries_REFLECTION_v26",
-    "placeholder:INTEGRATION:ch6:slot3",
-    "gen_x_sandwich_boundaries_shame_RECOGNITION_v19",
-    "gen_x_sandwich_boundaries_HOOK_v12",
-    "gen_x_sandwich_boundaries_SCENE_v23",
-    "gen_x_sandwich_boundaries_REFLECTION_v16",
-    "placeholder:INTEGRATION:ch7:slot3",
-    "gen_x_sandwich_boundaries_HOOK_v18",
-    "gen_x_sandwich_boundaries_SCENE_v10",
-    "gen_x_sandwich_boundaries_REFLECTION_v04",
-    "gen_x_sandwich_boundaries_EXERCISE_v24",
-    "placeholder:INTEGRATION:ch8:slot4",
+    "gen_x_sandwich_boundaries_SCENE_v30",
+    "gen_x_sandwich_boundaries_REFLECTION_v27",
+    "gen_x_sandwich_boundaries_EXERCISE_v30",
+    "gen_x_sandwich_boundaries_INTEGRATION_v03",
+    "gen_x_sandwich_boundaries_false_alarm_RECOGNITION_v16",
     "gen_x_sandwich_boundaries_HOOK_v09",
-    "gen_x_sandwich_boundaries_SCENE_v05",
-    "gen_x_sandwich_boundaries_REFLECTION_v03",
-    "gen_x_sandwich_boundaries_EXERCISE_v20",
+    "gen_x_sandwich_boundaries_SCENE_v19",
+    "gen_x_sandwich_boundaries_REFLECTION_v01",
+    "gen_x_sandwich_boundaries_INTEGRATION_v05",
+    "gen_x_sandwich_boundaries_comparison_RECOGNITION_v16",
+    "gen_x_sandwich_boundaries_HOOK_v04",
+    "gen_x_sandwich_boundaries_SCENE_v13",
+    "gen_x_sandwich_boundaries_REFLECTION_v20",
+    "placeholder:INTEGRATION:ch4:slot3",
+    "gen_x_sandwich_boundaries_HOOK_v29",
+    "gen_x_sandwich_boundaries_SCENE_v09",
+    "gen_x_sandwich_boundaries_REFLECTION_v05",
+    "gen_x_sandwich_boundaries_EXERCISE_v28",
+    "placeholder:INTEGRATION:ch5:slot4",
+    "gen_x_sandwich_boundaries_HOOK_v05",
+    "gen_x_sandwich_boundaries_SCENE_v16",
+    "gen_x_sandwich_boundaries_REFLECTION_v18",
+    "placeholder:INTEGRATION:ch6:slot3",
+    "gen_x_sandwich_boundaries_comparison_TURNING_POINT_v05",
+    "gen_x_sandwich_boundaries_HOOK_v01",
+    "gen_x_sandwich_boundaries_SCENE_v02",
+    "gen_x_sandwich_boundaries_REFLECTION_v15",
+    "placeholder:INTEGRATION:ch7:slot3",
+    "gen_x_sandwich_boundaries_HOOK_v22",
+    "gen_x_sandwich_boundaries_SCENE_v27",
+    "gen_x_sandwich_boundaries_REFLECTION_v09",
+    "gen_x_sandwich_boundaries_EXERCISE_v02",
+    "placeholder:INTEGRATION:ch8:slot4",
+    "gen_x_sandwich_boundaries_false_alarm_TURNING_POINT_v01",
+    "gen_x_sandwich_boundaries_HOOK_v18",
+    "gen_x_sandwich_boundaries_SCENE_v20",
+    "gen_x_sandwich_boundaries_REFLECTION_v16",
+    "gen_x_sandwich_boundaries_EXERCISE_v29",
     "placeholder:INTEGRATION:ch9:slot4",
-    "gen_x_sandwich_boundaries_shame_RECOGNITION_v07",
-    "gen_x_sandwich_boundaries_HOOK_v25",
-    "gen_x_sandwich_boundaries_SCENE_v07",
-    "gen_x_sandwich_boundaries_REFLECTION_v24",
+    "gen_x_sandwich_boundaries_shame_RECOGNITION_v20",
+    "gen_x_sandwich_boundaries_HOOK_v14",
+    "gen_x_sandwich_boundaries_SCENE_v18",
+    "gen_x_sandwich_boundaries_REFLECTION_v22",
     "placeholder:INTEGRATION:ch10:slot3",
-    "gen_x_sandwich_boundaries_comparison_RECOGNITION_v05",
-    "gen_x_sandwich_boundaries_HOOK_v06",
-    "gen_x_sandwich_boundaries_SCENE_v21",
-    "gen_x_sandwich_boundaries_REFLECTION_v14",
+    "gen_x_sandwich_boundaries_comparison_RECOGNITION_v10",
+    "gen_x_sandwich_boundaries_HOOK_v19",
+    "gen_x_sandwich_boundaries_SCENE_v01",
+    "gen_x_sandwich_boundaries_REFLECTION_v25",
     "placeholder:INTEGRATION:ch11:slot3",
     "gen_x_sandwich_boundaries_HOOK_v24",
-    "gen_x_sandwich_boundaries_SCENE_v19",
-    "gen_x_sandwich_boundaries_REFLECTION_v21",
-    "gen_x_sandwich_boundaries_EXERCISE_v01",
+    "gen_x_sandwich_boundaries_SCENE_v28",
+    "gen_x_sandwich_boundaries_REFLECTION_v08",
+    "gen_x_sandwich_boundaries_EXERCISE_v15",
     "placeholder:INTEGRATION:ch12:slot4",
-    "gen_x_sandwich_boundaries_shame_RECOGNITION_v11",
-    "gen_x_sandwich_boundaries_HOOK_v15",
-    "gen_x_sandwich_boundaries_SCENE_v06",
-    "gen_x_sandwich_boundaries_REFLECTION_v12",
-    "gen_x_sandwich_boundaries_EXERCISE_v16",
-    "placeholder:INTEGRATION:ch13:slot4",
-    "gen_x_sandwich_boundaries_comparison_RECOGNITION_v12",
-    "gen_x_sandwich_boundaries_HOOK_v29",
-    "gen_x_sandwich_boundaries_SCENE_v04",
-    "gen_x_sandwich_boundaries_REFLECTION_v19",
-    "gen_x_sandwich_boundaries_EXERCISE_v28",
-    "placeholder:INTEGRATION:ch14:slot4",
-    "gen_x_sandwich_boundaries_HOOK_v03",
-    "gen_x_sandwich_boundaries_SCENE_v26",
-    "gen_x_sandwich_boundaries_REFLECTION_v02",
-    "gen_x_sandwich_boundaries_EXERCISE_v07",
-    "placeholder:INTEGRATION:ch15:slot4",
-    "gen_x_sandwich_boundaries_HOOK_v05",
-    "gen_x_sandwich_boundaries_SCENE_v27",
-    "gen_x_sandwich_boundaries_REFLECTION_v05",
-    "placeholder:INTEGRATION:ch16:slot3",
-    "gen_x_sandwich_boundaries_HOOK_v27",
-    "gen_x_sandwich_boundaries_SCENE_v01",
-    "gen_x_sandwich_boundaries_REFLECTION_v13",
-    "placeholder:INTEGRATION:ch17:slot3",
-    "gen_x_sandwich_boundaries_comparison_RECOGNITION_v07",
     "gen_x_sandwich_boundaries_HOOK_v23",
-    "gen_x_sandwich_boundaries_SCENE_v08",
-    "gen_x_sandwich_boundaries_REFLECTION_v17",
-    "gen_x_sandwich_boundaries_EXERCISE_v04",
-    "placeholder:INTEGRATION:ch18:slot4",
+    "gen_x_sandwich_boundaries_SCENE_v03",
+    "gen_x_sandwich_boundaries_REFLECTION_v11",
+    "gen_x_sandwich_boundaries_EXERCISE_v12",
+    "placeholder:INTEGRATION:ch13:slot4",
+    "gen_x_sandwich_boundaries_shame_RECOGNITION_v09",
     "gen_x_sandwich_boundaries_HOOK_v08",
-    "gen_x_sandwich_boundaries_SCENE_v29",
-    "gen_x_sandwich_boundaries_REFLECTION_v22",
-    "gen_x_sandwich_boundaries_EXERCISE_v09",
+    "gen_x_sandwich_boundaries_SCENE_v10",
+    "gen_x_sandwich_boundaries_REFLECTION_v06",
+    "gen_x_sandwich_boundaries_EXERCISE_v23",
+    "placeholder:INTEGRATION:ch14:slot4",
+    "gen_x_sandwich_boundaries_HOOK_v06",
+    "gen_x_sandwich_boundaries_SCENE_v08",
+    "gen_x_sandwich_boundaries_REFLECTION_v24",
+    "gen_x_sandwich_boundaries_EXERCISE_v27",
+    "placeholder:INTEGRATION:ch15:slot4",
+    "gen_x_sandwich_boundaries_HOOK_v03",
+    "gen_x_sandwich_boundaries_SCENE_v23",
+    "gen_x_sandwich_boundaries_REFLECTION_v13",
+    "placeholder:INTEGRATION:ch16:slot3",
+    "gen_x_sandwich_boundaries_HOOK_v16",
+    "gen_x_sandwich_boundaries_SCENE_v26",
+    "gen_x_sandwich_boundaries_REFLECTION_v28",
+    "placeholder:INTEGRATION:ch17:slot3",
+    "gen_x_sandwich_boundaries_comparison_RECOGNITION_v19",
+    "gen_x_sandwich_boundaries_HOOK_v25",
+    "gen_x_sandwich_boundaries_SCENE_v07",
+    "gen_x_sandwich_boundaries_REFLECTION_v23",
+    "gen_x_sandwich_boundaries_EXERCISE_v21",
+    "placeholder:INTEGRATION:ch18:slot4",
+    "gen_x_sandwich_boundaries_HOOK_v20",
+    "gen_x_sandwich_boundaries_SCENE_v14",
+    "gen_x_sandwich_boundaries_REFLECTION_v30",
+    "gen_x_sandwich_boundaries_EXERCISE_v13",
     "placeholder:INTEGRATION:ch19:slot4"
   ],
   "dominant_band_sequence": [
@@ -252,11 +252,11 @@
     null,
     3,
     null,
-    null,
+    3,
     3,
     4,
     null,
-    4,
+    null,
     4,
     null,
     null,
@@ -300,7 +300,7 @@
     18,
     19
   ],
-  "slot_sig": "MOD_pocket_guide:c447e7c26465a092",
+  "slot_sig": "MOD_pocket_guide:ab7b86c03f0c6766",
   "format_id": "MOD_pocket_guide",
   "runtime_format_id": "",
   "output_format_id": "pocket_guide",
@@ -342,11 +342,11 @@
     "practice_heavy",
     "challenge_cost",
     "legacy_uniform",
-    "practice_heavy",
+    "deepen_mechanism",
     "deepen_mechanism",
     "challenge_cost",
     "legacy_uniform",
-    "deepen_mechanism",
+    "practice_heavy",
     "deepen_mechanism",
     "resolve_integration",
     "resolve_integration",
@@ -364,11 +364,11 @@
     "full",
     "none",
     "none",
+    "micro",
+    "micro",
+    "none",
+    "none",
     "full",
-    "micro",
-    "none",
-    "none",
-    "micro",
     "micro",
     "micro",
     "micro",
@@ -386,11 +386,11 @@
     "light",
     "heavy",
     "standard",
-    "light",
+    "standard",
     "standard",
     "heavy",
     "standard",
-    "standard",
+    "light",
     "standard",
     "standard",
     "standard",
@@ -408,11 +408,11 @@
     "micro",
     "deep",
     "standard",
-    "micro",
+    "standard",
     "standard",
     "deep",
     "standard",
-    "standard",
+    "micro",
     "standard",
     "micro",
     "micro",
@@ -455,7 +455,7 @@
   "emotional_role_sig": "r-r-d-f-f-d-f-f-d-d-f-f-d-d-s-s-f-f-i-i",
   "book_structure_id": "three_act",
   "journey_shape_id": "crisis_landing",
-  "motif_id": "motif_choice",
+  "motif_id": "motif_cost",
   "section_reorder_mode": "none",
   "reframe_profile_id": "balanced",
   "variation_chapter_archetypes": [
@@ -480,67 +480,67 @@
     "establish",
     "expose"
   ],
-  "variation_signature": "a2d4208fec231e80be36d46e7c8461bf",
+  "variation_signature": "11ba623734208b4372b65752ff09ca3f",
   "motif_injections": [
     {
       "chapter_index": 0,
       "slot_index": 2,
-      "phrase": "One small choice can change the direction."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 0,
       "slot_index": 4,
-      "phrase": "This is where you choose."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
-      "phrase": "One small choice can change the direction."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
-      "phrase": "You get to choose what happens next."
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 2,
       "slot_index": 4,
-      "phrase": "This is where you choose."
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 3,
       "slot_index": 2,
-      "phrase": "You get to choose what happens next."
+      "phrase": "Staying the same has a price."
     },
     {
       "chapter_index": 3,
       "slot_index": 4,
-      "phrase": "This is where you choose."
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
-      "phrase": "This is where you choose."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
-      "phrase": "You get to choose what happens next."
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 5,
       "slot_index": 4,
-      "phrase": "You get to choose what happens next."
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 6,
       "slot_index": 2,
-      "phrase": "You get to choose what happens next."
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 6,
       "slot_index": 4,
-      "phrase": "One small choice can change the direction."
+      "phrase": "The cost of not changing is already here."
     }
   ],
   "reframe_injections": [
@@ -554,31 +554,31 @@
       "chapter_index": 1,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Safety comes before growth."
+      "text": "Change happens in relationship, not in isolation."
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "You're not behind; you're exactly where you are."
+      "text": "One breath can reset the script."
     },
     {
       "chapter_index": 3,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to do it all at once."
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Safety comes before growth."
+      "text": "Your nervous system is doing its best."
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "One breath can reset the script."
+      "text": "You're not behind; you're exactly where you are."
     },
     {
       "chapter_index": 6,
@@ -596,13 +596,13 @@
       "chapter_index": 8,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "One breath can reset the script."
+      "text": "What if this moment could be different?"
     },
     {
       "chapter_index": 9,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
+      "text": "Progress isn't linear."
     },
     {
       "chapter_index": 10,
@@ -620,7 +620,7 @@
       "chapter_index": 12,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to do it all at once."
+      "text": "Progress isn't linear."
     },
     {
       "chapter_index": 13,
@@ -632,7 +632,7 @@
       "chapter_index": 14,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "You're not behind; you're exactly where you are."
+      "text": "One breath can reset the script."
     },
     {
       "chapter_index": 15,
@@ -650,13 +650,13 @@
       "chapter_index": 17,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "What if this moment could be different?"
+      "text": "You're not behind; you're exactly where you are."
     },
     {
       "chapter_index": 18,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to do it all at once."
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
     },
     {
       "chapter_index": 19,
@@ -666,17 +666,16 @@
     }
   ],
   "freebie_bundle": [
-    "environment_guide_v1"
+    "accountability_partner_v1"
   ],
-  "cta_template_id": "assessment_forward",
-  "freebie_slug": "boundaries-gen-x-sandwich-environment-guide-v1",
+  "cta_template_id": "tool_forward",
+  "freebie_slug": "boundaries-gen-x-sandwich-accountability-partner-v1",
   "freebie_bundle_with_formats": [
     {
-      "freebie_id": "environment_guide_v1",
+      "freebie_id": "accountability_partner_v1",
       "formats": [
         "html",
-        "pdf",
-        "epub"
+        "pdf"
       ]
     }
   ],

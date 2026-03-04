@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phoenix/schemas/ml_editorial/section_scores_v1.schema.json",
+  "title": "ML Editorial section score row",
+  "type": "object",
+  "required": ["book_id", "chapter_id", "clarity_score", "pacing_score", "arc_drift_score", "weak_flags", "ts"],
+  "properties": {
+    "book_id": { "type": "string" },
+    "chapter_id": { "type": "string" },
+    "clarity_score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "pacing_score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "arc_drift_score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "weak_flags": { "type": "array", "items": { "type": "string" } },
+    "ts": { "type": "string", "format": "date-time" }
+  }
+}

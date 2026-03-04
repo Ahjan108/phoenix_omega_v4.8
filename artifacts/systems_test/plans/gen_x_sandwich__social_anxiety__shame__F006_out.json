@@ -667,15 +667,16 @@
     }
   ],
   "freebie_bundle": [
-    "shame_assessment_v1"
+    "accountability_partner_v1"
   ],
-  "cta_template_id": "assessment_forward",
-  "freebie_slug": "anxiety-gen-x-sandwich-shame-assessment-v1",
+  "cta_template_id": "tool_forward",
+  "freebie_slug": "anxiety-gen-x-sandwich-accountability-partner-v1",
   "freebie_bundle_with_formats": [
     {
-      "freebie_id": "shame_assessment_v1",
+      "freebie_id": "accountability_partner_v1",
       "formats": [
-        "html"
+        "html",
+        "pdf"
       ]
     }
   ],

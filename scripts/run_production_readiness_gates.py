@@ -261,6 +261,7 @@ def main() -> int:
                         "--topic", "self_worth", "--persona", "nyc_executives",
                         "--arc", str(arc_path),
                         "--out", str(out_path),
+                        "--no-update-freebie-index",
                     ],
                     cwd=str(REPO_ROOT),
                     capture_output=True,

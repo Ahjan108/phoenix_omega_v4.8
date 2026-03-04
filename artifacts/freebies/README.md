@@ -2,21 +2,27 @@
 
 **Authority:** [specs/PHOENIX_FREEBIE_SYSTEM_SPEC.md](../../specs/PHOENIX_FREEBIE_SYSTEM_SPEC.md).
 
+## File contract (DoD)
+
+- **`artifacts/freebies/index.jsonl`** = **release/catalog plan rows only.** Updated only by release or catalog pipeline runs (never by systems test). Use `--no-update-freebie-index` for test runs.
+- **`artifacts/freebies/artifacts_index.jsonl`** = **generated file log only.** One row per generated HTML/PDF/etc.; written by `phoenix_v4.freebies.freebie_renderer`.
+
 ## index.jsonl
 
-Append-only log. The pipeline appends to this file when writing a plan (when freebie generation is enabled). Two row types:
+Plan rows only (one per book). The pipeline upserts one row per `book_id` when writing a plan with `--out`, unless `--no-update-freebie-index` is set. Used by density and CTA caps gates (same scope).
 
-**Plan rows** (one per book, from `run_pipeline.py`): used for density CI and wave-level anti-spam.
+Example plan row:
 ```json
-{"book_id": "...", "freebie_bundle": ["breath_timer_v1", "companion_core_v2"], "freebie_bundle_with_formats": [{"freebie_id": "breath_timer_v1", "formats": ["html", "pdf"]}], "cta_template_id": "tool_forward", "slug": "self-worth-nyc-breath"}
+{"book_id": "...", "freebie_bundle": ["breath_timer_v1", "companion_core_v2"], "cta_template_id": "tool_forward", "slug": "self-worth-nyc-breath", "freebie_slug": "self-worth-nyc-breath"}
 ```
 
-**Artifact rows** (one per generated file, from `phoenix_v4.freebies.freebie_renderer`): audit trail of HTML/PDF outputs.
-```json
-{"freebie_id": "breath_timer_v1", "book_id": "...", "persona": "gen_z_professionals", "topic": "anxiety", "type": "somatic_html_tool", "format": "html", "file_path": "artifacts/freebies/2026-02-23/anxiety-gen_z-breath_timer_v1.html", "slug": "anxiety-gen_z-breath", "cta": "tool_forward", "generated_at": "2026-02-23T10:30:00Z", "hash": "sha256:abc..."}
-```
+Density validation (`validate_freebie_density.py --index ...`) and CTA caps (`cta_signature_caps.py --index ...`) use this file.
 
-Density validation (`validate_freebie_density.py --index ...`) uses only rows that have `freebie_bundle` (plan rows).
+**Curated index (governance evidence):** To satisfy Gate 16 + 16b (density + CTA caps), the index can be rebuilt from a blessed plans directory. **Blessed plans path:** `artifacts/freebies/blessed_plans` (curated subset from `artifacts/systems_test/plans` with diverse bundle/CTA/slug; max 5 per (brand, quarter, cta_signature)). Rebuild: `python3 scripts/rebuild_freebie_index_from_plans.py --plans-dir artifacts/freebies/blessed_plans --out artifacts/freebies/index.jsonl`. Then run both validators on the same index.
+
+## artifacts_index.jsonl
+
+Generated file log only (one row per rendered file). Written by `phoenix_v4.freebies.freebie_renderer` when generating HTML/PDF. Not used by density or CTA caps gates.
 
 ## Generated files
 

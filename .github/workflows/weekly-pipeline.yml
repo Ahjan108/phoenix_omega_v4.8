@@ -1,0 +1,37 @@
+# Weekly pipeline build: marketing feedback + canary + systems test.
+# Writes to artifacts/observability/weekly_pipeline_result_{date}.json and operations board.
+# See docs/PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md and scripts/release/weekly_pipeline_with_marketing.py
+name: Weekly pipeline
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+
+jobs:
+  weekly-pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements-test.txt
+
+      - name: Run weekly pipeline with marketing
+        run: |
+          PYTHONPATH=. python scripts/release/weekly_pipeline_with_marketing.py \
+            --canary-n 10
+        continue-on-error: true
+
+      - name: Upload weekly pipeline result
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: weekly-pipeline-result
+          path: artifacts/observability/weekly_pipeline_result_*.json
+          if-no-files-found: ignore

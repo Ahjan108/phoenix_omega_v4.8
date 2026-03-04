@@ -1,0 +1,36 @@
+# Optional: auto-merge PRs labeled bot-fix when required checks pass.
+# Policy: docs/AUTO_MERGE_POLICY.md
+# Only enables squash-merge when PR has label bot-fix and merge state is CLEAN.
+name: Auto-merge bot-fix
+
+on:
+  pull_request:
+    types: [labeled, synchronize]
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'bot-fix')
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Check mergeability and merge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR="${{ github.event.pull_request.number }}"
+          if ! gh pr view "$PR" --json mergeable,mergeStateStatus -q '.mergeStateStatus' 2>/dev/null; then
+            echo "Cannot read PR state; skipping merge"
+            exit 0
+          fi
+          STATUS=$(gh pr view "$PR" --json mergeStateStatus -q '.mergeStateStatus')
+          if [ "$STATUS" = "CLEAN" ] || [ "$STATUS" = "UNSTABLE" ]; then
+            echo "Merge state: $STATUS"
+          fi
+          if [ "$STATUS" = "CLEAN" ]; then
+            gh pr merge "$PR" --squash --auto
+            echo "Auto-merge enabled for PR #$PR (squash when checks pass)"
+          else
+            echo "PR not mergeable (status=$STATUS); not merging"
+          fi

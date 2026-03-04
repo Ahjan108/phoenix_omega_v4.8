@@ -23,6 +23,7 @@ jobs:
       - name: Install test dependencies
         run: |
           pip install -r requirements-test.txt
+        # production gates (Gate 17) require jsonschema; requirements-test.txt includes jsonschema>=4.0
 
       - name: Run fast/core pytest
         run: |

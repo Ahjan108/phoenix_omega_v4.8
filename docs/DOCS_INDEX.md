@@ -43,6 +43,7 @@
 - `docs/CONTROL_PLANE_GO_NO_GO.md` — Control Plane macOS app: pass/fail checks per tab; production-ready when all pass and evidenced
 - `docs/CONTROL_PLANE_RUNBOOK.md` — Runbook proving each tab runs real repo commands and reads real artifacts
 - [docs/CONTROL_PLANE_SPEC_PATCH_V1.1.md](./CONTROL_PLANE_SPEC_PATCH_V1.1.md) — **Spec Patch v1.1:** completeness engine, approval state, metadata inventory, agents & learning, Pearl News board, data contracts, Missing/Blocked queue
+- [docs/EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md](./EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md) — **Executive Dashboard + PhoenixControl:** two-tier UI (Mac app + Streamlit); tabs System operations / Sales / Marketing / All system; 6 acceptance criteria + 7 operator-completeness requirements (completeness KPIs, hard approval blockers, blocker-to-action mapping, freebies governance panel, agent change feed, data contract per widget, acceptance matrix); full handoff spec
 - `docs/PRODUCTION_100_PLAN.md` — **Production 100% handoff:** scope lock, source-of-truth files, quality system, V2 policy, CI baseline, evidence, release-week commands, hu-HU rules, docs governance, do-not-ship, start-now sequence, definition of 100%; **blockers** and **freeze policy**
 - `docs/RELEASE_POLICY.md` — Freeze policy: release/* only, required checks on release branch, only tagged vX.Y.Z can ship
 - [docs/PRODUCTION_READINESS_GO_NO_GO.md](./PRODUCTION_READINESS_GO_NO_GO.md) — Go/no-go gate for production readiness
@@ -265,6 +266,7 @@ Single index: every doc, spec, script, and config that uses or is fed by marketi
 |------|----------|
 | **Deep research integration spec** | [specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md) — Narrative Depth Layer v1.0: `invisible_script` HOOK subtype, `belief_flip` STORY pattern, SCENE micro-failure, INTEGRATION `milestone_type`, arc quality test. Subordinate to Arc-First Canonical. Feeds: title philosophy, HOOK atoms, marketing brief (invisible_script, belief flip). |
 | **Title engine marketing config spec** | [specs/TITLE_ENGINE_MARKETING_CONFIG_SPEC.md](../specs/TITLE_ENGINE_MARKETING_CONFIG_SPEC.md) — Config layer authority: consumer_language_by_topic.yaml replaces COMPLIANCE_FILTER and topic-level vocabulary; invisible_scripts_by_persona_topic.yaml replaces TOPIC_VOCABULARY.invisible_scripts; config-driven loader with fallback; generate_invisible_script() persona×topic sourcing. **Implementation complete** (config, loader, compliance + invisible_script wiring, validate_marketing_config.py, marketing-config-gate.yml). COMPLIANCE_FILTER is currently parallel; deprecation to single source of truth in spec §9. |
+| **EI V2 marketing integration spec** | [docs/EI_V2_MARKETING_INTEGRATION_SPEC.md](./EI_V2_MARKETING_INTEGRATION_SPEC.md) — marketing_deep_research → EI V2: loader, domain_embeddings/safety_classifier wiring, 6 locked decisions, calibration + logging, 7 must-have UI requirements, implementation plan and definition of done |
 
 ### Scripts / code (consumers of deep research outputs)
 
@@ -272,6 +274,7 @@ Single index: every doc, spec, script, and config that uses or is fed by marketi
 |------|----------|
 | **Title engine (v3)** | [phoenix_title_engine_v3.py](../phoenix_title_engine_v3.py) — `generate_invisible_script()`; title = search keyword + invisible script; persona×topic invisible_scripts in topic vocab |
 | **Title engine (v4)** | [phoenix_title_engine_v4.py](../phoenix_title_engine_v4.py) — Config-driven invisible_script + compliance; loads `MarketingConfigLoader` from `config/marketing/`; falls back to hardcoded TOPIC_VOCABULARY if config absent; generates persona×topic scripts deterministically |
+| **EI v2 Marketing dashboard tab** | [scripts/ei_v2_marketing_dashboard_tab.py](../scripts/ei_v2_marketing_dashboard_tab.py) — Streamlit `render_marketing_tab()`: tail `artifacts/ei_v2/marketing_integration.log`, last-event age, file hashes, schema guards, optional events-by-source chart |
 | **Title engine (legacy)** | [phoenix_title_engine.py](../phoenix_title_engine.py) — `invisible_script` in title model; picks from topic invisible_scripts |
 
 ### Config (marketing layer)
@@ -405,6 +408,7 @@ EI V1 is 100% at **test slice** when the 4 targeted unit tests pass. It is **100
 | Item | Location |
 |------|----------|
 | **EI V2 rollout proof checklist** | `docs/EI_V2_ROLLOUT_PROOF_CHECKLIST.md` — Manual steps to confirm EI V2 gates green, 3 consecutive main runs, branch protection; includes proof template and branch-protection evidence link |
+| **EI V2 marketing integration spec** | [docs/EI_V2_MARKETING_INTEGRATION_SPEC.md](./EI_V2_MARKETING_INTEGRATION_SPEC.md) — marketing_deep_research → EI V2: loader (02/03/04), domain_embeddings + safety_classifier wiring, locked decisions, calibration thresholds, logging, dashboard tab, deploy/alerting/scale notes |
 
 ### EI V1 modules (production)
 
@@ -422,8 +426,9 @@ EI V1 is 100% at **test slice** when the 4 targeted unit tests pass. It is **100
 | **V2 entry point** | [phoenix_v4/quality/ei_v2/\_\_init\_\_.py](../phoenix_v4/quality/ei_v2/__init__.py) | `run_ei_v2_analysis()`: orchestrates all enabled V2 modules based on config. Returns `EIV2AnalysisReport` with per-candidate scores and V2 recommendation. `_select_v2_best()` for composite V2 scoring |
 | **Config loader** | [phoenix_v4/quality/ei_v2/config.py](../phoenix_v4/quality/ei_v2/config.py) | `load_ei_v2_config()`: loads defaults + merges from `config/quality/ei_v2_config.yaml`. All modules disabled by default; YAML enables them. Cached after first load |
 | **Cross-encoder reranker** | [phoenix_v4/quality/ei_v2/cross_encoder_reranker.py](../phoenix_v4/quality/ei_v2/cross_encoder_reranker.py) | `rerank_candidates()`: scores thesis-candidate relevance via semantic field overlap, token overlap (Jaccard), positional bonuses. Default `heuristic` mode; pluggable model callback. `_SEMANTIC_FIELDS` for domain terms |
-| **Safety classifier** | [phoenix_v4/quality/ei_v2/safety_classifier.py](../phoenix_v4/quality/ei_v2/safety_classifier.py) | `classify_safety()`: expanded pattern detection for medical claims, clinical language, promotional content, reassurance spam, pathologizing language. Negation handling. Default `heuristic_plus` mode; pluggable LLM |
-| **Domain embeddings** | [phoenix_v4/quality/ei_v2/domain_embeddings.py](../phoenix_v4/quality/ei_v2/domain_embeddings.py) | `domain_thesis_similarity()`: combines thesis alignment (token/semantic overlap) with persona affinity (`_PERSONA_LEXICONS`) and topic coherence (`_TOPIC_LEXICONS`). Default `weighted` heuristic mode; pluggable `embed_fn` |
+| **Safety classifier** | [phoenix_v4/quality/ei_v2/safety_classifier.py](../phoenix_v4/quality/ei_v2/safety_classifier.py) | `classify_safety()`: medical claims, clinical, promotional, reassurance spam, pathologizing. Optional `marketing_compliance` signal (banned clinical + forbidden tokens from loader); blended via `marketing_compliance_weight`. Negation handling; pluggable LLM |
+| **Domain embeddings** | [phoenix_v4/quality/ei_v2/domain_embeddings.py](../phoenix_v4/quality/ei_v2/domain_embeddings.py) | `domain_thesis_similarity()`: thesis alignment + persona affinity + topic coherence. Optional marketing lexicons from loader when `marketing_sources.use_marketing_lexicons`; else built-in `_PERSONA_LEXICONS` / `_TOPIC_LEXICONS`. Pluggable `embed_fn` |
+| **Marketing lexicon loader** | [phoenix_v4/quality/ei_v2/marketing_lexicons.py](../phoenix_v4/quality/ei_v2/marketing_lexicons.py) | Loads 02/03/04 from `marketing_deep_research/` (Option A). Schema-validated; `lexicon_tokenize()` (NFKC, min len 2); mtime cache; observability to `artifacts/ei_v2/marketing_integration.log`. `get_persona_topic_lexicons()`, `get_banned_clinical_and_forbidden()`; fallback on missing/malformed |
 | **Semantic dedup** | [phoenix_v4/quality/ei_v2/semantic_dedup.py](../phoenix_v4/quality/ei_v2/semantic_dedup.py) | `detect_semantic_duplicates()`: word/char n-grams, paragraph shape similarity, narrative beat fingerprinting (`_BEAT_PATTERNS`). Default `ngram_plus_embedding` mode |
 | **Emotion arc validator** | [phoenix_v4/quality/ei_v2/emotion_arc_validator.py](../phoenix_v4/quality/ei_v2/emotion_arc_validator.py) | `validate_emotion_arc()`: internal valence/arousal lexicons score paragraph emotional trajectory against expected BAND values and `emotional_role`. Returns PASS/WARN/FAIL with deviation details |
 | **TTS readability** | [phoenix_v4/quality/ei_v2/tts_readability.py](../phoenix_v4/quality/ei_v2/tts_readability.py) | `score_tts_readability()`: sentence length distribution, rhythm variance, paragraph breaks, problematic TTS patterns (parenthetical, em-dash chains, all-caps), rhetorical questions. Composite 0–1 score |
@@ -438,7 +443,7 @@ EI V1 is 100% at **test slice** when the 4 targeted unit tests pass. It is **100
 
 | Item | Location |
 |------|----------|
-| **EI V2 config** | [config/quality/ei_v2_config.yaml](../config/quality/ei_v2_config.yaml) — Enable/disable each V2 module, set modes (`heuristic`, `heuristic_plus`, `model`), thresholds, composite weights (rerank 0.35, safety 0.25, domain_similarity 0.20, tts_readability 0.20) |
+| **EI V2 config** | [config/quality/ei_v2_config.yaml](../config/quality/ei_v2_config.yaml) — V2 modules, modes, thresholds, composite weights. **Marketing:** `marketing_sources` (enabled, source_path, use_marketing_lexicons, use_marketing_safety_bans); `safety_classifier.marketing_compliance_weight` (default 0.2). One toggle disables all marketing integration |
 | **EI registry** | `config/source_of_truth/enlightened_intelligence_registry.yaml` ⚠️ *file not present* |
 
 ### Tests
@@ -446,6 +451,7 @@ EI V1 is 100% at **test slice** when the 4 targeted unit tests pass. It is **100
 | Item | Location |
 |------|----------|
 | **EI V2 test suite** | [tests/test_ei_v2.py](../tests/test_ei_v2.py) — 28 tests: cross-encoder reranker, safety classifier, semantic dedup, emotion arc validator, TTS readability, domain embeddings, V2 orchestration, config loading, parallel adapter comparison, pipeline report generation |
+| **EI V2 marketing lexicon tests** | [tests/test_ei_v2_marketing_lexicons.py](../tests/test_ei_v2_marketing_lexicons.py) — Loader unit (valid fixture), fail-safe (bad YAML, missing keys, empty topics), calibration gate (locked thresholds: domain Δ ≤ 0.12, safety Δ ≤ 0.10). Fixtures: [tests/fixtures/ei_v2_marketing/](../tests/fixtures/ei_v2_marketing/) (02/03/04), [tests/fixtures/ei_v2_marketing_calibration_eval.json](../tests/fixtures/ei_v2_marketing_calibration_eval.json) |
 
 ### Scripts (evaluation)
 
@@ -453,6 +459,7 @@ EI V1 is 100% at **test slice** when the 4 targeted unit tests pass. It is **100
 |------|----------|
 | **Rigorous eval harness** | [scripts/ci/run_ei_v2_rigorous_eval.py](../scripts/ci/run_ei_v2_rigorous_eval.py) — Compiles + renders books across persona × topic × engine matrix, evaluates each chapter on 10 quality dimensions (therapeutic value, emotional coherence, engagement, chapter journey, cohesion, listen experience, marketability, safety compliance, content uniqueness, somatic precision), runs V1/V2 slot comparison, benchmarks timing. Flags: `--full` (7 books), `--sample N`. Outputs: `artifacts/ei_v2/eval_rigorous_report.json`, `artifacts/ei_v2/eval_rigorous_summary.txt` |
 | **Catalog calibrator** | `scripts/ci/run_ei_v2_catalog_calibration.py` — Runs V2 dimension gates across all compilable catalog combos, discovers optimal percentile thresholds, feeds learner. Flags: `--learn`, `--out`. Output: `artifacts/ei_v2/catalog_calibration.json` |
+| **EI v2 Marketing dashboard tab** | [scripts/ei_v2_marketing_dashboard_tab.py](../scripts/ei_v2_marketing_dashboard_tab.py) — Streamlit: `render_marketing_tab()`. Last 100 log events, file hashes, last-event age, schema guards, empty-state guidance. Optional Plotly “events by source over time”. Log: `artifacts/ei_v2/marketing_integration.log` |
 
 ### Pipeline integration
 
@@ -472,6 +479,7 @@ EI V1 is 100% at **test slice** when the 4 targeted unit tests pass. It is **100
 | **Catalog calibration** | `artifacts/ei_v2/catalog_calibration.json` — Percentile thresholds per dimension from whole-catalog sweep |
 | **Learned params** | `artifacts/ei_v2/learned_params.json` — Adaptive composite weights, override margin, per-persona/topic adjustments |
 | **Learner feedback** | `artifacts/ei_v2/learner_feedback.jsonl` — Append-only log of every hybrid decision (override/keep) with full scores |
+| **Marketing integration log** | `artifacts/ei_v2/marketing_integration.log` — JSONL: ts, event, source, source_path, file_02/03/04_hash, fallback_reason. Consumed by [scripts/ei_v2_marketing_dashboard_tab.py](../scripts/ei_v2_marketing_dashboard_tab.py) |
 
 ### V2 composite weights
 
@@ -552,7 +560,7 @@ Layered selection with override logic. V1 picks the winner; V2 scores the same c
 | **Learning system** | `phoenix_v4/quality/ei_v2/learner.py` — EMA-based weight/threshold tuning from hybrid feedback; per-persona/topic adjustments |
 | **Dimension gates** | `phoenix_v4/quality/ei_v2/dimension_gates.py` — Per-chapter enforcement: uniqueness, engagement, somatic precision, listen experience, cohesion |
 | **Catalog calibrator** | `scripts/ci/run_ei_v2_catalog_calibration.py` — Catalog-level threshold discovery; feeds learner with whole-catalog observations |
-| **Tests** | `tests/test_ei_v2_hybrid.py` — 25 tests: learner, dimension gates, hybrid selector, config, integration |
+| **Tests** | `tests/test_ei_v2_hybrid.py` ⚠️ *file not present* — 25 tests: learner, dimension gates, hybrid selector, config, integration (backlog) |
 | **Learned params** | `artifacts/ei_v2/learned_params.json` — Latest learned composite weights, override margin, per-persona/topic adjustments |
 | **Learner feedback** | `artifacts/ei_v2/learner_feedback.jsonl` — Append-only log of every hybrid decision (override/keep) with full scores |
 | **Calibration report** | `artifacts/ei_v2/catalog_calibration.json` — Percentile thresholds per dimension from catalog sweep |
@@ -827,7 +835,7 @@ Single index: every test file, how to run, markers, CI workflows, and test infra
 | **Teacher gates** | [.github/workflows/teacher-gates.yml](../.github/workflows/teacher-gates.yml) | Teacher-related path changes. run_teacher_production_gates.py, pytest teacher_arc_test, pytest test_teacher_mode_e2e_smoke. **Required for branch protection.** |
 | **Pearl News gates** | [.github/workflows/pearl_news_gates.yml](../.github/workflows/pearl_news_gates.yml) | pearl_news/**, test files. pytest test_pearl_news_quality_gates_minimal, test_pearl_news_pipeline_e2e. |
 | **Brand guards** | [.github/workflows/brand-guards.yml](../.github/workflows/brand-guards.yml) | Brand registry, locale, brand_teacher_*. check_norcal_dharma_brand_guards, check_church_yaml_no_sensitive_tokens, pytest test_norcal_dharma_brand_smoke. |
-| **EI V2 gates** | [.github/workflows/ei-v2-gates.yml](../.github/workflows/ei-v2-gates.yml) | EI code + weekly. pytest test_ei_v2.py test_ei_v2_hybrid.py, then rigorous eval, calibration, promotion gate. |
+| **EI V2 gates** | [.github/workflows/ei-v2-gates.yml](../.github/workflows/ei-v2-gates.yml) | EI code + weekly. pytest test_ei_v2.py (test_ei_v2_hybrid.py ⚠️ *file not present*), then rigorous eval, calibration, promotion gate. |
 | **Release gates** | [.github/workflows/release-gates.yml](../.github/workflows/release-gates.yml) | Release path. Production gates + rigorous test + canary + rollback smoke (includes slow tests / systems test). |
 | **Marketing config gate** | [.github/workflows/marketing-config-gate.yml](../.github/workflows/marketing-config-gate.yml) | config/marketing/**. phoenix_v4.qa.validate_marketing_config (validates YAML; not pytest). |
 
@@ -849,7 +857,10 @@ Single index: every test file, how to run, markers, CI workflows, and test infra
 | [tests/test_creative_quality_v1.py](../tests/test_creative_quality_v1.py) | Creative quality gate v1 |
 | [tests/test_cross_brand_divergence.py](../tests/test_cross_brand_divergence.py) | Cross-brand divergence validation |
 | [tests/test_ei_v2.py](../tests/test_ei_v2.py) | EI V2: 28 tests — cross-encoder, safety, dedup, emotion arc, TTS readability, domain embeddings, V2 orchestration, config, parallel adapter |
-| [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py) | EI V2 hybrid: 25 tests — learner, dimension gates, hybrid selector, config, integration |
+| [tests/test_ei_v2_marketing_lexicons.py](../tests/test_ei_v2_marketing_lexicons.py) | EI V2 marketing: loader, tokenizer, fail-safe, calibration gate (locked thresholds) |
+| [tests/fixtures/ei_v2_marketing/](../tests/fixtures/ei_v2_marketing/) | EI V2 marketing: minimal valid 02/03/04 YAML fixtures for tests |
+| [tests/fixtures/ei_v2_marketing_calibration_eval.json](../tests/fixtures/ei_v2_marketing_calibration_eval.json) | EI V2 marketing: fixed eval set for calibration gate (domain Δ ≤ 0.12, safety Δ ≤ 0.10) |
+| `tests/test_ei_v2_hybrid.py` ⚠️ *file not present* | EI V2 hybrid: 25 tests — learner, dimension gates, hybrid selector, config, integration (backlog) |
 | [tests/test_emotional_curve_golden.py](../tests/test_emotional_curve_golden.py) | Emotional curve golden regression |
 | [tests/test_format_selector.py](../tests/test_format_selector.py) | Format selector Stage 2 logic |
 | [tests/test_intro_ending_variation.py](../tests/test_intro_ending_variation.py) | Intro/ending variation feature flag |
@@ -1523,19 +1534,21 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [phoenix_v4/quality/ei_v2/\_\_init\_\_.py](../phoenix_v4/quality/ei_v2/__init__.py) | Enlightened Intelligence V2 | ✓ — `run_ei_v2_analysis()`: orchestrates all V2 modules |
 | [phoenix_v4/quality/ei_v2/config.py](../phoenix_v4/quality/ei_v2/config.py) | Enlightened Intelligence V2 | ✓ — `load_ei_v2_config()`: YAML + defaults merge |
 | [phoenix_v4/quality/ei_v2/cross_encoder_reranker.py](../phoenix_v4/quality/ei_v2/cross_encoder_reranker.py) | Enlightened Intelligence V2 | ✓ — `rerank_candidates()`: semantic + token overlap reranking |
-| [phoenix_v4/quality/ei_v2/safety_classifier.py](../phoenix_v4/quality/ei_v2/safety_classifier.py) | Enlightened Intelligence V2 | ✓ — `classify_safety()`: expanded pattern detection + negation |
-| [phoenix_v4/quality/ei_v2/domain_embeddings.py](../phoenix_v4/quality/ei_v2/domain_embeddings.py) | Enlightened Intelligence V2 | ✓ — `domain_thesis_similarity()`: persona + topic weighted |
+| [phoenix_v4/quality/ei_v2/safety_classifier.py](../phoenix_v4/quality/ei_v2/safety_classifier.py) | Enlightened Intelligence V2 | ✓ — `classify_safety()`: pattern detection + optional marketing_compliance signal |
+| [phoenix_v4/quality/ei_v2/domain_embeddings.py](../phoenix_v4/quality/ei_v2/domain_embeddings.py) | Enlightened Intelligence V2 | ✓ — `domain_thesis_similarity()`: persona + topic; optional marketing lexicons |
+| [phoenix_v4/quality/ei_v2/marketing_lexicons.py](../phoenix_v4/quality/ei_v2/marketing_lexicons.py) | Enlightened Intelligence V2 (marketing) | ✓ — Load 02/03/04; schema validation; observability to marketing_integration.log |
 | [phoenix_v4/quality/ei_v2/semantic_dedup.py](../phoenix_v4/quality/ei_v2/semantic_dedup.py) | Enlightened Intelligence V2 | ✓ — `detect_semantic_duplicates()`: n-gram + beat fingerprint |
 | [phoenix_v4/quality/ei_v2/emotion_arc_validator.py](../phoenix_v4/quality/ei_v2/emotion_arc_validator.py) | Enlightened Intelligence V2 | ✓ — `validate_emotion_arc()`: valence/arousal lexicon scoring |
 | [phoenix_v4/quality/ei_v2/tts_readability.py](../phoenix_v4/quality/ei_v2/tts_readability.py) | Enlightened Intelligence V2 | ✓ — `score_tts_readability()`: rhythm, sentence length, TTS patterns |
 | [phoenix_v4/quality/ei_parallel_adapter.py](../phoenix_v4/quality/ei_parallel_adapter.py) | Enlightened Intelligence (parallel) | ✓ — `compare_slot()`, `build_pipeline_comparison()`, `write_comparison_report()` |
 | [scripts/ci/run_ei_v2_rigorous_eval.py](../scripts/ci/run_ei_v2_rigorous_eval.py) | Enlightened Intelligence (eval) | ✓ — 10-dimension quality eval + V1/V2 comparison + timing benchmarks |
+| [scripts/ei_v2_marketing_dashboard_tab.py](../scripts/ei_v2_marketing_dashboard_tab.py) | Enlightened Intelligence V2 (marketing dashboard) | ✓ — Streamlit `render_marketing_tab()`: log tail, hashes, freshness, schema guards, optional Plotly chart |
 | [scripts/ci/check_ei_v2_promotion_gate.py](../scripts/ci/check_ei_v2_promotion_gate.py) | Enlightened Intelligence (promotion) | ✓ — Checks eval report against promotion criteria; tracks consecutive passes |
 | `phoenix_v4/quality/ei_v2/hybrid_selector.py` | Enlightened Intelligence V2 (hybrid) | ✓ — `hybrid_select()`: V1 picks → V2 scores → risk blocks → margin override → learner feedback |
 | `phoenix_v4/quality/ei_v2/learner.py` | Enlightened Intelligence V2 (learner) | ✓ — `learn()`: EMA-based weight/threshold tuning; `log_feedback()`, `load_learned_params()` |
 | `phoenix_v4/quality/ei_v2/dimension_gates.py` | Enlightened Intelligence V2 (gates) | ✓ — `enforce_chapter_gates()`: uniqueness, engagement, somatic, listen, cohesion |
 | `scripts/ci/run_ei_v2_catalog_calibration.py` | Enlightened Intelligence (calibration) | ✓ — Whole-catalog dimension gate sweep; percentile threshold discovery; learner integration |
-| `tests/test_ei_v2_hybrid.py` | Enlightened Intelligence V2 (tests) | ✓ — 25 tests: learner, dimension gates, hybrid selector, config, integration |
+| `tests/test_ei_v2_hybrid.py` | Enlightened Intelligence V2 (tests) | ⚠️ *file not present* — 25 tests: learner, dimension gates, hybrid selector, config, integration (backlog) |
 | [phoenix_title_engine.py](../phoenix_title_engine.py) | Marketing & deep research | ✓ |
 | [phoenix_title_engine_v3.py](../phoenix_title_engine_v3.py) | Marketing & deep research | ✓ |
 | [phoenix_title_engine_v4.py](../phoenix_title_engine_v4.py) | Marketing & deep research | ✓ |

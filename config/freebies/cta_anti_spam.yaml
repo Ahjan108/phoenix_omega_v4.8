@@ -10,8 +10,8 @@ cta_signature_caps:
   max_same_cta_signature_per_brand_per_quarter: 5
   # Quarter: calendar quarter (e.g. 2026-Q1) or rolling 13-week window; implementation may use release_week.
 
-# Wave-level density thresholds (override defaults in validate_freebie_density.py when this file is loaded).
-# "Wave" = current index rows (e.g. artifacts/freebies/index.jsonl); "nearby" = same wave or last N books.
+# Scope policy: same source for both validators (validate_freebie_density, cta_signature_caps).
+# Global = full --index (artifacts/freebies/index.jsonl). Wave = --plans-dir or --index --last-n N.
 density_thresholds:
   identical_bundle_ratio: 0.40
   identical_cta_ratio: 0.50

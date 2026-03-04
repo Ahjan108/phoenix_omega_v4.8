@@ -45,3 +45,9 @@ For immediate visibility when CI breaks:
    - `artifacts/observability/elevated_failures.jsonl`
 
 This gives both inbox visibility (email) and in-repo tracking (issues + artifacts).
+
+---
+
+## Auto-merge (optional)
+
+For low-risk agent PRs (e.g. dependency fixes from the observability agent), see [AUTO_MERGE_POLICY.md](AUTO_MERGE_POLICY.md). PRs labeled `bot-fix` that pass required checks may be auto-merged via `.github/workflows/auto-merge-bot-fix.yml`.

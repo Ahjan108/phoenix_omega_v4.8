@@ -1,0 +1,9 @@
+personas: [gen_z_professionals]
+topics: [anxiety, burnout]
+scripts:
+  - persona_id: gen_z_professionals
+    topic_id: anxiety
+    invisible_script: I cannot turn off my mind and it is ruining my sleep and work.
+  - persona_id: gen_z_professionals
+    topic_id: burnout
+    invisible_script: I am running on empty but everyone expects more.

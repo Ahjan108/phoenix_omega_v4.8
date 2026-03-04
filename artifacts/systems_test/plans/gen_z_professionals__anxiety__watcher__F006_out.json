@@ -1,6 +1,6 @@
 {
-  "plan_hash": "79ec394cb8f1681899cd41d604622436",
-  "plan_id": "79ec394cb8f1681899cd41d604622436",
+  "plan_hash": "d72daac26594bb06367f3a20dc251369",
+  "plan_id": "d72daac26594bb06367f3a20dc251369",
   "chapter_slot_sequence": [
     [
       "HOOK",
@@ -20,6 +20,26 @@
       "SCENE",
       "REFLECTION",
       "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
       "INTEGRATION",
       "STORY"
     ],
@@ -41,27 +61,8 @@
       "SCENE",
       "REFLECTION",
       "EXERCISE",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
       "INTEGRATION",
       "STORY"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION"
     ],
     [
       "HOOK",
@@ -142,115 +143,116 @@
     ]
   ],
   "atom_ids": [
-    "gen_z_professionals_anxiety_HOOK_v25",
-    "gen_z_professionals_anxiety_SCENE_v12",
-    "gen_z_professionals_anxiety_REFLECTION_v29",
-    "gen_z_professionals_anxiety_INTEGRATION_v06",
-    "gen_z_professionals_anxiety_false_alarm_RECOGNITION_v06",
-    "gen_z_professionals_anxiety_HOOK_v26",
-    "gen_z_professionals_anxiety_SCENE_v23",
-    "gen_z_professionals_anxiety_REFLECTION_v21",
-    "gen_z_professionals_anxiety_INTEGRATION_v12",
-    "gen_z_professionals_anxiety_HOOK_v01",
-    "gen_z_professionals_anxiety_SCENE_v20",
-    "gen_z_professionals_anxiety_REFLECTION_v17",
-    "gen_z_professionals_anxiety_EXERCISE_v16",
-    "gen_z_professionals_anxiety_INTEGRATION_v13",
-    "gen_z_professionals_anxiety_shame_MECHANISM_PROOF_v05",
-    "gen_z_professionals_anxiety_HOOK_v23",
-    "gen_z_professionals_anxiety_SCENE_v15",
-    "gen_z_professionals_anxiety_REFLECTION_v03",
-    "gen_z_professionals_anxiety_INTEGRATION_v10",
-    "gen_z_professionals_anxiety_spiral_RECOGNITION_v01",
-    "gen_z_professionals_anxiety_HOOK_v10",
-    "gen_z_professionals_anxiety_SCENE_v28",
-    "gen_z_professionals_anxiety_REFLECTION_v01",
-    "gen_z_professionals_anxiety_INTEGRATION_v08",
-    "gen_z_professionals_anxiety_HOOK_v20",
-    "gen_z_professionals_anxiety_SCENE_v11",
-    "gen_z_professionals_anxiety_REFLECTION_v05",
-    "gen_z_professionals_anxiety_EXERCISE_v05",
-    "gen_z_professionals_anxiety_INTEGRATION_v07",
-    "gen_z_professionals_anxiety_HOOK_v05",
-    "gen_z_professionals_anxiety_SCENE_v13",
-    "gen_z_professionals_anxiety_REFLECTION_v27",
-    "gen_z_professionals_anxiety_INTEGRATION_v05",
-    "gen_z_professionals_anxiety_watcher_EMBODIMENT_v04",
-    "gen_z_professionals_anxiety_HOOK_v14",
-    "gen_z_professionals_anxiety_SCENE_v06",
-    "gen_z_professionals_anxiety_REFLECTION_v09",
-    "gen_z_professionals_anxiety_INTEGRATION_v14",
     "gen_z_professionals_anxiety_HOOK_v17",
-    "gen_z_professionals_anxiety_SCENE_v01",
-    "gen_z_professionals_anxiety_REFLECTION_v07",
-    "gen_z_professionals_anxiety_EXERCISE_v17",
-    "gen_z_professionals_anxiety_INTEGRATION_v04",
-    "gen_z_professionals_anxiety_HOOK_v15",
-    "gen_z_professionals_anxiety_SCENE_v02",
-    "gen_z_professionals_anxiety_REFLECTION_v19",
-    "gen_z_professionals_anxiety_EXERCISE_v01",
-    "gen_z_professionals_anxiety_INTEGRATION_v15",
-    "gen_z_professionals_anxiety_spiral_MECHANISM_PROOF_v03",
-    "gen_z_professionals_anxiety_HOOK_v29",
-    "gen_z_professionals_anxiety_SCENE_v05",
-    "gen_z_professionals_anxiety_REFLECTION_v23",
-    "gen_z_professionals_anxiety_INTEGRATION_v03",
-    "gen_z_professionals_anxiety_spiral_MECHANISM_PROOF_v04",
-    "gen_z_professionals_anxiety_HOOK_v12",
     "gen_z_professionals_anxiety_SCENE_v14",
     "gen_z_professionals_anxiety_REFLECTION_v13",
-    "gen_z_professionals_anxiety_INTEGRATION_v11",
-    "gen_z_professionals_anxiety_HOOK_v06",
-    "gen_z_professionals_anxiety_SCENE_v24",
-    "gen_z_professionals_anxiety_REFLECTION_v25",
-    "gen_z_professionals_anxiety_EXERCISE_v23",
-    "gen_z_professionals_anxiety_INTEGRATION_v09",
-    "gen_z_professionals_anxiety_HOOK_v24",
-    "gen_z_professionals_anxiety_SCENE_v29",
-    "gen_z_professionals_anxiety_REFLECTION_v15",
-    "gen_z_professionals_anxiety_EXERCISE_v30",
-    "gen_z_professionals_anxiety_INTEGRATION_v02",
-    "gen_z_professionals_anxiety_overwhelm_MECHANISM_PROOF_v02",
+    "gen_z_professionals_anxiety_INTEGRATION_v12",
+    "gen_z_professionals_anxiety_false_alarm_RECOGNITION_v06",
     "gen_z_professionals_anxiety_HOOK_v07",
-    "gen_z_professionals_anxiety_SCENE_v09",
+    "gen_z_professionals_anxiety_SCENE_v22",
+    "gen_z_professionals_anxiety_REFLECTION_v03",
+    "gen_z_professionals_anxiety_INTEGRATION_v05",
+    "gen_z_professionals_anxiety_HOOK_v13",
+    "gen_z_professionals_anxiety_SCENE_v05",
+    "gen_z_professionals_anxiety_REFLECTION_v01",
+    "gen_z_professionals_anxiety_EXERCISE_v12",
+    "gen_z_professionals_anxiety_INTEGRATION_v10",
+    "gen_z_professionals_anxiety_HOOK_v02",
+    "gen_z_professionals_anxiety_SCENE_v06",
+    "gen_z_professionals_anxiety_REFLECTION_v15",
+    "gen_z_professionals_anxiety_INTEGRATION_v02",
+    "gen_z_professionals_anxiety_shame_MECHANISM_PROOF_v05",
+    "gen_z_professionals_anxiety_HOOK_v09",
+    "gen_z_professionals_anxiety_SCENE_v25",
+    "gen_z_professionals_anxiety_REFLECTION_v21",
+    "gen_z_professionals_anxiety_INTEGRATION_v11",
+    "gen_z_professionals_anxiety_HOOK_v12",
+    "gen_z_professionals_anxiety_SCENE_v04",
+    "gen_z_professionals_anxiety_REFLECTION_v17",
+    "gen_z_professionals_anxiety_EXERCISE_v01",
+    "gen_z_professionals_anxiety_INTEGRATION_v13",
+    "gen_z_professionals_anxiety_spiral_TURNING_POINT_v02",
+    "gen_z_professionals_anxiety_HOOK_v06",
+    "gen_z_professionals_anxiety_SCENE_v10",
+    "gen_z_professionals_anxiety_REFLECTION_v19",
+    "gen_z_professionals_anxiety_INTEGRATION_v08",
+    "gen_z_professionals_anxiety_watcher_EMBODIMENT_v01",
+    "gen_z_professionals_anxiety_HOOK_v30",
+    "gen_z_professionals_anxiety_SCENE_v13",
+    "gen_z_professionals_anxiety_REFLECTION_v29",
+    "gen_z_professionals_anxiety_INTEGRATION_v07",
+    "gen_z_professionals_anxiety_HOOK_v01",
+    "gen_z_professionals_anxiety_SCENE_v26",
+    "gen_z_professionals_anxiety_REFLECTION_v23",
+    "gen_z_professionals_anxiety_EXERCISE_v09",
+    "gen_z_professionals_anxiety_INTEGRATION_v04",
+    "gen_z_professionals_anxiety_watcher_TURNING_POINT_v01",
+    "gen_z_professionals_anxiety_HOOK_v14",
+    "gen_z_professionals_anxiety_SCENE_v28",
+    "gen_z_professionals_anxiety_REFLECTION_v07",
+    "gen_z_professionals_anxiety_EXERCISE_v23",
+    "gen_z_professionals_anxiety_INTEGRATION_v06",
+    "gen_z_professionals_anxiety_overwhelm_TURNING_POINT_v03",
+    "gen_z_professionals_anxiety_HOOK_v11",
+    "gen_z_professionals_anxiety_SCENE_v29",
+    "gen_z_professionals_anxiety_REFLECTION_v25",
+    "gen_z_professionals_anxiety_INTEGRATION_v03",
+    "gen_z_professionals_anxiety_spiral_MECHANISM_PROOF_v04",
+    "gen_z_professionals_anxiety_HOOK_v27",
+    "gen_z_professionals_anxiety_SCENE_v12",
+    "gen_z_professionals_anxiety_REFLECTION_v27",
+    "gen_z_professionals_anxiety_INTEGRATION_v14",
+    "gen_z_professionals_anxiety_HOOK_v05",
+    "gen_z_professionals_anxiety_SCENE_v17",
     "gen_z_professionals_anxiety_REFLECTION_v11",
-    "gen_z_professionals_anxiety_EXERCISE_v25",
+    "gen_z_professionals_anxiety_EXERCISE_v26",
+    "gen_z_professionals_anxiety_INTEGRATION_v09",
+    "gen_z_professionals_anxiety_HOOK_v23",
+    "gen_z_professionals_anxiety_SCENE_v08",
+    "gen_z_professionals_anxiety_REFLECTION_v09",
+    "gen_z_professionals_anxiety_EXERCISE_v13",
     "gen_z_professionals_anxiety_INTEGRATION_v01",
-    "gen_z_professionals_anxiety_HOOK_v08",
-    "gen_z_professionals_anxiety_SCENE_v19",
+    "gen_z_professionals_anxiety_comparison_RECOGNITION_v05",
+    "gen_z_professionals_anxiety_HOOK_v19",
+    "gen_z_professionals_anxiety_SCENE_v16",
+    "gen_z_professionals_anxiety_REFLECTION_v05",
+    "gen_z_professionals_anxiety_EXERCISE_v11",
+    "gen_z_professionals_anxiety_INTEGRATION_v15",
+    "gen_z_professionals_anxiety_HOOK_v18",
+    "gen_z_professionals_anxiety_SCENE_v09",
     "placeholder:REFLECTION:ch15:slot2",
-    "gen_z_professionals_anxiety_EXERCISE_v10",
+    "gen_z_professionals_anxiety_EXERCISE_v16",
     "placeholder:INTEGRATION:ch15:slot4",
     "gen_z_professionals_anxiety_HOOK_v21",
-    "gen_z_professionals_anxiety_SCENE_v03",
+    "gen_z_professionals_anxiety_SCENE_v18",
     "placeholder:REFLECTION:ch16:slot2",
     "placeholder:INTEGRATION:ch16:slot3",
-    "gen_z_professionals_anxiety_HOOK_v27",
-    "gen_z_professionals_anxiety_SCENE_v22",
+    "gen_z_professionals_anxiety_HOOK_v03",
+    "gen_z_professionals_anxiety_SCENE_v07",
     "placeholder:REFLECTION:ch17:slot2",
     "placeholder:INTEGRATION:ch17:slot3",
-    "gen_z_professionals_anxiety_comparison_EMBODIMENT_v01",
-    "gen_z_professionals_anxiety_HOOK_v30",
-    "gen_z_professionals_anxiety_SCENE_v27",
+    "gen_z_professionals_anxiety_overwhelm_TURNING_POINT_v05",
+    "gen_z_professionals_anxiety_HOOK_v29",
+    "gen_z_professionals_anxiety_SCENE_v20",
     "placeholder:REFLECTION:ch18:slot2",
-    "gen_z_professionals_anxiety_EXERCISE_v11",
+    "gen_z_professionals_anxiety_EXERCISE_v04",
     "placeholder:INTEGRATION:ch18:slot4",
-    "gen_z_professionals_anxiety_HOOK_v13",
-    "gen_z_professionals_anxiety_SCENE_v25",
+    "gen_z_professionals_anxiety_HOOK_v16",
+    "gen_z_professionals_anxiety_SCENE_v03",
     "placeholder:REFLECTION:ch19:slot2",
-    "gen_z_professionals_anxiety_EXERCISE_v07",
+    "gen_z_professionals_anxiety_EXERCISE_v06",
     "placeholder:INTEGRATION:ch19:slot4"
   ],
   "dominant_band_sequence": [
     1,
     null,
-    2,
+    null,
     2,
     null,
-    null,
+    2,
     3,
     null,
-    null,
+    3,
     3,
     4,
     null,
@@ -298,7 +300,7 @@
     18,
     19
   ],
-  "slot_sig": "MOD_pocket_guide:b0b327a11b5e342c",
+  "slot_sig": "MOD_pocket_guide:f390bd690a7f5360",
   "format_id": "MOD_pocket_guide",
   "runtime_format_id": "",
   "output_format_id": "pocket_guide",
@@ -334,13 +336,13 @@
   "chapter_archetypes": [
     "intro_hook_heavy",
     "legacy_uniform",
+    "practice_heavy",
+    "challenge_cost",
+    "legacy_uniform",
     "deepen_mechanism",
     "challenge_cost",
     "legacy_uniform",
-    "practice_heavy",
-    "challenge_cost",
-    "legacy_uniform",
-    "practice_heavy",
+    "deepen_mechanism",
     "deepen_mechanism",
     "challenge_cost",
     "legacy_uniform",
@@ -356,13 +358,13 @@
   "chapter_exercise_modes": [
     "none",
     "none",
+    "full",
+    "none",
+    "none",
     "micro",
     "none",
     "none",
-    "full",
-    "none",
-    "none",
-    "full",
+    "micro",
     "micro",
     "none",
     "none",
@@ -378,13 +380,13 @@
   "chapter_reflection_weights": [
     "light",
     "standard",
-    "standard",
-    "heavy",
-    "standard",
     "light",
     "heavy",
     "standard",
-    "light",
+    "standard",
+    "heavy",
+    "standard",
+    "standard",
     "standard",
     "heavy",
     "standard",
@@ -400,13 +402,13 @@
   "chapter_story_depths": [
     "standard",
     "standard",
-    "standard",
-    "deep",
-    "standard",
     "micro",
     "deep",
     "standard",
-    "micro",
+    "standard",
+    "deep",
+    "standard",
+    "standard",
     "standard",
     "deep",
     "standard",
@@ -454,7 +456,7 @@
   "emotional_role_sig": "r-r-d-f-f-d-f-f-d-d-f-f-d-d-s-s-f-f-i-i",
   "book_structure_id": "classic_linear",
   "journey_shape_id": "recognition_to_agency",
-  "motif_id": "motif_cost",
+  "motif_id": "motif_pattern",
   "section_reorder_mode": "none",
   "reframe_profile_id": "balanced",
   "variation_chapter_archetypes": [
@@ -479,67 +481,67 @@
     "establish",
     "expose"
   ],
-  "variation_signature": "e6231c757a632ff11fd7664c3c50b7af",
+  "variation_signature": "0f50e671490ba6540f0766310684b521",
   "motif_injections": [
     {
       "chapter_index": 0,
       "slot_index": 2,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "It shows up again and again."
     },
     {
       "chapter_index": 0,
       "slot_index": 4,
-      "phrase": "Staying the same has a price."
+      "phrase": "You've seen this before."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
-      "phrase": "Staying the same has a price."
+      "phrase": "It shows up again and again."
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "You've seen this before."
     },
     {
       "chapter_index": 2,
       "slot_index": 4,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "It shows up again and again."
     },
     {
       "chapter_index": 3,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "You've seen this before."
     },
     {
       "chapter_index": 3,
       "slot_index": 4,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "The same pattern, different day."
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "It shows up again and again."
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "You've seen this before."
     },
     {
       "chapter_index": 5,
       "slot_index": 4,
-      "phrase": "Staying the same has a price."
+      "phrase": "It shows up again and again."
     },
     {
       "chapter_index": 6,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "It shows up again and again."
     },
     {
       "chapter_index": 6,
       "slot_index": 4,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "It shows up again and again."
     }
   ],
   "reframe_injections": [
@@ -547,13 +549,13 @@
       "chapter_index": 0,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Progress isn't linear."
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Change happens in relationship, not in isolation."
+      "text": "Safety comes before growth."
     },
     {
       "chapter_index": 2,
@@ -565,37 +567,37 @@
       "chapter_index": 3,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
+      "text": "Progress isn't linear."
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Safety comes before growth."
+      "text": "Change happens in relationship, not in isolation."
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "One breath can reset the script."
+      "text": "What if this moment could be different?"
     },
     {
       "chapter_index": 6,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to do it all at once."
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
     },
     {
       "chapter_index": 7,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Your nervous system is doing its best."
+      "text": "Safety comes before growth."
     },
     {
       "chapter_index": 8,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "You're not behind; you're exactly where you are."
+      "text": "What if this moment could be different?"
     },
     {
       "chapter_index": 9,
@@ -607,7 +609,7 @@
       "chapter_index": 10,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Change happens in relationship, not in isolation."
+      "text": "Safety comes before growth."
     },
     {
       "chapter_index": 11,
@@ -625,25 +627,25 @@
       "chapter_index": 13,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Your nervous system is doing its best."
+      "text": "Safety comes before growth."
     },
     {
       "chapter_index": 14,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "You're not behind; you're exactly where you are."
+      "text": "What if this moment could be different?"
     },
     {
       "chapter_index": 15,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Progress isn't linear."
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
     },
     {
       "chapter_index": 16,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Your nervous system is doing its best."
+      "text": "Safety comes before growth."
     },
     {
       "chapter_index": 17,
@@ -655,7 +657,7 @@
       "chapter_index": 18,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
+      "text": "Progress isn't linear."
     },
     {
       "chapter_index": 19,

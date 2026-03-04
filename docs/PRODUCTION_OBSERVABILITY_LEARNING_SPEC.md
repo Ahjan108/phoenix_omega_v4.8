@@ -223,13 +223,16 @@ Persist patterns over time:
 | Failure history | `artifacts/observability/failure_history.jsonl` | Learning store |
 | Baselines | `artifacts/observability/baselines.json` | Pass rates, thresholds |
 | Weekly report | `artifacts/observability/weekly_report_{date}.md` | Enhancement summary |
+| KPI targets | `config/observability_kpi_targets.yaml` | Week-over-week thresholds; if below, trigger job |
+| KPI evaluator | `scripts/observability/evaluate_kpi_targets.py` | Evaluate snapshot vs targets; write `kpi_trigger_{ts}.json` |
+| Operations board | `artifacts/observability/operations_board.jsonl` | Issue → fix → PR → merged → impact feed |
 
 ---
 
 ## 8. CI Integration
 
 - **Schedule:** Run `collect_signals.py` on cron (e.g. daily) or on push to main
-- **Workflow:** `.github/workflows/production-observability.yml` — collect signals, optionally attempt auto-fix, upload artifacts
+- **Workflow:** `.github/workflows/production-observability.yml` — collect signals, update operations board, evaluate KPI targets, run triggered jobs (e.g. weekly_pipeline when below threshold), optionally attempt agent fix PR; upload artifacts
 - **Branch protection:** Observability does not block merge; it informs. Optional: block if critical signals fail and no evidence in 7 days
 
 ---
