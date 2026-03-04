@@ -1,0 +1,14 @@
+# Machine-readable required status checks policy for main.
+# Used by scripts/ci/verify_github_governance.py (no hardcoded checks in script).
+version: 1
+
+# At least one of these must be required on main. Prefer non-path-filtered workflows.
+always_required:
+  - "Core tests"
+
+# Path-filtered checks: optional. If required on main, they must not be the only required checks.
+path_filtered_optional:
+  - "EI V2 unit tests"
+  - "Teacher gates"
+  - "Brand guards"
+  - "Pearl News gates"

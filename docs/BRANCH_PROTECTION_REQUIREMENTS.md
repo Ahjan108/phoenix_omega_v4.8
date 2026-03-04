@@ -1,7 +1,7 @@
 # Branch Protection Requirements
 
 **Purpose:** Required status checks for `main`/`master` branch protection.  
-**Authority:** [FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md).
+**Authority:** [GITHUB_GOVERNANCE.md](GITHUB_GOVERNANCE.md) (source of truth); [FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md).
 
 ---
 

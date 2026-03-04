@@ -1,0 +1,29 @@
+# Governance policy check: ruleset main-only, required checks, no bypass scripts, no token files.
+# Runs on PR and push to main. Uses --mode local so it always runs (no ruleset API permission needed).
+name: GitHub governance check
+
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
+
+jobs:
+  governance:
+    name: Verify governance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run governance verifier (local mode)
+        run: PYTHONPATH=. python scripts/ci/verify_github_governance.py --mode local
+
+      - name: Run governance verifier (api mode, optional)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: PYTHONPATH=. python scripts/ci/verify_github_governance.py --mode api || true
+        continue-on-error: true
