@@ -17,6 +17,25 @@
 | **Check domain coverage** | Use "(document all)" subsections (e.g. [V4 features, scale & knobs](#v4-features-scale--knobs-document-all), [Marketing & deep research](#marketing--deep-research-document-all), [Teacher Mode](#teacher-mode--production-readiness-document-all)) — each lists every asset for that domain. |
 | **Run tests / understand test suite** | [Test suite (document all)](#test-suite-document-all): how to run (local + CI), markers, workflows, full file list (36 files, 222 tests), fixtures, [FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md). |
 | **Go/no-go decision** | [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md) §6 Hard NOs. |
+| **UI / operator coverage (full)** | No single spec covers all UI. For 100% coverage of everything that needs UI to manage, use the **full doc bundle**: [Control plane & operator UI — full doc bundle](#control-plane--operator-ui--full-doc-bundle) below. |
+
+---
+
+## Control plane & operator UI — full doc bundle
+
+**Use all of these** when planning or implementing UI for the control plane and operator workflows. No single spec file alone covers 100% of what needs UI to manage.
+
+| Doc | What it adds for UI/operator coverage |
+|-----|----------------------------------------|
+| [CONTROL_PLANE_SPEC_PATCH_V1.1.md](./CONTROL_PLANE_SPEC_PATCH_V1.1.md) | Completeness engine, approvals state, missing/blocked queue, agent/learning visibility; data contracts per tab; high-end UX. |
+| [EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md](./EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md) | Operator-completeness (blockers & completeness contracts, action mapping, acceptance matrix); two-tier Mac app + Streamlit; autonomous loop dashboard minimal set; Safety Kill Switch; app distribution. |
+| [ML_AUTONOMOUS_LOOP_SPEC.md](./ML_AUTONOMOUS_LOOP_SPEC.md) | Loop health, agent queue, promotion queue, KPI triggers, operations board; UI requirements for 24/7 + daily + weekly loop. |
+| [CONTROL_PLANE_GO_NO_GO.md](./CONTROL_PLANE_GO_NO_GO.md) | Pass/fail checklist per tab; production-ready when all pass and evidenced. |
+| [CONTROL_PLANE_RUNBOOK.md](./CONTROL_PLANE_RUNBOOK.md) | Runbook proving each tab runs real repo commands and reads real artifacts; evidence procedure per tab. |
+
+**Master spec rule:** [EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md](./EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md) is the **master spec**. When you run (implement) the master spec, **all specs in this bundle must be 100% coded** — no partial implementation. Every requirement in each doc must be implemented before the master spec is considered done.
+
+**Summary:** If dev uses only one doc (e.g. a short “Phoenix Omega — Native macOS Control Plane App” blurb), UI coverage is **not** 100%. If dev uses the **full doc bundle** above from DOCS_INDEX, they are **covered to move forward** for all system areas that need UI to manage.
 
 ---
 

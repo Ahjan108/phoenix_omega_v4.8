@@ -2,6 +2,8 @@
 
 **Purpose:** Two-tier operator UI: native Mac app for actions and quick status; Python dashboard for charts and cross-artifact views. Implementation-ready with explicit acceptance criteria.
 
+**Master spec:** This spec is the **master spec** for the control plane and operator UI. When this spec is run (implemented), **all specs in the doc bundle must be 100% coded** — no partial implementation. The bundle is: CONTROL_PLANE_SPEC_PATCH_V1.1, ML_AUTONOMOUS_LOOP_SPEC, CONTROL_PLANE_GO_NO_GO, CONTROL_PLANE_RUNBOOK, and this spec. Every requirement in each of these docs must be implemented before the master spec is considered done.
+
 ---
 
 ## Current state
