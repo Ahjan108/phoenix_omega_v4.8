@@ -46,3 +46,5 @@ python scripts/video/run_render.py fixtures/video_pipeline/timeline.json -o /tmp
 ```
 
 Optional: pass `--captions` and `--shot-plan` (e.g. from a pipeline run) for caption text and motion. If the output is a valid MP4 with visible zoompan motion, drawbox, and captions, the renderer works. Benchmark per-clip time; then move to audio mixing.
+
+**Finding ffmpeg:** Scripts use `_config.get_ffmpeg_bin()`: `FFMPEG` env (if set) → `which ffmpeg` → `/opt/homebrew/bin/ffmpeg` → `/usr/local/bin/ffmpeg` → `ffmpeg`. Set `FFMPEG=/path/to/ffmpeg` to override.

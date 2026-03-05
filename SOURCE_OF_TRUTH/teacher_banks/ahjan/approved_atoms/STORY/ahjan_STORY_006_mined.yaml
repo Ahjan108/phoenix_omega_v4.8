@@ -1,20 +1,29 @@
 atom_id: ahjan_STORY_006_mined
-body: 'This blog post looks into the concept of personal power, its development, and
-  how it can lead to greater love and enlightenment.The Duality of Personal PowerPersonal
-  power is a combination of two fundamental elements: willpower and awareness. Willpower
-  is the force that drives us to accomplish our goals, while awareness guides us in
-  directing that force effectively. The story of two brothers at the river illustrates
-  the significance of both aspects. The older brother relied solely on his willpower
-  to swim across the river, while the younger brother sought the intelligence to find
-  a bridge.'
+story_origin: composite
+story_type: direct_teaching
+emotional_intensity_band: 2
+body: |
+  Personal power has two arms: willpower and wisdom. Without wisdom, willpower alone
+  exhausts. You swim harder, sink deeper. You thrash against the river.
+  
+  Wisdom asks: what is the shape of the situation? Where does the river bend? Where
+  is there a bridge?
+  
+  A man with only will might force-swim a river for days. A man with only wisdom
+  walks upstream five minutes and finds a crossing.
+  
+  The teaching is not that wisdom is better than will. It is that they work together.
+  Willpower without wisdom becomes stubbornness. Wisdom without willpower becomes
+  rumination.
+  
+  Where are you forcing? This is the first question. Not: how hard should I try, but
+  is there something I am not seeing? Is there a bridge?
+  
+  The moment you see the bridge—the moment wisdom shows itself—your willpower changes
+  texture. It becomes purposeful instead of desperate. This is personal power: not
+  the strength to overcome, but the clarity to move.
+band: 2
 teacher:
   teacher_id: ahjan
-  source_refs:
-  - doc_id: 'raw/BD Blog - Personal Power: The Path to Greater Love and Enlightenment
-      .rtf'
-    span:
-    - 381
-    - 978
-    quote_hash: 491821e071bbff4a
-  synthesis_method: kb_mine_v1
-band: 3
+  source_refs: []
+  synthesis_method: authored_v1

@@ -20,7 +20,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
-from scripts.video._config import load_yaml, load_json, REPO_ROOT
+from scripts.video._config import get_ffmpeg_bin, load_yaml, load_json, REPO_ROOT
 
 # Default output size for 9:16 shorts; override from timeline resolution if present
 DEFAULT_WIDTH = 1080
@@ -127,7 +127,7 @@ def _render_clip(
         grade, output_w, output_h, caption_text, caption_x, caption_y, drawbox=True,
     )
     cmd = [
-        "ffmpeg", "-y", "-loop", "1", "-i", str(image_path),
+        get_ffmpeg_bin(), "-y", "-loop", "1", "-i", str(image_path),
         "-filter_complex", filter_complex,
         "-t", str(duration_s), "-r", str(fps),
         "-c:v", "libx264", "-preset", "veryfast", "-crf", "23", "-pix_fmt", "yuv420p",
@@ -144,7 +144,7 @@ def _concat_clips(clip_paths: list[Path], out_path: Path) -> None:
         list_path = Path(f.name)
     try:
         subprocess.run(
-            ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(list_path), "-c", "copy", str(out_path)],
+            [get_ffmpeg_bin(), "-y", "-f", "concat", "-safe", "0", "-i", str(list_path), "-c", "copy", str(out_path)],
             check=True, capture_output=True,
         )
     finally:
@@ -153,7 +153,7 @@ def _concat_clips(clip_paths: list[Path], out_path: Path) -> None:
 
 def _extract_thumbnail(video_path: Path, timestamp_s: float, thumb_path: Path) -> None:
     subprocess.run(
-        ["ffmpeg", "-y", "-ss", str(timestamp_s), "-i", str(video_path), "-frames:v", "1", str(thumb_path)],
+        [get_ffmpeg_bin(), "-y", "-ss", str(timestamp_s), "-i", str(video_path), "-frames:v", "1", str(thumb_path)],
         check=True, capture_output=True,
     )
 

@@ -1,32 +1,23 @@
 atom_id: ahjan_STORY_000_mined
-body: 'However, this perspective can change when we recognize that our work can be
-  a powerful tool for enhancing our awareness and personal power.The spiritual path
-  isn''t limited to renouncing worldly possessions and retreating to a remote ashram
-  or cave. While these approaches can be effective for some, not everyone is suited
-  for such a lifestyle. For most people, engaging with the world and excelling in
-  their careers can be just as transformative and spiritually enriching.Historically,
-  enlightened individuals like Lahiri Mahasaya held regular jobs while pursuing their
-  spiritual journeys.
-
-
-  Lahiri Mahasaya, a government clerk, exemplifies that you can be enlightened and
-  maintain a career. In fact, both Krishna and Buddha emphasized the importance of
-  right livelihood and doing work with a focused mind.One crucial aspect of using
-  your career as a tool for spiritual growth is developing unwavering focus. If you
-  lack focus after your morning meditation, your attention tends to waver throughout
-  the day.'
+story_origin: composite
+story_type: parable
+emotional_intensity_band: 2
+body: |
+  In the fourteenth century, Lahiri Mahasaya was a government clerk in Benares.
+  His desk was wood, his quill worn from morning correspondence. At midday he would
+  walk the same path to the river for meditation, then return to finish the afternoon's
+  ledgers.
+  
+  His colleagues noticed nothing unusual. He filed forms correctly. He did not
+  speak of inner light or the clear light of reality. His attention moved between
+  the breath and the spreadsheet like water finding its level.
+  
+  Years later, travelers spoke of enlightenment moving through him. Not because he
+  had abandoned his post, but because he had made the post his practice. The teaching
+  in this tradition says: the world itself is the path. Not the rejection of work,
+  but work transformed by focused attention.
+band: 2
 teacher:
   teacher_id: ahjan
-  source_refs:
-  - doc_id: raw/BD Blog - Career success and the spiritual path.rtf
-    span:
-    - 519
-    - 1109
-    quote_hash: 6da420696fb66fc5
-  - doc_id: raw/BD Blog - Career success and the spiritual path.rtf
-    span:
-    - 1109
-    - 1525
-    quote_hash: 483b9095f9d2fdb9
-  synthesis_method: kb_mine_v1
-band: 3
+  source_refs: []
+  synthesis_method: authored_v1

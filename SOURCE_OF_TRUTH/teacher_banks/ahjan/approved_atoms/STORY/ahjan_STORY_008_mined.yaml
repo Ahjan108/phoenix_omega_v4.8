@@ -1,39 +1,31 @@
 atom_id: ahjan_STORY_008_mined
-body: 'One must have discernment in selecting a teacher because there are false teachers
-  who exploit or mislead their students for personal gain.The story of the Buddha''s
-  tenacity on his path to enlightenment is one of profound determination and spiritual
-  perseverance. Born as Prince Siddhartha Gautama, he lived a sheltered life of luxury.
-
-
-  However, upon encountering the realities of suffering, disease, old age, and death,
-  he became deeply troubled by the universal presence of suffering.Driven by the desire
-  to find a solution to human suffering, Siddhartha renounced his royal life and embarked
-  on a spiritual quest. He rigorously practiced asceticism, believing that extreme
-  deprivation would lead to enlightenment.
-
-
-  Despite years of intense practice, nearly starving himself to death, he did not
-  find the answers he sought.Realizing that neither luxury nor extreme asceticism
-  was the path to enlightenment, Siddhartha chose the Middle Waya path of balance
-  rather than extremes. He sat under the Bodhi tree, determined not to rise until
-  he had found the truth.'
+story_origin: composite
+story_type: parable
+emotional_intensity_band: 4
+body: |
+  Siddhartha lived behind palace walls, surrounded by pleasure. His father kept
+  suffering hidden. But one day he saw an old woman, bent and toothless. Then he saw
+  a corpse being carried to the pyre.
+  
+  Everything he had known fractured. He left the palace that night.
+  
+  For seven years he practiced extreme asceticism. He fasted until his ribs showed
+  like branches. He sat in ice. He believed that deprivation would burn away the self
+  and reveal truth.
+  
+  Almost starving to death, he recognized something: the self cannot burn away through
+  force. Deprivation is just another form of the will trying to conquer itself.
+  
+  He walked to the river and bathed. He ate rice. He sat beneath a tree and stopped
+  deciding. Not luxury, not deprivation. Not victory, not surrender. Something between.
+  
+  In that space of not-choosing, clarity came. Not earned through extremity. Revealed
+  when the forcing stopped.
+  
+  The teaching in this tradition is simple: enlightenment is not purchased through
+  suffering or pleasure. It is revealed when you stop trying to buy it with anything.
+band: 4
 teacher:
   teacher_id: ahjan
-  source_refs:
-  - doc_id: 'raw/BD Blog - Spiritual Tenacity: The Drive Towards Purity .rtf'
-    span:
-    - 1295
-    - 1630
-    quote_hash: cfba25d594ffd6f8
-  - doc_id: 'raw/BD Blog - Spiritual Tenacity: The Drive Towards Purity .rtf'
-    span:
-    - 1630
-    - 2010
-    quote_hash: 970351fac2131439
-  - doc_id: 'raw/BD Blog - Spiritual Tenacity: The Drive Towards Purity .rtf'
-    span:
-    - 2010
-    - 2354
-    quote_hash: dcc305646f0b3cd3
-  synthesis_method: kb_mine_v1
-band: 3
+  source_refs: []
+  synthesis_method: authored_v1

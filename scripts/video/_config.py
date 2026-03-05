@@ -3,9 +3,24 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
+import shutil
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+
+
+def get_ffmpeg_bin() -> str:
+    """Path to ffmpeg executable. Uses FFMPEG env, then which('ffmpeg'), then common Homebrew paths."""
+    if os.environ.get("FFMPEG"):
+        return os.environ["FFMPEG"]
+    exe = shutil.which("ffmpeg")
+    if exe:
+        return exe
+    for path in ("/opt/homebrew/bin/ffmpeg", "/usr/local/bin/ffmpeg"):
+        if Path(path).exists():
+            return path
+    return "ffmpeg"
 
 try:
     import yaml

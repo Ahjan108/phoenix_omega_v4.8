@@ -14,6 +14,8 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(REPO_ROOT))
+from scripts.video._config import get_ffmpeg_bin
 
 # Asset IDs from fixtures/video_pipeline/timeline.json
 ASSET_IDS = ("asset-hook-001", "asset-body-001")
@@ -32,7 +34,7 @@ def main() -> int:
         path = out_dir / f"{asset_id}.jpg"
         r = subprocess.run(
             [
-                "ffmpeg", "-y", "-f", "lavfi", "-i", f"color=c={color}:s={W}x{H}:d=1",
+                get_ffmpeg_bin(), "-y", "-f", "lavfi", "-i", f"color=c={color}:s={W}x{H}:d=1",
                 "-frames:v", "1", str(path),
             ],
             capture_output=True,

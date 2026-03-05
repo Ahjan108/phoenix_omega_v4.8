@@ -1,17 +1,24 @@
 atom_id: ahjan_STORY_001_mined
-body: However, by dedicating your work to enlightenment and approaching it as a spiritual
-  practice, you shift your focus from self to a higher purpose.By working selflessly
-  and impeccably, you connect with a higher spiritual power that transforms your daily
-  work into a source of light and power. While others may leave their jobs feeling
-  exhausted, you'll leave with more energy and a sense of fulfillment.A real-life
-  example is Ralph Honda, a Buddhist businessman who aimed to spread Buddha's teachings.
+story_origin: composite
+story_type: direct_teaching
+emotional_intensity_band: 2
+body: |
+  When you work in the ordinary sense, you extract: hours for wage, effort for
+  outcome. The spine is always checking—am I ahead, behind, making ground?
+  
+  But there is another way. Call it karma yoga, or calling your work itself your
+  meditation. The mechanism is simple: you shift the center of gravity from personal
+  gain to the work itself. You give the effort forward. Not expecting return.
+  
+  This one change touches everything. A carpenter becomes carpenter, not for the
+  paycheck, but because the hammer moving true is its own light. A manager stays
+  present with their team's difficulty instead of thinking, how fast can I rise?
+  
+  The teaching is not mystical—it is almost mechanical. When you stop hoarding your
+  attention, something shifts. The work feeds you differently. Not always easier.
+  But the quality of exhaustion becomes the quality of having given.
+band: 2
 teacher:
   teacher_id: ahjan
-  source_refs:
-  - doc_id: raw/BD Blog - Career success and the spiritual path.rtf
-    span:
-    - 3527
-    - 4027
-    quote_hash: a1bfc035a7f84b6c
-  synthesis_method: kb_mine_v1
-band: 3
+  source_refs: []
+  synthesis_method: authored_v1

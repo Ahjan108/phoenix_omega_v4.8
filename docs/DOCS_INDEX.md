@@ -2,7 +2,7 @@
 
 **Purpose:** Canonical index for documentation authority and navigation.  
 **Missing-file policy:** Only existing files are linked; planned or missing files are listed as backlog items (plain text or `path` with ⚠️ *file not present*).  
-**Last updated:** 2026-03-04
+**Last updated:** 2026-03-05
 
 ---
 
@@ -455,6 +455,7 @@ Church brands (e.g. NorCal Dharma) are identity/distribution only: no teacher, n
 - [docs/WRITER_COMMS_SYSTEMS_100.md](./WRITER_COMMS_SYSTEMS_100.md) — Writer comms systems
 - [docs/WRITER_SPEC_MARKDOWN_AND_DOCX.md](./WRITER_SPEC_MARKDOWN_AND_DOCX.md) — Writer spec (Markdown and DOCX)
 - [docs/WRITER_STORY_READING_LIST.md](./WRITER_STORY_READING_LIST.md) — Full list of files a writer needs for STORY atoms (funnel, Teacher Mode, persona/topic)
+- [docs/WRITER_SPEC_EXTRACT_FOR_ATOMS.md](./WRITER_SPEC_EXTRACT_FOR_ATOMS.md) — Writer spec extract: §4.3 STORY, §6 Four Story Rules, TTS prose/T01–T07, five STORY role types, atom fields (use when full Writer Spec won’t load)
 - [docs/FIRST_10_BOOKS_EVALUATION_PROTOCOL.md](./FIRST_10_BOOKS_EVALUATION_PROTOCOL.md) — First 10 books evaluation protocol
 
 ### Author cover art (document all)
@@ -1470,6 +1471,8 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [WRITER_BRIEF_BOOK_001.md](./WRITER_BRIEF_BOOK_001.md) | Book & authoring | ✓ |
 | [WRITER_COMMS_SYSTEMS_100.md](./WRITER_COMMS_SYSTEMS_100.md) | Book & authoring | ✓ |
 | [WRITER_SPEC_MARKDOWN_AND_DOCX.md](./WRITER_SPEC_MARKDOWN_AND_DOCX.md) | Book & authoring | ✓ |
+| [WRITER_STORY_READING_LIST.md](./WRITER_STORY_READING_LIST.md) | Book & authoring | ✓ |
+| [WRITER_SPEC_EXTRACT_FOR_ATOMS.md](./WRITER_SPEC_EXTRACT_FOR_ATOMS.md) | Book & authoring | ✓ |
 | [FIRST_10_BOOKS_EVALUATION_PROTOCOL.md](./FIRST_10_BOOKS_EVALUATION_PROTOCOL.md) | Book & authoring | ✓ |
 | [ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md](./ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md) | Enlightened Intelligence (V1/V2) | ✓ |
 | `EI_V2_ROLLOUT_PROOF_CHECKLIST.md` | Enlightened Intelligence (V2 release) | ✓ |

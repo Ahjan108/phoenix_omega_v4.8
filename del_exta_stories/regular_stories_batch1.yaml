@@ -1,0 +1,350 @@
+# Regular STORY Atoms — Batch 1
+# Personas: healthcare_rns, tech_finance_burnout, gen_z_professionals
+# Topics: burnout, anxiety, self_worth
+# Bands: 1–5, weighted 3–4
+# All composite origin
+# No teacher block — regular pool atoms
+
+---
+
+## HEALTHCARE_RNS × BURNOUT
+
+---
+
+atom_id: reg_STORY_hcr_burnout_001
+body: |
+  Priya has not eaten a full meal sitting down in eleven days.
+  Not because there is no food. Because sitting down means stopping,
+  and stopping means the next thing she has to do becomes visible.
+  So she eats in the hallway, at the station, over the sink.
+  The body keeps moving. The body has gotten very good at this.
+  The body no longer signals hunger the way it used to.
+  Now it signals collapse, and she works around that too.
+band: 4
+emotional_intensity_band: 4
+role: embodiment
+story_origin: composite
+story_type: character_study
+misfire_tax: false
+
+---
+
+atom_id: reg_STORY_hcr_burnout_002
+body: |
+  She clocks out at 7:23am after a twelve-hour shift.
+  In the parking garage she sits in her car with the engine off
+  for twenty-two minutes. She does not call anyone. She does not check her phone.
+  She sits. When a colleague knocks on her window she startles badly.
+  The colleague asks if she is okay. She says yes.
+  She does not know if that is true. She drives home.
+band: 3
+emotional_intensity_band: 3
+role: recognition
+story_origin: composite
+story_type: character_study
+silence_beat: true
+
+---
+
+atom_id: reg_STORY_hcr_burnout_003
+body: |
+  The charge nurse asks for a volunteer to cover an extra shift on Saturday.
+  Dominic's hand goes up before he finishes the thought.
+  His hand has been going up for three years.
+  Not because he wants to. Because he cannot locate the part of himself
+  that is allowed to say no in a room where someone else needs help.
+  On Saturday he drives to the hospital with the specific tired
+  that lives behind the eyes and does not go away with sleep.
+band: 3
+emotional_intensity_band: 3
+role: pattern
+story_origin: composite
+story_type: character_study
+
+---
+
+atom_id: reg_STORY_hcr_burnout_004
+body: |
+  The unit is short two nurses this week. This is not unusual.
+  What is unusual is that no one mentions it. Everyone adjusts.
+  Caseloads absorb the gap. Documentation happens later.
+  Breaks do not happen. This is called managing.
+  What it actually is: a system that works only because
+  the people in it absorb what the system cannot carry.
+  The absorbing is invisible until the people stop being able to.
+  By then it is called a crisis. But the crisis started much earlier.
+band: 4
+emotional_intensity_band: 4
+role: mechanism_proof
+story_origin: composite
+story_type: direct_teaching
+
+---
+
+atom_id: reg_STORY_hcr_burnout_005
+body: |
+  The corridor outside room fourteen is empty at 4am.
+  Luz stands there for a moment after the handoff.
+  The lights are dimmed for the night shift.
+  She can hear the equipment. She can hear her own breathing.
+  She does not have anywhere to be for forty seconds.
+  Forty seconds is not enough to do anything with.
+  And yet.
+band: 1
+emotional_intensity_band: 1
+role: embodiment
+story_origin: composite
+story_type: atmospheric
+
+---
+
+atom_id: reg_STORY_hcr_burnout_006
+body: |
+  She submits her resignation letter on a Tuesday afternoon.
+  Her hands are steady when she hits send.
+  This is the part she did not expect: not the relief.
+  The steadiness. Three years of holding everything tightly enough
+  not to drop it, and now the hands that were gripping
+  are just hands.
+  She does not know what comes next. She knows what stops here.
+band: 5
+emotional_intensity_band: 5
+role: agency_glimmer
+story_origin: composite
+story_type: character_study
+
+---
+
+## TECH_FINANCE_BURNOUT × ANXIETY
+
+---
+
+atom_id: reg_STORY_tfb_anxiety_001
+body: |
+  The Slack notification arrives at 11:47pm.
+  Connor reads it. It does not require a response tonight.
+  He knows this. He drafts a response anyway.
+  Edits it. Decides it is too eager. Deletes it.
+  Decides silence will read as avoidance. Drafts it again.
+  Sends a shorter version at 11:59.
+  His manager will see it in the morning.
+  Connor will not sleep well between now and then.
+band: 3
+emotional_intensity_band: 3
+role: pattern
+story_origin: composite
+story_type: character_study
+misfire_tax: true
+
+---
+
+atom_id: reg_STORY_tfb_anxiety_002
+body: |
+  Before a presentation to the investment committee,
+  Simone rehearses in the mirror, in the car, in the elevator.
+  She knows the material. She has known it for two weeks.
+  What she is rehearsing is not the material.
+  She is rehearsing for the question she cannot predict.
+  The one that will expose the thing she has not thought of.
+  She has not thought of it yet. So she rehearses everything else
+  harder, as if thoroughness will cover the gap
+  that thoroughness cannot reach.
+band: 4
+emotional_intensity_band: 4
+role: mechanism_proof
+story_origin: composite
+story_type: character_study
+
+---
+
+atom_id: reg_STORY_tfb_anxiety_003
+body: |
+  His chest is tight in the Monday standup.
+  Not because anything is wrong. Nothing is wrong.
+  The metrics are fine. His updates are prepared.
+  His chest is tight because eighteen people are looking at him
+  and tightness is what the body learned to do
+  in rooms where things could go wrong
+  even when they are not going wrong right now.
+band: 2
+emotional_intensity_band: 2
+role: embodiment
+story_origin: composite
+story_type: character_study
+
+---
+
+atom_id: reg_STORY_tfb_anxiety_004
+body: |
+  The high-performer anxiety loop works like this:
+  performance stays high because the cost of it not staying high
+  is intolerable. So the performer performs.
+  And because the performance is working, no one asks about the cost.
+  And because no one asks, the performer stops expecting to be asked.
+  And because they stop expecting it, they stop knowing
+  what they would say if someone did.
+  The loop is not a failure of the system. It is the system working.
+  Right up until the performer cannot perform and the gap
+  in the system becomes suddenly, very publicly, visible.
+band: 4
+emotional_intensity_band: 4
+role: mechanism_proof
+story_origin: composite
+story_type: direct_teaching
+
+---
+
+atom_id: reg_STORY_tfb_anxiety_005
+body: |
+  Eighth floor. Glass office. City below.
+  Elena stands at the window between calls.
+  Nothing is required of her for four minutes.
+  She watches a cab move through an intersection.
+  Stop. Go. Stop. The light cycles without asking for her input.
+  Her shoulders are not where they were an hour ago.
+  She does not know when they moved.
+band: 1
+emotional_intensity_band: 1
+role: embodiment
+story_origin: composite
+story_type: atmospheric
+
+---
+
+atom_id: reg_STORY_tfb_anxiety_006
+body: |
+  He asks his manager for a mental health day.
+  His voice is level. His reasoning is prepared.
+  The manager says of course, no problem.
+  He hangs up and sits with the fact that he rehearsed that request
+  for six days. Six days of a conversation that took forty seconds
+  and resulted in: of course. He does not know what to do
+  with the six days. The forty seconds did not give them back.
+band: 5
+emotional_intensity_band: 5
+role: recognition
+story_origin: composite
+story_type: character_study
+never_know: true
+
+---
+
+## GEN_Z_PROFESSIONALS × SELF_WORTH
+
+---
+
+atom_id: reg_STORY_gzp_selfworth_001
+body: |
+  Zoe posts something she worked on for three days.
+  By noon it has eleven likes. She refreshes at 12:30.
+  Fourteen. She refreshes at 1pm. Still fourteen.
+  By evening she has decided it was the wrong thing to post.
+  By the next morning she is not sure she should post anything at all.
+  The work took three days. The undoing took one afternoon.
+band: 3
+emotional_intensity_band: 3
+role: pattern
+story_origin: composite
+story_type: character_study
+misfire_tax: true
+
+---
+
+atom_id: reg_STORY_gzp_selfworth_002
+body: |
+  He got the internship. The one he applied to sixteen times across two years.
+  He tells his parents. They are happy. He is happy for a day.
+  On day two he starts wondering if he actually deserved it
+  or if it was a slow application season.
+  He googles the acceptance rate. Finds a number.
+  The number does not help. He starts wondering
+  what they will find out about him once he starts.
+band: 3
+emotional_intensity_band: 3
+role: recognition
+story_origin: composite
+story_type: character_study
+
+---
+
+atom_id: reg_STORY_gzp_selfworth_003
+body: |
+  The comparison is not with people she knows.
+  It is with people she has never met who appear to be doing
+  what she wishes she were doing with more success
+  than she believes she is capable of.
+  She knows this is constructed. She knows she is seeing
+  the curated version. She knows all of this.
+  The knowing does not stop the comparison from landing
+  in her chest at 10pm like a small reliable failure.
+band: 4
+emotional_intensity_band: 4
+role: mechanism_proof
+story_origin: composite
+story_type: direct_teaching
+
+---
+
+atom_id: reg_STORY_gzp_selfworth_004
+body: |
+  Her throat. Her jaw. The specific tension that lives
+  between her shoulder blades when she is in a room
+  where she believes everyone is further along than she is.
+  She does not always know when she believes this.
+  She knows by the shoulders. They have been learning this longer
+  than she has been paying attention to them.
+band: 2
+emotional_intensity_band: 2
+role: embodiment
+story_origin: composite
+story_type: character_study
+
+---
+
+atom_id: reg_STORY_gzp_selfworth_005
+body: |
+  She deletes the first comment she writes on the senior colleague's post.
+  Writes another. Shorter. Deletes it.
+  Writes a third version. Posts it. Then reads it back
+  and decides it sounded like she was trying too hard.
+  The colleague likes it fourteen minutes later.
+  She does not feel the like land the way she thought it would.
+  She is already reading the comment again.
+band: 3
+emotional_intensity_band: 3
+role: pattern
+story_origin: composite
+story_type: character_study
+silence_beat: true
+
+---
+
+atom_id: reg_STORY_gzp_selfworth_006
+body: |
+  Quiet street. Late October. He walks home from the subway
+  without headphones for the first time in months.
+  The trees are doing what trees do in October.
+  He is not trying to be present. He is just not avoiding anything.
+  The absence of avoidance feels strange.
+  He keeps walking anyway.
+band: 1
+emotional_intensity_band: 1
+role: embodiment
+story_origin: composite
+story_type: atmospheric
+
+---
+
+atom_id: reg_STORY_gzp_selfworth_007
+body: |
+  Maya sends the application for the thing she told herself she wasn't ready for.
+  She sends it badly. The cover letter has a typo she finds thirty seconds after hitting submit.
+  She sits with the typo for ten minutes.
+  Then she closes the laptop.
+  She was not ready. She applied anyway.
+  Those two things are both true and neither one cancels the other out.
+band: 5
+emotional_intensity_band: 5
+role: agency_glimmer
+story_origin: composite
+story_type: character_study
