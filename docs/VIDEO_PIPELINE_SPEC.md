@@ -55,6 +55,7 @@
 | Visual metaphor library | `config/video/visual_metaphor_library.yaml` | human-reviewed metaphor cache |
 | Cross-video dedup | `config/video/cross_video_dedup.yaml` | publishing window, max shared primary assets, require_primary_asset_ids_in_batch |
 | Asset fallback priority | `config/video/asset_selection_priority.yaml` | deterministic fallback order; composition_compat_threshold; step 5 = degraded_render_fallback |
+| Color grade presets | `config/video/color_grade_presets.yaml` | per-video eq presets (neutral, warm, cool, sunset, soft); one grade per video |
 
 ---
 
@@ -68,9 +69,10 @@
 
 ## 5. Asset Resolver
 
-- **Strategy:** Retrieval-first from Image Bank; generate only when no suitable asset exists.
+- **Strategy:** Retrieval-first from Image Bank; filter by metadata, rank by embedding similarity, then apply dedup. Generate only when no suitable asset exists.
 - **Input:** ShotPlan, Image Bank index (asset_id, layer_type, tags, composition_compat, style_version).
 - **Output:** Resolved asset references per shot (asset_id or prompt_bundle for generation).
+- **Per-batch reuse cap:** No single asset may appear more than `max_asset_reuse_per_batch` times across the daily output (config: `config/video/cross_video_dedup.yaml`). When an asset hits the cap, it is unavailable for the rest of the batch; coverage gaps surface in the preflight report so you know which assets need more variants.
 
 ---
 
@@ -116,6 +118,9 @@
 - **Visual stillness ratio:** 70–80% static shots for therapeutic content (motion_policy.yaml).
 - **Style system:** Warm Illustration (primary), Atmospheric Abstract (secondary), Macro Nature (subcategory); unified palette; no brand-name references in prompts.
 - **Character consistency:** Sprite-sheet approach (pre-rendered pose/emotion sets per character_id); faces discouraged by default.
+- **Hook motion mapping:** Only use motion types the renderer supports. Light reveal / hands close-up / walking path → slow_zoom_in (walking path uses zoom-in for “forward” illusion). Ripple/breathing → slow_zoom_out. Do not add slow_expand or slow_pan_forward until the renderer implements them.
+
+**Visual quality checklist (avoid “cheap” look):** (1) Low visual noise — subject_count ≤ 2, low background detail, negative space. (2) No direct faces by default — face_visibility partial_or_none; back of head, profile, silhouette, hands. (3) Slow motion only — per motion_policy speed limits; one motion per shot; no zoom+pan. (4) Lighting consistency — max_lighting_changes_per_video from style; image bank lighting families. (5) Caption-safe zones — assets with caption_safe_zone; renderer caption_bar_opacity and contrast. (6) Emotion–image alignment — use emotion_to_camera_overrides; no sunny beach for “overwhelmed.” QC and asset metadata should enforce these where applicable.
 
 ---
 
@@ -135,29 +140,44 @@
 
 ---
 
-## 11. QC gates
+## 11. Renderer parameters (no separate mutation stage)
+
+Motion, caption placement, and pacing already come from the pipeline (timeline, caption adapter, TTS). **Do not add a scene_mutation or mutation_engine stage.** The following are **render-time parameters** consumed by `run_render.py` (FFmpeg).
+
+**Crop offset variation:** Same image can be rendered with a slight crop/zoom for variety. Per clip, the renderer may set `crop_zoom` (e.g. 0.92–1.0), `crop_offset_x`, `crop_offset_y` — **deterministic** from `hash(video_id + shot_index)` so builds are reproducible. Implement as crop/zoompan parameters in the FFmpeg filter chain, not a new pipeline artifact.
+
+**Per-video color grading:** One color grade per video (not per-shot) for coherence. Use `config/video/color_grade_presets.yaml` (neutral, warm, cool, sunset, soft); select preset by emotional arc or content_type. Apply as FFmpeg `eq=contrast=...:brightness=...:saturation=...` (or colorbalance/curves) on the final output.
+
+**Encoding:** Use `-preset veryfast -crf 23` as the default. Do not use `-preset ultrafast` for production therapeutic content — text and caption edges show compression artifacts. Benchmark before lowering quality for throughput.
+
+See `docs/VIDEO_PIPELINE_FFMPEG_REFERENCE.md` for zoompan, eq, and drawtext/drawbox filter reference.
+
+---
+
+## 12. QC gates
 
 - Pre-render: ShotPlan and Timeline validation.
 - Post-render: duration, resolution, caption presence; safety checks as defined by governance.
 
 ---
 
-## 12. Localization
+## 13. Localization
 
 - CaptionAdapter and metadata support multi-locale (e.g. en, ja); caption_policies has by_language rules.
 
 ---
 
-## 13. Operational notes
+## 14. Operational notes
 
 - **Scale target:** Thousands of therapeutic videos daily (e.g. 100 long-form, 5,000 shorts).
 - **Video uniqueness:** **Sequence signature (lock):** `sequence_signature = hash( variant_id + ordered_concat( [ shot.visual_intent, shot.environment, shot.motion_type, shot.hook_type ] for each shot ) )`. Include variant_id so male_realistic and female_illustration of the same script do not collide. Use for duplicate detection and replay. **Cross-video dedup** + bank variety. **Cross-video dedup constraint:** Within a daily batch, no two videos scheduled in the same publishing window (e.g. same 2-hour slot on a given platform) may share more than one primary environment asset. The daily_batch index (or distribution manifests) should include primary asset_ids per video so the partner or scheduler can enforce this before publish. Rule and window: `config/video/cross_video_dedup.yaml`. This prevents “same forest path three times in a row” in a viewer’s feed.
 - **A/B testing:** Outbound telemetry (hook_type, environment, motion_type, music_mood, caption_pattern, style_version in manifest and provenance) + inbound performance feedback schema (video_performance_v1).
 - **Persistent storage:** Image Bank and artifacts separate from ephemeral R2 handoff.
+- **Image bank size (locked):** Pre-rendered single-image bank only (no compositing). Launch target **~400 images** (350–500); **hook bank 35–40** (hooks are highest-frequency). Run the coverage study (sample scripts → shot planner → unique combinations) for exact breakdown. Generation priority: environments first, then symbolic visuals, then character scenes. Grow when preflight or reuse cap surfaces gaps.
 
 ---
 
-## 14. Implementation order
+## 15. Implementation order
 
 - **Build Script Preparer first.** It has the clearest input (render manifest fixture) and output (script segments fixture) and validates that the render manifest schema works with real data. If the preparer runs cleanly against the fixture, every downstream stage has a proven input contract. Do not start with Shot Planner on an untested input.
 - **Phase 1: sequential scripts.** Implement the pipeline as sequential steps (script_preparer → shot_planner → asset_resolver → timeline_builder → renderer), each reading the previous stage’s output from disk. Get the logic right against the golden fixtures.
@@ -165,7 +185,7 @@
 
 ---
 
-## 15. References
+## 16. References
 
 - Render manifest schema: `../schemas/video/render_manifest_v1.schema.json`
 - Image bank asset schema: `../schemas/video/image_bank_asset_v1.schema.json`

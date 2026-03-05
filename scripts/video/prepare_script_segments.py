@@ -12,6 +12,8 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(REPO_ROOT))
+from scripts.video._config import write_atomically, should_skip_output
 
 
 def _word_count(text: str) -> int:
@@ -59,6 +61,7 @@ def main() -> int:
     ap.add_argument("--content-type", default="therapeutic", help="content_type for pacing (default: therapeutic)")
     ap.add_argument("--wpm", type=float, default=140.0, help="Words per minute for timing (default: 140)")
     ap.add_argument("--metadata", help="Optional JSON with segment_id -> { arc_role, emotional_band } or plan with atom metadata")
+    ap.add_argument("--force", action="store_true", help="Overwrite output even if it already exists")
     args = ap.parse_args()
 
     path = Path(args.render_manifest)
@@ -80,10 +83,12 @@ def main() -> int:
             elif isinstance(data, dict):
                 metadata_by_segment = data
 
-    result = prepare_segments(manifest, args.content_type, args.wpm, metadata_by_segment)
     out_path = Path(args.out)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(result, indent=2), encoding="utf-8")
+    if should_skip_output(out_path, ["plan_id", "segments"], args.force):
+        print(f"Skip (output exists, use --force to overwrite): {out_path}")
+        return 0
+    result = prepare_segments(manifest, args.content_type, args.wpm, metadata_by_segment)
+    write_atomically(out_path, result)
     print(f"Wrote {len(result['segments'])} segments to {out_path}")
     return 0
 

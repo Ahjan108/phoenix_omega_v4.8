@@ -26,6 +26,8 @@ def main() -> int:
     ap.add_argument("--fixtures-dir", default=None, help="Dir with render_manifest.json etc (default: fixtures/video_pipeline)")
     ap.add_argument("--out-dir", default=None, help="Output dir (default: artifacts/video/<plan_id>)")
     ap.add_argument("--video-id", default=None, help="Video ID for provenance/manifest (default: video-<plan_id>)")
+    ap.add_argument("--force", action="store_true", help="Overwrite existing artifacts at every stage")
+    ap.add_argument("--skip-render", action="store_true", default=True, help="Skip render step (default: True until FFmpeg integration; set False when run_render.py is wired)")
     args = ap.parse_args()
 
     fixtures = Path(args.fixtures_dir or str(REPO_ROOT / "fixtures" / "video_pipeline"))
@@ -40,19 +42,27 @@ def main() -> int:
 
     scripts = REPO_ROOT / "scripts" / "video"
     py = sys.executable
+    force_flag = ["--force"] if args.force else []
     steps = [
-        ([py, str(scripts / "prepare_script_segments.py"), str(manifest_path), "-o", str(out_root / "script_segments.json")], "Script Preparer"),
-        ([py, str(scripts / "run_shot_planner.py"), str(out_root / "script_segments.json"), "-o", str(out_root / "shot_plan.json")], "Shot Planner"),
-        ([py, str(scripts / "run_asset_resolver.py"), str(out_root / "shot_plan.json"), "-o", str(out_root / "resolved_assets.json")], "Asset Resolver"),
-        ([py, str(scripts / "run_timeline_builder.py"), str(out_root / "shot_plan.json"), str(out_root / "resolved_assets.json"), "-o", str(out_root / "timeline.json")], "Timeline Builder"),
-        ([py, str(scripts / "run_caption_adapter.py"), str(out_root / "timeline.json"), str(out_root / "script_segments.json"), "-o", str(out_root / "captions.json")], "Caption Adapter"),
-        ([py, str(scripts / "run_qc.py"), str(out_root / "shot_plan.json"), str(out_root / "resolved_assets.json"), str(out_root / "timeline.json")], "QC"),
+        ([py, str(scripts / "prepare_script_segments.py"), str(manifest_path), "-o", str(out_root / "script_segments.json")] + force_flag, "Script Preparer"),
+        ([py, str(scripts / "run_shot_planner.py"), str(out_root / "script_segments.json"), "-o", str(out_root / "shot_plan.json")] + force_flag, "Shot Planner"),
+        ([py, str(scripts / "run_asset_resolver.py"), str(out_root / "shot_plan.json"), "-o", str(out_root / "resolved_assets.json")] + force_flag, "Asset Resolver"),
+        ([py, str(scripts / "run_timeline_builder.py"), str(out_root / "shot_plan.json"), str(out_root / "resolved_assets.json"), "-o", str(out_root / "timeline.json")] + force_flag, "Timeline Builder"),
+        ([py, str(scripts / "run_caption_adapter.py"), str(out_root / "timeline.json"), str(out_root / "script_segments.json"), "-o", str(out_root / "captions.json")] + force_flag, "Caption Adapter"),
+        ([py, str(scripts / "run_qc.py"), str(out_root / "shot_plan.json"), str(out_root / "resolved_assets.json"), str(out_root / "timeline.json"), "-o", str(out_root / "qc_summary.json")], "QC"),
     ]
     for cmd, name in steps:
         if not run(cmd, REPO_ROOT):
             print(f"Failed: {name}", file=sys.stderr)
             return 1
         print(f"OK: {name}")
+
+    # --- Render step (insert here when FFmpeg integration is ready) ---
+    # run_render.py: timeline.json + assets -> staging/<date>/<video_id>/video.mp4, thumb.jpg
+    # Example: run( [py, str(scripts / "run_render.py"), str(out_root / "timeline.json"), "-o", str(staging_dir)], REPO_ROOT )
+    if not args.skip_render:
+        # Placeholder: run_render.py when implemented
+        pass
 
     timeline = json.loads((out_root / "timeline.json").read_text(encoding="utf-8"))
     duration_s = timeline.get("duration_s", 0)
@@ -71,7 +81,7 @@ def main() -> int:
         "--duration-s", str(duration_s),
         "--hook-type", "light_reveal", "--environment", "forest_path", "--motion-type", "slow_zoom",
         "--music-mood", "calm", "--caption-pattern", "question_hook", "--style-version", "v1",
-    ]
+    ] + force_flag
     if not run(prov_cmd, REPO_ROOT):
         print("Failed: Provenance Writer", file=sys.stderr)
         return 1
@@ -80,6 +90,7 @@ def main() -> int:
     meta_cmd = [
         py, str(scripts / "write_metadata.py"),
         "--video-id", video_id, "--plan-id", args.plan_id,
+        "--shot-plan", str(out_root / "shot_plan.json"),
         "--title", "When anxiety shows up",
         "--description", "A short on noticing anxiety without fighting it.",
         "--provenance-path", provenance_path, "--batch-id", "batch-2026-03-04-001",
@@ -88,7 +99,7 @@ def main() -> int:
         "--primary-asset-ids", ",".join(primary_asset_ids),
         "--hook-type", "light_reveal", "--environment", "forest_path", "--motion-type", "slow_zoom",
         "--music-mood", "calm", "--caption-pattern", "question_hook", "--style-version", "v1",
-    ]
+    ] + force_flag
     if not run(meta_cmd, REPO_ROOT):
         print("Failed: Metadata Writer", file=sys.stderr)
         return 1

@@ -14,7 +14,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
-from scripts.video._config import load_yaml, REPO_ROOT
+from scripts.video._config import load_yaml, config_snapshot_hash, write_atomically, should_skip_output, REPO_ROOT
 
 
 def _last_complete_clause_boundary(text: str, max_chars: int) -> int:
@@ -60,6 +60,7 @@ def run_caption_adapter(timeline: dict, script_segments: dict, fmt: str, lang: s
         captions[seg_id] = {"text": adapted, "truncation_flagged": flag}
     return {
         "plan_id": timeline.get("plan_id", ""),
+        "config_hash": config_snapshot_hash(),
         "format": fmt,
         "language": lang,
         "captions": captions,
@@ -73,6 +74,7 @@ def main() -> int:
     ap.add_argument("-o", "--out", required=True, help="Output captions.json path")
     ap.add_argument("--format", default="16:9", help="Aspect format for policy")
     ap.add_argument("--lang", default="en", help="Language code")
+    ap.add_argument("--force", action="store_true", help="Overwrite output even if it already exists")
     args = ap.parse_args()
 
     tl_path = Path(args.timeline)
@@ -83,10 +85,12 @@ def main() -> int:
     timeline = json.loads(tl_path.read_text(encoding="utf-8"))
     script_segments = json.loads(seg_path.read_text(encoding="utf-8"))
 
-    result = run_caption_adapter(timeline, script_segments, args.format, args.lang)
     out_path = Path(args.out)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(result, indent=2), encoding="utf-8")
+    if should_skip_output(out_path, ["plan_id", "captions", "config_hash"], args.force, config_snapshot_hash()):
+        print(f"Skip (output exists, use --force to overwrite): {out_path}")
+        return 0
+    result = run_caption_adapter(timeline, script_segments, args.format, args.lang)
+    write_atomically(out_path, result)
     print(f"Wrote captions for {len(result['captions'])} segments to {out_path}")
     return 0
 

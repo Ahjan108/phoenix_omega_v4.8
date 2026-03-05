@@ -15,7 +15,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
-from scripts.video._config import load_yaml, load_json, REPO_ROOT
+from scripts.video._config import load_yaml, load_json, config_snapshot_hash, write_atomically, should_skip_output, REPO_ROOT
 
 
 def _load_bank(bank_path: Path) -> list[dict]:
@@ -61,6 +61,7 @@ def run_asset_resolver(shot_plan: dict, bank_path: Path | None, variant_id: str)
     return {
         "plan_id": shot_plan["plan_id"],
         "variant_id": variant_id,
+        "config_hash": config_snapshot_hash(),
         "resolved": resolved,
     }
 
@@ -71,6 +72,7 @@ def main() -> int:
     ap.add_argument("-o", "--out", required=True, help="Output resolved_assets.json path")
     ap.add_argument("--bank", help="Optional path to image bank index (JSON array or JSONL)")
     ap.add_argument("--variant-id", default="default", help="Variant for logging")
+    ap.add_argument("--force", action="store_true", help="Overwrite output even if it already exists")
     args = ap.parse_args()
 
     path = Path(args.shot_plan)
@@ -80,10 +82,12 @@ def main() -> int:
     shot_plan = json.loads(path.read_text(encoding="utf-8"))
     bank_path = Path(args.bank) if args.bank else None
 
-    result = run_asset_resolver(shot_plan, bank_path, args.variant_id)
     out_path = Path(args.out)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(result, indent=2), encoding="utf-8")
+    if should_skip_output(out_path, ["plan_id", "resolved", "config_hash"], args.force, config_snapshot_hash()):
+        print(f"Skip (output exists, use --force to overwrite): {out_path}")
+        return 0
+    result = run_asset_resolver(shot_plan, bank_path, args.variant_id)
+    write_atomically(out_path, result)
     print(f"Wrote resolved assets for {len(result['resolved'])} shots to {out_path}")
     return 0
 

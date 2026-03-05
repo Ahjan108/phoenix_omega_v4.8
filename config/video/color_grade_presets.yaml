@@ -1,0 +1,28 @@
+# Per-video color grading presets. One grade per video (not per-shot) for visual coherence.
+# Applied as FFmpeg eq (or colorbalance/curves) on the final output. Select by emotional_arc or content_type.
+
+presets:
+  neutral:
+    contrast: 1.0
+    brightness: 0.0
+    saturation: 1.0
+  warm:
+    contrast: 1.03
+    brightness: 0.01
+    saturation: 1.05
+  cool:
+    contrast: 1.0
+    brightness: -0.01
+    saturation: 0.92
+  sunset:
+    contrast: 1.02
+    brightness: 0.02
+    saturation: 1.08
+  soft:
+    contrast: 0.98
+    brightness: 0.005
+    saturation: 0.95
+
+# Map emotional arc or content_type to preset name (renderer or timeline builder uses this).
+# emotional_arc: hope -> warm; reflection -> cool; default -> neutral
+default_preset: neutral

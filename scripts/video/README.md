@@ -2,6 +2,10 @@
 
 Sequential stages per [docs/VIDEO_PIPELINE_SPEC.md](../../docs/VIDEO_PIPELINE_SPEC.md). Run against golden fixtures first.
 
+**Idempotent:** Each stage skips if output already exists (and is valid). Use `--force` to overwrite. Outputs are written atomically (temp file then rename). **Config hash:** Shot plan, resolved assets, timeline, and captions include `config_hash` (hash of `config/video/*.yaml`) so you can see which config version produced each artifact.
+
+**Storage:** Persistent artifacts go under `artifacts/video/`; ephemeral handoff (mp4s, daily_batch) goes under `staging/<date>/` and is wiped after partner ack. See [docs/VIDEO_PIPELINE_STORAGE_LAYOUT.md](../../docs/VIDEO_PIPELINE_STORAGE_LAYOUT.md).
+
 ## Order (implementation order)
 
 1. **prepare_script_segments.py** — Render manifest → script_segments (timing via WPM; optional metadata).
@@ -20,7 +24,7 @@ Sequential stages per [docs/VIDEO_PIPELINE_SPEC.md](../../docs/VIDEO_PIPELINE_SP
 python3 scripts/video/run_pipeline.py --plan-id plan-therapeutic-001
 ```
 
-Outputs under `artifacts/video/<plan_id>/` and `artifacts/video/provenance/`.
+Use `--force` to overwrite existing artifacts. Outputs under `artifacts/video/<plan_id>/` and `artifacts/video/provenance/` (persistent; never in wipe path).
 
 ## Run single stage
 

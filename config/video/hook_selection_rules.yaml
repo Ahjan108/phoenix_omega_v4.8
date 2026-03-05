@@ -1,7 +1,21 @@
 # topic_or_emotion -> preferred hook mapping; caps per batch for variety.
+# Hook types must be emotionally legible in <0.5s; map to visual_intent + motion in visual_intent_defaults.
 
 topic_or_emotion_to_hook:
   anxiety: calm_curiosity
   mythbust: slow_reveal
   default: emotional_mirror
+
+# Distribution target for feed variety. Pipeline selects hook from topic/emotion; this caps max share per type per daily batch.
 daily_batch_max_share_per_hook: 0.25
+
+# High-retention hook visuals (Gen Z/Alpha therapeutic shorts). Use same vocabulary in shot planner and image bank.
+# Motion mapping: light_reveal/hands_closeup -> slow_zoom_in; walking_path -> slow_zoom_in (illusion of forward); ripple_visual -> slow_zoom_out (expand feel). No slow_expand or slow_pan_forward until renderer supports them.
+hook_types:
+  light_reveal: 0.20
+  hands_closeup: 0.15
+  walking_path: 0.15
+  macro_symbol: 0.15
+  window_reflection: 0.10
+  big_question: 0.15
+  ripple_visual: 0.10

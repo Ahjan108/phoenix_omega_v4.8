@@ -14,7 +14,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
-from scripts.video._config import load_yaml, REPO_ROOT
+from scripts.video._config import load_yaml, config_snapshot_hash, write_atomically, should_skip_output, REPO_ROOT
 
 
 def _visual_intent_for_segment(seg: dict, index: int, hook_rules: dict) -> str:
@@ -56,9 +56,11 @@ def run_shot_planner(script_segments: dict, content_type: str) -> dict:
             "thumbnail_candidate": i == 0,
             "prompt_bundle": {"style": "warm_illustration", "motion": motion},
         })
+    config_hash = config_snapshot_hash()
     return {
         "plan_id": script_segments["plan_id"],
         "content_type": content_type,
+        "config_hash": config_hash,
         "shots": shots,
     }
 
@@ -68,6 +70,7 @@ def main() -> int:
     ap.add_argument("script_segments", help="Path to script_segments.json")
     ap.add_argument("-o", "--out", required=True, help="Output shot_plan.json path")
     ap.add_argument("--content-type", default=None, help="Override content_type (default: from script_segments)")
+    ap.add_argument("--force", action="store_true", help="Overwrite output even if it already exists")
     args = ap.parse_args()
 
     path = Path(args.script_segments)
@@ -77,11 +80,13 @@ def main() -> int:
     script_segments = json.loads(path.read_text(encoding="utf-8"))
     content_type = args.content_type or script_segments.get("content_type", "therapeutic")
 
-    plan = run_shot_planner(script_segments, content_type)
     out_path = Path(args.out)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(plan, indent=2), encoding="utf-8")
-    print(f"Wrote ShotPlan with {len(plan['shots'])} shots to {out_path}")
+    if should_skip_output(out_path, ["plan_id", "shots", "config_hash"], args.force, config_snapshot_hash()):
+        print(f"Skip (output exists, use --force to overwrite): {out_path}")
+        return 0
+    plan = run_shot_planner(script_segments, content_type)
+    write_atomically(out_path, plan)
+    print(f"Wrote ShotPlan with {len(plan['shots'])} shots to {out_path} (config_hash={plan['config_hash']})")
     return 0
 
 

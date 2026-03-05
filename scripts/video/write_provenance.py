@@ -12,6 +12,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(REPO_ROOT))
+from scripts.video._config import write_atomically, should_skip_output
 
 
 def main() -> int:
@@ -32,6 +34,7 @@ def main() -> int:
     ap.add_argument("--music-mood", default="calm")
     ap.add_argument("--caption-pattern", default="question_hook")
     ap.add_argument("--style-version", default="v1")
+    ap.add_argument("--force", action="store_true", help="Overwrite output even if it already exists with same config_hash")
     args = ap.parse_args()
 
     plan_path = Path(args.shot_plan)
@@ -47,10 +50,18 @@ def main() -> int:
     duration_s = args.duration_s or timeline.get("duration_s", 0.0)
     primary_asset_ids = [c.get("asset_id") for c in timeline.get("clips", []) if c.get("asset_id")]
 
+    config_hash = shot_plan.get("config_hash") or timeline.get("config_hash") or ""
+
+    out_path = Path(args.out)
+    if should_skip_output(out_path, ["video_id", "plan_id", "config_hash"], args.force, config_hash):
+        print(f"Skip (output exists with same config_hash, use --force to overwrite): {out_path}")
+        return 0
+
     doc = {
         "video_id": args.video_id,
         "plan_id": args.plan_id,
         "content_type": args.content_type,
+        "config_hash": config_hash,
         "duration_s": duration_s,
         "render_manifest_id": args.plan_id,
         "script_segments_id": args.plan_id,
@@ -65,9 +76,7 @@ def main() -> int:
         "style_version": args.style_version,
         "primary_asset_ids": primary_asset_ids,
     }
-    out_path = Path(args.out)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(doc, indent=2), encoding="utf-8")
+    write_atomically(out_path, doc)
     print(f"Wrote provenance to {out_path}")
     return 0
 

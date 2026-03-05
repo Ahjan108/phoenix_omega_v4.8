@@ -11,6 +11,8 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(REPO_ROOT))
+from scripts.video._config import write_atomically, should_skip_output
 
 
 def main() -> int:
@@ -31,13 +33,26 @@ def main() -> int:
     ap.add_argument("--caption-pattern", default="question_hook")
     ap.add_argument("--style-version", default="v1")
     ap.add_argument("--primary-asset-ids", default="", help="Comma-separated asset IDs (or from timeline)")
+    ap.add_argument("--shot-plan", help="Path to shot_plan.json (to read config_hash for idempotent skip)")
+    ap.add_argument("--force", action="store_true", help="Overwrite output even if it already exists with same config_hash")
     args = ap.parse_args()
 
     tags = [t.strip() for t in args.tags.split(",") if t.strip()] if args.tags else []
     primary_asset_ids = [a.strip() for a in args.primary_asset_ids.split(",") if a.strip()] if args.primary_asset_ids else []
 
+    config_hash = ""
+    if args.shot_plan and Path(args.shot_plan).exists():
+        config_hash = json.loads(Path(args.shot_plan).read_text(encoding="utf-8")).get("config_hash") or ""
+
+    out_path = Path(args.out)
+    if config_hash and should_skip_output(out_path, ["video_id", "plan_id", "config_hash"], args.force, config_hash):
+        print(f"Skip (output exists with same config_hash, use --force to overwrite): {out_path}")
+        return 0
+
     doc = {
         "video_id": args.video_id,
+        "plan_id": args.plan_id,
+        "config_hash": config_hash,
         "title": args.title,
         "description": args.description,
         "tags": tags,
@@ -52,9 +67,7 @@ def main() -> int:
         "style_version": args.style_version,
         "primary_asset_ids": primary_asset_ids,
     }
-    out_path = Path(args.out)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(doc, indent=2), encoding="utf-8")
+    write_atomically(out_path, doc)
     print(f"Wrote distribution manifest to {out_path}")
     return 0
 

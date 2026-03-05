@@ -15,7 +15,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
-from scripts.video._config import load_yaml, REPO_ROOT
+from scripts.video._config import load_yaml, config_snapshot_hash, write_atomically, should_skip_output, REPO_ROOT
 
 
 def _aspect_to_preset_key(aspect: str) -> str:
@@ -55,6 +55,7 @@ def build_timeline(shot_plan: dict, resolved: dict, aspect_ratio: str) -> dict:
         })
     return {
         "plan_id": shot_plan["plan_id"],
+        "config_hash": config_snapshot_hash(),
         "fps": 24,
         "resolution": {"width": width, "height": height},
         "aspect_ratio": aspect_ratio,
@@ -71,6 +72,7 @@ def main() -> int:
     ap.add_argument("resolved_assets", help="Path to resolved_assets.json")
     ap.add_argument("-o", "--out", required=True, help="Output timeline JSON path")
     ap.add_argument("--aspect", default="16:9", help="Aspect ratio (16:9, 9:16, 1:1)")
+    ap.add_argument("--force", action="store_true", help="Overwrite output even if it already exists")
     args = ap.parse_args()
 
     plan_path = Path(args.shot_plan)
@@ -81,10 +83,12 @@ def main() -> int:
     shot_plan = json.loads(plan_path.read_text(encoding="utf-8"))
     resolved = json.loads(res_path.read_text(encoding="utf-8"))
 
-    timeline = build_timeline(shot_plan, resolved, args.aspect)
     out_path = Path(args.out)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(timeline, indent=2), encoding="utf-8")
+    if should_skip_output(out_path, ["plan_id", "clips", "config_hash"], args.force, config_snapshot_hash()):
+        print(f"Skip (output exists, use --force to overwrite): {out_path}")
+        return 0
+    timeline = build_timeline(shot_plan, resolved, args.aspect)
+    write_atomically(out_path, timeline)
     print(f"Wrote timeline {args.aspect} to {out_path}")
     return 0
 

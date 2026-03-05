@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 QC: Validates shot_plan, timeline, resolved_assets (no consecutive same asset_id, duration/resolution sane).
-Usage: python scripts/video/run_qc.py <shot_plan.json> <resolved_assets.json> <timeline.json> [--content-type therapeutic]
+Always runs (no skip). Optionally writes qc_summary.json for provenance to reference.
+Usage: python scripts/video/run_qc.py <shot_plan.json> <resolved_assets.json> <timeline.json> [--content-type therapeutic] [--out qc_summary.json]
 """
 from __future__ import annotations
 
@@ -13,7 +14,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
-from scripts.video._config import load_yaml, REPO_ROOT
+from scripts.video._config import load_yaml, write_atomically, REPO_ROOT
 
 
 def run_qc(shot_plan: dict, resolved: dict, timeline: dict, content_type: str) -> tuple[bool, list[str]]:
@@ -47,6 +48,7 @@ def main() -> int:
     ap.add_argument("resolved_assets", help="Path to resolved_assets.json")
     ap.add_argument("timeline", help="Path to timeline.json")
     ap.add_argument("--content-type", default="therapeutic")
+    ap.add_argument("-o", "--out", help="Write qc_summary.json (passed, errors, checks) for provenance to reference")
     args = ap.parse_args()
 
     paths = [Path(args.shot_plan), Path(args.resolved_assets), Path(args.timeline)]
@@ -58,6 +60,13 @@ def main() -> int:
     timeline = json.loads(paths[2].read_text(encoding="utf-8"))
 
     passed, errors = run_qc(shot_plan, resolved, timeline, args.content_type)
+    if args.out:
+        summary = {
+            "passed": passed,
+            "errors": errors,
+            "checks": ["consecutive_asset_id", "duration", "resolution"],
+        }
+        write_atomically(Path(args.out), summary)
     if errors:
         for e in errors:
             print(f"QC: {e}", file=sys.stderr)

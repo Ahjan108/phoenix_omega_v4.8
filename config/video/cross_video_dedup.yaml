@@ -11,3 +11,9 @@ publishing_window_hours: 2
 # daily_batch (or distribution manifests) must include primary_asset_ids per video
 # so the partner or scheduler can enforce this before publish.
 require_primary_asset_ids_in_batch: true
+
+# Per-batch global cap: no single asset may appear more than this many times across
+# the entire daily output. When an asset hits the cap, it becomes unavailable for the
+# rest of the batch; coverage gaps surface in the preflight report (generate more
+# variants of high-use assets).
+max_asset_reuse_per_batch: 15
