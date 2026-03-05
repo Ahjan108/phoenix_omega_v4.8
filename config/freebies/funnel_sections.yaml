@@ -1,0 +1,17 @@
+# Optional: Hero, problem, solution, CTA for 6-section landing page. Can pull from config/marketing later.
+# Phase 1: static copy; Phase 2: consumer_language / invisible_script by topic.
+
+burnout_reset:
+  hero_headline: "Reset your nervous system in 60 seconds"
+  hero_subhead: "One breath. No sign-up walls. Use it when you need it."
+  # authority_narrative: optional; Nihala's paragraph (Section 2). Insert in template or set here.
+  problem: "Burnout doesn't fix itself with more rest. Your body is stuck in go-mode — and the same breath pattern that got you here can get you out."
+  solution: "A single, research-backed reset. No app, no account. Just the practice."
+  cta: "Yes — I'm ready to start"
+
+anxiety_reset:
+  hero_headline: "When your mind won't stop"
+  hero_subhead: "A 2-minute practice that actually shifts your state."
+  problem: "Anxiety lives in the body before it hits the mind. Telling yourself to relax rarely works."
+  solution: "This practice works with your nervous system — not against it."
+  cta: "Get the free practice"

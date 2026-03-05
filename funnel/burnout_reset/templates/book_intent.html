@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redirecting… | Phoenix Protocol</title>
+  {% if ga4_measurement_id %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ ga4_measurement_id }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', '{{ ga4_measurement_id }}');
+    gtag('event', 'book_intent', { book_slug: '{{ slug }}' });
+  </script>
+  {% endif %}
+  <meta http-equiv="refresh" content="0;url={{ target_url }}">
+  <script>window.location.replace({{ target_url|tojson }});</script>
+  <style>body{font-family:system-ui,sans-serif;text-align:center;padding:2rem;} a{color:#1a1a1a;}</style>
+</head>
+<body>
+  <p>Redirecting… <a href="{{ target_url }}">Click here if you're not redirected.</a></p>
+</body>
+</html>

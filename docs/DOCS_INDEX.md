@@ -82,8 +82,10 @@ Metadata-driven visual storytelling engine: script segments → Shot Planner →
 |------|----------|
 | **Video pipeline spec (canonical)** | [docs/VIDEO_PIPELINE_SPEC.md](./VIDEO_PIPELINE_SPEC.md) — Stage order, contracts, config refs, motion/style, handoff |
 | **Render manifest schema** | [schemas/video/render_manifest_v1.schema.json](../schemas/video/render_manifest_v1.schema.json) — Segments → atoms (plan_id, segments[], primary_atom_id, atom_refs) |
-| **Video config** | [config/video/](../config/video/) — pacing_by_content_type, caption_policies, degraded_render_policy, visual_intent_defaults, emotion_to_camera_overrides, motion_policy, hook_selection_rules, music_policy, brand_style_tokens, aspect_ratio_presets, visual_metaphor_library |
+| **Image bank asset schema** | [schemas/video/image_bank_asset_v1.schema.json](../schemas/video/image_bank_asset_v1.schema.json) — asset_id, composition_compat (per aspect), caption_safe_zone, safety_score, style_version |
+| **Video config** | [config/video/](../config/video/) — pacing_by_content_type, caption_policies, degraded_render_policy, visual_intent_defaults, emotion_to_camera_overrides, motion_policy, hook_selection_rules, music_policy, brand_style_tokens, aspect_ratio_presets, visual_metaphor_library, cross_video_dedup, asset_selection_priority |
 | **Golden fixtures** | [fixtures/video_pipeline/](../fixtures/video_pipeline/) — render_manifest, script_segments, shot_plan, timeline, distribution_manifest, video_provenance |
+| **Pipeline scripts** | [scripts/video/](../scripts/video/) — prepare_script_segments, run_shot_planner, run_asset_resolver, run_timeline_builder, run_caption_adapter, run_qc, write_provenance, write_metadata, run_render (stub), run_pipeline (orchestrator) |
 
 ---
 

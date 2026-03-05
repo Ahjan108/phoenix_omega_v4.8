@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>More books for this issue</title></head>
+<body style="font-family: system-ui, sans-serif; max-width: 36em; margin: 1rem auto; padding: 1rem; line-height: 1.6;">
+<p>{{ first_name }},</p>
+<p>You're on this list because you chose a tool that actually works. If you want to go further:</p>
+{% for item in more_books %}
+<p><a href="{{ item.url }}">{{ item.title }}</a></p>
+{% endfor %}
+<p>Use the links above when you're ready. And keep using the free practices — especially on the days you don't "need" them.</p>
+<p>— Phoenix Protocol</p>
+<p style="font-size:0.85em;color:#666;">You received this because you requested the free practice. <a href="{{ unsubscribe_url }}">Unsubscribe</a>.</p>
+</body>
+</html>

@@ -1,0 +1,44 @@
+# Second-exercise pairing for Proof Loop (Email 2). Rule: first = activation_down, second = grounding.
+# Same duration band (2–4 min); different body focus. Do NOT pair two vagal-only (e.g. cyclic_sighing + extended_exhale).
+# Authority: Expert 2; plan §2.
+
+cyclic_sighing:
+  second: box_breathing
+  mechanism: activation_down
+
+box_breathing:
+  second: body_scan
+  mechanism: grounding
+
+extended_exhale:
+  second: five_senses_grounding
+  mechanism: activation_down
+
+sigh_of_relief:
+  second: box_breathing
+  mechanism: activation_down
+
+bee_breath:
+  second: body_scan
+  mechanism: activation_down
+
+triangle_breathing:
+  second: body_scan
+  mechanism: activation_down
+
+478_breathing:
+  second: body_scan
+  mechanism: activation_down
+
+five_senses_grounding:
+  second: box_breathing
+  mechanism: grounding
+
+body_scan:
+  second: box_breathing
+  mechanism: grounding
+
+# Default fallback for unmapped exercises
+default:
+  second: box_breathing
+  mechanism: grounding

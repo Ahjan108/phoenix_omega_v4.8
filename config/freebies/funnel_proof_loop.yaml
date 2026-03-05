@@ -1,0 +1,15 @@
+# Per-topic/hub Proof Loop config. Same structure across hubs; content from here + story bank.
+# Second exercise comes from config/freebies/exercise_pairs.yaml (keyed by first_exercise).
+# Authority: freebie funnel plan (Problem-Solution Funnel at scale).
+
+burnout_reset:
+  topic: burnout
+  first_exercise: cyclic_sighing  # or list of options for multi-exercise hubs
+  story_id: burnout_nurse_story   # loads from funnel/burnout_reset/stories/burnout.md or story file
+  book_slug: burnout-reset
+
+anxiety_reset:
+  topic: anxiety
+  first_exercise: box_breathing
+  story_id: anxiety_panic_story
+  book_slug: anxiety-reset

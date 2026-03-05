@@ -1,9 +1,13 @@
 {
-  "video_id": "video-therapeutic-001",
+  "video_id": "video-plan-therapeutic-001",
   "title": "When anxiety shows up",
   "description": "A short on noticing anxiety without fighting it.",
-  "tags": ["anxiety", "mindfulness", "therapeutic"],
-  "video_provenance_path": "artifacts/video/provenance/video-therapeutic-001.json",
+  "tags": [
+    "anxiety",
+    "mindfulness",
+    "therapeutic"
+  ],
+  "video_provenance_path": "artifacts/video/provenance/video-plan-therapeutic-001.json",
   "batch_id": "batch-2026-03-04-001",
   "format": "landscape_16_9",
   "hook_type": "light_reveal",
@@ -12,5 +16,8 @@
   "music_mood": "calm",
   "caption_pattern": "question_hook",
   "style_version": "v1",
-  "primary_asset_ids": ["asset-hook-001", "asset-body-001"]
+  "primary_asset_ids": [
+    "asset-1-001",
+    "asset-2-001"
+  ]
 }

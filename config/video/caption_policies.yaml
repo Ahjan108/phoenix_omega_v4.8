@@ -3,8 +3,12 @@
 default:
   max_chars_per_line: 42
   max_lines: 2
-  strategy: reflow  # reflow | truncate
+  strategy: reflow  # reflow | truncate | reflow_then_truncate
   hook_caption_max_words: 8
+  # Truncation: at last complete clause boundary that fits; else last word boundary.
+  truncation_rule: last_complete_clause_then_word
+  # Flag for human review when displayed caption is truncated by more than this fraction of original.
+  truncation_flag_threshold_pct: 50
 
 by_language:
   en:
