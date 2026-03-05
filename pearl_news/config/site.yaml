@@ -1,0 +1,10 @@
+# Pearl News — site-level options (featured image placeholder, target length).
+
+schema_version: 1
+
+# When a feed item has no image, use this URL as featured image. Set to your default/placeholder image.
+placeholder_featured_image_url: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200"
+# Alternative: use a path relative to your site, e.g. https://pearlnewsuna.org/wp-content/uploads/default-news.jpg
+
+# Target article length (words). Placeholders aim toward this; LLM expansion can target it explicitly.
+target_word_count: 1000

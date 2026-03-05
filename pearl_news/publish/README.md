@@ -9,8 +9,8 @@ Set these in your environment or in a local `.env` file (do **not** commit `.env
 | Variable | Description |
 |----------|-------------|
 | `WORDPRESS_SITE_URL` | Site base URL, e.g. `https://pearlnewsuna.org` (no trailing slash). |
-| `WORDPRESS_USERNAME` | WordPress username for the application (e.g. the user that owns the Application Password). |
-| `WORDPRESS_APP_PASSWORD` | Application password from **WP Admin → Users → Your Profile → Application Passwords**. Generate a new one; use the generated string (spaces are stripped automatically). |
+| `WORDPRESS_USERNAME` | WordPress username for the application (e.g. `admin` for pearlnewsuna.org). |
+| `WORDPRESS_APP_PASSWORD` | Application password from **WP Admin → Users → Your Profile → Application Passwords**. For this repo, the GitHub app password is in **docs/wordpress_github_info.rtf** (last row). Spaces are stripped automatically. |
 
 **Security:** Never commit the app password. The repo already ignores `.env` and `.env.local`. See [docs/pearl_news_wordpress_env.example](../docs/pearl_news_wordpress_env.example) for placeholder variable names.
 
@@ -42,6 +42,7 @@ When using `--article path/to/file.json`, the file may contain:
 - **title** or **headline** — post title (required)
 - **content**, **body**, or **text** — post body, HTML or plain (required)
 - **slug** — optional URL slug
+- **author** — WordPress user ID for byline (teacher-assigned; pipeline alternates via `config/wordpress_authors.yaml`)
 - **categories** or **category_ids** — list of WordPress category IDs
 - **tags** or **tag_ids** — list of WordPress tag IDs
 - **featured_image** — object for main/WordPress featured image with attribution: `{ "url": "https://...", "credit": "UN News", "source_url": "https://...", "caption": "optional" }`. The image is uploaded to the Media Library and set as the post thumbnail; credit/source are stored in the media caption.
@@ -49,7 +50,7 @@ When using `--article path/to/file.json`, the file may contain:
 
 At least one image per article is recommended (as WordPress featured image). When using feed-derived articles, use the first entry from the feed item’s `images` array (from `feed_ingest`) so attribution is preserved.
 
-The script appends the Pearl News legal disclaimer to the content by default (see `legal_boundary.yaml`). Use `--no-disclaimer` to omit it.
+The legal disclaimer is on the site About page; it is not appended to each article.
 
 ## Scheduling and bulk
 

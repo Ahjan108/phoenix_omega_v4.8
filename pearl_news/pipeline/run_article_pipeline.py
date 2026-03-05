@@ -17,6 +17,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+try:
+    import yaml
+except ImportError:
+    yaml = None
+
 from pearl_news.pipeline.feed_ingest import ingest_feeds
 from pearl_news.pipeline.topic_sdg_classifier import classify_sdgs
 from pearl_news.pipeline.template_selector import select_templates
@@ -148,15 +153,41 @@ def main() -> int:
     (out_dir / "ingest_manifest.json").write_text(json.dumps(ingest_manifest, indent=2, ensure_ascii=False), encoding="utf-8")
     logger.info("Wrote %s", out_dir / "ingest_manifest.json")
 
+    # Author rotation (teacher-assigned, alternate)
+    config_root = root / "config"
+    author_ids = [1]
+    placeholder_image_url = None
+    if yaml and config_root.exists():
+        aw_path = config_root / "wordpress_authors.yaml"
+        if aw_path.exists():
+            with open(aw_path, "r", encoding="utf-8") as f:
+                aw = yaml.safe_load(f) or {}
+            author_ids = list(aw.get("author_ids") or [1])
+        site_path = config_root / "site.yaml"
+        if site_path.exists():
+            with open(site_path, "r", encoding="utf-8") as f:
+                site = yaml.safe_load(f) or {}
+            placeholder_image_url = site.get("placeholder_featured_image_url")
+
     # Build manifests (per-article audit) and final article JSON
     build_manifests = []
-    for item in articles_to_output:
+    for i, item in enumerate(articles_to_output):
         article_id = item.get("id", "")
+        author_id = author_ids[i % len(author_ids)] if author_ids else None
+        images = item.get("images") or []
+        featured_image = None
+        featured_image_url = None
+        if images and isinstance(images[0], dict) and images[0].get("url"):
+            featured_image = images[0]
+        elif placeholder_image_url:
+            featured_image_url = placeholder_image_url
+
         # Final article output (for WordPress script and humans)
         article_payload = {
             "title": item.get("article_title") or item.get("title", ""),
             "content": item.get("content", ""),
             "slug": article_id,
+            "author": author_id,
             "article_type": item.get("template_id", ""),
             "topic": item.get("topic", ""),
             "primary_sdg": item.get("primary_sdg", ""),
@@ -167,6 +198,10 @@ def main() -> int:
             "qc_passed": item.get("qc_passed", False),
             "qc_results": item.get("qc_results", {}),
         }
+        if featured_image:
+            article_payload["featured_image"] = featured_image
+        if featured_image_url:
+            article_payload["featured_image_url"] = featured_image_url
         (out_dir / f"article_{article_id}.json").write_text(json.dumps(article_payload, indent=2, ensure_ascii=False), encoding="utf-8")
         build_manifests.append(_build_manifest_item(item))
 

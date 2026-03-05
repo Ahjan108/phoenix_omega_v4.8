@@ -134,9 +134,10 @@ def post_article(
     *,
     status: str = "draft",
     slug: str | None = None,
+    author: int | None = None,
     categories: list[int] | None = None,
     tags: list[int] | None = None,
-    append_disclaimer: bool = True,
+    append_disclaimer: bool = False,
     disclaimer_text: str | None = None,
     featured_image: dict[str, Any] | None = None,
     featured_image_url: str | None = None,
@@ -148,10 +149,11 @@ def post_article(
     :param content: Post body (HTML or plain text).
     :param status: 'draft' or 'publish'. Default 'draft' for editorial review.
     :param slug: Optional URL slug; WP will derive from title if omitted.
+    :param author: Optional WordPress user ID for post author (byline); alternates when set per article.
     :param categories: List of WordPress category IDs.
     :param tags: List of WordPress tag IDs.
-    :param append_disclaimer: If True, append Pearl News disclaimer to content (default True).
-    :param disclaimer_text: Override disclaimer; if None and append_disclaimer, use short legal disclaimer.
+    :param append_disclaimer: If True, append disclaimer to content (default False; disclaimer is on site About).
+    :param disclaimer_text: Override disclaimer when append_disclaimer is True.
     :param featured_image: Optional dict with url, credit, source_url (and optional caption). Used as main/featured image; uploaded to Media and set as post thumbnail. Attribution included in caption.
     :param featured_image_url: Optional image URL only (no attribution). If featured_image not set, this is used to upload and set featured_media.
     :return: WordPress API response (post object or error payload).
@@ -179,6 +181,8 @@ def post_article(
         "categories": categories or [],
         "tags": tags or [],
     }
+    if author is not None:
+        payload["author"] = int(author)
     # Omit null slug so WP generates from title
     if payload["slug"] is None:
         del payload["slug"]

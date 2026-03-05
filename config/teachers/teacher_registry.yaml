@@ -145,6 +145,7 @@ teachers:
     display_name: "Maat"
     kb_id: "maat"
     doctrine_profile: "maat"
+    teacher_as_principle: true
     allowed_topics: *all_topics
     disallowed_topics: [manifestation, get_rich_quick]
     allowed_engines: [overwhelm, shame, spiral]

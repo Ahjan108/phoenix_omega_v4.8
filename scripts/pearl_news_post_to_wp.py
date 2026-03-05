@@ -77,6 +77,7 @@ def main() -> int:
         title = data.get("title") or data.get("headline")
         content = data.get("content") or data.get("body") or data.get("text")
         slug = data.get("slug")
+        author = data.get("author")  # WordPress user ID (teacher-assigned, alternate)
         categories = data.get("categories") or data.get("category_ids")
         tags = data.get("tags") or data.get("tag_ids")
         featured_image = data.get("featured_image")  # { url, credit, source_url, caption? }
@@ -97,6 +98,7 @@ def main() -> int:
         title = args.title
         content = args.content
         slug = None
+        author = None
         categories = None
         tags = None
         featured_image = None
@@ -120,9 +122,10 @@ def main() -> int:
             content=content,
             status=args.status,
             slug=slug or _slug_from_title(title),
+            author=author,
             categories=categories,
             tags=tags,
-            append_disclaimer=not args.no_disclaimer,
+            append_disclaimer=False,  # Disclaimer on site About; not repeated per article
             featured_image=featured_image,
             featured_image_url=featured_image_url,
         )

@@ -91,6 +91,7 @@ Metadata-driven visual storytelling engine: script segments → Shot Planner →
 | **Post–first-video backlog** | [docs/VIDEO_PIPELINE_POST_FIRST_VIDEO_BACKLOG.md](./VIDEO_PIPELINE_POST_FIRST_VIDEO_BACKLOG.md) — pipeline_version, input refs, placeholder naming, timing log, QC expansion, FFmpeg params |
 | **Visual brief (image bank)** | [docs/VIDEO_PIPELINE_VISUAL_BRIEF.md](./VIDEO_PIPELINE_VISUAL_BRIEF.md) — hook types, composition targets, emotion–visual alignment; reference for prompt/composition only |
 | **FFmpeg reference (renderer)** | [docs/VIDEO_PIPELINE_FFMPEG_REFERENCE.md](./VIDEO_PIPELINE_FFMPEG_REFERENCE.md) — zoompan, eq, drawtext/drawbox, encoding presets; render-time params only |
+| **FLUX/Shnell research (Workers AI)** | [docs/flux_shnell_research.rtf](./flux_shnell_research.rtf) — Cloudflare Workers AI FLUX API format, auth, request body, image size/aspect, prompt handling; use for video image bank generation (and any future T2I cover art) |
 
 ---
 
@@ -215,10 +216,10 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 | **Feed ingest** | [pearl_news/pipeline/feed_ingest.py](../pearl_news/pipeline/feed_ingest.py) — Ingest RSS/Atom from feeds.yaml |
 | **Topic/SDG classifier** | [pearl_news/pipeline/topic_sdg_classifier.py](../pearl_news/pipeline/topic_sdg_classifier.py) — topic, primary_sdg, sdg_labels, un_body from sdg_news_topic_mapping.yaml |
 | **Template selector** | [pearl_news/pipeline/template_selector.py](../pearl_news/pipeline/template_selector.py) — template_id per item from article_templates_index |
-| **Article assembler** | [pearl_news/pipeline/article_assembler.py](../pearl_news/pipeline/article_assembler.py) — Fills template slots (news + teacher + youth + SDG); appends disclaimer |
+| **Article assembler** | [pearl_news/pipeline/article_assembler.py](../pearl_news/pipeline/article_assembler.py) — Fills template slots (news + teacher + youth + SDG); source at end; no per-article disclaimer |
 | **Quality gates** | [pearl_news/pipeline/quality_gates.py](../pearl_news/pipeline/quality_gates.py) — 5 fail-hard gates: fact_check, youth_specificity, sdg_accuracy, promotional, un_endorsement |
 | **QC checklist** | [pearl_news/pipeline/qc_checklist.py](../pearl_news/pipeline/qc_checklist.py) — Runs gates; optionally filter to passed-only |
-| **WordPress client** | [pearl_news/publish/wordpress_client.py](../pearl_news/publish/wordpress_client.py) — REST API client; env-based credentials; appends legal disclaimer |
+| **WordPress client** | [pearl_news/publish/wordpress_client.py](../pearl_news/publish/wordpress_client.py) — REST API client; env-based credentials; optional author (alternate); no per-article disclaimer |
 
 ### Config
 
@@ -227,7 +228,7 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 | **Feeds** | [pearl_news/config/feeds.yaml](../pearl_news/config/feeds.yaml) — UN News RSS URLs, refresh_minutes |
 | **SDG/news topic mapping** | [pearl_news/config/sdg_news_topic_mapping.yaml](../pearl_news/config/sdg_news_topic_mapping.yaml) — topic → primary_sdg, sdg_labels, un_body |
 | **Article templates index** | [pearl_news/config/article_templates_index.yaml](../pearl_news/config/article_templates_index.yaml) — template_id → template file |
-| **Legal boundary** | [pearl_news/config/legal_boundary.yaml](../pearl_news/config/legal_boundary.yaml) — Mandatory disclaimers, UN-affiliation blocklist |
+| **Legal boundary** | [pearl_news/config/legal_boundary.yaml](../pearl_news/config/legal_boundary.yaml) — Disclaimer text for site About; UN-affiliation blocklist |
 | **Editorial firewall** | [pearl_news/config/editorial_firewall.yaml](../pearl_news/config/editorial_firewall.yaml) — Labeling (news vs commentary), source requirements |
 | **Template diversity** | [pearl_news/config/template_diversity.yaml](../pearl_news/config/template_diversity.yaml) — Content signatures, caps on repeated patterns |
 | **Quality gates** | [pearl_news/config/quality_gates.yaml](../pearl_news/config/quality_gates.yaml) — 5 gate definitions |
@@ -468,6 +469,7 @@ Author signature cover art base backgrounds for the first 10 authors of every ca
 | **Registry** | [config/authoring/author_cover_art_registry.yaml](../config/authoring/author_cover_art_registry.yaml) — author_id → cover_art_base, style_hint, palette_tokens |
 | **Resolver** | [phoenix_v4/planning/author_cover_art_resolver.py](../phoenix_v4/planning/author_cover_art_resolver.py) — `resolve_author_cover_art(author_id_or_teacher_id)`; fallback default |
 | **Generator** | [scripts/generate_author_cover_art_bases.py](../scripts/generate_author_cover_art_bases.py) — Pure Python PNG gradients → `assets/authors/cover_art/{author_id}_base.png` |
+| **Workers AI / FLUX (T2I reference)** | [docs/flux_shnell_research.rtf](./flux_shnell_research.rtf) — Cloudflare Workers AI FLUX API; use when adding T2I-generated cover art or video image bank |
 | **Pipeline output** | [scripts/run_pipeline.py](../scripts/run_pipeline.py) — Plan JSON: `cover_art_base`, `cover_art_style_hint`, `cover_art_palette_tokens`, `cover_variant_id` |
 | **CI gate** | [scripts/ci/check_author_cover_art.py](../scripts/ci/check_author_cover_art.py) — Launchable authors: registry + PNG + style/palette; exit 0/1 |
 | **Production gates** | [scripts/run_production_readiness_gates.py](../scripts/run_production_readiness_gates.py) — **Gate 18:** author cover art |
