@@ -1,10 +1,12 @@
 """
 Pearl News — expand article content toward target word count using an LLM (Qwen / OpenAI-compatible API).
 Allowed under llm_safety.yaml (expansion without full-article evaluation).
+Environment override: QWEN_BASE_URL, QWEN_API_KEY, QWEN_MODEL (e.g. from GitHub Actions secrets on self-hosted runner).
 """
 from __future__ import annotations
 
 import logging
+import os
 from pathlib import Path
 from typing import Any
 
@@ -18,10 +20,20 @@ logger = logging.getLogger(__name__)
 
 def _load_config(config_root: Path) -> dict[str, Any]:
     path = config_root / "llm_expansion.yaml"
-    if not path.exists() or not yaml:
-        return {}
-    with open(path, "r", encoding="utf-8") as f:
-        return yaml.safe_load(f) or {}
+    data: dict[str, Any] = {}
+    if path.exists() and yaml:
+        with open(path, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+    # Env override (e.g. GitHub Secrets on self-hosted runner with LM Studio)
+    if os.environ.get("QWEN_BASE_URL"):
+        data["base_url"] = os.environ.get("QWEN_BASE_URL", "").strip()
+    if os.environ.get("QWEN_API_KEY") is not None:
+        data["api_key"] = (os.environ.get("QWEN_API_KEY") or "").strip()
+    if os.environ.get("QWEN_MODEL"):
+        data["model"] = os.environ.get("QWEN_MODEL", "").strip()
+    if os.environ.get("QWEN_BASE_URL") and data.get("enabled") is not True:
+        data["enabled"] = True  # Enable expansion when QWEN_BASE_URL is set
+    return data
 
 
 def _load_system_prompt(prompts_root: Path) -> str:

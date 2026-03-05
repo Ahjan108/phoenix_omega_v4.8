@@ -93,6 +93,7 @@ Metadata-driven visual storytelling engine: script segments → Shot Planner →
 | **FFmpeg reference (renderer)** | [docs/VIDEO_PIPELINE_FFMPEG_REFERENCE.md](./VIDEO_PIPELINE_FFMPEG_REFERENCE.md) — zoompan, eq, drawtext/drawbox, encoding presets; render-time params only |
 | **FLUX/Shnell research (Workers AI)** | [docs/flux_shnell_research.rtf](./flux_shnell_research.rtf) — Cloudflare Workers AI FLUX API format, auth, request body, image size/aspect, prompt handling; use for video image bank generation (and any future T2I cover art) |
 | **Video color master system** | [docs/video-color-master-system.html](./video-color-master-system.html) — Canonical palette: 4 bands (Hook, Cool/Calm, Warm/Rise, Neutral/Root), per-topic hex, text-on-color previews, Shnell seed/guidance, per-band never rules; source for brand_style_tokens.yaml |
+| **Video image master prompt spec** | [docs/VIDEO_IMAGE_MASTER_PROMPT_SPEC.md](./VIDEO_IMAGE_MASTER_PROMPT_SPEC.md) — Template (foreground → Background: → Overall lighting: 9:16), anxiety/cool_calm example, Cloudflare FLUX API, run_flux_generate.py |
 
 ---
 
@@ -190,6 +191,7 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 | **Architecture spec** | [docs/PEARL_NEWS_ARCHITECTURE_SPEC.md](./PEARL_NEWS_ARCHITECTURE_SPEC.md) — Pipeline, atoms, templates, config, governance |
 | **Article metadata schema (doc)** | [docs/PEARL_NEWS_ARTICLE_METADATA_SCHEMA.md](./PEARL_NEWS_ARTICLE_METADATA_SCHEMA.md) — Frozen metadata contract for `article_metadata.jsonl`; required keys, governance use |
 | **GitHub scheduling** | [docs/PEARL_NEWS_GITHUB_SCHEDULING.md](./PEARL_NEWS_GITHUB_SCHEDULING.md) — Scheduled pipeline runs, WordPress posting, GitHub Actions, secrets |
+| **Option B runbook (Qwen/Qwen-Agent)** | [docs/PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md) — Copy Pearl News into Ahjan108/Qwen-Agent or Qwen; exact cp commands; self-hosted + LM Studio; 6 secrets; verify |
 | **Minimal prod checklist** | [docs/PEARL_NEWS_MINIMAL_PROD_CHECKLIST.md](./PEARL_NEWS_MINIMAL_PROD_CHECKLIST.md) — Code/tests must-pass + 6 operational gates; pre-merge verification, rollback procedure |
 | **GO/NO-GO checklist** | [docs/PEARL_NEWS_GO_NO_GO_CHECKLIST.md](./PEARL_NEWS_GO_NO_GO_CHECKLIST.md) — Production 100% gates: networked run, CI green, signed checklist with evidence |
 | **Hardening 100%** | [docs/PEARL_NEWS_HARDENING_100_PERCENT.md](./PEARL_NEWS_HARDENING_100_PERCENT.md) — URL normalization, one-command runner, CI preflight, evidence bundle |
@@ -666,7 +668,7 @@ Layered selection with override logic. V1 picks the winner; V2 scores the same c
 | **Learning system** | `phoenix_v4/quality/ei_v2/learner.py` — EMA-based weight/threshold tuning from hybrid feedback; per-persona/topic adjustments |
 | **Dimension gates** | `phoenix_v4/quality/ei_v2/dimension_gates.py` — Per-chapter enforcement: uniqueness, engagement, somatic precision, listen experience, cohesion |
 | **Catalog calibrator** | `scripts/ci/run_ei_v2_catalog_calibration.py` — Catalog-level threshold discovery; feeds learner with whole-catalog observations |
-| **Tests** | `tests/test_ei_v2_hybrid.py` ⚠️ *file not present* — 25 tests: learner, dimension gates, hybrid selector, config, integration (backlog) |
+| **Tests** | [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py) — 25 tests: learner, dimension gates, hybrid selector, config, integration |
 | **Learned params** | `artifacts/ei_v2/learned_params.json` — Latest learned composite weights, override margin, per-persona/topic adjustments |
 | **Learner feedback** | `artifacts/ei_v2/learner_feedback.jsonl` — Append-only log of every hybrid decision (override/keep) with full scores |
 | **Calibration report** | `artifacts/ei_v2/catalog_calibration.json` — Percentile thresholds per dimension from catalog sweep |
@@ -705,11 +707,11 @@ Layered selection with override logic. V1 picks the winner; V2 scores the same c
 | Item | Location |
 |------|----------|
 | **Checklist (Tier 0–4, canary, verification)** | [docs/MANUSCRIPT_QUALITY_IMPLEMENTATION_CHECKLIST.md](./MANUSCRIPT_QUALITY_IMPLEMENTATION_CHECKLIST.md) |
-| **Tier 0 contract config** | `config/quality/tier0_book_output_contract.yaml` ⚠️ *file not present* |
+| **Tier 0 contract config** | [config/quality/tier0_book_output_contract.yaml](../config/quality/tier0_book_output_contract.yaml) |
 | **Canary config** | `config/quality/canary_config.yaml` ⚠️ *file not present* |
-| **Tier 0 checker** | `scripts/ci/check_book_output_tier0_contract.py` ⚠️ *file not present* |
+| **Tier 0 checker** | [scripts/ci/check_book_output_tier0_contract.py](../scripts/ci/check_book_output_tier0_contract.py) |
 | **Trend dashboard** | `scripts/ci/tier0_trend.py` ⚠️ *file not present* — violations over time; observability add-on, not a production gate |
-| **Canary script** | `scripts/ci/run_canary_100_books.py` ⚠️ *file not present* |
+| **Canary script** | [scripts/ci/run_canary_100_books.py](../scripts/ci/run_canary_100_books.py) |
 | **Tests** | [tests/test_book_pass_gate.py](../tests/test_book_pass_gate.py) |
 | **Release checklist (item 12)** | [docs/RELEASE_PRODUCTION_READINESS_CHECKLIST.md](./RELEASE_PRODUCTION_READINESS_CHECKLIST.md) — block release on Tier 0 fail |
 
@@ -847,6 +849,21 @@ Pre-authored chapter-level emotional arcs that drive the Arc-First pipeline. `ch
 
 ---
 
+## How to check for missing book content
+
+**Single report:** Run [scripts/ci/content_coverage_report.py](../scripts/ci/content_coverage_report.py) from repo root. It aggregates atoms coverage (STORY + non-STORY), plan-time coverage_check (K-table + pool sizes), and teacher readiness per teacher. Writes `artifacts/content_coverage_report.json` and prints a one-page summary (missing persona×topic×engine, missing non-STORY slots, plan errors, teachers with gaps). Exit 1 if any content is missing.
+
+| What | Script / test | Output |
+|------|----------------|--------|
+| **Unified catalog atoms** | [tests/test_atoms_coverage_100_percent.py](../tests/test_atoms_coverage_100_percent.py) — STORY (persona×topic×engine) + non-STORY (persona×topic × HOOK/SCENE/REFLECTION/EXERCISE/INTEGRATION) | pytest (slow); or `python tests/test_atoms_coverage_100_percent.py`; programmatic: `run_sim_test()`, `run_non_story_sim_test()` |
+| **Plan-time coverage** | [phoenix_v4/planning/coverage_checker.py](../phoenix_v4/planning/coverage_checker.py) — K-table + pool sizes per discovered (persona, topic) | `python -m phoenix_v4.planning.coverage_checker`; or `run_coverage_check()` |
+| **Teacher readiness** | [scripts/ci/check_teacher_readiness.py](../scripts/ci/check_teacher_readiness.py) per teacher; or [scripts/ci/run_teacher_production_gates.py](../scripts/ci/run_teacher_production_gates.py) for all | `--teacher <id>`; gates loop registry and fail on first failure |
+| **Content coverage report** | [scripts/ci/content_coverage_report.py](../scripts/ci/content_coverage_report.py) | `artifacts/content_coverage_report.json` + stdout summary; `--no-teachers` to skip teacher checks |
+
+**Analysis:** [docs/CONTENT_COVERAGE_ANALYSIS.md](./CONTENT_COVERAGE_ANALYSIS.md) — What each tool covers, what is proper/complete, and where the single-report script fits.
+
+---
+
 ## Teacher Mode & production readiness (document all)
 
 Teacher Mode is **100% production-ready** when: (1) strict validation and CI gates pass on `main`, (2) E2E Teacher Mode compile smoke tests pass for all teachers, (3) release path uses only approved assets (no fallback/missing-atom warnings), (4) evidence is archived, (5) branch protection requires Teacher gates. See [TEACHER_PRODUCTION_READINESS.md](./TEACHER_PRODUCTION_READINESS.md).
@@ -946,7 +963,7 @@ Single index: every test file, how to run, markers, CI workflows, and test infra
 | **Teacher gates** | [.github/workflows/teacher-gates.yml](../.github/workflows/teacher-gates.yml) | Teacher-related path changes. run_teacher_production_gates.py, pytest teacher_arc_test, pytest test_teacher_mode_e2e_smoke. **Required for branch protection.** |
 | **Pearl News gates** | [.github/workflows/pearl_news_gates.yml](../.github/workflows/pearl_news_gates.yml) | pearl_news/**, test files. pytest test_pearl_news_quality_gates_minimal, test_pearl_news_pipeline_e2e. |
 | **Brand guards** | [.github/workflows/brand-guards.yml](../.github/workflows/brand-guards.yml) | Brand registry, locale, brand_teacher_*. check_norcal_dharma_brand_guards, check_church_yaml_no_sensitive_tokens, pytest test_norcal_dharma_brand_smoke. |
-| **EI V2 gates** | [.github/workflows/ei-v2-gates.yml](../.github/workflows/ei-v2-gates.yml) | EI code + weekly. pytest test_ei_v2.py (test_ei_v2_hybrid.py ⚠️ *file not present*), then rigorous eval, calibration, promotion gate. |
+| **EI V2 gates** | [.github/workflows/ei-v2-gates.yml](../.github/workflows/ei-v2-gates.yml) | EI code + weekly. pytest test_ei_v2.py ([test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py)), then rigorous eval, calibration, promotion gate. |
 | **Release gates** | [.github/workflows/release-gates.yml](../.github/workflows/release-gates.yml) | Release path. Production gates + rigorous test + canary + rollback smoke (includes slow tests / systems test). |
 | **Marketing config gate** | [.github/workflows/marketing-config-gate.yml](../.github/workflows/marketing-config-gate.yml) | config/marketing/**. phoenix_v4.qa.validate_marketing_config (validates YAML; not pytest). |
 
@@ -972,7 +989,7 @@ Single index: every test file, how to run, markers, CI workflows, and test infra
 | [tests/test_ei_v2_marketing_lexicons.py](../tests/test_ei_v2_marketing_lexicons.py) | EI V2 marketing: loader, tokenizer, fail-safe, calibration gate (locked thresholds) |
 | [tests/fixtures/ei_v2_marketing/](../tests/fixtures/ei_v2_marketing/) | EI V2 marketing: minimal valid 02/03/04 YAML fixtures for tests |
 | [tests/fixtures/ei_v2_marketing_calibration_eval.json](../tests/fixtures/ei_v2_marketing_calibration_eval.json) | EI V2 marketing: fixed eval set for calibration gate (domain Δ ≤ 0.12, safety Δ ≤ 0.10) |
-| `tests/test_ei_v2_hybrid.py` ⚠️ *file not present* | EI V2 hybrid: 25 tests — learner, dimension gates, hybrid selector, config, integration (backlog) |
+| [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py) | EI V2 hybrid: 25 tests — learner, dimension gates, hybrid selector, config, integration |
 | [tests/test_emotional_curve_golden.py](../tests/test_emotional_curve_golden.py) | Emotional curve golden regression |
 | [tests/test_format_selector.py](../tests/test_format_selector.py) | Format selector Stage 2 logic |
 | [tests/test_intro_ending_variation.py](../tests/test_intro_ending_variation.py) | Intro/ending variation feature flag |
@@ -1305,6 +1322,7 @@ All `scripts/ci/` files confirmed present on disk.
 |--------|---------|
 | [scripts/ci/check_docs_governance.py](../scripts/ci/check_docs_governance.py) | **DOCS_INDEX link integrity + Last updated staleness** — fails if any linked file is missing; warns on stale date |
 | [scripts/ci/check_system_governance_status.py](../scripts/ci/check_system_governance_status.py) | **System governance status** — runs all governance/report checks; JSON report to artifacts/governance/; optional --fix (DOCS_INDEX Last updated) |
+| [scripts/ci/content_coverage_report.py](../scripts/ci/content_coverage_report.py) | **Content coverage report** — single report: atoms (STORY + non-STORY), plan coverage_check, teacher readiness; writes artifacts/content_coverage_report.json + one-page summary |
 | [scripts/ci/check_author_positioning.py](../scripts/ci/check_author_positioning.py) | Author positioning validation: pen name, bio, positioning consistency |
 | [scripts/ci/check_author_cover_art.py](../scripts/ci/check_author_cover_art.py) | Author cover art: every launchable author has registry + PNG + style/palette (Gate 18) |
 | [scripts/ci/check_book_output_no_placeholders.py](../scripts/ci/check_book_output_no_placeholders.py) | Hard-fail if any placeholder pattern survives rendered output |
@@ -1485,7 +1503,7 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [WRITER_SPEC_EXTRACT_FOR_ATOMS.md](./WRITER_SPEC_EXTRACT_FOR_ATOMS.md) | Book & authoring | ✓ |
 | [FIRST_10_BOOKS_EVALUATION_PROTOCOL.md](./FIRST_10_BOOKS_EVALUATION_PROTOCOL.md) | Book & authoring | ✓ |
 | [ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md](./ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md) | Enlightened Intelligence (V1/V2) | ✓ |
-| `EI_V2_ROLLOUT_PROOF_CHECKLIST.md` | Enlightened Intelligence (V2 release) | ✓ |
+| `EI_V2_ROLLOUT_PROOF_CHECKLIST.md` | Enlightened Intelligence (V2 release) | ⚠️ missing |
 | `docs/ei_v2_branch_protection_evidence.png` | Enlightened Intelligence (V2 release) | ⚠️ missing — add screenshot after completing branch protection step |
 | [MANUSCRIPT_QUALITY_IMPLEMENTATION_CHECKLIST.md](./MANUSCRIPT_QUALITY_IMPLEMENTATION_CHECKLIST.md) | Manuscript quality | ✓ |
 | [PRODUCTION_READINESS_GO_NO_GO.md](./PRODUCTION_READINESS_GO_NO_GO.md) | Manuscript quality / release | ✓ |
@@ -1504,6 +1522,7 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [TEACHER_MODE_SYSTEM_REFERENCE.md](./TEACHER_MODE_SYSTEM_REFERENCE.md) | Atoms & formats | ✓ |
 | [TEACHER_PRODUCTION_READINESS.md](./TEACHER_PRODUCTION_READINESS.md) | Teacher Mode | ✓ |
 | [TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md](./TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md) | Coverage & ops | ✓ |
+| [CONTENT_COVERAGE_ANALYSIS.md](./CONTENT_COVERAGE_ANALYSIS.md) | How to check for missing book content | ✓ — Analysis of atoms/teacher/plan coverage tooling; single-report script |
 | [COVERAGE_HEALTH_JSON_SCHEMA.md](./COVERAGE_HEALTH_JSON_SCHEMA.md) | Coverage & ops | ✓ |
 | [TITLE_AND_CATALOG_MARKETING_SYSTEM.md](./TITLE_AND_CATALOG_MARKETING_SYSTEM.md) | Coverage & ops | ✓ |
 | [PHASE_13_C_WAVE_OPTIMIZER.md](./PHASE_13_C_WAVE_OPTIMIZER.md) | Coverage & ops | ✓ |
@@ -1626,13 +1645,13 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [.github/workflows/marketing-config-gate.yml](../.github/workflows/marketing-config-gate.yml) | Marketing & deep research | ✓ — PR gate for config/marketing/** changes |
 | [.github/workflows/teacher-gates.yml](../.github/workflows/teacher-gates.yml) | Teacher Mode | ✓ |
 | [.github/workflows/brand-guards.yml](../.github/workflows/brand-guards.yml) | Church & payout (NorCal Dharma brand guards) | ✓ |
-| `config/localization/quality_contracts/README.md` | Translation | ✓ — Quality contract definitions and thresholds |
+| `config/localization/quality_contracts/README.md` | Translation | ⚠️ missing |
 | `quality_contracts/glossary.yaml` | Translation | ⚠️ missing |
 | `quality_contracts/release_thresholds.yaml` | Translation | ⚠️ missing |
 | `quality_contracts/golden_translation_regression.yaml` | Translation | ⚠️ missing |
 | [config/localization/content_roots_by_locale.yaml](../config/localization/content_roots_by_locale.yaml) | Translation | ✓ — all 12 locales mapped with atoms_root, TTS constraints, rollout phase, distribution blockers |
-| `.github/workflows/translate-atoms-qwen-matrix.yml` | Translation | ✓ — Parallel sharded translation workflow |
-| `.github/workflows/locale-gate.yml` | Translation | ✓ — Locale validation gate: validate translations per locale, golden regression check, coverage report |
+| `.github/workflows/translate-atoms-qwen-matrix.yml` | Translation | ⚠️ missing |
+| `.github/workflows/locale-gate.yml` | Translation | ⚠️ missing |
 | [.github/workflows/core-tests.yml](../.github/workflows/core-tests.yml) | Core CI | ✓ |
 | [.github/workflows/simulation-10k.yml](../.github/workflows/simulation-10k.yml) | Simulation CI | ✓ |
 | [.github/workflows/release-gates.yml](../.github/workflows/release-gates.yml) | Release CI | ✓ |
@@ -1680,11 +1699,11 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [scripts/ci/run_ei_v2_rigorous_eval.py](../scripts/ci/run_ei_v2_rigorous_eval.py) | Enlightened Intelligence (eval) | ✓ — 10-dimension quality eval + V1/V2 comparison + timing benchmarks |
 | [scripts/ei_v2_marketing_dashboard_tab.py](../scripts/ei_v2_marketing_dashboard_tab.py) | Enlightened Intelligence V2 (marketing dashboard) | ✓ — Streamlit `render_marketing_tab()`: log tail, hashes, freshness, schema guards, optional Plotly chart |
 | [scripts/ci/check_ei_v2_promotion_gate.py](../scripts/ci/check_ei_v2_promotion_gate.py) | Enlightened Intelligence (promotion) | ✓ — Checks eval report against promotion criteria; tracks consecutive passes |
-| `phoenix_v4/quality/ei_v2/hybrid_selector.py` | Enlightened Intelligence V2 (hybrid) | ✓ — `hybrid_select()`: V1 picks → V2 scores → risk blocks → margin override → learner feedback |
-| `phoenix_v4/quality/ei_v2/learner.py` | Enlightened Intelligence V2 (learner) | ✓ — `learn()`: EMA-based weight/threshold tuning; `log_feedback()`, `load_learned_params()` |
-| `phoenix_v4/quality/ei_v2/dimension_gates.py` | Enlightened Intelligence V2 (gates) | ✓ — `enforce_chapter_gates()`: uniqueness, engagement, somatic, listen, cohesion |
-| `scripts/ci/run_ei_v2_catalog_calibration.py` | Enlightened Intelligence (calibration) | ✓ — Whole-catalog dimension gate sweep; percentile threshold discovery; learner integration |
-| `tests/test_ei_v2_hybrid.py` | Enlightened Intelligence V2 (tests) | ⚠️ *file not present* — 25 tests: learner, dimension gates, hybrid selector, config, integration (backlog) |
+| `phoenix_v4/quality/ei_v2/hybrid_selector.py` | Enlightened Intelligence V2 (hybrid) | ⚠️ missing |
+| `phoenix_v4/quality/ei_v2/learner.py` | Enlightened Intelligence V2 (learner) | ⚠️ missing |
+| `phoenix_v4/quality/ei_v2/dimension_gates.py` | Enlightened Intelligence V2 (gates) | ⚠️ missing |
+| `scripts/ci/run_ei_v2_catalog_calibration.py` | Enlightened Intelligence (calibration) | ⚠️ missing |
+| [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py) | Enlightened Intelligence V2 (tests) | ✓ — 25 tests: learner, dimension gates, hybrid selector, config, integration |
 | [phoenix_title_engine.py](../phoenix_title_engine.py) | Marketing & deep research | ✓ |
 | [phoenix_title_engine_v3.py](../phoenix_title_engine_v3.py) | Marketing & deep research | ✓ |
 | [phoenix_title_engine_v4.py](../phoenix_title_engine_v4.py) | Marketing & deep research | ✓ |
@@ -1708,11 +1727,12 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [scripts/ci/check_norcal_dharma_brand_guards.py](../scripts/ci/check_norcal_dharma_brand_guards.py) | Church & payout | ✓ |
 | [scripts/ci/check_church_yaml_no_sensitive_tokens.py](../scripts/ci/check_church_yaml_no_sensitive_tokens.py) | Church & payout | ✓ |
 | [scripts/ci/check_system_governance_status.py](../scripts/ci/check_system_governance_status.py) | Governance — all checks + report; optional --fix | ✓ |
+| [scripts/ci/content_coverage_report.py](../scripts/ci/content_coverage_report.py) | Content coverage — atoms + plan + teacher readiness; single report | ✓ |
 | [scripts/rebuild_freebie_index_from_plans.py](../scripts/rebuild_freebie_index_from_plans.py) | Freebies — rebuild index from blessed plans (Gate 16/16b) | ✓ |
 | [scripts/ops/smoke_church_brand_resolution.py](../scripts/ops/smoke_church_brand_resolution.py) | Church & payout | ✓ |
 | [phoenix_v4/ops/church_loader.py](../phoenix_v4/ops/church_loader.py) | Church & payout | ✓ |
-| `scripts/translate_atoms_all_locales_cloud.py` | Translation | ✓ — Parallel sharded translation to all locales |
-| `scripts/validate_translations.py` | Translation | ✓ — Structure, encoding, glossary, golden regression |
-| `scripts/merge_translation_shards.py` | Translation | ✓ — Merges parallel shard outputs; conflict detection |
-| `scripts/check_golden_translation.py` | Translation | ✓ — Regression against golden samples |
-| `scripts/native_prompts_eval_learn.py` | Translation | ✓ — Native-speaker eval prompts; 4 evaluation dimensions |
+| `scripts/translate_atoms_all_locales_cloud.py` | Translation | ⚠️ missing |
+| `scripts/validate_translations.py` | Translation | ⚠️ missing |
+| `scripts/merge_translation_shards.py` | Translation | ⚠️ missing |
+| `scripts/check_golden_translation.py` | Translation | ⚠️ missing |
+| `scripts/native_prompts_eval_learn.py` | Translation | ⚠️ missing |

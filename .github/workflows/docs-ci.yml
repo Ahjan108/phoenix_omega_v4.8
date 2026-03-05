@@ -28,8 +28,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Docs governance (links + freshness + authority)
+      - name: Docs governance (links + freshness + inventory + authority)
         run: |
-          PYTHONPATH=. python scripts/ci/check_docs_governance.py
+          PYTHONPATH=. python scripts/ci/check_docs_governance.py --check-inventory
       - name: Church YAML no sensitive tokens (ssn, account_number, etc.)
         run: python scripts/ci/check_church_yaml_no_sensitive_tokens.py
