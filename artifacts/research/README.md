@@ -1,6 +1,6 @@
 # Research artifacts (generational deep research)
 
-Outputs from the Pearl News generational research pipeline. See [docs/continue_gen_research3.md](../../docs/continue_gen_research3.md).
+Outputs from the Pearl News generational research pipeline. See [docs/research/continue_gen_research3.md](../../docs/research/continue_gen_research3.md).
 
 | Directory | Contents |
 |-----------|----------|

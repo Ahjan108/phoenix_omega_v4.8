@@ -1,6 +1,6 @@
 # Generational research scripts
 
-Run two-pass Qwen3 generational research locally. See [docs/continue_gen_research3.md](../../docs/continue_gen_research3.md).
+Run two-pass Qwen3 generational research locally. See [docs/research/continue_gen_research3.md](../../docs/research/continue_gen_research3.md).
 
 ## Prerequisites
 

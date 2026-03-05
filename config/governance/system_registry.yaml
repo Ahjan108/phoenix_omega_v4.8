@@ -1,0 +1,86 @@
+# System/domain registry for change observation and impact.
+# Authority: docs/CHANGE_OBSERVATION_AND_IMPACT_SPEC.md
+# Consumed by: scripts/observability/detect_changes.py, impact_from_changes.py
+
+schema_version: "1.0"
+
+systems:
+  marketing:
+    name: Marketing & deep research
+    domain: marketing
+    assets:
+      - config/marketing/**/*.yaml
+      - docs/research/MARKETING_DEEP_RESEARCH_PROMPTS.md
+      - docs/research/RESEARCH_FEED_SOURCES.md
+      - phoenix_title_engine*.py
+    related_systems: [title_engine, pearl_news]
+    downstream: [.github/workflows/marketing-config-gate.yml]
+
+  title_engine:
+    name: Title engine
+    domain: marketing
+    assets:
+      - phoenix_title_engine_v4.py
+      - config/marketing/**/*.yaml
+    related_systems: [marketing]
+    downstream: []
+
+  pearl_news:
+    name: Pearl News
+    domain: pearl_news
+    assets:
+      - pearl_news/**/*.py
+      - pearl_news/**/*.yaml
+      - docs/PEARL_NEWS_WRITER_SPEC.md
+      - docs/research/*.md
+    related_systems: [marketing]
+    downstream: [.github/workflows/pearl_news_gates.yml]
+
+  teacher_mode:
+    name: Teacher Mode
+    domain: teacher_mode
+    assets:
+      - config/teachers/**/*.yaml
+      - SOURCE_OF_TRUTH/teacher_banks/**/*
+      - tools/teacher_mining/**/*.py
+      - specs/TEACHER_MODE*.md
+    related_systems: []
+    downstream: [.github/workflows/teacher-gates.yml]
+
+  observability:
+    name: Observability (POLES)
+    domain: observability
+    assets:
+      - config/observability_production_signals.yaml
+      - scripts/observability/**/*.py
+      - docs/PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md
+    related_systems: []
+    downstream: [.github/workflows/production-observability.yml]
+
+  freebies:
+    name: Freebie funnel
+    domain: freebies
+    assets:
+      - config/freebies/**/*.yaml
+      - phoenix_v4/planning/freebie_planner.py
+      - phoenix_v4/tools/generate_html_freebie.py
+      - specs/PHOENIX_FREEBIE_SYSTEM_SPEC.md
+    related_systems: [marketing]
+    downstream: []
+
+  ei_v2:
+    name: Enlightened Intelligence V2
+    domain: quality
+    assets:
+      - phoenix_v4/quality/ei_v2/**/*.py
+      - config/quality/ei_v2_*.yaml
+    related_systems: []
+    downstream: [.github/workflows/ei-v2-gates.yml]
+
+  ml_loop:
+    name: ML autonomous loop
+    domain: ml
+    assets:
+      - docs/ML_AUTONOMOUS_LOOP_SPEC.md
+    related_systems: []
+    downstream: []

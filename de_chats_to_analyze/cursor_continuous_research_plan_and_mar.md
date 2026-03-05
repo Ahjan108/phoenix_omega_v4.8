@@ -625,7 +625,7 @@ Creating the master spec document.
 
 Summary of what was implemented:
 
-**1. Master spec — [docs/continue_gen_research3.md](docs/continue_gen_research3.md)**  
+**1. Master spec — [docs/research/continue_gen_research3.md](../docs/research/continue_gen_research3.md)**  
 - Single generational-research spec: 3 core layers (Psychology, Problems/Aspirations, Event Impact) plus optional Narrative, Linguistic, Platform.  
 - Pipeline: Ingestion → Contextual Triangulation → Synthesis; two-pass YAML; Contradiction Audit and Persona Switching; youth signal sources; folder layout; Qwen3 run details and provenance.
 
@@ -642,7 +642,7 @@ Summary of what was implemented:
 **4. Feed config and docs**  
 - [config/research/youth_feed_sources.yaml](config/research/youth_feed_sources.yaml): RSS (e.g. UNICEF, UN Youth) and platform list (TikTok, Reddit, YouTube, Discord, Instagram).  
 - [config/research/marketing_feed_sources.yaml](config/research/marketing_feed_sources.yaml): APA, PW, Spotify, Library Journal.  
-- [docs/RESEARCH_FEED_SOURCES.md](docs/RESEARCH_FEED_SOURCES.md): Youth + marketing sources and how to use them.  
+- [docs/research/RESEARCH_FEED_SOURCES.md](../docs/research/RESEARCH_FEED_SOURCES.md): Youth + marketing sources and how to use them.  
 - [docs/MARKETING_FREE_SOURCES.md](docs/MARKETING_FREE_SOURCES.md): Free audiobook/marketing sources.
 
 **5. Ingest workflow — [.github/workflows/research_feeds_ingest.yml](.github/workflows/research_feeds_ingest.yml)**  
@@ -652,7 +652,7 @@ Summary of what was implemented:
 - Subdirs with `.gitkeep`: `raw/`, `youth_feed_snapshots/`, `psychology/`, `pain_points/`, `world_events/`, `narrative/`, `platform/`, `manifests/`, `marketing_sources/`.  
 - [artifacts/research/README.md](artifacts/research/README.md) describes each dir.
 
-**7. Continuous research plan — [docs/CONTINUOUS_RESEARCH_PLAN.md](docs/CONTINUOUS_RESEARCH_PLAN.md)**  
+**7. Continuous research plan — [docs/research/CONTINUOUS_RESEARCH_PLAN.md](../docs/research/CONTINUOUS_RESEARCH_PLAN.md)**  
 - Describes local Qwen3-only setup, two-pass flow, youth signal sources, where everything lives, and options for running continuously (scheduled ingest, local cron, self-hosted runner).
 
 **8. DOCS_INDEX**  

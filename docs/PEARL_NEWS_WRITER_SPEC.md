@@ -2,7 +2,7 @@
 
 **Last updated:** 2026-03-05
 **Authority:** This file governs all Pearl News article writing, expansion prompts, and atom authoring.
-**Related:** `pearl_news/prompts/expansion_system.txt`, `pearl_news/config/quality_gates.yaml`, `pearl_news/config/editorial_firewall.yaml`, `docs/continue_gen_research3.md`
+**Related:** `pearl_news/prompts/expansion_system.txt`, `pearl_news/config/quality_gates.yaml`, `pearl_news/config/editorial_firewall.yaml`, `docs/research/continue_gen_research3.md`
 
 ---
 

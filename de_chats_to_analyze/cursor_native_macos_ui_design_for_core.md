@@ -103,8 +103,8 @@ Summary of updates to the plan:
 - **Phase 4 (Learn/enhance):** Not yet — no weekly trend / baseline learning loop; app shows “Planned” or “Not implemented.”
 
 **3. POLES vs marketing doc**
-- Observability tab is defined by [PRODUCTION_OBSERVABILITY_LEARNING_SPEC](docs/PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md) (POLES), not the marketing doc.
-- [MARKETING_DEEP_RESEARCH_PROMPTS.md](docs/MARKETING_DEEP_RESEARCH_PROMPTS.md) is called out as **100% for the marketing prompt framework** and explicitly **does not replace** the observability spec.
+- Observability tab is defined by [PRODUCTION_OBSERVABILITY_LEARNING_SPEC](../docs/PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md) (POLES), not the marketing doc.
+- [MARKETING_DEEP_RESEARCH_PROMPTS.md](../docs/research/MARKETING_DEEP_RESEARCH_PROMPTS.md) is called out as **100% for the marketing prompt framework** and explicitly **does not replace** the observability spec.
 
 **4. Docs & Config tab**
 - Lists both POLES and MARKETING_DEEP_RESEARCH_PROMPTS; marketing doc is described as “marketing prompt framework only — does not replace observability spec.”

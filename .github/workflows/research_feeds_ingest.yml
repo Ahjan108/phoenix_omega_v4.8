@@ -1,6 +1,6 @@
 # Research feeds ingest — fetch RSS from config/research/youth_feed_sources.yaml
 # and save to artifacts/research/raw/<date>. No model run; for use with local Qwen3.
-# See docs/continue_gen_research3.md and docs/RESEARCH_FEED_SOURCES.md.
+# See docs/research/continue_gen_research3.md and docs/research/RESEARCH_FEED_SOURCES.md.
 name: Research feeds ingest
 
 on:

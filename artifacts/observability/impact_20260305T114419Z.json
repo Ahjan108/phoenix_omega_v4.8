@@ -1,0 +1,14 @@
+{
+  "affected_systems": [
+    "observability"
+  ],
+  "downstream_signals_workflows": [
+    {
+      "system": "observability",
+      "downstream": ".github/workflows/production-observability.yml"
+    }
+  ],
+  "related_systems": [],
+  "event_count": 27,
+  "run_at": "2026-03-05T11:44:19.465491Z"
+}

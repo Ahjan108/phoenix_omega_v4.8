@@ -51,18 +51,21 @@ def build_index(teacher_id: str, exclude_doc_ids: list[str] | None = None) -> di
     exclude = set(exclude_doc_ids or [])
     index: dict = {"teacher_id": teacher_id, "documents": [], "chunks": []}
     doc_list = []
-    for path in sorted(raw.iterdir()):
+    for path in sorted(raw.rglob("*")):
+        if path.is_dir():
+            continue
         if path.name.startswith(".") or path.suffix.lower() not in (".rtf", ".txt", ".md"):
             continue
-        doc_id = f"raw/{path.name}"
-        if path.name in exclude or doc_id in exclude:
+        rel = path.relative_to(raw)
+        doc_id = f"raw/{rel.as_posix()}"
+        if rel.as_posix() in exclude or path.name in exclude or doc_id in exclude:
             continue
         text = extract_text(path)
         if not text.strip():
             continue
         entry = {
             "doc_id": doc_id,
-            "path": path.name,
+            "path": rel.as_posix(),
             "text": text,
             "char_count": len(text),
             "content_hash": hashlib.sha256(text.encode("utf-8")).hexdigest()[:16],

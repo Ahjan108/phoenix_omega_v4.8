@@ -1,0 +1,12 @@
+# Canary run configuration for manuscript quality.
+# Used by scripts/ci/run_canary_100_books.py and related gates.
+
+schema_version: "1.0"
+
+# Sample size and arc selection
+sample_size: 100
+max_failures: 0
+
+# Optional: restrict to specific personas/topics for canary
+# personas: []
+# topics: []

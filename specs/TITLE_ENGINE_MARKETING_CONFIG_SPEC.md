@@ -133,7 +133,7 @@ Unified compliance gate: a single code path SHOULD use config when available and
 |----------|-----|
 | Title engine v4 | Compliance filter, search/bridge language, `generate_invisible_script()` |
 | HOOK atom seeds | Invisible-script ideas from `invisible_scripts_by_persona_topic.yaml` for authoring |
-| Deep research ingestion | Outputs from marketing deep research prompts land in these two files (see docs/MARKETING_DEEP_RESEARCH_PROMPTS.md) |
+| Deep research ingestion | Outputs from marketing deep research prompts land in these two files (see docs/research/MARKETING_DEEP_RESEARCH_PROMPTS.md) |
 
 ---
 

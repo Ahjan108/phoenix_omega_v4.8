@@ -26,7 +26,7 @@ struct DocsConfigView: View {
                         docLink("DOCS_INDEX", "docs/DOCS_INDEX.md")
                         docLink("Branch protection", "docs/BRANCH_PROTECTION_REQUIREMENTS.md")
                         docLink("Observability spec", "docs/PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md")
-                        docLink("Marketing prompts", "docs/MARKETING_DEEP_RESEARCH_PROMPTS.md")
+                        docLink("Marketing prompts", "docs/research/MARKETING_DEEP_RESEARCH_PROMPTS.md")
                     }
                 }
 

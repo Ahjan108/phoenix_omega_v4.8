@@ -1,0 +1,10 @@
+# Golden segments for translation regression tests.
+# Each segment has source (en_US) and expected translations per locale.
+
+schema_version: "1.0"
+
+segments: []
+# Example:
+#   - id: golden_1
+#     en_US: "Your nervous system fires an alarm."
+#     hu_HU: ""

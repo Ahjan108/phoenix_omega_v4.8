@@ -2,7 +2,7 @@
 
 **Purpose:** Single buildable spec for the Pearl News generational intelligence engine. Merges File 1 (continue_gen_research.rtf), File 2 (continue_gen_research2.rtf), and editor feedback. **Runtime:** Local Qwen3-14B-GGUF only (llama.cpp/Ollama). No Gemini. No external APIs for inference.
 
-**Related:** [CONTINUOUS_RESEARCH_PLAN.md](CONTINUOUS_RESEARCH_PLAN.md), [PEARL_NEWS_WRITER_SPEC.md](PEARL_NEWS_WRITER_SPEC.md), [MARKETING_DEEP_RESEARCH_PROMPTS.md](MARKETING_DEEP_RESEARCH_PROMPTS.md).
+**Related:** [CONTINUOUS_RESEARCH_PLAN.md](CONTINUOUS_RESEARCH_PLAN.md), [PEARL_NEWS_WRITER_SPEC.md](../PEARL_NEWS_WRITER_SPEC.md), [MARKETING_DEEP_RESEARCH_PROMPTS.md](MARKETING_DEEP_RESEARCH_PROMPTS.md).
 
 ---
 

@@ -1,0 +1,7 @@
+# Payee registry for Phoenix Churches Payout (24 payees).
+# Populate display_name, bank_last4 per CHECKLIST.md.
+
+schema_version: "1.0"
+
+payees: []
+# Example: { id: PAYEE_01, display_name: "Name", bank_last4: "5678" }

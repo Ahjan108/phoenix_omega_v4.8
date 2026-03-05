@@ -1,0 +1,46 @@
+# Change observation and impact — run detect + impact on PR.
+# Authority: docs/CHANGE_OBSERVATION_AND_IMPACT_SPEC.md
+name: Change impact
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  change-impact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Detect changes
+        run: |
+          BASE="${{ github.event.pull_request.base.sha || 'HEAD~1' }}"
+          HEAD="${{ github.event.pull_request.head.sha || github.sha }}"
+          if [ "${{ github.event_name }}" = "push" ]; then
+            BASE="HEAD~1"
+            HEAD="HEAD"
+          fi
+          PYTHONPATH=. python scripts/observability/detect_changes.py --base "$BASE" --head "$HEAD" \
+            --out artifacts/observability/change_events.jsonl
+
+      - name: Impact from changes
+        run: |
+          PYTHONPATH=. python scripts/observability/impact_from_changes.py \
+            --events artifacts/observability/change_events.jsonl
+
+      - name: Upload change artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: change-impact-${{ github.run_id }}
+          path: artifacts/observability/
