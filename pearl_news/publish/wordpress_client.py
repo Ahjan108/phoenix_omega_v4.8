@@ -6,12 +6,13 @@ Credentials are read from environment variables only (never committed):
   WORDPRESS_USERNAME   — WP username (e.g. application user)
   WORDPRESS_APP_PASSWORD — Application password from WP Admin > Users > Profile > Application Passwords
 
-Uses Basic Auth; posts to /wp-json/wp/v2/posts. Supports featured image: upload from URL then set featured_media.
+Uses Basic Auth; posts to /wp-json/wp/v2/posts. Supports featured image: upload from URL or from local file path.
 """
 from __future__ import annotations
 
 import base64
 import os
+from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
@@ -128,6 +129,57 @@ def _upload_media_from_url(
     return int(att_id)
 
 
+def _upload_media_from_file(
+    site_url: str,
+    username: str,
+    app_password: str,
+    file_path: Path | str,
+    caption: str | None = None,
+    alt_text: str | None = None,
+) -> int:
+    """
+    Upload image from local file to WordPress Media Library. Returns attachment ID.
+    :raises WordPressPublishError: On file read or upload failure.
+    """
+    if requests is None:
+        raise WordPressPublishError("Install requests: pip install requests")
+    path = Path(file_path)
+    if not path.exists() or not path.is_file():
+        raise WordPressPublishError(f"Featured image file not found: {path}")
+    data = path.read_bytes()
+    filename = path.name
+    files = {"file": (filename, data, "application/octet-stream")}
+    upload_url = f"{site_url}/wp-json/wp/v2/media"
+    headers = _auth_headers(username, app_password)
+    headers.pop("Content-Type", None)
+    r = requests.post(upload_url, headers=headers, files=files, timeout=30)
+    if not r.ok:
+        try:
+            err = r.json()
+        except Exception:
+            err = {"message": r.text or r.reason}
+        raise WordPressPublishError(f"WordPress media upload error {r.status_code}: {err}")
+    media = r.json()
+    att_id = media.get("id")
+    if not att_id:
+        raise WordPressPublishError("WordPress media upload returned no attachment id")
+    if caption or alt_text:
+        patch_url = f"{site_url}/wp-json/wp/v2/media/{att_id}"
+        patch_body: dict[str, Any] = {}
+        if caption:
+            patch_body["caption"] = {"raw": caption}
+        if alt_text:
+            patch_body["alt_text"] = alt_text
+        if patch_body:
+            requests.patch(
+                patch_url,
+                headers={**_auth_headers(username, app_password), "Content-Type": "application/json"},
+                json=patch_body,
+                timeout=15,
+            )
+    return int(att_id)
+
+
 def post_article(
     title: str,
     content: str,
@@ -141,6 +193,7 @@ def post_article(
     disclaimer_text: str | None = None,
     featured_image: dict[str, Any] | None = None,
     featured_image_url: str | None = None,
+    featured_image_path: str | Path | None = None,
 ) -> dict[str, Any]:
     """
     Post a Pearl News article to WordPress via REST API.
@@ -154,8 +207,9 @@ def post_article(
     :param tags: List of WordPress tag IDs.
     :param append_disclaimer: If True, append disclaimer to content (default False; disclaimer is on site About).
     :param disclaimer_text: Override disclaimer when append_disclaimer is True.
-    :param featured_image: Optional dict with url, credit, source_url (and optional caption). Used as main/featured image; uploaded to Media and set as post thumbnail. Attribution included in caption.
-    :param featured_image_url: Optional image URL only (no attribution). If featured_image not set, this is used to upload and set featured_media.
+    :param featured_image: Optional dict with url, credit, source_url (and optional caption). Uploaded to Media and set as post thumbnail.
+    :param featured_image_url: Optional image URL (no attribution). If featured_image not set, upload from this URL.
+    :param featured_image_path: Optional path to local image file (e.g. pearl_news/del_intake_pics/...). Upload from file when no URL.
     :return: WordPress API response (post object or error payload).
     :raises WordPressPublishError: On missing credentials, missing requests, or API error.
     """
@@ -187,7 +241,7 @@ def post_article(
     if payload["slug"] is None:
         del payload["slug"]
 
-    # Featured image: upload from URL then set featured_media
+    # Featured image: upload from URL, or from local file path, then set featured_media
     image_url = None
     caption = None
     alt_text = None
@@ -208,6 +262,14 @@ def post_article(
             caption=caption, alt_text=alt_text,
         )
         payload["featured_media"] = att_id
+    elif featured_image_path:
+        path = Path(featured_image_path)
+        if path.exists():
+            att_id = _upload_media_from_file(
+                site_url, username, app_password, path,
+                alt_text=f"Image for: {title}",
+            )
+            payload["featured_media"] = att_id
 
     headers = _auth_headers(username, app_password)
     response = requests.post(url, headers=headers, json=payload, timeout=30)

@@ -1,8 +1,137 @@
-# Palette and style tokens per emotional_band. Placeholder for full brand system.
+# Canonical reference: docs/video-color-master-system.html
+# Bands: Hook (0–3s), Cool/Calm, Warm/Rise, Neutral/Root.
+# Pipeline: resolve topic/emotional_band via topic_to_band → band → palette + never_rules + generation_spec.
 
-# TODO: expand with hex/HSL and style_version references
-emotional_bands:
-  calm: {}
-  curiosity: {}
-  subdued: {}
-  default: {}
+topic_to_band:
+  anxiety: cool_calm
+  depression: cool_calm
+  burnout: cool_calm
+  grief: cool_calm
+  anger: warm_rise
+  self_worth: warm_rise
+  self_love: warm_rise
+  purpose: warm_rise
+  boundaries: neutral_root
+  jealousy: neutral_root
+  default: cool_calm
+
+bands:
+  hook:
+    description: "First 3 seconds. Scroll-stop. Topic-agnostic. Thumbnail = hook."
+    palette:
+      thumbnails:
+        - { hex: "#F5C842", prompt_name: "butter gold" }
+        - { hex: "#F0A500", prompt_name: "amber" }
+        - { hex: "#1A1714", prompt_name: "near black" }
+        - { hex: "#FFFFFF", prompt_name: "white" }
+      broll:
+        - { hex: "#FF6B3D", prompt_name: "warm citrus" }
+        - { hex: "#FFE566", prompt_name: "soft yellow" }
+        - { hex: "#FFA94D", prompt_name: "warm orange" }
+        - { hex: "#2A2218", prompt_name: "dark warm" }
+    spec:
+      thumbnail_bg: "#1A1714"
+      title_color: "#F5C842"
+      accent: "#F0A500"
+      broll_grade: "warm_citrus"
+      text_primary: "#FFFFFF"
+      text_emphasis: "#F5C842"
+      duration: "0-3 seconds only"
+    never_rules: []
+
+  cool_calm:
+    description: "Anxiety, Depression, Burnout, Grief. Cortisol-reducing. Never cold."
+    generation_spec:
+      shnell_seed: 739204
+      guidance: 3.0
+    grade_direction: "cool shift, desaturate midtones, preserve warm in shadows"
+    never_rules:
+      - "high contrast"
+      - "forced brightness"
+      - "saturated accent on grief/depression"
+    topics:
+      anxiety:
+        emotion_arc: "slate blue to pale mist"
+        palette:
+          - { hex: "#7B8FA1", prompt_name: "slate blue grey" }
+          - { hex: "#C5D1DB", prompt_name: "pale mist blue" }
+          - { hex: "#E8EDF1", prompt_name: "pale mist" }
+      depression:
+        emotion_arc: "deep indigo to warm glow"
+        palette:
+          - { hex: "#2D2B4E", prompt_name: "deep indigo" }
+          - { hex: "#4B3F6B", prompt_name: "muted violet" }
+          - { hex: "#F0C87E", prompt_name: "warm glow" }
+      burnout:
+        emotion_arc: "warm sand to earthy rest"
+        palette:
+          - { hex: "#C4A882", prompt_name: "warm sand" }
+          - { hex: "#D9C4A6", prompt_name: "linen" }
+          - { hex: "#8B6F47", prompt_name: "earth brown" }
+      grief:
+        emotion_arc: "lavender gray, no drama"
+        palette:
+          - { hex: "#8A849A", prompt_name: "lavender grey" }
+          - { hex: "#B0AABC", prompt_name: "soft lavender" }
+          - { hex: "#E0DCE8", prompt_name: "pale lavender" }
+
+  warm_rise:
+    description: "Anger, Self-Worth, Self-Love, Purpose. Activation energy. Never passive."
+    generation_spec:
+      shnell_seed: 482910
+      guidance: 3.5
+    grade_direction: "warm push, lifted shadows, rich highlights, high contrast OK on Anger only"
+    never_rules:
+      - "cool tones"
+      - "flat grades"
+      - "grey in any form"
+    topics:
+      anger:
+        emotion_arc: "deep crimson to gold refinement"
+        palette:
+          - { hex: "#8B2D2D", prompt_name: "deep crimson" }
+          - { hex: "#D4614A", prompt_name: "warm terracotta" }
+          - { hex: "#F0C75E", prompt_name: "gold" }
+      self_worth:
+        emotion_arc: "gold to amber luminosity"
+        palette:
+          - { hex: "#D4AF5A", prompt_name: "gold" }
+          - { hex: "#E8C97A", prompt_name: "amber" }
+          - { hex: "#8B6820", prompt_name: "bronze" }
+      self_love:
+        emotion_arc: "rose to blush softness"
+        palette:
+          - { hex: "#C47A8A", prompt_name: "dusty rose" }
+          - { hex: "#D9A0AA", prompt_name: "blush" }
+          - { hex: "#F0D4D8", prompt_name: "pale blush" }
+      purpose:
+        emotion_arc: "sunrise orange to dawn gold"
+        palette:
+          - { hex: "#E8823A", prompt_name: "sunrise orange" }
+          - { hex: "#F0B060", prompt_name: "warm gold" }
+          - { hex: "#FFF0D0", prompt_name: "dawn cream" }
+
+  neutral_root:
+    description: "Boundaries, Jealousy. Structural, authoritative, clear. Competence signal."
+    generation_spec:
+      shnell_seed: 156783
+      guidance: 3.2
+    grade_direction: "crisp and clean, structured, no bloom, no soft diffusion"
+    never_rules:
+      - "pale green #90EE90"
+      - "warm tones"
+      - "emotional softness in composition"
+    topics:
+      boundaries:
+        emotion_arc: "steel blue to clear sky"
+        palette:
+          - { hex: "#2A4A6B", prompt_name: "steel blue dark" }
+          - { hex: "#4682B4", prompt_name: "steel blue" }
+          - { hex: "#B0C4DE", prompt_name: "light steel blue" }
+          - { hex: "#E8EDF5", prompt_name: "clear sky" }
+      jealousy:
+        emotion_arc: "deep forest to emerald light"
+        palette:
+          - { hex: "#3A7A5A", prompt_name: "deep forest green" }
+          - { hex: "#5A9A7A", prompt_name: "emerald" }
+          - { hex: "#A8D4BC", prompt_name: "soft sage" }

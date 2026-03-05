@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Color Master System</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bg: #f5f1eb;
+  --ink: #1a1714;
+  --muted: #9a9188;
+  --rule: rgba(26,23,20,0.12);
+  --cool: #7B8FA1;
+  --warm: #C4813A;
+  --neutral: #4682B4;
+  --hook: #F0A500;
+}
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.page { max-width: 1080px; margin: 0 auto; padding: 60px 32px; }
+
+/* MASTHEAD */
+.masthead {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 24px;
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  animation: fadeIn 0.5s ease;
+}
+.masthead-left .vol {
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.masthead-left h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.masthead-right {
+  text-align: right;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  line-height: 2;
+}
+
+/* BAND TABS */
+.band-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--rule);
+}
+.band-tab {
+  padding: 10px 20px;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-bottom: none;
+  margin-bottom: -1px;
+  background: transparent;
+  color: var(--muted);
+  transition: all 0.15s;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.band-tab:hover { color: var(--ink); }
+.band-tab.active {
+  background: var(--bg);
+  border-color: var(--rule);
+  color: var(--ink);
+  font-weight: 500;
+}
+.band-tab .tab-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* PANELS */
+.panel { display: none; padding-top: 40px; }
+.panel.active { display: block; animation: fadeIn 0.3s ease; }
+
+/* SECTION TITLE */
+.sec-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 4px;
+}
+.sec-desc {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 32px;
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+/* USE CASE GRID */
+.use-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-bottom: 40px;
+}
+.use-card {
+  border: 1px solid var(--rule);
+  background: white;
+  overflow: hidden;
+}
+.use-card-header {
+  padding: 12px 16px 8px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.use-icon { font-size: 12px; }
+.use-swatch-bar {
+  height: 48px;
+  display: flex;
+}
+.use-swatch {
+  flex: 1;
+  position: relative;
+  cursor: pointer;
+  transition: flex 0.25s ease;
+}
+.use-swatch:hover { flex: 2; }
+.use-swatch-hex {
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 7px;
+  color: rgba(255,255,255,0.85);
+  white-space: nowrap;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+  font-family: 'IBM Plex Mono', monospace;
+  pointer-events: none;
+}
+.use-card-body {
+  padding: 12px 16px;
+}
+.use-card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.use-rule-list {
+  list-style: none;
+  font-size: 9px;
+  color: var(--muted);
+  line-height: 2;
+  letter-spacing: 0.03em;
+}
+.use-rule-list li::before { content: '→ '; color: var(--ink); }
+
+/* TOPIC TABLE */
+.topic-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+}
+.topic-table th {
+  text-align: left;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.topic-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: middle;
+  font-size: 10px;
+}
+.topic-table tr:hover td { background: rgba(0,0,0,0.02); }
+.t-swatches { display: flex; gap: 4px; }
+.t-swatch {
+  width: 20px; height: 20px;
+  border-radius: 2px;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.08);
+  flex-shrink: 0;
+  position: relative;
+}
+.t-swatch:hover::after {
+  content: attr(data-hex);
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 8px;
+  padding: 3px 6px;
+  white-space: nowrap;
+  border-radius: 2px;
+  pointer-events: none;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.t-topic { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 600; }
+.t-arc { font-size: 9px; color: var(--muted); }
+.t-text-preview {
+  font-size: 9px;
+  padding: 2px 8px;
+  border-radius: 2px;
+  display: inline-block;
+  letter-spacing: 0.05em;
+}
+.t-grade { font-size: 9px; color: var(--muted); line-height: 1.7; }
+
+/* SPEC BOX */
+.spec-box {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 24px 28px;
+  margin-bottom: 40px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  line-height: 2;
+  position: relative;
+}
+.spec-box::before {
+  content: 'PRODUCTION SPEC';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  background: var(--hook);
+  color: var(--ink);
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  padding: 2px 10px;
+}
+.spec-box .spec-key { color: var(--hook); }
+.spec-box .spec-val { color: rgba(245,241,235,0.8); }
+
+/* RULE CALLOUT */
+.rule-callout {
+  border-left: 3px solid var(--ink);
+  padding: 16px 20px;
+  margin-bottom: 32px;
+  background: rgba(0,0,0,0.03);
+}
+.rule-callout .rc-label {
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.rule-callout p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 10px;
+  padding: 8px 16px;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.toast.show { opacity: 1; }
+
+@keyframes fadeIn { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: translateY(0); } }
+
+@media (max-width: 680px) {
+  .use-grid { grid-template-columns: 1fr; }
+  .masthead { flex-direction: column; gap: 12px; }
+  .masthead-right { text-align: left; }
+  .band-tabs { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="masthead">
+    <div class="masthead-left">
+      <div class="vol">SpiritualTech Systems · Color Master</div>
+      <h1>Video Color<br>Bible</h1>
+    </div>
+    <div class="masthead-right">
+      YT + TikTok Self-Help<br>
+      Thumbnails · B-roll · Text · Hook<br>
+      All Bands · All Use Cases<br>
+      v2.0 — Locked
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="band-tabs">
+    <button class="band-tab active" onclick="showPanel('hook')">
+      <span class="tab-dot" style="background:#F0A500"></span>Hook / Activate
+    </button>
+    <button class="band-tab" onclick="showPanel('cool')">
+      <span class="tab-dot" style="background:#7B8FA1"></span>Cool / Calm
+    </button>
+    <button class="band-tab" onclick="showPanel('warm')">
+      <span class="tab-dot" style="background:#C4813A"></span>Warm / Rise
+    </button>
+    <button class="band-tab" onclick="showPanel('neutral')">
+      <span class="tab-dot" style="background:#4682B4"></span>Neutral / Root
+    </button>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- PANEL: HOOK -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="panel active" id="panel-hook">
+    <div class="sec-title">Hook & Activation Band</div>
+    <div class="sec-desc">First 3 seconds. Scroll-stop colors only. High contrast, warm energy. Topic-agnostic — every video opens here regardless of subject matter. These are your platform colors, not your therapeutic colors.</div>
+
+    <div class="rule-callout">
+      <div class="rc-label">The Iron Rule</div>
+      <p>"Every video opens with hook palette. Therapeutic color begins at second 3. The thumbnail IS the hook."</p>
+    </div>
+
+    <div class="use-grid">
+
+      <div class="use-card">
+        <div class="use-card-header"><span class="use-icon">🖼</span> Thumbnails</div>
+        <div class="use-swatch-bar">
+          <div class="use-swatch" style="background:#F5C842" onclick="copy('#F5C842')"><span class="use-swatch-hex">#F5C842</span></div>
+          <div class="use-swatch" style="background:#F0A500" onclick="copy('#F0A500')"><span class="use-swatch-hex">#F0A500</span></div>
+          <div class="use-swatch" style="background:#1A1714" onclick="copy('#1A1714')"><span class="use-swatch-hex">#1A1714</span></div>
+          <div class="use-swatch" style="background:#FFFFFF" onclick="copy('#FFFFFF')"><span class="use-swatch-hex">#FFFFFF</span></div>
+        </div>
+        <div class="use-card-body">
+          <div class="use-card-name">Butter Gold on Black</div>
+          <ul class="use-rule-list">
+            <li>Background: #1A1714 dark</li>
+            <li>Title text: #F5C842 butter gold</li>
+            <li>Accent/border: #F0A500 amber</li>
+            <li>Sub-text: #FFFFFF white</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="use-card">
+        <div class="use-card-header"><span class="use-icon">🎬</span> B-roll / Background</div>
+        <div class="use-swatch-bar">
+          <div class="use-swatch" style="background:#FF6B3D" onclick="copy('#FF6B3D')"><span class="use-swatch-hex">#FF6B3D</span></div>
+          <div class="use-swatch" style="background:#FFE566" onclick="copy('#FFE566')"><span class="use-swatch-hex">#FFE566</span></div>
+          <div class="use-swatch" style="background:#FFA94D" onclick="copy('#FFA94D')"><span class="use-swatch-hex">#FFA94D</span></div>
+          <div class="use-swatch" style="background:#2A2218" onclick="copy('#2A2218')"><span class="use-swatch-hex">#2A2218</span></div>
+        </div>
+        <div class="use-card-body">
+          <div class="use-card-name">Warm Citrus Grade</div>
+          <ul class="use-rule-list">
+            <li>High saturation, lifted shadows</li>
+            <li>Warm orange push on highlights</li>
+            <li>Dark warm background preferred</li>
+            <li>No cool tones in hook b-roll</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="use-card">
+        <div class="use-card-header"><span class="use-icon">✍️</span> Text Overlays</div>
+        <div class="use-swatch-bar">
+          <div class="use-swatch" style="background:#FFFFFF" onclick="copy('#FFFFFF')"><span class="use-swatch-hex" style="color:#999">#FFFFFF</span></div>
+          <div class="use-swatch" style="background:#F5C842" onclick="copy('#F5C842')"><span class="use-swatch-hex">#F5C842</span></div>
+          <div class="use-swatch" style="background:#FF6B3D" onclick="copy('#FF6B3D')"><span class="use-swatch-hex">#FF6B3D</span></div>
+          <div class="use-swatch" style="background:#1A1714" onclick="copy('#1A1714')"><span class="use-swatch-hex">#1A1714</span></div>
+        </div>
+        <div class="use-card-body">
+          <div class="use-card-name">High Contrast Text</div>
+          <ul class="use-rule-list">
+            <li>Primary hook text: #FFFFFF white</li>
+            <li>Emphasis word: #F5C842 gold</li>
+            <li>On light bg: #1A1714 near-black</li>
+            <li>Stroke/shadow always on overlay</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="spec-box">
+      <span class="spec-key">HOOK_SPEC</span><br>
+      <span class="spec-key">thumbnail_bg:</span> <span class="spec-val">#1A1714</span><br>
+      <span class="spec-key">title_color:</span> <span class="spec-val">#F5C842</span><br>
+      <span class="spec-key">accent:</span> <span class="spec-val">#F0A500</span><br>
+      <span class="spec-key">broll_grade:</span> <span class="spec-val">warm_citrus · lift shadows · +saturation</span><br>
+      <span class="spec-key">text_primary:</span> <span class="spec-val">#FFFFFF with 2px dark stroke</span><br>
+      <span class="spec-key">text_emphasis:</span> <span class="spec-val">#F5C842</span><br>
+      <span class="spec-key">duration:</span> <span class="spec-val">0–3 seconds only</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- PANEL: COOL/CALM -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="panel" id="panel-cool">
+    <div class="sec-title">Cool / Calm Band</div>
+    <div class="sec-desc">Topics: Anxiety · Depression · Burnout · Grief. Cortisol-reducing palette. Muted, safe, "I see you." Never cold — always a thread of warmth hidden in shadows. Shnell seed: 739204 · guidance: 3.0</div>
+
+    <table class="topic-table">
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Palette</th>
+          <th>Thumbnail BG</th>
+          <th>Text Color</th>
+          <th>B-roll Grade</th>
+          <th>Emotion Arc</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="t-topic">Anxiety</div><div class="t-arc">Tension → Safe Haven</div></td>
+          <td><div class="t-swatches">
+            <div class="t-swatch" style="background:#7B8FA1" data-hex="#7B8FA1" onclick="copy('#7B8FA1')" title="#7B8FA1"></div>
+            <div class="t-swatch" style="background:#C5D1DB" data-hex="#C5D1DB" onclick="copy('#C5D1DB')" title="#C5D1DB"></div>
+            <div class="t-swatch" style="background:#E8EDF1" data-hex="#E8EDF1" onclick="copy('#E8EDF1')" title="#E8EDF1"></div>
+          </div></td>
+          <td><div class="t-text-preview" style="background:#7B8FA1;color:#fff">#7B8FA1</div></td>
+          <td><div class="t-text-preview" style="background:#E8EDF1;color:#2a3540;border:1px solid #C5D1DB">#2A3540</div></td>
+          <td class="t-grade">Cool grade · desaturate<br>+5 blue shift · soft vignette</td>
+          <td class="t-arc">Slate blue → pale mist</td>
+        </tr>
+        <tr>
+          <td><div class="t-topic">Depression</div><div class="t-arc">Validated → Gentle Hope</div></td>
+          <td><div class="t-swatches">
+            <div class="t-swatch" style="background:#2D2B4E" data-hex="#2D2B4E" onclick="copy('#2D2B4E')"></div>
+            <div class="t-swatch" style="background:#4B3F6B" data-hex="#4B3F6B" onclick="copy('#4B3F6B')"></div>
+            <div class="t-swatch" style="background:#F0C87E" data-hex="#F0C87E" onclick="copy('#F0C87E')"></div>
+          </div></td>
+          <td><div class="t-text-preview" style="background:#2D2B4E;color:#F0C87E">#2D2B4E</div></td>
+          <td><div class="t-text-preview" style="background:#F0C87E;color:#1a1714">#F0C87E warm</div></td>
+          <td class="t-grade">Dark indigo env · single<br>warm light source only</td>
+          <td class="t-arc">Deep indigo → warm glow</td>
+        </tr>
+        <tr>
+          <td><div class="t-topic">Burnout</div><div class="t-arc">Exhausted → Soft Return</div></td>
+          <td><div class="t-swatches">
+            <div class="t-swatch" style="background:#C4A882" data-hex="#C4A882" onclick="copy('#C4A882')"></div>
+            <div class="t-swatch" style="background:#D9C4A6" data-hex="#D9C4A6" onclick="copy('#D9C4A6')"></div>
+            <div class="t-swatch" style="background:#8B6F47" data-hex="#8B6F47" onclick="copy('#8B6F47')"></div>
+          </div></td>
+          <td><div class="t-text-preview" style="background:#C4A882;color:#3a2a18">#C4A882</div></td>
+          <td><div class="t-text-preview" style="background:#3a2a18;color:#D9C4A6">#3A2A18</div></td>
+          <td class="t-grade">Warm neutral · muted sat<br>Linen/earth tones in frame</td>
+          <td class="t-arc">Warm sand → earthy rest</td>
+        </tr>
+        <tr>
+          <td><div class="t-topic">Grief</div><div class="t-arc">Loss → Being Held</div></td>
+          <td><div class="t-swatches">
+            <div class="t-swatch" style="background:#8A849A" data-hex="#8A849A" onclick="copy('#8A849A')"></div>
+            <div class="t-swatch" style="background:#B0AABC" data-hex="#B0AABC" onclick="copy('#B0AABC')"></div>
+            <div class="t-swatch" style="background:#E0DCE8" data-hex="#E0DCE8" onclick="copy('#E0DCE8')"></div>
+          </div></td>
+          <td><div class="t-text-preview" style="background:#8A849A;color:#fff">#8A849A</div></td>
+          <td><div class="t-text-preview" style="background:#E0DCE8;color:#3a3448;border:1px solid #B0AABC">#3A3448</div></td>
+          <td class="t-grade">Overcast · no harsh shadows<br>Low contrast · stillness</td>
+          <td class="t-arc">Lavender-gray · no drama</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="spec-box">
+      <span class="spec-key">COOL_CALM_SPEC</span><br>
+      <span class="spec-key">shnell_seed:</span> <span class="spec-val">739204</span><br>
+      <span class="spec-key">guidance:</span> <span class="spec-val">3.0</span><br>
+      <span class="spec-key">thumbnail_text_rule:</span> <span class="spec-val">Light topics → dark text. Dark topics → warm light text.</span><br>
+      <span class="spec-key">grade_direction:</span> <span class="spec-val">cool shift, desaturate midtones, preserve warm in shadows</span><br>
+      <span class="spec-key">never:</span> <span class="spec-val">high contrast · forced brightness · saturated accent on grief/depression</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- PANEL: WARM/RISE -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="panel" id="panel-warm">
+    <div class="sec-title">Warm / Rise Band</div>
+    <div class="sec-desc">Topics: Anger · Self-Worth · Self-Love · Purpose. Activation energy. Validates intensity, then transforms it into directed power. Never passive. Shnell seed: 482910 · guidance: 3.5</div>
+
+    <table class="topic-table">
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Palette</th>
+          <th>Thumbnail BG</th>
+          <th>Text Color</th>
+          <th>B-roll Grade</th>
+          <th>Emotion Arc</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="t-topic">Anger</div><div class="t-arc">Fire → Focused Light</div></td>
+          <td><div class="t-swatches">
+            <div class="t-swatch" style="background:#8B2D2D" data-hex="#8B2D2D" onclick="copy('#8B2D2D')"></div>
+            <div class="t-swatch" style="background:#D4614A" data-hex="#D4614A" onclick="copy('#D4614A')"></div>
+            <div class="t-swatch" style="background:#F0C75E" data-hex="#F0C75E" onclick="copy('#F0C75E')"></div>
+          </div></td>
+          <td><div class="t-text-preview" style="background:#8B2D2D;color:#F0C75E">#8B2D2D</div></td>
+          <td><div class="t-text-preview" style="background:#F0C75E;color:#3a1010">#F0C75E gold</div></td>
+          <td class="t-grade">Warm shadows · crushed blacks<br>High contrast · fire tones</td>
+          <td class="t-arc">Deep crimson → gold refinement</td>
+        </tr>
+        <tr>
+          <td><div class="t-topic">Self-Worth</div><div class="t-arc">Doubt → Earned Value</div></td>
+          <td><div class="t-swatches">
+            <div class="t-swatch" style="background:#D4AF5A" data-hex="#D4AF5A" onclick="copy('#D4AF5A')"></div>
+            <div class="t-swatch" style="background:#E8C97A" data-hex="#E8C97A" onclick="copy('#E8C97A')"></div>
+            <div class="t-swatch" style="background:#8B6820" data-hex="#8B6820" onclick="copy('#8B6820')"></div>
+          </div></td>
+          <td><div class="t-text-preview" style="background:#1a1200;color:#D4AF5A">#1A1200 dark</div></td>
+          <td><div class="t-text-preview" style="background:#D4AF5A;color:#1a1200">#D4AF5A gold</div></td>
+          <td class="t-grade">Golden hour grade · warm<br>highlights · bronze shadows</td>
+          <td class="t-arc">Gold → amber luminosity</td>
+        </tr>
+        <tr>
+          <td><div class="t-topic">Self-Love</div><div class="t-arc">Criticism → Compassion</div></td>
+          <td><div class="t-swatches">
+            <div class="t-swatch" style="background:#C47A8A" data-hex="#C47A8A" onclick="copy('#C47A8A')"></div>
+            <div class="t-swatch" style="background:#D9A0AA" data-hex="#D9A0AA" onclick="copy('#D9A0AA')"></div>
+            <div class="t-swatch" style="background:#F0D4D8" data-hex="#F0D4D8" onclick="copy('#F0D4D8')"></div>
+          </div></td>
+          <td><div class="t-text-preview" style="background:#C47A8A;color:#fff">#C47A8A</div></td>
+          <td><div class="t-text-preview" style="background:#F0D4D8;color:#4a1a28;border:1px solid #D9A0AA">#4A1A28</div></td>
+          <td class="t-grade">Soft diffused light · bloom<br>Warm skin tones · no harsh</td>
+          <td class="t-arc">Rose → blush softness</td>
+        </tr>
+        <tr>
+          <td><div class="t-topic">Purpose</div><div class="t-arc">Lost → Forward Motion</div></td>
+          <td><div class="t-swatches">
+            <div class="t-swatch" style="background:#E8823A" data-hex="#E8823A" onclick="copy('#E8823A')"></div>
+            <div class="t-swatch" style="background:#F0B060" data-hex="#F0B060" onclick="copy('#F0B060')"></div>
+            <div class="t-swatch" style="background:#FFF0D0" data-hex="#FFF0D0" onclick="copy('#FFF0D0')"></div>
+          </div></td>
+          <td><div class="t-text-preview" style="background:#E8823A;color:#fff">#E8823A</div></td>
+          <td><div class="t-text-preview" style="background:#FFF0D0;color:#3a2010;border:1px solid #F0B060">#3A2010</div></td>
+          <td class="t-grade">Golden hour · directional light<br>Horizon imagery · warm haze</td>
+          <td class="t-arc">Sunrise orange → dawn gold</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="spec-box">
+      <span class="spec-key">WARM_RISE_SPEC</span><br>
+      <span class="spec-key">shnell_seed:</span> <span class="spec-val">482910</span><br>
+      <span class="spec-key">guidance:</span> <span class="spec-val">3.5</span><br>
+      <span class="spec-key">thumbnail_text_rule:</span> <span class="spec-val">Dark warm bg → gold/amber text. Light bg → deep warm near-black.</span><br>
+      <span class="spec-key">grade_direction:</span> <span class="spec-val">warm push, lifted shadows, rich highlights, high contrast OK on Anger only</span><br>
+      <span class="spec-key">never:</span> <span class="spec-val">cool tones · flat grades · grey in any form</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- PANEL: NEUTRAL/ROOT -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="panel" id="panel-neutral">
+    <div class="sec-title">Neutral / Root Band</div>
+    <div class="sec-desc">Topics: Boundaries · Jealousy. Structural, authoritative, clear. Chaos → order. Competence signal. These topics need credibility, not comfort. Shnell seed: 156783 · guidance: 3.2</div>
+
+    <table class="topic-table">
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Palette</th>
+          <th>Thumbnail BG</th>
+          <th>Text Color</th>
+          <th>B-roll Grade</th>
+          <th>Emotion Arc</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="t-topic">Boundaries</div><div class="t-arc">Overwhelm → Clarity</div></td>
+          <td><div class="t-swatches">
+            <div class="t-swatch" style="background:#2A4A6B" data-hex="#2A4A6B" onclick="copy('#2A4A6B')"></div>
+            <div class="t-swatch" style="background:#4682B4" data-hex="#4682B4" onclick="copy('#4682B4')"></div>
+            <div class="t-swatch" style="background:#B0C4DE" data-hex="#B0C4DE" onclick="copy('#B0C4DE')"></div>
+            <div class="t-swatch" style="background:#E8EDF5" data-hex="#E8EDF5" onclick="copy('#E8EDF5')"></div>
+          </div></td>
+          <td><div class="t-text-preview" style="background:#2A4A6B;color:#fff">#2A4A6B</div></td>
+          <td><div class="t-text-preview" style="background:#E8EDF5;color:#2A4A6B;border:1px solid #B0C4DE">#FFFFFF or #E8EDF5</div></td>
+          <td class="t-grade">Cool crisp grade · clean edges<br>Structured framing · sharp</td>
+          <td class="t-arc">Steel blue → clear sky</td>
+        </tr>
+        <tr>
+          <td><div class="t-topic">Jealousy</div><div class="t-arc">Envy → Growth</div></td>
+          <td><div class="t-swatches">
+            <div class="t-swatch" style="background:#3A7A5A" data-hex="#3A7A5A" onclick="copy('#3A7A5A')"></div>
+            <div class="t-swatch" style="background:#5A9A7A" data-hex="#5A9A7A" onclick="copy('#5A9A7A')"></div>
+            <div class="t-swatch" style="background:#A8D4BC" data-hex="#A8D4BC" onclick="copy('#A8D4BC')"></div>
+          </div></td>
+          <td><div class="t-text-preview" style="background:#3A7A5A;color:#fff">#3A7A5A</div></td>
+          <td><div class="t-text-preview" style="background:#A8D4BC;color:#1a3a2a;border:1px solid #5A9A7A">#1A3A2A</div></td>
+          <td class="t-grade">Nature footage · organic motion<br>Translucent overlays · growth</td>
+          <td class="t-arc">Deep forest → emerald light</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="rule-callout">
+      <div class="rc-label">Jealousy Green Fix (from review)</div>
+      <p>"#90EE90 pale green reads as smoothie brand, not transformation. Use #3A7A5A deep forest. Pale green is corrected to deep emerald across this spec."</p>
+    </div>
+
+    <div class="spec-box">
+      <span class="spec-key">NEUTRAL_ROOT_SPEC</span><br>
+      <span class="spec-key">shnell_seed:</span> <span class="spec-val">156783</span><br>
+      <span class="spec-key">guidance:</span> <span class="spec-val">3.2</span><br>
+      <span class="spec-key">thumbnail_text_rule:</span> <span class="spec-val">Boundaries → white on dark blue. Jealousy → white on deep green.</span><br>
+      <span class="spec-key">grade_direction:</span> <span class="spec-val">crisp and clean · structured · no bloom · no soft diffusion</span><br>
+      <span class="spec-key">never:</span> <span class="spec-val">pale green (#90EE90) · warm tones · emotional softness in composition</span><br>
+      <span class="spec-key">note:</span> <span class="spec-val">Jealousy green corrected from pale (#90EE90) to deep forest (#3A7A5A)</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast">copied</div>
+
+<script>
+function showPanel(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.band-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+function copy(hex) {
+  navigator.clipboard.writeText(hex).then(() => {
+    const t = document.getElementById('toast');
+    t.textContent = hex + ' copied';
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 1600);
+  });
+}
+</script>
+</body>
+</html>

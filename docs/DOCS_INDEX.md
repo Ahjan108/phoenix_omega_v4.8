@@ -92,6 +92,7 @@ Metadata-driven visual storytelling engine: script segments → Shot Planner →
 | **Visual brief (image bank)** | [docs/VIDEO_PIPELINE_VISUAL_BRIEF.md](./VIDEO_PIPELINE_VISUAL_BRIEF.md) — hook types, composition targets, emotion–visual alignment; reference for prompt/composition only |
 | **FFmpeg reference (renderer)** | [docs/VIDEO_PIPELINE_FFMPEG_REFERENCE.md](./VIDEO_PIPELINE_FFMPEG_REFERENCE.md) — zoompan, eq, drawtext/drawbox, encoding presets; render-time params only |
 | **FLUX/Shnell research (Workers AI)** | [docs/flux_shnell_research.rtf](./flux_shnell_research.rtf) — Cloudflare Workers AI FLUX API format, auth, request body, image size/aspect, prompt handling; use for video image bank generation (and any future T2I cover art) |
+| **Video color master system** | [docs/video-color-master-system.html](./video-color-master-system.html) — Canonical palette: 4 bands (Hook, Cool/Calm, Warm/Rise, Neutral/Root), per-topic hex, text-on-color previews, Shnell seed/guidance, per-band never rules; source for brand_style_tokens.yaml |
 
 ---
 
@@ -909,6 +910,8 @@ Single index: every test file, how to run, markers, CI workflows, and test infra
 |---------|-----------|
 | `PYTHONPATH=. python -m pytest tests/ -v --tb=short` | All tests (default: 222 collected). Run from repo root. |
 | `PYTHONPATH=. python -m pytest tests/ -m "not slow"` | Fast set only (excludes slow: atoms coverage, teacher E2E). Used by core-tests CI. |
+| `PYTHONPATH=. python -m pytest tests/ -m sanity` | Sanity checks only (config load, registry consistency); quick feedback. |
+| `PYTHONPATH=. python -m pytest tests/ -m "sanity or intelligent"` | Robust/intelligent tests only (no slow). See [ROBUST_INTELLIGENT_TESTING.md](./ROBUST_INTELLIGENT_TESTING.md). |
 | `PYTHONPATH=. python -m pytest tests/ -m slow` | Slow tests only (atoms coverage 100%, teacher E2E smoke). |
 | `PYTHONPATH=. python -m pytest tests/test_arc_loader.py -v` | Single file. |
 | `pip install -r requirements-test.txt` | Install pytest, pyyaml, jsonschema, feedparser (required before running). |
@@ -919,16 +922,19 @@ Single index: every test file, how to run, markers, CI workflows, and test infra
 
 | Item | Location |
 |------|----------|
-| **Test dependencies** | [requirements-test.txt](../requirements-test.txt) — pytest, pyyaml, jsonschema, feedparser |
-| **Pytest config** | [pytest.ini](../pytest.ini) — testpaths=`tests`, markers: `slow`, `integration`, `e2e`; addopts `-v --tb=short` |
-| **Shared fixtures** | [tests/conftest.py](../tests/conftest.py) — repo_root, fixtures_dir, config_root, atoms_root |
+| **Test dependencies** | [requirements-test.txt](../requirements-test.txt) — pytest, pytest-timeout, pyyaml, jsonschema, feedparser |
+| **Pytest config** | [pytest.ini](../pytest.ini) — testpaths=`tests`, markers: `slow`, `integration`, `e2e`, `sanity`, `intelligent`; timeout=120; addopts `-v --tb=short` |
+| **Shared fixtures** | [tests/conftest.py](../tests/conftest.py) — repo_root, fixtures_dir, config_root, atoms_root; locale_registry, content_roots, all_locale_ids (session) |
 | **Test plan (gaps, CI matrix)** | [docs/FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md) — inventory, CI coverage, missing runs, pipeline matrix |
+| **Robust / intelligent testing** | [docs/ROBUST_INTELLIGENT_TESTING.md](./ROBUST_INTELLIGENT_TESTING.md) — sanity + intelligent markers, config/locale consistency tests, fixtures, timeout |
 
 ### Pytest markers
 
 | Marker | Meaning | Used by |
 |--------|---------|---------|
 | `slow` | Long-running (atoms coverage, teacher E2E). Excluded from core-tests. | test_atoms_coverage_100_percent, test_teacher_mode_e2e_smoke |
+| `sanity` | Fast sanity (config load, registry consistency). Included in core-tests. | test_robust_intelligent |
+| `intelligent` | Data-driven / parametrized over configs and locales. Included in core-tests. | test_robust_intelligent |
 | `integration` | Needs external resources or full pipeline. | (see pytest.ini) |
 | `e2e` | End-to-end (compile, render). | (see pytest.ini) |
 
@@ -951,6 +957,7 @@ Single index: every test file, how to run, markers, CI workflows, and test infra
 | [tests/teacher_arc_test.py](../tests/teacher_arc_test.py) | Teacher arc blueprint schema, planner determinism (**required** for Teacher gates) |
 | [tests/test_teacher_mode_e2e_smoke.py](../tests/test_teacher_mode_e2e_smoke.py) | Teacher Mode E2E compile per teacher — one topic/persona/arc per teacher (**required** for Teacher gates) |
 | [tests/test_atoms_coverage_100_percent.py](../tests/test_atoms_coverage_100_percent.py) | 450/450 atom pool coverage gate; STORY + non-STORY (HOOK, SCENE, REFLECTION, EXERCISE, INTEGRATION). EXIT:0 = 100%. Marked `slow`. |
+| [tests/test_robust_intelligent.py](../tests/test_robust_intelligent.py) | **Robust/intelligent:** locale_registry ↔ content_roots consistency; required fields per locale; EU catalogue; critical YAML load; marketing config structure; tts_locale_code. Marked `sanity` / `intelligent`. |
 | [tests/test_arc_loader.py](../tests/test_arc_loader.py) | Arc YAML loading and validation |
 | [tests/test_assembly_compiler.py](../tests/test_assembly_compiler.py) | Assembly compiler unit tests |
 | [tests/test_atoms_model.py](../tests/test_atoms_model.py) | Atom data model and pool indexing |
@@ -1438,6 +1445,7 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [DOCS_INDEX.md](./DOCS_INDEX.md) | Canonical authority | ✓ |
 | [RIGOROUS_SYSTEM_TEST.md](./RIGOROUS_SYSTEM_TEST.md) | Core system docs | ✓ |
 | [FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md) | Core system docs | ✓ |
+| [ROBUST_INTELLIGENT_TESTING.md](./ROBUST_INTELLIGENT_TESTING.md) | Test suite (document all) | ✓ — Sanity + intelligent markers, config/locale tests, timeout |
 | [BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md) | Core system docs | ✓ |
 | [DISASTER_RECOVERY_DRILL_CHECKLIST.md](./DISASTER_RECOVERY_DRILL_CHECKLIST.md) | Core system docs | ✓ |
 | [VIDEO_PIPELINE_SPEC.md](./VIDEO_PIPELINE_SPEC.md) | Video pipeline | ✓ |

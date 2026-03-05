@@ -26,6 +26,7 @@ from pearl_news.pipeline.feed_ingest import ingest_feeds
 from pearl_news.pipeline.topic_sdg_classifier import classify_sdgs
 from pearl_news.pipeline.template_selector import select_templates
 from pearl_news.pipeline.article_assembler import assemble_articles
+from pearl_news.pipeline.llm_expand import run_expansion
 from pearl_news.pipeline.quality_gates import run_quality_gates
 from pearl_news.pipeline.qc_checklist import run_qc_checklist
 
@@ -93,6 +94,11 @@ def main() -> int:
         help="Output all articles (including QC-failed); default is only QC-passed",
     )
     ap.add_argument(
+        "--expand",
+        action="store_true",
+        help="Run LLM expansion to target word count (requires llm_expansion.yaml and Qwen/OpenAI-compatible API)",
+    )
+    ap.add_argument(
         "-v",
         "--verbose",
         action="store_true",
@@ -133,6 +139,10 @@ def main() -> int:
     items = select_templates(items)
     # Step 4: Assemble (teacher + youth + SDG refs in content)
     items = assemble_articles(items)
+    # Step 4b: Optional LLM expansion toward target word count (e.g. Qwen via GitHub/local)
+    if args.expand:
+        config_root = root / "config"
+        items = run_expansion(items, config_root=config_root)
     # Step 5: Quality gates (sets qc_results, qc_passed on each)
     items = run_quality_gates(items)
     # Step 6: QC checklist (optionally filter to passed only)
@@ -153,10 +163,11 @@ def main() -> int:
     (out_dir / "ingest_manifest.json").write_text(json.dumps(ingest_manifest, indent=2, ensure_ascii=False), encoding="utf-8")
     logger.info("Wrote %s", out_dir / "ingest_manifest.json")
 
-    # Author rotation (teacher-assigned, alternate)
+    # Author rotation (teacher-assigned, alternate) and placeholder images by template
     config_root = root / "config"
     author_ids = [1]
-    placeholder_image_url = None
+    placeholder_by_template = {}
+    placeholder_default = None
     if yaml and config_root.exists():
         aw_path = config_root / "wordpress_authors.yaml"
         if aw_path.exists():
@@ -167,20 +178,25 @@ def main() -> int:
         if site_path.exists():
             with open(site_path, "r", encoding="utf-8") as f:
                 site = yaml.safe_load(f) or {}
-            placeholder_image_url = site.get("placeholder_featured_image_url")
+            placeholder_by_template = site.get("placeholder_featured_image_by_template") or {}
+            placeholder_default = site.get("placeholder_featured_image_default")
 
     # Build manifests (per-article audit) and final article JSON
     build_manifests = []
     for i, item in enumerate(articles_to_output):
         article_id = item.get("id", "")
         author_id = author_ids[i % len(author_ids)] if author_ids else None
+        template_id = item.get("template_id") or "hard_news_spiritual_response"
         images = item.get("images") or []
         featured_image = None
         featured_image_url = None
+        featured_image_path = None
         if images and isinstance(images[0], dict) and images[0].get("url"):
             featured_image = images[0]
-        elif placeholder_image_url:
-            featured_image_url = placeholder_image_url
+        else:
+            path = placeholder_by_template.get(template_id) or placeholder_default
+            if path:
+                featured_image_path = path
 
         # Final article output (for WordPress script and humans)
         article_payload = {
@@ -188,7 +204,7 @@ def main() -> int:
             "content": item.get("content", ""),
             "slug": article_id,
             "author": author_id,
-            "article_type": item.get("template_id", ""),
+            "article_type": template_id,
             "topic": item.get("topic", ""),
             "primary_sdg": item.get("primary_sdg", ""),
             "un_body": item.get("un_body", ""),
@@ -202,6 +218,8 @@ def main() -> int:
             article_payload["featured_image"] = featured_image
         if featured_image_url:
             article_payload["featured_image_url"] = featured_image_url
+        if featured_image_path:
+            article_payload["featured_image_path"] = featured_image_path
         (out_dir / f"article_{article_id}.json").write_text(json.dumps(article_payload, indent=2, ensure_ascii=False), encoding="utf-8")
         build_manifests.append(_build_manifest_item(item))
 

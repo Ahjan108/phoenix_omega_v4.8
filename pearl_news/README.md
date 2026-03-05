@@ -16,13 +16,16 @@ Editorial article pipeline for **Pearl News** (civic media: world news + spiritu
 - **pipeline/** — Ingest → classify → template select → assemble → quality gates + QC (fail-hard); build manifests for audit (§6).
 - **publish/** — WordPress REST API client; post articles to the blog (BlogSite). Credentials via env vars only. See [publish/README.md](publish/README.md).
 - **governance/** — Canonical source for published governance page, editorial standards, corrections policy, conflict-of-interest policy (§9).
-- **prompts/** — Optional prompts for local/API LLM (summarization, headline, expansion only by default; §7).
+- **prompts/** — Prompts for LLM expansion (see **config/llm_expansion.yaml** and `--expand` below; §7).
 
 ## Quick start
 
 ```bash
 # Ingest feeds and run full pipeline (draft articles to artifacts)
 python -m pearl_news.pipeline.run_article_pipeline --feeds config/feeds.yaml --out-dir artifacts/pearl_news/drafts
+
+# With LLM expansion to ~1000 words (Qwen / OpenAI-compatible API; set base_url in config/llm_expansion.yaml)
+python -m pearl_news.pipeline.run_article_pipeline --feeds config/feeds.yaml --out-dir artifacts/pearl_news/drafts --expand
 ```
 
 ### One-command run (recommended)

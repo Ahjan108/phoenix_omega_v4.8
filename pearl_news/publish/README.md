@@ -45,10 +45,11 @@ When using `--article path/to/file.json`, the file may contain:
 - **author** — WordPress user ID for byline (teacher-assigned; pipeline alternates via `config/wordpress_authors.yaml`)
 - **categories** or **category_ids** — list of WordPress category IDs
 - **tags** or **tag_ids** — list of WordPress tag IDs
-- **featured_image** — object for main/WordPress featured image with attribution: `{ "url": "https://...", "credit": "UN News", "source_url": "https://...", "caption": "optional" }`. The image is uploaded to the Media Library and set as the post thumbnail; credit/source are stored in the media caption.
-- **featured_image_url** — alternative: image URL only (no attribution). Used if `featured_image` is not set.
+- **featured_image** — object for main/WordPress featured image with attribution: `{ "url": "https://...", "credit": "UN News", "source_url": "https://...", "caption": "optional" }`. Uploaded to Media and set as post thumbnail.
+- **featured_image_url** — image URL only (no attribution). Used if `featured_image` is not set.
+- **featured_image_path** — path relative to repo root (e.g. `pearl_news/del_intake_pics/global_update.png`). Used when no feed image; pipeline sets one per article type from `config/site.yaml` → `placeholder_featured_image_by_template`.
 
-At least one image per article is recommended (as WordPress featured image). When using feed-derived articles, use the first entry from the feed item’s `images` array (from `feed_ingest`) so attribution is preserved.
+When the RSS article has no image, the pipeline uses one placeholder image per article type from **pearl_news/del_intake_pics/** (see `pearl_news/config/site.yaml`). When the feed has an image, the first entry from the item’s `images` array is used with attribution.
 
 The legal disclaimer is on the site About page; it is not appended to each article.
 
