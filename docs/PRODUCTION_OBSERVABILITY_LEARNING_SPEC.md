@@ -2,7 +2,7 @@
 
 **Purpose:** Spec for a system that observes production live (100% repo), documents success, elevates and auto-fixes failures with retest, and learns/enhances over time.  
 **Authority:** Extends [RIGOROUS_SYSTEM_TEST.md](RIGOROUS_SYSTEM_TEST.md) and [V4_FEATURES_SCALE_AND_KNOBS.md](V4_FEATURES_SCALE_AND_KNOBS.md). Aligns with [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md).  
-**Last updated:** 2026-03-04
+**Last updated:** 2026-03-05
 
 ---
 
@@ -245,7 +245,23 @@ Persist patterns over time:
 
 ---
 
-## 10. Summary
+## 10. Change observation, impact, and synergy
+
+A complementary system observes **when assets are added, changed, or dropped**; computes **impact** across systems; and triggers **synergy** recommendations (e.g. when a new marketing system is added, LLM considers how it works with existing marketing). It feeds the **Agent change feed** (Executive Dashboard) with impact and optional synergy links.
+
+| Component | Purpose |
+|-----------|---------|
+| **System registry** | `config/governance/system_registry.yaml` — Machine-readable systems (id, assets, related_systems, downstream). Used to scope changes and compute impact and synergy. |
+| **Change detection** | Script (e.g. `scripts/observability/detect_changes.py`) — Git diff between refs + registry → `artifacts/observability/change_events.jsonl` (kind: added/changed/dropped, path, system_ids). |
+| **Impact analysis** | From change events: affected systems, downstream signals/workflows, related systems for synergy. Output: impact summary; optionally `impact_*.json` or evidence log stanza. |
+| **Synergy** | When “added” events touch a system with `related_systems`, run LLM (e.g. in GitHub Action) to produce “how can these work best together?”; post as PR comment or write `synergy_recommendations_*.md` and link from Agent change feed. |
+| **Running best** | Impact summary drives “run these after this change” in the Agent change feed; optional per-system health view and periodic “running best” LLM recommendations. |
+
+**Spec:** [docs/CHANGE_OBSERVATION_AND_IMPACT_SPEC.md](CHANGE_OBSERVATION_AND_IMPACT_SPEC.md). **Index:** [DOCS_INDEX.md](DOCS_INDEX.md) § Change observation and impact (document all).
+
+---
+
+## 11. Summary
 
 | Layer | Function | Key deliverable |
 |-------|----------|-----------------|

@@ -44,7 +44,7 @@ high contrast, forced brightness, saturated accent on grief/depression, no drama
 - **9:16:** e.g. width=576 height=1024 (or 1080×1920 if supported)
 - **Output:** JSON with base64 image (decode and save as PNG/JPEG for QA)
 
-**Credentials:** Set env vars `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` (or `CLOUDFLARE_AI_API_TOKEN`). Or put them in a key file at repo root (same pattern as author cover art / TTS): `cloudflare_workers_ai.txt` or `11.txt` with lines `CLOUDFLARE_ACCOUNT_ID=...` and `CLOUDFLARE_API_TOKEN=...`. Or use a `.env` at repo root.
+**Credentials:** Set env vars `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` (or `CLOUDFLARE_AI_API_TOKEN`). Or put them in a key file at repo root: `cloudflare_workers_ai.txt` or `11.txt` with lines `CLOUDFLARE_ACCOUNT_ID=...` and `CLOUDFLARE_API_TOKEN=...`. Or use a `.env` at repo root. **Full steps (dashboard, key file, troubleshooting):** [docs/VIDEO_CLOUDFLARE_FLUX_CREDENTIALS.md](VIDEO_CLOUDFLARE_FLUX_CREDENTIALS.md).
 
 ## Script
 
