@@ -1,13 +1,16 @@
 # Teacher Mode V4 — Teacher registry
-# Authority: specs/TEACHER_MODE_V4_CANONICAL_SPEC.md
-# Add one entry per teacher; teacher_allocator and pipeline read this.
+# Authority: specs/TEACHER_MODE_V4_CANONICAL_SPEC.md, specs/TEACHER_UNIVERSAL_AND_SCORING_SPEC.md
+# Every teacher can teach every canonical topic; fit is scored in teacher_topic_persona_scores.yaml.
+
+all_canonical_topics: &all_topics
+  [anxiety, boundaries, burnout, compassion_fatigue, courage, depression, financial_anxiety, financial_stress, grief, imposter_syndrome, overthinking, self_worth, sleep_anxiety, social_anxiety, somatic_healing]
 
 teachers:
   ahjan:
     display_name: "Ahjan"
     kb_id: "ahjan"
     doctrine_profile: "ahjan_contemplative"
-    allowed_topics: [anxiety, self_worth, shame, grief, compassion_fatigue, boundaries, courage, depression, financial_stress]
+    allowed_topics: *all_topics
     disallowed_topics: [manifestation, get_rich_quick]
     allowed_engines: [shame, false_alarm, overwhelm, spiral, watcher, grief, comparison]
     allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
@@ -22,7 +25,7 @@ teachers:
     display_name: "Master Feung"
     kb_id: "master_feung"
     doctrine_profile: "master_feung"
-    allowed_topics: [anxiety, burnout, self_worth]
+    allowed_topics: *all_topics
     disallowed_topics: [manifestation, get_rich_quick]
     allowed_engines: [overwhelm, shame]
     allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
@@ -37,7 +40,7 @@ teachers:
     display_name: "Sai Maa"
     kb_id: "sai_ma"
     doctrine_profile: "sai_ma"
-    allowed_topics: [anxiety, self_worth, shame, grief, boundaries, courage]
+    allowed_topics: *all_topics
     disallowed_topics: [manifestation, get_rich_quick]
     allowed_engines: [overwhelm, shame, spiral]
     allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
@@ -52,7 +55,7 @@ teachers:
     display_name: "Ra"
     kb_id: "ra"
     doctrine_profile: "ra"
-    allowed_topics: [anxiety, self_worth, grief, boundaries, courage]
+    allowed_topics: *all_topics
     disallowed_topics: [manifestation, get_rich_quick]
     allowed_engines: [overwhelm, spiral, grief]
     allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
@@ -67,7 +70,7 @@ teachers:
     display_name: "Junko"
     kb_id: "junko"
     doctrine_profile: "junko"
-    allowed_topics: [anxiety, self_worth, shame, burnout, boundaries]
+    allowed_topics: *all_topics
     disallowed_topics: [manifestation, get_rich_quick]
     allowed_engines: [overwhelm, shame]
     allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
@@ -82,7 +85,7 @@ teachers:
     display_name: "Miki"
     kb_id: "miki"
     doctrine_profile: "miki"
-    allowed_topics: [anxiety, self_worth, shame, burnout, boundaries]
+    allowed_topics: *all_topics
     disallowed_topics: [manifestation, get_rich_quick]
     allowed_engines: [overwhelm, shame]
     allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
@@ -97,7 +100,7 @@ teachers:
     display_name: "Master Wu"
     kb_id: "master_wu"
     doctrine_profile: "master_wu"
-    allowed_topics: [anxiety, burnout, self_worth, boundaries]
+    allowed_topics: *all_topics
     disallowed_topics: [manifestation, get_rich_quick]
     allowed_engines: [overwhelm, shame]
     allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
@@ -112,7 +115,7 @@ teachers:
     display_name: "Pamela Fellows"
     kb_id: "pamela_fellows"
     doctrine_profile: "pamela_fellows"
-    allowed_topics: [anxiety, self_worth, shame, grief, boundaries, courage]
+    allowed_topics: *all_topics
     disallowed_topics: [manifestation, get_rich_quick]
     allowed_engines: [overwhelm, shame, spiral]
     allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
@@ -127,7 +130,7 @@ teachers:
     display_name: "Joshin"
     kb_id: "joshin"
     doctrine_profile: "joshin"
-    allowed_topics: [anxiety, self_worth, shame, burnout, boundaries]
+    allowed_topics: *all_topics
     disallowed_topics: [manifestation, get_rich_quick]
     allowed_engines: [overwhelm, shame]
     allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
@@ -142,7 +145,7 @@ teachers:
     display_name: "Maat"
     kb_id: "maat"
     doctrine_profile: "maat"
-    allowed_topics: [anxiety, self_worth, shame, grief, boundaries]
+    allowed_topics: *all_topics
     disallowed_topics: [manifestation, get_rich_quick]
     allowed_engines: [overwhelm, shame, spiral]
     allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
@@ -157,7 +160,7 @@ teachers:
     display_name: "Omote"
     kb_id: "omote"
     doctrine_profile: "omote"
-    allowed_topics: [anxiety, self_worth, shame, burnout, boundaries]
+    allowed_topics: *all_topics
     disallowed_topics: [manifestation, get_rich_quick]
     allowed_engines: [overwhelm, shame]
     allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]
@@ -172,7 +175,7 @@ teachers:
     display_name: "Master Sha"
     kb_id: "master_sha"
     doctrine_profile: "master_sha"
-    allowed_topics: [anxiety, self_worth, shame, grief, boundaries]
+    allowed_topics: *all_topics
     disallowed_topics: [manifestation, get_rich_quick]
     allowed_engines: [overwhelm, shame, spiral]
     allowed_resolution_types: [open_loop, internal_shift_only, grounded_reframe]

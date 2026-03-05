@@ -1,0 +1,53 @@
+# Teacher × topic and teacher × persona fit scores.
+# Authority: specs/TEACHER_UNIVERSAL_AND_SCORING_SPEC.md
+# Every teacher can teach every topic and persona; scores guide volume and format.
+# Missing (teacher, topic) or (teacher, persona) → default_score (0.5).
+
+schema_version: "1.0"
+default_score: 0.5   # When a pair has no score
+composite_formula: average   # average | min | weighted
+score_bands:
+  strong: { min: 0.7, max: 1.0 }   # Full allocation; any format
+  medium: { min: 0.4, max: 0.7 }   # Normal allocation; standard formats
+  weak:   { min: 0.0, max: 0.4 }   # Fewer books; prefer shorter formats
+
+# Format preference when score is in weak band
+weak_fit_prefer_shorter_format: true
+weak_fit_max_books_per_triple: 1   # Cap books per (teacher, topic, persona) when weak
+
+# Per-teacher topic and persona scores (0.0–1.0). Omit topic/persona = use default_score.
+teachers:
+  ahjan:
+    topic_scores:
+      anxiety: 0.9
+      self_worth: 0.9
+      shame: 0.85
+      grief: 0.85
+      compassion_fatigue: 0.8
+      boundaries: 0.85
+      courage: 0.8
+      depression: 0.75
+      financial_stress: 0.8
+      burnout: 0.7
+      # ... other topics default to 0.5
+    persona_scores:
+      tech_finance_burnout: 0.85
+      healthcare_rns: 0.8
+      gen_z_professionals: 0.85
+      millennial_women_professionals: 0.8
+      # ... other personas default to 0.5
+
+  maat:
+    topic_scores:
+      anxiety: 0.75
+      self_worth: 0.9
+      shame: 0.85
+      grief: 0.8
+      boundaries: 0.85
+      courage: 0.8
+    persona_scores: {}   # All default 0.5
+
+  # Other teachers: omit to use default_score for all pairs, or add overrides as needed.
+  # master_feung:
+  #   topic_scores: {}
+  #   persona_scores: {}

@@ -83,7 +83,7 @@ Metadata-driven visual storytelling engine: script segments → Shot Planner →
 | **Video pipeline spec (canonical)** | [docs/VIDEO_PIPELINE_SPEC.md](./VIDEO_PIPELINE_SPEC.md) — Stage order, contracts, config refs, motion/style, handoff |
 | **Render manifest schema** | [schemas/video/render_manifest_v1.schema.json](../schemas/video/render_manifest_v1.schema.json) — Segments → atoms (plan_id, segments[], primary_atom_id, atom_refs) |
 | **Image bank asset schema** | [schemas/video/image_bank_asset_v1.schema.json](../schemas/video/image_bank_asset_v1.schema.json) — asset_id, composition_compat (per aspect), caption_safe_zone, safety_score, style_version |
-| **Video config** | [config/video/](../config/video/) — pacing_by_content_type, caption_policies, degraded_render_policy, visual_intent_defaults, emotion_to_camera_overrides, motion_policy, hook_selection_rules, music_policy, brand_style_tokens, aspect_ratio_presets, visual_metaphor_library, cross_video_dedup, asset_selection_priority |
+| **Video config** | [config/video/](../config/video/) — pacing_by_content_type, caption_policies, degraded_render_policy, visual_intent_defaults, emotion_to_camera_overrides, motion_policy, hook_selection_rules, music_policy, brand_style_tokens, aspect_ratio_presets, visual_metaphor_library, cross_video_dedup, asset_selection_priority, color_grade_presets, render_params (crop_margin_pct) |
 | **Golden fixtures** | [fixtures/video_pipeline/](../fixtures/video_pipeline/) — render_manifest, script_segments, shot_plan, timeline, distribution_manifest, video_provenance |
 | **Pipeline scripts** | [scripts/video/](../scripts/video/) — prepare_script_segments, run_shot_planner, run_asset_resolver, run_timeline_builder, run_caption_adapter, run_qc, write_provenance, write_metadata, run_render (stub), run_pipeline (orchestrator) |
 | **Storage layout (persistent vs ephemeral)** | [docs/VIDEO_PIPELINE_STORAGE_LAYOUT.md](./VIDEO_PIPELINE_STORAGE_LAYOUT.md) — artifacts/video/ (persistent); staging/&lt;date&gt;/ (ephemeral, wipe after ack) |
@@ -454,6 +454,7 @@ Church brands (e.g. NorCal Dharma) are identity/distribution only: no teacher, n
 - [docs/WRITER_BRIEF_BOOK_001.md](./WRITER_BRIEF_BOOK_001.md) — Writer brief for Book_001
 - [docs/WRITER_COMMS_SYSTEMS_100.md](./WRITER_COMMS_SYSTEMS_100.md) — Writer comms systems
 - [docs/WRITER_SPEC_MARKDOWN_AND_DOCX.md](./WRITER_SPEC_MARKDOWN_AND_DOCX.md) — Writer spec (Markdown and DOCX)
+- [docs/WRITER_STORY_READING_LIST.md](./WRITER_STORY_READING_LIST.md) — Full list of files a writer needs for STORY atoms (funnel, Teacher Mode, persona/topic)
 - [docs/FIRST_10_BOOKS_EVALUATION_PROTOCOL.md](./FIRST_10_BOOKS_EVALUATION_PROTOCOL.md) — First 10 books evaluation protocol
 
 ### Author cover art (document all)
@@ -1553,6 +1554,7 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [specs/TEACHER_MODE_NORMALIZATION_SPEC.md](../specs/TEACHER_MODE_NORMALIZATION_SPEC.md) | Teacher Mode normalization: consistent voice, format |
 | [specs/TEACHER_MODE_STRUCTURAL_SPEC.md](../specs/TEACHER_MODE_STRUCTURAL_SPEC.md) | Teacher Mode structural rules |
 | [specs/TEACHER_MODE_V4_CANONICAL_SPEC.md](../specs/TEACHER_MODE_V4_CANONICAL_SPEC.md) | Teacher Mode V4 canonical spec |
+| [specs/TEACHER_UNIVERSAL_AND_SCORING_SPEC.md](../specs/TEACHER_UNIVERSAL_AND_SCORING_SPEC.md) | Teacher universal scope + topic/persona scores, EI v2, volume/format |
 | [specs/TEACHER_PORTFOLIO_PLANNING_SPEC.md](../specs/TEACHER_PORTFOLIO_PLANNING_SPEC.md) | Teacher portfolio planning: topic/persona coverage targets |
 | [specs/V4_6_BINGE_OPTIMIZATION_LAYER.md](../specs/V4_6_BINGE_OPTIMIZATION_LAYER.md) | V4.6 binge optimization: serialized listening, continuity |
 | [specs/WRITER_DEV_SPEC_PHASE_2.md](../specs/WRITER_DEV_SPEC_PHASE_2.md) | Writer dev spec phase 2 |

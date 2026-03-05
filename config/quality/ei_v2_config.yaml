@@ -118,6 +118,10 @@ dimension_gates:
     pass_threshold: 0.40
     warn_threshold: 0.25
 
+# ── Teacher × topic × persona fit (optional) ──
+# When set, EI v2 can use scores for adaptation hints and learning. See specs/TEACHER_UNIVERSAL_AND_SCORING_SPEC.md.
+teacher_topic_persona_scores_path: config/catalog_planning/teacher_topic_persona_scores.yaml
+
 # ── Learning system ──
 # Adaptive weight/threshold tuning based on feedback.
 learner:

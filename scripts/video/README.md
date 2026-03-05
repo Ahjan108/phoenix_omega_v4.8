@@ -16,7 +16,7 @@ Sequential stages per [docs/VIDEO_PIPELINE_SPEC.md](../../docs/VIDEO_PIPELINE_SP
 6. **run_qc.py** — Validates shot_plan, resolved_assets, timeline (no consecutive same asset; duration/resolution).
 7. **write_provenance.py** — Writes video_provenance.json (telemetry: hook_type, environment, etc.).
 8. **write_metadata.py** — Writes distribution_manifest.json with telemetry and primary_asset_ids.
-9. **run_render.py** — Stub: timeline → placeholder video path (FFmpeg/Remotion later).
+9. **run_render.py** — Timeline (plan_id, clips with asset_id, start_time_s, end_time_s, caption_ref) → video + thumb. Reads color presets from `config/video/color_grade_presets.yaml`, crop margin from `config/video/render_params.yaml`. Optional --shot-plan for motion per clip, --captions for caption text. Renders per-clip then concat (hard cuts); extracts thumbnail from thumbnail_frame_ref. **Audio:** timeline.audio_tracks (narration + music with duck_under) mixing is a follow-up; Phase 1 is video-only (silent).
 
 ## Run full pipeline
 
@@ -35,3 +35,14 @@ python3 scripts/video/run_shot_planner.py artifacts/video/plan-therapeutic-001/s
 ```
 
 Config is loaded from `config/video/*.yaml` (pacing, caption_policies, asset_selection_priority, aspect_ratio_presets, etc.).
+
+## Render smoke test (one real image)
+
+Create test assets matching the golden timeline fixture, then run the renderer:
+
+```bash
+python scripts/video/create_test_assets.py --dir /tmp/test_assets
+python scripts/video/run_render.py fixtures/video_pipeline/timeline.json -o /tmp/test_render --assets-dir /tmp/test_assets --video-id test-001
+```
+
+Optional: pass `--captions` and `--shot-plan` (e.g. from a pipeline run) for caption text and motion. If the output is a valid MP4 with visible zoompan motion, drawbox, and captions, the renderer works. Benchmark per-clip time; then move to audio mixing.

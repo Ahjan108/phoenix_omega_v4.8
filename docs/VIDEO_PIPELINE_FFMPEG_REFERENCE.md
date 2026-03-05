@@ -1,7 +1,7 @@
 # Video Pipeline — FFmpeg filter and encoding reference
 
 **Purpose:** Filter chain and encoding reference for `run_render.py`. All variation is **render-time only** (no separate mutation stage).  
-**Related:** [VIDEO_PIPELINE_SPEC.md](./VIDEO_PIPELINE_SPEC.md) §11 Renderer parameters; `config/video/color_grade_presets.yaml`.
+**Related:** [VIDEO_PIPELINE_SPEC.md](./VIDEO_PIPELINE_SPEC.md) §11 Renderer parameters; `config/video/color_grade_presets.yaml`; `config/video/render_params.yaml` (crop_margin_pct).
 
 ---
 
@@ -26,6 +26,7 @@ crop=iw*{crop_zoom}:ih*{crop_zoom}:{crop_offset_x}:{crop_offset_y}
 
 - **crop_zoom:** e.g. 0.92–1.0 (slightly zoomed = cropped). Derived deterministically from `seed = hash(video_id + shot_index)`.
 - **crop_offset_x, crop_offset_y:** Anchor point in source (pixels). Also derived from same seed so builds are reproducible.
+- **Crop margin constraint:** Offsets must stay within `crop_margin_pct` of width/height so the subject is never clipped. Config: `config/video/render_params.yaml` → `crop_margin_pct: 6` (i.e. offset_x ≤ 6% of width, offset_y ≤ 6% of height). Use this when mapping the seed to pixel offsets.
 
 Input to crop should be the image scaled to at least the output size (or larger) so the crop region is valid. Typical: scale to a fixed size (e.g. 1200×2133 for 9:16), then crop, then feed to zoompan.
 
@@ -40,15 +41,24 @@ zoompan=z='...':d={frames}:s={width}x{height}
 - **d:** Number of output frames for this clip (from timeline: `duration_s * fps`).
 - **s:** Output size (e.g. `1080x1920` for 9:16).
 
+**Initialization:** Always initialize zoom on frame 0 so zoompan doesn’t start from an undefined state. Use `if(eq(on,0),1.0,...)` for the first frame.
+
 **z expressions (deterministic per clip):**
 
 - **Static:** `z='1'` (no zoom change).
-- **Slow zoom in:** `z='min(zoom+0.0004,1.08)'` (or similar; zoom starts at 1, increases per frame).
-- **Slow zoom out:** `z='max(zoom-0.0003,0.92)'`.
+- **Slow zoom in:** `z='if(eq(on,0),1.0,min(zoom+0.00023,1.08))'` — frame 0 → zoom = 1, then increases.
+- **Slow zoom out:** `z='if(eq(on,0),1.0,max(zoom-0.00023,0.92))'` — frame 0 → zoom = 1, then decreases.
 
-Use the timeline clip’s `motion_type` (or equivalent) to choose the expression. Same motion types as in `config/video/motion_policy.yaml` (static majority; slow_zoom / slow_pan).
+Use the timeline clip’s `motion_type` (or equivalent) to choose the expression. Same motion types as in `config/video/motion_policy.yaml` (static; slow_zoom; slow_pan).
 
-For pan (if added later): `x`/`y` in zoompan can use expressions like `x='iw/2-(iw/zoom/2)+offset'` with a small deterministic offset.
+**slow_pan:** When `motion_type` is `slow_pan`, use zoompan with fixed zoom and sinusoidal x (and optionally y) for a gentle horizontal drift:
+
+```text
+zoompan=z='1':x='iw/2-(iw/zoom/2)+sin(on/50)*10':y='ih/2-(ih/zoom/2)':d={frames}:s={width}x{height}
+```
+
+- `x='iw/2-(iw/zoom/2)+sin(on/50)*10'` — center the crop then add a small horizontal pan (amplitude 10 px; period from `on/50`).
+- `y='ih/2-(ih/zoom/2)'` — keep vertical centered. Tune the divisor in `sin(on/50)` and the amplitude (`*10`) to match `motion_policy.yaml` speed limits (e.g. pan_per_second_px).
 
 ---
 
@@ -111,6 +121,8 @@ Use only if the pipeline defines a caption safe zone (e.g. `caption_safe_zone` i
 
 ## 8. Example (single image clip, 9:16)
 
+Static shot (zoom fixed at 1):
+
 ```bash
 ffmpeg -y -loop 1 -i input.jpg \
   -filter_complex "
@@ -124,6 +136,14 @@ ffmpeg -y -loop 1 -i input.jpg \
   out.mp4
 ```
 
+Slow zoom in (with init so frame 0 has zoom = 1):
+
+```bash
+zoompan=z='if(eq(on,0),1.0,min(zoom+0.00023,1.08))':d=90:s=1080x1920
+```
+
+Crop offsets (24, 40) in the first example must respect `crop_margin_pct: 6` (e.g. for 1200×2133, offset_x ≤ 72, offset_y ≤ 128).
+
 For multiple clips: render each clip to a segment (or use concat demuxer), then concat segments. Apply the **eq** preset once per video (e.g. on the concatenated stream or by applying the same eq in each segment for consistency).
 
 ---
@@ -132,8 +152,8 @@ For multiple clips: render each clip to a segment (or use concat demuxer), then 
 
 | Parameter set   | Source |
 |----------------|--------|
-| crop_zoom, crop_offset_x, crop_offset_y | `seed = hash(video_id + shot_index)`; map to ranges (e.g. zoom 0.92–1.0, offsets within margin). |
-| zoompan z expression | Timeline clip `motion_type` (static / slow_zoom_in / slow_zoom_out). |
+| crop_zoom, crop_offset_x, crop_offset_y | `seed = hash(video_id + shot_index)`; map to ranges (e.g. zoom 0.92–1.0). Offsets bounded by `config/video/render_params.yaml` → **crop_margin_pct: 6** (offset ≤ 6% of width/height). |
+| zoompan z (and x, y for pan) | Timeline clip `motion_type`: static / slow_zoom_in / slow_zoom_out (use `if(eq(on,0),1.0,...)` init); **slow_pan** → `x='iw/2-(iw/zoom/2)+sin(on/50)*10'`, `y='ih/2-(ih/zoom/2)'`. |
 | eq (c, b, s)   | `config/video/color_grade_presets.yaml`; preset chosen by emotional_arc or content_type. |
 | drawtext x, y  | CaptionAdapter + aspect-ratio preset (e.g. `config/video/aspect_ratio_presets.yaml`). |
 

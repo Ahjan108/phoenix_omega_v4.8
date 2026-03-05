@@ -56,6 +56,7 @@
 | Cross-video dedup | `config/video/cross_video_dedup.yaml` | publishing window, max shared primary assets, require_primary_asset_ids_in_batch |
 | Asset fallback priority | `config/video/asset_selection_priority.yaml` | deterministic fallback order; composition_compat_threshold; step 5 = degraded_render_fallback |
 | Color grade presets | `config/video/color_grade_presets.yaml` | per-video eq presets (neutral, warm, cool, sunset, soft); one grade per video |
+| Render params | `config/video/render_params.yaml` | crop_margin_pct (e.g. 6) — guardrail so seed-derived crop offsets don't clip subject |
 
 ---
 

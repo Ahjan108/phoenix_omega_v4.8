@@ -1,24 +1,10 @@
 # Persona × Teacher compatibility for Teacher Mode planning.
-# Authority: Teacher Mode structural design — prevents teacher misfit and platform similarity.
-# Planner: persona must be in allowed_personas; engine in allowed_engines.
-# Aligned with config/catalog_planning/canonical_personas.yaml (10 active personas) for full US/ZH catalog.
+# Authority: specs/TEACHER_UNIVERSAL_AND_SCORING_SPEC.md
+# Empty allowed_personas = all canonical personas allowed. Fit is scored in teacher_topic_persona_scores.yaml.
 
 teachers:
   ahjan:
-    allowed_personas:
-      - millennial_women_professionals
-      - tech_finance_burnout
-      - entrepreneurs
-      - working_parents
-      - gen_x_sandwich
-      - corporate_managers
-      - gen_z_professionals
-      - healthcare_rns
-      - gen_alpha_students
-      - first_responders
-      # Legacy (kept for backward compatibility)
-      - nyc_executives
-      - burned_out_professional
+    allowed_personas: []
     disallowed_personas: []
     preferred_locales:
       - nyc_metro
@@ -55,18 +41,7 @@ teachers:
         preferred_story_style: narrative
 
   ajahn_x:
-    allowed_personas:
-      - millennial_women_professionals
-      - tech_finance_burnout
-      - entrepreneurs
-      - working_parents
-      - gen_x_sandwich
-      - corporate_managers
-      - gen_z_professionals
-      - healthcare_rns
-      - gen_alpha_students
-      - first_responders
-      - nyc_executives
+    allowed_personas: []
     disallowed_personas: []
     preferred_locales: []
     allowed_engines:
@@ -84,19 +59,7 @@ teachers:
       min_tps_per_chapter: 5
 
   master_feung:
-    allowed_personas:
-      - millennial_women_professionals
-      - tech_finance_burnout
-      - entrepreneurs
-      - working_parents
-      - gen_x_sandwich
-      - corporate_managers
-      - gen_z_professionals
-      - healthcare_rns
-      - gen_alpha_students
-      - first_responders
-      - nyc_executives
-      - burned_out_professional
+    allowed_personas: []
     disallowed_personas: []
     preferred_locales: []
     allowed_engines:
@@ -108,19 +71,7 @@ teachers:
       min_tps_per_chapter: 5
 
   sai_ma:
-    allowed_personas:
-      - millennial_women_professionals
-      - tech_finance_burnout
-      - entrepreneurs
-      - working_parents
-      - gen_x_sandwich
-      - corporate_managers
-      - gen_z_professionals
-      - healthcare_rns
-      - gen_alpha_students
-      - first_responders
-      - nyc_executives
-      - burned_out_professional
+    allowed_personas: []
     disallowed_personas: []
     preferred_locales: []
     allowed_engines:
@@ -133,19 +84,7 @@ teachers:
       min_tps_per_chapter: 5
 
   ra:
-    allowed_personas:
-      - millennial_women_professionals
-      - tech_finance_burnout
-      - entrepreneurs
-      - working_parents
-      - gen_x_sandwich
-      - corporate_managers
-      - gen_z_professionals
-      - healthcare_rns
-      - gen_alpha_students
-      - first_responders
-      - nyc_executives
-      - burned_out_professional
+    allowed_personas: []
     disallowed_personas: []
     preferred_locales: []
     allowed_engines:
@@ -158,19 +97,7 @@ teachers:
       min_tps_per_chapter: 5
 
   junko:
-    allowed_personas:
-      - millennial_women_professionals
-      - tech_finance_burnout
-      - entrepreneurs
-      - working_parents
-      - gen_x_sandwich
-      - corporate_managers
-      - gen_z_professionals
-      - healthcare_rns
-      - gen_alpha_students
-      - first_responders
-      - nyc_executives
-      - burned_out_professional
+    allowed_personas: []
     disallowed_personas: []
     preferred_locales: []
     allowed_engines:
@@ -182,19 +109,7 @@ teachers:
       min_tps_per_chapter: 5
 
   miki:
-    allowed_personas:
-      - millennial_women_professionals
-      - tech_finance_burnout
-      - entrepreneurs
-      - working_parents
-      - gen_x_sandwich
-      - corporate_managers
-      - gen_z_professionals
-      - healthcare_rns
-      - gen_alpha_students
-      - first_responders
-      - nyc_executives
-      - burned_out_professional
+    allowed_personas: []
     disallowed_personas: []
     preferred_locales: []
     allowed_engines:
@@ -206,19 +121,7 @@ teachers:
       min_tps_per_chapter: 5
 
   master_wu:
-    allowed_personas:
-      - millennial_women_professionals
-      - tech_finance_burnout
-      - entrepreneurs
-      - working_parents
-      - gen_x_sandwich
-      - corporate_managers
-      - gen_z_professionals
-      - healthcare_rns
-      - gen_alpha_students
-      - first_responders
-      - nyc_executives
-      - burned_out_professional
+    allowed_personas: []
     disallowed_personas: []
     preferred_locales: []
     allowed_engines:
@@ -230,19 +133,7 @@ teachers:
       min_tps_per_chapter: 5
 
   pamela_fellows:
-    allowed_personas:
-      - millennial_women_professionals
-      - tech_finance_burnout
-      - entrepreneurs
-      - working_parents
-      - gen_x_sandwich
-      - corporate_managers
-      - gen_z_professionals
-      - healthcare_rns
-      - gen_alpha_students
-      - first_responders
-      - nyc_executives
-      - burned_out_professional
+    allowed_personas: []
     disallowed_personas: []
     preferred_locales: []
     allowed_engines:
@@ -255,19 +146,7 @@ teachers:
       min_tps_per_chapter: 5
 
   joshin:
-    allowed_personas:
-      - millennial_women_professionals
-      - tech_finance_burnout
-      - entrepreneurs
-      - working_parents
-      - gen_x_sandwich
-      - corporate_managers
-      - gen_z_professionals
-      - healthcare_rns
-      - gen_alpha_students
-      - first_responders
-      - nyc_executives
-      - burned_out_professional
+    allowed_personas: []
     disallowed_personas: []
     preferred_locales: []
     allowed_engines:
@@ -279,19 +158,7 @@ teachers:
       min_tps_per_chapter: 5
 
   maat:
-    allowed_personas:
-      - millennial_women_professionals
-      - tech_finance_burnout
-      - entrepreneurs
-      - working_parents
-      - gen_x_sandwich
-      - corporate_managers
-      - gen_z_professionals
-      - healthcare_rns
-      - gen_alpha_students
-      - first_responders
-      - nyc_executives
-      - burned_out_professional
+    allowed_personas: []
     disallowed_personas: []
     preferred_locales: []
     allowed_engines:
@@ -304,19 +171,7 @@ teachers:
       min_tps_per_chapter: 5
 
   omote:
-    allowed_personas:
-      - millennial_women_professionals
-      - tech_finance_burnout
-      - entrepreneurs
-      - working_parents
-      - gen_x_sandwich
-      - corporate_managers
-      - gen_z_professionals
-      - healthcare_rns
-      - gen_alpha_students
-      - first_responders
-      - nyc_executives
-      - burned_out_professional
+    allowed_personas: []
     disallowed_personas: []
     preferred_locales: []
     allowed_engines:
@@ -328,19 +183,7 @@ teachers:
       min_tps_per_chapter: 5
 
   master_sha:
-    allowed_personas:
-      - millennial_women_professionals
-      - tech_finance_burnout
-      - entrepreneurs
-      - working_parents
-      - gen_x_sandwich
-      - corporate_managers
-      - gen_z_professionals
-      - healthcare_rns
-      - gen_alpha_students
-      - first_responders
-      - nyc_executives
-      - burned_out_professional
+    allowed_personas: []
     disallowed_personas: []
     preferred_locales: []
     allowed_engines:

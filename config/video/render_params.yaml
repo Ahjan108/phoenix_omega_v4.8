@@ -1,0 +1,6 @@
+# Render-time parameters for run_render.py (FFmpeg). No separate mutation stage.
+# See docs/VIDEO_PIPELINE_FFMPEG_REFERENCE.md.
+
+# Crop offset guardrail: deterministic offsets must stay within this margin so we don't clip the subject.
+# offset_x ≤ crop_margin_pct% of width; offset_y ≤ crop_margin_pct% of height.
+crop_margin_pct: 6

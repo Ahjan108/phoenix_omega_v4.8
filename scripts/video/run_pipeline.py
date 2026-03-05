@@ -27,7 +27,8 @@ def main() -> int:
     ap.add_argument("--out-dir", default=None, help="Output dir (default: artifacts/video/<plan_id>)")
     ap.add_argument("--video-id", default=None, help="Video ID for provenance/manifest (default: video-<plan_id>)")
     ap.add_argument("--force", action="store_true", help="Overwrite existing artifacts at every stage")
-    ap.add_argument("--skip-render", action="store_true", default=True, help="Skip render step (default: True until FFmpeg integration; set False when run_render.py is wired)")
+    ap.add_argument("--assets-dir", default=None, help="Assets directory for render (asset_id -> <assets_dir>/<asset_id>.jpg); if unset, render step uses --placeholder")
+    ap.add_argument("--skip-render", action="store_true", default=True, help="Skip render step (default: True; set False to run FFmpeg render when --assets-dir is set)")
     args = ap.parse_args()
 
     fixtures = Path(args.fixtures_dir or str(REPO_ROOT / "fixtures" / "video_pipeline"))
@@ -57,12 +58,24 @@ def main() -> int:
             return 1
         print(f"OK: {name}")
 
-    # --- Render step (insert here when FFmpeg integration is ready) ---
-    # run_render.py: timeline.json + assets -> staging/<date>/<video_id>/video.mp4, thumb.jpg
-    # Example: run( [py, str(scripts / "run_render.py"), str(out_root / "timeline.json"), "-o", str(staging_dir)], REPO_ROOT )
+    # --- Render step ---
     if not args.skip_render:
-        # Placeholder: run_render.py when implemented
-        pass
+        render_cmd = [
+            py, str(scripts / "run_render.py"),
+            str(out_root / "timeline.json"),
+            "-o", str(out_root),
+            "--video-id", video_id,
+            "--captions", str(out_root / "captions.json"),
+            "--shot-plan", str(out_root / "shot_plan.json"),
+        ]
+        if args.assets_dir:
+            render_cmd.extend(["--assets-dir", str(args.assets_dir)])
+        else:
+            render_cmd.append("--placeholder")
+        if not run(render_cmd, REPO_ROOT):
+            print("Failed: Render", file=sys.stderr)
+            return 1
+        print("OK: Render")
 
     timeline = json.loads((out_root / "timeline.json").read_text(encoding="utf-8"))
     duration_s = timeline.get("duration_s", 0)

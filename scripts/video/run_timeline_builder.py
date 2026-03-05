@@ -35,23 +35,26 @@ def build_timeline(shot_plan: dict, resolved: dict, aspect_ratio: str) -> dict:
     res = presets_map.get(preset_key) or {"width": 1920, "height": 1080}
     width = res.get("width", 1920)
     height = res.get("height", 1080)
-    duration_s = 0.0
+    # cumulative end time (seconds) after each clip; start of next clip = end of previous
+    clip_end_s = 0.0
     clips = []
     thumbnail_shot = None
     for shot in shot_plan.get("shots", []):
         shot_id = shot["shot_id"]
-        start_s = duration_s
+        start_s = clip_end_s
         dur = shot.get("duration_s", 3.0)
-        duration_s += dur
+        clip_end_s = start_s + dur  # end timestamp of this clip (not duration — used for next clip start)
         asset_id = (resolved.get("resolved") or {}).get(shot_id, {}).get("asset_id", f"asset-{shot_id}")
         if shot.get("thumbnail_candidate"):
             thumbnail_shot = shot_id
+        motion = (shot.get("prompt_bundle") or {}).get("motion", "static")
         clips.append({
             "shot_id": shot_id,
             "asset_id": asset_id,
             "start_time_s": round(start_s, 2),
-            "end_time_s": round(duration_s, 2),
+            "end_time_s": round(clip_end_s, 2),
             "caption_ref": shot.get("segment_id", ""),
+            "motion": motion,
         })
     return {
         "plan_id": shot_plan["plan_id"],
@@ -59,7 +62,7 @@ def build_timeline(shot_plan: dict, resolved: dict, aspect_ratio: str) -> dict:
         "fps": 24,
         "resolution": {"width": width, "height": height},
         "aspect_ratio": aspect_ratio,
-        "duration_s": round(duration_s, 2),
+        "duration_s": round(clip_end_s, 2),
         "thumbnail_frame_ref": {"shot_id": thumbnail_shot or (clips[0]["shot_id"] if clips else ""), "frame_offset": 0},
         "audio_tracks": [],
         "clips": clips,

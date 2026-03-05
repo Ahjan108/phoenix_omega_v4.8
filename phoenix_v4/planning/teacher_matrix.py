@@ -1,6 +1,6 @@
 """
 Teacher × persona compatibility for Teacher Mode. Enforce at planning entry (e.g. run_pipeline).
-Prevents off-matrix teacher/persona/engine/locale combinations.
+Authority: specs/TEACHER_UNIVERSAL_AND_SCORING_SPEC.md — empty allowed_personas = all personas allowed.
 """
 from __future__ import annotations
 
@@ -30,7 +30,9 @@ def validate_teacher_assignment(
     engine_id: str | None = None,
     locale_key: str | None = None,
 ) -> None:
-    """Raise ValueError if teacher_id is not allowed for persona_id / engine_id / locale_key."""
+    """Raise ValueError if teacher_id is not allowed for persona_id / engine_id / locale_key.
+    Empty allowed_personas = all personas allowed. Empty allowed_engines = all engines allowed.
+    """
     if not teacher_id:
         return
     teachers = matrix.get("teachers") or {}
@@ -41,9 +43,11 @@ def validate_teacher_assignment(
     disallowed_personas = set(t.get("disallowed_personas") or [])
     if persona_id and disallowed_personas and persona_id in disallowed_personas:
         raise ValueError(f"Teacher '{teacher_id}' disallowed for persona '{persona_id}'")
+    # Empty allowed_personas = all canonical personas allowed (universal scope)
     if allowed_personas and persona_id not in allowed_personas:
         raise ValueError(f"Teacher '{teacher_id}' not allowed for persona '{persona_id}'")
     allowed_engines = set(t.get("allowed_engines") or [])
+    # Empty allowed_engines = all engines allowed
     if engine_id and allowed_engines and engine_id not in allowed_engines:
         raise ValueError(f"Teacher '{teacher_id}' not allowed for engine '{engine_id}'")
     preferred_locales = set(t.get("preferred_locales") or [])
