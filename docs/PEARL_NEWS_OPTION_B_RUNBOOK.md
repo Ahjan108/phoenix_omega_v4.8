@@ -107,6 +107,31 @@ If you **don’t** set `QWEN_*`, the pipeline still runs but skips LLM expansion
 
 ---
 
+## 7. LM Studio reliability (self-hosted)
+
+If the workflow runs but **LLM expansion times out**, use these practices.
+
+**Already in this repo (copy to target):**
+
+- **Job timeout:** `timeout-minutes: 30` so runs don’t hang indefinitely.
+- **Safe-mode toggles:** `PEARL_NEWS_EXPAND` and `PEARL_NEWS_LIMIT` in the workflow `env`. Default: `PEARL_NEWS_EXPAND: "true"`, `PEARL_NEWS_LIMIT: "3"`.
+- **Higher expansion timeout:** `pearl_news/config/llm_expansion.yaml` has `timeout: 240` (seconds per article).
+
+**What you should do:**
+
+1. **Let the current run finish** — Don’t cancel unless it exceeds the job timeout. Capture the run URL and step logs if it fails.
+2. **Lower workload** — The workflow already uses `--limit 3`. For emergency stability, in the workflow set `PEARL_NEWS_EXPAND: "false"` (drafts only, no LLM expansion).
+3. **LM Studio load** — Use 1–2 parallel slots; keep one model loaded (e.g. `qwen3-14b`). Avoid other heavy local jobs during workflow runs.
+4. **Staged rollout:**
+   - Run with `PEARL_NEWS_LIMIT: "1"` and `PEARL_NEWS_EXPAND: "true"` (smoke test).
+   - Then `limit=3`, `expand=true`.
+   - If stable, keep the schedule; if not, set `PEARL_NEWS_EXPAND: "false"` for scheduled runs and run expansion manually or less often.
+5. **Acceptance:** Workflow green 3 runs in a row; `pearl_news_drafts` artifact each run; expansion timeouts rare or zero in safe mode; WP step succeeds or dry-runs cleanly.
+
+**Optional:** To flip expand without editing YAML, use repo variables: e.g. `PEARL_NEWS_EXPAND: ${{ vars.PEARL_NEWS_EXPAND || 'true' }}` and set the variable in Settings → Variables.
+
+---
+
 ## Quick reference
 
 | Step | Action |
@@ -117,6 +142,7 @@ If you **don’t** set `QWEN_*`, the pipeline still runs but skips LLM expansion
 | 4 | Add 6 secrets (3 WordPress + 3 Qwen) in target repo |
 | 5 | Install and run self-hosted runner; keep LM Studio up |
 | 6 | Run workflow from Actions and check artifacts + WP draft |
+| 7 | If LLM times out: see §7 (limit 3, expand toggle, timeout 240, LM Studio load) |
 
 ---
 
