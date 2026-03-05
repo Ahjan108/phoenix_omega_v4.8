@@ -195,7 +195,7 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 | **Minimal prod checklist** | [docs/PEARL_NEWS_MINIMAL_PROD_CHECKLIST.md](./PEARL_NEWS_MINIMAL_PROD_CHECKLIST.md) — Code/tests must-pass + 6 operational gates; pre-merge verification, rollback procedure |
 | **GO/NO-GO checklist** | [docs/PEARL_NEWS_GO_NO_GO_CHECKLIST.md](./PEARL_NEWS_GO_NO_GO_CHECKLIST.md) — Production 100% gates: networked run, CI green, signed checklist with evidence |
 | **Hardening 100%** | [docs/PEARL_NEWS_HARDENING_100_PERCENT.md](./PEARL_NEWS_HARDENING_100_PERCENT.md) — URL normalization, one-command runner, CI preflight, evidence bundle |
-| **Writer spec** | `docs/PEARL_NEWS_WRITER_SPEC.md` ⚠️ *file not present* — Voice, atom types, 4-layer blend, quality gates, template guidance |
+| **Writer spec** | [docs/PEARL_NEWS_WRITER_SPEC.md](./PEARL_NEWS_WRITER_SPEC.md) — Voice, 4-layer blend, per-template writing guide, lede patterns, youth specificity standard, teacher integration rules, SDG integration, quality gates writing layer |
 | **Pearl News README** | [pearl_news/README.md](../pearl_news/README.md) — Quick start, structure, one-command run |
 | **Publish README** | [pearl_news/publish/README.md](../pearl_news/publish/README.md) — WordPress credentials, article format, posting script |
 | **Pipeline README** | [pearl_news/pipeline/README.md](../pearl_news/pipeline/README.md) — Pipeline stages, usage |
@@ -1479,7 +1479,7 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [PEARL_NEWS_MINIMAL_PROD_CHECKLIST.md](./PEARL_NEWS_MINIMAL_PROD_CHECKLIST.md) | Pearl News | ✓ |
 | [PEARL_NEWS_GO_NO_GO_CHECKLIST.md](./PEARL_NEWS_GO_NO_GO_CHECKLIST.md) | Pearl News | ✓ |
 | [PEARL_NEWS_HARDENING_100_PERCENT.md](./PEARL_NEWS_HARDENING_100_PERCENT.md) | Pearl News | ✓ |
-| `PEARL_NEWS_WRITER_SPEC.md` | Pearl News | ⚠️ missing |
+| [PEARL_NEWS_WRITER_SPEC.md](./PEARL_NEWS_WRITER_SPEC.md) | Pearl News | ✓ |
 | [PHOENIX_24_BRAND_GOVERNANCE_ARCHITECTURE.md](./PHOENIX_24_BRAND_GOVERNANCE_ARCHITECTURE.md) | Governance | ✓ |
 | [PHOENIX_24_BRAND_MINIMUM_GOVERNANCE_CORE.md](./PHOENIX_24_BRAND_MINIMUM_GOVERNANCE_CORE.md) | Governance | ✓ |
 | [GOVERNANCE_HARDENING_BLUEPRINT.md](./GOVERNANCE_HARDENING_BLUEPRINT.md) | Governance | ✓ |

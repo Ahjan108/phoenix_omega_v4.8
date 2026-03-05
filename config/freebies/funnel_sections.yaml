@@ -4,7 +4,8 @@
 burnout_reset:
   hero_headline: "Reset your nervous system in 60 seconds"
   hero_subhead: "One breath. No sign-up walls. Use it when you need it."
-  # authority_narrative: optional; Nihala's paragraph (Section 2). Insert in template or set here.
+  # Authority narrative (Section 2): Nihala's paragraph only; copywriter one light edit. Replace the line below with her final copy.
+  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE (3–5 sentences, her voice; see specs/FUNNEL_AND_BOOK_COPY_WRITER_SPEC.md §1)
   problem: "Burnout doesn't fix itself with more rest. Your body is stuck in go-mode — and the same breath pattern that got you here can get you out."
   solution: "A single, research-backed reset. No app, no account. Just the practice."
   cta: "Yes — I'm ready to start"
@@ -12,6 +13,8 @@ burnout_reset:
 anxiety_reset:
   hero_headline: "When your mind won't stop"
   hero_subhead: "A 2-minute practice that actually shifts your state."
+  # authority_narrative: same as burnout — Nihala's paragraph; paste when ready.
+  authority_narrative: ""
   problem: "Anxiety lives in the body before it hits the mind. Telling yourself to relax rarely works."
   solution: "This practice works with your nervous system — not against it."
   cta: "Get the free practice"

@@ -30,6 +30,8 @@
 		A10000000000000000000015 /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000015 /* ErrorStateView.swift */; };
 		A10000000000000000000016 /* EvidenceLogTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000016 /* EvidenceLogTable.swift */; };
 		A10000000000000000000017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000017 /* Assets.xcassets */; };
+		A10000000000000000000018 /* GovernanceReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000019 /* GovernanceReport.swift */; };
+		A10000000000000000000019 /* ContentCoverageReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000001A /* ContentCoverageReport.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		A20000000000000000000016 /* EvidenceLogTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvidenceLogTable.swift; sourceTree = "<group>"; };
 		A20000000000000000000017 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A20000000000000000000018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A20000000000000000000019 /* GovernanceReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GovernanceReport.swift; sourceTree = "<group>"; };
+		A2000000000000000000001A /* ContentCoverageReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCoverageReport.swift; sourceTree = "<group>"; };
 		A30000000000000000000001 /* Phoenix Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Phoenix Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -106,6 +110,8 @@
 			children = (
 				A20000000000000000000002 /* AppState.swift */,
 				A20000000000000000000003 /* ObservabilitySnapshot.swift */,
+				A20000000000000000000019 /* GovernanceReport.swift */,
+				A2000000000000000000001A /* ContentCoverageReport.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -244,6 +250,8 @@
 				A10000000000000000000014 /* StatusBadge.swift in Sources */,
 				A10000000000000000000015 /* ErrorStateView.swift in Sources */,
 				A10000000000000000000016 /* EvidenceLogTable.swift in Sources */,
+				A10000000000000000000018 /* GovernanceReport.swift in Sources */,
+				A10000000000000000000019 /* ContentCoverageReport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

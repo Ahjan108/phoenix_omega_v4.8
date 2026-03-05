@@ -113,22 +113,20 @@ If the workflow runs but **LLM expansion times out**, use these practices.
 
 **Already in this repo (copy to target):**
 
-- **Job timeout:** `timeout-minutes: 30` so runs don’t hang indefinitely.
-- **Safe-mode toggles:** `PEARL_NEWS_EXPAND` and `PEARL_NEWS_LIMIT` in the workflow `env`. Default: `PEARL_NEWS_EXPAND: "true"`, `PEARL_NEWS_LIMIT: "3"`.
-- **Higher expansion timeout:** `pearl_news/config/llm_expansion.yaml` has `timeout: 240` (seconds per article).
+- **Job timeout:** `timeout-minutes: 45` so runs don’t hit overall timeout before LLM calls finish.
+- **Safe-mode toggles:** `PEARL_NEWS_EXPAND` and `PEARL_NEWS_LIMIT` in the workflow `env`. **Default (scheduled):** `PEARL_NEWS_EXPAND: "false"`, `PEARL_NEWS_LIMIT: "3"` — schedule = no expand for reliable drafts.
+- **Expansion config:** `pearl_news/config/llm_expansion.yaml` has `timeout: 360` (seconds per article), `max_tokens: 1200` (lower load than 2048).
+
+**Best practice:** Schedule = no expand; manual/low-volume run = expand. Avoids broken scheduled runs.
 
 **What you should do:**
 
-1. **Let the current run finish** — Don’t cancel unless it exceeds the job timeout. Capture the run URL and step logs if it fails.
-2. **Lower workload** — The workflow already uses `--limit 3`. For emergency stability, in the workflow set `PEARL_NEWS_EXPAND: "false"` (drafts only, no LLM expansion).
-3. **LM Studio load** — Use 1–2 parallel slots; keep one model loaded (e.g. `qwen3-14b`). Avoid other heavy local jobs during workflow runs.
-4. **Staged rollout:**
-   - Run with `PEARL_NEWS_LIMIT: "1"` and `PEARL_NEWS_EXPAND: "true"` (smoke test).
-   - Then `limit=3`, `expand=true`.
-   - If stable, keep the schedule; if not, set `PEARL_NEWS_EXPAND: "false"` for scheduled runs and run expansion manually or less often.
-5. **Acceptance:** Workflow green 3 runs in a row; `pearl_news_drafts` artifact each run; expansion timeouts rare or zero in safe mode; WP step succeeds or dry-runs cleanly.
+1. **Scheduled runs** — Keep `PEARL_NEWS_EXPAND: "false"` so cron runs produce drafts without LLM calls; no timeout risk.
+2. **Manual expansion** — When the machine is free, trigger a manual run and set in workflow env: `PEARL_NEWS_EXPAND: "true"`, `PEARL_NEWS_LIMIT: "1"` (or edit the workflow file temporarily).
+3. **LM Studio load** — Parallel slots: 1; keep only `qwen3-14b` (or one model) loaded; don’t run other heavy jobs during the workflow.
+4. **Acceptance:** Workflow green 3 runs in a row; `pearl_news_drafts` artifact each run; WP step succeeds or dry-runs cleanly.
 
-**Optional:** To flip expand without editing YAML, use repo variables: e.g. `PEARL_NEWS_EXPAND: ${{ vars.PEARL_NEWS_EXPAND || 'true' }}` and set the variable in Settings → Variables.
+**Optional:** To flip expand without editing YAML, use repo variables: e.g. `PEARL_NEWS_EXPAND: ${{ vars.PEARL_NEWS_EXPAND || 'false' }}` and set the variable in Settings → Variables.
 
 ---
 
@@ -142,7 +140,7 @@ If the workflow runs but **LLM expansion times out**, use these practices.
 | 4 | Add 6 secrets (3 WordPress + 3 Qwen) in target repo |
 | 5 | Install and run self-hosted runner; keep LM Studio up |
 | 6 | Run workflow from Actions and check artifacts + WP draft |
-| 7 | If LLM times out: see §7 (limit 3, expand toggle, timeout 240, LM Studio load) |
+| 7 | If LLM times out: see §7 (schedule = no expand; manual = expand; timeout 360, max_tokens 1200) |
 
 ---
 

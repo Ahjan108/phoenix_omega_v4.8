@@ -19,13 +19,13 @@ model: "Qwen2.5-14B-Instruct"
 api_key: "lm-studio"
 # LM Studio: any non-empty string. Ollama: often "ollama". Remote: your API key if required.
 
-# Timeout per article (seconds); 240 for self-hosted LM Studio reliability
-timeout: 240
+# Timeout per article (seconds); 360 for self-hosted LM Studio reliability
+timeout: 360
 
 # Target word count for expanded body (overrides site.yaml target_word_count when set)
 target_word_count: 1000
 
-# Max tokens the model can generate per call (allow ~1000 words ≈ 1300+ tokens)
-max_tokens: 2048
+# Max tokens per call; 1200 lowers generation load vs 2048 for stability
+max_tokens: 1200
 
 temperature: 0.5

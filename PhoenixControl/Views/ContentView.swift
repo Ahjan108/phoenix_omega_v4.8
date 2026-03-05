@@ -163,7 +163,7 @@ struct ContentView: View {
             case .ci:
                 CIWorkflowsView(state: state, githubService: githubService)
             case .docs:
-                DocsConfigView(state: state, scriptRunner: scriptRunner)
+                DocsConfigView(state: state, artifactReader: artifactReader, scriptRunner: scriptRunner)
             }
         }
     }

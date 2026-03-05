@@ -33,6 +33,20 @@ final class ArtifactReader {
         return loadJSONL(path: path, limit: limit)
     }
 
+    /// System governance report from artifacts/governance/system_governance_report.json
+    func loadSystemGovernanceReport(repoPath: String) -> SystemGovernanceReport? {
+        let path = repoURL(repoPath: repoPath).appendingPathComponent("artifacts/governance/system_governance_report.json")
+        guard let data = try? Data(contentsOf: path) else { return nil }
+        return try? JSONDecoder().decode(SystemGovernanceReport.self, from: data)
+    }
+
+    /// Content coverage report from artifacts/content_coverage_report.json
+    func loadContentCoverageReport(repoPath: String) -> ContentCoverageReport? {
+        let path = repoURL(repoPath: repoPath).appendingPathComponent("artifacts/content_coverage_report.json")
+        guard let data = try? Data(contentsOf: path) else { return nil }
+        return try? JSONDecoder().decode(ContentCoverageReport.self, from: data)
+    }
+
     private func loadJSONL(path: URL, limit: Int) -> [EvidenceLogRow] {
         guard let content = try? String(contentsOf: path, encoding: .utf8) else { return [] }
         let lines = content.split(separator: "\n", omittingEmptySubsequences: true)
