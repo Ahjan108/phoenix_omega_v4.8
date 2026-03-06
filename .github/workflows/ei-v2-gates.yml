@@ -58,8 +58,11 @@ jobs:
       - name: Run EI V2 test suite
         if: steps.filter.outputs.ei == 'true'
         run: |
-          PYTHONPATH=. python -m pytest tests/test_ei_v2.py tests/test_ei_v2_hybrid.py \
-            -v --tb=short -x
+          TESTS="tests/test_ei_v2.py"
+          if [ -f tests/test_ei_v2_hybrid.py ]; then
+            TESTS="$TESTS tests/test_ei_v2_hybrid.py"
+          fi
+          PYTHONPATH=. python -m pytest $TESTS -v --tb=short -x
 
       - name: Run rigorous evaluation (3-book sample)
         if: steps.filter.outputs.ei == 'true'
