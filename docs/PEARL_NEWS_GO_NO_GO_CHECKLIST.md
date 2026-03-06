@@ -90,9 +90,11 @@ When the three production gates are done, paste links here and sign.
 
 | Evidence | Link or value |
 |----------|----------------|
-| **CI run (green)** | `https://github.com/Ahjan108/phoenix_omega_v4.8/actions/runs/22615289553` |
+| **CI run (green, Qwen-Agent)** | `https://github.com/Ahjan108/Qwen-Agent/actions/runs/22752532019` (Pearl News manual expand #5, main) |
+| **Manual expand runtime proof (Qwen-Agent)** | Artifact `pearl_news_drafts` (2.95 KB), digest `sha256:e86ac57d02a268b6e09d8602123786808311264f6625b54cfbe09b7cee7c7e0d` |
+| **Scheduled runtime proof (Qwen-Agent)** | `https://github.com/Ahjan108/Qwen-Agent/actions/runs/22752359652` (Pearl News scheduled #9, main). Artifact `pearl_news_drafts` (6.91 KB), digest `sha256:d01916f2700b6d7966b2529e20af127a574089e1f071e341caeff648b9c47be7` |
 | **Networked run** | **Done.** Path: `artifacts/pearl_news/evaluation/networked_run_evidence.json`. Run: 2026-03-03; 5 items → 5 articles (ingest from live UN feeds → drafts). |
-| **Signed by** | Ahjan108 — 2026-03-03 |
+| **Signed by** | Ahjan108 — 2026-03-06 |
 
 **Status:** GO — Production 100% criteria satisfied for the Pearl News checklist in this document.
 
