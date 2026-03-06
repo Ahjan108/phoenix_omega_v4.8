@@ -2,7 +2,7 @@
 
 **Slice:** URL normalization, one-command runner, CI preflight.  
 **Branch:** `codex/harden-pearl-news-pipeline`  
-**Files:** `wordpress_client.py`, `test_wordpress_and_article.py`, `pearl_news_do_it.sh`, `pearl_news_scheduled.yml`, `pearl_news/README.md`
+**Files:** `wordpress_client.py`, `test_wordpress_and_article.py`, `pearl_news_do_it.sh`, `pearl_news/README.md`
 
 **Rule:** If any must-have item is pending, it is not 100%.
 
@@ -12,14 +12,13 @@
 
 | # | Item | How to verify |
 |---|------|---------------|
-| 1 | **Clean branch diff** — Only these 5 files in the PR: | |
+| 1 | **Clean branch diff** — Only these 4 files in the PR: | |
 | | `pearl_news/publish/wordpress_client.py` | `git diff main --name-only` |
 | | `test_pearl_news/test_wordpress_and_article.py` | |
 | | `scripts/pearl_news_do_it.sh` | |
-| | `.github/workflows/pearl_news_scheduled.yml` | |
 | | `pearl_news/README.md` | |
 | 2 | **PR merged to `main`** | Merge `codex/harden-pearl-news-pipeline` |
-| 3 | **GitHub Actions green** | `pearl_news_scheduled` workflow passes on `main` |
+| 3 | **GitHub Actions green (Qwen-Agent)** | Pearl News workflows pass on `main` in Qwen-Agent |
 | 4 | **Runtime smoke checks** | |
 | | `scripts/pearl_news_do_it.sh` (no-post) succeeds | Run locally |
 | | `scripts/pearl_news_do_it.sh --post` (draft-post) succeeds | Run locally with WP secrets |
@@ -41,8 +40,7 @@ These are not required for 100% but are recommended for operations.
 **Steps:**
 
 1. **Disable scheduler**  
-   - GitHub: **Actions → Pearl News scheduled → ⋮ → Disable workflow**  
-   - Or edit `.github/workflows/pearl_news_scheduled.yml` and remove/comment the `schedule:` block.
+   - In **Qwen-Agent**: **Actions → Pearl News scheduled → ⋮ → Disable workflow**
 
 2. **Revoke WP app password**  
    - WP Admin → **Users → Profile**  
@@ -64,7 +62,7 @@ These are not required for 100% but are recommended for operations.
 
 | Item | Where to get it |
 |------|-----------------|
-| Workflow run URL | Actions → Pearl News scheduled → [run] → copy URL |
+| Workflow run URL | Qwen-Agent Actions → Pearl News scheduled → [run] → copy URL |
 | Smoke command outputs | `scripts/pearl_news_do_it.sh` and `scripts/pearl_news_do_it.sh --post` stdout |
 | Commit SHA | `git rev-parse HEAD` after merge |
 

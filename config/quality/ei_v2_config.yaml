@@ -16,6 +16,24 @@ marketing_sources:
   use_marketing_safety_bans: true
   use_invisible_script_alignment: false
 
+# ── Research KB integration (Gen Z / Gen Alpha research signals) ──
+# When enabled + KB present: use research KB for youth anchors, invisible scripts,
+# contradiction markers, and topic vocabulary in domain_embeddings.
+# Missing/empty KB: fallback to built-in signals with warning (no crash).
+# One global switch (enabled: false) disables all research KB integration instantly.
+research_kb:
+  enabled: true
+  kb_path: artifacts/research/kb
+  min_confidence: 0.65          # Only use entries with confidence >= this
+  # Weights for research-derived signals in domain_embeddings (additive to existing)
+  youth_anchor_weight: 0.08     # Boost when text contains research-derived youth anchors
+  invisible_script_weight: 0.05 # Boost when text reflects known invisible scripts
+  contradiction_weight: 0.06    # Boost for contradiction-surfacing content
+  # Shadow metadata: when true, research runner can propose persona/topic metadata updates
+  shadow_metadata_enabled: true
+  shadow_metadata_path: artifacts/ei_v2/metadata_candidates
+  shadow_promotion_gate_path: config/research_metadata/promotion_criteria.yaml
+
 safety_classifier:
   enabled: true
   mode: heuristic_plus           # "heuristic_plus" (no deps) or "llm" (requires API)

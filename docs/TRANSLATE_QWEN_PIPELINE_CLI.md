@@ -48,7 +48,7 @@ You can run the same pipeline from forks [Ahjan108/Qwen](https://github.com/Ahja
 **Steps (summary):**
 
 1. Clone the target repo (e.g. Ahjan108/Qwen or Ahjan108/Qwen-Agent).
-2. Copy from phoenix_omega: `pearl_news/`, relevant scripts, tests, and `.github/workflows/pearl_news_scheduled.yml` (or translation workflow equivalent).
+2. Copy from phoenix_omega: `pearl_news/`, relevant scripts, and tests. Pearl News workflow YAMLs are canonical in Qwen-Agent (not in phoenix_omega).
 3. Add repo secrets if posting (e.g. WordPress).
 4. Trigger via GitHub Actions (scheduled or `workflow_dispatch`) or run the pipeline CLI locally against the cloned repo.
 

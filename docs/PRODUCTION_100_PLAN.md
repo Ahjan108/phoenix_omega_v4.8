@@ -48,7 +48,7 @@ Catalog calibration first; 3 consecutive green promotion-gate runs; no safety re
 
 ## 5. CI / workflow baseline
 
-Required on `main`: Core tests, release-gates, ei-v2-gates, docs-ci, brand-guards; pearl_news_gates if active. Scheduled: production-observability, EI nightly. Alerts: production-alerts.
+Required on `main`: Core tests, release-gates, ei-v2-gates, docs-ci, brand-guards. Pearl News workflow checks are canonical in Qwen-Agent. Scheduled: production-observability, EI nightly. Alerts: production-alerts.
 
 ## 6. Operational evidence
 

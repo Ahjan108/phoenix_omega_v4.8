@@ -25,7 +25,9 @@ cd Qwen-Agent
 
 ## 2. Copy Pearl News code into the target repo
 
-From a directory that contains **both** `phoenix_omega` and the target repo (e.g. `Qwen-Agent`), run these from the **parent** of both (adjust `phoenix_omega` and `Qwen-Agent` if your names differ):
+**Note:** phoenix_omega no longer contains `.github/workflows/pearl_news_scheduled*.yml`. The **canonical workflows** for Pearl News are in **Qwen-Agent** (pearl_news_scheduled.yml, pearl_news_manual_expand.yml). To add or change workflows in Qwen-Agent, edit them there. For the full map of which repo has which workflows, see [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md).
+
+If you are setting up a **new** clone of Qwen-Agent and need to bring in Pearl News code from phoenix_omega, from a directory that contains **both** `phoenix_omega` and the target repo, run from the **parent** of both (adjust paths if your names differ):
 
 ```bash
 # Set paths (change Qwen-Agent to Qwen if using that repo)
@@ -39,20 +41,9 @@ cp -R "$PHOENIX/pearl_news" "$TARGET/"
 cp "$PHOENIX/scripts/pearl_news_post_to_wp.py" "$TARGET/scripts/"
 cp "$PHOENIX/tests/test_pearl_news_quality_gates_minimal.py" "$TARGET/tests/"
 cp "$PHOENIX/tests/test_pearl_news_pipeline_e2e.py" "$TARGET/tests/"
-
-# Workflow: use self-hosted variant so the job can reach LM Studio on your machine
-mkdir -p "$TARGET/.github/workflows"
-cp "$PHOENIX/.github/workflows/pearl_news_scheduled_self_hosted.yml" "$TARGET/.github/workflows/pearl_news_scheduled.yml"
 ```
 
-If the target repo has no `scripts/` or `tests/` yet, create them first:
-
-```bash
-mkdir -p "$TARGET/scripts" "$TARGET/tests"
-# then run the cp commands above
-```
-
-The workflow you copied (`pearl_news_scheduled_self_hosted.yml` → `pearl_news_scheduled.yml`) uses `runs-on: self-hosted`, injects `QWEN_BASE_URL`, `QWEN_API_KEY`, `QWEN_MODEL` from secrets, installs `openai`, and runs the pipeline with `--expand`. If you prefer cloud runner only (no LLM expansion), copy `pearl_news_scheduled.yml` instead of the self-hosted variant.
+Workflow files are already in Qwen-Agent; do not copy workflow YAML from phoenix_omega (those files were removed). If the target repo has no `scripts/` or `tests/` yet, create them first: `mkdir -p "$TARGET/scripts" "$TARGET/tests"`.
 
 ---
 
@@ -60,7 +51,7 @@ The workflow you copied (`pearl_news_scheduled_self_hosted.yml` → `pearl_news_
 
 ```bash
 cd "$TARGET"
-git add pearl_news/ scripts/pearl_news_post_to_wp.py tests/test_pearl_news_*.py .github/workflows/pearl_news_scheduled.yml
+git add pearl_news/ scripts/pearl_news_post_to_wp.py tests/test_pearl_news_*.py
 git status
 git commit -m "Add Pearl News pipeline and scheduled workflow (Option B)"
 git push origin main
@@ -91,7 +82,7 @@ If you **don’t** set `QWEN_*`, the pipeline still runs but skips LLM expansion
 ## 5. Self-hosted runner (for LM Studio)
 
 1. On the Mac (or machine) where LM Studio runs: **Settings → Actions → Runners → New self-hosted runner**, follow the instructions to add the runner to the **target** repo (or org).
-2. Run the runner app so it’s online when the workflow triggers.
+2. Run the runner app so it’s online when the workflow triggers: `cd /path/to/Qwen-Agent/actions-runner && ./run.sh` (see [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md) for runner start and _diag cleanup if you hit “file already exists” errors).
 3. Ensure LM Studio is running and the model is loaded so `http://localhost:1234/v1` (or your `QWEN_BASE_URL`) is reachable when the job runs.
 
 ---

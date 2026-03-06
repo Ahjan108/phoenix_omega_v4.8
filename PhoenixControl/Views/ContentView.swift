@@ -11,6 +11,7 @@ enum TabTag: String, CaseIterable, Identifiable {
     case teacher
     case ci
     case docs
+    case manualReview
     var id: String { rawValue }
     var title: String {
         switch self {
@@ -24,6 +25,7 @@ enum TabTag: String, CaseIterable, Identifiable {
         case .teacher: return "Teacher"
         case .ci: return "CI / Workflows"
         case .docs: return "Docs & Config"
+        case .manualReview: return "Manual Review"
         }
     }
     var systemImage: String {
@@ -38,6 +40,7 @@ enum TabTag: String, CaseIterable, Identifiable {
         case .teacher: return "person.crop.circle"
         case .ci: return "arrow.triangle.2.circlepath"
         case .docs: return "doc.text"
+        case .manualReview: return "exclamationmark.triangle.fill"
         }
     }
 }
@@ -164,6 +167,8 @@ struct ContentView: View {
                 CIWorkflowsView(state: state, githubService: githubService)
             case .docs:
                 DocsConfigView(state: state, artifactReader: artifactReader, scriptRunner: scriptRunner)
+            case .manualReview:
+                ManualReviewView(state: state, artifactReader: artifactReader, scriptRunner: scriptRunner)
             }
         }
     }

@@ -1,0 +1,57 @@
+# Machine-readable registry of GitHub repos used by this system.
+# Human-readable source of truth: docs/GITHUB_OPERATIONS_FRAMEWORK.md
+# Use for scripts that validate expected workflows or secrets (no values stored).
+version: 1
+
+repos:
+  phoenix_omega_v4.8:
+    owner: Ahjan108
+    repo: phoenix_omega_v4.8
+    default_branch: main
+    local_path: phoenix_omega
+    workflow_files:
+      - core-tests.yml
+      - release-gates.yml
+      - ei-v2-gates.yml
+      - change-impact.yml
+      - teacher-gates.yml
+      - brand-guards.yml
+      - github-governance-check.yml
+      - docs-ci.yml
+      - simulation-10k.yml
+      - marketing-config-gate.yml
+      - production-observability.yml
+      - production-alerts.yml
+      - auto-merge-bot-fix.yml
+      - weekly-pipeline.yml
+      - ml-editorial-weekly.yml
+      - ml-loop-continuous.yml
+      - ml-loop-daily-promotion.yml
+      - ml-loop-weekly-recalibration.yml
+      - locale-gate.yml
+      - translate-atoms-qwen-matrix.yml
+      - research_feeds_ingest.yml
+      - pages.yml
+    required_checks:
+      - Core tests
+      - Release gates
+      - EI V2 gates
+      - Change impact
+    secrets_expected: []  # per-workflow; not enumerated here
+
+  Qwen-Agent:
+    owner: Ahjan108
+    repo: Qwen-Agent
+    default_branch: main
+    local_path: null  # sibling or elsewhere
+    workflow_files:
+      - pearl_news_scheduled.yml
+      - pearl_news_manual_expand.yml
+    required_checks: []
+    secrets_expected:
+      - WORDPRESS_SITE_URL
+      - WORDPRESS_USERNAME
+      - WORDPRESS_APP_PASSWORD
+      - QWEN_BASE_URL
+      - QWEN_API_KEY
+      - QWEN_MODEL

@@ -14,8 +14,8 @@
 |-----------|--------|--------------|
 | `teacher_arc_test.py` | Teacher Mode | teacher-gates.yml |
 | `test_teacher_mode_e2e_smoke.py` | Teacher Mode | teacher-gates.yml |
-| `test_pearl_news_quality_gates_minimal.py` | Pearl News | pearl_news_gates.yml |
-| `test_pearl_news_pipeline_e2e.py` | Pearl News | pearl_news_gates.yml |
+| `test_pearl_news_quality_gates_minimal.py` | Pearl News | Qwen-Agent Pearl News workflows (external) |
+| `test_pearl_news_pipeline_e2e.py` | Pearl News | Qwen-Agent Pearl News workflows (external) |
 | `test_norcal_dharma_brand_smoke.py` | Church/brand | brand-guards.yml |
 | `test_atoms_coverage_100_percent.py` | Atoms | **None** |
 | `test_arc_loader.py` | Arc | **None** |
@@ -49,16 +49,16 @@
 
 **Summary:** Only **5 test files** are run in CI (path-triggered). **29 tests** are never run automatically.
 
-### 1.2 CI workflows (6 total)
+### 1.2 CI workflows (phoenix_omega local)
 
 | Workflow | Triggers | What runs |
 |----------|----------|-----------|
 | `teacher-gates.yml` | Paths: teacher config, banks, teacher scripts, teacher tests | run_teacher_production_gates.py, teacher_arc_test, test_teacher_mode_e2e_smoke |
-| `pearl_news_gates.yml` | Paths: pearl_news/**, pearl_news tests | test_pearl_news_quality_gates_minimal, test_pearl_news_pipeline_e2e |
 | `brand-guards.yml` | Paths: brand_registry, locale, brand_teacher_*, guard scripts | check_norcal_dharma_brand_guards, check_church_yaml_no_sensitive_tokens, test_norcal_dharma_brand_smoke |
 | `docs-ci.yml` | Paths: docs/**, specs/**, ONBOARDING | check_docs_governance, check_church_yaml_no_sensitive_tokens |
-| `pearl_news_scheduled.yml` | Scheduled + manual | Pipeline run → drafts → optional WordPress dry-run |
 | `pages.yml` | Pages build | Not a test workflow |
+
+Pearl News workflow CI is canonical in **Ahjan108/Qwen-Agent** and is intentionally not listed as a local phoenix_omega workflow.
 
 **Critical gap:** No workflow runs on **core pipeline changes** (run_pipeline.py, phoenix_v4/planning/, phoenix_v4/rendering/, atoms/, simulation/). Changes to these can merge with **zero CI**.
 
@@ -123,7 +123,7 @@
 | Atoms coverage | test_atoms_coverage_100_percent, test_atoms_model | None | 450/450 gate not in CI |
 | Manuscript quality | test_book_pass_gate | None | Tier 0 contract scripts missing |
 | Teacher Mode | teacher_arc_test, test_teacher_mode_e2e_smoke | teacher-gates | **Covered** |
-| Pearl News | test_pearl_news_*, test_topic_sdg_classifier, test_template_selector | pearl_news_gates | **Covered** |
+| Pearl News | test_pearl_news_*, test_topic_sdg_classifier, test_template_selector | Qwen-Agent Pearl News workflows (external) | **Covered externally** |
 | Church/brand | test_norcal_dharma_brand_smoke | brand-guards | **Covered** |
 | Series, wave, release | test_series_*, test_release_wave_controls, test_wave_optimizer | None | Release path untested |
 | Quality gates | test_creative_quality_v1, test_quality_regression, test_prepublish_gates | None | Quality gates not in CI |
@@ -233,7 +233,7 @@
 | **Atoms** | test_atoms_model | test_atoms_coverage_100_percent | — | core-tests |
 | **Simulation** | — | run_simulation n=10 | run_simulation n=10k | simulation-10k |
 | **Teacher Mode** | teacher_arc_test | run_teacher_production_gates | test_teacher_mode_e2e_smoke | teacher-gates |
-| **Pearl News** | test_pearl_news_quality_gates_minimal, test_topic_sdg_classifier, test_template_selector | — | test_pearl_news_pipeline_e2e | pearl_news_gates |
+| **Pearl News** | test_pearl_news_quality_gates_minimal, test_topic_sdg_classifier, test_template_selector | — | test_pearl_news_pipeline_e2e | Qwen-Agent Pearl News workflows (external) |
 | **Church/brand** | — | check_norcal_dharma_brand_guards | test_norcal_dharma_brand_smoke | brand-guards |
 | **Pre-publish** | test_prepublish_gates | run_prepublish_gates | — | release-gates (when plans) |
 | **Release** | test_release_wave_controls, test_wave_optimizer | — | — | release-gates |

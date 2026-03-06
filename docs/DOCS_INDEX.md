@@ -4,7 +4,9 @@
 **Missing-file policy:** Only existing files are linked; planned or missing files are listed as backlog items (plain text or `path` with ⚠️ *file not present*).  
 **Last updated:** 2026-03-06
 
-**Recent implementation (d1–d6 + payouts):** Freebies (d1) — `--no-update-freebie-index` in run_pipeline/systems_test. Change observation & impact (d2) — [config/governance/system_registry.yaml](../config/governance/system_registry.yaml), [scripts/observability/detect_changes.py](../scripts/observability/detect_changes.py), [scripts/observability/impact_from_changes.py](../scripts/observability/impact_from_changes.py), [.github/workflows/change-impact.yml](../.github/workflows/change-impact.yml). EI V2 (d3) — [phoenix_v4/quality/ei_v2/learner.py](../phoenix_v4/quality/ei_v2/learner.py), [phoenix_v4/quality/ei_v2/dimension_gates.py](../phoenix_v4/quality/ei_v2/dimension_gates.py), [phoenix_v4/quality/ei_v2/hybrid_selector.py](../phoenix_v4/quality/ei_v2/hybrid_selector.py), [scripts/ci/run_ei_v2_catalog_calibration.py](../scripts/ci/run_ei_v2_catalog_calibration.py), [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py). Translation (d4) — [config/localization/quality_contracts/](../config/localization/quality_contracts/) (README, glossary, release_thresholds, golden_translation_regression), script stubs: [translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py), [validate_translations.py](../scripts/validate_translations.py), [merge_translation_shards.py](../scripts/merge_translation_shards.py), [check_golden_translation.py](../scripts/check_golden_translation.py), [native_prompts_eval_learn.py](../scripts/native_prompts_eval_learn.py), [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml), [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml). Simulation/quality (d5) — [scripts/ci/run_simulation_100k.py](../scripts/ci/run_simulation_100k.py), [config/source_of_truth/chapter_order_modes.yaml](../config/source_of_truth/chapter_order_modes.yaml), [scripts/ci/tier0_trend.py](../scripts/ci/tier0_trend.py), [config/quality/canary_config.yaml](../config/quality/canary_config.yaml). Payouts — [config/payouts/](../config/payouts/) (churches, payees, credentials.example, fill_template.csv). Video (d6) — no code changes (run_render duration already correct). **Cohesive bestseller tester:** robust, intelligent testing for 10k Pearl Prime + 10k teacher-mode + EI v2 — [llm_cohesive_bestseller_tester.py](../scripts/ci/llm_cohesive_bestseller_tester.py), [llm_bestseller_error_report.py](../scripts/ci/llm_bestseller_error_report.py); health score, severity, dimension analysis, baseline, LLM; see [Rigorous system test & simulation (document all)](#rigorous-system-test--simulation-document-all) and [scripts/ci/README.md](../scripts/ci/README.md) § AI/LLM cohesive bestseller tester. **Pearl Prime structural upgrade (2026-03-06):** Seven-change book quality overhaul — four new chapter slots (PIVOT, TAKEAWAY, THREAD, PERMISSION) added to [specs/PHOENIX_V4_5_WRITER_SPEC.md](../specs/PHOENIX_V4_5_WRITER_SPEC.md) §4.3a/4.7/4.7a/4.8; 20-chapter arc second half redesigned with 11 new deepening intents replacing the repeated first-half cycle; chapter thesis field added to arc schema; 12 bestseller narrative structures documented and mapped to slot assignments in [docs/BESTSELLER_STRUCTURES.md](./BESTSELLER_STRUCTURES.md); canonical thesis sentences for all 20 intents × 7 engines in [docs/CHAPTER_THESIS_BANK.md](./CHAPTER_THESIS_BANK.md). **Pearl News writer spec (2026-03-06):** Full writing craft layer for article authoring — [docs/PEARL_NEWS_WRITER_SPEC.md](./PEARL_NEWS_WRITER_SPEC.md); expansion prompt upgraded in [pearl_news/prompts/expansion_system.txt](../pearl_news/prompts/expansion_system.txt). All listed assets are in the [Document all — complete inventory](#document-all--complete-inventory) with ✓ where present.
+**For developers: start here.** This index is your map. Use the **task table** below for "where to go" by task. **GitHub (PRs, merges, two repos, runners):** go to [GitHub Operations Framework](#github-operations-framework) and [docs/GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md) — repo map, workflow matrix, canonical ownership, PR flow, merge to main, Qwen-Agent push/runner, recovery. **Tests / CI:** [Test suite (document all)](#test-suite-document-all). **Domain work:** use the task table and the "(document all)" subsections per domain.
+
+**Recent implementation (d1–d6 + payouts):** Freebies (d1) — `--no-update-freebie-index` in run_pipeline/systems_test. Change observation & impact (d2) — [config/governance/system_registry.yaml](../config/governance/system_registry.yaml), [scripts/observability/detect_changes.py](../scripts/observability/detect_changes.py), [scripts/observability/impact_from_changes.py](../scripts/observability/impact_from_changes.py), [.github/workflows/change-impact.yml](../.github/workflows/change-impact.yml). EI V2 (d3) — [phoenix_v4/quality/ei_v2/learner.py](../phoenix_v4/quality/ei_v2/learner.py), [phoenix_v4/quality/ei_v2/dimension_gates.py](../phoenix_v4/quality/ei_v2/dimension_gates.py), [phoenix_v4/quality/ei_v2/hybrid_selector.py](../phoenix_v4/quality/ei_v2/hybrid_selector.py), [scripts/ci/run_ei_v2_catalog_calibration.py](../scripts/ci/run_ei_v2_catalog_calibration.py), [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py). Translation (d4) — [config/localization/quality_contracts/](../config/localization/quality_contracts/) (README, glossary, release_thresholds, golden_translation_regression), script stubs: [translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py), [validate_translations.py](../scripts/validate_translations.py), [merge_translation_shards.py](../scripts/merge_translation_shards.py), [check_golden_translation.py](../scripts/check_golden_translation.py), [native_prompts_eval_learn.py](../scripts/native_prompts_eval_learn.py), [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml), [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml). Simulation/quality (d5) — [scripts/ci/run_simulation_100k.py](../scripts/ci/run_simulation_100k.py), [config/source_of_truth/chapter_order_modes.yaml](../config/source_of_truth/chapter_order_modes.yaml), [scripts/ci/tier0_trend.py](../scripts/ci/tier0_trend.py), [config/quality/canary_config.yaml](../config/quality/canary_config.yaml). Payouts — [config/payouts/](../config/payouts/) (churches, payees, credentials.example, fill_template.csv). Video (d6) — no code changes (run_render duration already correct). **Cohesive bestseller tester:** robust, intelligent testing for 10k Pearl Prime + 10k teacher-mode + EI v2 — [llm_cohesive_bestseller_tester.py](../scripts/ci/llm_cohesive_bestseller_tester.py), [llm_bestseller_error_report.py](../scripts/ci/llm_bestseller_error_report.py); health score, severity, dimension analysis, baseline, LLM; see [Rigorous system test & simulation (document all)](#rigorous-system-test--simulation-document-all) and [scripts/ci/README.md](../scripts/ci/README.md) § AI/LLM cohesive bestseller tester. **Pearl Prime structural upgrade (2026-03-06):** Seven-change book quality overhaul — four new chapter slots (PIVOT, TAKEAWAY, THREAD, PERMISSION) added to [specs/PHOENIX_V4_5_WRITER_SPEC.md](../specs/PHOENIX_V4_5_WRITER_SPEC.md) §4.3a/4.7/4.7a/4.8; 20-chapter arc second half redesigned with 11 new deepening intents replacing the repeated first-half cycle; chapter thesis field added to arc schema; 12 bestseller narrative structures documented and mapped to slot assignments in [docs/BESTSELLER_STRUCTURES.md](./BESTSELLER_STRUCTURES.md); canonical thesis sentences for all 20 intents × 7 engines in [docs/CHAPTER_THESIS_BANK.md](./CHAPTER_THESIS_BANK.md). **Pearl News writer spec (2026-03-06):** Full writing craft layer for article authoring — [docs/PEARL_NEWS_WRITER_SPEC.md](./PEARL_NEWS_WRITER_SPEC.md); expansion prompt upgraded in [pearl_news/prompts/expansion_system.txt](../pearl_news/prompts/expansion_system.txt). **Qwen-Only Audiobook Pipeline (2026-03-06):** Fully-automated Qwen comparator loop producing localized audiobook scripts; no Claude at runtime; no human in repair loop; 5 hard + 4 scored gates; asyncio parallel (24 concurrent API calls); manual review queue in PhoenixControl — [docs/AUDIOBOOK_PIPELINE_SPEC.md](./AUDIOBOOK_PIPELINE_SPEC.md), [docs/GO_LIVE_FINAL_CHECKLIST.md](./GO_LIVE_FINAL_CHECKLIST.md), [scripts/audiobook_script/run_comparator_loop.py](../scripts/audiobook_script/run_comparator_loop.py). All listed assets are in the [Document all — complete inventory](#document-all--complete-inventory) with ✓ where present.
 
 ---
 
@@ -22,9 +24,11 @@
 | **Cohesive bestseller tester** | [Rigorous system test & simulation (document all)](#rigorous-system-test--simulation-document-all) — 10k Pearl Prime + teacher-mode + EI v2; [llm_cohesive_bestseller_tester.py](../scripts/ci/llm_cohesive_bestseller_tester.py), [llm_bestseller_error_report.py](../scripts/ci/llm_bestseller_error_report.py); health score, severity, baseline, LLM; usage in [scripts/ci/README.md](../scripts/ci/README.md) § AI/LLM cohesive bestseller tester. |
 | **Run tests / understand test suite** | [Test suite (document all)](#test-suite-document-all): how to run (local + CI), markers, workflows, full file list (36 files, 222 tests), fixtures, [FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md). |
 | **Check for missing book content** | [How to check for missing book content](#how-to-check-for-missing-book-content) — Single report script, atoms + plan + teacher readiness; PhoenixControl Docs & Config tab shows results. |
+| **Audiobook pipeline** | [Qwen-Only Audiobook Pipeline (document all)](#qwen-only-audiobook-pipeline-document-all) — Fully automated Qwen comparator loop; 5 hard + 4 scored gates; parallel architecture; manual review queue; go-live checklist. |
 | **Go/no-go decision** | [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md) §6 Hard NOs. |
 | **Freebie funnel & launch** | [Freebie funnel, Proof Loop & launch (document all)](#freebie-funnel-proof-loop--launch-document-all) — landing, form, Proof-Loop emails, GHL push, writer spec, GO_NO_GO, three things from Nihala. |
 | **UI / operator coverage (full)** | No single spec covers all UI. For 100% coverage of everything that needs UI to manage, use the **full doc bundle**: [Control plane & operator UI — full doc bundle](#control-plane--operator-ui--full-doc-bundle) below. |
+| **Do GitHub operations (both repos)** | [GitHub Operations Framework](#github-operations-framework) — repo map, workflow matrix, canonical ownership, system functions (PR flow, merge to main, Qwen-Agent push, runner start/clean, recovery). |
 
 ---
 
@@ -86,6 +90,7 @@ Native Swift/SwiftUI macOS app implementing the plan "Phoenix Omega — Native m
 - [docs/SYSTEMS_AUDIT.md](./SYSTEMS_AUDIT.md) — Systems audit
 - [docs/FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md) — Full test suite plan, gap analysis, pipeline matrix
 - [docs/BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md) — Required status checks for main
+- [docs/GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md) — **GitHub operations (both repos):** repo map, workflow matrix, canonical ownership, system functions (PR flow, merge to main, Qwen-Agent push, runner start/clean, recovery). Start here for any GitHub work.
 - [docs/DISASTER_RECOVERY_DRILL_CHECKLIST.md](./DISASTER_RECOVERY_DRILL_CHECKLIST.md) — DR drill steps, evidence template
 - `docs/CONTROL_PLANE_GO_NO_GO.md` — Control Plane macOS app: pass/fail checks per tab; production-ready when all pass and evidenced
 - `docs/CONTROL_PLANE_RUNBOOK.md` — Runbook proving each tab runs real repo commands and reads real artifacts
@@ -216,7 +221,7 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 ### Operational gates (production 100%)
 
 1. Merge to `main`
-2. `pearl_news_gates.yml` green on `main`
+2. Qwen-Agent Pearl News workflow suite green on `main`
 3. Networked pipeline smoke run on `main` passes
 4. Scheduled workflow run on GitHub passes
 5. WordPress draft-post flow verified with real secrets
@@ -317,11 +322,7 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 
 ### CI / workflows
 
-| Item | Location |
-|------|----------|
-| **Pearl News gates** | [.github/workflows/pearl_news_gates.yml](../.github/workflows/pearl_news_gates.yml) — On push/PR to main (pearl_news/**, test files); runs pytest for test_pearl_news_quality_gates_minimal, test_pearl_news_pipeline_e2e |
-| **Pearl News scheduled** | [.github/workflows/pearl_news_scheduled.yml](../.github/workflows/pearl_news_scheduled.yml) — Scheduled/manual run: pipeline → drafts → optional WordPress dry-run; uploads artifact pearl_news_drafts |
-| **Pearl News scheduled (self-hosted)** | [.github/workflows/pearl_news_scheduled_self_hosted.yml](../.github/workflows/pearl_news_scheduled_self_hosted.yml) — For Option B: runs-on self-hosted, timeout-minutes 45, PEARL_NEWS_EXPAND/PEARL_NEWS_LIMIT env; copy as pearl_news_scheduled.yml into Qwen-Agent or Qwen |
+**Pearl News workflows are not in this repo.** They live in **Ahjan108/Qwen-Agent**: `pearl_news_scheduled.yml` (schedule + dispatch, no expand by default) and `pearl_news_manual_expand.yml` (dispatch, with LLM expand). Setup and self-hosted runner: [PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md). Full workflow matrix and secrets: [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md).
 
 ---
 
@@ -331,7 +332,19 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 - [docs/PHOENIX_24_BRAND_MINIMUM_GOVERNANCE_CORE.md](./PHOENIX_24_BRAND_MINIMUM_GOVERNANCE_CORE.md) — Minimum governance core
 - [docs/GOVERNANCE_HARDENING_BLUEPRINT.md](./GOVERNANCE_HARDENING_BLUEPRINT.md) — Candidate controls backlog (reference only, non-authoritative)
 - [docs/governance/registry_integrity_checker_v1.md](./governance/registry_integrity_checker_v1.md) — Registry integrity checker
-- [docs/GITHUB_SUPPORT_SYSTEM_SPEC.md](./GITHUB_SUPPORT_SYSTEM_SPEC.md) — GitHub support system spec (v1): branch/PR workflow, command delivery format, recovery runbooks, governance checks; dev instruction format and PR checklist
+- [docs/GITHUB_SUPPORT_SYSTEM_SPEC.md](./GITHUB_SUPPORT_SYSTEM_SPEC.md) — GitHub support system spec (v1): branch/PR workflow, command delivery format, recovery runbooks, governance checks; dev instruction format and PR checklist. For repo map, workflow matrix, and two-repo procedures: [GitHub Operations Framework](#github-operations-framework).
+
+---
+
+## GitHub Operations Framework
+
+Single entry point for GitHub operations across **Ahjan108/phoenix_omega_v4.8** (local: phoenix_omega) and **Ahjan108/Qwen-Agent**. **When you start coding:** use the task table at the top of this index for domain work; **for any GitHub work** (PRs, merges, which repo has which workflow, runner, recovery), use this framework first so nothing is duplicated or out of sync.
+
+| Item | Location |
+|------|----------|
+| **Framework doc** | [docs/GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md) — Repo identity, workflow matrix (phoenix_omega_v4.8 + Qwen-Agent), canonical ownership, secrets and runners, branch protection, system functions (procedures and commands), before-you-push checklists, recovery pointers. |
+| **Branch protection** | [docs/BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md) — Required checks for main (Core tests, Release gates, EI V2 gates, Change impact). |
+| **Pearl News in Qwen-Agent** | Pearl News workflows live only in **Ahjan108/Qwen-Agent** (scheduled + manual expand). phoenix_omega has no Pearl News workflow files. Setup and runner: [PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md). Workflow matrix and secrets: [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md). |
 
 ---
 
@@ -539,6 +552,38 @@ Seven-change book quality overhaul addressing root causes: arc second-half repet
 
 **Dev wires:** `allowed_slots`, `slot_templates`, `arc_loader.py`, `chapter_flow_gate.py`, chapter planner structure-assignment step.
 **Writing content:** fully documented in `CHAPTER_THESIS_BANK.md` and `BESTSELLER_STRUCTURES.md`; new slot spec in Writer Spec §4.3a/4.7/4.7a/4.8.
+
+### Qwen-Only Audiobook Pipeline (document all)
+
+Fully automated pipeline producing publication-ready localized audiobook scripts. No Claude API at runtime. No human in repair loop. Qwen (Dashscope) handles both drafting and judging. Manual review is an exception path surfaced as a high-priority queue in PhoenixControl.
+
+**Architecture summary:**
+- Draft Qwen call → Judge Qwen call → Schema validation → Score & decision → PatchApplier → next loop
+- Max loops: 3 (config-driven, range [1,5]); loop exhaustion → `manual_review` (never auto-pass)
+- Parallelism: `asyncio.Semaphore(max_parallel_sections=6)` × `max_parallel_books=2` = 24 concurrent API calls
+- Schema version binding: `comparator_result_v2.schema.json` v2.0 ↔ `comparison_checklist_v2.yaml` v2.0.0 (must update atomically)
+- Manual review queue: `artifacts/audiobook/manual_review_queue.json`, sorted by `hard_gate_failures` desc; PhoenixControl "Manual Review" tab
+
+**Status:** Architecture complete; pre-production. 12 blocking items before go-live — see `docs/GO_LIVE_FINAL_CHECKLIST.md` and spec §12.
+
+| Item | Location |
+|------|----------|
+| **Pipeline spec** | [docs/AUDIOBOOK_PIPELINE_SPEC.md](./AUDIOBOOK_PIPELINE_SPEC.md) — Full spec: flow, gate definitions, patch injection, parallel architecture, artifact contract, manual review protocol, gap tracker |
+| **Go-live checklist** | [docs/GO_LIVE_FINAL_CHECKLIST.md](./GO_LIVE_FINAL_CHECKLIST.md) — 10-item sign-off gate; per-gate operator runbook; locked design decisions |
+| **Comparator loop script** | [scripts/audiobook_script/run_comparator_loop.py](../scripts/audiobook_script/run_comparator_loop.py) — Full async pipeline: PatchApplier, run_section_loop(), run_book_parallel() |
+| **Config** | [config/audiobook_script/comparator_config.yaml](../config/audiobook_script/comparator_config.yaml) — max_loops, parallel caps, draft/judge model, patch injection, scoring threshold |
+| **Checklist v2** | [config/audiobook_script/comparison_checklist_v2.yaml](../config/audiobook_script/comparison_checklist_v2.yaml) — 9 gate definitions; judge_instruction, defect_format, prompt_patch_format; locale overrides |
+| **Static polish rubric** | [config/audiobook_script/static_polish_rubric.yaml](../config/audiobook_script/static_polish_rubric.yaml) — 15 rules across 5 categories (tts_c1–c5, psy_p1–p5, flow_f1–f4, reg_r1–r2, comp_c1–c2); authored offline |
+| **Result schema** | [schemas/comparator_result_v2.schema.json](../schemas/comparator_result_v2.schema.json) — v2.0; 9-gate result schema; checklist_schema_version required; additionalProperties: false |
+| **Manual review queue** | `artifacts/audiobook/manual_review_queue.json` — Runtime artifact; sorted by hard_gate_failures desc; PhoenixControl Manual Review tab feed |
+| **LM Studio API** | `http://127.0.0.1:1234/v1` (OpenAI-compatible) — Dashscope dropped; local Qwen model; no API key required |
+| **Draft prompts (4 types)** | `prompts/audiobook/draft_pearl_prime_v2.txt`, `draft_pearl_news_v2.txt`, `draft_phoenix_v4_v2.txt`, `draft_teacher_mode_v2.txt` — content_type routing via comparator_config.yaml |
+| **Judge prompt** | `prompts/audiobook/judge_audiobook_v2.txt` — unified judge; all 9 gates; JSON schema examples |
+| **Golden regression set** | `config/audiobook_script/golden_regression_set/` — 4 samples (zh-TW pearl_prime, zh-HK pearl_news, zh-SG teacher_mode, zh-CN phoenix_v4) |
+| **Regression runner** | [scripts/audiobook_script/run_regression.py](../scripts/audiobook_script/run_regression.py) — runs golden set against live LM Studio; `--dry-run` to check setup |
+| **PhoenixControl Manual Review tab** | `PhoenixControl/Views/ManualReviewView.swift` — reads queue, red/orange badge, re-run button, packet viewer |
+| **Operator runbook** | [docs/audiobook_operator_runbook.md](./audiobook_operator_runbook.md) — per-gate triage guide; queue triage; re-run instructions |
+| **Rollback script** | [scripts/release/audiobook_rollback.sh](../scripts/release/audiobook_rollback.sh) — archives batch artifacts, cleans queue, logs rollback |
 
 ### Author cover art (document all)
 
@@ -1043,7 +1088,7 @@ Single index: every test file, how to run, markers, CI workflows, and test infra
 |----------|---------|----------------|
 | **Core tests** | [.github/workflows/core-tests.yml](../.github/workflows/core-tests.yml) | Push/PR to main/master. Pytest `-m "not slow"` (-x), then validate_marketing_config, then run_production_readiness_gates. **Required for branch protection.** |
 | **Teacher gates** | [.github/workflows/teacher-gates.yml](../.github/workflows/teacher-gates.yml) | Teacher-related path changes. run_teacher_production_gates.py, pytest teacher_arc_test, pytest test_teacher_mode_e2e_smoke. **Required for branch protection.** |
-| **Pearl News gates** | [.github/workflows/pearl_news_gates.yml](../.github/workflows/pearl_news_gates.yml) | pearl_news/**, test files. pytest test_pearl_news_quality_gates_minimal, test_pearl_news_pipeline_e2e. |
+| **Pearl News** | Ahjan108/Qwen-Agent only | Pearl News tests and pipelines run in Qwen-Agent (pearl_news_scheduled, pearl_news_manual_expand). See [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md). |
 | **Brand guards** | [.github/workflows/brand-guards.yml](../.github/workflows/brand-guards.yml) | Brand registry, locale, brand_teacher_*. check_norcal_dharma_brand_guards, check_church_yaml_no_sensitive_tokens, pytest test_norcal_dharma_brand_smoke. |
 | **EI V2 gates** | [.github/workflows/ei-v2-gates.yml](../.github/workflows/ei-v2-gates.yml) | EI code + weekly. pytest test_ei_v2.py ([test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py)), then rigorous eval, calibration, promotion gate. |
 | **Release gates** | [.github/workflows/release-gates.yml](../.github/workflows/release-gates.yml) | Release path. Production gates + rigorous test + canary + rollback smoke (includes slow tests / systems test). |
@@ -1454,6 +1499,10 @@ All `scripts/ci/` files confirmed present on disk.
 | [scripts/ci/check_docs_governance.py](../scripts/ci/check_docs_governance.py) | **DOCS_INDEX link integrity + inventory + Last updated** — fails if any linked file is missing; `--check-inventory` enforces ✓/⚠️ vs actual files; CI and PhoenixControl Docs tab use it |
 | [scripts/ci/check_system_governance_status.py](../scripts/ci/check_system_governance_status.py) | **System governance status** — runs all governance/report checks; JSON report to artifacts/governance/; optional --fix (DOCS_INDEX Last updated) |
 | [scripts/ci/content_coverage_report.py](../scripts/ci/content_coverage_report.py) | **Content coverage report** — single report: atoms (STORY + non-STORY), plan coverage_check, teacher readiness; writes artifacts/content_coverage_report.json + one-page summary |
+| [scripts/book_script_content_validation.py](../scripts/book_script_content_validation.py) | **Book content completeness** — validates atom pool coverage, v2 slot readiness (PIVOT/TAKEAWAY/THREAD/PERMISSION); `--check-v2-slots` flag; JSON output |
+| [scripts/audiobook_script/run_comparator_loop.py](../scripts/audiobook_script/run_comparator_loop.py) | **Audiobook comparator loop** — fully automated Qwen (LM Studio) draft+judge; PatchApplier; async parallel; 5 hard + 4 scored gates; content_type routing |
+| [scripts/audiobook_script/run_regression.py](../scripts/audiobook_script/run_regression.py) | **Audiobook regression** — golden set runner; checks all 4 required locales; `--dry-run` setup check; `--locale` filter |
+| [scripts/release/audiobook_rollback.sh](../scripts/release/audiobook_rollback.sh) | **Audiobook rollback** — archives batch, cleans queue, writes rollback log; `--dry-run` preview |
 | [scripts/ci/check_author_positioning.py](../scripts/ci/check_author_positioning.py) | Author positioning validation: pen name, bio, positioning consistency |
 | [scripts/ci/check_author_cover_art.py](../scripts/ci/check_author_cover_art.py) | Author cover art: every launchable author has registry + PNG + style/palette (Gate 18) |
 | [scripts/ci/check_book_output_no_placeholders.py](../scripts/ci/check_book_output_no_placeholders.py) | Hard-fail if any placeholder pattern survives rendered output |
@@ -1623,6 +1672,7 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [GOVERNANCE_HARDENING_BLUEPRINT.md](./GOVERNANCE_HARDENING_BLUEPRINT.md) | Governance | ✓ |
 | [governance/registry_integrity_checker_v1.md](./governance/registry_integrity_checker_v1.md) | Governance | ✓ |
 | [GITHUB_SUPPORT_SYSTEM_SPEC.md](./GITHUB_SUPPORT_SYSTEM_SPEC.md) | Governance | ✓ |
+| [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md) | Governance / GitHub (both repos) | ✓ |
 | [RELEASE_VELOCITY_AND_SCHEDULE.md](./RELEASE_VELOCITY_AND_SCHEDULE.md) | Brand & release | ✓ |
 | [PLATFORM_HARDENING_PHASES_3-8_OUTLINE.md](./PLATFORM_HARDENING_PHASES_3-8_OUTLINE.md) | Brand & release | ✓ |
 | [church_docs/README.md](./church_docs/README.md) | Church & payout | ✓ |
@@ -1684,12 +1734,29 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [LOCALE_PERSONAS.md](./LOCALE_PERSONAS.md) | Locale personas | ✓ — 40 persona definitions across non-en-US locales (zh-TW, zh-HK, zh-CN, zh-SG, ja-JP, ko-KR, es-US, es-ES, fr-FR, de-DE, it-IT, hu-HU) |
 | [LOCALE_CATALOG_MARKETING_PLAN.md](./LOCALE_CATALOG_MARKETING_PLAN.md) | All-locale marketing plan | ✓ — Per-locale positioning, go-live checklists, readiness tracker for all 13 locales (incl. it-IT EU catalogue) |
 | [TRANSLATE_QWEN_PIPELINE_CLI.md](./TRANSLATE_QWEN_PIPELINE_CLI.md) | Translate/prompt via Qwen pipeline CLI | ✓ — All system languages; Qwen GitHub pipeline CLI; EU catalogue (it-IT) |
+| [AUDIOBOOK_PIPELINE_SPEC.md](./AUDIOBOOK_PIPELINE_SPEC.md) | Qwen-Only Audiobook Pipeline | ✓ — Full spec: flow, gates, patch injection, parallel architecture, artifact contract, manual review, gap tracker |
+| [GO_LIVE_FINAL_CHECKLIST.md](./GO_LIVE_FINAL_CHECKLIST.md) | Audiobook pipeline go-live | ✓ — 10-item sign-off gate; per-gate operator runbook; locked design decisions |
+| [audiobook_operator_runbook.md](./audiobook_operator_runbook.md) | Audiobook operator runbook | ✓ — Per-gate triage; queue management; re-run; escalation path |
 | [NEW_LANGUAGE_LOCATION_ONBOARDING.md](./NEW_LANGUAGE_LOCATION_ONBOARDING.md) | Marketing & deep research / Locale onboarding | ✓ — Process and deep research prompts for new language/location/topic/persona; market-driven; personas, topics, authors, platforms, metadata, stories, writing spec, book titles |
 | [ZH_CN_DISTRIBUTION_PLAN.md](./ZH_CN_DISTRIBUTION_PLAN.md) | zh-CN distribution | ✓ — Local platform pipeline (Ximalaya, NetEase, WeChat Read, Dedao); Phase 5 prerequisite checklist |
 | `LOCALE_PROSE_AND_PROMPTING.md` | Translation | ⚠️ missing |
 | `MULTILINGUAL_ARCHITECTURE.md` | Translation | ⚠️ missing |
 | `KOREA_MARKET_AND_PROSE.md` | Translation | ⚠️ missing (covered in LOCALE_PERSONAS.md + locale_strategy.md) |
 | `JAPANESE_MARKET_SELFHELP_GUIDE.md` | Translation | ⚠️ missing (covered in LOCALE_PERSONAS.md + locale_strategy.md) |
+
+### Config (config/audiobook_script/)
+
+| Config | Section | Status |
+|--------|---------|--------|
+| [config/audiobook_script/comparator_config.yaml](../config/audiobook_script/comparator_config.yaml) | Qwen-Only Audiobook Pipeline | ✓ — max_loops, parallel caps, draft/judge model, patch injection, scoring |
+| [config/audiobook_script/comparison_checklist_v2.yaml](../config/audiobook_script/comparison_checklist_v2.yaml) | Qwen-Only Audiobook Pipeline | ✓ — 9 gate definitions; locale overrides; checklist_version: 2.0.0 |
+| [config/audiobook_script/static_polish_rubric.yaml](../config/audiobook_script/static_polish_rubric.yaml) | Qwen-Only Audiobook Pipeline | ✓ — 15 offline-authored rubric rules (tts, psy, flow, reg, comp) |
+
+### Schemas (schemas/)
+
+| Schema | Section | Status |
+|--------|---------|--------|
+| [schemas/comparator_result_v2.schema.json](../schemas/comparator_result_v2.schema.json) | Qwen-Only Audiobook Pipeline | ✓ — v2.0; 9-gate result schema; checklist_schema_version required; additionalProperties: false |
 
 ### Specs (specs/)
 
@@ -1816,7 +1883,7 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml) | Translation | ✓ — Stub: placeholder for translation matrix; weekly/manual |
 | [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml) | Translation | ✓ — Stub: placeholder for locale gate on config/localization and atoms |
 | [.github/workflows/core-tests.yml](../.github/workflows/core-tests.yml) | Core CI | ✓ |
-| [.github/workflows/pearl_news_scheduled_self_hosted.yml](../.github/workflows/pearl_news_scheduled_self_hosted.yml) | Pearl News (Option B) | ✓ — Self-hosted workflow; copy as pearl_news_scheduled.yml |
+| Pearl News workflows | Ahjan108/Qwen-Agent | ✓ — pearl_news_scheduled.yml, pearl_news_manual_expand.yml; self-hosted runner, 6 secrets. See [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md), [PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md). |
 | [pearl_news/config/llm_expansion.yaml](../pearl_news/config/llm_expansion.yaml) | Pearl News | ✓ — Expansion API config; timeout, max_tokens, target_word_count |
 | [pearl_news/config/site.yaml](../pearl_news/config/site.yaml) | Pearl News | ✓ — target_word_count, placeholder images by template |
 | [pearl_news/config/wordpress_authors.yaml](../pearl_news/config/wordpress_authors.yaml) | Pearl News | ✓ — author_ids for round-robin |

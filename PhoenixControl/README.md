@@ -24,5 +24,5 @@ Set the path via the folder button in the toolbar or the initial **Open Settings
 
 ## Spec and docs
 
-- Design: see plan **Phoenix Omega — Native macOS Control Plane App** and [docs/DOCS_INDEX.md](../docs/DOCS_INDEX.md) (control plane bundle).
+- Design: see plan **Phoenix Omega — Native macOS Control Plane App** and [docs/DOCS_INDEX.md](../docs/DOCS_INDEX.md) (control plane bundle). For CI/Workflows tab and GitHub (both repos, runner, PR flow): DOCS_INDEX → [GitHub Operations Framework](../docs/DOCS_INDEX.md#github-operations-framework).
 - Error state UX: [docs/PHOENIX_OMEGA_ERROR_STATE_UX_SPEC.md](../docs/PHOENIX_OMEGA_ERROR_STATE_UX_SPEC.md).

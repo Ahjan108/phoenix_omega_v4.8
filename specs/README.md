@@ -2,7 +2,7 @@
 
 **Last updated:** 2026-03-03
 
-**Canonical docs index:** [../docs/DOCS_INDEX.md](../docs/DOCS_INDEX.md)
+**Canonical docs index:** [../docs/DOCS_INDEX.md](../docs/DOCS_INDEX.md). For GitHub (both repos, workflows, PR flow, runner): DOCS_INDEX → [GitHub Operations Framework](../docs/DOCS_INDEX.md#github-operations-framework) → [GITHUB_OPERATIONS_FRAMEWORK.md](../docs/GITHUB_OPERATIONS_FRAMEWORK.md).
 
 **Canonical systems doc (whole V4 in one place):** [../docs/SYSTEMS_V4.md](../docs/SYSTEMS_V4.md) — single description of the full V4 system, pipeline, Teacher Mode, CI, and **what’s still to do to finish the whole system**.
 

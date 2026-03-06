@@ -31,7 +31,7 @@ All signals that indicate production health. Each has a **signal_id**, **categor
 |--------|--------|----------|----------|
 | `ci_teacher_gates` | `.github/workflows/teacher-gates.yml` | teacher_mode | Workflow run URL, exit code |
 | `ci_brand_guards` | `.github/workflows/brand-guards.yml` | brand | Workflow run URL, exit code |
-| `ci_pearl_news_gates` | `.github/workflows/pearl_news_gates.yml` | pearl_news | Workflow run URL, exit code |
+| `ci_pearl_news_gates` | `Ahjan108/Qwen-Agent` Pearl News workflows | pearl_news | Workflow run URL, exit code |
 | `ci_docs` | `.github/workflows/docs-ci.yml` | docs | Workflow run URL, link integrity |
 | `gate_production_readiness` | `scripts/run_production_readiness_gates.py` | core | 17 conditions, pass/fail per gate |
 | `systems_test` | `scripts/systems_test/run_systems_test.py` | core | Phases 1–7, suggested_fix per failure |
