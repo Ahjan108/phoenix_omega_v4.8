@@ -10,7 +10,7 @@ Sequential stages per [docs/VIDEO_PIPELINE_SPEC.md](../../docs/VIDEO_PIPELINE_SP
 
 1. **prepare_script_segments.py** — Render manifest → script_segments (timing via WPM; optional metadata).
 2. **run_shot_planner.py** — Script segments → ShotPlan (visual_intent, duration_s, thumbnail_candidate, prompt_bundle).
-3. **run_asset_resolver.py** — ShotPlan + optional Image Bank → resolved asset_id per shot.
+3. **run_asset_resolver.py** — ShotPlan + optional Image Bank → resolved asset_id per shot. To use FLUX-generated images: build the bank with `run_flux_bank_build.py`, then pass `--bank image_bank/index.json` and use `--assets-dir image_bank` in the render step. See [docs/VIDEO_AND_COVER_ART_FLUX_WIRING.md](../../docs/VIDEO_AND_COVER_ART_FLUX_WIRING.md).
 4. **run_timeline_builder.py** — ShotPlan + resolved_assets → Timeline JSON (per aspect).
 5. **run_caption_adapter.py** — Timeline + script_segments → captions (reflow/truncate per caption_policies).
 6. **run_qc.py** — Validates shot_plan, resolved_assets, timeline (no consecutive same asset; duration/resolution).
