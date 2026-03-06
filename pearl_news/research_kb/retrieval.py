@@ -37,8 +37,11 @@ _CACHE: dict[str, tuple[list, dict]] = {}
 
 def _get_kb_dir(repo_root: Path | None = None) -> Path:
     if repo_root is None:
-        # Default: walk up from this file's location
-        repo_root = Path(__file__).resolve().parents[3]
+        # This file: pearl_news/research_kb/retrieval.py
+        # parents[0] = pearl_news/research_kb/
+        # parents[1] = pearl_news/
+        # parents[2] = repo_root (phoenix_omega)
+        repo_root = Path(__file__).resolve().parents[2]
     return repo_root / "artifacts" / "research" / "kb"
 
 

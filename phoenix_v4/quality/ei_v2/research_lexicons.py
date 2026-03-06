@@ -139,7 +139,9 @@ def get_research_signals(
 
     # Locate KB
     if repo_root is None:
-        repo_root = Path(__file__).resolve().parents[4]  # from phoenix_v4/quality/ei_v2/ → repo root
+        # File: phoenix_v4/quality/ei_v2/research_lexicons.py
+        # parents[0]=ei_v2/ parents[1]=quality/ parents[2]=phoenix_v4/ parents[3]=repo_root
+        repo_root = Path(__file__).resolve().parents[3]
     kb_path = rk_cfg.get("kb_path") or "artifacts/research/kb"
     kb_dir = repo_root / kb_path if not Path(kb_path).is_absolute() else Path(kb_path)
     entries_path = kb_dir / "entries.jsonl"
