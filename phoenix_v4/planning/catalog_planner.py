@@ -50,6 +50,11 @@ class BookSpec:
     author_positioning_profile: Optional[str] = None
     narrator_id: Optional[str] = None
     atoms_model: Optional[AtomsModel] = None
+    # Companion workbook type: "full" | "light_guide" | None (no workbook).
+    # Resolved by freebie_planner from domain_id + book_duration_minutes.
+    # Authority: specs/COMPANION_WORKBOOK_CATALOG_SPEC.md §2
+    # EI V2 uses this to calibrate EXERCISE slot density and reflection prompt depth.
+    companion_workbook_type: Optional[str] = None
 
     def to_dict(self) -> dict[str, Any]:
         out = {
@@ -74,6 +79,8 @@ class BookSpec:
             out["narrator_id"] = self.narrator_id
         if self.atoms_model is not None:
             out["atoms_model"] = self.atoms_model.value
+        if self.companion_workbook_type is not None:
+            out["companion_workbook_type"] = self.companion_workbook_type
         return out
 
 

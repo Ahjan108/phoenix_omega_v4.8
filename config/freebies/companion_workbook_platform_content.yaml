@@ -1,0 +1,160 @@
+# Companion Workbook — Platform Content Templates
+# Authority: specs/COMPANION_WORKBOOK_CATALOG_SPEC.md
+#
+# Tokens: {workbook_label}, {slug}, {book_id}
+# Pipeline renders these with resolved values before book creation.
+# DO NOT emit raw tokens in any platform payload — see §10.6 delivery gate.
+#
+# workbook_label resolves to:
+#   full       → "workbook"
+#   light_guide → "practice guide"
+
+# ── CTA text templates ────────────────────────────────────────────────────────
+
+cta_templates:
+
+  # 1. Audiobook post-intro spoken CTA (read aloud by narrator; ≤20 seconds)
+  audiobook_post_intro_spoken:
+    text: >
+      This audiobook has a companion {workbook_label} with all the exercises
+      and reflection prompts. You can get it free at
+      PhoenixProtocolBooks.com/free/{slug}.
+    max_seconds: 20
+    placement: after_intro_chapter_narration
+
+  # 2. Audiobook back-matter spoken CTA (read aloud by narrator; ≤45 seconds)
+  audiobook_back_matter_spoken:
+    text: >
+      To go deeper and actually do the work from this book, download the
+      companion {workbook_label} at PhoenixProtocolBooks.com/free/{slug}.
+      You will find guided exercises, journaling pages, and tools you can
+      return to again and again. It is free — designed to go with exactly
+      this book.
+    max_seconds: 45
+    placement: back_matter_narration
+
+  # 3. Ebook / print front matter pointer (one line; before Chapter 1)
+  ebook_front_matter_pointer:
+    text: >
+      A companion {workbook_label} is available for this book at
+      PhoenixProtocolBooks.com/free/{slug}. You may want to have it
+      alongside you as you read.
+    placement: front_matter
+    applies_to: [full]   # light_guide: optional; none: skip
+
+  # 4. Ebook / print post-intro CTA block (after intro chapter INTEGRATION slot)
+  ebook_post_intro_cta_block:
+    text: |
+      A companion {workbook_label} is available for this book.
+      It deepens every exercise with guided practice pages, reflection
+      prompts, and tools you can return to.
+      Get it free at PhoenixProtocolBooks.com/free/{slug}.
+    placement: after_intro_integration
+    applies_to: [full, light_guide]
+
+  # 5. Ebook / print mid-book one-liner (optional; full workbooks only)
+  ebook_mid_book_cta_line:
+    text: >
+      Download the companion {workbook_label} at
+      PhoenixProtocolBooks.com/free/{slug} to work through these
+      exercises in depth.
+    placement: after_highest_exercise_density_chapter
+    applies_to: [full]
+    max_per_book: 1
+
+  # 6. Ebook / print back-matter final upsell (existing §10.5)
+  ebook_back_matter_cta_block:
+    text: |
+      Before you go — if you want to take this further, the companion
+      {workbook_label} has everything you need to put this into practice.
+      Guided exercises, reflection pages, and tools built for exactly
+      what you just read.
+      Get it free at PhoenixProtocolBooks.com/free/{slug}.
+    placement: back_matter
+    applies_to: [full, light_guide]
+
+# ── Platform listing description content ──────────────────────────────────────
+
+platform_description:
+
+  # Injected as a standalone paragraph in book description on all platforms
+  workbook_line:
+    text: >
+      Includes a free companion {workbook_label} with guided exercises
+      and reflection prompts. Download at
+      PhoenixProtocolBooks.com/free/{slug}.
+    applies_to: [full, light_guide]
+
+  # Additional line for full workbook bundles (KDP bundle listing, etc.)
+  bundle_line:
+    text: >
+      Available as a bundle with the companion workbook.
+    applies_to: [full]
+
+  # Keywords to include in platform keyword fields (KDP: up to 7 slots)
+  keywords:
+    full:
+      - "companion workbook"
+      - "workbook"
+      - "guided exercises"
+      - "reflection prompts"
+      - "self-help workbook"
+    light_guide:
+      - "practice guide"
+      - "guided exercises"
+      - "reflection prompts"
+
+# ── Subtitle and bundle metadata ──────────────────────────────────────────────
+
+bundle_metadata:
+
+  subtitle_tag:
+    full: "with Companion Workbook"
+    light_guide: null   # no subtitle tag for light guides
+
+  bundle_listing_name_template: "{book_title} + Companion Workbook Bundle"
+  applies_to: [full]
+
+  # Price tier multiplier relative to ebook price (e.g. 2.5 = $9.99 ebook → $24.99 bundle)
+  bundle_price_multiplier: 2.5
+
+# ── UTM tracking (GA4) ───────────────────────────────────────────────────────
+# Short spoken URL used in narration (clean, no UTM).
+# UTM URLs used in ebook hyperlinks and platform description links.
+
+utm:
+  base_url: "PhoenixProtocolBooks.com/free/{slug}"
+  spoken_url: "PhoenixProtocolBooks.com/free/{slug}"   # no UTM in spoken narration
+
+  params:
+    audiobook_post_intro:
+      utm_source: audiobook
+      utm_medium: spoken_cta
+      utm_content: post_intro
+
+    audiobook_back_matter:
+      utm_source: audiobook
+      utm_medium: spoken_cta
+      utm_content: back_matter
+
+    ebook_front_matter:
+      utm_source: ebook
+      utm_medium: front_matter
+      utm_content: pointer
+
+    ebook_post_intro:
+      utm_source: ebook
+      utm_medium: post_intro_cta
+      utm_content: cta_block
+
+    ebook_mid_book:
+      utm_source: ebook
+      utm_medium: mid_book_cta
+      utm_content: one_liner
+
+    ebook_back_matter:
+      utm_source: ebook
+      utm_medium: back_matter
+      utm_content: upsell
+
+  # utm_campaign = {book_id} on all placements
