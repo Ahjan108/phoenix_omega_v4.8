@@ -1,0 +1,6 @@
+# Cloudflare Workers AI — copy this file to cloudflare_workers_ai.txt and fill in your values.
+# Get them from: https://dash.cloudflare.com → AI → Workers AI → REST API (Account ID + Create API Token)
+# Do NOT commit cloudflare_workers_ai.txt (it's in .gitignore).
+
+CLOUDFLARE_ACCOUNT_ID=
+CLOUDFLARE_API_TOKEN=

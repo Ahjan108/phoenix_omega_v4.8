@@ -4,6 +4,16 @@
 **Used by:** [scripts/video/run_flux_generate.py](../scripts/video/run_flux_generate.py). Same credentials can be used for author cover art T2I when that pipeline uses Workers AI.  
 **Authority:** [docs/VIDEO_IMAGE_MASTER_PROMPT_SPEC.md](./VIDEO_IMAGE_MASTER_PROMPT_SPEC.md), [docs/DOCS_INDEX.md](./DOCS_INDEX.md) § Video pipeline.
 
+**Where credentials live:** This repo (**phoenix_omega**). They come from your [Cloudflare](https://dash.cloudflare.com) account, not from any GitHub repo (e.g. Qwen-Agent is separate and does not provide these).
+
+---
+
+## Quick start (3 steps)
+
+1. **Get credentials from Cloudflare:** Log in at [dash.cloudflare.com](https://dash.cloudflare.com) → **AI** → **Workers AI** → open the **REST API** card. Copy your **Account ID** (32 hex chars). Click **Create API Token** (Workers AI Read + Edit), then copy the token (shown once).
+2. **Put them in this repo:** In **phoenix_omega** at the repo root, copy `cloudflare_workers_ai.txt.example` to `cloudflare_workers_ai.txt`, then paste your Account ID and API token on the two lines (no quotes, no spaces around `=`).
+3. **Confirm:** From repo root run `python3 scripts/video/confirm_cloudflare_credentials.py`. You should see "Credentials confirmed."
+
 ---
 
 ## What you need
