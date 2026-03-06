@@ -1,0 +1,11 @@
+# Dashboard requirements — install in addition to requirements.txt
+# pip install -r requirements-dashboard.txt
+
+streamlit>=1.32.0
+plotly>=5.18.0
+pandas>=2.0.0
+requests>=2.28.0
+
+# Already in requirements.txt but listed here for standalone dashboard installs:
+# pyyaml>=5.0
+# feedparser>=6.0

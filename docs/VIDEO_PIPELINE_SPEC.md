@@ -174,11 +174,114 @@ See `docs/VIDEO_PIPELINE_FFMPEG_REFERENCE.md` for zoompan, eq, and drawtext/draw
 - **Video uniqueness:** **Sequence signature (lock):** `sequence_signature = hash( variant_id + ordered_concat( [ shot.visual_intent, shot.environment, shot.motion_type, shot.hook_type ] for each shot ) )`. Include variant_id so male_realistic and female_illustration of the same script do not collide. Use for duplicate detection and replay. **Cross-video dedup** + bank variety. **Cross-video dedup constraint:** Within a daily batch, no two videos scheduled in the same publishing window (e.g. same 2-hour slot on a given platform) may share more than one primary environment asset. The daily_batch index (or distribution manifests) should include primary asset_ids per video so the partner or scheduler can enforce this before publish. Rule and window: `config/video/cross_video_dedup.yaml`. This prevents “same forest path three times in a row” in a viewer’s feed.
 - **A/B testing:** Outbound telemetry (hook_type, environment, motion_type, music_mood, caption_pattern, style_version in manifest and provenance) + inbound performance feedback schema (video_performance_v1).
 - **Persistent storage:** Image Bank and artifacts separate from ephemeral R2 handoff.
-- **Image bank size (locked):** Pre-rendered single-image bank only (no compositing). Launch target **~400 images** (350–500); **hook bank 35–40** (hooks are highest-frequency). Run the coverage study (sample scripts → shot planner → unique combinations) for exact breakdown. Generation priority: environments first, then symbolic visuals, then character scenes. Grow when preflight or reuse cap surfaces gaps.
+- **Image bank size (per channel/brand):** Pre-rendered single-image bank only (no compositing). Launch target **~400 images per brand** (360–405); **hook bank 35–40** (hooks are highest-frequency). Breakdown: 15 topics × ~24–27 images per topic. Run the coverage study (sample scripts → shot planner → unique combinations) for exact breakdown. Generation priority: environments first, then symbolic visuals, then character scenes. Grow when preflight or reuse cap surfaces gaps.
+- **24-channel total image target:** 24 brands × ~400 images = **~9,600 images total** (range: 8,640–9,720). See §17 for multi-channel architecture and spam avoidance rules.
 
 ---
 
-## 15. Implementation order
+## 15. Multi-channel architecture and platform spam avoidance
+
+### 15.1 Architecture
+
+The pipeline supports **24 channels (brands)**, each with its own isolated image bank, style identity, and assembly configuration. No two channels share an image bank. This is the primary defense against platform spam detection.
+
+| Layer | Per-channel isolation | Why it matters |
+|---|---|---|
+| **Image bank** | Separate bank per channel; visually distinct styles | Breaks visual fingerprint linking channels as a farm |
+| **Assembly method** | Different pacing (image interval 3–5s varies by brand), transition style, motion type, aspect ratio composition | Different sequence signatures even for same topic |
+| **TTS voice** | Different voice ID per channel (config: `config/video/channel_registry.yaml → tts_voice_id`) | Audio fingerprint must differ between channels |
+| **Metadata templates** | Different title formats, description structures, tag sets per channel | Metadata fingerprint must differ |
+| **Upload timing** | Staggered — no two channels upload in the same 2-hour window on the same platform | Upload pattern must look independent |
+| **Background music** | Different music mood assignment per channel (config: `config/video/music_policy.yaml → channel_overrides`) | Same mood but different track pool per channel |
+
+### 15.2 Image bank style differentiation
+
+Each of the 24 channels gets a distinct visual style. Style must be **visually distinct at a glance** — not just palette-shifted versions of the same style. Examples:
+
+| Channel group | Style family | Notes |
+|---|---|---|
+| 1–4 | Warm illustration (hand-drawn feel) | Soft lines, muted earth tones |
+| 5–8 | Atmospheric photography (real-world) | Low-light, bokeh, natural environments |
+| 9–12 | Minimal geometric / abstract | Clean shapes, high negative space |
+| 13–16 | Watercolor + texture | Painterly, loose, organic |
+| 17–20 | Cinematic / film-grain | Cooler tones, dramatic light |
+| 21–24 | Botanical / nature macro | Close-up natural world; no faces |
+
+Style definition lives in `config/video/channel_registry.yaml` under `image_style_family`. The image generation prompt prefix for each channel comes from `config/video/brand_style_tokens.yaml` keyed by `channel_id`.
+
+### 15.3 Image bank sizing (per channel)
+
+**Target: ~400 images per channel.** Minimum viable: 360; scale up to 450 when topic gap analysis shows reuse cap exceeded.
+
+Coverage formula:
+```
+15 topics × 24 images per topic = 360 images base
++ hook bank: 35–40 images (shared within channel; never shared across channels)
+= ~395–400 images per channel
+```
+
+Topic breakdown within each channel (all in the channel's visual style):
+- Environments / scene-setting: ~8 images per topic
+- Symbolic / metaphoric: ~8 images per topic
+- Character / human presence (no faces): ~8 images per topic
+
+### 15.4 Assembly method differentiation
+
+Each channel should differ on at least 3 of these 5 assembly dimensions. Config: `config/video/channel_registry.yaml → assembly_profile`.
+
+| Dimension | Example variation |
+|---|---|
+| Image hold duration | 3.0s vs 3.5s vs 4.0s vs 5.0s |
+| Transition type | cut / crossfade / dip-to-black / zoom-dissolve |
+| Caption style | lower-third / full-overlay / word-by-word / none |
+| Aspect ratio emphasis | 9:16-first vs 16:9-first vs 1:1-first |
+| Hook type pool | topic-specific hooks; each channel draws from different hook subset |
+
+### 15.5 Platform spam avoidance rules (YouTube / Instagram / TikTok)
+
+These rules are non-negotiable and must be enforced by the pipeline. Violations risk channel termination across the entire network.
+
+**What YouTube/IG/TikTok detect:**
+- Identical visual sequences across channels (visual fingerprint matching)
+- Same audio track or TTS voice across channels (audio fingerprint)
+- Same metadata structure repeated at scale (metadata pattern matching)
+- Coordinated upload bursts from the same IP or account cluster
+
+**Hard rules (config-enforced, CI-gated):**
+
+1. **No shared image assets across channels.** `cross_channel_asset_share_ratio` = 0.0 (config: `config/video/cross_video_dedup.yaml → cross_channel`). A single image used in two different channels' banks is a violation.
+
+2. **No two channels upload within the same 2-hour window on the same platform.** Scheduler must enforce. Config: `config/video/channel_registry.yaml → upload_window_offset_hours` (0–23, unique per channel).
+
+3. **TTS voice must differ between all 24 channels.** Each channel gets one assigned voice ID. Voice ID is locked in `channel_registry.yaml → tts_voice_id`. No two entries may share a voice ID.
+
+4. **Metadata template diversity.** Title format strings must differ: at least 6 distinct title templates across 24 channels (4 channels share a template maximum). Config: `config/video/channel_registry.yaml → title_template_id`.
+
+5. **Sequence signature diversity within a channel.** Existing cross-video dedup rule (§14) applies within each channel. No two videos on the same channel share more than one primary environment asset in the same publishing window.
+
+6. **Upload rate cap.** Max 3 uploads per channel per day at launch. Scale after 90 days of clean channel health. Config: `config/video/channel_registry.yaml → daily_upload_cap`.
+
+### 15.6 channel_registry.yaml structure
+
+New config file: `config/video/channel_registry.yaml`. Each channel entry:
+
+```yaml
+channels:
+  ch_001:
+    brand_id: phoenix_protocol
+    channel_platform: youtube
+    image_style_family: warm_illustration
+    assembly_profile: profile_a   # refs config/video/assembly_profiles.yaml
+    tts_voice_id: en-US-Journey-F  # unique across all 24 channels
+    title_template_id: tmpl_01
+    upload_window_offset_hours: 0  # unique; no two channels share same hour
+    daily_upload_cap: 3
+    image_bank_path: assets/image_banks/ch_001/
+  ch_002:
+    ...
+```
+
+---
 
 - **Build Script Preparer first.** It has the clearest input (render manifest fixture) and output (script segments fixture) and validates that the render manifest schema works with real data. If the preparer runs cleanly against the fixture, every downstream stage has a proven input contract. Do not start with Shot Planner on an untested input.
 - **Phase 1: sequential scripts.** Implement the pipeline as sequential steps (script_preparer → shot_planner → asset_resolver → timeline_builder → renderer), each reading the previous stage’s output from disk. Get the logic right against the golden fixtures.

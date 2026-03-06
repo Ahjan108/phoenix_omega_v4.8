@@ -1,0 +1,773 @@
+# Image Prompt Templates — one per style, keyed by style_id from channel_registry.yaml
+# Authority: docs/VIDEO_IMAGE_MASTER_PROMPT_SPEC.md; docs/VIDEO_PIPELINE_SPEC.md §15
+#
+# Each template has 3 parts (Flux T2I three-part format):
+#   foreground: style + subject + composition
+#   background: atmospheric abstract gradient
+#   lighting: lighting + mood + "9:16, highly detailed but soft"
+#
+# Placeholders: {palette_1}, {palette_2}, {palette_3} → resolved from
+#   brand_style_tokens.yaml → bands → {emotional_band} → topics → {topic} → palette
+#   {subject}: resolved by shot planner from visual_intent
+#   {style_modifier}: this file's style-specific modifier
+#
+# negative_overrides: replaces/augments shared_negatives for this style.
+#   When channel override_shared_negatives: true, these are used INSTEAD of shared_negatives.
+#   When override_shared_negatives: false, these are APPENDED to shared_negatives.
+#
+# topic_subject_hints: default subject vocabulary for topics on this channel.
+# (Shot planner uses these as starting points before applying visual_intent_defaults.)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CALM & HEALING (ch_001–ch_006)
+# ─────────────────────────────────────────────────────────────────────────────
+
+soft_ghibli:
+  style_id: soft_ghibli
+  channel_id: ch_001
+  display_name: "Soft Ghibli-esque"
+  style_modifier: >
+    soft Studio Ghibli-inspired watercolor illustration, hand-painted gouache texture,
+    pastel skies, cozy detailed background, gentle paper grain, warm but muted palette,
+    no full faces, dreamy stillness, contemplative mood
+  foreground: >
+    A soft Ghibli-esque watercolor illustration of {subject} in {palette_1} and {palette_2},
+    gentle paper grain, cozy atmospheric detail, generous negative space, no faces, quiet mood.
+  background: >
+    Background: a soft watercolor wash of {palette_1} to {palette_3}, blended edges,
+    no hard lines, cottagecore warmth, ethereal and slightly hazy.
+  lighting: >
+    Lighting: diffused morning light through a window, gentle and undramatic,
+    soft shadows, warm-cool balance, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no photorealism"
+    - "no sharp edges"
+    - "no high contrast"
+    - "no anime style"  # ghibli is NOT anime for our purposes; keep this
+    - "no full faces"
+    - "no busy background clutter"
+    - "no forced brightness"
+  topic_subject_hints:
+    anxiety: "hands cupped around a teacup by a rain-streaked window"
+    grief: "an empty chair with a soft knitted blanket beside a lamp"
+    burnout: "a figure resting against a mossy hillside at dusk"
+    depression: "a small figure under a large umbrella in soft rain"
+
+minimalist_line_art:
+  style_id: minimalist_line_art
+  channel_id: ch_002
+  display_name: "Minimalist Line Art"
+  style_modifier: >
+    minimalist single-color line drawing, clean thin strokes, generous white space,
+    one or two line-weight weights, no fill or flat pastel fill only,
+    architectural negative space, clarity-first composition
+  foreground: >
+    A minimalist line art illustration of {subject} in {palette_1} on white,
+    clean thin strokes, generous negative space, no texture, no fill, single composition line.
+  background: >
+    Background: pure white or very pale {palette_3}, no gradient, no texture,
+    absolute minimal — the line drawing is the entire focal point.
+  lighting: >
+    Lighting: flat, directionless light — no shadow, no volumetric haze,
+    maximum clarity and space, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no color fills"
+    - "no texture"
+    - "no gradients"
+    - "no shadow"
+    - "no anime"
+    - "no busy background"
+    - "no photorealism"
+    - "no shading"
+  topic_subject_hints:
+    overthinking: "a mind-map of circular arrows converging to a single dot"
+    boundaries: "a single line drawn across a white page with space on each side"
+    imposter_syndrome: "a small figure standing in a large empty room"
+    financial_anxiety: "a single hand holding a coin over a clean empty space"
+
+chibi_deformed:
+  style_id: chibi_deformed
+  channel_id: ch_003
+  display_name: "Chibi/Deformed"
+  style_modifier: >
+    chibi kawaii anime illustration style, exaggeratedly cute proportions, large round eyes,
+    small body, oversized head, pastel color palette, smooth cel shading, clean outlines,
+    no realism, purely expressive and approachable
+  foreground: >
+    A chibi anime illustration of {subject} with round large eyes and small body,
+    in {palette_1} and {palette_2}, smooth cel shading, clean black outline,
+    cute expressive pose, no full realistic face.
+  background: >
+    Background: a soft flat gradient of {palette_2} to {palette_3}, simple shape elements,
+    no complexity, stars or sparkle accents, clean and airy.
+  lighting: >
+    Lighting: bright flat anime lighting with soft shadow on one side,
+    cheerful and clear, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no photorealism"
+    - "no adult proportions"
+    - "no full realistic face"
+    - "no dark shadows"
+    - "no gritty texture"
+    - "no complex background"
+  topic_subject_hints:
+    social_anxiety: "a chibi figure hiding behind an oversized plant pot, peeking out shyly"
+    self_worth: "a tiny chibi figure standing on a gold star podium, surprised expression"
+    imposter_syndrome: "chibi character wearing an oversized medal looking confused"
+    overthinking: "chibi character surrounded by tiny floating thought bubbles"
+
+watercolor_wash:
+  style_id: watercolor_wash
+  channel_id: ch_004
+  display_name: "Watercolor Wash"
+  style_modifier: >
+    pure watercolor wash technique, bleeding colors with soft edges, no hard outlines,
+    wet-on-wet blending, organic color pooling, paper texture visible,
+    no defined subjects — impressionistic form only, healing and fluid
+  foreground: >
+    A watercolor wash illustration of {subject} suggested through bleeding color pools
+    in {palette_1} and {palette_2}, no hard lines, organic and fluid form,
+    visible paper grain, impressionistic rather than defined.
+  background: >
+    Background: wet watercolor bleed of {palette_2} into {palette_3}, soft blossoms
+    of color, no hard edges anywhere, translucent and layered.
+  lighting: >
+    Lighting: diffused soft light embedded in the wash itself, no directional source,
+    luminous from within the paper, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no hard outlines"
+    - "no sharp edges"
+    - "no photorealism"
+    - "no flat color"
+    - "no digital render look"
+    - "no anime"
+    - "no text"
+  topic_subject_hints:
+    compassion_fatigue: "warm hands suggested in peach and rose watercolor bleed"
+    burnout: "an empty bench in a garden dissolving into autumn colors"
+    grief: "soft lavender and grey pools pooling at the base of the image"
+    somatic_healing: "a body shape emerging from warm amber watercolor wash"
+
+kawaii_cute:
+  style_id: kawaii_cute
+  channel_id: ch_005
+  display_name: "Kawaii/Cute"
+  style_modifier: >
+    kawaii Japanese cute illustration style, pastel palette, rounded shapes, moe aesthetic,
+    large shiny eyes, rosy cheeks, soft bubble-like forms, minimal but expressive,
+    positive affirming mood, sticker-like quality
+  foreground: >
+    A kawaii cute illustration of {subject} in pastel {palette_1} and {palette_2},
+    rounded bubble shapes, large shiny eyes if characters, rosy cheeks, sticker-aesthetic,
+    cheerful and affirming, no hard lines.
+  background: >
+    Background: soft pastel {palette_3} with tiny floating hearts or stars,
+    clean and airy, no busy patterns, gentle shimmer.
+  lighting: >
+    Lighting: bright, soft, and even — kawaii illustrations are never dark,
+    gentle shimmer on focal elements, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no dark colors"
+    - "no adult realism"
+    - "no sharp angles"
+    - "no complex background"
+    - "no realistic face"
+    - "no gritty or rough texture"
+  topic_subject_hints:
+    self_worth: "a kawaii golden crown floating above a small pastel character"
+    social_anxiety: "a tiny kawaii figure with a speech bubble containing only a heart"
+    sleep_anxiety: "a kawaii moon and stars scene with a sleeping character in a cloud bed"
+    financial_anxiety: "a kawaii piggy bank with worried-cute expression surrounded by coins"
+
+lofi_chill:
+  style_id: lofi_chill
+  channel_id: ch_006
+  display_name: "Lo-fi/Chill"
+  style_modifier: >
+    lo-fi hip hop aesthetic, muted grainy film texture, soft desaturated palette,
+    warm ambient lighting from a desk lamp or window, cozy indoor scene,
+    anime-adjacent but not full anime, retro grain overlay, quiet and atmospheric
+  foreground: >
+    A lo-fi illustration of {subject} with muted grainy texture in {palette_1} and {palette_2},
+    warm lamp light, cozy indoor atmosphere, film grain overlay, soft and desaturated,
+    no harsh contrast.
+  background: >
+    Background: a soft ambient gradient of {palette_2} to {palette_3} with subtle film grain,
+    warm interior atmosphere, window glow from one side, nothing sharp.
+  lighting: >
+    Lighting: warm lamp or candle ambient light, deep soft shadows,
+    grainy low-light warmth, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no bright colors"
+    - "no high contrast"
+    - "no photorealism"
+    - "no clean digital render"
+    - "no sharp comic lines"
+    - "no outdoor scenes"
+  topic_subject_hints:
+    burnout: "a figure slumped at a lo-fi desk lamp, books stacked, rain on window"
+    sleep_anxiety: "a cozy bed scene at 2am, desk lamp on, city lights through window"
+    overthinking: "lo-fi study desk with layered sticky notes, soft lamp glow"
+    anxiety: "a figure with headphones at a window, rain falling, muted palette"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# BOLD & DYNAMIC (ch_007–ch_012)
+# ─────────────────────────────────────────────────────────────────────────────
+
+shonen_action:
+  style_id: shonen_action
+  channel_id: ch_007
+  display_name: "Shonen Action"
+  style_modifier: >
+    shonen manga anime illustration style, high-contrast cel shading, dynamic composition,
+    bold black outlines, speed lines as accent, intense determined mood,
+    warm gold and crimson palette, no full realistic face — stylized manga features
+  foreground: >
+    A shonen manga illustration of {subject} with dynamic composition in {palette_1} and {palette_2},
+    bold black outlines, high-contrast cel shading, intense determined energy,
+    no photorealism, pure manga stylization.
+  background: >
+    Background: bold speed line radiating pattern in {palette_3}, high contrast burst,
+    manga panel energy, no photographic realism.
+  lighting: >
+    Lighting: dramatic hard side-lighting, gold rim light on one edge,
+    high contrast shadows, powerful and energized, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no photorealism"
+    - "no soft watercolor"
+    - "no pastel"
+    - "no full realistic face"
+    - "no complex scenery"
+  topic_subject_hints:
+    courage: "a figure in mid-leap against speed lines, fist raised, back to viewer"
+    imposter_syndrome: "a manga character breaking through a paper wall labeled 'self-doubt'"
+    self_worth: "a figure standing tall on a peak with shonen-style golden aura"
+    financial_stress: "a manga character gripping a sword-shaped pen, battle stance"
+
+cyberpunk_scifi:
+  style_id: cyberpunk_scifi
+  channel_id: ch_008
+  display_name: "Cyberpunk/Sci-Fi"
+  style_modifier: >
+    cyberpunk digital illustration, neon blue and violet glow against dark background,
+    geometric line overlays, holographic UI elements, futuristic cityscape or interface,
+    no full faces — silhouettes or partial, rain and neon reflections
+  foreground: >
+    A cyberpunk illustration of {subject} in neon {palette_1} and {palette_2}
+    against near-black, holographic line overlays, rain reflections, silhouette or partial view,
+    futuristic and sharp, no photorealism.
+  background: >
+    Background: dark {palette_3} with neon grid or circuit lines glowing softly,
+    depth-of-field blur on background elements, rain streaks, atmospheric.
+  lighting: >
+    Lighting: neon side-glow from below and left, cool blue ambient fill,
+    deep blacks with glowing accents, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no photorealism"
+    - "no warm tones"
+    - "no pastoral scenes"
+    - "no full face"
+    - "no soft watercolor"
+    - "no pastel"
+  topic_subject_hints:
+    financial_anxiety: "a silhouette standing before a glowing neon stock chart on a rainy street"
+    overthinking: "a figure surrounded by floating holographic data screens"
+    boundaries: "a neon line cutting through darkness — a clear boundary visualization"
+    imposter_syndrome: "a reflection in a rain puddle showing a different (larger) figure"
+
+vintage_noir:
+  style_id: vintage_noir
+  channel_id: ch_009
+  display_name: "Vintage/Noir"
+  style_modifier: >
+    vintage noir illustration, high-contrast black and white with single sepia or amber accent,
+    dramatic shadow play, 1940s-50s aesthetic, grainy film texture, no color except one warm tone,
+    cinematic composition, moody and contemplative
+  foreground: >
+    A vintage noir illustration of {subject} in high-contrast black, white, and {palette_1},
+    dramatic shadow patterns, 1940s aesthetic, grainy film texture, cinematic framing,
+    no photorealism — graphic art style.
+  background: >
+    Background: deep shadow gradient from black to dark grey with {palette_1} warmth
+    bleeding through, venetian blind shadow pattern or rain streaks optional.
+  lighting: >
+    Lighting: single hard light source from one side, dramatic long shadows,
+    sepia film grain, cinematic and still, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no photorealism"
+    - "no multiple bright colors"
+    - "no pastel"
+    - "no cheerful composition"
+    - "no full face"
+    - "no soft edges"
+  topic_subject_hints:
+    grief: "an empty chair in a pool of warm lamplight, long shadow"
+    depression: "a figure at a window, rain, dramatic shadow across the wall"
+    boundaries: "a closed door with a single bar of light underneath"
+    burnout: "a desk covered in papers, a cold cup of coffee, late-night lamp"
+
+pop_art:
+  style_id: pop_art
+  channel_id: ch_010
+  display_name: "Pop Art"
+  style_modifier: >
+    pop art Roy Lichtenstein style, halftone dot pattern, bold black outlines, flat bright colors,
+    speech bubble elements, onomatopoeia optional, high energy and graphic,
+    no photorealism, pure graphic art language
+  foreground: >
+    A pop art illustration of {subject} with bold {palette_1} flat fill and halftone dots in {palette_2},
+    thick black outline, graphic and flat, no texture, high visual energy.
+  background: >
+    Background: halftone dot pattern in {palette_3}, bold and flat,
+    no gradients, no photographic elements — pure graphic.
+  lighting: >
+    Lighting: flat graphic — no shadow or depth, only line weight variation,
+    colors pop on pure white or colored ground, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no photorealism"
+    - "no soft gradients"
+    - "no texture"
+    - "no watercolor"
+    - "no full realistic face"
+    - "no muted colors"
+  topic_subject_hints:
+    self_worth: "a bold pop art figure with a crown and speech bubble saying 'YES'"
+    courage: "a graphic fist raised against a halftone burst background"
+    financial_anxiety: "a pop art comic panel of a wallet with dramatic expression lines"
+    social_anxiety: "a pop art figure with a thought bubble filled with question marks"
+
+sketchy_rough:
+  style_id: sketchy_rough
+  channel_id: ch_011
+  display_name: "Sketchy/Rough"
+  style_modifier: >
+    rough hand-drawn sketchbook style, visible pencil or ink marks, crosshatch shading,
+    imperfect wobbly lines, raw and honest, single color or limited two-tone palette,
+    urgent gestural energy, no polish — the sketchbook IS the aesthetic
+  foreground: >
+    A rough hand-drawn sketch of {subject} in {palette_1} pencil/ink strokes,
+    visible crosshatching, imperfect lines, gestural and urgent, no clean edges,
+    raw emotional truth, sketchbook aesthetic.
+  background: >
+    Background: loose rough hatching in {palette_2} suggesting depth, no defined scene,
+    paper texture showing, scribbled margin marks optional.
+  lighting: >
+    Lighting: implied through crosshatch density — no photographic light,
+    raw depth from mark-making alone, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no photorealism"
+    - "no clean lines"
+    - "no smooth shading"
+    - "no color fills"
+    - "no digital polish"
+    - "no full face"
+  topic_subject_hints:
+    courage: "a rough sketch of boots on a path, each step scored deep into the page"
+    burnout: "a hand-drawn figure sitting against a wall, rough and honest, no idealization"
+    anxiety: "a scribbled tangle of lines that slowly organize toward one clear stroke"
+    somatic_healing: "rough sketch of a hand on a chest — slow breath gesture"
+
+retro_80s_90s:
+  style_id: retro_80s_90s
+  channel_id: ch_012
+  display_name: "Retro 80s/90s"
+  style_modifier: >
+    retro 1980s-90s cartoon illustration style, VHS color grading, neon accent on dark or pastel,
+    chunky bold outlines, simple character shapes, Saturday morning cartoon nostalgia,
+    no photorealism, warm nostalgic palette
+  foreground: >
+    A retro 90s cartoon illustration of {subject} in {palette_1} with bold chunky outlines,
+    VHS warmth, Saturday morning cartoon simplicity, nostalgic character proportions.
+  background: >
+    Background: classic cartoon flat gradient of {palette_2} to {palette_3},
+    simple star or shape accents, retro wallpaper energy, no photographic depth.
+  lighting: >
+    Lighting: flat cartoon lighting with one warm accent shadow,
+    VHS color warmth, slightly oversaturated, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no photorealism"
+    - "no modern clean digital render"
+    - "no watercolor"
+    - "no full realistic face"
+    - "no complex scenery"
+  topic_subject_hints:
+    self_worth: "a retro cartoon character looking at a trophy with a surprised happy face"
+    anxiety: "a 90s cartoon character overwhelmed by floating alarm clocks"
+    burnout: "a retro character slumped in a beanbag chair with a remote, eyes half-open"
+    financial_stress: "cartoon piggy bank running from cartoon bills"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ABSTRACT & SYMBOLIC (ch_013–ch_018)
+# ─────────────────────────────────────────────────────────────────────────────
+
+geometric_abstract:
+  style_id: geometric_abstract
+  channel_id: ch_013
+  display_name: "Geometric/Abstract"
+  style_modifier: >
+    pure geometric abstract digital art, clean sharp shapes, flat color fills,
+    mathematical symmetry or deliberate asymmetry, gradient mesh between shapes,
+    no characters, no subjects — only form and color relationships
+  foreground: >
+    A geometric abstract composition in {palette_1} and {palette_2},
+    clean overlapping shapes suggesting {subject} conceptually, sharp edges,
+    flat fills with precise gradient accents, no characters.
+  background: >
+    Background: gradient field of {palette_3}, geometric shape shadows at edges,
+    mathematical depth without photography.
+  lighting: >
+    Lighting: implied by gradient direction in shapes — no photographic light source,
+    pure color and form, crisp and precise, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no photorealism"
+    - "no characters"
+    - "no organic shapes"
+    - "no watercolor"
+    - "no rough texture"
+    - "no anime"
+  topic_subject_hints:
+    overthinking: "a tightly packed cluster of geometric shapes expanding outward to calm space"
+    boundaries: "a sharp geometric line dividing two distinct color fields"
+    financial_anxiety: "geometric bar chart shapes in tension, one tall, one collapsed"
+    imposter_syndrome: "a large geometric shape with a small identical shape inside"
+
+ink_wash_sumie:
+  style_id: ink_wash_sumie
+  channel_id: ch_014
+  display_name: "Ink Wash (Sumi-e)"
+  style_modifier: >
+    traditional Japanese sumi-e ink wash painting, black ink on white rice paper,
+    wet brush and dry brush contrast, negative space is primary, flowing gestural marks,
+    zen contemplative mood, no color — only ink and water and white space
+  foreground: >
+    A sumi-e ink wash suggestion of {subject} in pure black ink and water,
+    flowing gestural brushstrokes, wet and dry brush contrast, negative space dominant,
+    zen stillness, no color fills.
+  background: >
+    Background: white rice paper with faint ink wash diffusion at edges,
+    mist and negative space, nothing defined, infinite quiet.
+  lighting: >
+    Lighting: implied in the ink gradations — darker ink suggests depth,
+    white space is light, pure contrast without photography, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no color"
+    - "no photorealism"
+    - "no digital render"
+    - "no anime"
+    - "no geometric shapes"
+    - "no hard lines — only brushwork"
+  topic_subject_hints:
+    somatic_healing: "a single ink-wash lotus emerging from water, barely suggested"
+    anxiety: "a tangled brushstroke gradually becoming a single calm line"
+    grief: "an ink wash of a bare tree branch, a few fallen leaves"
+    boundaries: "two ink-wash brush territories meeting — one dry, one wet"
+
+stained_glass:
+  style_id: stained_glass
+  channel_id: ch_015
+  display_name: "Stained Glass"
+  style_modifier: >
+    digital stained glass art, leaded glass window aesthetic, vibrant segmented color panels,
+    black lead lines as dividers, translucent jewel tones, geometric and organic forms combined,
+    light-through-glass luminosity, sacred and meditative
+  foreground: >
+    A stained glass illustration of {subject} in vibrant {palette_1} and {palette_2} panels,
+    thick black lead lines dividing segments, jewel-tone translucency,
+    sacred geometry composition, no photorealism.
+  background: >
+    Background: radiating {palette_3} stained glass panels from center,
+    leaded black dividers, cathedral window structure, light-from-behind effect.
+  lighting: >
+    Lighting: light appearing to come through the glass itself, luminous jewel tones,
+    warm and sacred, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no photorealism"
+    - "no watercolor bleeding"
+    - "no soft edges"
+    - "no anime"
+    - "no faces"
+    - "no muted colors — jewel tones only"
+  topic_subject_hints:
+    somatic_healing: "a stained glass body silhouette with warm light radiating from the chest"
+    compassion_fatigue: "two stained glass hands reaching toward each other, space between"
+    grief: "a stained glass window of a single tree with falling leaves"
+    self_worth: "a stained glass sun and crown, radiating gold and deep blue"
+
+glitch_art:
+  style_id: glitch_art
+  channel_id: ch_016
+  display_name: "Glitch Art"
+  style_modifier: >
+    digital glitch art, RGB channel displacement, pixel sorting artifacts,
+    data corruption aesthetic, scan lines, neon accent colors on dark base,
+    deliberate digital destruction as beauty, no photorealism — pure digital artifact
+  foreground: >
+    A glitch art digital illustration of {subject} in {palette_1} with RGB displacement
+    and pixel sorting artifacts in {palette_2}, scan lines, data corruption beauty,
+    no photorealism — pure digital aesthetic.
+  background: >
+    Background: dark {palette_3} with horizontal glitch bands and RGB fringe,
+    pixelated edge artifacts, controlled digital chaos.
+  lighting: >
+    Lighting: neon glitch glow from displaced RGB channels,
+    no natural light — pure digital luminosity, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no photorealism"
+    - "no natural scenes"
+    - "no watercolor"
+    - "no anime"
+    - "no soft edges anywhere"
+  topic_subject_hints:
+    imposter_syndrome: "a figure with face glitched-out, identity distorted by pixel sorting"
+    financial_anxiety: "glitched currency symbols dissolving into pixel chaos"
+    boundaries: "a clear clean line cutting through a field of RGB glitch"
+    overthinking: "a human silhouette fragmenting into scan line artifacts"
+
+pointillism:
+  style_id: pointillism
+  channel_id: ch_017
+  display_name: "Pointillism"
+  style_modifier: >
+    neo-impressionist pointillist painting, composed entirely of visible colored dots,
+    Seurat-style dot density for light and shadow, soft overall impression,
+    dots are visible individually, color mixing through optical illusion,
+    no lines — only dots
+  foreground: >
+    A pointillist painting of {subject} composed entirely of {palette_1} and {palette_2} dots,
+    dot density creates form and shadow, Seurat neo-impressionist style,
+    individual dots visible, no outlines.
+  background: >
+    Background: sparse {palette_3} dots on near-white, lighter dot density,
+    impressionistic air around the subject.
+  lighting: >
+    Lighting: implied through dot density — dense dots are shadow, sparse dots are light,
+    warm impressionist glow, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no lines"
+    - "no hard edges"
+    - "no photorealism"
+    - "no flat fills"
+    - "no anime"
+    - "no sharp detail"
+  topic_subject_hints:
+    depression: "a pointillist figure sitting by a window, dots densest in the shadow areas"
+    compassion_fatigue: "pointillist hands supporting another set of hands, warm dot density"
+    burnout: "a pointillist cup of coffee, steam rising in lighter dot density"
+    sleep_anxiety: "a pointillist moon over a dotted sea, sparse and quiet"
+
+collage:
+  style_id: collage
+  channel_id: ch_018
+  display_name: "Collage"
+  style_modifier: >
+    mixed-media collage art, cut paper textures layered with watercolor, torn newspaper fragments,
+    thread and tape details, organic layered composition, warm textured backgrounds,
+    no digital smoothness — every element has a hand-made physical quality
+  foreground: >
+    A collage art composition of {subject} with cut paper in {palette_1},
+    torn texture edges, watercolor wash on one layer, physical mixed-media depth,
+    layered elements with visible tape or thread details, warm and tactile.
+  background: >
+    Background: layered {palette_2} and {palette_3} paper textures, kraft paper warmth,
+    torn edges at borders, aged and physical.
+  lighting: >
+    Lighting: natural studio light on a physical flat-lay, slight shadow under paper edges,
+    warm and honest, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no photorealism"
+    - "no digital smoothness"
+    - "no flat vector"
+    - "no anime"
+    - "no geometric precision"
+  topic_subject_hints:
+    burnout: "a collage of fragmented daily planner pages, some torn, some overlapping"
+    anxiety: "layered paper layers with hand-written notes partially obscured"
+    financial_stress: "a collage of cut-out receipts and coins on torn paper layers"
+    self_worth: "a collage figure assembled from warm torn paper pieces finding wholeness"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# HYBRID & EXPERIMENTAL (ch_019–ch_024)
+# ─────────────────────────────────────────────────────────────────────────────
+
+cyberpunk_steampunk:
+  style_id: cyberpunk_steampunk
+  channel_id: ch_019
+  display_name: "Cyberpunk/Steampunk"
+  style_modifier: >
+    cyberpunk-steampunk hybrid illustration, mechanical brass gears meets neon hologram,
+    Victorian machinery with digital overlays, warm amber brass tones and cold neon blue,
+    no photorealism — pure graphic art fusion, industrial but luminous
+  foreground: >
+    A cyberpunk-steampunk hybrid illustration of {subject} combining {palette_1} brass gears
+    and {palette_2} neon holographic overlays, Victorian machinery meets digital data,
+    layered industrial and luminous, no photorealism.
+  background: >
+    Background: {palette_3} industrial depth with faint gear patterns and neon grid overlay,
+    steam-and-light atmosphere, depth without photography.
+  lighting: >
+    Lighting: warm brass ambient from below, cold neon from above, dramatic contrast
+    between warm-mechanical and cool-digital, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no photorealism"
+    - "no pastoral scenes"
+    - "no watercolor"
+    - "no soft colors"
+    - "no anime"
+    - "no full face"
+  topic_subject_hints:
+    financial_stress: "steampunk brass coin press meets neon digital banking interface"
+    courage: "a mechanical brass figure stepping through a neon portal"
+    financial_anxiety: "a brass clockwork gear machine with a neon display showing declining numbers"
+    imposter_syndrome: "a mechanical puppet whose brass strings become neon-light freedom"
+
+art_nouveau:
+  style_id: art_nouveau
+  channel_id: ch_020
+  display_name: "Art Nouveau"
+  style_modifier: >
+    Art Nouveau illustration style, flowing organic lines, botanical floral motifs,
+    elegant sinuous curves, Alphonse Mucha-inspired border frames,
+    warm gold and dusty rose palette, decorative and beautiful, no photorealism
+  foreground: >
+    An Art Nouveau illustration of {subject} with flowing organic lines in {palette_1} and {palette_2},
+    botanical floral motifs framing the composition, Mucha-style ornamental detail,
+    elegant and decorative, no photorealism.
+  background: >
+    Background: ornamental {palette_3} Art Nouveau border with botanical vines,
+    stylized floral wallpaper pattern, rich and decorative.
+  lighting: >
+    Lighting: warm diffused golden light, soft glow on ornamental details,
+    gentle and luminous, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no photorealism"
+    - "no geometric abstraction"
+    - "no hard edges"
+    - "no anime"
+    - "no full realistic face"
+    - "no modern design"
+  topic_subject_hints:
+    self_worth: "an Art Nouveau woman figure (back to viewer) crowned with botanical wreath"
+    somatic_healing: "flowing organic body shape surrounded by healing botanical motifs"
+    grief: "Art Nouveau willow branches draped over an ornate empty frame"
+    compassion_fatigue: "two botanical hands reaching toward each other, ornate vine frame"
+
+kawaii_lofi:
+  style_id: kawaii_lofi
+  channel_id: ch_021
+  display_name: "Kawaii-LoFi"
+  style_modifier: >
+    kawaii-lo-fi hybrid illustration, cute characters with lo-fi film grain texture,
+    muted pastel palette with warm grain overlay, indoor cozy scene,
+    gentle anime-adjacent style, soft and approachable, no harsh contrast
+  foreground: >
+    A kawaii-lo-fi illustration of {subject} with cute rounded character shapes
+    in muted {palette_1} and {palette_2}, lo-fi film grain texture overlay,
+    cozy indoor warmth, gentle and approachable, no harsh contrast.
+  background: >
+    Background: muted {palette_3} with soft lo-fi grain, warm lamp glow from one corner,
+    gentle and hazy, indoor coziness.
+  lighting: >
+    Lighting: warm lo-fi lamp ambient, soft and muted, kawaii brightness softened
+    by grain and desaturation, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no high contrast"
+    - "no bright saturated colors"
+    - "no photorealism"
+    - "no complex background"
+    - "no full realistic face"
+  topic_subject_hints:
+    anxiety: "kawaii-lo-fi figure with a small cloud above their head, sitting quietly"
+    sleep_anxiety: "kawaii character in bed at night, lo-fi moon through window"
+    social_anxiety: "lo-fi kawaii character alone at a cafe window, warm lamp"
+    self_worth: "kawaii character looking in a lo-fi mirror, seeing a glowing version"
+
+dark_moody:
+  style_id: dark_moody
+  channel_id: ch_022
+  display_name: "Dark/Moody"
+  style_modifier: >
+    dark moody digital illustration, deep shadow, rich near-black backgrounds,
+    single dramatic light source, atmospheric and cinematic, emotional weight,
+    muted palette — no warm cheer, only depth and gravity
+  foreground: >
+    A dark moody illustration of {subject} in deep {palette_1} with single dramatic
+    light source in {palette_2}, heavy atmosphere, high shadow-to-light ratio,
+    cinematic and weighty, no photorealism.
+  background: >
+    Background: near-black {palette_3} with soft atmospheric fog or smoke,
+    depth without detail, gravity and space.
+  lighting: >
+    Lighting: single strong light from one edge, deep shadows filling 70% of frame,
+    volumetric haze, cinematic and still, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no bright colors"
+    - "no cheerful composition"
+    - "no photorealism"
+    - "no anime"
+    - "no full face"
+    - "no hard digital render look"
+  topic_subject_hints:
+    depression: "a figure in a dark room with a single bar of light from a cracked door"
+    grief: "a dark silhouette at a window, city lights blurred behind, deep shadows"
+    boundaries: "a dark stone wall with one torch — clear and unmovable"
+    burnout: "a figure slumped at a desk, single lamp, everything else dark"
+
+cartoonish_silly:
+  style_id: cartoonish_silly
+  channel_id: ch_023
+  display_name: "Cartoonish/Silly"
+  style_modifier: >
+    exaggerated cartoon illustration style, squash-and-stretch proportions,
+    expressive reaction faces, rubberhose limbs, bright primary colors,
+    comedic and warm, no realism — pure cartoon language, fun and lighthearted
+  foreground: >
+    An exaggerated cartoon illustration of {subject} with squash-and-stretch proportions
+    in bright {palette_1} and {palette_2}, comedic expression, rubberhose energy,
+    warm and fun, no photorealism.
+  background: >
+    Background: flat cartoon {palette_3} with simple shape accents,
+    cartoon environment suggesting mood, clean and readable.
+  lighting: >
+    Lighting: bright flat cartoon lighting with one simple shadow,
+    cheerful and warm, no dramatic shadows, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no photorealism"
+    - "no dark shadows"
+    - "no serious mood"
+    - "no full realistic face"
+    - "no complex backgrounds"
+  topic_subject_hints:
+    burnout: "a cartoon character with springs for legs finally sitting down, sighing with relief"
+    anxiety: "a cartoon character juggling too many spinning plates, eyes wide"
+    self_worth: "a cartoon character puffing up with pride, cape appearing from nowhere"
+    overthinking: "cartoon character with steam coming from ears, too many thought bubbles"
+
+surrealist:
+  style_id: surrealist
+  channel_id: ch_024
+  display_name: "Surrealist"
+  style_modifier: >
+    surrealist digital painting, dreamlike and illogical scenes,
+    Magritte or Dalí-inspired impossible juxtapositions, hyper-realistic rendering
+    of impossible things, no cartoon — surrealism looks real but IS impossible
+  foreground: >
+    A surrealist painting of {subject} where {palette_1} and {palette_2} paint an
+    impossible scene — real elements in wrong contexts, dreamlike lighting,
+    Magritte-quiet or Dalí-dramatic, no full faces, uncanny and thought-provoking.
+  background: >
+    Background: surrealist landscape in {palette_3} — a room that is also outdoors,
+    a sky that is also a floor, impossible depth, quiet and strange.
+  lighting: >
+    Lighting: hyper-real but sourceless — light comes from the wrong direction,
+    objects cast shadows upward, dreamlike, 9:16, highly detailed but soft.
+  negative_overrides:
+    - "no cartoon"
+    - "no anime"
+    - "no flat color"
+    - "no abstract — surrealism is rendered realistically"
+    - "no full face"
+  topic_subject_hints:
+    overthinking: "a head open like a cabinet with many tiny desk drawers inside"
+    imposter_syndrome: "a figure in a suit standing in front of a mirror showing an empty suit"
+    depression: "a figure walking on the ceiling of a room that looks normal otherwise"
+    financial_anxiety: "a wallet that opens to reveal an infinite empty corridor"

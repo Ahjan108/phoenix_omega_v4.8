@@ -8,6 +8,28 @@ companion_rule:
   freebie_type: companion_workbook_pdf
   mandatory: true
 
+# Rule 1b — Companion workbook TYPE classification
+# Authority: specs/COMPANION_WORKBOOK_CATALOG_SPEC.md §2
+# Freebie planner resolves companion_workbook_type: full | light_guide | none
+# and emits platform content fields from config/freebies/companion_workbook_platform_content.yaml
+companion_workbook_type_rules:
+  full:
+    min_duration_minutes: 90
+    domains: [shame_cluster, grief_cluster, anxiety_cluster]
+    # For series: only specific installments get full workbooks
+    required_installments_full: [1, 3, 5]  # null = all installments eligible
+    description: "Full 80–120 page workbook; marketed as bundle; separate platform listing"
+
+  light_guide:
+    min_duration_minutes: 60  # 60–89 min, OR ≥90 min but domain not in full list
+    domains: [spiritual_general, leadership_general]
+    description: "30–50 page practice guide; download freebie; not a separate platform listing"
+
+  none:
+    # Books shorter than 60 min, or in narrative/primer domains
+    domains: [narrative_spiritual, topic_primers]
+    description: "No companion workbook"
+
 # Rule 2 — Somatic: if book has >= 1 EXERCISE slot, attach exactly one somatic_html_tool
 somatic_rule:
   freebie_type: somatic_html_tool
@@ -36,10 +58,10 @@ anti_cluster:
   identical_slug_pattern_ratio_max: 0.60
 
 # --- Series-aware (V4 Immersion Ecosystem); planner receives series_context ---
-# Optional directives for future use (series_id, installment_number, total_in_series, previous_primary_freebies):
-# series_aware:
-#   guided_audio:
-#     anti_cluster: true
-#     max_per_series: 1
-#   companion_workbook_pdf:
-#     required_installments: [1, 3, 5]
+series_aware:
+  guided_audio:
+    anti_cluster: true
+    max_per_series: 1
+  companion_workbook_pdf:
+    # Full workbook only on installments 1, 3, 5 — others get light_guide per duration rule
+    required_installments_full: [1, 3, 5]
