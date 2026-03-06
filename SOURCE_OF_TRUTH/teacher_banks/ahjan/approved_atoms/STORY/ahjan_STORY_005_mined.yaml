@@ -1,16 +1,27 @@
 atom_id: ahjan_STORY_005_mined
-body: nearby river. Then, bring me water from the river."The young man followed the
-  Buddha's words, and this time the water from the river was fresh and pure.The Buddha
-  smiled and said, "Happiness is like that cup of water. When you hold onto worries
-  and desires like the salt, your life becomes bitter and unsatisfying. But when you
-  let go of those attachments, your life becomes as fresh and pure as the river water.
+story_origin: composite
+story_type: direct_teaching
+emotional_intensity_band: 2
+body: |
+  Imagine a cup of water. You are holding it. Now—I add salt to the water. Not a
+  little. Enough to make it bitter.
+  
+  You taste it and frown. But instead of emptying the cup, you hold it tighter.
+  You carry it everywhere. You call this your life. You expect relief that does not
+  come.
+  
+  The salt is your attachments: the way things should be, the person who disappointed
+  you, the future you cannot control, the identity you are defending.
+  
+  Now imagine I ask you to walk to the river. To empty this cup. To fill it fresh.
+  The river water is not sweeter because the river is special—it is sweet because
+  you are no longer holding salt.
+  
+  This is not philosophy. Happiness is what becomes possible when you let go of what
+  is bitter. Not through effort, not through forcing joy. Through the simple mechanics
+  of release.
+band: 2
 teacher:
   teacher_id: ahjan
-  source_refs:
-  - doc_id: raw/BD Blog - Happiness and Purity.rtf
-    span:
-    - 1762
-    - 2175
-    quote_hash: 118ff39c4df2c15d
-  synthesis_method: kb_mine_v1
-band: 3
+  source_refs: []
+  synthesis_method: authored_v1

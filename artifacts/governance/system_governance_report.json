@@ -1,0 +1,77 @@
+{
+  "timestamp": "2026-03-04T14:36:00.563408",
+  "repo_root": "/Users/ahjan/phoenix_omega",
+  "fix_applied": false,
+  "checks": [
+    {
+      "slug": "docs_governance",
+      "name": "DOCS_INDEX link integrity + Last updated",
+      "passed": true,
+      "detail": "DOCS_INDEX governance check PASSED\n  Checked: docs/DOCS_INDEX.md\n  Link integrity: OK\n  Last updated: 2026-03-04",
+      "fix_applied": false,
+      "output": "DOCS_INDEX governance check PASSED\n  Checked: docs/DOCS_INDEX.md\n  Link integrity: OK\n  Last updated: 2026-03-04\n\n"
+    },
+    {
+      "slug": "github_local",
+      "name": "GitHub governance (local)",
+      "passed": true,
+      "detail": "[local] Policy files present\n  PASS: /Users/ahjan/phoenix_omega/config/governance/required_checks.yaml present\n  PASS: /Users/ahjan/phoenix_omega/docs/GITHUB_GOVERNANCE.md present\n[local] No bypass scripts\n  PASS: No bypass scripts or logic\n[local] No token files\n  PASS: No token files in repo",
+      "fix_applied": false,
+      "output": "[local] Policy files present\n  PASS: /Users/ahjan/phoenix_omega/config/governance/required_checks.yaml present\n  PASS: /Users/ahjan/phoenix_omega/docs/GITHUB_GOVERNANCE.md present\n[local] No bypass scripts\n  PASS: No bypass scripts or logic\n[local] No token files\n  PASS: No token files in repo\n\n"
+    },
+    {
+      "slug": "github_api",
+      "name": "GitHub governance (API)",
+      "passed": true,
+      "detail": "WARN: Skipping API checks (no GITHUB_TOKEN). Use --mode local only or set GITHUB_TOKEN.",
+      "fix_applied": false,
+      "output": "  WARN: Skipping API checks (no GITHUB_TOKEN). Use --mode local only or set GITHUB_TOKEN.\n\n"
+    },
+    {
+      "slug": "production_gates",
+      "name": "Production readiness gates",
+      "passed": true,
+      "detail": "V4.5 Production Readiness \u2014 19 conditions\n\n  \u2713 PASS  1. Canonical Spec Is Single Source of Truth\n      Writer + Canonical specs exist\n  \u2713 PASS  1b. Writer Spec Section 16 (Emotional QA) exists\n      \u00a716 present\n  \u2713 PASS  2. SOURCE_OF_TRUTH Coverage (atoms layout)\n      atoms/ exists, personas: ['healthcare_rns', 'nyc_executives', 'corporate_managers', 'educators', 'first_responders', 'entrepreneurs', 'tech_finance_burnout', 'millennial_women_professionals', 'working_parents', 'gen_x_sandwich', '",
+      "fix_applied": false,
+      "output": "V4.5 Production Readiness \u2014 19 conditions\n\n  \u2713 PASS  1. Canonical Spec Is Single Source of Truth\n      Writer + Canonical specs exist\n  \u2713 PASS  1b. Writer Spec Section 16 (Emotional QA) exists\n      \u00a716 present\n  \u2713 PASS  2. SOURCE_OF_TRUTH Coverage (atoms layout)\n      atoms/ exists, personas: ['healthcare_rns', 'nyc_executives', 'corporate_managers', 'educators', 'first_responders', 'entrepreneurs', 'tech_finance_burnout', 'millennial_women_professionals', 'working_parents', 'gen_x_sandwich', 'gen_alpha_students', 'gen_z_professionals']\n  \u2713 PASS  2b. K-table coverage (coverage_checker)\n      All persona\u00d7topic pass\n  \u2713 PASS  3. K-Table / governance rules exist\n      emotional_governance_rules.yaml present; k_tables/ optional\n  \u25cb SKIP  4. Assembly Is Deterministic\n      Spec-defined; verify with same seed \u2192 same plan hash\n  \u2713 PASS  5. Emotional QA rules (chapter_level)\n      chapter_level + volatile/cognitive_body present\n  \u2713 PASS  6. TTS Rhythm in governance\n      tts_rhythm section present\n  \u2713 PASS  7. Drift / book_level rules\n      book_level section present\n  \u2713 PASS  8. Catalog-level similarity rules\n      catalog_level section present\n  \u2713 PASS  9. Persona / topic config (topic_skins, bindings)\n      config/topic_skins.yaml + topic_engine_bindings.yaml\n  \u25cb SKIP  10. No Forbidden Resolution Language\n      Spec \u00a711 + Canonical \u00a74.4; CI gate\n  \u2713 PASS  11. CI failure_protocol defined\n      failure_protocol in emotional_governance_rules\n  \u2713 PASS  12. Release simulation script exists\n      simulation/run_simulation.py\n  \u2713 PASS  13. FMT / Binge spec exists\n      V4_6_BINGE_OPTIMIZATION_LAYER.md\n  \u2713 PASS  14. config/registry/atoms integrity\n      config=True registry=True atoms(2393 CANONICAL.txt)=True\n  \u2713 PASS  15. Full pipeline (Stage 1\u21922\u21923) runnable\n      run_pipeline.py + catalog_planner + assembly_compiler; one run produces valid CompiledBook\n  \u2713 PASS  16. Freebie density (wave)\n      Density within thresholds\n  \u2713 PASS  16b. CTA signature caps (same index)\n      CTA SIGNATURE CAPS: PASS\n  \u2713 PASS  17. jsonschema required (ops validation non-optional)\n      jsonschema installed\n  \u2713 PASS  17b. Ops/waves schema validation (when dirs exist)\n      All ops artifacts passed schema validation (7 file(s) checked).\n  \u2713 PASS  18. Author cover art (launchable authors: registry + PNG + style/palette)\n      PASS: all launchable authors have cover art registry entry, PNG, style_hint, palette_tokens.\n\nAll automatable gates passed. Run simulation (--phase2 --phase3) and manual checks for full sign-off.\n\n"
+    },
+    {
+      "slug": "teacher_gates",
+      "name": "Teacher production gates",
+      "passed": true,
+      "detail": "Doctrine schema: PASS (all teachers)\nTeacher readiness: PASS (all teachers)\nTEACHER PRODUCTION GATES: PASS",
+      "fix_applied": false,
+      "output": "Doctrine schema: PASS (all teachers)\nTeacher readiness: PASS (all teachers)\nTEACHER PRODUCTION GATES: PASS\n\n"
+    },
+    {
+      "slug": "teacher_synthetic",
+      "name": "Teacher synthetic governance",
+      "passed": true,
+      "detail": "TEACHER SYNTHETIC GOVERNANCE: PASS",
+      "fix_applied": false,
+      "output": "TEACHER SYNTHETIC GOVERNANCE: PASS\n\n"
+    },
+    {
+      "slug": "brand_guards",
+      "name": "NorCal Dharma + Church YAML guards",
+      "passed": true,
+      "detail": "PASS",
+      "fix_applied": false,
+      "output": "norcal_dharma not in any brand_teacher_matrix (OK)\nnorcal_dharma assignments map only to default_teacher (OK)\n\n\n"
+    },
+    {
+      "slug": "variation_report",
+      "name": "Variation knob report",
+      "passed": true,
+      "detail": "Wrote /Users/ahjan/phoenix_omega/artifacts/reports/variation_report.json",
+      "fix_applied": false,
+      "output": "Wrote /Users/ahjan/phoenix_omega/artifacts/reports/variation_report.json\n\n"
+    }
+  ],
+  "summary": {
+    "total": 8,
+    "passed": 8,
+    "failed": 0,
+    "fixes_applied": 0
+  }
+}

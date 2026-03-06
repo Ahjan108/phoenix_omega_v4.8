@@ -218,7 +218,7 @@ class FormatSelector:
                 template = ["HOOK", "SCENE", "STORY", "REFLECTION", "EXERCISE", "INTEGRATION"]
             if not template:
                 template = ["HOOK", "SCENE", "STORY", "REFLECTION", "EXERCISE", "INTEGRATION"]
-        allowed_slots = {"HOOK", "SCENE", "STORY", "REFLECTION", "EXERCISE", "INTEGRATION", "COMPRESSION"}
+        allowed_slots = {"HOOK", "SCENE", "STORY", "REFLECTION", "EXERCISE", "INTEGRATION", "COMPRESSION", "PIVOT", "TAKEAWAY", "PERMISSION", "THREAD"}
         for st in template:
             if st not in allowed_slots:
                 raise ValueError(f"Unknown slot type in format {structural_id}: {st}. Allowed: {sorted(allowed_slots)}")

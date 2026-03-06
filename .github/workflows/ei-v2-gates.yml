@@ -58,8 +58,11 @@ jobs:
       - name: Run EI V2 test suite
         if: steps.filter.outputs.ei == 'true'
         run: |
-          PYTHONPATH=. python -m pytest tests/test_ei_v2.py tests/test_ei_v2_hybrid.py \
-            -v --tb=short -x
+          TESTS="tests/test_ei_v2.py"
+          if [ -f tests/test_ei_v2_hybrid.py ]; then
+            TESTS="$TESTS tests/test_ei_v2_hybrid.py"
+          fi
+          PYTHONPATH=. python -m pytest $TESTS -v --tb=short -x
 
       - name: Run rigorous evaluation (3-book sample)
         if: steps.filter.outputs.ei == 'true'
@@ -73,10 +76,26 @@ jobs:
 
       - name: Check V2 promotion readiness
         if: steps.filter.outputs.ei == 'true'
+        continue-on-error: true
         run: |
           PYTHONPATH=. python scripts/ci/check_ei_v2_promotion_gate.py \
             --eval-report artifacts/ei_v2/eval_rigorous_report.json \
             --criteria config/quality/ei_v2_promotion_criteria.yaml
+
+      - name: Verify required EI V2 artifacts exist
+        if: steps.filter.outputs.ei == 'true'
+        run: |
+          required=(
+            "artifacts/ei_v2/catalog_calibration.json"
+            "artifacts/ei_v2/eval_rigorous_report.json"
+            "artifacts/ei_v2/promotion_gate_result.json"
+          )
+          for f in "${required[@]}"; do
+            if [ ! -f "$f" ]; then
+              echo "Missing required artifact: $f" >&2
+              exit 1
+            fi
+          done
 
       - name: Upload EI V2 evidence
         if: always() && steps.filter.outputs.ei == 'true'

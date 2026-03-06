@@ -1,0 +1,12 @@
+Using only the following analysis, output a single valid YAML object. No thinking, no markdown fences, only YAML.
+
+Schema:
+career_impact_matrix:
+  gen_z: "string"
+  gen_alpha: "string"
+financial_trauma_risk: "string"
+contradiction_audit: "string"
+recommended_content_format: "string"
+
+Analysis to convert to YAML:
+{{ANALYSIS_SUMMARY}}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ sections.hero_headline or 'Reset your nervous system' }} | Phoenix Protocol</title>
+  {% if ga4_measurement_id %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ ga4_measurement_id }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', '{{ ga4_measurement_id }}');
+  </script>
+  {% endif %}
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; max-width: 36em; margin: 0 auto; padding: 1.5rem; line-height: 1.6; color: #1a1a1a; background: #fafafa; }
+    h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
+    .subhead { color: #555; font-size: 1rem; margin-bottom: 1.5rem; }
+    section { margin-bottom: 2rem; }
+    label { display: block; margin-bottom: 0.25rem; font-weight: 500; }
+    input, select { width: 100%; padding: 0.6rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 1rem; }
+    button { background: #1a1a1a; color: #fff; border: none; padding: 0.75rem 1.5rem; font-size: 1rem; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #333; }
+    .soft-cta { margin-top: 2rem; font-size: 0.9rem; color: #666; }
+    .error { color: #c00; font-size: 0.9rem; margin-bottom: 0.5rem; }
+  </style>
+</head>
+<body>
+  <!-- 1. Hero -->
+  <section>
+    <h1>{{ sections.hero_headline or "Reset your nervous system in 60 seconds" }}</h1>
+    <p class="subhead">{{ sections.hero_subhead or "One breath. No sign-up walls." }}</p>
+  </section>
+
+  <!-- 2. Authority narrative (insert Nihala's paragraph here) -->
+  <section>
+    <!-- AUTHORITY NARRATIVE: insert Nihala's paragraph here -->
+    {% if sections.authority_narrative %}
+    <p>{{ sections.authority_narrative }}</p>
+    {% endif %}
+  </section>
+
+  <!-- 3. Problem -->
+  <section>
+    <p>{{ sections.problem or "Burnout doesn't fix itself with more rest. Your body is stuck in go-mode — and the same breath pattern that got you here can get you out." }}</p>
+  </section>
+
+  <!-- 4. Solution -->
+  <section>
+    <p>{{ sections.solution or "A single, research-backed reset. No app, no account. Just the practice." }}</p>
+  </section>
+
+  <!-- 5. Form -->
+  <section>
+    {% if request.args.get('error') == 'missing' %}<p class="error">Please enter your email and choose an exercise.</p>{% endif %}
+    {% if request.args.get('error') == 'invalid' %}<p class="error">Please enter a valid email and choose an exercise.</p>{% endif %}
+    <form action="{{ url_for('submit') }}" method="post" id="funnel-form">
+      <input type="text" name="website_url" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      <label for="exercise_name">Choose your free practice</label>
+      <select id="exercise_name" name="exercise_name" required>
+        <option value="">— Select one —</option>
+        {% for ex in exercises %}
+        <option value="{{ ex.id }}" {% if pre_selected_exercise == ex.id %}selected{% endif %}>{{ ex.h1_line1 }} {{ ex.h1_line2 }} — {{ ex.benefit }}</option>
+        {% endfor %}
+      </select>
+      {% if personas is defined and personas %}
+      <label for="persona">I work as… (optional)</label>
+      <select id="persona" name="persona">
+        <option value="unknown">— Prefer not to say —</option>
+        {% for p in personas %}
+        {% if p != "unknown" %}
+        <option value="{{ p }}">{{ p.replace("_", " ").title() }}</option>
+        {% endif %}
+        {% endfor %}
+      </select>
+      {% endif %}
+      <button type="submit">{{ sections.cta or "Yes — I'm ready to start" }}</button>
+    </form>
+  </section>
+
+  <!-- 6. Soft CTA (no heavy book push) -->
+  <section class="soft-cta">
+    <p>After you try the practice, we'll send you a short follow-up and one more tool. No spam.</p>
+  </section>
+
+  <!-- 7. GA4 lead_submit on submit (only when email present; include exercise for segmentation) -->
+  {% if ga4_measurement_id %}
+  <script>
+    document.getElementById('funnel-form').addEventListener('submit', function(e) {
+      var email = document.getElementById('email').value;
+      var exerciseName = document.getElementById('exercise_name').value;
+      if (email && typeof gtag === 'function') {
+        gtag('event', 'lead_submit', { send_to: '{{ ga4_measurement_id }}', exercise: exerciseName || '' });
+      }
+    });
+  </script>
+  {% endif %}
+</body>
+</html>

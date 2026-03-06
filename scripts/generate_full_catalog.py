@@ -72,13 +72,41 @@ def _validate_brand_locale_matrix(
     return errors
 
 
-def _resolve_arc_for_book(persona_id: str, topic_id: str) -> Path | None:
-    """Return path to an existing master arc for (persona, topic), or None."""
+# Short formats (fewer chapters) — prefer when teacher×topic×persona fit is weak (TEACHER_UNIVERSAL_AND_SCORING_SPEC).
+PREFER_SHORT_FORMAT_IDS = ("F001", "F002", "F003")
+
+
+def _format_id_from_arc_path(arc_path: Path) -> str:
+    """Extract format ID from arc filename, e.g. persona__topic__engine__F006.yaml -> F006."""
+    name = arc_path.stem
+    parts = name.split("__")
+    return parts[-1] if len(parts) >= 4 else ""
+
+
+def _resolve_arc_for_book(
+    persona_id: str,
+    topic_id: str,
+    prefer_short_format: bool = False,
+) -> Path | None:
+    """Return path to an existing master arc for (persona, topic), or None.
+    When prefer_short_format is True (weak fit), prefer arcs with F001/F002/F003 over F006 etc.
+    """
     if not ARCS_ROOT.exists():
         return None
     pattern = f"{persona_id}__{topic_id}__*.yaml"
-    matches = sorted(ARCS_ROOT.glob(pattern))
-    return matches[0] if matches else None
+    matches = list(ARCS_ROOT.glob(pattern))
+    if not matches:
+        return None
+    if prefer_short_format:
+        # Sort so short formats come first; then take first match
+        def key(p: Path) -> tuple[int, str]:
+            fmt = _format_id_from_arc_path(p)
+            return (0 if fmt in PREFER_SHORT_FORMAT_IDS else 1, p.name)
+
+        matches = sorted(matches, key=key)
+    else:
+        matches = sorted(matches)
+    return matches[0]
 
 
 def main() -> int:
@@ -179,6 +207,7 @@ def main() -> int:
     from phoenix_v4.planning.teacher_portfolio_planner import (
         allocate_wave,
         load_brand_matrix,
+        load_teacher_topic_persona_scores,
     )
     from phoenix_v4.planning.atoms_model_loader import get_allocation_personas_path
 
@@ -225,6 +254,25 @@ def main() -> int:
         print(f"Filtered to brand {args.brand}: {len(allocations)} books.")
     else:
         print(f"Portfolio allocated: {len(allocations)} books across brands.")
+
+    # Weak-fit cap: at most N books per (teacher, topic, persona) when score_band == "weak" (TEACHER_UNIVERSAL_AND_SCORING_SPEC)
+    scores_cfg = load_teacher_topic_persona_scores()
+    weak_max = (scores_cfg or {}).get("weak_fit_max_books_per_triple", 1)
+    prefer_short_for_weak = (scores_cfg or {}).get("weak_fit_prefer_shorter_format", True)
+    if weak_max is not None and weak_max >= 0:
+        weak_triple_count: dict[tuple[str, str, str], int] = {}
+        kept = []
+        for a in allocations:
+            key = (a.teacher_id, a.topic_id, a.persona_id)
+            if getattr(a, "score_band", None) == "weak":
+                n = weak_triple_count.get(key, 0)
+                if n >= weak_max:
+                    continue
+                weak_triple_count[key] = n + 1
+            kept.append(a)
+        if len(kept) < len(allocations):
+            print(f"Weak-fit cap: kept {len(kept)} allocations (dropped {len(allocations) - len(kept)} over weak_fit_max_books_per_triple={weak_max}).")
+            allocations = kept
 
     # --- Step 2: BookSpec per allocation ---
     from phoenix_v4.planning.catalog_planner import CatalogPlanner, AtomsModel
@@ -318,7 +366,8 @@ def main() -> int:
 
     failed = 0
     for i, (alloc, spec) in enumerate(specs):
-        arc_path = _resolve_arc_for_book(spec.persona_id, spec.topic_id)
+        prefer_short = prefer_short_for_weak and getattr(alloc, "score_band", None) == "weak"
+        arc_path = _resolve_arc_for_book(spec.persona_id, spec.topic_id, prefer_short_format=prefer_short)
         if not arc_path or not arc_path.exists():
             print(f"Skip (no arc): {spec.persona_id} / {spec.topic_id}", file=sys.stderr)
             failed += 1

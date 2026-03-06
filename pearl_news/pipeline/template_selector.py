@@ -1,9 +1,11 @@
 """
 Pearl News — select one of the 5 article templates per feed item based on topic, SDG, and source.
 Uses article_templates_index.yaml; applies simple rules for diversity.
+USLF group template (interfaith_dialogue_report) only ~5% of the time; rest use single-teacher-focused templates.
 """
 from __future__ import annotations
 
+import hashlib
 import logging
 from pathlib import Path
 from typing import Any
@@ -23,10 +25,11 @@ TEMPLATE_IDS = [
     "commentary",
 ]
 
+# Default topic → template; interfaith_dialogue_report is group/USLF style, used only ~5% (see below)
 DEFAULT_TOPIC_TO_TEMPLATE = {
     "mental_health": "youth_feature",
     "education": "youth_feature",
-    "peace_conflict": "interfaith_dialogue_report",
+    "peace_conflict": "hard_news_spiritual_response",  # was interfaith; single-teacher default
     "inequality": "explainer_context",
 }
 
@@ -37,6 +40,19 @@ def _load_index(config_root: Path) -> dict[str, Any]:
         return {}
     with open(path, "r", encoding="utf-8") as f:
         return yaml.safe_load(f) or {}
+
+
+def _use_uslf_group_template(item: dict[str, Any], config_root: Path) -> bool:
+    """True ~5% of the time (deterministic from item id); else use single-teacher template."""
+    ratio = 0.05
+    path = config_root / "template_diversity.yaml"
+    if path.exists() and yaml:
+        with open(path, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+        ratio = float(data.get("uslf_group_article_ratio", 0.05))
+    item_id = (item.get("id") or item.get("title") or "").encode("utf-8")
+    h = int(hashlib.sha256(item_id).hexdigest(), 16) % 100
+    return (h / 100.0) < ratio
 
 
 def select_templates(
@@ -79,6 +95,14 @@ def select_templates(
             template_id = "explainer_context"
         else:
             template_id = "hard_news_spiritual_response"
+
+        # Group/USLF template (interfaith_dialogue_report): only ~5% of the time
+        use_group = _use_uslf_group_template(item, config_root)
+        if template_id == "interfaith_dialogue_report" and not use_group:
+            template_id = "hard_news_spiritual_response"
+        # For topics that suit group style (e.g. peace_conflict), assign interfaith ~5% of the time
+        if template_id == "hard_news_spiritual_response" and topic in ("peace_conflict",) and use_group:
+            template_id = "interfaith_dialogue_report"
 
         item["template_id"] = template_id
         if template_id in templates:

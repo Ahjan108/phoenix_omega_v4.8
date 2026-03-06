@@ -56,3 +56,28 @@ Checklist: `scripts/ci/PREPUBLISH_CHECKLIST.md`.
 ## No-bypass export check
 
 **`scripts/ci/check_export_no_bypass.py`** fails if any script in `scripts/ci/export_scripts_registry.yaml` does not reference `prepare_wave_for_export`. Ensures no export path bypasses the release entrypoint. Run from repo root: `python scripts/ci/check_export_no_bypass.py`. Add any new export-triggering script to the registry; it must call the release layer.
+
+## AI/LLM cohesive bestseller tester (10k Pearl Prime + 10k teacher-mode + v2 EI)
+
+**`scripts/ci/llm_cohesive_bestseller_tester.py`** tests 10k Pearl Prime CLI books and 10k teacher-mode books (all personas × topics) with v2 EI to report what is 100% and cohesive bestseller quality.
+
+- **Test read all:** `--read-all` loads and prints all config (canonical personas, topics, teacher persona matrix, format registry, EI v2).
+- **Pearl Prime 10k:** use `--pearl-prime-input artifacts/simulation_10k.json` (or `--run-pearl-10k` to run the sim first).
+- **Teacher matrix:** `--teacher-matrix` builds the full teacher-mode test matrix (personas × topics × teachers); cap with `--teacher-matrix-cap 10000`.
+- **EI v2:** `--ei-v2-report` includes `artifacts/ei_v2/eval_rigorous_report.json` if present.
+- **LLM:** `--llm` calls the model to classify cohesive bestseller gaps and what is 100%; use `--require-100` to exit 1 on any bestseller-tier failure.
+- **Robust/intelligent:** Validates simulation JSON; dimension-aware analysis (pass rate by format/tier, phase2/3, EI v2 ten dimensions); severity levels (CRITICAL/HIGH/MEDIUM/LOW); health score 0–100; coverage from results; optional `--baseline` for regression; LLM response validation and retry; `--run-pearl-timeout` and `--ei-v2-threshold`.
+
+Example (from repo root):
+
+```bash
+# Read all config only
+PYTHONPATH=. python scripts/ci/llm_cohesive_bestseller_tester.py --read-all
+
+# Full run: Pearl 10k + teacher matrix + EI v2 report + LLM
+PYTHONPATH=. python scripts/ci/llm_cohesive_bestseller_tester.py \
+  --pearl-prime-input artifacts/simulation_10k.json \
+  --teacher-matrix --ei-v2-report --llm --out artifacts/reports
+```
+
+Outputs: `artifacts/reports/cohesive_bestseller_tester_report.json` and `cohesive_bestseller_tester_SUMMARY.txt`. For strict 100% gating, combine with `analyze_pearl_prime_sim.py --min-pass-rate 1.0`.

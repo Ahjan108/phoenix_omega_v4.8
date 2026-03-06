@@ -1,0 +1,9 @@
+# Fallback when assets are missing. Constrains placement and ratio of degraded shots.
+
+allow_degraded: true
+max_degraded_shots_per_video: 2
+max_degraded_ratio: 0.15
+placement_constraints:
+  no_degraded_in_first_two_shots: true
+  no_degraded_in_hook_window: true
+notify_on_degraded: true

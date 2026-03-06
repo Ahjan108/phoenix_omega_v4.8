@@ -1,16 +1,33 @@
 atom_id: ahjan_STORY_004_mined
-body: This universal love is not bound by personal desires or attachments but is a
-  compassionate force that encompasses all beings.A fitting Buddhist story to illustrate
-  this is the tale of the Buddha sacrificing himself to feed a starving tigress and
-  her cubs.
+story_origin: composite
+story_type: character_study
+emotional_intensity_band: 3
+body: |
+  Marcus is a surgeon with reputation for precision. His training emphasized: extract
+  the pathology, minimize risk, close. His patients recover. His colleagues respect him.
+  
+  Last month he moved into a teaching hospital and began mentoring residents. The
+  first time a resident hesitated during a procedure, Marcus felt his entire chest
+  tighten. Not frustration—something else. The hesitation was visible compassion
+  moving through the resident's hands.
+  
+  Marcus wanted to reassert the protocol: you must move decisively. But he stopped
+  himself. He watched the resident complete the surgery slowly, carefully. Everything
+  worked.
+  
+  In the hallway after, the resident said, "I am not sure I am fast enough for this."
+  Marcus almost told him: speed and compassion are not incompatible. Instead he said,
+  "Let me show you something." He showed the resident two surgeries—one his own from
+  five years ago, purely efficient. One from last week, where he had moved slower.
+  
+  The resident studied them. Then said, "You changed. Why?"
+  
+  Marcus does not have a clear answer. Something about witnessing the resident's
+  doubt had cracked his own certainty. Whether that crack has deepened or sealed,
+  he cannot yet say.
+misfire_tax: true
+band: 3
 teacher:
   teacher_id: ahjan
-  source_refs:
-  - doc_id: 'raw/BD Blog - Exploring Love and Enlightenment: A Journey Through Tibetan
-      Rebirth and Universal Love .rtf'
-    span:
-    - 2425
-    - 2681
-    quote_hash: 4613b19d87fe95ce
-  synthesis_method: kb_mine_v1
-band: 3
+  source_refs: []
+  synthesis_method: authored_v1

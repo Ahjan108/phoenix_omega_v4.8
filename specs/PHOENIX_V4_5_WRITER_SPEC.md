@@ -1080,3 +1080,156 @@ When a format includes the **COMPRESSION** slot (e.g. F006), each chapter gets o
 ## 25.2 Where They Live
 
 Approved atoms: `SOURCE_OF_TRUTH/compression_atoms/approved/<persona_id>/<topic_id>/*.yaml`. Each file: `atom_id`, `word_count` (40–120), optional `compression_family` (C1…C5 for diversity), `body`. Stage 3 selects deterministically from this pool. CI enforces word count and one-insight structure.
+
+---
+
+## New Slot Types (Structural Upgrade v2)
+
+*Added in v2. These slots require pipeline support (`PIVOT`, `TAKEAWAY`, `PERMISSION`, `THREAD`). See dev spec for allowed_slots and slot_template changes.*
+
+---
+
+## 4.3a PIVOT (land the story before teaching)
+
+The held moment between showing and explaining. After a STORY reveals something, PIVOT names what was revealed—without teaching it. The reader feels recognition before the lesson begins.
+
+**Purpose:** 2–3 sentences that name the dynamic or pattern visible in the story, without explaining the mechanism. Creates a beat of recognition. PIVOT ends where REFLECTION begins.
+
+**TTS rules for PIVOT:**
+
+- Maximum 40 words total.
+- 2–3 sentences maximum.
+- Third-person or first-person author voice. Not second-person.
+- Present tense.
+- Names the pattern or dynamic visible in the story. Does not explain it.
+- Must not introduce new characters, facts, or ideas. References only what is already in the story.
+- No transition language ("this shows us that," "here we see," "notice how"). PIVOT ends before teaching begins.
+
+**Example (good):**
+"She already knew what she was doing. She did it anyway. That is the part worth sitting with."
+
+**Example (bad):**
+"This shows us how the nervous system creates protective strategies under threat." — This is REFLECTION. Wrong slot. It explains the mechanism.
+
+**QA Checklist — PIVOT:**
+
+- [ ] ≤ 40 words total
+- [ ] 2–3 sentences
+- [ ] Third-person or first-person voice (not second-person)
+- [ ] Present tense
+- [ ] Names a pattern or dynamic from the story
+- [ ] No explanation of mechanism
+- [ ] No transition into teaching language
+- [ ] No new characters or facts
+
+---
+
+## 4.7 TAKEAWAY (state the one point)
+
+One sentence the reader carries. The crystallized statement of the chapter's single thesis. Not a summary of everything—just THE point that was built toward.
+
+**Purpose:** The "here is the one thing" moment. Derived from the arc's chapter_thesis for that chapter. No new idea. Just a clear, grounded statement of what the chapter established.
+
+**TTS rules for TAKEAWAY:**
+
+- Exactly one sentence.
+- Maximum 20 words.
+- First-person author voice, declarative. "I" or "we."
+- Present tense or simple past tense (mirrors the nervous system's operational logic).
+- Must restate the chapter thesis from the arc—not a summary, just the thesis.
+- Cannot introduce new information. Only crystallizes what was built.
+- No hedge words: "perhaps," "it seems," "in many cases," "may," "might."
+- No inspirational tone. No call to action. A fact that now has weight.
+- Concrete and grounded. Names a mechanism or body state, not an abstract value.
+
+**Example (good):**
+"Speed became safety, and your system has not yet learned that the emergency is over."
+
+**Example (bad):**
+"You have learned so much today about how your nervous system works and now you can begin to heal." — Too long, too inspirational, wrong register. It's affirmation, not statement.
+
+**QA Checklist — TAKEAWAY:**
+
+- [ ] Exactly one sentence
+- [ ] ≤ 20 words
+- [ ] First-person declarative voice
+- [ ] Restates the chapter thesis (not a summary)
+- [ ] No new information
+- [ ] No hedge words
+- [ ] Not inspirational or a call to action
+- [ ] Concrete and grounded
+
+---
+
+## 4.7a THREAD (plant the forward pull—tail of INTEGRATION)
+
+The final 1–2 sentences of INTEGRATION that name something unresolved. Not a cliffhanger or teaser. A door left ajar. Creates forward pull into the next chapter.
+
+**Purpose:** Names a specific unresolved question or tension that the next chapter will answer. Orients the listener forward. Keeps the arc alive. Placed as the final sentences of the INTEGRATION block.
+
+**TTS rules for THREAD:**
+
+- 1–2 sentences maximum.
+- Maximum 25 words.
+- Must be placed as the final sentences of the INTEGRATION block.
+- Names a specific, unresolved question or tension. Not vague ("we will explore more").
+- Quiet in register. Same grounded tone as INTEGRATION. Not dramatic.
+- Forward-facing: orients to what is coming, not what was just said.
+- First-person author voice ("I," "we") or second-person listener voice ("you").
+- Present tense or near-future ("there is," "we have not yet").
+
+**Example (good):**
+"There is one place this pattern lives that we have not yet touched. That is where we go next."
+
+**Example (bad):**
+"Stay tuned for more! In the next chapter we will be exploring the exciting topic of relational patterns!" — Wrong register entirely. Too promotional.
+
+**QA Checklist — THREAD:**
+
+- [ ] 1–2 sentences
+- [ ] ≤ 25 words
+- [ ] Placed as final sentences of INTEGRATION block
+- [ ] Names a specific unresolved tension
+- [ ] Quiet, grounded register
+- [ ] Forward-facing (orients to what is coming)
+- [ ] First or second-person voice
+- [ ] Not a teaser or cliffhanger
+
+---
+
+## 4.8 PERMISSION (receive the reader—high-cost chapters only)
+
+A short emotional permission statement—"you are allowed to..."—placed near INTEGRATION. Use sparingly: 3–4 per book, only in chapters the arc marks as high emotional cost. Makes the reader feel seen. The book receives them, not just observes them.
+
+**Purpose:** Names a specific permission relevant to this chapter's emotional cost. Not generic encouragement. The reader is probably doing or feeling the thing you are giving permission for. That is the specific work here.
+
+**TTS rules for PERMISSION:**
+
+- 2–4 sentences maximum.
+- Second-person voice ("you") only. Warm but not sentimental.
+- States a specific permission relevant to this chapter's emotional cost—not a generic affirmation.
+- The permission must name something the reader is probably already doing or feeling, and say it is okay.
+- Ends on a concrete body or behavioral state, not an abstract value or aspiration.
+- Cannot be generic ("you are allowed to feel your feelings," "you are worthy of love"). Must be chapter-specific.
+- No inspirational phrases. No "you've got this." No "keep going." Permission, not encouragement.
+- Only appears in chapters flagged high-cost by arc (cost_chapter_index marked, or emotional_curve ≥ 4).
+- Present tense. Grounded.
+
+**Example (good):**
+"You are allowed to not be better yet. The fact that you still struggle with this is not evidence that you are doing it wrong. It is evidence that it is hard. Those are different things."
+
+**Example (bad):**
+"You are allowed to feel all your feelings and know that you are worthy of love and belonging." — Generic, not chapter-specific. Reads as affirmation, not permission.
+
+**QA Checklist — PERMISSION:**
+
+- [ ] 2–4 sentences maximum
+- [ ] Second-person voice only
+- [ ] Chapter-specific permission (not generic)
+- [ ] Names something reader is probably already doing/feeling
+- [ ] Ends on concrete body or behavioral state
+- [ ] No inspirational phrases
+- [ ] No generic affirmations
+- [ ] Only in chapters flagged high-cost by arc
+- [ ] Present tense
+

@@ -38,7 +38,7 @@ Hardening status: 3/7 evidenced (steps 3,4,6,7 pending).
 |---|-----------|--------|----------------|
 | 1 | `topic_sdg_classifier.py` | ✅ Implemented | Used in `run_article_pipeline`; assigns topic, primary_sdg, sdg_labels, un_body from `sdg_news_topic_mapping.yaml`. |
 | 2 | `template_selector.py` | ✅ Implemented | Used in pipeline; sets template_id per item from index + rules. |
-| 3 | `article_assembler.py` | ✅ Implemented | Used in pipeline; fills template slots (news + teacher + youth + SDG refs); appends disclaimer. |
+| 3 | `article_assembler.py` | ✅ Implemented | Used in pipeline; fills template slots (news + teacher + youth + SDG refs); source at end; no per-article disclaimer. |
 | 4 | `quality_gates.py` | ✅ Implemented | Used in pipeline; 5 gates (fact_check, youth_specificity, sdg_accuracy, promotional, un_endorsement); fail-hard. |
 | 5 | `qc_checklist.py` | ✅ Implemented | Used in pipeline; runs gates and optionally filters to passed-only. |
 

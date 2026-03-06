@@ -1,0 +1,23 @@
+# Shared negative prompt block for video image bank (T2I). Append per-band never_rules from brand_style_tokens.yaml.
+# Reference: docs/flux_shnell_research.rtf; "no adoration" from pipeline creative constraints.
+
+# No adoration: images must feel grounded, not worshipful or aspirational. Prevents inspirational-poster drift.
+no_adoration:
+  - "no dramatic light rays from above"
+  - "no figure silhouetted against bright sky"
+  - "no hands reaching upward"
+  - "no golden hour backlighting on figure"
+  - "no divine or spiritual glow"
+  - "ordinary grounded everyday moment"
+  - "quiet undramatic lighting"
+  - "level camera angle"
+
+# Shared style negatives (research file). Use in every prompt.
+shared_negatives:
+  - "no anime style"
+  - "no full faces"
+  - "no high contrast comic lines"
+  - "no busy patterned background"
+  - "no sharp geometric shapes"
+  - "no flat vector"
+  - "no sharp comic lines"

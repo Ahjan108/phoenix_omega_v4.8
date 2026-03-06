@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phoenix/schemas/video/render_manifest_v1.schema.json",
+  "title": "Render manifest v1",
+  "description": "Links rendered prose segments to content engine atoms. Critical input for the video pipeline from Stage 6 of the content engine.",
+  "type": "object",
+  "required": ["plan_id", "segments"],
+  "properties": {
+    "plan_id": { "type": "string", "description": "Content plan identifier" },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["segment_id", "text", "slot_id", "primary_atom_id"],
+        "properties": {
+          "segment_id": { "type": "string" },
+          "text": { "type": "string" },
+          "start_char": { "type": "integer", "minimum": 0 },
+          "end_char": { "type": "integer", "minimum": 0 },
+          "slot_id": { "type": "string" },
+          "primary_atom_id": { "type": "string", "description": "Primary content atom for this segment" },
+          "atom_refs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["atom_id"],
+              "properties": {
+                "atom_id": { "type": "string" },
+                "weight": { "type": "number", "minimum": 0, "maximum": 1 },
+                "role": { "type": "string", "enum": ["primary", "secondary"] }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

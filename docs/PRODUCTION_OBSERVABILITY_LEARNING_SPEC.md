@@ -2,7 +2,7 @@
 
 **Purpose:** Spec for a system that observes production live (100% repo), documents success, elevates and auto-fixes failures with retest, and learns/enhances over time.  
 **Authority:** Extends [RIGOROUS_SYSTEM_TEST.md](RIGOROUS_SYSTEM_TEST.md) and [V4_FEATURES_SCALE_AND_KNOBS.md](V4_FEATURES_SCALE_AND_KNOBS.md). Aligns with [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md).  
-**Last updated:** 2026-03-04
+**Last updated:** 2026-03-05
 
 ---
 
@@ -223,13 +223,16 @@ Persist patterns over time:
 | Failure history | `artifacts/observability/failure_history.jsonl` | Learning store |
 | Baselines | `artifacts/observability/baselines.json` | Pass rates, thresholds |
 | Weekly report | `artifacts/observability/weekly_report_{date}.md` | Enhancement summary |
+| KPI targets | `config/observability_kpi_targets.yaml` | Week-over-week thresholds; if below, trigger job |
+| KPI evaluator | `scripts/observability/evaluate_kpi_targets.py` | Evaluate snapshot vs targets; write `kpi_trigger_{ts}.json` |
+| Operations board | `artifacts/observability/operations_board.jsonl` | Issue → fix → PR → merged → impact feed |
 
 ---
 
 ## 8. CI Integration
 
 - **Schedule:** Run `collect_signals.py` on cron (e.g. daily) or on push to main
-- **Workflow:** `.github/workflows/production-observability.yml` — collect signals, optionally attempt auto-fix, upload artifacts
+- **Workflow:** `.github/workflows/production-observability.yml` — collect signals, update operations board, evaluate KPI targets, run triggered jobs (e.g. weekly_pipeline when below threshold), optionally attempt agent fix PR; upload artifacts
 - **Branch protection:** Observability does not block merge; it informs. Optional: block if critical signals fail and no evidence in 7 days
 
 ---
@@ -242,7 +245,23 @@ Persist patterns over time:
 
 ---
 
-## 10. Summary
+## 10. Change observation, impact, and synergy
+
+A complementary system observes **when assets are added, changed, or dropped**; computes **impact** across systems; and triggers **synergy** recommendations (e.g. when a new marketing system is added, LLM considers how it works with existing marketing). It feeds the **Agent change feed** (Executive Dashboard) with impact and optional synergy links.
+
+| Component | Purpose |
+|-----------|---------|
+| **System registry** | `config/governance/system_registry.yaml` — Machine-readable systems (id, assets, related_systems, downstream). Used to scope changes and compute impact and synergy. |
+| **Change detection** | Script (e.g. `scripts/observability/detect_changes.py`) — Git diff between refs + registry → `artifacts/observability/change_events.jsonl` (kind: added/changed/dropped, path, system_ids). |
+| **Impact analysis** | From change events: affected systems, downstream signals/workflows, related systems for synergy. Output: impact summary; optionally `impact_*.json` or evidence log stanza. |
+| **Synergy** | When “added” events touch a system with `related_systems`, run LLM (e.g. in GitHub Action) to produce “how can these work best together?”; post as PR comment or write `synergy_recommendations_*.md` and link from Agent change feed. |
+| **Running best** | Impact summary drives “run these after this change” in the Agent change feed; optional per-system health view and periodic “running best” LLM recommendations. |
+
+**Spec:** [docs/CHANGE_OBSERVATION_AND_IMPACT_SPEC.md](CHANGE_OBSERVATION_AND_IMPACT_SPEC.md). **Index:** [DOCS_INDEX.md](DOCS_INDEX.md) § Change observation and impact (document all).
+
+---
+
+## 11. Summary
 
 | Layer | Function | Key deliverable |
 |-------|----------|-----------------|

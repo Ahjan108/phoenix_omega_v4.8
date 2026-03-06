@@ -292,6 +292,30 @@ locales:
       spotify: DE
       audible_de: DE                    # Audible Germany is a significant market
 
+  # ─── ITALIAN (EU) ─────────────────────────────────────────────────────────
+
+  it-IT:
+    language: Italian
+    region: Italy
+    script: Latin
+    direction: ltr
+    tts_provider: elevenlabs
+    tts_fallback: google_neural2
+    tts_locale_code: it-IT
+    elevenlabs_model: eleven_multilingual_v2
+    google_voice_default: it-IT-Neural2-A
+    catalog_language: Italiano
+    notes: >
+      Italy. EU locale. Strong audiobook and podcast market.
+      Wellness and self-development framing; avoid clinical language in titles.
+    is_baseline: false
+    storefront_ids:
+      google_play: it-IT
+      findaway: IT
+      apple_books: IT
+      kobo: IT
+      spotify: IT
+
   # ─── HUNGARIAN ────────────────────────────────────────────────────────────
 
   hu-HU:
@@ -346,6 +370,7 @@ locale_groups:
   european:
     - fr-FR
     - de-DE
+    - it-IT
     - hu-HU
     - es-ES
   all_locales:
@@ -360,6 +385,7 @@ locale_groups:
     - es-ES
     - fr-FR
     - de-DE
+    - it-IT
     - hu-HU
 
 # ─── DISTRIBUTION HARD RULES ────────────────────────────────────────────────

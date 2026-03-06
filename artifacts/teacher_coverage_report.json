@@ -1,53 +1,49 @@
 {
-  "teacher_id": "ahjan",
-  "topic_id": "self_worth",
-  "persona_id": "nyc_executives",
-  "format_id": "F001",
-  "arc_id": "nyc_exec_self_worth_shame_standard_8",
+  "teacher_id": "master_sha",
+  "topic_id": "anxiety",
+  "persona_id": "gen_z_professionals",
+  "format_id": "MOD_pocket_guide",
+  "arc_id": "gen_z_professionals_burnout_overwhelm_F006_gen",
   "required_by_slot": {
-    "HOOK": 8,
-    "SCENE": 8,
-    "STORY": 8,
-    "REFLECTION": 8,
-    "EXERCISE": 8,
-    "INTEGRATION": 8
+    "HOOK": 20,
+    "SCENE": 20,
+    "REFLECTION": 20,
+    "EXERCISE": 20,
+    "TAKEAWAY": 20,
+    "INTEGRATION": 20,
+    "THREAD": 20
   },
-  "required_story_by_band": {
-    "2": 2,
-    "3": 2,
-    "4": 3,
-    "5": 1
-  },
+  "required_story_by_band": {},
   "available_by_slot": {
-    "QUOTE": 9,
-    "INTEGRATION": 0,
-    "EXERCISE": 65,
-    "TEACHING": 100,
-    "SCENE": 0,
-    "HOOK": 0,
-    "STORY": 11
+    "EXERCISE": 12,
+    "STORY": 14
   },
   "story_band_inventory": {
-    "3": 11
+    "2": 7,
+    "4": 3,
+    "3": 4
   },
   "gaps": {
-    "EXERCISE": {},
-    "HOOK": {
+    "EXERCISE": {
       "total_missing": 8
+    },
+    "HOOK": {
+      "total_missing": 20
     },
     "INTEGRATION": {
-      "total_missing": 8
+      "total_missing": 20
     },
     "REFLECTION": {
-      "total_missing": 8
+      "total_missing": 20
     },
     "SCENE": {
-      "total_missing": 8
+      "total_missing": 20
     },
-    "STORY": {
-      "band_2": 2,
-      "band_4": 3,
-      "band_5": 1
+    "TAKEAWAY": {
+      "total_missing": 20
+    },
+    "THREAD": {
+      "total_missing": 20
     }
   },
   "fallback_required": false

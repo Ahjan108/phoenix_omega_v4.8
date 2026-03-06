@@ -1,0 +1,685 @@
+{
+  "plan_hash": "bd8382d55d7ae68a60dd96da05b54031",
+  "plan_id": "bd8382d55d7ae68a60dd96da05b54031",
+  "chapter_slot_sequence": [
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ]
+  ],
+  "atom_ids": [
+    "tech_finance_burnout_sleep_anxiety_HOOK_v18",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v04",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v01",
+    "tech_finance_burnout_sleep_anxiety_INTEGRATION_v07",
+    "tech_finance_burnout_sleep_anxiety_overwhelm_EMBODIMENT_v02",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v28",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v26",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v15",
+    "tech_finance_burnout_sleep_anxiety_INTEGRATION_v01",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v08",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v21",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v04",
+    "tech_finance_burnout_sleep_anxiety_EXERCISE_v02",
+    "tech_finance_burnout_sleep_anxiety_INTEGRATION_v03",
+    "tech_finance_burnout_sleep_anxiety_spiral_RECOGNITION_v01",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v02",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v08",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v26",
+    "tech_finance_burnout_sleep_anxiety_INTEGRATION_v05",
+    "tech_finance_burnout_sleep_anxiety_overwhelm_RECOGNITION_v14",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v07",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v13",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v22",
+    "placeholder:INTEGRATION:ch4:slot3",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v04",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v11",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v06",
+    "tech_finance_burnout_sleep_anxiety_EXERCISE_v01",
+    "placeholder:INTEGRATION:ch5:slot4",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v05",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v25",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v09",
+    "placeholder:INTEGRATION:ch6:slot3",
+    "tech_finance_burnout_sleep_anxiety_overwhelm_RECOGNITION_v19",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v17",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v10",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v14",
+    "placeholder:INTEGRATION:ch7:slot3",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v16",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v02",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v18",
+    "tech_finance_burnout_sleep_anxiety_EXERCISE_v03",
+    "placeholder:INTEGRATION:ch8:slot4",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v25",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v18",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v20",
+    "placeholder:EXERCISE:ch9:slot3",
+    "placeholder:INTEGRATION:ch9:slot4",
+    "tech_finance_burnout_sleep_anxiety_spiral_RECOGNITION_v20",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v12",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v22",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v28",
+    "placeholder:INTEGRATION:ch10:slot3",
+    "tech_finance_burnout_sleep_anxiety_spiral_RECOGNITION_v08",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v14",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v14",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v29",
+    "placeholder:INTEGRATION:ch11:slot3",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v22",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v06",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v05",
+    "placeholder:EXERCISE:ch12:slot3",
+    "placeholder:INTEGRATION:ch12:slot4",
+    "tech_finance_burnout_sleep_anxiety_false_alarm_RECOGNITION_v11",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v23",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v28",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v13",
+    "placeholder:EXERCISE:ch13:slot3",
+    "placeholder:INTEGRATION:ch13:slot4",
+    "tech_finance_burnout_sleep_anxiety_false_alarm_RECOGNITION_v08",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v26",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v16",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v03",
+    "placeholder:EXERCISE:ch14:slot3",
+    "placeholder:INTEGRATION:ch14:slot4",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v10",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v17",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v12",
+    "placeholder:EXERCISE:ch15:slot3",
+    "placeholder:INTEGRATION:ch15:slot4",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v20",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v09",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v11",
+    "placeholder:INTEGRATION:ch16:slot3",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v27",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v29",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v21",
+    "placeholder:INTEGRATION:ch17:slot3",
+    "tech_finance_burnout_sleep_anxiety_false_alarm_TURNING_POINT_v05",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v03",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v03",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v08",
+    "placeholder:EXERCISE:ch18:slot3",
+    "placeholder:INTEGRATION:ch18:slot4",
+    "tech_finance_burnout_sleep_anxiety_HOOK_v30",
+    "tech_finance_burnout_sleep_anxiety_SCENE_v23",
+    "tech_finance_burnout_sleep_anxiety_REFLECTION_v10",
+    "placeholder:EXERCISE:ch19:slot3",
+    "placeholder:INTEGRATION:ch19:slot4"
+  ],
+  "dominant_band_sequence": [
+    1,
+    null,
+    2,
+    2,
+    null,
+    null,
+    3,
+    null,
+    null,
+    3,
+    4,
+    null,
+    4,
+    4,
+    null,
+    null,
+    null,
+    3,
+    null,
+    null
+  ],
+  "arc_id": "tech_finance_burnout_sleep_anxiety_spiral_F006_gen",
+  "emotional_temperature_sequence": [
+    "cool",
+    "cool",
+    "cool",
+    "cool",
+    "cool",
+    "cool",
+    "warm",
+    "warm",
+    "warm",
+    "warm",
+    "warm",
+    "warm",
+    "warm",
+    "warm",
+    "warm",
+    "hot",
+    "hot",
+    "warm",
+    "warm",
+    "warm"
+  ],
+  "exercise_chapters": [
+    2,
+    5,
+    8,
+    9,
+    12,
+    13,
+    14,
+    15,
+    18,
+    19
+  ],
+  "slot_sig": "MOD_pocket_guide:c447e7c26465a092",
+  "format_id": "MOD_pocket_guide",
+  "runtime_format_id": "",
+  "output_format_id": "pocket_guide",
+  "output_format_name": "Pocket Guide",
+  "v4_freeze_enabled": true,
+  "locale": "en-US",
+  "territory": "US",
+  "atoms_model": "legacy",
+  "engine_id": "spiral",
+  "angle_id": "at_work",
+  "reflection_strategy_sequence": [
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic"
+  ],
+  "chapter_archetypes": [
+    "intro_hook_heavy",
+    "legacy_uniform",
+    "deepen_mechanism",
+    "challenge_cost",
+    "legacy_uniform",
+    "practice_heavy",
+    "challenge_cost",
+    "legacy_uniform",
+    "practice_heavy",
+    "deepen_mechanism",
+    "challenge_cost",
+    "legacy_uniform",
+    "deepen_mechanism",
+    "deepen_mechanism",
+    "resolve_integration",
+    "resolve_integration",
+    "legacy_uniform",
+    "challenge_cost",
+    "resolve_integration",
+    "resolve_integration"
+  ],
+  "chapter_exercise_modes": [
+    "none",
+    "none",
+    "micro",
+    "none",
+    "none",
+    "full",
+    "none",
+    "none",
+    "full",
+    "micro",
+    "none",
+    "none",
+    "micro",
+    "micro",
+    "micro",
+    "micro",
+    "none",
+    "none",
+    "micro",
+    "micro"
+  ],
+  "chapter_reflection_weights": [
+    "light",
+    "standard",
+    "standard",
+    "heavy",
+    "standard",
+    "light",
+    "heavy",
+    "standard",
+    "light",
+    "standard",
+    "heavy",
+    "standard",
+    "standard",
+    "standard",
+    "standard",
+    "standard",
+    "standard",
+    "heavy",
+    "standard",
+    "standard"
+  ],
+  "chapter_story_depths": [
+    "standard",
+    "standard",
+    "standard",
+    "deep",
+    "standard",
+    "micro",
+    "deep",
+    "standard",
+    "micro",
+    "standard",
+    "deep",
+    "standard",
+    "standard",
+    "standard",
+    "micro",
+    "micro",
+    "standard",
+    "deep",
+    "micro",
+    "micro"
+  ],
+  "chapter_planner_warnings": [
+    "arc_role_distribution[long] challenge=8 outside target [3,5]"
+  ],
+  "narrator_id": "default_narrator",
+  "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
+  "cover_art_style_hint": "contemplative",
+  "cover_art_palette_tokens": [
+    "contemplative"
+  ],
+  "cover_variant_id": "ahjan",
+  "emotional_role_sequence": [
+    "recognition",
+    "recognition",
+    "destabilization",
+    "reframe",
+    "reframe",
+    "destabilization",
+    "reframe",
+    "reframe",
+    "destabilization",
+    "destabilization",
+    "reframe",
+    "reframe",
+    "destabilization",
+    "destabilization",
+    "stabilization",
+    "stabilization",
+    "reframe",
+    "reframe",
+    "integration",
+    "integration"
+  ],
+  "emotional_role_sig": "r-r-d-f-f-d-f-f-d-d-f-f-d-d-s-s-f-f-i-i",
+  "book_structure_id": "linear_transformation",
+  "journey_shape_id": "linear_rise",
+  "motif_id": "motif_cost",
+  "section_reorder_mode": "none",
+  "reframe_profile_id": "balanced",
+  "variation_chapter_archetypes": [
+    "establish",
+    "expose",
+    "destabilize",
+    "reframe",
+    "stabilize",
+    "integrate",
+    "establish",
+    "expose",
+    "destabilize",
+    "reframe",
+    "stabilize",
+    "integrate",
+    "establish",
+    "expose",
+    "destabilize",
+    "reframe",
+    "stabilize",
+    "integrate",
+    "establish",
+    "expose"
+  ],
+  "variation_signature": "c3e886361a6a9be351729cfb263c2c1d",
+  "motif_injections": [
+    {
+      "chapter_index": 0,
+      "slot_index": 2,
+      "phrase": "Staying the same has a price."
+    },
+    {
+      "chapter_index": 0,
+      "slot_index": 4,
+      "phrase": "What does it cost you to keep going like this?"
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 2,
+      "phrase": "The cost of not changing is already here."
+    },
+    {
+      "chapter_index": 2,
+      "slot_index": 2,
+      "phrase": "What does it cost you to keep going like this?"
+    },
+    {
+      "chapter_index": 2,
+      "slot_index": 4,
+      "phrase": "The cost of not changing is already here."
+    },
+    {
+      "chapter_index": 3,
+      "slot_index": 2,
+      "phrase": "Staying the same has a price."
+    },
+    {
+      "chapter_index": 3,
+      "slot_index": 4,
+      "phrase": "The cost of not changing is already here."
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 2,
+      "phrase": "The cost of not changing is already here."
+    },
+    {
+      "chapter_index": 5,
+      "slot_index": 2,
+      "phrase": "What does it cost you to keep going like this?"
+    },
+    {
+      "chapter_index": 5,
+      "slot_index": 4,
+      "phrase": "The cost of not changing is already here."
+    },
+    {
+      "chapter_index": 6,
+      "slot_index": 2,
+      "phrase": "The cost of not changing is already here."
+    },
+    {
+      "chapter_index": 6,
+      "slot_index": 4,
+      "phrase": "What does it cost you to keep going like this?"
+    }
+  ],
+  "reframe_injections": [
+    {
+      "chapter_index": 0,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "You don't have to do it all at once."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Your nervous system is doing its best."
+    },
+    {
+      "chapter_index": 2,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "One breath can reset the script."
+    },
+    {
+      "chapter_index": 3,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "You don't have to do it all at once."
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Change happens in relationship, not in isolation."
+    },
+    {
+      "chapter_index": 5,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "You're not behind; you're exactly where you are."
+    },
+    {
+      "chapter_index": 6,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "You don't have to do it all at once."
+    },
+    {
+      "chapter_index": 7,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Your nervous system is doing its best."
+    },
+    {
+      "chapter_index": 8,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "You're not behind; you're exactly where you are."
+    },
+    {
+      "chapter_index": 9,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "You don't have to do it all at once."
+    },
+    {
+      "chapter_index": 10,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Change happens in relationship, not in isolation."
+    },
+    {
+      "chapter_index": 11,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "You're not behind; you're exactly where you are."
+    },
+    {
+      "chapter_index": 12,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
+    },
+    {
+      "chapter_index": 13,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Your nervous system is doing its best."
+    },
+    {
+      "chapter_index": 14,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "One breath can reset the script."
+    },
+    {
+      "chapter_index": 15,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "Progress isn't linear."
+    },
+    {
+      "chapter_index": 16,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Safety comes before growth."
+    },
+    {
+      "chapter_index": 17,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "You're not behind; you're exactly where you are."
+    },
+    {
+      "chapter_index": 18,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "Progress isn't linear."
+    },
+    {
+      "chapter_index": 19,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Change happens in relationship, not in isolation."
+    }
+  ],
+  "freebie_bundle": [
+    "accountability_partner_v1"
+  ],
+  "cta_template_id": "tool_forward",
+  "freebie_slug": "sleep-anxiety-tech-finance-burnout-accountability-partner-v1",
+  "freebie_bundle_with_formats": [
+    {
+      "freebie_id": "accountability_partner_v1",
+      "formats": [
+        "html",
+        "pdf"
+      ]
+    }
+  ],
+  "topic_id": "sleep_anxiety",
+  "persona_id": "tech_finance_burnout"
+}

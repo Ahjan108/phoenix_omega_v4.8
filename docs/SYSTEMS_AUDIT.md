@@ -52,7 +52,7 @@
 | **scripts/ci/check_structural_entropy.py** | ✅ | Structural entropy gate (word counts, story family, teacher anchors, etc.). |
 | **scripts/ci/check_platform_similarity.py** | ✅ | CTSS / similarity index. |
 | **scripts/ci/check_wave_density.py** | ✅ | Wave-level diversity (arc_id, band_seq, slot_sig, exercise placement, emotional_role_sig). |
-| **scripts/run_production_readiness_gates.py** | ✅ | 15 + freebie (16) conditions. **Gate 16** runs when freebie index has ≥2 plan rows (deduped by book_id) and fails when density exceeds thresholds — **content/wave diversity**, not broken code. Run with venv so subprocess `validate_freebie_density` has PyYAML. |
+| **scripts/run_production_readiness_gates.py** | ✅ | 15 + freebie gates 16 and 16b. **Gate 16** runs `validate_freebie_density`, **Gate 16b** runs `cta_signature_caps`; both use the same index/scope. Run when freebie index has ≥2 plan rows. Test runs must not update the index: systems_test uses `--no-update-freebie-index` and asserts index unchanged (checksum). Run with venv so subprocesses have PyYAML. |
 
 ---
 
@@ -112,11 +112,12 @@ Tag atoms with **tools/tag_existing_atoms.py** (or narrative lines in CANONICAL)
 
 ---
 
-## 7. Production readiness gate 16 (freebie density)
+## 7. Production readiness gates 16 and 16b (freebie governance)
 
-- **Function:** validate_freebie_density works as designed; it FAILs when identical_bundle_ratio ≥ 40%, identical_cta_ratio ≥ 50%, or identical_slug_pattern_ratio ≥ 60%.
-- **Current state:** Index has 53 rows; ratios are 88%, 100%, 88% — so gate correctly fails.
-- **To pass:** Increase wave diversity (more distinct freebie_bundle, cta_template_id, freebie_slug across plans) or add more varied plans to the index. No code change required for "all functions working."
+- **Gate 16:** `validate_freebie_density` — FAILs when identical_bundle_ratio ≥ 40%, identical_cta_ratio ≥ 50%, or identical_slug_pattern_ratio ≥ 60%.
+- **Gate 16b:** `cta_signature_caps` — same index as Gate 16; FAILs when CTA signature exceeds cap per brand/quarter.
+- **Index contract:** `artifacts/freebies/index.jsonl` is release/catalog plan rows only. Test runs must not update it: pipeline flag `--no-update-freebie-index`; systems_test passes it and asserts index checksum unchanged after run.
+- **To pass:** Use a curated or rebuilt index with sufficient diversity; or run on a wave `--plans-dir` / `--index --last-n N`. Rebuild script: `scripts/rebuild_freebie_index_from_plans.py`.
 
 ---
 

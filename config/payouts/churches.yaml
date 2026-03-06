@@ -1,0 +1,8 @@
+# Church registry for Phoenix Churches Payout (24 churches).
+# Populate bluevine_account_last4, payee_id, rules per CHECKLIST.md.
+# Authority: specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md
+
+schema_version: "1.0"
+
+churches: []
+# Example: { id: CHURCH_01, bluevine_account_last4: "1234", payee_id: PAYEE_01, rules: {} }

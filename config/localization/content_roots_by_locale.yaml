@@ -290,6 +290,29 @@ locales:
       high-search terms. Audible.de is significant storefront for this locale.
       Phase 4 brands: stabilizer_de, sleep_repair_de, adhd_anchor_de.
 
+  # ─── ITALIAN (EU) ─────────────────────────────────────────────────────────
+
+  it-IT:
+    description: >
+      Italian — Italy (EU).
+      Atoms stored in locale subdirectory (atoms/it-IT/).
+      EU catalogue; wellness/self-development framing.
+    atoms_root: "atoms/it-IT"
+    translation_source_locale: en-US
+    translation_output_root: "atoms/it-IT"
+    quality_contracts_dir: "config/localization/quality_contracts/it-IT/"
+    population_status: planned
+    is_baseline: false
+    rollout_phase: Phase 4 (Months 7–12)
+    distribution_blocker: null
+    tts_notes: >
+      Primary: ElevenLabs eleven_multilingual_v2 (it-IT).
+      Fallback: Google it-IT-Neural2-A.
+    notes: >
+      Italian (Italiano). EU locale. Strong audiobook and podcast market.
+      Avoid clinical language in titles; wellness/self-development framing.
+      Phase 4 brands: TBD (stabilizer_it, sleep_repair_it).
+
   # ─── HUNGARIAN ────────────────────────────────────────────────────────────
 
   hu-HU:

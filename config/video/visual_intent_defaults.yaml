@@ -1,0 +1,23 @@
+# Default camera language per visual_intent. Shot Planner uses these when no override applies.
+
+defaults:
+  CHARACTER_EMOTION:
+    framing: medium
+    face_visibility: discouraged
+    camera_angle: eye_level
+    motion: static
+  SYMBOLIC_METAPHOR:
+    framing: full
+    face_visibility: none
+    camera_angle: eye_level
+    motion: static
+  ENVIRONMENT_ATMOSPHERE:
+    framing: wide
+    face_visibility: none
+    camera_angle: eye_level
+    motion: static
+  HOOK_VISUAL:
+    framing: medium
+    face_visibility: optional
+    camera_angle: eye_level
+    motion: slow_zoom

@@ -1,20 +1,29 @@
 atom_id: ahjan_STORY_002_mined
-body: 'Love, in its truest form, is about transcending personal desires and attachments,
-  seeing the divine in every being and experience. Similarly, Tantra encourages us
-  to look beyond societal norms and personal preconceptions, finding spirituality
-  in all aspects of life.The Buddhist Perspective: Stories and TeachingsIncorporating
-  Buddhist teachings can provide additional depth to our understanding of love and
-  Tantra. The story of Buddhas enlightenment is a case in point. It is a journey of
-  transcending worldly desires and sufferings to achieve Nirvana, a state of ultimate
-  understanding and love.'
+story_origin: composite
+story_type: character_study
+emotional_intensity_band: 3
+body: |
+  Sarita works in a nonprofit's development department. She writes grant narratives
+  about housing-insecure families. By Tuesday her shoulders live near her ears.
+  
+  She tells herself it is the writing, the hours. But beneath that—she is practicing
+  a kind of divided attention. In the story, she shows vulnerability. In the office,
+  she shows competence. The split feels legitimate: professionalism requires it.
+  
+  One morning she realizes she cannot remember the last time she was whole in front
+  of someone. The families in her narratives are whole—their suffering is integrated,
+  visible, demanding. She is the one compartmentalized.
+  
+  She asks a senior colleague, "Do you ever feel like the work requires you to be
+  incomplete?" The colleague stares at her screen and says, "That is the job." Sarita
+  nods. She returns to her own screen.
+  
+  The next grant narrative she writes is slightly different. Not completed differently.
+  Simply held differently. The families' vulnerability does not require her to split.
+  She does not know if this shift will hold, or whether it matters.
+never_know: true
+band: 3
 teacher:
   teacher_id: ahjan
-  source_refs:
-  - doc_id: 'raw/BD Blog - Embracing Love and Tantra: A Journey Beyond Conventional
-      Wisdom .rtf'
-    span:
-    - 1599
-    - 2197
-    quote_hash: 559232081a9089e5
-  synthesis_method: kb_mine_v1
-band: 3
+  source_refs: []
+  synthesis_method: authored_v1

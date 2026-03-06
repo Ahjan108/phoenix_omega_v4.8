@@ -32,6 +32,15 @@ import hashlib
 from dataclasses import dataclass, asdict
 from itertools import cycle
 
+from pathlib import Path
+
+try:
+    import yaml as _yaml_mod
+    _YAML_AVAILABLE = True
+except ImportError:
+    _yaml_mod = None  # type: ignore[assignment]
+    _YAML_AVAILABLE = False
+
 
 @dataclass
 class Title:
@@ -1161,6 +1170,140 @@ CITY_PERSONAS = {
 # TITLE GENERATION ENGINE v4
 # ============================================================================
 
+# ============================================================================
+# MARKETING CONFIG LOADER
+# ============================================================================
+
+_MARKETING_CONFIG_DIR = Path(__file__).resolve().parent / "config" / "marketing"
+
+
+class MarketingConfigLoader:
+    """
+    Loads config/marketing/ YAML files and exposes them to the title engine.
+    Falls back to hardcoded COMPLIANCE_FILTER / TOPIC_VOCABULARY if files not found.
+    
+    Loaded from:
+      config/marketing/consumer_language_by_topic.yaml
+      config/marketing/invisible_scripts_by_persona_topic.yaml
+    """
+
+    def __init__(self, config_dir: Path = _MARKETING_CONFIG_DIR) -> None:
+        self._config_dir = config_dir
+        self._consumer_language: Dict[str, dict] = {}
+        self._invisible_scripts: Dict[str, Dict[str, List[str]]] = {}  # [persona_id][topic_id] -> [scripts]
+        self._loaded = False
+        self._load()
+
+    def _load(self) -> None:
+        if not _YAML_AVAILABLE:
+            return
+        self._load_consumer_language()
+        self._load_invisible_scripts()
+        self._loaded = True
+
+    def _load_consumer_language(self) -> None:
+        path = self._config_dir / "consumer_language_by_topic.yaml"
+        if not path.exists():
+            return
+        try:
+            data = _yaml_mod.safe_load(path.read_text(encoding="utf-8"))
+            for entry in (data.get("topics") or []):
+                tid = entry.get("topic_id")
+                if tid:
+                    self._consumer_language[tid] = entry
+        except Exception:
+            pass
+
+    def _load_invisible_scripts(self) -> None:
+        path = self._config_dir / "invisible_scripts_by_persona_topic.yaml"
+        if not path.exists():
+            return
+        try:
+            data = _yaml_mod.safe_load(path.read_text(encoding="utf-8"))
+            for entry in (data.get("scripts") or []):
+                pid = entry.get("persona_id")
+                tid = entry.get("topic_id")
+                scripts = entry.get("scripts") or []
+                if pid and tid and scripts:
+                    if pid not in self._invisible_scripts:
+                        self._invisible_scripts[pid] = {}
+                    self._invisible_scripts[pid][tid] = [str(s) for s in scripts]
+        except Exception:
+            pass
+
+    # ── Public API ────────────────────────────────────────────────────────────
+
+    def get_banned_clinical_terms(self, topic_id: str) -> List[str]:
+        """Returns banned clinical terms for a topic (feeds compliance check)."""
+        entry = self._consumer_language.get(topic_id, {})
+        return list(entry.get("banned_clinical_terms") or [])
+
+    def get_flagged_terms(self, topic_id: str) -> List[str]:
+        """
+        Returns hard-block terms for compliance.
+        Primary source: config banned_clinical_terms.
+        Fallback source: hardcoded COMPLIANCE_FILTER flagged terms.
+        """
+        config_terms = self.get_banned_clinical_terms(topic_id)
+        if config_terms:
+            return config_terms
+        fallback = COMPLIANCE_FILTER.get(topic_id, {})
+        return list(fallback.get("flagged") or [])
+
+    def get_platform_risk_terms(self, topic_id: str) -> List[str]:
+        """Returns monitor-tier platform risk terms for a topic."""
+        entry = self._consumer_language.get(topic_id, {})
+        return list(entry.get("platform_risk_terms") or [])
+
+    def get_bridge_language(self, topic_id: str) -> List[str]:
+        """Returns safe bridge language for a topic."""
+        entry = self._consumer_language.get(topic_id, {})
+        return list(entry.get("bridge_language") or [])
+
+    def get_search_clusters(self, topic_id: str) -> List[str]:
+        """Returns search cluster keywords for a topic."""
+        entry = self._consumer_language.get(topic_id, {})
+        return list(entry.get("search_clusters") or [])
+
+    def get_primary_search_keyword(self, topic_id: str) -> Optional[str]:
+        """
+        Returns best keyword for subtitle/search metadata.
+        Primary source: config search_clusters.
+        Fallback source: hardcoded TOPIC_VOCABULARY search_keywords.
+        """
+        clusters = self.get_search_clusters(topic_id)
+        if clusters:
+            return str(clusters[0])
+        topic_vocab = TOPIC_VOCABULARY.get(topic_id, {})
+        keywords = topic_vocab.get("search_keywords") or []
+        if keywords:
+            return str(keywords[0])
+        return None
+
+    def get_invisible_scripts(self, persona_id: str, topic_id: str) -> List[str]:
+        """Returns persona×topic invisible scripts. Falls back to topic-level scripts."""
+        persona_map = self._invisible_scripts.get(persona_id, {})
+        scripts = persona_map.get(topic_id, [])
+        if scripts:
+            return scripts
+        # Fall back: any scripts for this topic across personas
+        for pmap in self._invisible_scripts.values():
+            fallback = pmap.get(topic_id, [])
+            if fallback:
+                return fallback
+        return []
+
+    def is_loaded(self) -> bool:
+        return self._loaded
+
+    def covered_topics(self) -> List[str]:
+        return list(self._consumer_language.keys())
+
+    def covered_personas(self) -> List[str]:
+        return list(self._invisible_scripts.keys())
+
+
+
 class TitleGenerator:
     """Generates psychologically-informed titles for audiobook catalog with ops manual dimensions."""
 
@@ -1169,6 +1312,7 @@ class TitleGenerator:
         self.title_details = {}
         self.validation_errors = []
         self.pattern_usage = defaultdict(int)
+        self.marketing_config = MarketingConfigLoader()
         self.category_counts = defaultdict(int)
 
     def get_template_imprint(self, template_id: str) -> Optional[str]:
@@ -1251,12 +1395,17 @@ class TitleGenerator:
             if term.lower() in content:
                 return False
 
-        # Check topic-specific flagged terms
-        if topic_id in COMPLIANCE_FILTER:
-            for term in COMPLIANCE_FILTER[topic_id]["flagged"]:
-                if term.lower() in content:
-                    return False
+        # Hard-block terms come from config first, then hardcoded fallback.
+        for term in self.marketing_config.get_flagged_terms(topic_id):
+            if term.lower() in content:
+                return False
 
+        # Monitor-tier terms are logged, not hard-blocked.
+        for term in self.marketing_config.get_platform_risk_terms(topic_id):
+            if term.lower() in content:
+                self.validation_errors.append(
+                    f"monitor_risk_term topic={topic_id} term={term!r} content={content[:120]!r}"
+                )
         return True
 
     def check_title_word_overlap(self, title: str, subtitle: str) -> bool:
@@ -1324,21 +1473,27 @@ class TitleGenerator:
         return True
 
     def generate_invisible_script(self, brand_id: str, topic_id: str, persona_id: str) -> str:
-        """Generate a persona-specific invisible script."""
-        topic_vocab = TOPIC_VOCABULARY[topic_id]
-        persona = PERSONA_LIBRARY[persona_id]
+        """Generate a persona-specific invisible script. Loads from config if available."""
+        # Prefer config-driven persona×topic scripts
+        scripts = self.marketing_config.get_invisible_scripts(persona_id, topic_id)
+        if scripts:
+            seed_string = f"{brand_id}:{topic_id}:{persona_id}"
+            rng = random.Random(seed_string)
+            return rng.choice(scripts)
 
-        scripts = topic_vocab["invisible_scripts"]
-        if persona["tier"] == 1:
-            if len(scripts) > 2:
-                return scripts[len(persona_id) % len(scripts)]
-        elif persona["tier"] == 2:
-            if len(scripts) > 1:
-                return scripts[(len(persona_id) + len(topic_id)) % len(scripts)]
-        else:
-            return scripts[0]
-
+        # Fall back to hardcoded TOPIC_VOCABULARY scripts
+        topic_vocab = TOPIC_VOCABULARY.get(topic_id, {})
+        scripts = topic_vocab.get("invisible_scripts", [])
+        if not scripts:
+            return f"the hidden cost of {topic_id.replace('_', ' ')}"
+        persona = PERSONA_LIBRARY.get(persona_id, {})
+        tier = persona.get("tier", 3)
+        if tier == 1 and len(scripts) > 2:
+            return scripts[len(persona_id) % len(scripts)]
+        elif tier == 2 and len(scripts) > 1:
+            return scripts[(len(persona_id) + len(topic_id)) % len(scripts)]
         return scripts[0]
+
 
     def generate_title(self, brand_id: str, topic_id: str, persona_id: str,
                       series_id: str = "", angle_id: str = "", variation: int = 0) -> Tuple[str, str, str]:
@@ -1492,7 +1647,7 @@ class TitleGenerator:
         title_words = set(w.lower() for w in title.split() if w.lower() not in stop_words)
 
         subtitle_hook = rng.choice(persona["subtitle_hooks"])
-        keyword = topic_vocab["search_keywords"][0]
+        keyword = self.marketing_config.get_primary_search_keyword(topic_id) or topic_vocab["search_keywords"][0]
         subtitle = f"{subtitle_hook} • {keyword}"
 
         # Check for word overlap between title and subtitle
@@ -1642,7 +1797,7 @@ class TitleGenerator:
             primary_channel = TEMPLATE_REGISTRY[combo["template_id"]]["primary_channel"]
 
             # Get search keyword and invisible script
-            search_keyword = TOPIC_VOCABULARY[combo["topic_id"]]["search_keywords"][0]
+            search_keyword = self.marketing_config.get_primary_search_keyword(combo["topic_id"]) or TOPIC_VOCABULARY[combo["topic_id"]]["search_keywords"][0]
             invisible_script = self.generate_invisible_script(combo["brand_id"], combo["topic_id"], combo["persona_id"])
 
             # Build book record

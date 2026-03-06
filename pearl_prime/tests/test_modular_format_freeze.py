@@ -30,6 +30,6 @@ def test_apply_output_format_to_plan_rewrites_slot_shape():
     assert out["format_runtime_id"] == "short_book_30"
     assert out["chapter_count"] == 8
     assert len(out["slot_definitions"]) == 8
-    assert out["slot_definitions"][0] == ["HOOK", "SCENE", "STORY", "REFLECTION", "EXERCISE", "INTEGRATION"]
+    assert out["slot_definitions"][0] == ["HOOK", "SCENE", "STORY", "PIVOT", "REFLECTION", "EXERCISE", "TAKEAWAY", "INTEGRATION", "THREAD"]
     assert out["output_format_id"] == "myth_vs_mechanism"
 

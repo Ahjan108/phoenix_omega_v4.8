@@ -124,3 +124,42 @@ def evaluate_chapter_flow(chapter_text: str) -> ChapterFlowResult:
         "sentence_len_std": round(std_len, 2),
     }
     return ChapterFlowResult(status, score, errors, warnings, metrics)
+
+
+def evaluate_chapter_flow_with_slots(
+    chapter_slots: list[str],
+    segment_proses: list[str],
+) -> ChapterFlowResult:
+    """
+    Same heuristics as evaluate_chapter_flow on concatenated text, plus:
+    when TAKEAWAY or THREAD is in chapter_slots, require the corresponding segment to be non-empty.
+    """
+    if len(chapter_slots) != len(segment_proses):
+        return ChapterFlowResult(
+            "FAIL",
+            0,
+            [f"chapter_slots len ({len(chapter_slots)}) != segment_proses len ({len(segment_proses)})"],
+            [],
+            {},
+        )
+    chapter_text = "\n\n".join(p.strip() for p in segment_proses if p and p.strip())
+    result = evaluate_chapter_flow(chapter_text)
+    errors = list(result.errors)
+    for i, slot in enumerate(chapter_slots):
+        slot_upper = (slot or "").strip().upper()
+        if slot_upper == "TAKEAWAY":
+            if i >= len(segment_proses) or not (segment_proses[i] or "").strip():
+                errors.append("TAKEAWAY_EMPTY")
+            break
+    for i, slot in enumerate(chapter_slots):
+        slot_upper = (slot or "").strip().upper()
+        if slot_upper == "THREAD":
+            if i >= len(segment_proses) or not (segment_proses[i] or "").strip():
+                errors.append("THREAD_EMPTY")
+            break
+    status = "PASS" if not errors else "FAIL"
+    score = max(0, 100 - len(errors) * 15 - len(result.warnings) * 5)
+    metrics = dict(result.metrics)
+    metrics["takeaway_checked"] = "TAKEAWAY" in [(s or "").strip().upper() for s in chapter_slots]
+    metrics["thread_checked"] = "THREAD" in [(s or "").strip().upper() for s in chapter_slots]
+    return ChapterFlowResult(status=status, score=score, errors=errors, warnings=result.warnings, metrics=metrics)

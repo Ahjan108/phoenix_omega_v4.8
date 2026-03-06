@@ -1,0 +1,18 @@
+# Translation: run translate-atoms matrix (Qwen) for configured locales.
+# Stub: placeholder for when translation pipeline is implemented.
+# See docs/DOCS_INDEX.md § Translation.
+
+name: Translate atoms (Qwen matrix)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * 0'
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Placeholder
+        run: echo "Translation matrix stub; implement scripts/translate_atoms_all_locales_cloud.py"

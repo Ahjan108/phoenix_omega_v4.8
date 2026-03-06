@@ -1,0 +1,173 @@
+{
+  "n": 10000,
+  "passed": 8341,
+  "failed": 1659,
+  "overall_pass_rate": 0.8341,
+  "overall_pass_rate_stderr": 0.003719908466615812,
+  "pass_rate_by_format": {
+    "standard_book": 0.8012004801920768,
+    "deep_book_4h": 1.0,
+    "short_book_30": 1.0,
+    "micro_book_15": 1.0,
+    "extended_book_2h": 0.0
+  },
+  "pass_rate_by_tier": {
+    "A": 1.0,
+    "B": 0.6676682692307693,
+    "C": 1.0
+  },
+  "by_format": {
+    "standard_book": {
+      "pass": 3337,
+      "fail": 828,
+      "total": 4165
+    },
+    "deep_book_4h": {
+      "pass": 1668,
+      "fail": 0,
+      "total": 1668
+    },
+    "short_book_30": {
+      "pass": 3333,
+      "fail": 0,
+      "total": 3333
+    },
+    "micro_book_15": {
+      "pass": 3,
+      "fail": 0,
+      "total": 3
+    },
+    "extended_book_2h": {
+      "pass": 0,
+      "fail": 831,
+      "total": 831
+    }
+  },
+  "by_tier": {
+    "A": {
+      "pass": 5005,
+      "fail": 0,
+      "total": 5005
+    },
+    "B": {
+      "pass": 3333,
+      "fail": 1659,
+      "total": 4992
+    },
+    "C": {
+      "pass": 3,
+      "fail": 0,
+      "total": 3
+    }
+  },
+  "best_combos": [
+    {
+      "format_id": "standard_book",
+      "tier": "A",
+      "pass_rate": 1.0,
+      "count": 1669
+    },
+    {
+      "format_id": "deep_book_4h",
+      "tier": "A",
+      "pass_rate": 1.0,
+      "count": 1668
+    },
+    {
+      "format_id": "short_book_30",
+      "tier": "B",
+      "pass_rate": 1.0,
+      "count": 1665
+    },
+    {
+      "format_id": "micro_book_15",
+      "tier": "C",
+      "pass_rate": 1.0,
+      "count": 3
+    },
+    {
+      "format_id": "short_book_30",
+      "tier": "A",
+      "pass_rate": 1.0,
+      "count": 1668
+    },
+    {
+      "format_id": "standard_book",
+      "tier": "B",
+      "pass_rate": 0.6682692307692307,
+      "count": 2496
+    },
+    {
+      "format_id": "extended_book_2h",
+      "tier": "B",
+      "pass_rate": 0.0,
+      "count": 831
+    }
+  ],
+  "worst_combos": [
+    {
+      "format_id": "extended_book_2h",
+      "tier": "B",
+      "pass_rate": 0.0,
+      "count": 831
+    },
+    {
+      "format_id": "standard_book",
+      "tier": "B",
+      "pass_rate": 0.6682692307692307,
+      "count": 2496
+    },
+    {
+      "format_id": "standard_book",
+      "tier": "A",
+      "pass_rate": 1.0,
+      "count": 1669
+    },
+    {
+      "format_id": "deep_book_4h",
+      "tier": "A",
+      "pass_rate": 1.0,
+      "count": 1668
+    },
+    {
+      "format_id": "short_book_30",
+      "tier": "B",
+      "pass_rate": 1.0,
+      "count": 1665
+    },
+    {
+      "format_id": "micro_book_15",
+      "tier": "C",
+      "pass_rate": 1.0,
+      "count": 3
+    },
+    {
+      "format_id": "short_book_30",
+      "tier": "A",
+      "pass_rate": 1.0,
+      "count": 1668
+    }
+  ],
+  "error_reasons": {
+    "insufficient pool for plan": 1659
+  },
+  "phase2_summary": {
+    "phase2_passed": 8339,
+    "phase2_failed": 2,
+    "phase2_skipped": 1659,
+    "waveform_failed": 2,
+    "arc_failed": 0,
+    "drift_stacks_checked": 833,
+    "drift_stacks_failed": 0,
+    "drift_failures": []
+  },
+  "phase3_summary": {
+    "phase3_passed": 7314,
+    "phase3_failed": 1027,
+    "phase3_skipped": 1659
+  },
+  "phase2_pass_rate": 0.9997602205970507,
+  "phase3_pass_rate": 0.8768732765855413,
+  "phase2_n": 8341,
+  "phase3_n": 8341
+}

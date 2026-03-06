@@ -1,0 +1,26 @@
+{
+  "evaluated_at": "20260304T052934Z",
+  "snapshot_path": null,
+  "triggers": [
+    {
+      "job": "weekly_pipeline",
+      "kpi_id": "gate_production_readiness_pass",
+      "reason": "no_snapshot"
+    },
+    {
+      "job": "weekly_pipeline",
+      "kpi_id": "atoms_coverage_pass",
+      "reason": "no_snapshot"
+    },
+    {
+      "job": "weekly_pipeline",
+      "kpi_id": "systems_test_pass_rate",
+      "reason": "no_snapshot"
+    },
+    {
+      "job": "agent_fix_pr",
+      "kpi_id": "overall_signal_pass_rate",
+      "reason": "no_snapshot"
+    }
+  ]
+}

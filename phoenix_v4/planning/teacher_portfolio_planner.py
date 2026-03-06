@@ -1,7 +1,8 @@
 """
 Teacher Portfolio Planner: allocate (teacher, topic, persona) for a wave.
-Reads config/catalog_planning/brand_teacher_matrix.yaml and teacher_registry.
-Authority: specs/TEACHER_PORTFOLIO_PLANNING_SPEC.md.
+Reads config/catalog_planning/brand_teacher_matrix.yaml, teacher_registry,
+and teacher_topic_persona_scores.yaml (fit scores → volume/format).
+Authority: specs/TEACHER_PORTFOLIO_PLANNING_SPEC.md, specs/TEACHER_UNIVERSAL_AND_SCORING_SPEC.md.
 """
 from __future__ import annotations
 
@@ -17,6 +18,7 @@ except ImportError:
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 CONFIG_CATALOG = REPO_ROOT / "config" / "catalog_planning"
 CONFIG_TEACHERS = REPO_ROOT / "config" / "teachers"
+SCORES_PATH = CONFIG_CATALOG / "teacher_topic_persona_scores.yaml"
 
 
 @dataclass
@@ -27,6 +29,9 @@ class TeacherAllocation:
     persona_id: str
     brand_id: str
     position_in_wave: int
+    # Fit score (0–1) and band when teacher_topic_persona_scores.yaml is used; weak → prefer shorter format
+    composite_score: Optional[float] = None
+    score_band: Optional[str] = None
 
 
 def _load_yaml(p: Path) -> dict:
@@ -51,6 +56,46 @@ def _load_canonical_personas() -> list[str]:
     data = _load_yaml(CONFIG_CATALOG / "canonical_personas.yaml")
     personas = data.get("personas") or []
     return list(personas) if isinstance(personas, list) else []
+
+
+def load_teacher_topic_persona_scores(path: Optional[Path] = None) -> dict[str, Any]:
+    """Load teacher_topic_persona_scores.yaml; empty dict if missing."""
+    return _load_yaml(path or SCORES_PATH)
+
+
+def get_composite_score_and_band(
+    scores_cfg: dict[str, Any],
+    teacher_id: str,
+    topic_id: str,
+    persona_id: str,
+) -> tuple[Optional[float], Optional[str]]:
+    """
+    Return (composite_score, score_band) for (teacher, topic, persona).
+    composite_score in [0, 1]; score_band one of strong | medium | weak.
+    """
+    if not scores_cfg:
+        return None, None
+    default = float(scores_cfg.get("default_score", 0.5))
+    teachers = scores_cfg.get("teachers") or {}
+    t = teachers.get(teacher_id) or {}
+    topic_scores = t.get("topic_scores") or {}
+    persona_scores = t.get("persona_scores") or {}
+    t_score = topic_scores.get(topic_id, default)
+    p_score = persona_scores.get(persona_id, default)
+    formula = scores_cfg.get("composite_formula", "average")
+    if formula == "min":
+        composite = min(t_score, p_score)
+    else:
+        composite = (float(t_score) + float(p_score)) / 2.0
+    bands = scores_cfg.get("score_bands") or {}
+    band_name = None
+    for name, bounds in bands.items():
+        if isinstance(bounds, dict):
+            lo, hi = bounds.get("min", 0), bounds.get("max", 1)
+            if lo <= composite <= hi:
+                band_name = name
+                break
+    return round(composite, 4), band_name
 
 
 def _teacher_meets_coverage_threshold(
@@ -134,6 +179,8 @@ def allocate_wave(
     if not persona_list:
         persona_list = ["tech_finance_burnout"]
 
+    scores_cfg = load_teacher_topic_persona_scores()
+
     allocations: list[TeacherAllocation] = []
     t_idx = 0
     topic_idx = 0
@@ -143,6 +190,9 @@ def allocate_wave(
         brand_id = teacher_to_brand.get(teacher_id, "default")
         topic_id = topic_list[topic_idx % len(topic_list)] if topic_list else "self_worth"
         persona_id = persona_list[persona_idx % len(persona_list)]
+        composite_score, score_band = get_composite_score_and_band(
+            scores_cfg, teacher_id, topic_id, persona_id
+        )
         allocations.append(
             TeacherAllocation(
                 teacher_id=teacher_id,
@@ -150,6 +200,8 @@ def allocate_wave(
                 persona_id=persona_id,
                 brand_id=brand_id,
                 position_in_wave=i + 1,
+                composite_score=composite_score,
+                score_band=score_band,
             )
         )
         t_idx += 1

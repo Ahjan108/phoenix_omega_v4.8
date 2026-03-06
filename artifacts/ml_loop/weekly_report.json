@@ -1,0 +1,20 @@
+{
+  "ts": "2026-03-04T06:09:58.160862Z",
+  "source": "market_intelligence_integrator",
+  "decision": "recalibration",
+  "weak_section_rate": 0.11475409836065574,
+  "weak_section_count": 7,
+  "total_sections": 61,
+  "baseline": {
+    "weak_section_rate_baseline": 0.11475409836065574
+  },
+  "kpi_targets": [
+    "weak_section_rate",
+    "variant_win_rate",
+    "reader_fit_uplift",
+    "conversion_completion_proxy",
+    "compliance_incident_rate",
+    "rollback_rate",
+    "mean_time_issue_to_merge"
+  ]
+}

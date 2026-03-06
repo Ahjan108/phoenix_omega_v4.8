@@ -1,8 +1,10 @@
 # Core: required for config load, arc load, pipeline, CI, and systems test.
 pyyaml>=5.0
 
-# Pearl News: feed ingest
+# Pearl News: feed ingest + WordPress publish + optional LLM expansion (Qwen)
 feedparser>=6.0
+requests>=2.28
+openai>=1.0
 
 # CI: ops artifact schema validation (scripts/ci/validate_ops_artifacts.py)
 jsonschema>=4.0

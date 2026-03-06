@@ -1,0 +1,15 @@
+# Deterministic fallback when primary asset fails composition_compat for target aspect.
+# FormatAdapter and Asset Resolver use this order. When all steps fail to yield an asset
+# above threshold, fall through to degraded_render_policy (brand solid + caption).
+
+asset_selection_priority:
+  1: primary_asset
+  2: alternate_same_environment
+  3: alternate_same_visual_intent
+  4: alternate_same_emotional_band
+  5: degraded_render_fallback
+
+# Step 5 is not a bank lookup — it triggers degraded_render_policy (e.g. branded
+# background + caption). Do not select a random low-confidence asset; explicit fallback only.
+
+composition_compat_threshold: 0.5

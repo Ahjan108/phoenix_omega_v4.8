@@ -3,9 +3,11 @@
 
 Rules:
 1. No broken markdown links — every [text](path) link must point to existing file
-2. Missing files flagged — detect [anything](path) where path doesn't exist  
+2. Missing files flagged — detect [anything](path) where path doesn't exist
 3. Last updated date must exist in the file
 4. With --check-staleness: warn if Last updated date > 30 days old
+5. With --check-inventory: parse "Document all — complete inventory" tables and enforce
+   ✓ = file must exist, ⚠️ (missing) = file must not exist; fail on mismatch.
 """
 from __future__ import annotations
 
@@ -21,6 +23,9 @@ LINK_RE = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
 
 # Regex to find Last updated date: **Last updated:** YYYY-MM-DD
 LAST_UPDATED_RE = re.compile(r'(?im)^\*\*Last updated:\*\*\s*(\d{4}-\d{2}-\d{2})\s*$')
+
+# Regex to find backtick-wrapped path in inventory first column
+BACKTICK_PATH_RE = re.compile(r'`([^`]+)`')
 
 
 def find_repo_root(docs_index_path: Path) -> Path:
@@ -90,7 +95,88 @@ def resolve_link(docs_dir: Path, target: str) -> Path | None:
     return p
 
 
-def check_docs_index(docs_index_path: Path, check_staleness: bool = False) -> int:
+def _parse_inventory_tables(text: str, docs_dir: Path, repo_root: Path) -> list[tuple[int, Path, bool]]:
+    """Parse 'Document all — complete inventory' section for table rows with path + status.
+    
+    Returns list of (line_num, resolved_path, expected_exists) where expected_exists is True for ✓, False for ⚠️.
+    Only includes rows that have a clear ✓ or ⚠️ missing status.
+    """
+    in_inventory = False
+    results: list[tuple[int, Path, bool]] = []
+    lines = text.split("\n")
+
+    for i, line in enumerate(lines, start=1):
+        if line.strip().startswith("## Document all — complete inventory"):
+            in_inventory = True
+            continue
+        if in_inventory and line.strip().startswith("## ") and "complete inventory" not in line:
+            break
+        if not in_inventory:
+            continue
+
+        # Table row: | first | second | status |
+        if not line.strip().startswith("|"):
+            continue
+        parts = [p.strip() for p in line.split("|")]
+        if len(parts) < 4:
+            continue
+        first_cell = parts[1]
+        if re.match(r"^[\s\-:]+$", first_cell):
+            continue
+        status_cell = parts[-2] if len(parts) >= 3 else ""
+
+        # Determine expected existence from status: ✓ => exists, ⚠️/missing => not exists
+        status = status_cell.strip()
+        if status.startswith("✓") or (status and status.split()[0] == "✓"):
+            expected_exists = True
+        elif "⚠️" in status or "missing" in status.lower():
+            expected_exists = False
+        else:
+            continue
+
+        # Extract path from first cell: [text](path) or `path`
+        path_raw: str | None = None
+        link_match = LINK_RE.search(first_cell)
+        if link_match:
+            path_raw = link_match.group(2).strip().split("#", 1)[0].strip()
+            if not path_raw or _is_external(path_raw):
+                continue
+            resolved = resolve_link(docs_dir, path_raw)
+            if resolved is None:
+                continue
+        else:
+            backtick_match = BACKTICK_PATH_RE.search(first_cell)
+            if backtick_match:
+                path_raw = backtick_match.group(1).strip()
+                if "/" in path_raw:
+                    resolved = (repo_root / path_raw).resolve()
+                else:
+                    resolved = (docs_dir / path_raw).resolve()
+            else:
+                continue
+
+        if resolved is not None:
+            results.append((i, resolved, expected_exists))
+
+    return results
+
+
+def _check_inventory(text: str, docs_dir: Path, repo_root: Path) -> list[tuple[int, Path, bool, bool]]:
+    """Check inventory table: ✓ => file must exist, ⚠️ => file must not exist.
+    Returns list of (line_num, path, expected_exists, actual_exists) for mismatches only.
+    """
+    rows = _parse_inventory_tables(text, docs_dir, repo_root)
+    mismatches: list[tuple[int, Path, bool, bool]] = []
+    for line_num, path, expected_exists in rows:
+        actual_exists = path.exists()
+        if expected_exists != actual_exists:
+            mismatches.append((line_num, path, expected_exists, actual_exists))
+    return mismatches
+
+
+def check_docs_index(
+    docs_index_path: Path, check_staleness: bool = False, check_inventory: bool = False
+) -> int:
     """Check DOCS_INDEX.md governance.
     
     Returns:
@@ -154,6 +240,11 @@ def check_docs_index(docs_index_path: Path, check_staleness: bool = False) -> in
         if age > 30:
             staleness_warning = f"Last updated {age} days ago (threshold: 30 days)"
     
+    # Check 5: Inventory table (optional)
+    inventory_mismatches: list[tuple[int, Path, bool, bool]] = []
+    if check_inventory:
+        inventory_mismatches = _check_inventory(text, docs_dir, repo_root)
+
     # Report results
     if broken_links:
         print("DOCS_INDEX governance check FAILED")
@@ -161,6 +252,20 @@ def check_docs_index(docs_index_path: Path, check_staleness: bool = False) -> in
         for line_num, link_text, target, resolved in broken_links:
             print(f"    line {line_num}: [{link_text}]({target})")
         print("  Fix: replace broken links with plain text and mark as backlog items.")
+        return 1
+
+    if inventory_mismatches:
+        print("DOCS_INDEX governance check FAILED")
+        print("  Inventory table mismatch (✓ = file must exist, ⚠️ = file must be missing):")
+        for line_num, path, expected_exists, actual_exists in inventory_mismatches:
+            try:
+                rel = path.relative_to(repo_root)
+            except ValueError:
+                rel = path
+            if expected_exists and not actual_exists:
+                print(f"    line {line_num}: ✓ but file missing: {rel}")
+            else:
+                print(f"    line {line_num}: ⚠️ but file exists: {rel} (update index to ✓ and add link)")
         return 1
     
     if staleness_warning:
@@ -173,6 +278,8 @@ def check_docs_index(docs_index_path: Path, check_staleness: bool = False) -> in
     print(f"  Checked: {docs_index_path.relative_to(repo_root)}")
     print(f"  Link integrity: OK")
     print(f"  Last updated: {last_updated_str}")
+    if check_inventory:
+        print("  Inventory table: OK")
     return 0
 
 
@@ -189,9 +296,14 @@ def main() -> int:
     parser.add_argument(
         "--check-staleness",
         action="store_true",
-        help="Warn if Last updated date is > 30 days old"
+        help="Warn if Last updated date is > 30 days old",
     )
-    
+    parser.add_argument(
+        "--check-inventory",
+        action="store_true",
+        help="Parse 'Document all — complete inventory' tables and enforce ✓=file exists, ⚠️=file missing",
+    )
+
     args = parser.parse_args()
     
     # Determine DOCS_INDEX.md path
@@ -215,7 +327,11 @@ def main() -> int:
                 # Fallback to current dir assumption
                 docs_index_path = cwd / "docs" / "DOCS_INDEX.md"
     
-    return check_docs_index(docs_index_path, check_staleness=args.check_staleness)
+    return check_docs_index(
+        docs_index_path,
+        check_staleness=args.check_staleness,
+        check_inventory=args.check_inventory,
+    )
 
 
 if __name__ == "__main__":

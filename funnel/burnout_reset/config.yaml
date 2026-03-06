@@ -1,0 +1,41 @@
+# Funnel app config. Override with env vars in production.
+# Repo root config loaded from CONFIG_ROOT when set (e.g. parent of funnel/burnout_reset).
+
+# Email mode: "ghl" = app only pushes contact to GHL, GHL sends sequence. "smtp" = app sends E1–E5 via Brevo + APScheduler.
+email_mode: "smtp"  # "ghl" | "smtp"
+
+# 4-email MVP: set to false to send only E1–E4. E5 (more books) is Phase 2 / optional.
+send_email_5: false
+
+# Persistence (required for smtp mode jobstore; used for leads in both modes)
+database_path: "data/funnel.db"  # SQLite under funnel/burnout_reset/data/; or set DATABASE_URL for Postgres
+
+# GHL (GoHighLevel)
+ghl_api_key: ""  # GHL API Key 2.0
+ghl_location_id: ""  # GHL Location ID
+ghl_contacts_url: "https://services.leadconnectorhq.com/contacts/"
+
+# Brevo SMTP (required when email_mode: smtp)
+smtp_host: "smtp-relay.brevo.com"
+smtp_port: 587
+smtp_user: ""
+smtp_password: ""
+from_email: "nihala@phoenixprotocolbooks.com"
+from_name: "Phoenix Protocol"
+
+# GA4
+ga4_measurement_id: ""
+
+# URLs (for tool_link, book_link, unsubscribe in emails)
+base_url: "https://phoenixprotocolbooks.com"
+breathwork_tools_path: "/breathwork/tools"  # e.g. base_url + path + "/cyclic-sighing.html"
+
+# Paths (relative to repo root if CONFIG_ROOT set, else relative to this file)
+config_root: ""
+data_dir: "data"
+
+# Email timing (hours after previous). E4 is 48h after E3 (min gap per Proof Loop).
+email_2_delay_hours: 24
+email_3_delay_hours: 72
+email_4_delay_hours: 48   # 48h after E3
+email_5_delay_hours: 168

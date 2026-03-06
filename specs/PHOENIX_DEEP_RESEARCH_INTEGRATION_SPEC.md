@@ -79,6 +79,14 @@ Not an inspirational opener. Not a scene description. A precise statement of the
 
 **No validator enforcement required.** Coverage flag is sufficient.
 
+### Canonical source for invisible script content
+
+**Title engine and HOOK seeds:** The persona×topic invisible scripts used by the title engine (`generate_invisible_script()`) and as seeds for HOOK atom authoring are **sourced from config**, not from hardcoded topic vocabularies. Authority: [TITLE_ENGINE_MARKETING_CONFIG_SPEC.md](./TITLE_ENGINE_MARKETING_CONFIG_SPEC.md).
+
+- **Config file:** `config/marketing/invisible_scripts_by_persona_topic.yaml` — 10 personas × 14 topics = 140 entries, 2 persona-specific scripts per entry. **Implemented and populated** (2026-03-04).
+- **Loader:** Title engine v4 uses `MarketingConfigLoader`; config-first, with fallback to hardcoded `TOPIC_VOCABULARY.invisible_scripts` when config is absent. **Wired and live.**
+- **Quality:** Persona×topic scripts are the primary source; the previous behavior (modular arithmetic on persona_id over topic-level scripts) is deprecated and used only as fallback.
+
 ---
 
 ## 3. Change 2 — `belief_flip` STORY Atom Pattern

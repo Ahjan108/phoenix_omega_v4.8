@@ -1,75 +1,30 @@
 atom_id: ahjan_STORY_003_mined
-body: 'This excellence serves as an inspiration for their students and followers,
-  encouraging them to strive for mastery in their own pursuits.Consider the Story
-  of Angulimala''s Transformation:In the ancient kingdom of Kosala, there lived a
-  fearsome bandit named Angulimala. His name meant "finger necklace," for he had a
-  gruesome habit of killing people and collecting their fingers as trophies, wearing
-  them around his neck.
-
-
-  He was feared by all, and tales of his brutality spread far and wide.One day, Angulimala
-  heard about the Buddha, a renowned teacher who was said to possess extraordinary
-  wisdom and compassion. Angulimala thought to himself, "If I kill the Buddha, that
-  would be the ultimate display of my power and cruelty."He set out to find the Buddha,
-  but his reputation had already reached the ears of the people in the nearby villages.
-  They warned him about the dangerous bandit on the loose.
-
-
-  Still, the Buddha, out of his deep compassion, decided to go into the forest where
-  Angulimala was hiding.As Angulimala saw the Buddha approaching from a distance,
-  he marveled at the calm and serene presence of the enlightened one. He had expected
-  fear or anger, but the Buddha radiated a profound sense of peace and compassion.
-  Angulimala realized that this was unlike anyone he had ever encountered.The Buddha
-  approached Angulimala and spoke gently, "I have already stopped, Angulimala. It
-  is you who must stop."Angulimala was taken aback. He had expected confrontation,
-  not these words of wisdom.
-
-
-  Something in the Buddha''s presence touched his heart, and he fell to his knees,
-  overwhelmed by remorse for his past actions. Tears streamed down his face as he
-  realized the depth of suffering he had caused.He pleaded with the Buddha for guidance
-  on how to find redemption and change his ways. The Buddha accepted Angulimala as
-  a disciple and taught him the path of compassion, non-violence, and meditation.
-  Angulimala renounced his life of violence and embarked on a new path.As he deepened
-  his practice and followed the Buddha''s teachings, Angulimala underwent a profound
-  transformation.
-
-
-  His heart gradually filled with love and compassion for all living beings. He became
-  known for his kindness and wisdom, eventually attaining enlightenment himself.The
-  story of Angulimala serves as a powerful reminder of the transformative power of
-  the enlightened ones and their ability to guide even the most hardened individuals
-  towards a path of compassion, forgiveness, and inner peace.Meeting an enlightened
-  teacher, or experiencing Darshan, is a transformative moment in one''s life. It
-  is a direct encounter with truth and enlightenment, even if it is not fully understood
-  at the time.'
+story_origin: composite
+story_type: parable
+emotional_intensity_band: 4
+body: |
+  In the kingdom of Kosala, Angulimala was a bandit whose name meant finger necklace.
+  He wore the fingers of travelers around his neck as proof of his ferocity.
+  
+  When he learned that the Buddha moved through the forest, he thought: this is my
+  final test. If I can kill the Buddha, I will prove I fear no one.
+  
+  As he watched the Buddha approach through the trees, something in him fractured.
+  Not his resolve, but his solidity. The Buddha did not hurry or hide. He walked as
+  if walking was his entire purpose.
+  
+  Angulimala raised his weapon. The Buddha said: I have already stopped. It is you
+  who must stop. Not a command. A description of what was true.
+  
+  Angulimala felt the ground beneath him dissolve. Everything he had built himself
+  to be—the ferocity, the power, the proof—was suddenly transparent. He fell to his
+  knees not from shame, but from recognizing a clarity he could not unsee.
+  
+  In this teaching: when inner light becomes visible through presence, it cannot be
+  unseen. Angulimala's life of violence ended not through force, but through witnessing
+  what was already true.
+band: 4
 teacher:
   teacher_id: ahjan
-  source_refs:
-  - doc_id: raw/BD Blog - Enlightened One.rtf
-    span:
-    - 1911
-    - 2331
-    quote_hash: 5f996f45c1a51dba
-  - doc_id: raw/BD Blog - Enlightened One.rtf
-    span:
-    - 2331
-    - 2812
-    quote_hash: 5daf4aa605153554
-  - doc_id: raw/BD Blog - Enlightened One.rtf
-    span:
-    - 2812
-    - 3411
-    quote_hash: 863caf9bbce6db6b
-  - doc_id: raw/BD Blog - Enlightened One.rtf
-    span:
-    - 3411
-    - 4000
-    quote_hash: 40353ed565e9eaa4
-  - doc_id: raw/BD Blog - Enlightened One.rtf
-    span:
-    - 4000
-    - 4592
-    quote_hash: 544add6b7d1ec236
-  synthesis_method: kb_mine_v1
-band: 3
+  source_refs: []
+  synthesis_method: authored_v1

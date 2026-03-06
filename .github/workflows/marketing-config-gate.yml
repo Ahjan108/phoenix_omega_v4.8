@@ -1,0 +1,39 @@
+name: Marketing Config Validation Gate
+
+on:
+  pull_request:
+    paths:
+      - 'config/marketing/**'
+      - '.github/workflows/marketing-config-gate.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'config/marketing/**'
+
+jobs:
+  validate-marketing-config:
+    runs-on: ubuntu-latest
+    name: Validate Marketing Config
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+
+      - name: Run marketing config validation
+        run: |
+          PYTHONPATH=. python -m phoenix_v4.qa.validate_marketing_config
+
+      - name: Report validation results
+        if: always()
+        run: |
+          echo "Marketing config validation completed"

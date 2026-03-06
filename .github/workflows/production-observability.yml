@@ -1,4 +1,4 @@
-# Production observability — collect signals, trend tracking.
+# Production observability — collect signals, trend tracking, optional agent PR.
 # Runs on schedule and workflow_dispatch. Does not block merge.
 name: Production observability
 
@@ -28,6 +28,29 @@ jobs:
             --signals gate_production_readiness atoms_coverage \
             --out artifacts/observability/signal_snapshot.json
 
+      - name: Update operations board feed
+        run: |
+          PYTHONPATH=. python scripts/observability/write_operations_board.py \
+            --out artifacts/observability/operations_board.jsonl
+
+      - name: Evaluate KPI targets
+        id: kpi
+        run: |
+          PYTHONPATH=. python scripts/observability/evaluate_kpi_targets.py \
+            --snapshot artifacts/observability/signal_snapshot.json \
+            --out artifacts/observability/kpi_trigger.json
+          if [ -f artifacts/observability/kpi_trigger.json ]; then
+            TRIGGERS=$(python3 -c "import json; d=json.load(open('artifacts/observability/kpi_trigger.json')); print(','.join(t['job'] for t in d.get('triggers',[])))")
+            echo "triggered_jobs=${TRIGGERS}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run KPI-triggered jobs (weekly_pipeline if triggered)
+        if: steps.kpi.outputs.triggered_jobs != '' && contains(steps.kpi.outputs.triggered_jobs, 'weekly_pipeline')
+        run: |
+          PYTHONPATH=. python scripts/release/weekly_pipeline_with_marketing.py \
+            --canary-n 5 --skip-systems-test
+        continue-on-error: true
+
       - name: Upload observability snapshot
         uses: actions/upload-artifact@v4
         if: always()
@@ -35,3 +58,37 @@ jobs:
           name: observability-snapshot
           path: artifacts/observability/
           if-no-files-found: ignore
+
+  agent-fix-pr:
+    name: Agent open fix PR
+    runs-on: ubuntu-latest
+    needs: collect-signals
+    if: always() && (needs.collect-signals.result == 'success' || needs.collect-signals.result == 'failure')
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements-test.txt
+
+      - name: Download observability snapshot
+        uses: actions/download-artifact@v4
+        with:
+          name: observability-snapshot
+          path: artifacts/observability
+
+      - name: Run agent open fix PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PYTHONPATH=. python scripts/observability/agent_open_fix_pr.py
+        continue-on-error: true

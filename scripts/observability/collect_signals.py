@@ -232,6 +232,21 @@ def main() -> int:
         _append_jsonl(evidence_log, row)
         if r.get("status") == "fail":
             _append_jsonl(elevated_log, row)
+
+    # Update operations board feed (issue → fix → PR → merged → impact)
+    try:
+        write_board = REPO_ROOT / "scripts" / "observability" / "write_operations_board.py"
+        if write_board.exists():
+            subprocess.run(
+                [sys.executable, str(write_board), "--out", str(REPO_ROOT / "artifacts" / "observability" / "operations_board.jsonl")],
+                cwd=str(REPO_ROOT),
+                env={**os.environ, "PYTHONPATH": str(REPO_ROOT)},
+                timeout=30,
+                check=False,
+            )
+    except Exception:
+        pass  # Do not fail collection if board write fails
+
     return 0 if snapshot["failed"] == 0 else 1
 
 

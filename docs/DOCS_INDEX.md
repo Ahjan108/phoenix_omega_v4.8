@@ -2,7 +2,9 @@
 
 **Purpose:** Canonical index for documentation authority and navigation.  
 **Missing-file policy:** Only existing files are linked; planned or missing files are listed as backlog items (plain text or `path` with ⚠️ *file not present*).  
-**Last updated:** 2026-03-03
+**Last updated:** 2026-03-06
+
+**Recent implementation (d1–d6 + payouts):** Freebies (d1) — `--no-update-freebie-index` in run_pipeline/systems_test. Change observation & impact (d2) — [config/governance/system_registry.yaml](../config/governance/system_registry.yaml), [scripts/observability/detect_changes.py](../scripts/observability/detect_changes.py), [scripts/observability/impact_from_changes.py](../scripts/observability/impact_from_changes.py), [.github/workflows/change-impact.yml](../.github/workflows/change-impact.yml). EI V2 (d3) — [phoenix_v4/quality/ei_v2/learner.py](../phoenix_v4/quality/ei_v2/learner.py), [phoenix_v4/quality/ei_v2/dimension_gates.py](../phoenix_v4/quality/ei_v2/dimension_gates.py), [phoenix_v4/quality/ei_v2/hybrid_selector.py](../phoenix_v4/quality/ei_v2/hybrid_selector.py), [scripts/ci/run_ei_v2_catalog_calibration.py](../scripts/ci/run_ei_v2_catalog_calibration.py), [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py). Translation (d4) — [config/localization/quality_contracts/](../config/localization/quality_contracts/) (README, glossary, release_thresholds, golden_translation_regression), script stubs: [translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py), [validate_translations.py](../scripts/validate_translations.py), [merge_translation_shards.py](../scripts/merge_translation_shards.py), [check_golden_translation.py](../scripts/check_golden_translation.py), [native_prompts_eval_learn.py](../scripts/native_prompts_eval_learn.py), [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml), [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml). Simulation/quality (d5) — [scripts/ci/run_simulation_100k.py](../scripts/ci/run_simulation_100k.py), [config/source_of_truth/chapter_order_modes.yaml](../config/source_of_truth/chapter_order_modes.yaml), [scripts/ci/tier0_trend.py](../scripts/ci/tier0_trend.py), [config/quality/canary_config.yaml](../config/quality/canary_config.yaml). Payouts — [config/payouts/](../config/payouts/) (churches, payees, credentials.example, fill_template.csv). Video (d6) — no code changes (run_render duration already correct). **Cohesive bestseller tester:** robust, intelligent testing for 10k Pearl Prime + 10k teacher-mode + EI v2 — [llm_cohesive_bestseller_tester.py](../scripts/ci/llm_cohesive_bestseller_tester.py), [llm_bestseller_error_report.py](../scripts/ci/llm_bestseller_error_report.py); health score, severity, dimension analysis, baseline, LLM; see [Rigorous system test & simulation (document all)](#rigorous-system-test--simulation-document-all) and [scripts/ci/README.md](../scripts/ci/README.md) § AI/LLM cohesive bestseller tester. **Pearl Prime structural upgrade (2026-03-06):** Seven-change book quality overhaul — four new chapter slots (PIVOT, TAKEAWAY, THREAD, PERMISSION) added to [specs/PHOENIX_V4_5_WRITER_SPEC.md](../specs/PHOENIX_V4_5_WRITER_SPEC.md) §4.3a/4.7/4.7a/4.8; 20-chapter arc second half redesigned with 11 new deepening intents replacing the repeated first-half cycle; chapter thesis field added to arc schema; 12 bestseller narrative structures documented and mapped to slot assignments in [docs/BESTSELLER_STRUCTURES.md](./BESTSELLER_STRUCTURES.md); canonical thesis sentences for all 20 intents × 7 engines in [docs/CHAPTER_THESIS_BANK.md](./CHAPTER_THESIS_BANK.md). **Pearl News writer spec (2026-03-06):** Full writing craft layer for article authoring — [docs/PEARL_NEWS_WRITER_SPEC.md](./PEARL_NEWS_WRITER_SPEC.md); expansion prompt upgraded in [pearl_news/prompts/expansion_system.txt](../pearl_news/prompts/expansion_system.txt). All listed assets are in the [Document all — complete inventory](#document-all--complete-inventory) with ✓ where present.
 
 ---
 
@@ -11,10 +13,56 @@
 | Task | Where to go |
 |------|-------------|
 | **Document all (single source)** | This file: [Document all — complete inventory](#document-all--complete-inventory) lists every doc/spec/config/script; domain "(document all)" subsections list every asset per domain. |
+| **Document all (autonomous & ML)** | [docs/AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md](./AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md) — Full inventory: observability, change observation & impact, operations board, agent PRs, auto-merge, weekly pipeline, KPI triggers, ML editorial, ML autonomous loop (24/7 + daily + weekly). See also [Change observation and impact (document all)](#change-observation-and-impact-document-all). |
 | **Find a doc** | Browse sections below, or search [Document all — complete inventory](#document-all--complete-inventory). |
 | **Add a doc** | Follow [Document all — usage](#document-all--usage): place in correct section, add to inventory, reference canonical anchors if authority doc. |
-| **Check domain coverage** | Use "(document all)" subsections (e.g. [V4 features, scale & knobs](#v4-features-scale--knobs-document-all), [Marketing & deep research](#marketing--deep-research-document-all), [Teacher Mode](#teacher-mode--production-readiness-document-all)) — each lists every asset for that domain. |
+| **Check domain coverage** | Use "(document all)" subsections (e.g. [V4 features, scale & knobs](#v4-features-scale--knobs-document-all), [Marketing & deep research](#marketing--deep-research-document-all), [Freebie funnel, Proof Loop & launch](#freebie-funnel-proof-loop--launch-document-all), [Teacher Mode](#teacher-mode--production-readiness-document-all)) — each lists every asset for that domain. |
+| **Change observation / impact / synergy** | [Change observation and impact (document all)](#change-observation-and-impact-document-all) — System registry, add/change/drop detection, impact analysis, LLM synergy recommendations, running best; spec and asset list. |
+| **Implementation batch (d1–d6 + payouts)** | [Implementation batch (d1–d6 + payouts)](#implementation-batch-d1d6--payouts) — Traceability: freebies, change observation & impact, EI V2, translation, simulation/quality, video pipeline, payouts. |
+| **Cohesive bestseller tester** | [Rigorous system test & simulation (document all)](#rigorous-system-test--simulation-document-all) — 10k Pearl Prime + teacher-mode + EI v2; [llm_cohesive_bestseller_tester.py](../scripts/ci/llm_cohesive_bestseller_tester.py), [llm_bestseller_error_report.py](../scripts/ci/llm_bestseller_error_report.py); health score, severity, baseline, LLM; usage in [scripts/ci/README.md](../scripts/ci/README.md) § AI/LLM cohesive bestseller tester. |
+| **Run tests / understand test suite** | [Test suite (document all)](#test-suite-document-all): how to run (local + CI), markers, workflows, full file list (36 files, 222 tests), fixtures, [FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md). |
+| **Check for missing book content** | [How to check for missing book content](#how-to-check-for-missing-book-content) — Single report script, atoms + plan + teacher readiness; PhoenixControl Docs & Config tab shows results. |
 | **Go/no-go decision** | [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md) §6 Hard NOs. |
+| **Freebie funnel & launch** | [Freebie funnel, Proof Loop & launch (document all)](#freebie-funnel-proof-loop--launch-document-all) — landing, form, Proof-Loop emails, GHL push, writer spec, GO_NO_GO, three things from Nihala. |
+| **UI / operator coverage (full)** | No single spec covers all UI. For 100% coverage of everything that needs UI to manage, use the **full doc bundle**: [Control plane & operator UI — full doc bundle](#control-plane--operator-ui--full-doc-bundle) below. |
+
+---
+
+## Control plane & operator UI — full doc bundle
+
+**Use all of these** when planning or implementing UI for the control plane and operator workflows. No single spec file alone covers 100% of what needs UI to manage.
+
+| Doc | What it adds for UI/operator coverage |
+|-----|----------------------------------------|
+| [CONTROL_PLANE_SPEC_PATCH_V1.1.md](./CONTROL_PLANE_SPEC_PATCH_V1.1.md) | Completeness engine, approvals state, missing/blocked queue, agent/learning visibility; data contracts per tab; high-end UX. |
+| [EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md](./EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md) | Operator-completeness (blockers & completeness contracts, action mapping, acceptance matrix); two-tier Mac app + Streamlit; autonomous loop dashboard minimal set; Safety Kill Switch; app distribution. |
+| [ML_AUTONOMOUS_LOOP_SPEC.md](./ML_AUTONOMOUS_LOOP_SPEC.md) | Loop health, agent queue, promotion queue, KPI triggers, operations board; UI requirements for 24/7 + daily + weekly loop. |
+| [CONTROL_PLANE_GO_NO_GO.md](./CONTROL_PLANE_GO_NO_GO.md) | Pass/fail checklist per tab; production-ready when all pass and evidenced. |
+| [CONTROL_PLANE_RUNBOOK.md](./CONTROL_PLANE_RUNBOOK.md) | Runbook proving each tab runs real repo commands and reads real artifacts; evidence procedure per tab. |
+| [PHOENIX_OMEGA_ERROR_STATE_UX_SPEC.md](./PHOENIX_OMEGA_ERROR_STATE_UX_SPEC.md) | Error state taxonomy, surfaces, per-tab patterns, SwiftUI components (ErrorStateView, StatusBadge, ToastManager, ToolbarErrorStrip), copy rules, recovery actions, startup health check. |
+
+**Master spec rule:** [EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md](./EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md) is the **master spec**. When you run (implement) the master spec, **all specs in this bundle must be 100% coded** — no partial implementation. Every requirement in each doc must be implemented before the master spec is considered done.
+
+**Summary:** If dev uses only one doc (e.g. a short “Phoenix Omega — Native macOS Control Plane App” blurb), UI coverage is **not** 100%. If dev uses the **full doc bundle** above from DOCS_INDEX, they are **covered to move forward** for all system areas that need UI to manage.
+
+---
+
+## Phoenix Control app (native macOS) (document all)
+
+Native Swift/SwiftUI macOS app implementing the plan "Phoenix Omega — Native macOS Control Plane App": multi-tab control plane (Dashboard, Pipeline, Simulation, Tests, Observability, Gates & Release, Pearl News, Teacher, CI/Workflows, Docs & Config). See [control plane doc bundle](#control-plane--operator-ui--full-doc-bundle) for specs.
+
+| Item | Location |
+|------|----------|
+| **App README (build & run)** | [PhoenixControl/README.md](../PhoenixControl/README.md) — Open PhoenixControl.xcodeproj in Xcode, scheme "Phoenix Control", Product → Run; repo path required; macOS 13+, Xcode 14+ |
+| **Xcode project** | [PhoenixControl/PhoenixControl.xcodeproj](../PhoenixControl/PhoenixControl.xcodeproj) — Single target "Phoenix Control", all Swift sources, Assets.xcassets, Info.plist |
+| **App entry** | [PhoenixControl/PhoenixControlApp.swift](../PhoenixControl/PhoenixControlApp.swift) — @main, WindowGroup, AppState, ArtifactReader, ScriptRunner, GitHubService |
+| **Models** | [PhoenixControl/Models/AppState.swift](../PhoenixControl/Models/AppState.swift), [PhoenixControl/Models/ObservabilitySnapshot.swift](../PhoenixControl/Models/ObservabilitySnapshot.swift) — App state, snapshot, EvidenceLogRow, IdentifiableEvidenceRow |
+| **Services** | [PhoenixControl/Services/ScriptRunner.swift](../PhoenixControl/Services/ScriptRunner.swift), [PhoenixControl/Services/ArtifactReader.swift](../PhoenixControl/Services/ArtifactReader.swift), [PhoenixControl/Services/GitHubService.swift](../PhoenixControl/Services/GitHubService.swift) — Script run (allowlist), artifacts + startup health check, Keychain + GitHub API |
+| **Views (tabs)** | [PhoenixControl/Views/ContentView.swift](../PhoenixControl/Views/ContentView.swift) + DashboardView, PipelineView, SimulationView, TestsView, ObservabilityView, GatesReleaseView, PearlNewsView, TeacherView, CIWorkflowsView, DocsConfigView |
+| **Views (components)** | [PhoenixControl/Views/Components/LiveLogView.swift](../PhoenixControl/Views/Components/LiveLogView.swift), [StatusBadge.swift](../PhoenixControl/Views/Components/StatusBadge.swift), [ErrorStateView.swift](../PhoenixControl/Views/Components/ErrorStateView.swift), [EvidenceLogTable.swift](../PhoenixControl/Views/Components/EvidenceLogTable.swift) |
+| **Theme** | [PhoenixControl/Theme/Colors.swift](../PhoenixControl/Theme/Colors.swift) — phoenixBlue, phoenixBackground, phoenixCardTint |
+| **Info.plist** | [PhoenixControl/Info.plist](../PhoenixControl/Info.plist) |
+| **Assets** | [PhoenixControl/Assets.xcassets](../PhoenixControl/Assets.xcassets) — AppIcon, AccentColor |
 
 ---
 
@@ -23,7 +71,7 @@
 - **System owner vision (north star):** [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md) — What the system owner wants: technical, therapeutic, reader/listener experience, marketing and business. The whole story of success.
 - **Docs index (this file):** [docs/DOCS_INDEX.md](./DOCS_INDEX.md)
 - **System architecture (sole authority):** [specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md](../specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md)
-- **Writer/content authority:** [specs/PHOENIX_V4_5_WRITER_SPEC.md](../specs/PHOENIX_V4_5_WRITER_SPEC.md)
+- **Writer/content authority:** [specs/PHOENIX_V4_5_WRITER_SPEC.md](../specs/PHOENIX_V4_5_WRITER_SPEC.md) — v2: adds PIVOT (§4.3a), TAKEAWAY (§4.7), THREAD (§4.7a), PERMISSION (§4.8) slots for Pearl Prime structural upgrade
 
 **Docs vs production 100%:** Governance and documentation consolidation (this index, specs, runbooks) = **strong docs layer**. **Production 100%** is only reached when **operational proof gates** are green: CI on `main`, release path checks (no export bypass), smoke runs, rollback evidence, branch protection. Strong docs support but do not replace runtime/release evidence. **Simulation (10k/100k) is readiness tooling, not standalone production 100%** — see [docs/RIGOROUS_SYSTEM_TEST.md](./RIGOROUS_SYSTEM_TEST.md) for the four requirements still needed (real canaries, CI gate on analyzer, evidence on main, release smoke + rollback proof).
 
@@ -41,6 +89,8 @@
 - [docs/DISASTER_RECOVERY_DRILL_CHECKLIST.md](./DISASTER_RECOVERY_DRILL_CHECKLIST.md) — DR drill steps, evidence template
 - `docs/CONTROL_PLANE_GO_NO_GO.md` — Control Plane macOS app: pass/fail checks per tab; production-ready when all pass and evidenced
 - `docs/CONTROL_PLANE_RUNBOOK.md` — Runbook proving each tab runs real repo commands and reads real artifacts
+- [docs/CONTROL_PLANE_SPEC_PATCH_V1.1.md](./CONTROL_PLANE_SPEC_PATCH_V1.1.md) — **Spec Patch v1.1:** completeness engine, approval state, metadata inventory, agents & learning, Pearl News board, data contracts, Missing/Blocked queue
+- [docs/EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md](./EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md) — **Executive Dashboard + PhoenixControl:** two-tier UI (Mac app + Streamlit); tabs System operations / Sales / Marketing / All system; 6 acceptance criteria + 7 operator-completeness requirements (completeness KPIs, hard approval blockers, blocker-to-action mapping, freebies governance panel, agent change feed, data contract per widget, acceptance matrix); full handoff spec
 - `docs/PRODUCTION_100_PLAN.md` — **Production 100% handoff:** scope lock, source-of-truth files, quality system, V2 policy, CI baseline, evidence, release-week commands, hu-HU rules, docs governance, do-not-ship, start-now sequence, definition of 100%; **blockers** and **freeze policy**
 - `docs/RELEASE_POLICY.md` — Freeze policy: release/* only, required checks on release branch, only tagged vX.Y.Z can ship
 - [docs/PRODUCTION_READINESS_GO_NO_GO.md](./PRODUCTION_READINESS_GO_NO_GO.md) — Go/no-go gate for production readiness
@@ -50,9 +100,35 @@
 
 ---
 
+## Video pipeline
+
+Metadata-driven visual storytelling engine: script segments → Shot Planner → Asset Resolver → Timeline Builder → CaptionAdapter → Renderer → QC → Provenance → Distribution.
+
+| Item | Location |
+|------|----------|
+| **Video pipeline spec (canonical)** | [docs/VIDEO_PIPELINE_SPEC.md](./VIDEO_PIPELINE_SPEC.md) — Stage order, contracts, config refs, motion/style, handoff |
+| **Render manifest schema** | [schemas/video/render_manifest_v1.schema.json](../schemas/video/render_manifest_v1.schema.json) — Segments → atoms (plan_id, segments[], primary_atom_id, atom_refs) |
+| **Image bank asset schema** | [schemas/video/image_bank_asset_v1.schema.json](../schemas/video/image_bank_asset_v1.schema.json) — asset_id, composition_compat (per aspect), caption_safe_zone, safety_score, style_version |
+| **Video config** | [config/video/](../config/video/) — pacing_by_content_type, caption_policies, degraded_render_policy, visual_intent_defaults, emotion_to_camera_overrides, motion_policy, hook_selection_rules, music_policy, brand_style_tokens, aspect_ratio_presets, visual_metaphor_library, cross_video_dedup, asset_selection_priority, color_grade_presets, render_params (crop_margin_pct) |
+| **Golden fixtures** | [fixtures/video_pipeline/](../fixtures/video_pipeline/) — render_manifest, script_segments, shot_plan, timeline, distribution_manifest, video_provenance |
+| **Pipeline scripts** | [scripts/video/](../scripts/video/) — prepare_script_segments, run_shot_planner, run_asset_resolver, run_timeline_builder, run_caption_adapter, run_qc, write_provenance, write_metadata, run_render (end_time_s = end timestamp, duration_s = end_s − start_s), run_pipeline (orchestrator), [run_flux_generate.py](../scripts/video/run_flux_generate.py) (FLUX image bank generation) |
+| **Storage layout (persistent vs ephemeral)** | [docs/VIDEO_PIPELINE_STORAGE_LAYOUT.md](./VIDEO_PIPELINE_STORAGE_LAYOUT.md) — artifacts/video/ (persistent); staging/&lt;date&gt;/ (ephemeral, wipe after ack) |
+| **Test and review plan** | [docs/VIDEO_PIPELINE_TEST_AND_REVIEW_PLAN.md](./VIDEO_PIPELINE_TEST_AND_REVIEW_PLAN.md) — regression (fixture), real 15+ segment run, teacher mode alignment, fix plan |
+| **Post–first-video backlog** | [docs/VIDEO_PIPELINE_POST_FIRST_VIDEO_BACKLOG.md](./VIDEO_PIPELINE_POST_FIRST_VIDEO_BACKLOG.md) — pipeline_version, input refs, placeholder naming, timing log, QC expansion, FFmpeg params |
+| **Visual brief (image bank)** | [docs/VIDEO_PIPELINE_VISUAL_BRIEF.md](./VIDEO_PIPELINE_VISUAL_BRIEF.md) — hook types, composition targets, emotion–visual alignment; reference for prompt/composition only |
+| **FFmpeg reference (renderer)** | [docs/VIDEO_PIPELINE_FFMPEG_REFERENCE.md](./VIDEO_PIPELINE_FFMPEG_REFERENCE.md) — zoompan, eq, drawtext/drawbox, encoding presets; render-time params only |
+| **FLUX/Shnell research (Workers AI)** | docs/flux_shnell_research.rtf (optional local reference; if file missing in a fork, treat as backlog item) — Cloudflare Workers AI FLUX API format, auth, request body, image size/aspect, prompt handling; use for video image bank generation (and any future T2I cover art) |
+| **FLUX credentials** | [docs/VIDEO_CLOUDFLARE_FLUX_CREDENTIALS.md](./VIDEO_CLOUDFLARE_FLUX_CREDENTIALS.md) — Cloudflare account/token setup for run_flux_generate.py; env or key file |
+| **Video color master system** | [docs/video-color-master-system.html](./video-color-master-system.html) — Canonical palette: 4 bands (Hook, Cool/Calm, Warm/Rise, Neutral/Root), per-topic hex, text-on-color previews, Shnell seed/guidance, per-band never rules; source for brand_style_tokens.yaml |
+| **Video image master prompt spec** | [docs/VIDEO_IMAGE_MASTER_PROMPT_SPEC.md](./VIDEO_IMAGE_MASTER_PROMPT_SPEC.md) — Template (foreground → Background: → Overall lighting: 9:16), anxiety/cool_calm example, Cloudflare FLUX API, run_flux_generate.py |
+
+---
+
 ## Rigorous system test & simulation (document all)
 
 Single index: every doc, script, config, and artifact for simulation, 10k/100k knob coverage, analyzer, and production 100% requirements. **Simulation = readiness tooling; production 100%** still requires real canaries, CI gate on analyzer, evidence on main, release smoke + rollback proof ([RIGOROUS_SYSTEM_TEST.md](./RIGOROUS_SYSTEM_TEST.md)).
+
+**Robust intelligent testing:** One entry point runs 10k sim (or uses existing artifact) → analyzer (per-format, per-tier, baseline regression, phase2/phase3 gates) → bestseller/root-cause report (heuristic root-cause buckets, high-risk format/tier, optional LLM). Use [scripts/ci/run_intelligent_sim_gates.py](../scripts/ci/run_intelligent_sim_gates.py) with `--run-sim`, `--min-pass-rate`, `--min-format-rate`, `--min-tier-rate`, `--baseline`, `--strict`, `--llm`. Scripts: [Analyzer](../scripts/ci/analyze_pearl_prime_sim.py), [Bestseller error report](../scripts/ci/llm_bestseller_error_report.py), [Intelligent sim gates runner](../scripts/ci/run_intelligent_sim_gates.py).
 
 ### Docs
 
@@ -77,8 +153,11 @@ Single index: every doc, script, config, and artifact for simulation, 10k/100k k
 | **Phase 2** | [simulation/phase2.py](../simulation/phase2.py) — Waveform, arc, drift on Phase 1 results |
 | **Phase 3 MVP** | [simulation/phase3_mvp.py](../simulation/phase3_mvp.py) — Volatility, cognitive, consequence, reassurance on synthetic text |
 | **10k sim runner** | [scripts/ci/run_simulation_10k.py](../scripts/ci/run_simulation_10k.py) — n=10000, --use-format-selector, --phase2, --phase3 (CI) |
-| **100k sim runner** | `scripts/ci/run_simulation_100k.py` — n=100000, --full-knobs; optional --n, --out ⚠️ *file not present* |
-| **Analyzer** | [scripts/ci/analyze_pearl_prime_sim.py](../scripts/ci/analyze_pearl_prime_sim.py) — Pass rate by dimension; best/worst combos; --input, --out |
+| **100k sim runner** | [scripts/ci/run_simulation_100k.py](../scripts/ci/run_simulation_100k.py) — n=100000 (or --n); --use-format-selector, --phase2, --phase3; optional --out (default artifacts/simulation_100k.json) |
+| **Analyzer** | [scripts/ci/analyze_pearl_prime_sim.py](../scripts/ci/analyze_pearl_prime_sim.py) — **Robust intelligent:** pass rate by format/tier; best/worst combos; --min-pass-rate, --min-format-rate, --min-tier-rate, --min-phase2-rate, --min-phase3-rate; --baseline + --regress-tolerance for regression; binomial stderr; phase2/phase3 dimension gates; --input, --out |
+| **Intelligent sim gates runner** | [scripts/ci/run_intelligent_sim_gates.py](../scripts/ci/run_intelligent_sim_gates.py) — Single entry: optional --run-sim (10k), then analyzer (per-dimension + baseline), then bestseller report; --sim-artifact, --min-pass-rate, --min-format-rate, --min-tier-rate, --baseline, --strict, --llm, --no-fail |
+| **Cohesive bestseller tester** | [scripts/ci/llm_cohesive_bestseller_tester.py](../scripts/ci/llm_cohesive_bestseller_tester.py) — Robust testing: 10k Pearl Prime + 10k teacher-mode matrix + EI v2; read-all config, dimension analysis, severity (CRITICAL/HIGH/MEDIUM/LOW), health score 0–100, baseline comparison, optional LLM; --pearl-prime-input, --teacher-matrix, --ei-v2-report, --llm, --baseline, --require-100 |
+| **Bestseller error report** | [scripts/ci/llm_bestseller_error_report.py](../scripts/ci/llm_bestseller_error_report.py) — From 10k sim: heuristic root-cause buckets (insufficient_pool, phase2/phase3, etc.), high-risk format/tier (failure rate >20%); bestseller-tier failures; optional --llm; --strict fails on high-risk; --input, --out; use with analyzer --min-pass-rate 1.0 for 100% gate |
 | **Rigorous suite runner** | [scripts/ci/run_rigorous_system_test.py](../scripts/ci/run_rigorous_system_test.py) — Systems test + variation + atoms coverage + optional sim |
 | **Canary** | [scripts/ci/run_canary_100_books.py](../scripts/ci/run_canary_100_books.py) — Real pipeline on sampled arcs |
 | **Variation report** | [scripts/ci/report_variation_knobs.py](../scripts/ci/report_variation_knobs.py) — variation_knob_distribution, pearl_prime block from plans/index |
@@ -97,7 +176,7 @@ Single index: every doc, script, config, and artifact for simulation, 10k/100k k
 | **Canonical personas/topics** | [config/catalog_planning/canonical_personas.yaml](../config/catalog_planning/canonical_personas.yaml), [config/catalog_planning/canonical_topics.yaml](../config/catalog_planning/canonical_topics.yaml) — Knob sampler / full-knobs source |
 | **Angles** | [config/angles/angle_registry.yaml](../config/angles/angle_registry.yaml) — angle_id for sim |
 | **Book structure / journey / motif / reframe** | [config/source_of_truth/book_structure_archetypes.yaml](../config/source_of_truth/book_structure_archetypes.yaml), [config/source_of_truth/journey_shapes.yaml](../config/source_of_truth/journey_shapes.yaml), [config/source_of_truth/recurring_motif_bank.yaml](../config/source_of_truth/recurring_motif_bank.yaml), [config/source_of_truth/reframe_line_bank.yaml](../config/source_of_truth/reframe_line_bank.yaml) |
-| **Section / chapter order** | [config/source_of_truth/section_reorder_modes.yaml](../config/source_of_truth/section_reorder_modes.yaml) — `chapter_order_modes.yaml` ⚠️ *file not present* |
+| **Section / chapter order** | [config/source_of_truth/section_reorder_modes.yaml](../config/source_of_truth/section_reorder_modes.yaml), [config/source_of_truth/chapter_order_modes.yaml](../config/source_of_truth/chapter_order_modes.yaml) — Section reorder policies; chapter order modes for simulation |
 
 ### Artifacts
 
@@ -105,9 +184,15 @@ Single index: every doc, script, config, and artifact for simulation, 10k/100k k
 |------|----------|
 | **10k results** | `artifacts/simulation_10k.json` (from run_simulation_10k.py --out) |
 | **100k results** | `artifacts/simulation_100k.json` (optional --out from run_simulation_100k.py) |
-| **Analysis JSON** | `artifacts/reports/pearl_prime_sim_analysis.json` (from analyze_pearl_prime_sim.py --out) |
+| **Analysis JSON** | `artifacts/reports/pearl_prime_sim_analysis.json` (from analyze_pearl_prime_sim.py --out; includes overall_pass_rate_stderr, phase2/phase3_pass_rate, by_format, by_tier) |
 | **Analysis summary** | `artifacts/reports/pearl_prime_sim_analysis_SUMMARY.txt` |
-| **Simulation baseline** | [artifacts/reports/pearl_prime_sim_baseline.json](../artifacts/reports/pearl_prime_sim_baseline.json) — min_pass_rate for CI threshold |
+| **Bestseller error report** | `artifacts/reports/bestseller_error_report.json` — Root-cause buckets, high_risk_formats/tiers, failure_rate_by_format/tier, optional llm_analysis |
+| **Bestseller error summary** | `artifacts/reports/bestseller_error_report_SUMMARY.txt` — Total/bestseller failed, root cause (heuristic), error counts, high-risk list |
+| **Simulation baseline** | [artifacts/reports/pearl_prime_sim_baseline.json](../artifacts/reports/pearl_prime_sim_baseline.json) — min_pass_rate for CI threshold; optional baseline for analyzer --baseline regression check |
+| **Cohesive bestseller report** | `artifacts/reports/cohesive_bestseller_tester_report.json` — Health score, severity, pearl/teacher/EI v2 analysis, optional LLM what_is_100_percent/root_causes (from llm_cohesive_bestseller_tester.py) |
+| **Cohesive bestseller summary** | `artifacts/reports/cohesive_bestseller_tester_SUMMARY.txt` — Human-readable health, severity, dimension fails, LLM summary |
+| **Bestseller error report** | `artifacts/reports/bestseller_error_report.json` — Bestseller-tier failures from 10k sim; optional llm_analysis (from llm_bestseller_error_report.py) |
+| **Bestseller error summary** | `artifacts/reports/bestseller_error_report_SUMMARY.txt` |
 | **Variation report** | `artifacts/reports/variation_report.json` (from report_variation_knobs.py) |
 | **Drift dashboard** | `artifacts/drift/` (from build_structural_drift_dashboard.py) |
 
@@ -144,10 +229,13 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 | **Architecture spec** | [docs/PEARL_NEWS_ARCHITECTURE_SPEC.md](./PEARL_NEWS_ARCHITECTURE_SPEC.md) — Pipeline, atoms, templates, config, governance |
 | **Article metadata schema (doc)** | [docs/PEARL_NEWS_ARTICLE_METADATA_SCHEMA.md](./PEARL_NEWS_ARTICLE_METADATA_SCHEMA.md) — Frozen metadata contract for `article_metadata.jsonl`; required keys, governance use |
 | **GitHub scheduling** | [docs/PEARL_NEWS_GITHUB_SCHEDULING.md](./PEARL_NEWS_GITHUB_SCHEDULING.md) — Scheduled pipeline runs, WordPress posting, GitHub Actions, secrets |
+| **Option B runbook (Qwen/Qwen-Agent)** | [docs/PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md) — Copy Pearl News into Ahjan108/Qwen-Agent or Qwen; exact cp commands; self-hosted + LM Studio; §7 LM Studio reliability (schedule = no expand, manual = expand); 6 secrets; verify |
 | **Minimal prod checklist** | [docs/PEARL_NEWS_MINIMAL_PROD_CHECKLIST.md](./PEARL_NEWS_MINIMAL_PROD_CHECKLIST.md) — Code/tests must-pass + 6 operational gates; pre-merge verification, rollback procedure |
 | **GO/NO-GO checklist** | [docs/PEARL_NEWS_GO_NO_GO_CHECKLIST.md](./PEARL_NEWS_GO_NO_GO_CHECKLIST.md) — Production 100% gates: networked run, CI green, signed checklist with evidence |
 | **Hardening 100%** | [docs/PEARL_NEWS_HARDENING_100_PERCENT.md](./PEARL_NEWS_HARDENING_100_PERCENT.md) — URL normalization, one-command runner, CI preflight, evidence bundle |
-| **Writer spec** | `docs/PEARL_NEWS_WRITER_SPEC.md` ⚠️ *file not present* — Voice, atom types, 4-layer blend, quality gates, template guidance |
+| **Writer spec** | [docs/PEARL_NEWS_WRITER_SPEC.md](./PEARL_NEWS_WRITER_SPEC.md) — Voice, 4-layer blend, per-template writing guide, lede patterns, youth specificity standard, teacher integration rules, SDG integration, quality gates writing layer; authority for expansion prompt craft rules |
+| **Expansion prompt** | [pearl_news/prompts/expansion_system.txt](../pearl_news/prompts/expansion_system.txt) — System prompt for LLM expansion (~1000 words); implements Writer spec craft rules (lede, youth impact, teacher layer, forward look, SDG, what we never write); used with `--expand` |
+| **Prompts README** | [pearl_news/prompts/README.md](../pearl_news/prompts/README.md) — Documents expansion_system.txt and link to Writer spec |
 | **Pearl News README** | [pearl_news/README.md](../pearl_news/README.md) — Quick start, structure, one-command run |
 | **Publish README** | [pearl_news/publish/README.md](../pearl_news/publish/README.md) — WordPress credentials, article format, posting script |
 | **Pipeline README** | [pearl_news/pipeline/README.md](../pearl_news/pipeline/README.md) — Pipeline stages, usage |
@@ -159,7 +247,7 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 
 | Item | Location |
 |------|----------|
-| **Run article pipeline** | [pearl_news/pipeline/run_article_pipeline.py](../pearl_news/pipeline/run_article_pipeline.py) — `python -m pearl_news.pipeline.run_article_pipeline --feeds pearl_news/config/feeds.yaml --out-dir artifacts/pearl_news/drafts`; `--limit`, `--per-feed-limit`, `--no-filter-qc` |
+| **Run article pipeline** | [pearl_news/pipeline/run_article_pipeline.py](../pearl_news/pipeline/run_article_pipeline.py) — `python -m pearl_news.pipeline.run_article_pipeline --feeds pearl_news/config/feeds.yaml --out-dir artifacts/pearl_news/drafts`; `--limit`, `--per-feed-limit`, `--no-filter-qc`, `--expand` (LLM expansion per Writer spec) |
 | **Networked run + evidence** | [scripts/pearl_news_networked_run_and_evidence.sh](../scripts/pearl_news_networked_run_and_evidence.sh) — Live feed run; writes `artifacts/pearl_news/evaluation/networked_run_evidence.json` |
 | **Post to WordPress** | [scripts/pearl_news_post_to_wp.py](../scripts/pearl_news_post_to_wp.py) — `--article <path>`, `--status draft|publish`, `--dry-run` |
 | **Do-it script** | [scripts/pearl_news_do_it.sh](../scripts/pearl_news_do_it.sh) — Convenience runner; optional `--post` |
@@ -171,10 +259,11 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 | **Feed ingest** | [pearl_news/pipeline/feed_ingest.py](../pearl_news/pipeline/feed_ingest.py) — Ingest RSS/Atom from feeds.yaml |
 | **Topic/SDG classifier** | [pearl_news/pipeline/topic_sdg_classifier.py](../pearl_news/pipeline/topic_sdg_classifier.py) — topic, primary_sdg, sdg_labels, un_body from sdg_news_topic_mapping.yaml |
 | **Template selector** | [pearl_news/pipeline/template_selector.py](../pearl_news/pipeline/template_selector.py) — template_id per item from article_templates_index |
-| **Article assembler** | [pearl_news/pipeline/article_assembler.py](../pearl_news/pipeline/article_assembler.py) — Fills template slots (news + teacher + youth + SDG); appends disclaimer |
+| **Article assembler** | [pearl_news/pipeline/article_assembler.py](../pearl_news/pipeline/article_assembler.py) — Fills template slots (news + teacher + youth + SDG); source at end; no per-article disclaimer |
+| **LLM expansion** | [pearl_news/pipeline/llm_expand.py](../pearl_news/pipeline/llm_expand.py) — Optional expansion step: loads expansion_system.txt + llm_expansion.yaml; OpenAI-compatible API (Qwen/LM Studio); env override QWEN_BASE_URL, QWEN_API_KEY, QWEN_MODEL; used when `--expand` passed |
 | **Quality gates** | [pearl_news/pipeline/quality_gates.py](../pearl_news/pipeline/quality_gates.py) — 5 fail-hard gates: fact_check, youth_specificity, sdg_accuracy, promotional, un_endorsement |
 | **QC checklist** | [pearl_news/pipeline/qc_checklist.py](../pearl_news/pipeline/qc_checklist.py) — Runs gates; optionally filter to passed-only |
-| **WordPress client** | [pearl_news/publish/wordpress_client.py](../pearl_news/publish/wordpress_client.py) — REST API client; env-based credentials; appends legal disclaimer |
+| **WordPress client** | [pearl_news/publish/wordpress_client.py](../pearl_news/publish/wordpress_client.py) — REST API client; env-based credentials; optional author (alternate); no per-article disclaimer |
 
 ### Config
 
@@ -183,11 +272,14 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 | **Feeds** | [pearl_news/config/feeds.yaml](../pearl_news/config/feeds.yaml) — UN News RSS URLs, refresh_minutes |
 | **SDG/news topic mapping** | [pearl_news/config/sdg_news_topic_mapping.yaml](../pearl_news/config/sdg_news_topic_mapping.yaml) — topic → primary_sdg, sdg_labels, un_body |
 | **Article templates index** | [pearl_news/config/article_templates_index.yaml](../pearl_news/config/article_templates_index.yaml) — template_id → template file |
-| **Legal boundary** | [pearl_news/config/legal_boundary.yaml](../pearl_news/config/legal_boundary.yaml) — Mandatory disclaimers, UN-affiliation blocklist |
+| **Legal boundary** | [pearl_news/config/legal_boundary.yaml](../pearl_news/config/legal_boundary.yaml) — Disclaimer text for site About; UN-affiliation blocklist |
 | **Editorial firewall** | [pearl_news/config/editorial_firewall.yaml](../pearl_news/config/editorial_firewall.yaml) — Labeling (news vs commentary), source requirements |
 | **Template diversity** | [pearl_news/config/template_diversity.yaml](../pearl_news/config/template_diversity.yaml) — Content signatures, caps on repeated patterns |
 | **Quality gates** | [pearl_news/config/quality_gates.yaml](../pearl_news/config/quality_gates.yaml) — 5 gate definitions |
 | **LLM safety** | [pearl_news/config/llm_safety.yaml](../pearl_news/config/llm_safety.yaml) — Allowed tasks, gating for full article generation |
+| **LLM expansion** | [pearl_news/config/llm_expansion.yaml](../pearl_news/config/llm_expansion.yaml) — base_url, model, api_key, timeout, max_tokens, target_word_count; env override for self-hosted runs |
+| **Site** | [pearl_news/config/site.yaml](../pearl_news/config/site.yaml) — target_word_count, placeholder_featured_image_by_template, placeholder_featured_image_default |
+| **WordPress authors** | [pearl_news/config/wordpress_authors.yaml](../pearl_news/config/wordpress_authors.yaml) — author_ids for round-robin assignment to articles |
 | **Teacher topic expertise** | [pearl_news/config/teacher_topic_expertise.yaml](../pearl_news/config/teacher_topic_expertise.yaml) — Teacher–topic mapping for assembly |
 
 ### Article templates
@@ -229,6 +321,7 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 |------|----------|
 | **Pearl News gates** | [.github/workflows/pearl_news_gates.yml](../.github/workflows/pearl_news_gates.yml) — On push/PR to main (pearl_news/**, test files); runs pytest for test_pearl_news_quality_gates_minimal, test_pearl_news_pipeline_e2e |
 | **Pearl News scheduled** | [.github/workflows/pearl_news_scheduled.yml](../.github/workflows/pearl_news_scheduled.yml) — Scheduled/manual run: pipeline → drafts → optional WordPress dry-run; uploads artifact pearl_news_drafts |
+| **Pearl News scheduled (self-hosted)** | [.github/workflows/pearl_news_scheduled_self_hosted.yml](../.github/workflows/pearl_news_scheduled_self_hosted.yml) — For Option B: runs-on self-hosted, timeout-minutes 45, PEARL_NEWS_EXPAND/PEARL_NEWS_LIMIT env; copy as pearl_news_scheduled.yml into Qwen-Agent or Qwen |
 
 ---
 
@@ -242,6 +335,75 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 
 ---
 
+## Autonomous improvement & ML system (document all)
+
+Single inventory: observability, operations board, agent PRs, auto-merge, weekly pipeline, KPI triggers, ML editorial, and autonomous loop (24/7 + daily + weekly). **Full list:** [docs/AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md](./AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md).
+
+### Docs
+
+| Item | Location |
+|------|----------|
+| **Master inventory (document all)** | [docs/AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md](./AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md) — Every doc, config, script, workflow, artifact for observability, operations board, agent, auto-merge, weekly pipeline, KPI, ML editorial, ML loop |
+| **Production observability & learning** | [docs/PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md](./PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md) — POLES: observe, document, elevate/fix, learn; signals, evidence, KPI evaluator, operations board |
+| **Auto-merge policy** | [docs/AUTO_MERGE_POLICY.md](./AUTO_MERGE_POLICY.md) — Low-risk agent PRs; label bot-fix; allowed paths; required checks |
+| **ML Editorial + Market Intelligence** | [docs/ML_EDITORIAL_MARKET_LOOP_SPEC.md](./ML_EDITORIAL_MARKET_LOOP_SPEC.md) — Section quality, variant ranking, reader-fit, rewrite recs, market router; data contracts |
+| **ML Editorial safety** | [docs/ML_EDITORIAL_SAFETY_AND_GOVERNANCE.md](./ML_EDITORIAL_SAFETY_AND_GOVERNANCE.md) — Kill switch, allowlist, audit log, rollback, calibration gate |
+| **ML Autonomous loop (24/7 + daily + weekly)** | [docs/ML_AUTONOMOUS_LOOP_SPEC.md](./ML_AUTONOMOUS_LOOP_SPEC.md) — Continuous, daily promotion, weekly recalibration; agent roles; optional proof (§15) |
+
+### Config
+
+| Item | Location |
+|------|----------|
+| **Observability signals** | [config/observability_production_signals.yaml](../config/observability_production_signals.yaml) |
+| **Observability KPI targets** | [config/observability_kpi_targets.yaml](../config/observability_kpi_targets.yaml) |
+| **ML editorial** | [config/ml_editorial/ml_editorial_config.yaml](../config/ml_editorial/ml_editorial_config.yaml), [config/ml_editorial/kpi_targets.yaml](../config/ml_editorial/kpi_targets.yaml) |
+| **ML loop** | [config/ml_loop/promotion_policy.yaml](../config/ml_loop/promotion_policy.yaml), [config/ml_loop/kpi_targets.yaml](../config/ml_loop/kpi_targets.yaml), [config/ml_loop/drift_thresholds.yaml](../config/ml_loop/drift_thresholds.yaml) |
+
+### Scripts
+
+| Item | Location |
+|------|----------|
+| **Observability** | [scripts/observability/collect_signals.py](../scripts/observability/collect_signals.py), [write_operations_board.py](../scripts/observability/write_operations_board.py), [evaluate_kpi_targets.py](../scripts/observability/evaluate_kpi_targets.py), [agent_open_fix_pr.py](../scripts/observability/agent_open_fix_pr.py) |
+| **Weekly pipeline** | [scripts/release/weekly_pipeline_with_marketing.py](../scripts/release/weekly_pipeline_with_marketing.py) |
+| **ML editorial** | [scripts/ml_editorial/run_section_scoring.py](../scripts/ml_editorial/run_section_scoring.py), run_variant_ranking, run_reader_fit, run_rewrite_recs, run_market_router, [run_weekly_ml_editorial.py](../scripts/ml_editorial/run_weekly_ml_editorial.py); [scripts/dashboard/ml_editorial_tab.py](../scripts/dashboard/ml_editorial_tab.py) |
+| **ML loop** | [scripts/ml_loop/run_continuous_loop.py](../scripts/ml_loop/run_continuous_loop.py), [run_daily_promotion.py](../scripts/ml_loop/run_daily_promotion.py), [run_weekly_market_recalibration.py](../scripts/ml_loop/run_weekly_market_recalibration.py), [agent_open_fix_pr.py](../scripts/ml_loop/agent_open_fix_pr.py), [verify_workflows_and_artifacts.sh](../scripts/ml_loop/verify_workflows_and_artifacts.sh) |
+
+### Artifacts
+
+| Item | Location |
+|------|----------|
+| **Observability** | artifacts/observability/signal_snapshot*.json, evidence_log.jsonl, elevated_failures.jsonl, operations_board.jsonl, kpi_trigger.json |
+| **ML editorial** | artifacts/ml_editorial/section_scores.jsonl, variant_rankings.jsonl, reader_fit_scores.jsonl, rewrite_recs.jsonl, market_actions.jsonl, audit_log.jsonl |
+| **ML loop** | artifacts/ml_loop/continuous_candidates.jsonl, promotion_queue.jsonl, weekly_report.json, baseline.json |
+| **EI V2 marketing** | artifacts/ei_v2/marketing_integration.log |
+
+### Workflows
+
+| Item | Location |
+|------|----------|
+| **Observability + agent** | [.github/workflows/production-observability.yml](../.github/workflows/production-observability.yml) |
+| **Auto-merge** | [.github/workflows/auto-merge-bot-fix.yml](../.github/workflows/auto-merge-bot-fix.yml) |
+| **Weekly pipeline** | [.github/workflows/weekly-pipeline.yml](../.github/workflows/weekly-pipeline.yml) |
+| **ML editorial weekly** | [.github/workflows/ml-editorial-weekly.yml](../.github/workflows/ml-editorial-weekly.yml) |
+| **ML loop** | [.github/workflows/ml-loop-continuous.yml](../.github/workflows/ml-loop-continuous.yml), [ml-loop-daily-promotion.yml](../.github/workflows/ml-loop-daily-promotion.yml), [ml-loop-weekly-recalibration.yml](../.github/workflows/ml-loop-weekly-recalibration.yml) |
+
+---
+
+## Change observation and impact (document all)
+
+System registry, add/change/drop detection, impact analysis. **Spec:** [docs/CHANGE_OBSERVATION_AND_IMPACT_SPEC.md](./CHANGE_OBSERVATION_AND_IMPACT_SPEC.md).
+
+| Item | Location |
+|------|----------|
+| **Spec** | [docs/CHANGE_OBSERVATION_AND_IMPACT_SPEC.md](./CHANGE_OBSERVATION_AND_IMPACT_SPEC.md) |
+| **System registry** | [config/governance/system_registry.yaml](../config/governance/system_registry.yaml) — systems, assets, related_systems, downstream |
+| **Detect changes** | [scripts/observability/detect_changes.py](../scripts/observability/detect_changes.py) — `--base` / `--head` Git refs → change_events.jsonl |
+| **Impact from changes** | [scripts/observability/impact_from_changes.py](../scripts/observability/impact_from_changes.py) — change_events → impact summary (affected_systems, downstream, related) |
+| **CI workflow** | [.github/workflows/change-impact.yml](../.github/workflows/change-impact.yml) — PR/push to main; runs detect + impact; uploads artifacts |
+| **Artifacts** | artifacts/observability/change_events.jsonl, impact_*.json |
+
+---
+
 ## Marketing & deep research (document all)
 
 Single index: every doc, spec, script, and config that uses or is fed by marketing deep research (prompts, invisible scripts, title philosophy, belief flip, consumer language). Outputs feed brand registry, title engine, persona metadata, and content briefs.
@@ -250,10 +412,15 @@ Single index: every doc, spec, script, and config that uses or is fed by marketi
 
 | Item | Location |
 |------|----------|
-| **Marketing deep research prompts** | [docs/MARKETING_DEEP_RESEARCH_PROMPTS.md](./MARKETING_DEEP_RESEARCH_PROMPTS.md) — One-to-many deep research prompts; master + 7 sub-prompts (per-brand GTM, emotional vocabulary, consumer vs clinical language, persona×topic invisible scripts, duration bands, cover design, pricing). **Use:** Run via deep research workflow; output feeds brand registry, title engine, persona metadata, content briefs. Downstream: [PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md), HOOK atoms, title engine seeds. |
+| **Marketing deep research prompts** | [docs/research/MARKETING_DEEP_RESEARCH_PROMPTS.md](./research/MARKETING_DEEP_RESEARCH_PROMPTS.md) — One-to-many deep research prompts; master + 7 sub-prompts (per-brand GTM, emotional vocabulary, consumer vs clinical language, persona×topic invisible scripts, duration bands, cover design, pricing). **Use:** Run via deep research workflow; output feeds brand registry, title engine, persona metadata, content briefs. Downstream: [PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md), HOOK atoms, title engine seeds. |
 | **Title & catalog marketing system** | [docs/TITLE_AND_CATALOG_MARKETING_SYSTEM.md](./TITLE_AND_CATALOG_MARKETING_SYSTEM.md) — Title philosophy (search keyword, invisible script, brand voice); deep research integration; ops-manual dimensions (templates, imprints, validation); title engine v2→v4. Authority: [PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md). |
 | **Locale catalog marketing plan** | [docs/LOCALE_CATALOG_MARKETING_PLAN.md](./LOCALE_CATALOG_MARKETING_PLAN.md) — Per-locale positioning, go-live checklists, invisible script per locale; extends title philosophy; references deep research briefs. |
 | **New language/location onboarding** | [docs/NEW_LANGUAGE_LOCATION_ONBOARDING.md](./NEW_LANGUAGE_LOCATION_ONBOARDING.md) — Market-driven process and deep research prompts for onboarding a new language, location, topic, or persona. Covers personas, topics (topic families), authors, platforms, metadata, marketing, writing spec, book titles, stories. Use when adding a new locale or expanding persona/topic in a locale. |
+| **Generational deep research (Pearl News)** | [docs/research/continue_gen_research3.md](./research/continue_gen_research3.md) — Master spec: generational intelligence engine for Gen Z/Gen Alpha; three core layers (Psychology, Problems/Aspirations, Event Impact); two-pass YAML fix; Contradiction Audit, Persona Switching; local Qwen3 only (no Gemini). Buildable spec for pipeline. |
+| **Continuous research plan** | [docs/research/CONTINUOUS_RESEARCH_PLAN.md](./research/CONTINUOUS_RESEARCH_PLAN.md) — How the research plane runs: versioned prompts, feed ingest, local Qwen3 two-pass flow, youth signal sources, artifact layout. Points to continue_gen_research3.md. |
+| **Research feed sources** | [docs/research/RESEARCH_FEED_SOURCES.md](./research/RESEARCH_FEED_SOURCES.md) — Youth + marketing feed list (RSS and platforms: TikTok, Reddit, UNICEF, Pew, APA, PW, Spotify). Config: config/research/youth_feed_sources.yaml, marketing_feed_sources.yaml. |
+| **Marketing free sources** | [docs/MARKETING_FREE_SOURCES.md](./MARKETING_FREE_SOURCES.md) — Free audiobook/marketing data (APA, PW, Spotify); paste-and-extract with local Qwen3. |
+| **Freebie marketing plan** | [docs/FREEBIE_MARKETING_PLAN.md](./FREEBIE_MARKETING_PLAN.md) — Freebie funnel: objectives, Proof Loop, stages, email sequence, GHL, analytics, governance; 4-email MVP vs E5. See [Freebie funnel, Proof Loop & launch](#freebie-funnel-proof-loop--launch-document-all). |
 | **Release velocity and schedule** | [docs/RELEASE_VELOCITY_AND_SCHEDULE.md](./RELEASE_VELOCITY_AND_SCHEDULE.md) — Release velocity and schedule |
 | **Platform hardening phases** | [docs/PLATFORM_HARDENING_PHASES_3-8_OUTLINE.md](./PLATFORM_HARDENING_PHASES_3-8_OUTLINE.md) — Platform hardening phases 3–8 |
 
@@ -262,27 +429,50 @@ Single index: every doc, spec, script, and config that uses or is fed by marketi
 | Item | Location |
 |------|----------|
 | **Deep research integration spec** | [specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md) — Narrative Depth Layer v1.0: `invisible_script` HOOK subtype, `belief_flip` STORY pattern, SCENE micro-failure, INTEGRATION `milestone_type`, arc quality test. Subordinate to Arc-First Canonical. Feeds: title philosophy, HOOK atoms, marketing brief (invisible_script, belief flip). |
+| **Title engine marketing config spec** | [specs/TITLE_ENGINE_MARKETING_CONFIG_SPEC.md](../specs/TITLE_ENGINE_MARKETING_CONFIG_SPEC.md) — Config layer authority: consumer_language_by_topic.yaml replaces COMPLIANCE_FILTER and topic-level vocabulary; invisible_scripts_by_persona_topic.yaml replaces TOPIC_VOCABULARY.invisible_scripts; config-driven loader with fallback; generate_invisible_script() persona×topic sourcing. **Implementation complete** (config, loader, compliance + invisible_script wiring, validate_marketing_config.py, marketing-config-gate.yml). COMPLIANCE_FILTER is currently parallel; deprecation to single source of truth in spec §9. |
+| **EI V2 marketing integration spec** | [docs/EI_V2_MARKETING_INTEGRATION_SPEC.md](./EI_V2_MARKETING_INTEGRATION_SPEC.md) — marketing_deep_research → EI V2: loader, domain_embeddings/safety_classifier wiring, 6 locked decisions, calibration + logging, 7 must-have UI requirements, implementation plan and definition of done |
+| **ML Editorial + Market Intelligence loop** | [docs/ML_EDITORIAL_MARKET_LOOP_SPEC.md](./ML_EDITORIAL_MARKET_LOOP_SPEC.md) — Section quality, variant ranking, reader-fit, rewrite recs, market router; artifacts in `artifacts/ml_editorial/`; config `config/ml_editorial/`; scripts `scripts/ml_editorial/`; dashboard tab [scripts/dashboard/ml_editorial_tab.py](../scripts/dashboard/ml_editorial_tab.py); safety [ML_EDITORIAL_SAFETY_AND_GOVERNANCE.md](./ML_EDITORIAL_SAFETY_AND_GOVERNANCE.md). Weekly workflow: `.github/workflows/ml-editorial-weekly.yml`. |
+| **Autonomous Improvement (24/7 + Daily + Weekly)** | [docs/ML_AUTONOMOUS_LOOP_SPEC.md](./ML_AUTONOMOUS_LOOP_SPEC.md) — Continuous loop (hourly): score, fast gates, queue, operations board. Daily promotion: queue → auto-PR (allowlist). Weekly: market recalibration, report, baseline. Config `config/ml_loop/` (promotion_policy, kpi_targets, drift_thresholds); scripts `scripts/ml_loop/`. Workflows: `ml-loop-continuous.yml`, `ml-loop-daily-promotion.yml`, `ml-loop-weekly-recalibration.yml`. |
 
 ### Scripts / code (consumers of deep research outputs)
 
 | Item | Location |
 |------|----------|
 | **Title engine (v3)** | [phoenix_title_engine_v3.py](../phoenix_title_engine_v3.py) — `generate_invisible_script()`; title = search keyword + invisible script; persona×topic invisible_scripts in topic vocab |
-| **Title engine (v4)** | [phoenix_title_engine_v4.py](../phoenix_title_engine_v4.py) — Same; invisible_script in title generation pipeline |
+| **Title engine (v4)** | [phoenix_title_engine_v4.py](../phoenix_title_engine_v4.py) — Config-driven invisible_script + compliance; loads `MarketingConfigLoader` from `config/marketing/`; falls back to hardcoded TOPIC_VOCABULARY if config absent; generates persona×topic scripts deterministically |
+| **EI v2 Marketing dashboard tab** | [scripts/ei_v2_marketing_dashboard_tab.py](../scripts/ei_v2_marketing_dashboard_tab.py) — Streamlit `render_marketing_tab()`: tail `artifacts/ei_v2/marketing_integration.log`, last-event age, file hashes, schema guards, optional events-by-source chart |
 | **Title engine (legacy)** | [phoenix_title_engine.py](../phoenix_title_engine.py) — `invisible_script` in title model; picks from topic invisible_scripts |
+| **Generational research runner** | [scripts/research/run_research.py](../scripts/research/run_research.py) — Two-pass Qwen3 (reasoning → YAML); psychology, pain_points, event_impact; Ollama API |
+| **Research feed fetcher** | [scripts/research/fetch_feeds.py](../scripts/research/fetch_feeds.py) — Fetches RSS from youth_feed_sources.yaml to artifacts/research/raw/ |
 
-### Config (planned / output targets)
+### Config (marketing layer)
 
 | Item | Location |
 |------|----------|
-| **Invisible scripts by persona×topic** | `config/marketing/invisible_scripts_by_persona_topic.yaml` ⚠️ *file not present* — Target output from MARKETING_DEEP_RESEARCH_PROMPTS sub-prompt 4; fields: `persona_id`, `topic_id`, `invisible_script`. Feeds HOOK seeds and title engine. |
+| **Consumer language by topic** | [config/marketing/consumer_language_by_topic.yaml](../config/marketing/consumer_language_by_topic.yaml) — 14 topics × consumer_phrases, banned_clinical_terms, bridge_language, search_clusters, platform_risk_terms, persona_subtitle_patterns. Feeds title engine compliance filter and CI gate. Authority: marketing_deep_research/ scaffold 03. |
+| **Invisible scripts by persona×topic** | [config/marketing/invisible_scripts_by_persona_topic.yaml](../config/marketing/invisible_scripts_by_persona_topic.yaml) — 140 entries (10 personas × 14 topics), 2 persona-specific invisible scripts each. Feeds HOOK atom seeds and title engine `generate_invisible_script()`. Authority: marketing_deep_research/ scaffold 04. |
+
+### CI / validation
+
+| Item | Location |
+|------|----------|
+| **Marketing config validator** | [phoenix_v4/qa/validate_marketing_config.py](../phoenix_v4/qa/validate_marketing_config.py) — Validates consumer_language_by_topic.yaml and invisible_scripts_by_persona_topic.yaml: required topic/persona IDs, field count ranges, and full 10×14 persona×topic coverage with exactly 2 scripts per cell. Exit 1 on any ERROR. |
+| **Marketing config CI workflow** | [.github/workflows/marketing-config-gate.yml](../.github/workflows/marketing-config-gate.yml) — Runs `python -m phoenix_v4.qa.validate_marketing_config` on PRs/pushes touching config/marketing/**. |
+| **Core tests CI gate** | [.github/workflows/core-tests.yml](../.github/workflows/core-tests.yml) — Includes `Validate marketing config` step before production readiness gates; required for branch protection. |
+
+### Tests
+
+| Item | Location |
+|------|----------|
+| **Marketing config integration tests** | [tests/test_marketing_config_integration.py](../tests/test_marketing_config_integration.py) — Verifies validator pass, config-backed invisible script selection, config-backed keyword selection, and compliance block/monitor behavior. |
 
 ### Use flow
 
-1. **Run prompts:** Use [MARKETING_DEEP_RESEARCH_PROMPTS.md](./MARKETING_DEEP_RESEARCH_PROMPTS.md) (master or sub-prompts) in your deep research workflow.
+1. **Run prompts:** Use [research/MARKETING_DEEP_RESEARCH_PROMPTS.md](./research/MARKETING_DEEP_RESEARCH_PROMPTS.md) (master or sub-prompts) in your deep research workflow.
 2. **Outputs:** Structured YAML/JSON (e.g. per-brand GTM, emotional vocabulary, consumer language, invisible scripts, duration bands, cover language, pricing).
-3. **Ingestion:** Invisible scripts → `config/marketing/invisible_scripts_by_persona_topic.yaml` (when created) or direct input to title engine / HOOK atom authoring.
-4. **Authority:** [PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md) defines how invisible_script and belief_flip integrate into atoms and title philosophy.
+3. **Ingestion:** Consumer language → [config/marketing/consumer_language_by_topic.yaml](../config/marketing/consumer_language_by_topic.yaml); Invisible scripts → [config/marketing/invisible_scripts_by_persona_topic.yaml](../config/marketing/invisible_scripts_by_persona_topic.yaml). Both are now populated and loaded by the title engine.
+4. **Authority:** [PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md) defines how invisible_script and belief_flip integrate into atoms and title philosophy. Config layer (consumer language, invisible scripts, loader, fallback) is specified in [TITLE_ENGINE_MARKETING_CONFIG_SPEC](../specs/TITLE_ENGINE_MARKETING_CONFIG_SPEC.md).
+5. **Generational research (Pearl News):** Local Qwen3 only. Use [research/continue_gen_research3.md](./research/continue_gen_research3.md) and [scripts/research/run_research.py](../scripts/research/run_research.py) for two-pass psychology / pain_points / event_impact runs. Optional: [research_feeds_ingest.yml](../.github/workflows/research_feeds_ingest.yml) fetches RSS to `artifacts/research/raw/`; paste or inject into prompts. See [research/CONTINUOUS_RESEARCH_PLAN.md](./research/CONTINUOUS_RESEARCH_PLAN.md).
 
 ---
 
@@ -332,7 +522,23 @@ Church brands (e.g. NorCal Dharma) are identity/distribution only: no teacher, n
 - [docs/WRITER_BRIEF_BOOK_001.md](./WRITER_BRIEF_BOOK_001.md) — Writer brief for Book_001
 - [docs/WRITER_COMMS_SYSTEMS_100.md](./WRITER_COMMS_SYSTEMS_100.md) — Writer comms systems
 - [docs/WRITER_SPEC_MARKDOWN_AND_DOCX.md](./WRITER_SPEC_MARKDOWN_AND_DOCX.md) — Writer spec (Markdown and DOCX)
+- [docs/WRITER_STORY_READING_LIST.md](./WRITER_STORY_READING_LIST.md) — Full list of files a writer needs for STORY atoms (funnel, Teacher Mode, persona/topic)
+- [docs/WRITER_SPEC_EXTRACT_FOR_ATOMS.md](./WRITER_SPEC_EXTRACT_FOR_ATOMS.md) — Writer spec extract: §4.3 STORY, §6 Four Story Rules, TTS prose/T01–T07, five STORY role types, atom fields (use when full Writer Spec won’t load)
 - [docs/FIRST_10_BOOKS_EVALUATION_PROTOCOL.md](./FIRST_10_BOOKS_EVALUATION_PROTOCOL.md) — First 10 books evaluation protocol
+
+### Pearl Prime structural upgrade (2026-03-06)
+
+Seven-change book quality overhaul addressing root causes: arc second-half repetition (A), chapters lacking a stated point (B), and arc-level emotional momentum (C).
+
+| Change | What | Where |
+|--------|------|-------|
+| **Four new slots** | PIVOT (§4.3a), TAKEAWAY (§4.7), THREAD (§4.7a), PERMISSION (§4.8) | [specs/PHOENIX_V4_5_WRITER_SPEC.md](../specs/PHOENIX_V4_5_WRITER_SPEC.md) v2 |
+| **Chapter thesis field** | One claim per chapter in arc YAML; TAKEAWAY derives from it | Arc schema + [docs/CHAPTER_THESIS_BANK.md](./CHAPTER_THESIS_BANK.md) |
+| **Arc second-half redesign** | 11 new deepening intents for ch 10–20 (replace repeated cycle) | [docs/CHAPTER_THESIS_BANK.md](./CHAPTER_THESIS_BANK.md) §Part II |
+| **Bestseller structure assignment** | 12 structures → beat orders → slot mappings; max 3 in a row | [docs/BESTSELLER_STRUCTURES.md](./BESTSELLER_STRUCTURES.md) |
+
+**Dev wires:** `allowed_slots`, `slot_templates`, `arc_loader.py`, `chapter_flow_gate.py`, chapter planner structure-assignment step.
+**Writing content:** fully documented in `CHAPTER_THESIS_BANK.md` and `BESTSELLER_STRUCTURES.md`; new slot spec in Writer Spec §4.3a/4.7/4.7a/4.8.
 
 ### Author cover art (document all)
 
@@ -344,6 +550,7 @@ Author signature cover art base backgrounds for the first 10 authors of every ca
 | **Registry** | [config/authoring/author_cover_art_registry.yaml](../config/authoring/author_cover_art_registry.yaml) — author_id → cover_art_base, style_hint, palette_tokens |
 | **Resolver** | [phoenix_v4/planning/author_cover_art_resolver.py](../phoenix_v4/planning/author_cover_art_resolver.py) — `resolve_author_cover_art(author_id_or_teacher_id)`; fallback default |
 | **Generator** | [scripts/generate_author_cover_art_bases.py](../scripts/generate_author_cover_art_bases.py) — Pure Python PNG gradients → `assets/authors/cover_art/{author_id}_base.png` |
+| **Workers AI / FLUX (T2I reference)** | docs/flux_shnell_research.rtf (optional local reference; if file missing in a fork, treat as backlog item) — Cloudflare Workers AI FLUX API; use when adding T2I-generated cover art or video image bank |
 | **Pipeline output** | [scripts/run_pipeline.py](../scripts/run_pipeline.py) — Plan JSON: `cover_art_base`, `cover_art_style_hint`, `cover_art_palette_tokens`, `cover_variant_id` |
 | **CI gate** | [scripts/ci/check_author_cover_art.py](../scripts/ci/check_author_cover_art.py) — Launchable authors: registry + PNG + style/palette; exit 0/1 |
 | **Production gates** | [scripts/run_production_readiness_gates.py](../scripts/run_production_readiness_gates.py) — **Gate 18:** author cover art |
@@ -387,6 +594,7 @@ EI V1 is 100% at **test slice** when the 4 targeted unit tests pass. It is **100
 | Item | Location |
 |------|----------|
 | **EI V2 rollout proof checklist** | `docs/EI_V2_ROLLOUT_PROOF_CHECKLIST.md` — Manual steps to confirm EI V2 gates green, 3 consecutive main runs, branch protection; includes proof template and branch-protection evidence link |
+| **EI V2 marketing integration spec** | [docs/EI_V2_MARKETING_INTEGRATION_SPEC.md](./EI_V2_MARKETING_INTEGRATION_SPEC.md) — marketing_deep_research → EI V2: loader (02/03/04), domain_embeddings + safety_classifier wiring, locked decisions, calibration thresholds, logging, dashboard tab, deploy/alerting/scale notes |
 
 ### EI V1 modules (production)
 
@@ -404,8 +612,9 @@ EI V1 is 100% at **test slice** when the 4 targeted unit tests pass. It is **100
 | **V2 entry point** | [phoenix_v4/quality/ei_v2/\_\_init\_\_.py](../phoenix_v4/quality/ei_v2/__init__.py) | `run_ei_v2_analysis()`: orchestrates all enabled V2 modules based on config. Returns `EIV2AnalysisReport` with per-candidate scores and V2 recommendation. `_select_v2_best()` for composite V2 scoring |
 | **Config loader** | [phoenix_v4/quality/ei_v2/config.py](../phoenix_v4/quality/ei_v2/config.py) | `load_ei_v2_config()`: loads defaults + merges from `config/quality/ei_v2_config.yaml`. All modules disabled by default; YAML enables them. Cached after first load |
 | **Cross-encoder reranker** | [phoenix_v4/quality/ei_v2/cross_encoder_reranker.py](../phoenix_v4/quality/ei_v2/cross_encoder_reranker.py) | `rerank_candidates()`: scores thesis-candidate relevance via semantic field overlap, token overlap (Jaccard), positional bonuses. Default `heuristic` mode; pluggable model callback. `_SEMANTIC_FIELDS` for domain terms |
-| **Safety classifier** | [phoenix_v4/quality/ei_v2/safety_classifier.py](../phoenix_v4/quality/ei_v2/safety_classifier.py) | `classify_safety()`: expanded pattern detection for medical claims, clinical language, promotional content, reassurance spam, pathologizing language. Negation handling. Default `heuristic_plus` mode; pluggable LLM |
-| **Domain embeddings** | [phoenix_v4/quality/ei_v2/domain_embeddings.py](../phoenix_v4/quality/ei_v2/domain_embeddings.py) | `domain_thesis_similarity()`: combines thesis alignment (token/semantic overlap) with persona affinity (`_PERSONA_LEXICONS`) and topic coherence (`_TOPIC_LEXICONS`). Default `weighted` heuristic mode; pluggable `embed_fn` |
+| **Safety classifier** | [phoenix_v4/quality/ei_v2/safety_classifier.py](../phoenix_v4/quality/ei_v2/safety_classifier.py) | `classify_safety()`: medical claims, clinical, promotional, reassurance spam, pathologizing. Optional `marketing_compliance` signal (banned clinical + forbidden tokens from loader); blended via `marketing_compliance_weight`. Negation handling; pluggable LLM |
+| **Domain embeddings** | [phoenix_v4/quality/ei_v2/domain_embeddings.py](../phoenix_v4/quality/ei_v2/domain_embeddings.py) | `domain_thesis_similarity()`: thesis alignment + persona affinity + topic coherence. Optional marketing lexicons from loader when `marketing_sources.use_marketing_lexicons`; else built-in `_PERSONA_LEXICONS` / `_TOPIC_LEXICONS`. Pluggable `embed_fn` |
+| **Marketing lexicon loader** | [phoenix_v4/quality/ei_v2/marketing_lexicons.py](../phoenix_v4/quality/ei_v2/marketing_lexicons.py) | Loads 02/03/04 from `marketing_deep_research/` (Option A). Schema-validated; `lexicon_tokenize()` (NFKC, min len 2); mtime cache; observability to `artifacts/ei_v2/marketing_integration.log`. `get_persona_topic_lexicons()`, `get_banned_clinical_and_forbidden()`; fallback on missing/malformed |
 | **Semantic dedup** | [phoenix_v4/quality/ei_v2/semantic_dedup.py](../phoenix_v4/quality/ei_v2/semantic_dedup.py) | `detect_semantic_duplicates()`: word/char n-grams, paragraph shape similarity, narrative beat fingerprinting (`_BEAT_PATTERNS`). Default `ngram_plus_embedding` mode |
 | **Emotion arc validator** | [phoenix_v4/quality/ei_v2/emotion_arc_validator.py](../phoenix_v4/quality/ei_v2/emotion_arc_validator.py) | `validate_emotion_arc()`: internal valence/arousal lexicons score paragraph emotional trajectory against expected BAND values and `emotional_role`. Returns PASS/WARN/FAIL with deviation details |
 | **TTS readability** | [phoenix_v4/quality/ei_v2/tts_readability.py](../phoenix_v4/quality/ei_v2/tts_readability.py) | `score_tts_readability()`: sentence length distribution, rhythm variance, paragraph breaks, problematic TTS patterns (parenthetical, em-dash chains, all-caps), rhetorical questions. Composite 0–1 score |
@@ -420,7 +629,7 @@ EI V1 is 100% at **test slice** when the 4 targeted unit tests pass. It is **100
 
 | Item | Location |
 |------|----------|
-| **EI V2 config** | [config/quality/ei_v2_config.yaml](../config/quality/ei_v2_config.yaml) — Enable/disable each V2 module, set modes (`heuristic`, `heuristic_plus`, `model`), thresholds, composite weights (rerank 0.35, safety 0.25, domain_similarity 0.20, tts_readability 0.20) |
+| **EI V2 config** | [config/quality/ei_v2_config.yaml](../config/quality/ei_v2_config.yaml) — V2 modules, modes, thresholds, composite weights. **Marketing:** `marketing_sources` (enabled, source_path, use_marketing_lexicons, use_marketing_safety_bans); `safety_classifier.marketing_compliance_weight` (default 0.2). One toggle disables all marketing integration |
 | **EI registry** | `config/source_of_truth/enlightened_intelligence_registry.yaml` ⚠️ *file not present* |
 
 ### Tests
@@ -428,13 +637,15 @@ EI V1 is 100% at **test slice** when the 4 targeted unit tests pass. It is **100
 | Item | Location |
 |------|----------|
 | **EI V2 test suite** | [tests/test_ei_v2.py](../tests/test_ei_v2.py) — 28 tests: cross-encoder reranker, safety classifier, semantic dedup, emotion arc validator, TTS readability, domain embeddings, V2 orchestration, config loading, parallel adapter comparison, pipeline report generation |
+| **EI V2 marketing lexicon tests** | [tests/test_ei_v2_marketing_lexicons.py](../tests/test_ei_v2_marketing_lexicons.py) — Loader unit (valid fixture), fail-safe (bad YAML, missing keys, empty topics), calibration gate (locked thresholds: domain Δ ≤ 0.12, safety Δ ≤ 0.10). Fixtures: [tests/fixtures/ei_v2_marketing/](../tests/fixtures/ei_v2_marketing/) (02/03/04), [tests/fixtures/ei_v2_marketing_calibration_eval.json](../tests/fixtures/ei_v2_marketing_calibration_eval.json) |
 
 ### Scripts (evaluation)
 
 | Item | Location |
 |------|----------|
 | **Rigorous eval harness** | [scripts/ci/run_ei_v2_rigorous_eval.py](../scripts/ci/run_ei_v2_rigorous_eval.py) — Compiles + renders books across persona × topic × engine matrix, evaluates each chapter on 10 quality dimensions (therapeutic value, emotional coherence, engagement, chapter journey, cohesion, listen experience, marketability, safety compliance, content uniqueness, somatic precision), runs V1/V2 slot comparison, benchmarks timing. Flags: `--full` (7 books), `--sample N`. Outputs: `artifacts/ei_v2/eval_rigorous_report.json`, `artifacts/ei_v2/eval_rigorous_summary.txt` |
-| **Catalog calibrator** | `scripts/ci/run_ei_v2_catalog_calibration.py` — Runs V2 dimension gates across all compilable catalog combos, discovers optimal percentile thresholds, feeds learner. Flags: `--learn`, `--out`. Output: `artifacts/ei_v2/catalog_calibration.json` |
+| **Catalog calibrator** | [scripts/ci/run_ei_v2_catalog_calibration.py](../scripts/ci/run_ei_v2_catalog_calibration.py) — Stub; extend to run V2 dimension gates across compilable catalog combos, discover percentile thresholds, feed learner. Flags: `--learn`, `--out`. Output: `artifacts/ei_v2/catalog_calibration.json` |
+| **EI v2 Marketing dashboard tab** | [scripts/ei_v2_marketing_dashboard_tab.py](../scripts/ei_v2_marketing_dashboard_tab.py) — Streamlit: `render_marketing_tab()`. Last 100 log events, file hashes, last-event age, schema guards, empty-state guidance. Optional Plotly “events by source over time”. Log: `artifacts/ei_v2/marketing_integration.log` |
 
 ### Pipeline integration
 
@@ -454,6 +665,7 @@ EI V1 is 100% at **test slice** when the 4 targeted unit tests pass. It is **100
 | **Catalog calibration** | `artifacts/ei_v2/catalog_calibration.json` — Percentile thresholds per dimension from whole-catalog sweep |
 | **Learned params** | `artifacts/ei_v2/learned_params.json` — Adaptive composite weights, override margin, per-persona/topic adjustments |
 | **Learner feedback** | `artifacts/ei_v2/learner_feedback.jsonl` — Append-only log of every hybrid decision (override/keep) with full scores |
+| **Marketing integration log** | `artifacts/ei_v2/marketing_integration.log` — JSONL: ts, event, source, source_path, file_02/03/04_hash, fallback_reason. Consumed by [scripts/ei_v2_marketing_dashboard_tab.py](../scripts/ei_v2_marketing_dashboard_tab.py) |
 
 ### V2 composite weights
 
@@ -534,7 +746,7 @@ Layered selection with override logic. V1 picks the winner; V2 scores the same c
 | **Learning system** | `phoenix_v4/quality/ei_v2/learner.py` — EMA-based weight/threshold tuning from hybrid feedback; per-persona/topic adjustments |
 | **Dimension gates** | `phoenix_v4/quality/ei_v2/dimension_gates.py` — Per-chapter enforcement: uniqueness, engagement, somatic precision, listen experience, cohesion |
 | **Catalog calibrator** | `scripts/ci/run_ei_v2_catalog_calibration.py` — Catalog-level threshold discovery; feeds learner with whole-catalog observations |
-| **Tests** | `tests/test_ei_v2_hybrid.py` — 25 tests: learner, dimension gates, hybrid selector, config, integration |
+| **Tests** | [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py) — 17 tests: learner, dimension gates, hybrid selector, config, integration |
 | **Learned params** | `artifacts/ei_v2/learned_params.json` — Latest learned composite weights, override margin, per-persona/topic adjustments |
 | **Learner feedback** | `artifacts/ei_v2/learner_feedback.jsonl` — Append-only log of every hybrid decision (override/keep) with full scores |
 | **Calibration report** | `artifacts/ei_v2/catalog_calibration.json` — Percentile thresholds per dimension from catalog sweep |
@@ -573,11 +785,11 @@ Layered selection with override logic. V1 picks the winner; V2 scores the same c
 | Item | Location |
 |------|----------|
 | **Checklist (Tier 0–4, canary, verification)** | [docs/MANUSCRIPT_QUALITY_IMPLEMENTATION_CHECKLIST.md](./MANUSCRIPT_QUALITY_IMPLEMENTATION_CHECKLIST.md) |
-| **Tier 0 contract config** | `config/quality/tier0_book_output_contract.yaml` ⚠️ *file not present* |
-| **Canary config** | `config/quality/canary_config.yaml` ⚠️ *file not present* |
-| **Tier 0 checker** | `scripts/ci/check_book_output_tier0_contract.py` ⚠️ *file not present* |
-| **Trend dashboard** | `scripts/ci/tier0_trend.py` ⚠️ *file not present* — violations over time; observability add-on, not a production gate |
-| **Canary script** | `scripts/ci/run_canary_100_books.py` ⚠️ *file not present* |
+| **Tier 0 contract config** | [config/quality/tier0_book_output_contract.yaml](../config/quality/tier0_book_output_contract.yaml) |
+| **Canary config** | [config/quality/canary_config.yaml](../config/quality/canary_config.yaml) — sample_size, max_failures for canary runs |
+| **Tier 0 checker** | [scripts/ci/check_book_output_tier0_contract.py](../scripts/ci/check_book_output_tier0_contract.py) |
+| **Trend dashboard** | [scripts/ci/tier0_trend.py](../scripts/ci/tier0_trend.py) — Stub; extend for tier0 contract violations over time; observability add-on |
+| **Canary script** | [scripts/ci/run_canary_100_books.py](../scripts/ci/run_canary_100_books.py) |
 | **Tests** | [tests/test_book_pass_gate.py](../tests/test_book_pass_gate.py) |
 | **Release checklist (item 12)** | [docs/RELEASE_PRODUCTION_READINESS_CHECKLIST.md](./RELEASE_PRODUCTION_READINESS_CHECKLIST.md) — block release on Tier 0 fail |
 
@@ -593,6 +805,8 @@ Layered selection with override logic. V1 picks the winner; V2 scores the same c
 - [docs/NARRATIVE_TENSION_VALIDATOR.md](./NARRATIVE_TENSION_VALIDATOR.md) — Narrative tension validator (prevents flat arcs)
 - [docs/SIMPLIFIED_EMOTIONAL_IMPACT_SCORING.md](./SIMPLIFIED_EMOTIONAL_IMPACT_SCORING.md) — Simplified emotional impact scoring
 - [docs/UNIFIED_PERSONAS_BOOK_READINESS_ANALYSIS.md](./UNIFIED_PERSONAS_BOOK_READINESS_ANALYSIS.md) — Unified personas book readiness analysis
+- [docs/BESTSELLER_STRUCTURES.md](./BESTSELLER_STRUCTURES.md) — 12 bestseller narrative structures: beat orders, slot mappings, phase assignments, THREAD/PERMISSION guidance; dev uses for structure assignment in planner; writers use for chapter shape
+- [docs/CHAPTER_THESIS_BANK.md](./CHAPTER_THESIS_BANK.md) — Canonical thesis sentences for all 20 chapter intents × 7 engine types; first-half 9 intents + 11 new second-half deepening intents; THREAD sentences per intent; quick-reference engine × intent tables
 
 ---
 
@@ -657,7 +871,7 @@ Clean epub/TTS-ready output pipeline with delivery contract gate, word-count gat
 
 | Item | Location |
 |------|----------|
-| **Run pipeline** | [scripts/run_pipeline.py](../scripts/run_pipeline.py) — Full 6-stage pipeline: BookSpec → FormatPlan → CompiledBook → render. Flags: `--topic`, `--persona`, `--arc`, `--structural-format`, `--runtime-format`, `--render-book`, `--render-formats`, `--skip-word-count-gate`, `--generate-freebies` |
+| **Run pipeline** | [scripts/run_pipeline.py](../scripts/run_pipeline.py) — Full 6-stage pipeline: BookSpec → FormatPlan → CompiledBook → render. Flags: `--topic`, `--persona`, `--arc`, `--structural-format`, `--runtime-format`, `--render-book`, `--render-formats`, `--skip-word-count-gate`, `--generate-freebies`, `--no-update-freebie-index` (used by production gates so sim doesn't mutate freebie index) |
 | **Render plan to txt** | [scripts/render_plan_to_txt.py](../scripts/render_plan_to_txt.py) — Standalone render from saved plan JSON |
 
 ### Delivery contract gate (forbidden patterns)
@@ -715,6 +929,23 @@ Pre-authored chapter-level emotional arcs that drive the Arc-First pipeline. `ch
 
 ---
 
+## How to check for missing book content
+
+**Single report:** Run [scripts/ci/content_coverage_report.py](../scripts/ci/content_coverage_report.py) from repo root. It aggregates atoms coverage (STORY + non-STORY), plan-time coverage_check (K-table + pool sizes), and teacher readiness per teacher. Writes `artifacts/content_coverage_report.json` and prints a one-page summary (missing persona×topic×engine, missing non-STORY slots, plan errors, teachers with gaps). Exit 1 if any content is missing.
+
+| What | Script / test | Output |
+|------|----------------|--------|
+| **Unified catalog atoms** | [tests/test_atoms_coverage_100_percent.py](../tests/test_atoms_coverage_100_percent.py) — STORY (persona×topic×engine) + non-STORY (persona×topic × HOOK/SCENE/REFLECTION/EXERCISE/INTEGRATION) | pytest (slow); or `python tests/test_atoms_coverage_100_percent.py`; programmatic: `run_sim_test()`, `run_non_story_sim_test()` |
+| **Plan-time coverage** | [phoenix_v4/planning/coverage_checker.py](../phoenix_v4/planning/coverage_checker.py) — K-table + pool sizes per discovered (persona, topic) | `python -m phoenix_v4.planning.coverage_checker`; or `run_coverage_check()` |
+| **Teacher readiness** | [scripts/ci/check_teacher_readiness.py](../scripts/ci/check_teacher_readiness.py) per teacher; or [scripts/ci/run_teacher_production_gates.py](../scripts/ci/run_teacher_production_gates.py) for all | `--teacher <id>`; gates loop registry and fail on first failure |
+| **Content coverage report** | [scripts/ci/content_coverage_report.py](../scripts/ci/content_coverage_report.py) | `artifacts/content_coverage_report.json` + stdout summary; `--no-teachers` to skip teacher checks |
+
+**Analysis:** [docs/CONTENT_COVERAGE_ANALYSIS.md](./CONTENT_COVERAGE_ANALYSIS.md) — What each tool covers, what is proper/complete, and where the single-report script fits.
+
+**UI:** PhoenixControl **Docs & Config** tab shows both reports (governance + content coverage), run buttons for the three scripts above, and live log output. Artifacts: [artifacts/governance/system_governance_report.json](../artifacts/governance/system_governance_report.json), [artifacts/content_coverage_report.json](../artifacts/content_coverage_report.json).
+
+---
+
 ## Teacher Mode & production readiness (document all)
 
 Teacher Mode is **100% production-ready** when: (1) strict validation and CI gates pass on `main`, (2) E2E Teacher Mode compile smoke tests pass for all teachers, (3) release path uses only approved assets (no fallback/missing-atom warnings), (4) evidence is archived, (5) branch protection requires Teacher gates. See [TEACHER_PRODUCTION_READINESS.md](./TEACHER_PRODUCTION_READINESS.md).
@@ -768,38 +999,85 @@ Teacher Mode is **100% production-ready** when: (1) strict validation and CI gat
 
 ---
 
-## Tests (full inventory)
+## Test suite (document all)
 
-All test files under `tests/`. Core tests workflow runs fast set (`-m "not slow"`); slow tests (atoms coverage, teacher E2E) run in release-gates or separately.
+Single index: every test file, how to run, markers, CI workflows, and test infrastructure. **Plan and gap analysis:** [FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md).
+
+### How to run
+
+| Command | What runs |
+|---------|-----------|
+| `PYTHONPATH=. python -m pytest tests/ -v --tb=short` | All tests (default: 222 collected). Run from repo root. |
+| `PYTHONPATH=. python -m pytest tests/ -m "not slow"` | Fast set only (excludes slow: atoms coverage, teacher E2E). Used by core-tests CI. |
+| `PYTHONPATH=. python -m pytest tests/ -m sanity` | Sanity checks only (config load, registry consistency); quick feedback. |
+| `PYTHONPATH=. python -m pytest tests/ -m "sanity or intelligent"` | Robust/intelligent tests only (no slow). See [ROBUST_INTELLIGENT_TESTING.md](./ROBUST_INTELLIGENT_TESTING.md). |
+| `PYTHONPATH=. python -m pytest tests/ -m slow` | Slow tests only (atoms coverage 100%, teacher E2E smoke). |
+| `PYTHONPATH=. python -m pytest tests/test_arc_loader.py -v` | Single file. |
+| `pip install -r requirements-test.txt` | Install pytest, pyyaml, jsonschema, feedparser (required before running). |
+
+**Environment:** Run from repo root. `PYTHONPATH=.` (or repo root on `PYTHONPATH`) required so `phoenix_v4` and other packages resolve. Optional: `ATOMS_ROOT` to override atoms directory.
 
 ### Test infrastructure
 
 | Item | Location |
 |------|----------|
-| **Test dependencies** | [requirements-test.txt](../requirements-test.txt) — pytest, pyyaml, jsonschema, feedparser |
-| **Pytest config** | [pytest.ini](../pytest.ini) — markers (slow, integration, e2e), testpaths |
-| **Shared fixtures** | [tests/conftest.py](../tests/conftest.py) — repo_root, fixtures_dir, config_root, atoms_root |
+| **Test dependencies** | [requirements-test.txt](../requirements-test.txt) — pytest, pytest-timeout, pyyaml, jsonschema, feedparser |
+| **Pytest config** | [pytest.ini](../pytest.ini) — testpaths=`tests`, markers: `slow`, `integration`, `e2e`, `sanity`, `intelligent`; timeout=120; addopts `-v --tb=short` |
+| **Shared fixtures** | [tests/conftest.py](../tests/conftest.py) — repo_root, fixtures_dir, config_root, atoms_root; locale_registry, content_roots, all_locale_ids (session) |
+| **Test plan (gaps, CI matrix)** | [docs/FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md) — inventory, CI coverage, missing runs, pipeline matrix |
+| **Robust / intelligent testing** | [docs/ROBUST_INTELLIGENT_TESTING.md](./ROBUST_INTELLIGENT_TESTING.md) — sanity + intelligent markers, config/locale consistency tests, fixtures, timeout |
+
+### Pytest markers
+
+| Marker | Meaning | Used by |
+|--------|---------|---------|
+| `slow` | Long-running (atoms coverage, teacher E2E). Excluded from core-tests. | test_atoms_coverage_100_percent, test_teacher_mode_e2e_smoke |
+| `sanity` | Fast sanity (config load, registry consistency). Included in core-tests. | test_robust_intelligent |
+| `intelligent` | Data-driven / parametrized over configs and locales. Included in core-tests. | test_robust_intelligent |
+| `integration` | Needs external resources or full pipeline. | (see pytest.ini) |
+| `e2e` | End-to-end (compile, render). | (see pytest.ini) |
+
+### CI workflows that run tests
+
+| Workflow | Trigger | Tests / steps |
+|----------|---------|----------------|
+| **Core tests** | [.github/workflows/core-tests.yml](../.github/workflows/core-tests.yml) | Push/PR to main/master. Pytest `-m "not slow"` (-x), then validate_marketing_config, then run_production_readiness_gates. **Required for branch protection.** |
+| **Teacher gates** | [.github/workflows/teacher-gates.yml](../.github/workflows/teacher-gates.yml) | Teacher-related path changes. run_teacher_production_gates.py, pytest teacher_arc_test, pytest test_teacher_mode_e2e_smoke. **Required for branch protection.** |
+| **Pearl News gates** | [.github/workflows/pearl_news_gates.yml](../.github/workflows/pearl_news_gates.yml) | pearl_news/**, test files. pytest test_pearl_news_quality_gates_minimal, test_pearl_news_pipeline_e2e. |
+| **Brand guards** | [.github/workflows/brand-guards.yml](../.github/workflows/brand-guards.yml) | Brand registry, locale, brand_teacher_*. check_norcal_dharma_brand_guards, check_church_yaml_no_sensitive_tokens, pytest test_norcal_dharma_brand_smoke. |
+| **EI V2 gates** | [.github/workflows/ei-v2-gates.yml](../.github/workflows/ei-v2-gates.yml) | EI code + weekly. pytest test_ei_v2.py ([test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py)), then rigorous eval, calibration, promotion gate. |
+| **Release gates** | [.github/workflows/release-gates.yml](../.github/workflows/release-gates.yml) | Release path. Production gates + rigorous test + canary + rollback smoke (includes slow tests / systems test). |
+| **Marketing config gate** | [.github/workflows/marketing-config-gate.yml](../.github/workflows/marketing-config-gate.yml) | config/marketing/**. phoenix_v4.qa.validate_marketing_config (validates YAML; not pytest). |
+
+### Full test file inventory
 
 | Test file | Purpose |
 |-----------|---------|
-| [tests/teacher_arc_test.py](../tests/teacher_arc_test.py) | Teacher arc blueprint schema, planner determinism (**required**) |
-| [tests/test_teacher_mode_e2e_smoke.py](../tests/test_teacher_mode_e2e_smoke.py) | Teacher Mode E2E compile per teacher (**required**) |
-| [tests/test_atoms_coverage_100_percent.py](../tests/test_atoms_coverage_100_percent.py) | 450/450 atom pool coverage gate — EXIT:0 = 100% |
+| [tests/teacher_arc_test.py](../tests/teacher_arc_test.py) | Teacher arc blueprint schema, planner determinism (**required** for Teacher gates) |
+| [tests/test_teacher_mode_e2e_smoke.py](../tests/test_teacher_mode_e2e_smoke.py) | Teacher Mode E2E compile per teacher — one topic/persona/arc per teacher (**required** for Teacher gates) |
+| [tests/test_atoms_coverage_100_percent.py](../tests/test_atoms_coverage_100_percent.py) | 450/450 atom pool coverage gate; STORY + non-STORY (HOOK, SCENE, REFLECTION, EXERCISE, INTEGRATION). EXIT:0 = 100%. Marked `slow`. |
+| [tests/test_robust_intelligent.py](../tests/test_robust_intelligent.py) | **Robust/intelligent:** locale_registry ↔ content_roots consistency; required fields per locale; EU catalogue; critical YAML load; marketing config structure; tts_locale_code. Marked `sanity` / `intelligent`. |
 | [tests/test_arc_loader.py](../tests/test_arc_loader.py) | Arc YAML loading and validation |
 | [tests/test_assembly_compiler.py](../tests/test_assembly_compiler.py) | Assembly compiler unit tests |
 | [tests/test_atoms_model.py](../tests/test_atoms_model.py) | Atom data model and pool indexing |
 | [tests/test_book_pass_gate.py](../tests/test_book_pass_gate.py) | Book-level pass gate (Tier 0 contract) |
-| [tests/test_book_renderer.py](../tests/test_book_renderer.py) | Renderer: clean_for_delivery, delivery_contract_gate, word_count_gate |
+| [tests/test_book_renderer.py](../tests/test_book_renderer.py) | Renderer: clean_for_delivery, delivery_contract_gate, word_count_gate, placeholder/silence, plan context |
 | [tests/test_brand_identity_stability.py](../tests/test_brand_identity_stability.py) | Brand identity stability across builds |
 | [tests/test_catalog_emotional_distribution.py](../tests/test_catalog_emotional_distribution.py) | Emotional distribution across catalog |
 | [tests/test_chapter_flow_gate.py](../tests/test_chapter_flow_gate.py) | Chapter-level flow gate |
 | [tests/test_creative_quality_v1.py](../tests/test_creative_quality_v1.py) | Creative quality gate v1 |
 | [tests/test_cross_brand_divergence.py](../tests/test_cross_brand_divergence.py) | Cross-brand divergence validation |
+| [tests/test_ei_v2.py](../tests/test_ei_v2.py) | EI V2: 28 tests — cross-encoder, safety, dedup, emotion arc, TTS readability, domain embeddings, V2 orchestration, config, parallel adapter |
+| [tests/test_ei_v2_marketing_lexicons.py](../tests/test_ei_v2_marketing_lexicons.py) | EI V2 marketing: loader, tokenizer, fail-safe, calibration gate (locked thresholds) |
+| [tests/fixtures/ei_v2_marketing/](../tests/fixtures/ei_v2_marketing/) | EI V2 marketing: minimal valid 02/03/04 YAML fixtures for tests |
+| [tests/fixtures/ei_v2_marketing_calibration_eval.json](../tests/fixtures/ei_v2_marketing_calibration_eval.json) | EI V2 marketing: fixed eval set for calibration gate (domain Δ ≤ 0.12, safety Δ ≤ 0.10) |
+| [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py) | EI V2 hybrid: 17 tests — learner, dimension gates, hybrid selector, config, integration |
 | [tests/test_emotional_curve_golden.py](../tests/test_emotional_curve_golden.py) | Emotional curve golden regression |
 | [tests/test_format_selector.py](../tests/test_format_selector.py) | Format selector Stage 2 logic |
 | [tests/test_intro_ending_variation.py](../tests/test_intro_ending_variation.py) | Intro/ending variation feature flag |
+| [tests/test_marketing_config_integration.py](../tests/test_marketing_config_integration.py) | Marketing config: validator pass, config-backed invisible_script, config-backed search keyword, compliance block/monitor terms |
 | [tests/test_narrative_gates.py](../tests/test_narrative_gates.py) | Narrative gate checks |
-| [tests/test_norcal_dharma_brand_smoke.py](../tests/test_norcal_dharma_brand_smoke.py) | NorCal Dharma church brand smoke |
+| [tests/test_norcal_dharma_brand_smoke.py](../tests/test_norcal_dharma_brand_smoke.py) | NorCal Dharma church brand smoke — wave allocation, default_teacher, no Teacher Mode |
 | [tests/test_pearl_news_pipeline_e2e.py](../tests/test_pearl_news_pipeline_e2e.py) | Pearl News E2E pipeline |
 | [tests/test_pearl_news_quality_gates_minimal.py](../tests/test_pearl_news_quality_gates_minimal.py) | Pearl News quality gates minimal |
 | [tests/test_platform_health_scorecard.py](../tests/test_platform_health_scorecard.py) | Platform health scorecard |
@@ -816,7 +1094,8 @@ All test files under `tests/`. Core tests workflow runs fast set (`-m "not slow"
 | [tests/test_validators.py](../tests/test_validators.py) | Core validators |
 | [tests/test_variation.py](../tests/test_variation.py) | Variation knob distribution |
 | [tests/test_wave_optimizer_constraint_solver.py](../tests/test_wave_optimizer_constraint_solver.py) | Wave optimizer constraint solver |
-| [tests/test_ei_v2.py](../tests/test_ei_v2.py) | EI V2 test suite: 28 tests — cross-encoder, safety, dedup, arc, TTS, domain embeddings, V2 orchestration, config, parallel adapter |
+
+**Count:** 36 test files (35 `test_*.py` + `teacher_arc_test.py`). Full run: 222 tests (as of 2026-03-04).
 
 ---
 
@@ -855,13 +1134,13 @@ All test files under `tests/`. Core tests workflow runs fast set (`-m "not slow"
 
 | Item | Location |
 |------|----------|
-| **Run pipeline** | [scripts/run_pipeline.py](../scripts/run_pipeline.py) — Full 6-stage; --topic, --persona, --arc, --teacher, --author, --render-book, --generate-freebies, etc. |
+| **Run pipeline** | [scripts/run_pipeline.py](../scripts/run_pipeline.py) — Full 6-stage; --topic, --persona, --arc, --teacher, --author, --render-book, --generate-freebies, --no-update-freebie-index, etc. |
 | **Render plan to txt** | [scripts/render_plan_to_txt.py](../scripts/render_plan_to_txt.py) — Stage 6 standalone render |
 | **Plan freebie assets** | [scripts/plan_freebie_assets.py](../scripts/plan_freebie_assets.py) — Catalog or canonical; manifest output |
 | **Create freebie assets** | [scripts/create_freebie_assets.py](../scripts/create_freebie_assets.py) — HTML, PDF, EPUB, MP3 |
 | **Validate asset store** | [scripts/validate_asset_store.py](../scripts/validate_asset_store.py) — Store vs manifest |
 | **Update similarity index** | `scripts/update_similarity_index.py` — Append CTSS row |
-| **Build structural drift dashboard** | `scripts/build_structural_drift_dashboard.py` — artifacts/drift/ |
+| **Build structural drift dashboard** | [scripts/obs/build_structural_drift_dashboard.py](../scripts/obs/build_structural_drift_dashboard.py) — artifacts/drift/ |
 | **Run simulation** | [simulation/run_simulation.py](../simulation/run_simulation.py) — --n, --phase2, --phase3 |
 | **Pre-export check (Gate #49)** | [scripts/distribution/pre_export_check.py](../scripts/distribution/pre_export_check.py) — Locale/territory consistency |
 | **Check structural entropy** | [scripts/ci/check_structural_entropy.py](../scripts/ci/check_structural_entropy.py) — Min words, family dominance, teacher-mode checks |
@@ -870,8 +1149,9 @@ All test files under `tests/`. Core tests workflow runs fast set (`-m "not slow"
 | **Check wave density** | [scripts/ci/check_wave_density.py](../scripts/ci/check_wave_density.py) — Arc/band/slot/ex/role share limits |
 | **Validate freebie density** | [phoenix_v4/qa/validate_freebie_density.py](../phoenix_v4/qa/validate_freebie_density.py) — Bundle/CTA/slug thresholds |
 | **CTA signature caps** | [phoenix_v4/qa/cta_signature_caps.py](../phoenix_v4/qa/cta_signature_caps.py) — Per brand/quarter cap |
+| **Rebuild freebie index** | [scripts/rebuild_freebie_index_from_plans.py](../scripts/rebuild_freebie_index_from_plans.py) — Rebuild `artifacts/freebies/index.jsonl` from blessed plan JSONs; use `--plans-dir artifacts/freebies/blessed_plans --out artifacts/freebies/index.jsonl` for curated index (Gate 16/16b) |
 | **Check book output no placeholders** | [scripts/ci/check_book_output_no_placeholders.py](../scripts/ci/check_book_output_no_placeholders.py) — Delivery gate (§10.6) |
-| **Run production readiness gates** | [scripts/run_production_readiness_gates.py](../scripts/run_production_readiness_gates.py) — 15 + optional gate 16 |
+| **Run production readiness gates** | [scripts/run_production_readiness_gates.py](../scripts/run_production_readiness_gates.py) — 19 conditions; Gate 16+16b freebie governance (both density + CTA caps, same index) |
 | **Run systems test** | [scripts/systems_test/run_systems_test.py](../scripts/systems_test/run_systems_test.py) — Phases 1–7 |
 | **Generate full catalog** | [scripts/generate_full_catalog.py](../scripts/generate_full_catalog.py) — Portfolio → BookSpec → compile → wave |
 | **Story atom lint** | [phoenix_v4/quality/story_atom_lint.py](../phoenix_v4/quality/story_atom_lint.py) — STORY specificity, conflict, cost, pivot |
@@ -920,7 +1200,8 @@ All test files under `tests/`. Core tests workflow runs fast set (`-m "not slow"
 |------|----------|
 | **Similarity index** | `artifacts/catalog_similarity/index.jsonl` — CTSS fingerprint per plan |
 | **Drift dashboard** | `artifacts/drift/` — Role distribution, signatures (from build_structural_drift_dashboard.py) |
-| **Freebies index** | `artifacts/freebies/index.jsonl` — Plan rows for freebie density gate |
+| **Freebies index** | [artifacts/freebies/index.jsonl](../artifacts/freebies/index.jsonl) — Plan rows for freebie density + CTA caps (Gate 16/16b); rebuild from blessed plans when needed |
+| **Blessed plans (freebies)** | [artifacts/freebies/blessed_plans/](../artifacts/freebies/blessed_plans/) — Curated plan JSONs; source for deterministic index rebuild (diverse bundle/CTA/slug; max 5 per (brand, quarter, cta_signature)) |
 | **CTA signature index** | `artifacts/freebies/cta_signature_index.jsonl` — Optional; CTA caps |
 | **Rendered books** | `artifacts/rendered/<plan_id>/book.txt` — Stage 6 output |
 | **Practice store** | `SOURCE_OF_TRUTH/practice_library/store/practice_items.jsonl` — EXERCISE backstop source |
@@ -941,15 +1222,64 @@ All test files under `tests/`. Core tests workflow runs fast set (`-m "not slow"
 
 - [docs/email_sequences/README.md](./email_sequences/README.md) — Email sequences overview (Formspree, MailerLite, freebie landing pages)
 - [docs/email_sequences/5-email-welcome-sequence.md](./email_sequences/5-email-welcome-sequence.md) — 5-email welcome sequence master
+- [docs/email_sequences/proof_loop_sequence.md](./email_sequences/proof_loop_sequence.md) — **Proof Loop (conversion-optimized):** E1–E5 canonical copy (exercise → second exercise → story → book → more books); placeholders; used by funnel app. See [Freebie funnel, Proof Loop & launch](#freebie-funnel-proof-loop--launch-document-all).
+- [docs/email_sequences/e2_approved_mechanism_lines.md](./email_sequences/e2_approved_mechanism_lines.md) — Approved E2 mechanism lines (nervous system / breath); copywriter uses these; Nihala/expert approves wording.
 - [docs/email_sequences/persona-variants.md](./email_sequences/persona-variants.md) — Persona variants (Executive / Gen Z / Healthcare)
 - [docs/email_sequences/exercise-one-liners.md](./email_sequences/exercise-one-liners.md) — Per-exercise copy (subject lines, opening lines)
 - [docs/email_sequences/FORMSPREE_SETUP.md](./email_sequences/FORMSPREE_SETUP.md) — Formspree setup
 
 ---
 
+## Freebie funnel, Proof Loop & launch (document all)
+
+Landing page (6 sections), form capture, 4–5 email Proof-Loop sequence (Brevo SMTP or GHL), SQLite persistence, GHL push, `/books/<slug>` intent tracking, unsubscribe, writer spec, and freebies governance. **Launch:** See [funnel/burnout_reset/GO_NO_GO.md](../funnel/burnout_reset/GO_NO_GO.md) — three things from Nihala unblock go-live.
+
+### Docs
+
+| Item | Location |
+|------|----------|
+| **Freebie marketing plan** | [docs/FREEBIE_MARKETING_PLAN.md](./FREEBIE_MARKETING_PLAN.md) — Objectives, Proof Loop, funnel stages, channels, email, upsell, GHL, locale, analytics, governance; 4-email MVP vs E5. |
+| **Proof Loop sequence (canonical)** | [docs/email_sequences/proof_loop_sequence.md](./email_sequences/proof_loop_sequence.md) — E1–E5 body/subject; placeholders; timing. |
+| **E2 approved mechanism lines** | [docs/email_sequences/e2_approved_mechanism_lines.md](./email_sequences/e2_approved_mechanism_lines.md) — Approved science/mechanism lines for Email 2; Nihala/expert approves. |
+| **Funnel writer spec** | [specs/FUNNEL_AND_BOOK_COPY_WRITER_SPEC.md](../specs/FUNNEL_AND_BOOK_COPY_WRITER_SPEC.md) — Who writes what: authority narrative (Nihala), Email 3 story (Nihala source, copywriter shape), Teacher Mode key-turning-point, headline A/B, assignable copy (E1/E2/E4, problem–solution, CTA). System at a glance, placeholders, scope (hubs/topics/personas), workflow, format examples. |
+
+### Funnel app (burnout_reset)
+
+| Item | Location |
+|------|----------|
+| **GO/NO-GO & handoff** | [funnel/burnout_reset/GO_NO_GO.md](../funnel/burnout_reset/GO_NO_GO.md) — Go/no-go checklist; handoff table; three things from Nihala; copywriter/operator tasks; CAN-SPAM physical address. |
+| **GHL handoff** | [funnel/burnout_reset/GHL_HANDBOFF.md](../funnel/burnout_reset/GHL_HANDBOFF.md) — API key, Location ID, payload table, custom field UUIDs (GHL uses UUIDs not strings), who sends email (ghl vs smtp). |
+| **Funnel README** | [funnel/README.md](../funnel/README.md) — Run locally, config layout, email_mode, unsubscribe, book routing, deploy. |
+| **App** | [funnel/burnout_reset/app.py](../funnel/burnout_reset/app.py) — Flask: landing, POST /submit, /unsubscribe, /books/<slug>; SQLite leads; email_mode ghl or smtp; E1 send + E2–E5 schedule (APScheduler jobstore). |
+| **Templates** | [funnel/burnout_reset/templates/](../funnel/burnout_reset/templates/) — burnout_reset.html (6 sections, authority placeholder), thank_you.html, unsubscribed.html, book_intent.html (GA4 + redirect). |
+| **Email templates** | [funnel/burnout_reset/emails/](../funnel/burnout_reset/emails/) — email_1_immediate through email_5_delay (Jinja2; unsubscribe link in each). |
+| **Story bank** | [funnel/burnout_reset/stories/](../funnel/burnout_reset/stories/) — burnout.md, anxiety.md; Before/Practice/After; 120–150 words; constraint list. |
+
+### Config (funnel & freebies)
+
+| Item | Location |
+|------|----------|
+| **Funnel sections (per hub)** | [config/freebies/funnel_sections.yaml](../config/freebies/funnel_sections.yaml) — hero_headline, hero_subhead, authority_narrative (Nihala paste), problem, solution, cta. |
+| **Proof Loop (per hub)** | [config/freebies/funnel_proof_loop.yaml](../config/freebies/funnel_proof_loop.yaml) — topic, first_exercise, story_id, book_slug. |
+| **Exercise pairs** | [config/freebies/exercise_pairs.yaml](../config/freebies/exercise_pairs.yaml) — second-exercise pairing (activation_down vs grounding). |
+| **Book map & slugs** | [config/freebies/freebie_to_book_map.yaml](../config/freebies/freebie_to_book_map.yaml) — exercise/topic → book_title, book_url, more_books; slugs section for /books/<slug>. |
+
+### Freebies governance
+
+| Item | Location |
+|------|----------|
+| **Freebie system spec** | [specs/PHOENIX_FREEBIE_SYSTEM_SPEC.md](../specs/PHOENIX_FREEBIE_SYSTEM_SPEC.md) — Asset types, planner, CTA injection, index policy. |
+| **Freebies index** | [artifacts/freebies/index.jsonl](../artifacts/freebies/index.jsonl) — Plan rows for density + CTA caps (Gate 16/16b); deterministic source: rebuild from blessed plans. |
+| **Freebies README** | [artifacts/freebies/README.md](../artifacts/freebies/README.md) — Index contract, rebuild command, file policy. |
+| **Evidence** | [artifacts/freebies/EVIDENCE.md](../artifacts/freebies/EVIDENCE.md) — Green run evidence (systems test + production gates). |
+| **Rebuild index script** | [scripts/rebuild_freebie_index_from_plans.py](../scripts/rebuild_freebie_index_from_plans.py) — Rebuild index from blessed plans; Gate 16/16b. |
+| **Production gates** | [scripts/run_production_readiness_gates.py](../scripts/run_production_readiness_gates.py) — Gate 16+16b (density + CTA caps); pipeline in Gate 15 uses --no-update-freebie-index. |
+
+---
+
 ## Phoenix Churches Payout System (document all)
 
-Biweekly payouts for 24 churches; Plaid sync, Bluevine, 90/10 split, human-in-the-loop execution. ⚠️ **Most payout files not present in repo** — spec and config referenced below, implementation files missing.
+Biweekly payouts for 24 churches; Plaid sync, Bluevine, 90/10 split, human-in-the-loop execution. **Config stubs present** (churches.yaml, payees.yaml, credentials.yaml.example, fill_template.csv); populate per CHECKLIST.md. ⚠️ Spec (PHOENIX_CHURCHES_PAYOUT_SPEC.md) and payout package (cli, plaid_sync, etc.) not yet in repo.
 
 ### Spec & checklist
 
@@ -958,10 +1288,10 @@ Biweekly payouts for 24 churches; Plaid sync, Bluevine, 90/10 split, human-in-th
 
 ### Config
 
-- `config/payouts/churches.yaml` ⚠️ *file not present* — Church registry (24 churches; bluevine_account_last4, payee_id, rules)
-- `config/payouts/payees.yaml` ⚠️ *file not present* — Payee registry (24 payees; display_name, bank_last4)
-- `config/payouts/credentials.yaml.example` ⚠️ *file not present* — Credentials template (plaid, access_tokens; copy to credentials.yaml)
-- `config/payouts/fill_template.csv` ⚠️ *file not present* — CSV template for batch-filling church + payee info
+- [config/payouts/churches.yaml](../config/payouts/churches.yaml) — Church registry stub (24 churches; bluevine_account_last4, payee_id, rules; populate per CHECKLIST.md)
+- [config/payouts/payees.yaml](../config/payouts/payees.yaml) — Payee registry stub (24 payees; display_name, bank_last4)
+- [config/payouts/credentials.yaml.example](../config/payouts/credentials.yaml.example) — Credentials template (plaid, access_tokens; copy to credentials.yaml)
+- [config/payouts/fill_template.csv](../config/payouts/fill_template.csv) — CSV template for batch-filling church + payee info
 
 ### Package & CLI
 
@@ -977,7 +1307,16 @@ All payout package files (`payouts/cli.py`, `payouts/setup.py`, `payouts/plaid_s
 
 ## Translation, validation & multilingual
 
-Translation and validation pipeline: parallel sharded translation (atoms + exercises) to all locales (zh-CN, zh-TW, zh-HK, zh-SG, yue, ja-JP, ko-KR), deterministic validation (schema, locale script, coverage, meta/leakage, repetition), merge + global QA, golden regression. Infrastructure now complete: all scripts & CI workflows deployed.
+Translation and validation pipeline: parallel sharded translation (atoms + exercises) to **all system languages** (see [Translate / prompt via Qwen GitHub pipeline CLI](#translate--prompt-via-qwen-github-pipeline-cli-all-system-languages)), deterministic validation (schema, locale script, coverage, meta/leakage, repetition), merge + global QA, golden regression. **Status:** Core docs/planning exist. Translation execution scripts and CI workflows exist as **stubs** (translate_atoms_all_locales_cloud, validate_translations, merge_translation_shards, check_golden_translation, native_prompts_eval_learn; translate-atoms-qwen-matrix.yml, locale-gate.yml). Quality contracts present under config/localization/quality_contracts/ (README, glossary, release_thresholds, golden_translation_regression — stubs). Locale stub trees and scripts/scaffold_locale_atom_stubs.py not yet in repo (see ⚠️ inventory where applicable).
+
+### Translate / prompt via Qwen GitHub pipeline CLI (all system languages)
+
+**Purpose:** Run translation and prompt for every system locale via the Qwen-based GitHub pipeline (scheduled or manual). EU catalogue includes de-DE, es-ES, fr-FR, **it-IT (Italian)**, hu-HU.
+
+| Item | Location |
+|------|----------|
+| **Translate/prompt CLI & system languages** | [docs/TRANSLATE_QWEN_PIPELINE_CLI.md](./TRANSLATE_QWEN_PIPELINE_CLI.md) — All 13 system locales (en-US, zh-CN, zh-TW, zh-HK, zh-SG, ja-JP, ko-KR, es-US, es-ES, fr-FR, de-DE, it-IT, hu-HU); how to run from phoenix_omega or from Qwen/Qwen-Agent forks; EU catalogue; index to locale_registry, content_roots, Pearl News scheduling |
+| **Pearl News scheduling (Qwen)** | [docs/PEARL_NEWS_GITHUB_SCHEDULING.md](./PEARL_NEWS_GITHUB_SCHEDULING.md) — Scheduled pipeline runs, WordPress posting, running from Ahjan108/Qwen or Ahjan108/Qwen-Agent |
 
 ### All-locale production readiness (verified state)
 
@@ -986,18 +1325,19 @@ Translation and validation pipeline: parallel sharded translation (atoms + exerc
 | **Docs/planning readiness** | **High** — content_roots_by_locale.yaml, LOCALE_PERSONAS.md, LOCALE_CATALOG_MARKETING_PLAN.md, ZH_CN_DISTRIBUTION_PLAN.md exist |
 | **All-locale runtime production readiness** | **Not 100% yet** |
 
-**Remaining: Translation execution pending (infrastructure 100%):**
+**Remaining: translation infrastructure + execution pending:**
 
-1. **Locale atom stubs created** — `atoms/zh-CN`, `atoms/zh-TW`, `atoms/ja-JP`, etc. now exist with TRANSLATION PENDING stubs via `scripts/scaffold_locale_atom_stubs.py`.
-2. **Translation execution script deployed** — `scripts/translate_atoms_all_locales_cloud.py` now present; runs parallel sharded translation via OpenAI API.
-3. **Translation pipeline ready** — CI workflows deployed (`.github/workflows/translate-atoms-qwen-matrix.yml`, `.github/workflows/locale-gate.yml`); infrastructure complete; execution pending API call.
+1. **Locale atom stubs** — `atoms/<locale>/` stub trees are not yet present. Planned generator: `scripts/scaffold_locale_atom_stubs.py` ⚠️ *file not present*.
+2. **Translation execution** — [scripts/translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py) (stub; implement for parallel sharded translation via API).
+3. **CI workflows** — [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml), [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml) (stub workflows; implement when translation pipeline is ready).
 
 ### Docs
 
 | Item | Location |
 |------|----------|
+| **Translate/prompt via Qwen pipeline CLI** | [docs/TRANSLATE_QWEN_PIPELINE_CLI.md](./TRANSLATE_QWEN_PIPELINE_CLI.md) — All system languages; translate/prompt via Qwen GitHub pipeline CLI; EU catalogue (incl. it-IT) |
 | **Locale personas** | [docs/LOCALE_PERSONAS.md](./LOCALE_PERSONAS.md) — 40 persona definitions across 11 non-en-US locales (anxious_insomniac_tw, burned_out_professional_tw, etc.) |
-| **All-locale catalog marketing plan** | [docs/LOCALE_CATALOG_MARKETING_PLAN.md](./LOCALE_CATALOG_MARKETING_PLAN.md) — Per-locale positioning, go-live checklists, readiness tracker for all 12 locales |
+| **All-locale catalog marketing plan** | [docs/LOCALE_CATALOG_MARKETING_PLAN.md](./LOCALE_CATALOG_MARKETING_PLAN.md) — Per-locale positioning, go-live checklists, readiness tracker for all 13 locales (incl. it-IT EU catalogue) |
 | **zh-CN distribution plan** | [docs/ZH_CN_DISTRIBUTION_PLAN.md](./ZH_CN_DISTRIBUTION_PLAN.md) — Local platform pipeline (Ximalaya, NetEase, WeChat Read, Dedao); Phase 5 prerequisite checklist |
 | **Locale strategy (rollout phases)** | [del_location_plan/locale_strategy.md](../del_location_plan/locale_strategy.md) — One brand = one locale; Phase 1–5 rollout; distribution routing; CI gate #49 |
 | **Locale prose & prompting** | `docs/LOCALE_PROSE_AND_PROMPTING.md` ⚠️ *file not present* |
@@ -1009,26 +1349,26 @@ Translation and validation pipeline: parallel sharded translation (atoms + exerc
 
 | Item | Location |
 |------|----------|
-| **Translate atoms/exercises (cloud)** | `scripts/translate_atoms_all_locales_cloud.py` — Parallel sharded translation to all locales; runs N shards in parallel, each shard translates atoms/exercises via OpenAI API |
-| **Scaffold locale atom stubs** | `scripts/scaffold_locale_atom_stubs.py` — Create TRANSLATION PENDING stub files for all atom types in a locale directory |
-| **Validate translations** | `scripts/validate_translations.py` — Structure check, script encoding check, glossary consistency, golden regression |
-| **Merge translation shards** | `scripts/merge_translation_shards.py` — Merges parallel shard outputs into locale atom tree; conflict detection |
-| **Golden translation regression** | `scripts/check_golden_translation.py` — Regression check against golden translation samples per locale |
-| **Native prompts / eval / learn** | `scripts/native_prompts_eval_learn.py` — Generates native-speaker evaluation prompts (4 dimensions: Fluency, Register, Term Consistency, Structure); output: `artifacts/evaluations/{locale}/` |
+| **Translate atoms/exercises (cloud)** | [scripts/translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py) — Stub; implement for parallel sharded translation to all locales via API |
+| **Scaffold locale atom stubs** | `scripts/scaffold_locale_atom_stubs.py` ⚠️ *file not present* — Create TRANSLATION PENDING stub files for all atom types in a locale directory |
+| **Validate translations** | [scripts/validate_translations.py](../scripts/validate_translations.py) — Stub; implement for structure, glossary, golden regression |
+| **Merge translation shards** | [scripts/merge_translation_shards.py](../scripts/merge_translation_shards.py) — Stub; implement to merge shard outputs into locale atom tree |
+| **Golden translation regression** | [scripts/check_golden_translation.py](../scripts/check_golden_translation.py) — Stub; implement for regression against config/localization/quality_contracts/golden_translation_regression.yaml |
+| **Native prompts / eval / learn** | [scripts/native_prompts_eval_learn.py](../scripts/native_prompts_eval_learn.py) — Stub; implement for native-speaker eval prompts and learn; output: artifacts/evaluations/{locale}/ |
 
 ### Config & quality contracts
 
 | Item | Location |
 |------|----------|
-| **Content roots by locale** | [config/localization/content_roots_by_locale.yaml](../config/localization/content_roots_by_locale.yaml) — Maps all 12 locales to atoms_root, translation paths, TTS constraints, rollout phase, and distribution blockers. |
-| **Locale registry** | [config/localization/locale_registry.yaml](../config/localization/locale_registry.yaml) — All 12 locale definitions: language, script, TTS provider, storefront IDs, distribution rules. |
+| **Content roots by locale** | [config/localization/content_roots_by_locale.yaml](../config/localization/content_roots_by_locale.yaml) — Maps all 13 locales to atoms_root, translation paths, TTS constraints, rollout phase, and distribution blockers (incl. it-IT). |
+| **Locale registry** | [config/localization/locale_registry.yaml](../config/localization/locale_registry.yaml) — All 13 locale definitions: language, script, TTS provider, storefront IDs, distribution rules; EU group includes it-IT. |
 | **Brand locale extension** | [config/localization/brand_registry_locale_extension.yaml](../config/localization/brand_registry_locale_extension.yaml) — Per-brand locale and territory. One brand = one locale. |
 
-**Quality contracts** — `config/localization/quality_contracts/` — Present on disk. Contains: `glossary.yaml` (28 terms × 11 locales), `release_thresholds.yaml` (phase-based thresholds), `golden_translation_regression.yaml` (5 golden samples), `README.md`, `INTEGRATION_GUIDE.md`.
+**Quality contracts** — [config/localization/quality_contracts/](../config/localization/quality_contracts/) (README.md, glossary.yaml, release_thresholds.yaml, golden_translation_regression.yaml; stubs for locale gate).
 
 ### CI / workflow
 
-`.github/workflows/translate-atoms-qwen-matrix.yml` — Parallel sharded translation workflow; triggered manually or weekly; runs N shards in matrix, merges results, validates all locales.
+[.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml) — Stub workflow; implement for parallel sharded translation (manual/weekly). [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml) — Stub workflow; implement for locale validation on config/localization and atoms.
 
 ### Artifacts
 
@@ -1041,28 +1381,29 @@ Translation and validation pipeline: parallel sharded translation (atoms + exerc
 
 ## Locale atom stubs & translation status
 
-**Status:** Locale atom stub infrastructure 100% complete; translation execution pending API run.
+**Status:** Locale atom stubs and translation execution are not yet present in this repo.
 
-Atoms for non-en-US locales (`atoms/zh-CN/`, `atoms/zh-TW/`, `atoms/zh-HK/`, `atoms/zh-SG/`, `atoms/yue/`, `atoms/ja-JP/`, `atoms/ko-KR/`) now exist with TRANSLATION PENDING stubs created by `scripts/scaffold_locale_atom_stubs.py`. Each locale directory mirrors the en-US atoms/ structure with stub ATOM_<locale>.yaml files.
+Planned: atoms for non-en-US locales (`atoms/zh-CN/`, `atoms/zh-TW/`, `atoms/zh-HK/`, `atoms/zh-SG/`, `atoms/yue/`, `atoms/ja-JP/`, `atoms/ko-KR/`, `atoms/it-IT/`, etc.) will be created as TRANSLATION PENDING stub trees via `scripts/scaffold_locale_atom_stubs.py` ⚠️ *file not present*.
 
 ### Coverage by locale
 
 | Locale | Stub files created | Infrastructure status | Translation status |
 |--------|-------------------|----------------------|-------------------|
-| zh-CN | Multiple (>100) | ✓ Ready | Pending API execution |
-| zh-TW | Multiple (>100) | ✓ Ready | Pending API execution |
-| zh-HK | Multiple (>100) | ✓ Ready | Pending API execution |
-| zh-SG | Multiple (>100) | ✓ Ready | Pending API execution |
-| yue | Multiple (>100) | ✓ Ready | Pending API execution |
-| ja-JP | Multiple (>100) | ✓ Ready | Pending API execution |
-| ko-KR | Multiple (>100) | ✓ Ready | Pending API execution |
+| zh-CN | 0 | ⚠️ Missing | Not started |
+| zh-TW | 0 | ⚠️ Missing | Not started |
+| zh-HK | 0 | ⚠️ Missing | Not started |
+| zh-SG | 0 | ⚠️ Missing | Not started |
+| yue | 0 | ⚠️ Missing | Not started |
+| ja-JP | 0 | ⚠️ Missing | Not started |
+| ko-KR | 0 | ⚠️ Missing | Not started |
+| it-IT | 0 | ⚠️ Missing | Not started |
 
 ### Related scripts
 
-- `scripts/scaffold_locale_atom_stubs.py` — Create stub ATOM_<locale>.yaml files for all atom types in a locale
-- `scripts/translate_atoms_all_locales_cloud.py` — Fills stubs via parallel sharded OpenAI API calls
-- `.github/workflows/translate-atoms-qwen-matrix.yml` — Orchestrates translation; runs weekly or on manual trigger
-- `.github/workflows/locale-gate.yml` — Validates translations per locale and reports coverage
+- `scripts/scaffold_locale_atom_stubs.py` ⚠️ *file not present* — Create stub trees per locale
+- [scripts/translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py) — Stub; implement for parallel sharded API calls
+- [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml) — Stub workflow; implement to orchestrate translation (weekly/manual)
+- [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml) — Stub workflow; implement to validate translations per locale
 
 ---
 
@@ -1100,6 +1441,7 @@ All root-level `scripts/*.py` files confirmed present on disk.
 | [scripts/validate_book_001_readiness.py](../scripts/validate_book_001_readiness.py) | Validate Book_001 readiness against assembly contract |
 | [scripts/validate_canonical_sources.py](../scripts/validate_canonical_sources.py) | Validate canonical source YAML files for schema correctness |
 | [scripts/validate_golden_plan.py](../scripts/validate_golden_plan.py) | Validate a golden plan JSON against compiled plan schema |
+| [scripts/rebuild_freebie_index_from_plans.py](../scripts/rebuild_freebie_index_from_plans.py) | Rebuild freebie index from blessed plan JSONs; Gate 16/16b curated source |
 
 ---
 
@@ -1109,13 +1451,17 @@ All `scripts/ci/` files confirmed present on disk.
 
 | Script | Purpose |
 |--------|---------|
-| [scripts/ci/check_docs_governance.py](../scripts/ci/check_docs_governance.py) | **DOCS_INDEX link integrity + Last updated staleness** — fails if any linked file is missing; warns on stale date |
+| [scripts/ci/check_docs_governance.py](../scripts/ci/check_docs_governance.py) | **DOCS_INDEX link integrity + inventory + Last updated** — fails if any linked file is missing; `--check-inventory` enforces ✓/⚠️ vs actual files; CI and PhoenixControl Docs tab use it |
+| [scripts/ci/check_system_governance_status.py](../scripts/ci/check_system_governance_status.py) | **System governance status** — runs all governance/report checks; JSON report to artifacts/governance/; optional --fix (DOCS_INDEX Last updated) |
+| [scripts/ci/content_coverage_report.py](../scripts/ci/content_coverage_report.py) | **Content coverage report** — single report: atoms (STORY + non-STORY), plan coverage_check, teacher readiness; writes artifacts/content_coverage_report.json + one-page summary |
 | [scripts/ci/check_author_positioning.py](../scripts/ci/check_author_positioning.py) | Author positioning validation: pen name, bio, positioning consistency |
 | [scripts/ci/check_author_cover_art.py](../scripts/ci/check_author_cover_art.py) | Author cover art: every launchable author has registry + PNG + style/palette (Gate 18) |
 | [scripts/ci/check_book_output_no_placeholders.py](../scripts/ci/check_book_output_no_placeholders.py) | Hard-fail if any placeholder pattern survives rendered output |
 | [scripts/ci/check_book_output_tier0_contract.py](../scripts/ci/check_book_output_tier0_contract.py) | Tier 0 book output contract (config-driven forbidden patterns) |
 | [scripts/ci/run_simulation_10k.py](../scripts/ci/run_simulation_10k.py) | 10k sim for CI |
-| [scripts/ci/analyze_pearl_prime_sim.py](../scripts/ci/analyze_pearl_prime_sim.py) | Pass rate by dimension; best/worst combos; threshold gate |
+| [scripts/ci/analyze_pearl_prime_sim.py](../scripts/ci/analyze_pearl_prime_sim.py) | Robust intelligent: pass rate by format/tier; per-dimension + baseline regression gates; phase2/phase3 gates; binomial stderr |
+| [scripts/ci/llm_bestseller_error_report.py](../scripts/ci/llm_bestseller_error_report.py) | Bestseller/root-cause report: heuristic root-cause buckets, high-risk format/tier, optional LLM; --strict fails on high-risk |
+| [scripts/ci/run_intelligent_sim_gates.py](../scripts/ci/run_intelligent_sim_gates.py) | Single entry: optional 10k sim → analyzer → bestseller report; per-dimension + baseline + --strict |
 | [scripts/ci/run_rigorous_system_test.py](../scripts/ci/run_rigorous_system_test.py) | Systems test + variation + atoms coverage + optional sim |
 | [scripts/ci/run_canary_100_books.py](../scripts/ci/run_canary_100_books.py) | Real pipeline canary on sampled arcs |
 | [scripts/ci/check_doctrine_drift.py](../scripts/ci/check_doctrine_drift.py) | Detect teacher doctrine drift vs approved baseline |
@@ -1219,9 +1565,12 @@ All docs that declare authority must reference the three canonical anchors: `SYS
 
 | Section | Anchor | Purpose |
 |---------|--------|---------|
+| [Video pipeline](#video-pipeline) | § Video pipeline | Spec, schemas, config, fixtures, pipeline scripts (incl. run_flux_generate), storage, FLUX/Shnell, color master, image master prompt |
 | [Rigorous system test & simulation](#rigorous-system-test--simulation-document-all) | § Rigorous system test | Simulation, 10k/100k, analyzer, variation report, config, artifacts, CI |
 | [Pearl News](#pearl-news-document-all) | § Pearl News | Pipeline, docs, scripts, config, tests, artifacts, workflows |
-| [Marketing & deep research](#marketing--deep-research-document-all) | § Marketing | Deep research prompts, invisible script, marketing brief |
+| [Marketing & deep research](#marketing--deep-research-document-all) | § Marketing | Deep research prompts, invisible script, marketing brief; **generational research** (prompts, scripts, config, artifacts, research_feeds_ingest) |
+| [Autonomous improvement & ML system](#autonomous-improvement--ml-system-document-all) | § Autonomous & ML | Observability, operations board, agent PRs, auto-merge, weekly pipeline, KPI triggers, ML editorial, ML loop (24/7 + daily + weekly) |
+| [Change observation and impact](#change-observation-and-impact-document-all) | § Change observation | System registry, change detection, impact analysis, synergy (LLM), Agent change feed, artifacts |
 | [Church & payout](#church--payout-distribution-only-brands) | § Church | Church docs, brand config, scripts, tests, CI |
 | [Teacher Mode & production readiness](#teacher-mode--production-readiness-document-all) | § Teacher Mode | Teacher gates, doctrine, config, tests, artifacts, workflows |
 | [Mechanism alias system](#mechanism-alias-system-document-all) | § Mechanism alias | Schema, alias files, renderer integration |
@@ -1232,6 +1581,7 @@ All docs that declare authority must reference the three canonical anchors: `SYS
 ### Governance
 
 - **Link integrity:** [scripts/ci/check_docs_governance.py](../scripts/ci/check_docs_governance.py) — Fails if any linked file is missing; warns on stale date.
+- **System governance status:** [scripts/ci/check_system_governance_status.py](../scripts/ci/check_system_governance_status.py) — Runs all governance checks and report scripts (docs, GitHub, production gates, teacher, brand guards, variation report); writes [artifacts/governance/system_governance_report.json](../artifacts/governance/system_governance_report.json); optional `--fix` for DOCS_INDEX Last updated.
 - **North star for go/no-go:** [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md) §6 Hard NOs.
 
 ---
@@ -1248,10 +1598,16 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [DOCS_INDEX.md](./DOCS_INDEX.md) | Canonical authority | ✓ |
 | [RIGOROUS_SYSTEM_TEST.md](./RIGOROUS_SYSTEM_TEST.md) | Core system docs | ✓ |
 | [FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md) | Core system docs | ✓ |
+| [ROBUST_INTELLIGENT_TESTING.md](./ROBUST_INTELLIGENT_TESTING.md) | Test suite (document all) | ✓ — Sanity + intelligent markers, config/locale tests, timeout |
 | [BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md) | Core system docs | ✓ |
 | [DISASTER_RECOVERY_DRILL_CHECKLIST.md](./DISASTER_RECOVERY_DRILL_CHECKLIST.md) | Core system docs | ✓ |
-| [MARKETING_DEEP_RESEARCH_PROMPTS.md](./MARKETING_DEEP_RESEARCH_PROMPTS.md) | Marketing & deep research | ✓ |
+| [VIDEO_PIPELINE_SPEC.md](./VIDEO_PIPELINE_SPEC.md) | Video pipeline | ✓ |
+| [VIDEO_CLOUDFLARE_FLUX_CREDENTIALS.md](./VIDEO_CLOUDFLARE_FLUX_CREDENTIALS.md) | Video pipeline (FLUX) | ✓ |
+| [research/MARKETING_DEEP_RESEARCH_PROMPTS.md](./research/MARKETING_DEEP_RESEARCH_PROMPTS.md) | Marketing & deep research | ✓ |
 | [PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md](./PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md) | Core system docs | ✓ |
+| [CHANGE_OBSERVATION_AND_IMPACT_SPEC.md](./CHANGE_OBSERVATION_AND_IMPACT_SPEC.md) | Change observation and impact (document all) | ✓ |
+| [PHOENIX_OMEGA_ERROR_STATE_UX_SPEC.md](./PHOENIX_OMEGA_ERROR_STATE_UX_SPEC.md) | Control plane & operator UI (error state UX) | ✓ |
+| [AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md](./AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md) | Autonomous improvement & ML system (document all) | ✓ |
 | [SYSTEMS_V4.md](./SYSTEMS_V4.md) | Core system docs | ✓ |
 | [PLANNING_STATUS.md](./PLANNING_STATUS.md) | Core system docs | ✓ |
 | [SYSTEMS_AUDIT.md](./SYSTEMS_AUDIT.md) | Core system docs | ✓ |
@@ -1261,7 +1617,7 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [PEARL_NEWS_MINIMAL_PROD_CHECKLIST.md](./PEARL_NEWS_MINIMAL_PROD_CHECKLIST.md) | Pearl News | ✓ |
 | [PEARL_NEWS_GO_NO_GO_CHECKLIST.md](./PEARL_NEWS_GO_NO_GO_CHECKLIST.md) | Pearl News | ✓ |
 | [PEARL_NEWS_HARDENING_100_PERCENT.md](./PEARL_NEWS_HARDENING_100_PERCENT.md) | Pearl News | ✓ |
-| `PEARL_NEWS_WRITER_SPEC.md` | Pearl News | ⚠️ missing |
+| [PEARL_NEWS_WRITER_SPEC.md](./PEARL_NEWS_WRITER_SPEC.md) | Pearl News | ✓ |
 | [PHOENIX_24_BRAND_GOVERNANCE_ARCHITECTURE.md](./PHOENIX_24_BRAND_GOVERNANCE_ARCHITECTURE.md) | Governance | ✓ |
 | [PHOENIX_24_BRAND_MINIMUM_GOVERNANCE_CORE.md](./PHOENIX_24_BRAND_MINIMUM_GOVERNANCE_CORE.md) | Governance | ✓ |
 | [GOVERNANCE_HARDENING_BLUEPRINT.md](./GOVERNANCE_HARDENING_BLUEPRINT.md) | Governance | ✓ |
@@ -1281,9 +1637,11 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [WRITER_BRIEF_BOOK_001.md](./WRITER_BRIEF_BOOK_001.md) | Book & authoring | ✓ |
 | [WRITER_COMMS_SYSTEMS_100.md](./WRITER_COMMS_SYSTEMS_100.md) | Book & authoring | ✓ |
 | [WRITER_SPEC_MARKDOWN_AND_DOCX.md](./WRITER_SPEC_MARKDOWN_AND_DOCX.md) | Book & authoring | ✓ |
+| [WRITER_STORY_READING_LIST.md](./WRITER_STORY_READING_LIST.md) | Book & authoring | ✓ |
+| [WRITER_SPEC_EXTRACT_FOR_ATOMS.md](./WRITER_SPEC_EXTRACT_FOR_ATOMS.md) | Book & authoring | ✓ |
 | [FIRST_10_BOOKS_EVALUATION_PROTOCOL.md](./FIRST_10_BOOKS_EVALUATION_PROTOCOL.md) | Book & authoring | ✓ |
 | [ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md](./ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md) | Enlightened Intelligence (V1/V2) | ✓ |
-| `EI_V2_ROLLOUT_PROOF_CHECKLIST.md` | Enlightened Intelligence (V2 release) | ✓ |
+| `EI_V2_ROLLOUT_PROOF_CHECKLIST.md` | Enlightened Intelligence (V2 release) | ⚠️ missing |
 | `docs/ei_v2_branch_protection_evidence.png` | Enlightened Intelligence (V2 release) | ⚠️ missing — add screenshot after completing branch protection step |
 | [MANUSCRIPT_QUALITY_IMPLEMENTATION_CHECKLIST.md](./MANUSCRIPT_QUALITY_IMPLEMENTATION_CHECKLIST.md) | Manuscript quality | ✓ |
 | [PRODUCTION_READINESS_GO_NO_GO.md](./PRODUCTION_READINESS_GO_NO_GO.md) | Manuscript quality / release | ✓ |
@@ -1296,28 +1654,36 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [NARRATIVE_TENSION_VALIDATOR.md](./NARRATIVE_TENSION_VALIDATOR.md) | Writing & content quality | ✓ |
 | [SIMPLIFIED_EMOTIONAL_IMPACT_SCORING.md](./SIMPLIFIED_EMOTIONAL_IMPACT_SCORING.md) | Writing & content quality | ✓ |
 | [UNIFIED_PERSONAS_BOOK_READINESS_ANALYSIS.md](./UNIFIED_PERSONAS_BOOK_READINESS_ANALYSIS.md) | Writing & content quality | ✓ |
+| BESTSELLER_STRUCTURES.md (backlog if missing in fork) | Writing & content quality | ✓ |
+| CHAPTER_THESIS_BANK.md (backlog if missing in fork) | Writing & content quality | ✓ |
 | [ATOM_NATIVE_MODULAR_FORMATS.md](./ATOM_NATIVE_MODULAR_FORMATS.md) | Atoms & formats | ✓ |
 | [INTRO_AND_CONCLUSION_SYSTEM.md](./INTRO_AND_CONCLUSION_SYSTEM.md) | Atoms & formats | ✓ |
 | [PRACTICE_LIBRARY_TEACHER_FALLBACK.md](./PRACTICE_LIBRARY_TEACHER_FALLBACK.md) | Atoms & formats | ✓ |
 | [TEACHER_MODE_SYSTEM_REFERENCE.md](./TEACHER_MODE_SYSTEM_REFERENCE.md) | Atoms & formats | ✓ |
 | [TEACHER_PRODUCTION_READINESS.md](./TEACHER_PRODUCTION_READINESS.md) | Teacher Mode | ✓ |
 | [TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md](./TUPLE_VIABILITY_AND_COVERAGE_HEALTH_SPEC.md) | Coverage & ops | ✓ |
+| [CONTENT_COVERAGE_ANALYSIS.md](./CONTENT_COVERAGE_ANALYSIS.md) | How to check for missing book content | ✓ — Analysis of atoms/teacher/plan coverage tooling; single-report script |
 | [COVERAGE_HEALTH_JSON_SCHEMA.md](./COVERAGE_HEALTH_JSON_SCHEMA.md) | Coverage & ops | ✓ |
 | [TITLE_AND_CATALOG_MARKETING_SYSTEM.md](./TITLE_AND_CATALOG_MARKETING_SYSTEM.md) | Coverage & ops | ✓ |
 | [PHASE_13_C_WAVE_OPTIMIZER.md](./PHASE_13_C_WAVE_OPTIMIZER.md) | Coverage & ops | ✓ |
 | [V4_FEATURES_SCALE_AND_KNOBS.md](./V4_FEATURES_SCALE_AND_KNOBS.md) | Coverage & ops | ✓ |
 | [email_sequences/README.md](./email_sequences/README.md) | Email sequences | ✓ |
 | [email_sequences/5-email-welcome-sequence.md](./email_sequences/5-email-welcome-sequence.md) | Email sequences | ✓ |
+| [email_sequences/proof_loop_sequence.md](./email_sequences/proof_loop_sequence.md) | Email sequences / Freebie funnel | ✓ — E1–E5 Proof Loop canonical copy |
+| [email_sequences/e2_approved_mechanism_lines.md](./email_sequences/e2_approved_mechanism_lines.md) | Email sequences / Freebie funnel | ✓ — E2 mechanism lines for copywriter |
 | [email_sequences/persona-variants.md](./email_sequences/persona-variants.md) | Email sequences | ✓ |
 | [email_sequences/exercise-one-liners.md](./email_sequences/exercise-one-liners.md) | Email sequences | ✓ |
 | [email_sequences/FORMSPREE_SETUP.md](./email_sequences/FORMSPREE_SETUP.md) | Email sequences | ✓ |
+| [FREEBIE_MARKETING_PLAN.md](./FREEBIE_MARKETING_PLAN.md) | Freebie funnel / Marketing | ✓ — Proof Loop, funnel stages, GHL, MVP scope |
+| [funnel/burnout_reset/GHL_HANDBOFF.md](../funnel/burnout_reset/GHL_HANDBOFF.md) | Freebie funnel | ✓ — GHL API key, Location ID, payload, custom field UUIDs; handoff for GHL operator |
 | [GITHUB_BACKUP_SETUP.md](./GITHUB_BACKUP_SETUP.md) | Operations & infra | ✓ |
 | [QWEN_FORKS_AND_BACKUP.md](./QWEN_FORKS_AND_BACKUP.md) | Operations & infra | ✓ |
 | [adr/README.md](./adr/README.md) | ADRs | ✓ |
 | [SCHEMA_CHANGELOG.md](./SCHEMA_CHANGELOG.md) | Schema & audit | ✓ |
 | [AUDIT_OLD_CHAT_SPECS_VS_V4.md](./AUDIT_OLD_CHAT_SPECS_VS_V4.md) | Schema & audit | ✓ |
-| [LOCALE_PERSONAS.md](./LOCALE_PERSONAS.md) | Locale personas | ✓ — 40 persona definitions across all 11 non-en-US locales (zh-TW, zh-HK, zh-CN, zh-SG, ja-JP, ko-KR, es-US, es-ES, fr-FR, de-DE, hu-HU) |
-| [LOCALE_CATALOG_MARKETING_PLAN.md](./LOCALE_CATALOG_MARKETING_PLAN.md) | All-locale marketing plan | ✓ — Per-locale positioning, go-live checklists, readiness tracker for all 12 locales |
+| [LOCALE_PERSONAS.md](./LOCALE_PERSONAS.md) | Locale personas | ✓ — 40 persona definitions across non-en-US locales (zh-TW, zh-HK, zh-CN, zh-SG, ja-JP, ko-KR, es-US, es-ES, fr-FR, de-DE, it-IT, hu-HU) |
+| [LOCALE_CATALOG_MARKETING_PLAN.md](./LOCALE_CATALOG_MARKETING_PLAN.md) | All-locale marketing plan | ✓ — Per-locale positioning, go-live checklists, readiness tracker for all 13 locales (incl. it-IT EU catalogue) |
+| [TRANSLATE_QWEN_PIPELINE_CLI.md](./TRANSLATE_QWEN_PIPELINE_CLI.md) | Translate/prompt via Qwen pipeline CLI | ✓ — All system languages; Qwen GitHub pipeline CLI; EU catalogue (it-IT) |
 | [NEW_LANGUAGE_LOCATION_ONBOARDING.md](./NEW_LANGUAGE_LOCATION_ONBOARDING.md) | Marketing & deep research / Locale onboarding | ✓ — Process and deep research prompts for new language/location/topic/persona; market-driven; personas, topics, authors, platforms, metadata, stories, writing spec, book titles |
 | [ZH_CN_DISTRIBUTION_PLAN.md](./ZH_CN_DISTRIBUTION_PLAN.md) | zh-CN distribution | ✓ — Local platform pipeline (Ximalaya, NetEase, WeChat Read, Dedao); Phase 5 prerequisite checklist |
 | `LOCALE_PROSE_AND_PROMPTING.md` | Translation | ⚠️ missing |
@@ -1355,6 +1721,7 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [specs/OMEGA_LAYER_CONTRACTS.md](../specs/OMEGA_LAYER_CONTRACTS.md) | Omega layer interface contracts |
 | [specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md) | Deep research: invisible script, belief flip, marketing brief |
 | [specs/PHOENIX_FREEBIE_SYSTEM_SPEC.md](../specs/PHOENIX_FREEBIE_SYSTEM_SPEC.md) | Freebie system: asset types, planner, CTA injection |
+| [specs/FUNNEL_AND_BOOK_COPY_WRITER_SPEC.md](../specs/FUNNEL_AND_BOOK_COPY_WRITER_SPEC.md) | Funnel & book copy: authority narrative, Email 3 story, headline A/B, assignable copy; workflow, placeholders, scope |
 | [specs/PHOENIX_V4_CANONICAL_SPEC.md](../specs/PHOENIX_V4_CANONICAL_SPEC.md) | V4 canonical spec (predecessor to V4.5) |
 | [specs/PRACTICE_ITEM_SCHEMA.md](../specs/PRACTICE_ITEM_SCHEMA.md) | Practice item YAML schema for EXERCISE slot |
 | [specs/TEACHER_AUTHORING_LAYER_SPEC.md](../specs/TEACHER_AUTHORING_LAYER_SPEC.md) | Teacher authoring layer: workflow, approval, staging |
@@ -1364,6 +1731,7 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [specs/TEACHER_MODE_NORMALIZATION_SPEC.md](../specs/TEACHER_MODE_NORMALIZATION_SPEC.md) | Teacher Mode normalization: consistent voice, format |
 | [specs/TEACHER_MODE_STRUCTURAL_SPEC.md](../specs/TEACHER_MODE_STRUCTURAL_SPEC.md) | Teacher Mode structural rules |
 | [specs/TEACHER_MODE_V4_CANONICAL_SPEC.md](../specs/TEACHER_MODE_V4_CANONICAL_SPEC.md) | Teacher Mode V4 canonical spec |
+| [specs/TEACHER_UNIVERSAL_AND_SCORING_SPEC.md](../specs/TEACHER_UNIVERSAL_AND_SCORING_SPEC.md) | Teacher universal scope + topic/persona scores, EI v2, volume/format |
 | [specs/TEACHER_PORTFOLIO_PLANNING_SPEC.md](../specs/TEACHER_PORTFOLIO_PLANNING_SPEC.md) | Teacher portfolio planning: topic/persona coverage targets |
 | [specs/V4_6_BINGE_OPTIMIZATION_LAYER.md](../specs/V4_6_BINGE_OPTIMIZATION_LAYER.md) | V4.6 binge optimization: serialized listening, continuity |
 | [specs/WRITER_DEV_SPEC_PHASE_2.md](../specs/WRITER_DEV_SPEC_PHASE_2.md) | Writer dev spec phase 2 |
@@ -1385,6 +1753,10 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [pytest.ini](../pytest.ini) | Test infrastructure | ✓ |
 | [tests/conftest.py](../tests/conftest.py) | Test infrastructure | ✓ |
 | [artifacts/reports/pearl_prime_sim_baseline.json](../artifacts/reports/pearl_prime_sim_baseline.json) | Simulation | ✓ |
+| `artifacts/reports/cohesive_bestseller_tester_report.json` | Simulation / Cohesive bestseller | ✓ — Health score, severity, pearl/teacher/EI v2 analysis, LLM (from llm_cohesive_bestseller_tester.py) |
+| `artifacts/reports/cohesive_bestseller_tester_SUMMARY.txt` | Simulation / Cohesive bestseller | ✓ |
+| `artifacts/reports/bestseller_error_report.json` | Simulation / Bestseller QA | ✓ — From llm_bestseller_error_report.py |
+| `artifacts/reports/bestseller_error_report_SUMMARY.txt` | Simulation / Bestseller QA | ✓ |
 | [artifacts/dr_drill/](../artifacts/dr_drill/) | DR | ✓ |
 | [ONBOARDING.md](../ONBOARDING.md) | Core system docs | ✓ |
 | [pearl_news/README.md](../pearl_news/README.md) | Pearl News | ✓ |
@@ -1392,11 +1764,23 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [pearl_news/pipeline/README.md](../pearl_news/pipeline/README.md) | Pearl News | ✓ |
 | [pearl_news/atoms/README.md](../pearl_news/atoms/README.md) | Pearl News | ✓ |
 | [pearl_news/governance/README.md](../pearl_news/governance/README.md) | Pearl News | ✓ |
+| [pearl_news/prompts/README.md](../pearl_news/prompts/README.md) | Pearl News | ✓ — Expansion prompt docs; link to Writer spec |
+| [pearl_news/prompts/expansion_system.txt](../pearl_news/prompts/expansion_system.txt) | Pearl News | ✓ — System prompt for LLM expansion; Writer spec craft rules |
 | [config/source_of_truth/mechanism_aliases/_schema.yaml](../config/source_of_truth/mechanism_aliases/_schema.yaml) | Mechanism alias | ✓ |
 | [config/source_of_truth/mechanism_aliases/_naming_template.md](../config/source_of_truth/mechanism_aliases/_naming_template.md) | Mechanism alias | ✓ |
 | [config/source_of_truth/intro_ending_variation.yaml](../config/source_of_truth/intro_ending_variation.yaml) | Atom coverage | ✓ |
 | [config/source_of_truth/master_arcs/README.md](../config/source_of_truth/master_arcs/README.md) | Master arcs | ✓ |
 | [atoms/INDEX.md](../atoms/INDEX.md) | Atom coverage | ✓ |
+| [artifacts/freebies/README.md](../artifacts/freebies/README.md) | Freebies index, blessed_plans, rebuild command | ✓ |
+| [artifacts/freebies/EVIDENCE.md](../artifacts/freebies/EVIDENCE.md) | Freebies governance | ✓ — Green run evidence (systems test + production gates) |
+| [funnel/README.md](../funnel/README.md) | Freebie funnel | ✓ — Run locally, config, email_mode, deploy |
+| [funnel/burnout_reset/GO_NO_GO.md](../funnel/burnout_reset/GO_NO_GO.md) | Freebie funnel | ✓ — Go/no-go, handoff, three things from Nihala, CAN-SPAM |
+| [artifacts/governance/system_governance_report.json](../artifacts/governance/system_governance_report.json) | Governance status report (from check_system_governance_status.py) | ✓ |
+| [artifacts/research/README.md](../artifacts/research/README.md) | Marketing & deep research (Generational) | ✓ — Layout: raw/, youth_feed_snapshots/, psychology/, pain_points/, world_events/, narrative/, platform/, manifests/, marketing_sources/ |
+| [research/prompts/schemas/README.md](../research/prompts/schemas/README.md) | Marketing & deep research (Generational) | ✓ — YAML schema refs for research prompts |
+| [artifacts/content_coverage_report.json](../artifacts/content_coverage_report.json) | Content coverage report (from content_coverage_report.py); atoms + plan + teacher readiness | ✓ |
+| `artifacts/simulation_100k.json` | Simulation | Output from run_simulation_100k.py (optional --out); created on run |
+| [artifacts/observability/change_events.jsonl](../artifacts/observability/change_events.jsonl) | Change observation and impact | ✓ — From detect_changes.py; impact_*.json from impact_from_changes.py (change-impact workflow) |
 
 ### Config
 
@@ -1407,31 +1791,45 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [config/quality/ei_v2_promotion_criteria.yaml](../config/quality/ei_v2_promotion_criteria.yaml) | Enlightened Intelligence V2 promotion | ✓ — Five gates (quality, performance, safety, dimension gates, hybrid override), consecutive passes, auto_promote |
 | [config/quality/tier0_book_output_contract.yaml](../config/quality/tier0_book_output_contract.yaml) | Manuscript quality | ✓ |
 | [config/observability_production_signals.yaml](../config/observability_production_signals.yaml) | Observability | ✓ |
-| `config/quality/canary_config.yaml` | Manuscript quality | ⚠️ missing |
-| `config/payouts/churches.yaml` | Phoenix Churches Payout | ⚠️ missing |
-| `config/payouts/payees.yaml` | Phoenix Churches Payout | ⚠️ missing |
-| `config/payouts/credentials.yaml.example` | Phoenix Churches Payout | ⚠️ missing |
-| `config/payouts/fill_template.csv` | Phoenix Churches Payout | ⚠️ missing |
+| [config/governance/system_registry.yaml](../config/governance/system_registry.yaml) | Change observation and impact | ✓ — System registry (systems, assets, related_systems, downstream); consumed by detect_changes, impact_from_changes |
+| [config/quality/canary_config.yaml](../config/quality/canary_config.yaml) | Manuscript quality | ✓ — Canary sample size, max_failures; used by run_canary_100_books |
+| [config/payouts/churches.yaml](../config/payouts/churches.yaml) | Phoenix Churches Payout | ✓ — Church registry stub; populate per CHECKLIST.md |
+| [config/payouts/payees.yaml](../config/payouts/payees.yaml) | Phoenix Churches Payout | ✓ — Payee registry stub; populate per CHECKLIST.md |
+| [config/payouts/credentials.yaml.example](../config/payouts/credentials.yaml.example) | Phoenix Churches Payout | ✓ — Credentials template; copy to credentials.yaml |
+| [config/payouts/fill_template.csv](../config/payouts/fill_template.csv) | Phoenix Churches Payout | ✓ — CSV template for batch-filling church + payee info |
 | [config/teachers/teacher_registry.yaml](../config/teachers/teacher_registry.yaml) | Teacher Mode | ✓ |
 | [config/authoring/author_cover_art_registry.yaml](../config/authoring/author_cover_art_registry.yaml) | Book & authoring (Author cover art) | ✓ |
-| `config/marketing/invisible_scripts_by_persona_topic.yaml` | Marketing & deep research | ⚠️ missing — target output from MARKETING_DEEP_RESEARCH_PROMPTS sub-prompt 4 |
+| [config/marketing/consumer_language_by_topic.yaml](../config/marketing/consumer_language_by_topic.yaml) | Marketing & deep research | ✓ — 14 topics, consumer phrases, banned clinical terms, bridge language, search clusters, platform risk terms |
+| [config/marketing/invisible_scripts_by_persona_topic.yaml](../config/marketing/invisible_scripts_by_persona_topic.yaml) | Marketing & deep research | ✓ — 140 entries (10 personas × 14 topics), 2 scripts each; loaded by title engine |
+| [config/research/youth_feed_sources.yaml](../config/research/youth_feed_sources.yaml) | Marketing & deep research (Generational) | ✓ — RSS (UNICEF, UN Youth), platforms list, curated links for research_feeds_ingest |
+| [config/research/marketing_feed_sources.yaml](../config/research/marketing_feed_sources.yaml) | Marketing & deep research (Generational) | ✓ — APA, PW, Spotify, Library Journal; refresh notes |
+| [phoenix_v4/qa/validate_marketing_config.py](../phoenix_v4/qa/validate_marketing_config.py) | Marketing & deep research | ✓ — CI validator: required topic/persona IDs, field count ranges, and 10×14 persona×topic coverage |
+| [.github/workflows/marketing-config-gate.yml](../.github/workflows/marketing-config-gate.yml) | Marketing & deep research | ✓ — PR gate for config/marketing/** changes |
+| [.github/workflows/research_feeds_ingest.yml](../.github/workflows/research_feeds_ingest.yml) | Marketing & deep research (Generational) | ✓ — Weekly + manual; fetch RSS to artifacts/research/raw/; no model run |
 | [.github/workflows/teacher-gates.yml](../.github/workflows/teacher-gates.yml) | Teacher Mode | ✓ |
 | [.github/workflows/brand-guards.yml](../.github/workflows/brand-guards.yml) | Church & payout (NorCal Dharma brand guards) | ✓ |
-| `config/localization/quality_contracts/README.md` | Translation | ✓ — Quality contract definitions and thresholds |
-| `quality_contracts/glossary.yaml` | Translation | ⚠️ missing |
-| `quality_contracts/release_thresholds.yaml` | Translation | ⚠️ missing |
-| `quality_contracts/golden_translation_regression.yaml` | Translation | ⚠️ missing |
+| [config/localization/quality_contracts/README.md](../config/localization/quality_contracts/README.md) | Translation | ✓ — Quality contracts overview; glossary, thresholds, golden regression |
+| [config/localization/quality_contracts/glossary.yaml](../config/localization/quality_contracts/glossary.yaml) | Translation | ✓ — Canonical terms and preferred translations per locale (stub) |
+| [config/localization/quality_contracts/release_thresholds.yaml](../config/localization/quality_contracts/release_thresholds.yaml) | Translation | ✓ — Release thresholds for locale gate (stub) |
+| [config/localization/quality_contracts/golden_translation_regression.yaml](../config/localization/quality_contracts/golden_translation_regression.yaml) | Translation | ✓ — Golden segments for regression tests (stub) |
 | [config/localization/content_roots_by_locale.yaml](../config/localization/content_roots_by_locale.yaml) | Translation | ✓ — all 12 locales mapped with atoms_root, TTS constraints, rollout phase, distribution blockers |
-| `.github/workflows/translate-atoms-qwen-matrix.yml` | Translation | ✓ — Parallel sharded translation workflow |
-| `.github/workflows/locale-gate.yml` | Translation | ✓ — Locale validation gate: validate translations per locale, golden regression check, coverage report |
+| [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml) | Translation | ✓ — Stub: placeholder for translation matrix; weekly/manual |
+| [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml) | Translation | ✓ — Stub: placeholder for locale gate on config/localization and atoms |
 | [.github/workflows/core-tests.yml](../.github/workflows/core-tests.yml) | Core CI | ✓ |
+| [.github/workflows/pearl_news_scheduled_self_hosted.yml](../.github/workflows/pearl_news_scheduled_self_hosted.yml) | Pearl News (Option B) | ✓ — Self-hosted workflow; copy as pearl_news_scheduled.yml |
+| [pearl_news/config/llm_expansion.yaml](../pearl_news/config/llm_expansion.yaml) | Pearl News | ✓ — Expansion API config; timeout, max_tokens, target_word_count |
+| [pearl_news/config/site.yaml](../pearl_news/config/site.yaml) | Pearl News | ✓ — target_word_count, placeholder images by template |
+| [pearl_news/config/wordpress_authors.yaml](../pearl_news/config/wordpress_authors.yaml) | Pearl News | ✓ — author_ids for round-robin |
 | [.github/workflows/simulation-10k.yml](../.github/workflows/simulation-10k.yml) | Simulation CI | ✓ |
 | [.github/workflows/release-gates.yml](../.github/workflows/release-gates.yml) | Release CI | ✓ |
 | [.github/workflows/production-observability.yml](../.github/workflows/production-observability.yml) | Observability | ✓ |
+| [.github/workflows/change-impact.yml](../.github/workflows/change-impact.yml) | Change observation and impact | ✓ — Run detect_changes + impact_from_changes on PR/push to main; upload artifacts |
 | [.github/workflows/ei-v2-gates.yml](../.github/workflows/ei-v2-gates.yml) | Enlightened Intelligence V2 CI | ✓ — Unit tests → rigorous eval → promotion gate check; weekly + on EI code changes |
 | [config/format_selection/format_registry.yaml](../config/format_selection/format_registry.yaml) | Simulation / Delivery | ✓ |
 | [config/format_selection/selection_rules.yaml](../config/format_selection/selection_rules.yaml) | Simulation | ✓ |
-| `config/source_of_truth/chapter_order_modes.yaml` | Simulation | ⚠️ missing |
+| [config/source_of_truth/chapter_order_modes.yaml](../config/source_of_truth/chapter_order_modes.yaml) | Simulation | ✓ — Chapter order modes for simulation; aligned with section_reorder_modes |
+| [config/freebies/funnel_proof_loop.yaml](../config/freebies/funnel_proof_loop.yaml) | Freebie funnel | ✓ — topic, first_exercise, story_id, book_slug per hub |
+| [config/freebies/freebie_to_book_map.yaml](../config/freebies/freebie_to_book_map.yaml) | Freebie funnel | ✓ — exercise/topic → book_title, book_url, more_books; slugs for /books/<slug> |
 
 ### Scripts & code
 
@@ -1439,6 +1837,8 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 |-----------------|---------|--------|
 | [scripts/run_pipeline.py](../scripts/run_pipeline.py) | Delivery pipeline | ✓ |
 | [scripts/run_production_readiness_gates.py](../scripts/run_production_readiness_gates.py) | Simulation | ✓ |
+| [scripts/observability/detect_changes.py](../scripts/observability/detect_changes.py) | Change observation and impact | ✓ — Git diff (--base/--head) + registry → change_events.jsonl |
+| [scripts/observability/impact_from_changes.py](../scripts/observability/impact_from_changes.py) | Change observation and impact | ✓ — change_events.jsonl → impact summary (affected_systems, downstream, related) |
 | [scripts/render_plan_to_txt.py](../scripts/render_plan_to_txt.py) | Delivery pipeline | ✓ |
 | [scripts/pearl_news_networked_run_and_evidence.sh](../scripts/pearl_news_networked_run_and_evidence.sh) | Pearl News | ✓ |
 | [scripts/pearl_news_post_to_wp.py](../scripts/pearl_news_post_to_wp.py) | Pearl News | ✓ |
@@ -1448,6 +1848,7 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [pearl_news/pipeline/topic_sdg_classifier.py](../pearl_news/pipeline/topic_sdg_classifier.py) | Pearl News | ✓ |
 | [pearl_news/pipeline/template_selector.py](../pearl_news/pipeline/template_selector.py) | Pearl News | ✓ |
 | [pearl_news/pipeline/article_assembler.py](../pearl_news/pipeline/article_assembler.py) | Pearl News | ✓ |
+| [pearl_news/pipeline/llm_expand.py](../pearl_news/pipeline/llm_expand.py) | Pearl News | ✓ — Expansion step; expansion_system.txt + llm_expansion.yaml; `--expand` |
 | [pearl_news/pipeline/quality_gates.py](../pearl_news/pipeline/quality_gates.py) | Pearl News | ✓ |
 | [pearl_news/pipeline/qc_checklist.py](../pearl_news/pipeline/qc_checklist.py) | Pearl News | ✓ |
 | [pearl_news/publish/wordpress_client.py](../pearl_news/publish/wordpress_client.py) | Pearl News | ✓ |
@@ -1461,19 +1862,21 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [phoenix_v4/quality/ei_v2/\_\_init\_\_.py](../phoenix_v4/quality/ei_v2/__init__.py) | Enlightened Intelligence V2 | ✓ — `run_ei_v2_analysis()`: orchestrates all V2 modules |
 | [phoenix_v4/quality/ei_v2/config.py](../phoenix_v4/quality/ei_v2/config.py) | Enlightened Intelligence V2 | ✓ — `load_ei_v2_config()`: YAML + defaults merge |
 | [phoenix_v4/quality/ei_v2/cross_encoder_reranker.py](../phoenix_v4/quality/ei_v2/cross_encoder_reranker.py) | Enlightened Intelligence V2 | ✓ — `rerank_candidates()`: semantic + token overlap reranking |
-| [phoenix_v4/quality/ei_v2/safety_classifier.py](../phoenix_v4/quality/ei_v2/safety_classifier.py) | Enlightened Intelligence V2 | ✓ — `classify_safety()`: expanded pattern detection + negation |
-| [phoenix_v4/quality/ei_v2/domain_embeddings.py](../phoenix_v4/quality/ei_v2/domain_embeddings.py) | Enlightened Intelligence V2 | ✓ — `domain_thesis_similarity()`: persona + topic weighted |
+| [phoenix_v4/quality/ei_v2/safety_classifier.py](../phoenix_v4/quality/ei_v2/safety_classifier.py) | Enlightened Intelligence V2 | ✓ — `classify_safety()`: pattern detection + optional marketing_compliance signal |
+| [phoenix_v4/quality/ei_v2/domain_embeddings.py](../phoenix_v4/quality/ei_v2/domain_embeddings.py) | Enlightened Intelligence V2 | ✓ — `domain_thesis_similarity()`: persona + topic; optional marketing lexicons |
+| [phoenix_v4/quality/ei_v2/marketing_lexicons.py](../phoenix_v4/quality/ei_v2/marketing_lexicons.py) | Enlightened Intelligence V2 (marketing) | ✓ — Load 02/03/04; schema validation; observability to marketing_integration.log |
 | [phoenix_v4/quality/ei_v2/semantic_dedup.py](../phoenix_v4/quality/ei_v2/semantic_dedup.py) | Enlightened Intelligence V2 | ✓ — `detect_semantic_duplicates()`: n-gram + beat fingerprint |
 | [phoenix_v4/quality/ei_v2/emotion_arc_validator.py](../phoenix_v4/quality/ei_v2/emotion_arc_validator.py) | Enlightened Intelligence V2 | ✓ — `validate_emotion_arc()`: valence/arousal lexicon scoring |
 | [phoenix_v4/quality/ei_v2/tts_readability.py](../phoenix_v4/quality/ei_v2/tts_readability.py) | Enlightened Intelligence V2 | ✓ — `score_tts_readability()`: rhythm, sentence length, TTS patterns |
 | [phoenix_v4/quality/ei_parallel_adapter.py](../phoenix_v4/quality/ei_parallel_adapter.py) | Enlightened Intelligence (parallel) | ✓ — `compare_slot()`, `build_pipeline_comparison()`, `write_comparison_report()` |
 | [scripts/ci/run_ei_v2_rigorous_eval.py](../scripts/ci/run_ei_v2_rigorous_eval.py) | Enlightened Intelligence (eval) | ✓ — 10-dimension quality eval + V1/V2 comparison + timing benchmarks |
+| [scripts/ei_v2_marketing_dashboard_tab.py](../scripts/ei_v2_marketing_dashboard_tab.py) | Enlightened Intelligence V2 (marketing dashboard) | ✓ — Streamlit `render_marketing_tab()`: log tail, hashes, freshness, schema guards, optional Plotly chart |
 | [scripts/ci/check_ei_v2_promotion_gate.py](../scripts/ci/check_ei_v2_promotion_gate.py) | Enlightened Intelligence (promotion) | ✓ — Checks eval report against promotion criteria; tracks consecutive passes |
-| `phoenix_v4/quality/ei_v2/hybrid_selector.py` | Enlightened Intelligence V2 (hybrid) | ✓ — `hybrid_select()`: V1 picks → V2 scores → risk blocks → margin override → learner feedback |
-| `phoenix_v4/quality/ei_v2/learner.py` | Enlightened Intelligence V2 (learner) | ✓ — `learn()`: EMA-based weight/threshold tuning; `log_feedback()`, `load_learned_params()` |
-| `phoenix_v4/quality/ei_v2/dimension_gates.py` | Enlightened Intelligence V2 (gates) | ✓ — `enforce_chapter_gates()`: uniqueness, engagement, somatic, listen, cohesion |
-| `scripts/ci/run_ei_v2_catalog_calibration.py` | Enlightened Intelligence (calibration) | ✓ — Whole-catalog dimension gate sweep; percentile threshold discovery; learner integration |
-| `tests/test_ei_v2_hybrid.py` | Enlightened Intelligence V2 (tests) | ✓ — 25 tests: learner, dimension gates, hybrid selector, config, integration |
+| [phoenix_v4/quality/ei_v2/hybrid_selector.py](../phoenix_v4/quality/ei_v2/hybrid_selector.py) | Enlightened Intelligence V2 (hybrid) | ✓ — HybridDecision, hybrid_select; V1 pick + optional V2/override |
+| [phoenix_v4/quality/ei_v2/learner.py](../phoenix_v4/quality/ei_v2/learner.py) | Enlightened Intelligence V2 (learner) | ✓ — LearnedParams, load/save_learned_params, FeedbackRecord, log_feedback, load_feedback |
+| [phoenix_v4/quality/ei_v2/dimension_gates.py](../phoenix_v4/quality/ei_v2/dimension_gates.py) | Enlightened Intelligence V2 (gates) | ✓ — gate_uniqueness, gate_engagement, gate_somatic_precision; GateResult, ChapterGateReport |
+| [scripts/ci/run_ei_v2_catalog_calibration.py](../scripts/ci/run_ei_v2_catalog_calibration.py) | Enlightened Intelligence (calibration) | ✓ — Stub: writes minimal calibration report; extend for catalog scan |
+| [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py) | Enlightened Intelligence V2 (tests) | ✓ — 17 tests: learner, dimension gates, hybrid selector, config, integration |
 | [phoenix_title_engine.py](../phoenix_title_engine.py) | Marketing & deep research | ✓ |
 | [phoenix_title_engine_v3.py](../phoenix_title_engine_v3.py) | Marketing & deep research | ✓ |
 | [phoenix_title_engine_v4.py](../phoenix_title_engine_v4.py) | Marketing & deep research | ✓ |
@@ -1487,19 +1890,23 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [phoenix_v4/planning/author_cover_art_resolver.py](../phoenix_v4/planning/author_cover_art_resolver.py) | Book & authoring (Author cover art; pipeline output) | ✓ |
 | [scripts/ci/report_variation_knobs.py](../scripts/ci/report_variation_knobs.py) | Simulation | ✓ |
 | [scripts/ci/run_simulation_10k.py](../scripts/ci/run_simulation_10k.py) | Simulation | ✓ |
-| `scripts/ci/run_simulation_100k.py` | Simulation | ⚠️ missing |
+| [scripts/ci/run_simulation_100k.py](../scripts/ci/run_simulation_100k.py) | Simulation | ✓ — n=100000 (or --n), --use-format-selector, --phase2, --phase3; output artifacts/simulation_100k.json |
 | [scripts/ci/analyze_pearl_prime_sim.py](../scripts/ci/analyze_pearl_prime_sim.py) | Simulation | ✓ |
 | [scripts/ci/run_rigorous_system_test.py](../scripts/ci/run_rigorous_system_test.py) | Simulation | ✓ |
 | [scripts/ci/check_book_output_tier0_contract.py](../scripts/ci/check_book_output_tier0_contract.py) | Manuscript quality | ✓ |
-| `scripts/ci/tier0_trend.py` | Manuscript quality | ⚠️ missing |
+| [scripts/ci/tier0_trend.py](../scripts/ci/tier0_trend.py) | Manuscript quality | ✓ — Stub: tier0 contract trend report; extend for input scan of check outputs |
 | [scripts/ci/run_canary_100_books.py](../scripts/ci/run_canary_100_books.py) | Simulation / Release | ✓ |
 | [scripts/release/rollback_smoke.sh](../scripts/release/rollback_smoke.sh) | Release / DR | ✓ |
 | [scripts/ci/check_norcal_dharma_brand_guards.py](../scripts/ci/check_norcal_dharma_brand_guards.py) | Church & payout | ✓ |
 | [scripts/ci/check_church_yaml_no_sensitive_tokens.py](../scripts/ci/check_church_yaml_no_sensitive_tokens.py) | Church & payout | ✓ |
+| [scripts/ci/check_system_governance_status.py](../scripts/ci/check_system_governance_status.py) | Governance — all checks + report; optional --fix | ✓ |
+| [scripts/ci/content_coverage_report.py](../scripts/ci/content_coverage_report.py) | Content coverage — atoms + plan + teacher readiness; single report | ✓ |
+| [scripts/rebuild_freebie_index_from_plans.py](../scripts/rebuild_freebie_index_from_plans.py) | Freebies — rebuild index from blessed plans (Gate 16/16b) | ✓ |
+| [funnel/burnout_reset/app.py](../funnel/burnout_reset/app.py) | Freebie funnel | ✓ — Flask: landing, POST /submit, /unsubscribe, /books/<slug>; leads; E1–E5 schedule (APScheduler) |
 | [scripts/ops/smoke_church_brand_resolution.py](../scripts/ops/smoke_church_brand_resolution.py) | Church & payout | ✓ |
 | [phoenix_v4/ops/church_loader.py](../phoenix_v4/ops/church_loader.py) | Church & payout | ✓ |
-| `scripts/translate_atoms_all_locales_cloud.py` | Translation | ✓ — Parallel sharded translation to all locales |
-| `scripts/validate_translations.py` | Translation | ✓ — Structure, encoding, glossary, golden regression |
-| `scripts/merge_translation_shards.py` | Translation | ✓ — Merges parallel shard outputs; conflict detection |
-| `scripts/check_golden_translation.py` | Translation | ✓ — Regression against golden samples |
-| `scripts/native_prompts_eval_learn.py` | Translation | ✓ — Native-speaker eval prompts; 4 evaluation dimensions |
+| [scripts/translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py) | Translation | ✓ — Stub: implement for parallel sharded translation via API |
+| [scripts/validate_translations.py](../scripts/validate_translations.py) | Translation | ✓ — Stub: implement for structure/glossary/golden validation |
+| [scripts/merge_translation_shards.py](../scripts/merge_translation_shards.py) | Translation | ✓ — Stub: implement to merge shard outputs into locale atom tree |
+| [scripts/check_golden_translation.py](../scripts/check_golden_translation.py) | Translation | ✓ — Stub: implement for golden_translation_regression.yaml check |
+| [scripts/native_prompts_eval_learn.py](../scripts/native_prompts_eval_learn.py) | Translation | ✓ — Stub: implement for native-speaker eval prompts and learn |

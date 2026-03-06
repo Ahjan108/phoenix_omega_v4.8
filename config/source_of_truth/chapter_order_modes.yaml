@@ -1,0 +1,20 @@
+# Chapter/section order modes for simulation and format selection.
+# Aligns with section_reorder_modes.yaml; simulation uses mode ids from here.
+# Authority: DOCS_INDEX simulation config.
+
+schema_version: "1.0"
+
+# Mode ids match section_reorder_modes for consistency.
+modes:
+  none:
+    name: "No reordering"
+    weight: 1.0
+  local_reflection_integration:
+    name: "Local REFLECTION/INTEGRATION swap"
+    weight: 0.7
+  hook_scene_swap:
+    name: "HOOK/SCENE order swap"
+    weight: 0.6
+  conservative:
+    name: "Conservative (REFLECTION/INTEGRATION + HOOK/SCENE)"
+    weight: 0.5

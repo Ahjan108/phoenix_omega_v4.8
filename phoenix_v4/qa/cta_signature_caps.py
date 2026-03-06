@@ -118,6 +118,8 @@ def main() -> int:
         description="CTA signature caps per brand/quarter (PHOENIX_FREEBIE_SYSTEM_SPEC §10.5)"
     )
     ap.add_argument("--index", default=None, help="Path to artifacts/freebies/index.jsonl (or plan rows JSONL)")
+    ap.add_argument("--plans-dir", default=None, help="Directory of compiled plan JSON files (same scope as validate_freebie_density)")
+    ap.add_argument("--last-n", type=int, default=None, help="When using --index: use only last N plan rows after dedupe. Wave scope.")
     ap.add_argument("--config", default=None, help="Path to config/freebies/cta_anti_spam.yaml")
     ap.add_argument("--write-index", action="store_true", help="Write cta_signature_index.jsonl to artifacts/freebies")
     args = ap.parse_args()
@@ -126,7 +128,27 @@ def main() -> int:
     config_path = Path(args.config) if args.config else (CONFIG_FREEBIES / "cta_anti_spam.yaml")
 
     rows: list[dict[str, Any]] = []
-    if index_path.exists():
+    if args.plans_dir:
+        pdir = Path(args.plans_dir)
+        if pdir.is_dir():
+            for f in sorted(pdir.iterdir()):
+                if f.suffix != ".json":
+                    continue
+                try:
+                    with open(f, encoding="utf-8") as fp:
+                        plan = json.load(fp)
+                    rows.append({
+                        "book_id": plan.get("plan_id") or plan.get("plan_hash") or f.stem,
+                        "freebie_bundle": plan.get("freebie_bundle") or [],
+                        "cta_template_id": plan.get("cta_template_id") or "",
+                        "freebie_slug": plan.get("freebie_slug") or "",
+                        "slug": plan.get("freebie_slug") or "",
+                        "brand_id": plan.get("brand_id"),
+                        "release_week": plan.get("release_week"),
+                    })
+                except (json.JSONDecodeError, OSError):
+                    pass
+    if not rows and index_path.exists():
         with open(index_path, encoding="utf-8") as f:
             for line in f:
                 line = line.strip()
@@ -135,6 +157,12 @@ def main() -> int:
                         rows.append(json.loads(line))
                     except json.JSONDecodeError:
                         pass
+
+    # Same scope as density: optional last-n (wave)
+    plan_rows = _normalize_plan_rows(rows)
+    if getattr(args, "last_n", None) is not None and getattr(args, "last_n", None) > 0:
+        plan_rows = plan_rows[-args.last_n:]
+    rows = plan_rows
 
     cfg = _load_yaml(config_path)
     caps = (cfg.get("cta_signature_caps") or {})

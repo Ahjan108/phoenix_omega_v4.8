@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phoenix/schemas/video/image_bank_asset_v1.schema.json",
+  "title": "Image bank asset v1",
+  "description": "Metadata for a single image in the Image Bank. Asset Resolver and FormatAdapter depend on composition_compat, tags, and style_version. composition_compat is computed during bank generation: 1.0 = generated natively at that aspect, 0.5 = croppable without losing subject, 0.0 = incompatible.",
+  "type": "object",
+  "required": ["asset_id", "layer_type", "tags", "composition_compat", "style_version"],
+  "properties": {
+    "asset_id": { "type": "string", "description": "Unique asset identifier" },
+    "layer_type": {
+      "type": "string",
+      "enum": ["character", "environment", "symbolic", "overlay"],
+      "description": "Visual layer for compositing"
+    },
+    "environment": { "type": "string", "description": "Environment archetype (e.g. forest_path, minimal_desk)" },
+    "visual_intent": {
+      "type": "string",
+      "enum": ["CHARACTER_EMOTION", "SYMBOLIC_METAPHOR", "ENVIRONMENT_ATMOSPHERE", "HOOK_VISUAL", "INSTRUCTION_BACKGROUND", "CALM_TRANSITION"],
+      "description": "Matches ShotPlan visual_intent taxonomy"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "persona_id, topic_id, location_id, emotion, style_id, character_id (when layer_type=character)"
+    },
+    "style_version": { "type": "string", "description": "e.g. v1, healing_v2; for retirement/deprecation" },
+    "generation_batch": { "type": "string", "description": "Batch identifier for deprecation and debugging" },
+    "composition_compat": {
+      "type": "object",
+      "description": "Per-aspect composition score 0–1. Computed at bank generation: 1.0 = native at that ratio, 0.5 = croppable without losing subject, 0.0 = incompatible. FormatAdapter uses these to keep or swap assets.",
+      "additionalProperties": { "type": "number", "minimum": 0, "maximum": 1 },
+      "examples": [{ "16:9": 0.92, "9:16": 0.51, "1:1": 0.78 }]
+    },
+    "caption_safe_zone": {
+      "type": "boolean",
+      "description": "True if asset has low-detail area suitable for caption overlay (e.g. bottom 25%)"
+    },
+    "safety_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Post-generation safety classifier score; QC gate"
+    },
+    "file_path": { "type": "string", "description": "Path to image file (stills only in Phase 1–3)" },
+    "prompt_version": { "type": "string", "description": "Reference to prompt that generated this asset" },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

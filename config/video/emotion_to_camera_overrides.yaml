@@ -1,0 +1,12 @@
+# Overrides to visual_intent defaults based on emotional_band / arc_role.
+
+overrides:
+  - when:
+      emotional_band: high_arousal_negative
+    then:
+      camera_angle: slight_low
+      motion: static
+  - when:
+      arc_role: hook
+    then:
+      motion: slow_zoom

@@ -1,0 +1,388 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000000000000000000001 /* PhoenixControlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000001 /* PhoenixControlApp.swift */; };
+		A10000000000000000000002 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000002 /* AppState.swift */; };
+		A10000000000000000000003 /* ObservabilitySnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000003 /* ObservabilitySnapshot.swift */; };
+		A10000000000000000000004 /* ArtifactReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000004 /* ArtifactReader.swift */; };
+		A10000000000000000000005 /* GitHubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000005 /* GitHubService.swift */; };
+		A10000000000000000000006 /* ScriptRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000006 /* ScriptRunner.swift */; };
+		A10000000000000000000007 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000007 /* Colors.swift */; };
+		A10000000000000000000008 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000008 /* ContentView.swift */; };
+		A10000000000000000000009 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000009 /* DashboardView.swift */; };
+		A1000000000000000000000A /* PipelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000A /* PipelineView.swift */; };
+		A1000000000000000000000B /* SimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000B /* SimulationView.swift */; };
+		A1000000000000000000000C /* TestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000C /* TestsView.swift */; };
+		A1000000000000000000000D /* ObservabilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000D /* ObservabilityView.swift */; };
+		A1000000000000000000000E /* GatesReleaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000E /* GatesReleaseView.swift */; };
+		A1000000000000000000000F /* PearlNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000000F /* PearlNewsView.swift */; };
+		A10000000000000000000010 /* TeacherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000010 /* TeacherView.swift */; };
+		A10000000000000000000011 /* CIWorkflowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000011 /* CIWorkflowsView.swift */; };
+		A10000000000000000000012 /* DocsConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000012 /* DocsConfigView.swift */; };
+		A10000000000000000000013 /* LiveLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000013 /* LiveLogView.swift */; };
+		A10000000000000000000014 /* StatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000014 /* StatusBadge.swift */; };
+		A10000000000000000000015 /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000015 /* ErrorStateView.swift */; };
+		A10000000000000000000016 /* EvidenceLogTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000016 /* EvidenceLogTable.swift */; };
+		A10000000000000000000017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000017 /* Assets.xcassets */; };
+		A10000000000000000000018 /* GovernanceReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000019 /* GovernanceReport.swift */; };
+		A10000000000000000000019 /* ContentCoverageReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000001A /* ContentCoverageReport.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A20000000000000000000001 /* PhoenixControlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoenixControlApp.swift; sourceTree = "<group>"; };
+		A20000000000000000000002 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		A20000000000000000000003 /* ObservabilitySnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservabilitySnapshot.swift; sourceTree = "<group>"; };
+		A20000000000000000000004 /* ArtifactReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtifactReader.swift; sourceTree = "<group>"; };
+		A20000000000000000000005 /* GitHubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubService.swift; sourceTree = "<group>"; };
+		A20000000000000000000006 /* ScriptRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptRunner.swift; sourceTree = "<group>"; };
+		A20000000000000000000007 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		A20000000000000000000008 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A20000000000000000000009 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		A2000000000000000000000A /* PipelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineView.swift; sourceTree = "<group>"; };
+		A2000000000000000000000B /* SimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationView.swift; sourceTree = "<group>"; };
+		A2000000000000000000000C /* TestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsView.swift; sourceTree = "<group>"; };
+		A2000000000000000000000D /* ObservabilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservabilityView.swift; sourceTree = "<group>"; };
+		A2000000000000000000000E /* GatesReleaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatesReleaseView.swift; sourceTree = "<group>"; };
+		A2000000000000000000000F /* PearlNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PearlNewsView.swift; sourceTree = "<group>"; };
+		A20000000000000000000010 /* TeacherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherView.swift; sourceTree = "<group>"; };
+		A20000000000000000000011 /* CIWorkflowsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIWorkflowsView.swift; sourceTree = "<group>"; };
+		A20000000000000000000012 /* DocsConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocsConfigView.swift; sourceTree = "<group>"; };
+		A20000000000000000000013 /* LiveLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveLogView.swift; sourceTree = "<group>"; };
+		A20000000000000000000014 /* StatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBadge.swift; sourceTree = "<group>"; };
+		A20000000000000000000015 /* ErrorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateView.swift; sourceTree = "<group>"; };
+		A20000000000000000000016 /* EvidenceLogTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvidenceLogTable.swift; sourceTree = "<group>"; };
+		A20000000000000000000017 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A20000000000000000000018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A20000000000000000000019 /* GovernanceReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GovernanceReport.swift; sourceTree = "<group>"; };
+		A2000000000000000000001A /* ContentCoverageReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCoverageReport.swift; sourceTree = "<group>"; };
+		A30000000000000000000001 /* Phoenix Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Phoenix Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A40000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A50000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				A50000000000000000000002 /* PhoenixControl */,
+				A50000000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A50000000000000000000002 /* PhoenixControl */ = {
+			isa = PBXGroup;
+			children = (
+				A20000000000000000000001 /* PhoenixControlApp.swift */,
+				A50000000000000000000004 /* Models */,
+				A50000000000000000000005 /* Services */,
+				A50000000000000000000006 /* Theme */,
+				A50000000000000000000007 /* Views */,
+				A20000000000000000000017 /* Assets.xcassets */,
+				A20000000000000000000018 /* Info.plist */,
+			);
+			path = ".";
+			sourceTree = "<group>";
+		};
+		A50000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A30000000000000000000001 /* Phoenix Control.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A50000000000000000000004 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A20000000000000000000002 /* AppState.swift */,
+				A20000000000000000000003 /* ObservabilitySnapshot.swift */,
+				A20000000000000000000019 /* GovernanceReport.swift */,
+				A2000000000000000000001A /* ContentCoverageReport.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A50000000000000000000005 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A20000000000000000000004 /* ArtifactReader.swift */,
+				A20000000000000000000005 /* GitHubService.swift */,
+				A20000000000000000000006 /* ScriptRunner.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A50000000000000000000006 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				A20000000000000000000007 /* Colors.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		A50000000000000000000007 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A20000000000000000000008 /* ContentView.swift */,
+				A20000000000000000000009 /* DashboardView.swift */,
+				A2000000000000000000000A /* PipelineView.swift */,
+				A2000000000000000000000B /* SimulationView.swift */,
+				A2000000000000000000000C /* TestsView.swift */,
+				A2000000000000000000000D /* ObservabilityView.swift */,
+				A2000000000000000000000E /* GatesReleaseView.swift */,
+				A2000000000000000000000F /* PearlNewsView.swift */,
+				A20000000000000000000010 /* TeacherView.swift */,
+				A20000000000000000000011 /* CIWorkflowsView.swift */,
+				A20000000000000000000012 /* DocsConfigView.swift */,
+				A50000000000000000000008 /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A50000000000000000000008 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A20000000000000000000013 /* LiveLogView.swift */,
+				A20000000000000000000014 /* StatusBadge.swift */,
+				A20000000000000000000015 /* ErrorStateView.swift */,
+				A20000000000000000000016 /* EvidenceLogTable.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A60000000000000000000001 /* Phoenix Control */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A80000000000000000000002 /* Build configuration list for PBXNativeTarget "Phoenix Control" */;
+			buildPhases = (
+				A70000000000000000000001 /* Sources */,
+				A40000000000000000000001 /* Frameworks */,
+				A70000000000000000000002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Phoenix Control";
+			productName = "Phoenix Control";
+			productReference = A30000000000000000000001 /* Phoenix Control.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A90000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = A80000000000000000000001 /* Build configuration list for PBXProject "PhoenixControl" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A50000000000000000000001;
+			productRefGroup = A50000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A60000000000000000000001 /* Phoenix Control */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A70000000000000000000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000017 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A70000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000001 /* PhoenixControlApp.swift in Sources */,
+				A10000000000000000000002 /* AppState.swift in Sources */,
+				A10000000000000000000003 /* ObservabilitySnapshot.swift in Sources */,
+				A10000000000000000000004 /* ArtifactReader.swift in Sources */,
+				A10000000000000000000005 /* GitHubService.swift in Sources */,
+				A10000000000000000000006 /* ScriptRunner.swift in Sources */,
+				A10000000000000000000007 /* Colors.swift in Sources */,
+				A10000000000000000000008 /* ContentView.swift in Sources */,
+				A10000000000000000000009 /* DashboardView.swift in Sources */,
+				A1000000000000000000000A /* PipelineView.swift in Sources */,
+				A1000000000000000000000B /* SimulationView.swift in Sources */,
+				A1000000000000000000000C /* TestsView.swift in Sources */,
+				A1000000000000000000000D /* ObservabilityView.swift in Sources */,
+				A1000000000000000000000E /* GatesReleaseView.swift in Sources */,
+				A1000000000000000000000F /* PearlNewsView.swift in Sources */,
+				A10000000000000000000010 /* TeacherView.swift in Sources */,
+				A10000000000000000000011 /* CIWorkflowsView.swift in Sources */,
+				A10000000000000000000012 /* DocsConfigView.swift in Sources */,
+				A10000000000000000000013 /* LiveLogView.swift in Sources */,
+				A10000000000000000000014 /* StatusBadge.swift in Sources */,
+				A10000000000000000000015 /* ErrorStateView.swift in Sources */,
+				A10000000000000000000016 /* EvidenceLogTable.swift in Sources */,
+				A10000000000000000000018 /* GovernanceReport.swift in Sources */,
+				A10000000000000000000019 /* ContentCoverageReport.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AA0000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA0000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		AA0000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.phoenixomega.PhoenixControl;
+				PRODUCT_NAME = "Phoenix Control";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		AA0000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.phoenixomega.PhoenixControl;
+				PRODUCT_NAME = "Phoenix Control";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A80000000000000000000001 /* Build configuration list for PBXProject "PhoenixControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000000000000000000001 /* Debug */,
+				AA0000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A80000000000000000000002 /* Build configuration list for PBXNativeTarget "Phoenix Control" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000000000000000000003 /* Debug */,
+				AA0000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A90000000000000000000001 /* Project object */;
+}

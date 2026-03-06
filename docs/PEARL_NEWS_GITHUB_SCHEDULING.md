@@ -40,26 +40,29 @@ The scheduled workflow runs here. No move required.
 
 **Option B — Move pipeline to Qwen or Qwen-Agent (step-by-step):**
 
+**Full runbook:** [PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md) — exact `cp` commands, self-hosted workflow for LM Studio, secrets, and verify steps.
+
 1. **Clone the target repo** (e.g. Ahjan108/Qwen or Ahjan108/Qwen-Agent).
 
 2. **Copy these from phoenix_omega:**
-   - `pearl_news/` (entire folder: pipeline, publish, config, article_templates, atoms, governance)
+   - `pearl_news/` (entire folder: pipeline, publish, config, article_templates, atoms, governance, prompts, del_intake_pics)
    - `scripts/pearl_news_post_to_wp.py`
-   - `tests/test_pearl_news/` (or `tests/test_pearl_news/`)
-   - `.github/workflows/pearl_news_scheduled.yml`
+   - `tests/test_pearl_news_quality_gates_minimal.py`, `tests/test_pearl_news_pipeline_e2e.py`
+   - `.github/workflows/pearl_news_scheduled.yml` — or use **`.github/workflows/pearl_news_scheduled_self_hosted.yml`** (copy as `pearl_news_scheduled.yml`) when running with LM Studio on a self-hosted runner.
 
-3. **Create `.github/workflows/`** in the target repo if it doesn't exist. Add `pearl_news_scheduled.yml`.
+3. **Create `.github/workflows/`** in the target repo if it doesn't exist. Add the workflow file.
 
 4. **Adjust workflow paths** if the target repo structure differs:
    - `pearl_news/config/feeds.yaml` — should exist at repo root
    - `scripts/pearl_news_post_to_wp.py` — or move to `pearl_news/scripts/` and update the workflow `run` command
 
 5. **Add repository secrets** in the target repo: Settings → Secrets and variables → Actions:
-   - `WORDPRESS_SITE_URL`
-   - `WORDPRESS_USERNAME`
-   - `WORDPRESS_APP_PASSWORD`
+   - `WORDPRESS_SITE_URL`, `WORDPRESS_USERNAME`, `WORDPRESS_APP_PASSWORD`
+   - For LLM expansion on self-hosted runner: `QWEN_BASE_URL`, `QWEN_API_KEY`, `QWEN_MODEL` (e.g. LM Studio at `http://localhost:1234/v1`).
 
-6. **Push to main.** The workflow will run on schedule (6:00 and 18:00 UTC) and on `workflow_dispatch`.
+6. **Self-hosted runner:** If using LM Studio (localhost), the workflow must use `runs-on: self-hosted`; add a self-hosted runner on the machine where LM Studio runs. See [PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md).
+
+7. **Push to main.** The workflow will run on schedule (6:00 and 18:00 UTC) and on `workflow_dispatch`.
 
 7. **Optional:** Add `pearl_news` to `.gitignore` in phoenix_omega if you no longer want it there, or keep both in sync.
 

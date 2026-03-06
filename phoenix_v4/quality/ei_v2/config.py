@@ -14,16 +14,34 @@ try:
 except ImportError:
     yaml = None
 
-_CONFIG_PATH = Path(__file__).resolve().parent.parent.parent.parent / "config" / "quality" / "ei_v2_config.yaml"
+from phoenix_v4.quality.ei_v2.ei_warnings import log_ei_warning
+
+_EI_V2_ROOT = Path(__file__).resolve().parent
+_REPO_ROOT = _EI_V2_ROOT.parent.parent.parent
+
+_CONFIG_PATH = _REPO_ROOT / "config" / "quality" / "ei_v2_config.yaml"
+
+
+def ei_v2_repo_root() -> Path:
+    """Return repo root for EI V2 artifact paths (avoids CWD brittleness)."""
+    return _REPO_ROOT
 _CACHE: Dict[str, Any] | None = None
 
 DEFAULTS: Dict[str, Any] = {
+    "marketing_sources": {
+        "enabled": False,
+        "source_path": "marketing_deep_research",
+        "use_marketing_lexicons": True,
+        "use_marketing_safety_bans": True,
+        "use_invisible_script_alignment": False,
+    },
     "safety_classifier": {
         "enabled": True,
         "mode": "heuristic_plus",
         "medical_claim_threshold": 0.6,
         "promotional_threshold": 0.5,
         "clinical_language_threshold": 0.5,
+        "marketing_compliance_weight": 0.2,
         "cache_enabled": True,
         "cache_path": "artifacts/ei_v2/safety_cache.jsonl",
     },
@@ -78,13 +96,27 @@ DEFAULTS: Dict[str, Any] = {
         "domain_similarity": 0.20,
         "tts_readability": 0.20,
     },
+    # Book structure (Pearl Prime): slot types and arc context for EI learning and assembly.
+    # When plan has chapter_thesis, callers pass chapter thesis per chapter; arc_intent may include
+    # chapter_thesis, bestseller_structure. Known slot types include structural slots beyond core 6.
+    "book_structure": {
+        "known_slot_types": [
+            "HOOK", "SCENE", "STORY", "REFLECTION", "EXERCISE", "INTEGRATION", "COMPRESSION",
+            "PIVOT", "TAKEAWAY", "PERMISSION", "THREAD",
+        ],
+        "thesis_from_arc": True,   # When True, thesis is chapter-level from arc chapter_thesis when present
+        "arc_intent_keys": ["band", "emotional_role", "chapter_index", "chapter_thesis", "bestseller_structure"],
+    },
 }
 
 
-def load_ei_v2_config(path: Path | None = None) -> Dict[str, Any]:
+def load_ei_v2_config(
+    path: Path | None = None,
+    force_reload: bool = False,
+) -> Dict[str, Any]:
     """Load V2 config, merging file values over defaults."""
     global _CACHE
-    if _CACHE is not None and path is None:
+    if _CACHE is not None and path is None and not force_reload:
         return _CACHE
 
     cfg = _deep_copy_dict(DEFAULTS)
@@ -93,12 +125,18 @@ def load_ei_v2_config(path: Path | None = None) -> Dict[str, Any]:
         try:
             file_cfg = yaml.safe_load(config_path.read_text(encoding="utf-8")) or {}
             cfg = _deep_merge(cfg, file_cfg)
-        except Exception:
-            pass
+        except Exception as e:
+            log_ei_warning("config", f"YAML parse failed: {e}", {"path": str(config_path)})
 
     if path is None:
         _CACHE = cfg
     return cfg
+
+
+def invalidate_ei_v2_config_cache() -> None:
+    """Clear the config cache. Use for long-lived processes that need fresh config."""
+    global _CACHE
+    _CACHE = None
 
 
 def _deep_copy_dict(d: Dict[str, Any]) -> Dict[str, Any]:

@@ -28,6 +28,7 @@ from phoenix_v4.quality.ei_v2.cross_encoder_reranker import (
     _token_overlap,
     _semantic_field_overlap,
 )
+from phoenix_v4.quality.ei_v2.marketing_lexicons import get_persona_topic_lexicons
 
 
 # Persona context lexicons: words/phrases strongly associated with each persona.
@@ -113,9 +114,16 @@ _TOPIC_LEXICONS: Dict[str, set] = {
 }
 
 
-def _persona_affinity(text_tokens: List[str], persona_id: str) -> float:
+def _persona_affinity(
+    text_tokens: List[str],
+    persona_id: str,
+    lexicon_override: Optional[Dict[str, set]] = None,
+) -> float:
     """Score how well text tokens match a persona's life context."""
-    lexicon = _PERSONA_LEXICONS.get(persona_id, set())
+    if lexicon_override is not None:
+        lexicon = lexicon_override.get(persona_id, set())
+    else:
+        lexicon = _PERSONA_LEXICONS.get(persona_id, set())
     if not lexicon or not text_tokens:
         return 0.0
     text_set = set(text_tokens)
@@ -123,9 +131,16 @@ def _persona_affinity(text_tokens: List[str], persona_id: str) -> float:
     return min(1.0, len(hits) / max(3, len(lexicon) * 0.15))
 
 
-def _topic_coherence(text_tokens: List[str], topic_id: str) -> float:
+def _topic_coherence(
+    text_tokens: List[str],
+    topic_id: str,
+    lexicon_override: Optional[Dict[str, set]] = None,
+) -> float:
     """Score how well text tokens stay within a topic's semantic field."""
-    lexicon = _TOPIC_LEXICONS.get(topic_id, set())
+    if lexicon_override is not None:
+        lexicon = lexicon_override.get(topic_id, set())
+    else:
+        lexicon = _TOPIC_LEXICONS.get(topic_id, set())
     if not lexicon or not text_tokens:
         return 0.0
     text_set = set(text_tokens)
@@ -164,16 +179,26 @@ def domain_thesis_similarity(
     Weights are configurable via cfg.
     """
     cfg = cfg or {}
-    w_thesis = float(cfg.get("thesis_weight", 0.4))
-    w_persona = float(cfg.get("persona_weight", 0.3))
-    w_topic = float(cfg.get("topic_weight", 0.3))
+    domain_cfg = cfg.get("domain_embeddings", cfg)
+    w_thesis = float(domain_cfg.get("thesis_weight", 0.4))
+    w_persona = float(domain_cfg.get("persona_weight", 0.3))
+    w_topic = float(domain_cfg.get("topic_weight", 0.3))
 
     c_tokens = _tokenize(candidate_text)
     t_tokens = _tokenize(thesis)
 
+    # Lexicon source: marketing if enabled and loaded; else built-in
+    persona_lex_override: Optional[Dict[str, set]] = None
+    topic_lex_override: Optional[Dict[str, set]] = None
+    if cfg:
+        persona_lex, topic_lex = get_persona_topic_lexicons(cfg)
+        if persona_lex or topic_lex:
+            persona_lex_override = persona_lex
+            topic_lex_override = topic_lex
+
     # Thesis alignment
     if embed_fn is not None:
-        model = cfg.get("model", "")
+        model = domain_cfg.get("model", "")
         try:
             vec_t = embed_fn(thesis, model)
             vec_c = embed_fn(candidate_text, model)
@@ -186,10 +211,10 @@ def domain_thesis_similarity(
         thesis_sim = 0.6 * tok_overlap + 0.4 * field_overlap
 
     # Persona affinity
-    persona_score = _persona_affinity(c_tokens, persona_id)
+    persona_score = _persona_affinity(c_tokens, persona_id, persona_lex_override)
 
     # Topic coherence
-    topic_score = _topic_coherence(c_tokens, topic_id)
+    topic_score = _topic_coherence(c_tokens, topic_id, topic_lex_override)
 
     composite = w_thesis * thesis_sim + w_persona * persona_score + w_topic * topic_score
     return round(min(1.0, composite), 4)

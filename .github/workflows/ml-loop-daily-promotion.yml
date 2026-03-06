@@ -1,0 +1,36 @@
+# Autonomous loop — daily promotion. See docs/ML_AUTONOMOUS_LOOP_SPEC.md §7.
+name: ML loop daily promotion
+
+on:
+  schedule:
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+
+jobs:
+  daily-promotion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r requirements-test.txt
+      - name: Download promotion queue (if from continuous)
+        uses: actions/download-artifact@v4
+        with:
+          name: ml-loop-continuous
+          path: artifacts/
+        continue-on-error: true
+      - name: Run daily promotion
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PYTHONPATH=. python scripts/ml_loop/run_daily_promotion.py
+        continue-on-error: true

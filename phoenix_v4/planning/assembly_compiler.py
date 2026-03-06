@@ -100,9 +100,13 @@ class CompiledBook:
     chapter_reflection_weights: Optional[list[str]] = None
     chapter_story_depths: Optional[list[str]] = None
     chapter_planner_warnings: Optional[list[str]] = None
+    # Bestseller structure assignment (max 3 in a row); one of 12 narrative shapes per chapter
+    chapter_bestseller_structures: Optional[list[str]] = None  # length == chapter_count
     # Intro/ending variation (Controlled Intro/Conclusion): final chapter INTEGRATION + carry line
     ending_signature: Optional[str] = None  # SHA256(final INTEGRATION atom_id + carry_line)[:16]
     carry_line: Optional[str] = None  # chosen carry line for final chapter (for TTS)
+    # Chapter thesis from arc (keys 1..chapter_count); used to resolve TAKEAWAY slots (atom_id arc_thesis:chN)
+    chapter_thesis: Optional[dict[int, str]] = None
 
 
 def _load_yaml(p: Path) -> dict:
@@ -463,6 +467,11 @@ def compile_plan(
     if emotional_role_sequence is None and hasattr(arc, "raw"):
         emotional_role_sequence = getattr(arc, "emotional_role_sequence", None) or (arc.raw.get("emotional_role_sequence") if isinstance(arc.raw, dict) else None)
     chapter_weights_from_arc = getattr(arc, "chapter_weights", None) if hasattr(arc, "chapter_weights") else (arc_raw.get("chapter_weights") if isinstance(arc_raw, dict) else None)
+    chapter_thesis_from_arc: Optional[dict[int, str]] = getattr(arc, "chapter_thesis", None) if hasattr(arc, "chapter_thesis") else (arc_raw.get("chapter_thesis") if isinstance(arc_raw, dict) else None)
+    if chapter_thesis_from_arc and isinstance(chapter_thesis_from_arc, dict):
+        chapter_thesis_from_arc = {int(k): str(v).strip() for k, v in chapter_thesis_from_arc.items() if str(v).strip()}
+    else:
+        chapter_thesis_from_arc = None
     if isinstance(emotional_temperature_curve, dict):
         emotional_temperature_sequence = [emotional_temperature_curve.get(i + 1) or "warm" for i in range(len(emotional_curve))]
     else:
@@ -503,6 +512,7 @@ def compile_plan(
     chapter_reflection_weights_out: Optional[list[str]] = None
     chapter_story_depths_out: Optional[list[str]] = None
     chapter_planner_warnings_out: Optional[list[str]] = None
+    chapter_bestseller_structures_out: Optional[list[str]] = None
     try:
         from phoenix_v4.planning.chapter_planner import plan_chapters
         chapter_plan = plan_chapters(
@@ -519,6 +529,7 @@ def compile_plan(
         chapter_reflection_weights_out = chapter_plan.chapter_reflection_weights
         chapter_story_depths_out = chapter_plan.chapter_story_depths
         chapter_planner_warnings_out = chapter_plan.warnings
+        chapter_bestseller_structures_out = chapter_plan.chapter_bestseller_structures
     except Exception as e:
         # Do not hard-fail legacy flows on chapter-planner issues; preserve existing Stage 3 behavior.
         chapter_planner_warnings_out = [f"chapter planner fallback: {e}"]
@@ -609,6 +620,14 @@ def compile_plan(
         ch_slots = list(slot_definitions[ch]) if ch < len(slot_definitions) else []
         chapter_story_bands: list[int] = []
         for si, slot_type in enumerate(ch_slots):
+            # TAKEAWAY: resolve from arc chapter_thesis when present; no pool lookup
+            if str(slot_type).strip().upper() == "TAKEAWAY" and chapter_thesis_from_arc:
+                thesis_text = chapter_thesis_from_arc.get(ch + 1)
+                if thesis_text:
+                    atom_ids.append(f"arc_thesis:ch{ch}")
+                    if atom_sources_out is not None:
+                        atom_sources_out.append(None)
+                    continue
             result = resolve_slot(slot_type, ch, si, context)
             if result is not None:
                 aid, atom_source = result
@@ -759,6 +778,8 @@ def compile_plan(
         chapter_reflection_weights=chapter_reflection_weights_out,
         chapter_story_depths=chapter_story_depths_out,
         chapter_planner_warnings=chapter_planner_warnings_out,
+        chapter_bestseller_structures=chapter_bestseller_structures_out,
         ending_signature=ending_signature_out,
         carry_line=carry_line_out,
+        chapter_thesis=chapter_thesis_from_arc,
     )

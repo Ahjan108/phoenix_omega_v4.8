@@ -9,8 +9,8 @@ Set these in your environment or in a local `.env` file (do **not** commit `.env
 | Variable | Description |
 |----------|-------------|
 | `WORDPRESS_SITE_URL` | Site base URL, e.g. `https://pearlnewsuna.org` (no trailing slash). |
-| `WORDPRESS_USERNAME` | WordPress username for the application (e.g. the user that owns the Application Password). |
-| `WORDPRESS_APP_PASSWORD` | Application password from **WP Admin → Users → Your Profile → Application Passwords**. Generate a new one; use the generated string (spaces are stripped automatically). |
+| `WORDPRESS_USERNAME` | WordPress username for the application (e.g. `admin` for pearlnewsuna.org). |
+| `WORDPRESS_APP_PASSWORD` | Application password from **WP Admin → Users → Your Profile → Application Passwords**. For this repo, the GitHub app password is in **docs/wordpress_github_info.rtf** (last row). Spaces are stripped automatically. |
 
 **Security:** Never commit the app password. The repo already ignores `.env` and `.env.local`. See [docs/pearl_news_wordpress_env.example](../docs/pearl_news_wordpress_env.example) for placeholder variable names.
 
@@ -42,14 +42,16 @@ When using `--article path/to/file.json`, the file may contain:
 - **title** or **headline** — post title (required)
 - **content**, **body**, or **text** — post body, HTML or plain (required)
 - **slug** — optional URL slug
+- **author** — WordPress user ID for byline (teacher-assigned; pipeline alternates via `config/wordpress_authors.yaml`)
 - **categories** or **category_ids** — list of WordPress category IDs
 - **tags** or **tag_ids** — list of WordPress tag IDs
-- **featured_image** — object for main/WordPress featured image with attribution: `{ "url": "https://...", "credit": "UN News", "source_url": "https://...", "caption": "optional" }`. The image is uploaded to the Media Library and set as the post thumbnail; credit/source are stored in the media caption.
-- **featured_image_url** — alternative: image URL only (no attribution). Used if `featured_image` is not set.
+- **featured_image** — object for main/WordPress featured image with attribution: `{ "url": "https://...", "credit": "UN News", "source_url": "https://...", "caption": "optional" }`. Uploaded to Media and set as post thumbnail.
+- **featured_image_url** — image URL only (no attribution). Used if `featured_image` is not set.
+- **featured_image_path** — path relative to repo root (e.g. `pearl_news/del_intake_pics/global_update.png`). Used when no feed image; pipeline sets one per article type from `config/site.yaml` → `placeholder_featured_image_by_template`.
 
-At least one image per article is recommended (as WordPress featured image). When using feed-derived articles, use the first entry from the feed item’s `images` array (from `feed_ingest`) so attribution is preserved.
+When the RSS article has no image, the pipeline uses one placeholder image per article type from **pearl_news/del_intake_pics/** (see `pearl_news/config/site.yaml`). When the feed has an image, the first entry from the item’s `images` array is used with attribution.
 
-The script appends the Pearl News legal disclaimer to the content by default (see `legal_boundary.yaml`). Use `--no-disclaimer` to omit it.
+The legal disclaimer is on the site About page; it is not appended to each article.
 
 ## Scheduling and bulk
 
@@ -60,3 +62,17 @@ The script appends the Pearl News legal disclaimer to the content by default (se
 ## Dependencies
 
 - `requests` — install with `pip install requests`.
+
+## Troubleshooting (post not working)
+
+1. **Credentials** — Run with `--dry-run` to confirm env vars are set:  
+   `python scripts/pearl_news_post_to_wp.py --article path/to/article.json --dry-run`  
+   You must set `WORDPRESS_SITE_URL`, `WORDPRESS_USERNAME`, and `WORDPRESS_APP_PASSWORD` (Application Password from WP, not your normal login password).
+
+2. **REST API** — Ensure the site has the REST API enabled (default on WordPress). Test: open `https://yoursite.com/wp-json/wp/v2/posts` in a browser; you should see JSON (or an auth prompt).
+
+3. **Application Password** — In WP Admin go to **Users → Profile → Application Passwords**, create a new app password, and use that exact string as `WORDPRESS_APP_PASSWORD`. Spaces in the value are OK (the script strips them).
+
+4. **401 / 403** — Wrong username, wrong app password, or the user lacks permission to create posts. Confirm the user has Editor or Administrator role.
+
+5. **Errors** — The script prints the WordPress API error code and message when a request fails; use that to fix config or permissions.

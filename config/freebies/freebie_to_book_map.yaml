@@ -1,0 +1,56 @@
+# Maps exercise_id or topic to recommended book (Email 4) and optional more_books (Email 5).
+# slugs: explicit slug -> url for /books/<slug> (deterministic, attribution).
+# Used by funnel app for offer and LTV step.
+
+slugs:
+  burnout-reset:
+    book_url: "https://phoenixprotocolbooks.com/books/burnout-reset"
+    book_title: "Burnout Reset"
+    redirect_url: ""  # optional: final Amazon/store URL
+  anxiety-reset:
+    book_url: "https://phoenixprotocolbooks.com/books/anxiety-reset"
+    book_title: "Anxiety Reset"
+    redirect_url: ""
+  nervous-system-repair:
+    book_url: "https://phoenixprotocolbooks.com/books/nervous-system-repair"
+    book_title: "Nervous System Repair"
+    redirect_url: ""
+  rest-without-guilt:
+    book_url: "https://phoenixprotocolbooks.com/books/rest-without-guilt"
+    book_title: "Rest Without Guilt"
+    redirect_url: ""
+  calm-under-pressure:
+    book_url: "https://phoenixprotocolbooks.com/books/calm-under-pressure"
+    book_title: "Calm Under Pressure"
+    redirect_url: ""
+
+cyclic_sighing:
+  slug: burnout-reset
+  book_title: "Burnout Reset"
+  book_url: "https://phoenixprotocolbooks.com/books/burnout-reset"
+  more_books:
+    - title: "Nervous System Repair"
+      url: "https://phoenixprotocolbooks.com/books/nervous-system-repair"
+    - title: "Rest Without Guilt"
+      url: "https://phoenixprotocolbooks.com/books/rest-without-guilt"
+
+box_breathing:
+  slug: anxiety-reset
+  book_title: "Anxiety Reset"
+  book_url: "https://phoenixprotocolbooks.com/books/anxiety-reset"
+  more_books:
+    - title: "Calm Under Pressure"
+      url: "https://phoenixprotocolbooks.com/books/calm-under-pressure"
+
+# Topic-level fallback when exercise not in map
+burnout:
+  slug: burnout-reset
+  book_title: "Burnout Reset"
+  book_url: "https://phoenixprotocolbooks.com/books/burnout-reset"
+  more_books: []
+
+anxiety:
+  slug: anxiety-reset
+  book_title: "Anxiety Reset"
+  book_url: "https://phoenixprotocolbooks.com/books/anxiety-reset"
+  more_books: []

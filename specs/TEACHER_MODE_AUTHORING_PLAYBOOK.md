@@ -27,9 +27,11 @@ Before any Teacher Mode book can be compiled for a teacher:
 A dev or content lead adds an entry to `config/teachers/teacher_registry.yaml`:
 
 - `display_name`, `kb_id`, `doctrine_profile`
-- `allowed_topics`, `disallowed_topics`
+- `allowed_topics` (all canonical topics; fit is scored in `config/catalog_planning/teacher_topic_persona_scores.yaml`), `disallowed_topics`
 - `allowed_engines`, `allowed_resolution_types`, `identity_shift_allowed`
 - `teacher_mode_defaults`: e.g. `require_teacher_story: true`, `require_teacher_exercise: true`
+
+**Universal scope:** Every teacher can teach every topic and every persona. See [TEACHER_UNIVERSAL_AND_SCORING_SPEC.md](./TEACHER_UNIVERSAL_AND_SCORING_SPEC.md). Scores guide volume and format (weaker fit → fewer books or shorter formats); EI v2 and writers use scores to adapt content.
 
 Without this, the system will not accept the teacher for compilation.
 
@@ -181,6 +183,7 @@ The system can report **TPS per chapter** (structural only: STORY/EXERCISE slot 
 ## 9. References
 
 - **Dev spec:** [TEACHER_MODE_V4_CANONICAL_SPEC.md](./TEACHER_MODE_V4_CANONICAL_SPEC.md)  
+- **Universal scope and scoring:** [TEACHER_UNIVERSAL_AND_SCORING_SPEC.md](./TEACHER_UNIVERSAL_AND_SCORING_SPEC.md) — every teacher × every topic × every persona; scores for volume/format and EI v2 adaptation  
 - **Structural (voice, Pre-Intro, TPS):** [TEACHER_MODE_STRUCTURAL_SPEC.md](./TEACHER_MODE_STRUCTURAL_SPEC.md)  
 - **Integrity (cross-series):** [TEACHER_INTEGRITY_SPEC.md](./TEACHER_INTEGRITY_SPEC.md)  
 - **Portfolio (brand, anti-spam):** [TEACHER_PORTFOLIO_PLANNING_SPEC.md](./TEACHER_PORTFOLIO_PLANNING_SPEC.md)  

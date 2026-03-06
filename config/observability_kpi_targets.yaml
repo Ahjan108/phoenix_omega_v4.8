@@ -1,0 +1,33 @@
+# KPI targets for closed-loop enhancement: if metric below threshold, trigger job.
+# Authority: docs/PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md
+# Evaluator: scripts/observability/evaluate_kpi_targets.py
+
+version: 1
+
+# metric_id: key in signal snapshot or baselines (e.g. signal pass rate, systems_test_pass_rate)
+# threshold: minimum value required (e.g. 0.95 for 95% pass rate)
+# trigger_job: job to run when below threshold (script name or workflow identifier)
+kpis:
+  - id: gate_production_readiness_pass
+    description: "Production readiness gates must pass"
+    threshold: 1
+    # 1 = 100% pass (all gates pass)
+    trigger_job: weekly_pipeline
+    # Run full weekly pipeline when gates fail (canary + systems test for visibility)
+
+  - id: atoms_coverage_pass
+    description: "Atoms coverage test must pass"
+    threshold: 1
+    trigger_job: weekly_pipeline
+
+  - id: systems_test_pass_rate
+    description: "Systems test pass rate (0-1)"
+    threshold: 0.95
+    trigger_job: weekly_pipeline
+    # When systems test degrades, run weekly pipeline to refresh evidence
+
+  - id: overall_signal_pass_rate
+    description: "Share of collected signals that passed (0-1)"
+    threshold: 0.9
+    trigger_job: agent_fix_pr
+    # When overall pass rate drops, agent may open fix PR if safe fix available

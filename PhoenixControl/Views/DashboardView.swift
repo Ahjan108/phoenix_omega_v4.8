@@ -3,6 +3,8 @@ import SwiftUI
 struct DashboardView: View {
     @ObservedObject var state: AppState
     let artifactReader: ArtifactReader
+    /// When provided, elevated-failures card can switch to Observability tab.
+    var onSelectObservability: (() -> Void)? = nil
 
     var body: some View {
         ScrollView {
@@ -12,6 +14,7 @@ struct DashboardView: View {
                         .foregroundColor(.secondary)
                         .padding()
                 } else {
+                    observabilityPhaseCard
                     observabilityCard
                     evidenceCard
                     elevatedCard
@@ -22,6 +25,37 @@ struct DashboardView: View {
         }
         .background(PhoenixColors.phoenixBackground)
         .onAppear { refresh() }
+        .onChange(of: state.refreshTrigger) { _, _ in refresh() }
+    }
+
+    private var observabilityPhaseCard: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Observability phase status (from repo)")
+                .font(.headline)
+                .foregroundColor(PhoenixColors.phoenixBlue)
+            if let phase = state.observabilityPhaseStatus {
+                HStack(spacing: 16) {
+                    phaseRow("P1 Observe", phase.p1Observe.rawValue)
+                    phaseRow("P2 Document", phase.p2Document.rawValue)
+                    phaseRow("P3 Elevate/fix", phase.p3ElevateFix.rawValue)
+                    phaseRow("P4 Learn/enhance", phase.p4LearnEnhance.rawValue)
+                }
+            } else {
+                Text("Run collector once to derive phase status.")
+                    .foregroundColor(.secondary)
+            }
+        }
+        .padding()
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(PhoenixColors.phoenixCardTint)
+        .cornerRadius(8)
+    }
+
+    private func phaseRow(_ label: String, _ value: String) -> some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text(label).font(.caption).foregroundColor(.secondary)
+            Text(value).font(.subheadline).fontWeight(.medium)
+        }
     }
 
     private var observabilityCard: some View {
@@ -75,13 +109,22 @@ struct DashboardView: View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Elevated failures")
                 .font(.headline)
-                .foregroundColor(PhoenixColors.phoenixBlue)
-            Text("\(state.elevatedFailures.count) failure(s) in elevated_failures.jsonl")
-                .foregroundColor(state.elevatedFailures.isEmpty ? .secondary : .red)
+                .foregroundColor(state.elevatedFailures.isEmpty ? PhoenixColors.phoenixBlue : .red)
+            if state.elevatedFailures.isEmpty {
+                Text("0 failures — system healthy")
+                    .foregroundColor(.secondary)
+            } else {
+                Text("\(state.elevatedFailures.count) failure(s) in elevated_failures.jsonl")
+                    .foregroundColor(.red)
+                if let onSelect = onSelectObservability {
+                    Button("View in Observability tab", action: onSelect)
+                        .font(.caption)
+                }
+            }
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(PhoenixColors.phoenixCardTint)
+        .background(state.elevatedFailures.isEmpty ? PhoenixColors.phoenixCardTint : Color.red.opacity(0.08))
         .cornerRadius(8)
     }
 
@@ -108,5 +151,6 @@ struct DashboardView: View {
         state.lastSnapshot = artifactReader.loadLatestSnapshot(repoPath: state.repoPath)
         state.evidenceLogRows = artifactReader.loadEvidenceLog(repoPath: state.repoPath, limit: 20)
         state.elevatedFailures = artifactReader.loadElevatedFailures(repoPath: state.repoPath, limit: 50)
+        state.observabilityPhaseStatus = artifactReader.loadObservabilityPhaseStatus(repoPath: state.repoPath)
     }
 }

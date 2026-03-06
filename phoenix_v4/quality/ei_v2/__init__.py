@@ -8,6 +8,14 @@ Runs in parallel with EI V1 for A/B comparison. Every module is:
   - Fail-open by default (scores/flags, never blocks unless configured)
   - Config-gated (enable/disable per dimension)
 
+Thesis and arc context (for EI learning and book assembly):
+  - When the plan has chapter_thesis (from arc), callers pass the chapter thesis
+    for that chapter as thesis; otherwise a book-level thesis (e.g. topic + persona).
+  - arc_intent may include: band, emotional_role, chapter_index, chapter_thesis,
+    bestseller_structure. EI v2 uses these for thesis alignment and emotion arc.
+  - Slot may be any known type, including PIVOT, TAKEAWAY, PERMISSION, THREAD
+    (see config book_structure.known_slot_types).
+
 Usage (parallel comparison):
     from phoenix_v4.quality.ei_v2 import run_ei_v2_analysis
 
@@ -16,9 +24,9 @@ Usage (parallel comparison):
         candidates=candidates_raw,
         persona_id="gen_z_professionals",
         topic_id="anxiety",
-        thesis="Your nervous system fires an alarm...",
+        thesis="Your nervous system fires an alarm...",  # chapter thesis when from arc
         chapter_text="...",
-        arc_intent={"band": 3, "emotional_role": "MECHANISM_PROOF"},
+        arc_intent={"band": 3, "emotional_role": "MECHANISM_PROOF", "chapter_thesis": "...", "bestseller_structure": "case_file"},
         cfg=ei_v2_config,
     )
 """
@@ -104,7 +112,7 @@ def run_ei_v2_analysis(
     safety_cfg = cfg.get("safety_classifier", {})
     if safety_cfg.get("enabled", False):
         for cid, text in zip(ids, texts):
-            result = classify_safety(text, slot=slot, cfg=safety_cfg)
+            result = classify_safety(text, slot=slot, cfg=safety_cfg, full_cfg=cfg)
             candidate_reports[cid].safety = result
 
     # --- Cross-encoder reranking ---
@@ -123,7 +131,7 @@ def run_ei_v2_analysis(
                 thesis, text,
                 persona_id=persona_id,
                 topic_id=topic_id,
-                cfg=domain_cfg,
+                cfg=cfg,
                 embed_fn=embed_fn,
             )
             candidate_reports[cid].domain_similarity = sim
@@ -182,18 +190,18 @@ def _select_v2_best(
         if cr.rerank_score is not None:
             score += w_rerank * cr.rerank_score
 
-        if cr.safety:
+        if isinstance(cr.safety, dict):
             risk = float(cr.safety.get("risk_score", 0.0))
             score += w_safety * (1.0 - risk)
 
         if cr.domain_similarity is not None:
             score += w_domain * cr.domain_similarity
 
-        if cr.tts_readability:
+        if isinstance(cr.tts_readability, dict):
             readability = float(cr.tts_readability.get("composite", 0.5))
             score += w_tts * readability
 
-        if score > best_score:
+        if score > best_score or (score == best_score and cid < best_id):
             best_score = score
             best_id = cid
 

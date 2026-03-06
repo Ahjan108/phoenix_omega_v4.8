@@ -1,0 +1,13 @@
+Bestseller Error Report (10k sim) — robust intelligent testing
+Total failed: 1659
+Bestseller-format failures: 0
+
+Root cause (heuristic):
+  1659: insufficient_pool — Increase mock pool size or relax plan slot counts for sim; f...
+
+Error reason counts:
+  1659: insufficient pool for plan
+
+High-risk (failure rate > 20%):
+  formats: ['extended_book_2h']
+  tiers: ['B']

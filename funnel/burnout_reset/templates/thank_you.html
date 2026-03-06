@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Check your email | Phoenix Protocol</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 36em; margin: 2rem auto; padding: 1.5rem; line-height: 1.6; }
+    a { color: #1a1a1a; }
+  </style>
+</head>
+<body>
+  <h1>Thanks{% if first_name %}, {{ first_name }}{% endif %}.</h1>
+  <p>Your free practice is ready. Check your email for the link.</p>
+  <p>Want it now? <a href="{{ tool_link }}">Open {{ exercise_name }} →</a></p>
+  <p>— Phoenix Protocol</p>
+</body>
+</html>

@@ -23,6 +23,7 @@ jobs:
       - name: Install test dependencies
         run: |
           pip install -r requirements-test.txt
+        # production gates (Gate 17) require jsonschema; requirements-test.txt includes jsonschema>=4.0
 
       - name: Run fast/core pytest
         run: |
@@ -31,6 +32,17 @@ jobs:
             -m "not slow" \
             -x
         continue-on-error: false
+
+      - name: Validate marketing config
+        run: |
+          PYTHONPATH=. python -m phoenix_v4.qa.validate_marketing_config
+        continue-on-error: false
+
+      - name: Rebuild curated freebie index for deterministic gates
+        run: |
+          python scripts/rebuild_freebie_index_from_plans.py \
+            --plans-dir artifacts/freebies/blessed_plans \
+            --out artifacts/freebies/index.jsonl
 
       - name: Run production readiness gates
         run: |

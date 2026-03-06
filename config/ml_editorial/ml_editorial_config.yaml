@@ -1,0 +1,59 @@
+# ML Editorial + Marketing Intelligence Loop — runtime config.
+# Authority: docs/ML_EDITORIAL_MARKET_LOOP_SPEC.md
+
+version: 1
+
+# Global kill switch: set to false to disable all ML-driven writes and PRs.
+ml_actions_enabled: false
+
+# Paths for inputs (repo-relative).
+paths:
+  compiled_plans_dir: artifacts/rendered
+  plans_index: artifacts/catalog_similarity/index.jsonl
+  marketing_config_dir: config/marketing
+  ei_v2_config: config/quality/ei_v2_config.yaml
+  output_dir: artifacts/ml_editorial
+
+# Section quality (weak-section detector).
+section_quality:
+  thresholds:
+    clarity: 0.5
+    pacing: 0.5
+    arc_drift: 0.4   # above this = drift flagged
+  weak_flag_if_below: true
+
+# Variant ranker.
+variant_ranker:
+  confidence_floor: 0.7   # below = "needs human review"
+  variant_types: [title, subtitle, opening]
+
+# Reader-fit model.
+reader_fit:
+  confidence_floor: 0.6   # below -> exploration strategy
+  use_marketing_lexicons: true
+
+# Rewrite recommender.
+rewrite_recs:
+  enforce_forbidden_tokens: true
+  max_recommendations_per_chapter: 3
+
+# Market router.
+market_router:
+  default_priority: medium
+  distribution_channels_default: [google_play, findaway]
+
+# Automation: only these paths may be written by ML loop (e.g. metadata, non-core prose).
+automation:
+  allowlist_paths:
+    - config/ml_editorial/
+    - artifacts/ml_editorial/
+  open_pr_for: []   # e.g. ["metadata_updates"] when enabled
+  audit_log_path: artifacts/ml_editorial/audit_log.jsonl
+
+# Marketing intelligence: same source as EI V2 when enabled.
+marketing_sources:
+  enabled: true
+  source_path: config/marketing
+  use_02_forbidden: true
+  use_03_consumer_banned: true
+  use_04_invisible_scripts: true

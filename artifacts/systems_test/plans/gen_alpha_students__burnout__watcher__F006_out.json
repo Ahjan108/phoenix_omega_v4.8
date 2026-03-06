@@ -1,0 +1,699 @@
+{
+  "plan_hash": "d304b29d9f5a983aa8e3c2cfa76afea5",
+  "plan_id": "d304b29d9f5a983aa8e3c2cfa76afea5",
+  "chapter_slot_sequence": [
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ]
+  ],
+  "atom_ids": [
+    "gen_alpha_students_anxiety_HOOK_v16",
+    "gen_alpha_students_anxiety_SCENE_v23",
+    "gen_alpha_students_anxiety_REFLECTION_v11",
+    "gen_alpha_students_anxiety_INTEGRATION_v08",
+    "gen_alpha_students_anxiety_false_alarm_RECOGNITION_v06",
+    "gen_alpha_students_anxiety_HOOK_v14",
+    "gen_alpha_students_anxiety_SCENE_v07",
+    "gen_alpha_students_anxiety_REFLECTION_v01",
+    "gen_alpha_students_anxiety_INTEGRATION_v06",
+    "gen_alpha_students_anxiety_HOOK_v23",
+    "gen_alpha_students_anxiety_SCENE_v10",
+    "gen_alpha_students_anxiety_REFLECTION_v37",
+    "gen_alpha_students_anxiety_EXERCISE_v14",
+    "gen_alpha_students_anxiety_INTEGRATION_v02",
+    "gen_alpha_students_anxiety_false_alarm_TURNING_POINT_v02",
+    "gen_alpha_students_anxiety_HOOK_v25",
+    "gen_alpha_students_anxiety_SCENE_v05",
+    "gen_alpha_students_anxiety_REFLECTION_v09",
+    "gen_alpha_students_anxiety_INTEGRATION_v05",
+    "gen_alpha_students_anxiety_grief_EMBODIMENT_v05",
+    "gen_alpha_students_anxiety_HOOK_v02",
+    "gen_alpha_students_anxiety_SCENE_v26",
+    "gen_alpha_students_anxiety_REFLECTION_v29",
+    "gen_alpha_students_anxiety_INTEGRATION_v01",
+    "gen_alpha_students_anxiety_HOOK_v18",
+    "gen_alpha_students_anxiety_SCENE_v06",
+    "gen_alpha_students_anxiety_REFLECTION_v07",
+    "gen_alpha_students_anxiety_EXERCISE_v28",
+    "gen_alpha_students_anxiety_INTEGRATION_v22",
+    "gen_alpha_students_anxiety_HOOK_v17",
+    "gen_alpha_students_anxiety_SCENE_v12",
+    "gen_alpha_students_anxiety_REFLECTION_v35",
+    "gen_alpha_students_anxiety_INTEGRATION_v13",
+    "gen_alpha_students_anxiety_shame_TURNING_POINT_v05",
+    "gen_alpha_students_anxiety_HOOK_v03",
+    "gen_alpha_students_anxiety_SCENE_v03",
+    "gen_alpha_students_anxiety_REFLECTION_v15",
+    "gen_alpha_students_anxiety_INTEGRATION_v12",
+    "gen_alpha_students_anxiety_HOOK_v13",
+    "gen_alpha_students_anxiety_SCENE_v17",
+    "gen_alpha_students_anxiety_REFLECTION_v23",
+    "gen_alpha_students_anxiety_EXERCISE_v25",
+    "gen_alpha_students_anxiety_INTEGRATION_v11",
+    "gen_alpha_students_anxiety_spiral_RECOGNITION_v04",
+    "gen_alpha_students_anxiety_HOOK_v20",
+    "gen_alpha_students_anxiety_SCENE_v19",
+    "gen_alpha_students_anxiety_REFLECTION_v21",
+    "gen_alpha_students_anxiety_EXERCISE_v30",
+    "gen_alpha_students_anxiety_INTEGRATION_v23",
+    "gen_alpha_students_anxiety_spiral_EMBODIMENT_v04",
+    "gen_alpha_students_anxiety_HOOK_v21",
+    "gen_alpha_students_anxiety_SCENE_v04",
+    "gen_alpha_students_anxiety_REFLECTION_v45",
+    "gen_alpha_students_anxiety_INTEGRATION_v16",
+    "gen_alpha_students_anxiety_spiral_RECOGNITION_v05",
+    "gen_alpha_students_anxiety_HOOK_v01",
+    "gen_alpha_students_anxiety_SCENE_v27",
+    "gen_alpha_students_anxiety_REFLECTION_v13",
+    "gen_alpha_students_anxiety_INTEGRATION_v04",
+    "gen_alpha_students_anxiety_HOOK_v22",
+    "gen_alpha_students_anxiety_SCENE_v22",
+    "gen_alpha_students_anxiety_REFLECTION_v19",
+    "gen_alpha_students_anxiety_EXERCISE_v02",
+    "gen_alpha_students_anxiety_INTEGRATION_v18",
+    "gen_alpha_students_anxiety_HOOK_v30",
+    "gen_alpha_students_anxiety_SCENE_v14",
+    "gen_alpha_students_anxiety_REFLECTION_v17",
+    "gen_alpha_students_anxiety_EXERCISE_v20",
+    "gen_alpha_students_anxiety_INTEGRATION_v19",
+    "gen_alpha_students_anxiety_false_alarm_MECHANISM_PROOF_v04",
+    "gen_alpha_students_anxiety_HOOK_v29",
+    "gen_alpha_students_anxiety_SCENE_v08",
+    "gen_alpha_students_anxiety_REFLECTION_v03",
+    "gen_alpha_students_anxiety_EXERCISE_v26",
+    "gen_alpha_students_anxiety_INTEGRATION_v20",
+    "gen_alpha_students_anxiety_HOOK_v24",
+    "gen_alpha_students_anxiety_SCENE_v13",
+    "gen_alpha_students_anxiety_REFLECTION_v47",
+    "gen_alpha_students_anxiety_EXERCISE_v04",
+    "gen_alpha_students_anxiety_INTEGRATION_v09",
+    "gen_alpha_students_anxiety_HOOK_v04",
+    "gen_alpha_students_anxiety_SCENE_v16",
+    "gen_alpha_students_anxiety_REFLECTION_v25",
+    "gen_alpha_students_anxiety_INTEGRATION_v03",
+    "gen_alpha_students_anxiety_HOOK_v28",
+    "gen_alpha_students_anxiety_SCENE_v30",
+    "gen_alpha_students_anxiety_REFLECTION_v43",
+    "gen_alpha_students_anxiety_INTEGRATION_v10",
+    "gen_alpha_students_anxiety_watcher_TURNING_POINT_v03",
+    "gen_alpha_students_anxiety_HOOK_v08",
+    "gen_alpha_students_anxiety_SCENE_v11",
+    "gen_alpha_students_anxiety_REFLECTION_v41",
+    "gen_alpha_students_anxiety_EXERCISE_v03",
+    "gen_alpha_students_anxiety_INTEGRATION_v21",
+    "gen_alpha_students_anxiety_HOOK_v10",
+    "gen_alpha_students_anxiety_SCENE_v21",
+    "gen_alpha_students_anxiety_REFLECTION_v31",
+    "gen_alpha_students_anxiety_EXERCISE_v16",
+    "gen_alpha_students_anxiety_INTEGRATION_v07"
+  ],
+  "dominant_band_sequence": [
+    1,
+    null,
+    2,
+    2,
+    null,
+    null,
+    3,
+    null,
+    3,
+    3,
+    4,
+    null,
+    null,
+    4,
+    null,
+    null,
+    null,
+    3,
+    null,
+    null
+  ],
+  "arc_id": "gen_alpha_students_burnout_watcher_F006_gen",
+  "emotional_temperature_sequence": [
+    "cool",
+    "cool",
+    "cool",
+    "cool",
+    "cool",
+    "cool",
+    "warm",
+    "warm",
+    "warm",
+    "warm",
+    "warm",
+    "warm",
+    "warm",
+    "warm",
+    "warm",
+    "hot",
+    "hot",
+    "warm",
+    "warm",
+    "warm"
+  ],
+  "exercise_chapters": [
+    2,
+    5,
+    8,
+    9,
+    12,
+    13,
+    14,
+    15,
+    18,
+    19
+  ],
+  "slot_sig": "MOD_pocket_guide:ab7b86c03f0c6766",
+  "format_id": "MOD_pocket_guide",
+  "runtime_format_id": "",
+  "output_format_id": "pocket_guide",
+  "output_format_name": "Pocket Guide",
+  "v4_freeze_enabled": true,
+  "locale": "en-US",
+  "territory": "US",
+  "atoms_model": "legacy",
+  "engine_id": "watcher",
+  "angle_id": "at_work",
+  "reflection_strategy_sequence": [
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic",
+    "narrative_embedded",
+    "didactic",
+    "socratic"
+  ],
+  "chapter_archetypes": [
+    "intro_hook_heavy",
+    "legacy_uniform",
+    "deepen_mechanism",
+    "challenge_cost",
+    "legacy_uniform",
+    "practice_heavy",
+    "challenge_cost",
+    "legacy_uniform",
+    "deepen_mechanism",
+    "deepen_mechanism",
+    "challenge_cost",
+    "legacy_uniform",
+    "practice_heavy",
+    "deepen_mechanism",
+    "resolve_integration",
+    "resolve_integration",
+    "legacy_uniform",
+    "challenge_cost",
+    "resolve_integration",
+    "resolve_integration"
+  ],
+  "chapter_exercise_modes": [
+    "none",
+    "none",
+    "micro",
+    "none",
+    "none",
+    "full",
+    "none",
+    "none",
+    "micro",
+    "micro",
+    "none",
+    "none",
+    "full",
+    "micro",
+    "micro",
+    "micro",
+    "none",
+    "none",
+    "micro",
+    "micro"
+  ],
+  "chapter_reflection_weights": [
+    "light",
+    "standard",
+    "standard",
+    "heavy",
+    "standard",
+    "light",
+    "heavy",
+    "standard",
+    "standard",
+    "standard",
+    "heavy",
+    "standard",
+    "light",
+    "standard",
+    "standard",
+    "standard",
+    "standard",
+    "heavy",
+    "standard",
+    "standard"
+  ],
+  "chapter_story_depths": [
+    "standard",
+    "standard",
+    "standard",
+    "deep",
+    "standard",
+    "micro",
+    "deep",
+    "standard",
+    "standard",
+    "standard",
+    "deep",
+    "standard",
+    "micro",
+    "standard",
+    "micro",
+    "micro",
+    "standard",
+    "deep",
+    "micro",
+    "micro"
+  ],
+  "chapter_planner_warnings": [
+    "arc_role_distribution[long] challenge=8 outside target [3,5]"
+  ],
+  "narrator_id": "default_narrator",
+  "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
+  "cover_art_style_hint": "contemplative",
+  "cover_art_palette_tokens": [
+    "contemplative"
+  ],
+  "cover_variant_id": "ahjan",
+  "emotional_role_sequence": [
+    "recognition",
+    "recognition",
+    "destabilization",
+    "reframe",
+    "reframe",
+    "destabilization",
+    "reframe",
+    "reframe",
+    "destabilization",
+    "destabilization",
+    "reframe",
+    "reframe",
+    "destabilization",
+    "destabilization",
+    "stabilization",
+    "stabilization",
+    "reframe",
+    "reframe",
+    "integration",
+    "integration"
+  ],
+  "emotional_role_sig": "r-r-d-f-f-d-f-f-d-d-f-f-d-d-s-s-f-f-i-i",
+  "book_structure_id": "classic_linear",
+  "journey_shape_id": "recognition_to_agency",
+  "motif_id": "motif_pattern",
+  "section_reorder_mode": "none",
+  "reframe_profile_id": "balanced",
+  "variation_chapter_archetypes": [
+    "establish",
+    "expose",
+    "destabilize",
+    "reframe",
+    "stabilize",
+    "integrate",
+    "establish",
+    "expose",
+    "destabilize",
+    "reframe",
+    "stabilize",
+    "integrate",
+    "establish",
+    "expose",
+    "destabilize",
+    "reframe",
+    "stabilize",
+    "integrate",
+    "establish",
+    "expose"
+  ],
+  "variation_signature": "043d52431a11155202fbd436dc12b329",
+  "motif_injections": [
+    {
+      "chapter_index": 0,
+      "slot_index": 2,
+      "phrase": "The same pattern, different day."
+    },
+    {
+      "chapter_index": 0,
+      "slot_index": 4,
+      "phrase": "It shows up again and again."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 2,
+      "phrase": "You've seen this before."
+    },
+    {
+      "chapter_index": 2,
+      "slot_index": 2,
+      "phrase": "It shows up again and again."
+    },
+    {
+      "chapter_index": 2,
+      "slot_index": 4,
+      "phrase": "The same pattern, different day."
+    },
+    {
+      "chapter_index": 3,
+      "slot_index": 2,
+      "phrase": "The same pattern, different day."
+    },
+    {
+      "chapter_index": 3,
+      "slot_index": 4,
+      "phrase": "You've seen this before."
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 2,
+      "phrase": "It shows up again and again."
+    },
+    {
+      "chapter_index": 5,
+      "slot_index": 2,
+      "phrase": "It shows up again and again."
+    },
+    {
+      "chapter_index": 5,
+      "slot_index": 4,
+      "phrase": "The same pattern, different day."
+    },
+    {
+      "chapter_index": 6,
+      "slot_index": 2,
+      "phrase": "You've seen this before."
+    },
+    {
+      "chapter_index": 6,
+      "slot_index": 4,
+      "phrase": "The same pattern, different day."
+    }
+  ],
+  "reframe_injections": [
+    {
+      "chapter_index": 0,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Safety comes before growth."
+    },
+    {
+      "chapter_index": 2,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "One breath can reset the script."
+    },
+    {
+      "chapter_index": 3,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "You don't have to do it all at once."
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Change happens in relationship, not in isolation."
+    },
+    {
+      "chapter_index": 5,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "One breath can reset the script."
+    },
+    {
+      "chapter_index": 6,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "You don't have to do it all at once."
+    },
+    {
+      "chapter_index": 7,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Change happens in relationship, not in isolation."
+    },
+    {
+      "chapter_index": 8,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "What if this moment could be different?"
+    },
+    {
+      "chapter_index": 9,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "Progress isn't linear."
+    },
+    {
+      "chapter_index": 10,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Safety comes before growth."
+    },
+    {
+      "chapter_index": 11,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "What if this moment could be different?"
+    },
+    {
+      "chapter_index": 12,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "Progress isn't linear."
+    },
+    {
+      "chapter_index": 13,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Safety comes before growth."
+    },
+    {
+      "chapter_index": 14,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "You're not behind; you're exactly where you are."
+    },
+    {
+      "chapter_index": 15,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "You don't have to do it all at once."
+    },
+    {
+      "chapter_index": 16,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Safety comes before growth."
+    },
+    {
+      "chapter_index": 17,
+      "slot_index": 2,
+      "line_type": "micro_reframe",
+      "text": "What if this moment could be different?"
+    },
+    {
+      "chapter_index": 18,
+      "slot_index": 2,
+      "line_type": "constraint",
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
+    },
+    {
+      "chapter_index": 19,
+      "slot_index": 2,
+      "line_type": "worldview",
+      "text": "Safety comes before growth."
+    }
+  ],
+  "freebie_bundle": [
+    "anxiety_assessment_v1",
+    "breath_timer_v1",
+    "companion_core_v2"
+  ],
+  "cta_template_id": "assessment_forward",
+  "freebie_slug": "anxiety-gen-alpha-students-anxiety-assessment-v1",
+  "freebie_bundle_with_formats": [
+    {
+      "freebie_id": "anxiety_assessment_v1",
+      "formats": [
+        "html"
+      ]
+    },
+    {
+      "freebie_id": "breath_timer_v1",
+      "formats": [
+        "html"
+      ]
+    },
+    {
+      "freebie_id": "companion_core_v2",
+      "formats": [
+        "html",
+        "pdf"
+      ]
+    }
+  ],
+  "topic_id": "anxiety",
+  "persona_id": "gen_alpha_students"
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unsubscribe | Phoenix Protocol</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 36em; margin: 2rem auto; padding: 1.5rem; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  {% if success %}
+  <h1>You're unsubscribed</h1>
+  <p>You won't receive further emails from this sequence. The free practices remain available on the site.</p>
+  {% else %}
+  <h1>Link invalid or already used</h1>
+  <p>This unsubscribe link may have expired or already been used. If you're still receiving emails, reply and ask to be removed.</p>
+  {% endif %}
+  <p>— Phoenix Protocol</p>
+</body>
+</html>

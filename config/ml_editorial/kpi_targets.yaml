@@ -1,0 +1,39 @@
+# ML Editorial loop — KPI targets (week-over-week).
+# Authority: docs/ML_EDITORIAL_MARKET_LOOP_SPEC.md §8
+
+version: 1
+
+# Quality
+quality:
+  weak_section_rate:
+    direction: down
+    baseline_key: weak_section_rate_baseline
+  arc_drift_violations:
+    threshold: 0
+    direction: below
+
+# Variant performance
+variant:
+  top_ranked_variant_win_rate:
+    baseline_key: variant_win_rate_baseline
+    direction: up
+
+# Reader fit
+reader_fit:
+  fit_score_uplift:
+    cohorts: [persona_id, topic_id]
+    direction: up
+
+# Market outcomes
+market:
+  conversion_proxy_uplift:
+    direction: up
+  completion_retention_proxy_uplift:
+    direction: up
+  compliance_flags:
+    direction: down
+
+# Calibration gate: block rollout if drift exceeds (same pattern as EI V2).
+calibration:
+  max_drift_section_quality: 0.15
+  max_drift_reader_fit: 0.12

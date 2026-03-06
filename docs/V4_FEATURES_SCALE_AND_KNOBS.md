@@ -57,7 +57,7 @@
 - **Wave density** — check_wave_density (arc_id, band_seq, slot_sig, exercise placement, emotional_role_sig, compression, angle_id ≥50% same = FAIL).
 - **Emotional governance** — emotional_governance_rules.yaml (chapter-level, TTS rhythm, book-level, catalog-level, failure_protocol).
 - **Gate #49** — pre_export_check (locale/territory for distribution).
-- **Production readiness gates** — run_production_readiness_gates.py (15 + optional freebie gate 16).
+- **Production readiness gates** — run_production_readiness_gates.py (19 conditions). Gate 16 + 16b: freebie governance — both validate_freebie_density and cta_signature_caps with same index (Criterion 3 strict).
 - **Systems test** — run_systems_test.py (phases 1–7: config, resolvers, pipeline, freebies, asset pipeline, CI/QA, contracts).
 
 ### Observability and simulation

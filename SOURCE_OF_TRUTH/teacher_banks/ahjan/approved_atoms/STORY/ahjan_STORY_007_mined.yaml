@@ -1,19 +1,32 @@
 atom_id: ahjan_STORY_007_mined
-body: The story of the Zen master turned samurai illustrates how one can transition
-  from seeking power through external means to realizing that true power lies in spiritual
-  awakening.Accessing Dimensions of LightThe journey towards personal power and enlightenment
-  involves accessing dimensions of light within oneself. These dimensions are often
-  associated with heightened spiritual states of mind, characterized by brightness
-  and clarity. Engaging in practices like meditation, mindfulness, martial arts, or
-  career development allows individuals to tap into these inner dimensions of light.
+story_origin: composite
+story_type: character_study
+emotional_intensity_band: 3
+body: |
+  Yuki trained in martial arts for eight years. She was precise, powerful, feared.
+  Competition was her clarity. She knew where she stood: faster, stronger, more focused
+  than most.
+  
+  Then she met a Zen teacher who also practiced sword. He moved slowly. He won every
+  match. Not because his technique was sharper—because he was not trying to win.
+  
+  He was practicing something else. Attention without attachment. The sword moving
+  as if the sword was thinking. Her moves were still faster. His were already there.
+  
+  For three months she watched him. She began to change how she stood before matches.
+  Less coiling, less calculation. More listening. Her win rate did not increase.
+  Something else happened instead. She stopped knowing what would happen next.
+  
+  In the fifth month, in a match against a rival she had beaten twelve times, she
+  lost. Not because she was weaker. Because she had stopped hoarding her attention
+  for victory. The rival moved into that gap.
+  
+  Walking to her car afterward, Yuki felt something shift in her spine. Not regret.
+  A loosening. She does not know if this loosening is spiritual awakening or simply
+  defeat. The quality feels the same.
+never_know: true
+band: 3
 teacher:
   teacher_id: ahjan
-  source_refs:
-  - doc_id: 'raw/BD Blog - Personal Power: The Path to Greater Love and Enlightenment
-      .rtf'
-    span:
-    - 3627
-    - 4214
-    quote_hash: 9af7373a4766b61f
-  synthesis_method: kb_mine_v1
-band: 3
+  source_refs: []
+  synthesis_method: authored_v1

@@ -1,0 +1,21 @@
+# Locale gate: validate translation quality and golden regression before release.
+# Stub: placeholder for when locale gate is implemented.
+# See config/localization/quality_contracts/ and docs/DOCS_INDEX.md § Translation.
+
+name: Locale gate
+
+on:
+  pull_request:
+    paths:
+      - 'config/localization/**'
+      - 'atoms/**'
+  push:
+    branches: [main]
+
+jobs:
+  locale-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Placeholder
+        run: echo "Locale gate stub; implement scripts/validate_translations.py and check_golden_translation.py"

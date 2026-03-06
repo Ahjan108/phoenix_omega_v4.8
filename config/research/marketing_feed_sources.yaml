@@ -1,0 +1,27 @@
+# Marketing and audiobook industry — feed URLs for paste-and-extract research.
+# See docs/research/RESEARCH_FEED_SOURCES.md and docs/research/MARKETING_DEEP_RESEARCH_PROMPTS.md.
+
+schema_version: 1
+
+# Free sources (no API; fetch or copy-paste into Qwen3 extract prompts)
+sources:
+  - id: apa
+    name: Audio Publishers Association
+    url: https://www.audiopub.org
+    notes: Research FAQ, 5-year industry data, annual survey (e.g. $2.22B 2024, 13% growth)
+    refresh: quarterly
+  - id: publishers_weekly
+    name: Publishers Weekly
+    url: https://www.publishersweekly.com
+    notes: Audiobook/industry articles, Spotify year-end data, genre growth
+    refresh: weekly
+  - id: spotify
+    name: Spotify / platform announcements
+    url: https://newsroom.spotify.com
+    notes: Year-end listening data, blog posts
+    refresh: manual
+  - id: library_journal
+    name: Library Journal / infoDOCKET
+    url: https://www.infodocket.com
+    notes: Summaries of APA and industry reports
+    refresh: manual

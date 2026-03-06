@@ -1,0 +1,11 @@
+topics:
+  - topic_id: anxiety
+    consumer_phrases: ["how to stop feeling anxious", "why do I feel anxious"]
+    banned_clinical_terms: ["generalized anxiety disorder", "anxiolytic"]
+    culture_specific_phrases: ["sunday scaries"]
+    persona_subtitle_patterns: ["for overthinkers who cannot turn it off"]
+  - topic_id: burnout
+    consumer_phrases: ["running on empty", "exhausted"]
+    banned_clinical_terms: []
+    culture_specific_phrases: []
+    persona_subtitle_patterns: []

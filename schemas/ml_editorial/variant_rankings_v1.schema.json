@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phoenix/schemas/ml_editorial/variant_rankings_v1.schema.json",
+  "title": "ML Editorial variant ranking row",
+  "type": "object",
+  "required": ["book_id", "variant_type", "variant_id", "rank_score", "confidence", "ts"],
+  "properties": {
+    "book_id": { "type": "string" },
+    "variant_type": { "type": "string", "enum": ["title", "subtitle", "opening"] },
+    "variant_id": { "type": "string" },
+    "rank_score": { "type": "number" },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "ts": { "type": "string", "format": "date-time" },
+    "persona_id": { "type": "string" },
+    "topic_id": { "type": "string" },
+    "locale": { "type": "string" }
+  }
+}

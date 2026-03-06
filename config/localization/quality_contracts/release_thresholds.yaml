@@ -1,0 +1,9 @@
+# Release thresholds for translation quality gate.
+# Locale gate fails if any threshold is not met.
+
+schema_version: "1.0"
+
+thresholds:
+  min_glossary_coverage: 0.0
+  min_golden_regression_pass: 1.0
+  min_segment_count_per_locale: 0

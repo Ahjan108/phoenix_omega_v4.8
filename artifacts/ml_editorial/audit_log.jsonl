@@ -1,0 +1,19 @@
+{"action": "run_section_scoring", "outcome": "fail", "ts": "2026-03-04T05:41:37.579319Z", "detail": "Traceback (most recent call last):\n  File \"/Users/ahjan/phoenix_omega/scripts/ml_editorial/run_section_scoring.py\", line 163, in <module>\n    sys.exit(main())\n  File \"/Users/ahjan/phoenix_omega/scripts/ml_editorial/run_section_scoring.py\", line 157, in main\n    n = run_section_scoring(plans_dir, out_path, config)\n  File \"/Users/ahjan/phoenix_omega/scripts/ml_editorial/run_section_scoring.py\", line 118, in run_section_scoring\n    arc_drift = _heuristic_arc_drift(plan_chapters)\n  File \"/Users/ahjan/phoenix_omega/scripts/ml_editorial/run_section_scoring.py\", line 70, in _heuristic_arc_drift\n    b = ch.get(\"band\") or ch.get(\"BAND\") or ch.get(\"emotional_temperature\")\nAttributeError: 'list' object has no attribute 'get'\n"}
+{"action": "run_section_scoring", "outcome": "ok", "ts": "2026-03-04T05:42:49.604281Z", "detail": ""}
+{"action": "run_variant_ranking", "outcome": "ok", "ts": "2026-03-04T05:42:49.655559Z", "detail": ""}
+{"action": "run_reader_fit", "outcome": "ok", "ts": "2026-03-04T05:42:49.694242Z", "detail": ""}
+{"action": "run_rewrite_recs", "outcome": "ok", "ts": "2026-03-04T05:42:49.730827Z", "detail": ""}
+{"action": "run_market_router", "outcome": "ok", "ts": "2026-03-04T05:42:49.769326Z", "detail": ""}
+{"action": "weekly_ml_editorial", "outcome": "ok", "ts": "2026-03-04T05:42:49.771404Z", "detail": "all steps completed"}
+{"action": "run_section_scoring", "outcome": "ok", "ts": "2026-03-04T06:06:55.296064Z", "detail": ""}
+{"action": "run_variant_ranking", "outcome": "ok", "ts": "2026-03-04T06:06:55.340686Z", "detail": ""}
+{"action": "run_reader_fit", "outcome": "ok", "ts": "2026-03-04T06:06:55.375417Z", "detail": ""}
+{"action": "run_rewrite_recs", "outcome": "ok", "ts": "2026-03-04T06:06:55.410054Z", "detail": ""}
+{"action": "run_market_router", "outcome": "ok", "ts": "2026-03-04T06:06:55.444972Z", "detail": ""}
+{"action": "weekly_ml_editorial", "outcome": "ok", "ts": "2026-03-04T06:06:55.446882Z", "detail": "all steps completed"}
+{"action": "run_section_scoring", "outcome": "ok", "ts": "2026-03-04T06:09:58.243594Z", "detail": ""}
+{"action": "run_variant_ranking", "outcome": "ok", "ts": "2026-03-04T06:09:58.327518Z", "detail": ""}
+{"action": "run_reader_fit", "outcome": "ok", "ts": "2026-03-04T06:09:58.368546Z", "detail": ""}
+{"action": "run_rewrite_recs", "outcome": "ok", "ts": "2026-03-04T06:09:58.406961Z", "detail": ""}
+{"action": "run_market_router", "outcome": "ok", "ts": "2026-03-04T06:09:58.443596Z", "detail": ""}
+{"action": "weekly_ml_editorial", "outcome": "ok", "ts": "2026-03-04T06:09:58.445536Z", "detail": "all steps completed"}

@@ -77,10 +77,14 @@ def main() -> int:
         title = data.get("title") or data.get("headline")
         content = data.get("content") or data.get("body") or data.get("text")
         slug = data.get("slug")
+        author = data.get("author")  # WordPress user ID (teacher-assigned, alternate)
         categories = data.get("categories") or data.get("category_ids")
         tags = data.get("tags") or data.get("tag_ids")
         featured_image = data.get("featured_image")  # { url, credit, source_url, caption? }
         featured_image_url = data.get("featured_image_url")  # or plain URL
+        featured_image_path = data.get("featured_image_path")  # path relative to repo (e.g. pearl_news/del_intake_pics/...)
+        if featured_image_path:
+            featured_image_path = REPO_ROOT / featured_image_path
         if not title or not content:
             print(
                 "Error: article JSON must have title (or headline) and content (or body/text)",
@@ -97,10 +101,12 @@ def main() -> int:
         title = args.title
         content = args.content
         slug = None
+        author = None
         categories = None
         tags = None
         featured_image = None
         featured_image_url = None
+        featured_image_path = None
 
     if args.dry_run:
         try:
@@ -120,11 +126,13 @@ def main() -> int:
             content=content,
             status=args.status,
             slug=slug or _slug_from_title(title),
+            author=author,
             categories=categories,
             tags=tags,
-            append_disclaimer=not args.no_disclaimer,
+            append_disclaimer=False,  # Disclaimer on site About; not repeated per article
             featured_image=featured_image,
             featured_image_url=featured_image_url,
+            featured_image_path=featured_image_path,
         )
     except WordPressPublishError as e:
         print(f"Error: {e}", file=sys.stderr)

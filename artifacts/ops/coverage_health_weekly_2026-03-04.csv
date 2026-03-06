@@ -1,455 +1,451 @@
 persona,topic,engine,format_id,binding_exists,arc_exists,story_count,band_counts,required_bands_missing,min_depth_satisfied,last_story_update,risk,deficit_codes
-corporate_managers,anxiety,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,anxiety,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,anxiety,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,boundaries,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959083.7025936,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,boundaries,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959112.4429169,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,boundaries,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959056.5330238,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,burnout,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958797.5753148,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,burnout,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958692.9066594,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,burnout,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958741.8752308,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,compassion_fatigue,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959524.3749094,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,compassion_fatigue,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959567.658138,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,compassion_fatigue,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959601.1492403,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,courage,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,courage,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,courage,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,depression,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959639.154707,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,depression,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959672.9784482,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,depression,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959702.33998,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,financial_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958852.2568226,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,financial_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958946.995839,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,financial_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958902.6004355,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,financial_stress,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,financial_stress,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,financial_stress,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,grief,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959729.6728997,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,grief,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959751.4659004,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,imposter_syndrome,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959024.764638,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,imposter_syndrome,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958984.86413,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,overthinking,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959782.1811693,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,overthinking,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959809.0711586,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,overthinking,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959829.6909738,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,self_worth,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959850.8425925,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,self_worth,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959872.2206962,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,sleep_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959895.1012757,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,sleep_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959917.2061305,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,sleep_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959936.86228,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,social_anxiety,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959956.282969,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,social_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959975.6365106,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,social_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959993.5054064,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,somatic_healing,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960011.4426699,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-corporate_managers,somatic_healing,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960029.3832557,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-educators,anxiety,overwhelm,F006,True,True,20,"{""1"": 5, ""2"": 5, ""3"": 5, ""4"": 5}",[],True,1771893585.6041975,GREEN,[]
-entrepreneurs,anxiety,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,anxiety,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,anxiety,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,boundaries,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958325.2015874,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,boundaries,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958353.584472,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,boundaries,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958299.1054585,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,burnout,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958102.702077,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,burnout,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958030.771945,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,burnout,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958067.1377127,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,compassion_fatigue,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959544.395978,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,compassion_fatigue,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959593.0491788,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,compassion_fatigue,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959635.8037026,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,courage,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,courage,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,courage,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,depression,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959672.8718176,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,depression,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959706.8608987,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,depression,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959735.0510988,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,financial_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958138.3670235,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,financial_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958209.374825,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,financial_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958176.58249,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,financial_stress,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,financial_stress,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,financial_stress,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,grief,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959762.449425,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,grief,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959785.0450635,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,imposter_syndrome,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958269.9583669,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,imposter_syndrome,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958240.360851,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,overthinking,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959230.1202486,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,overthinking,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959177.0542839,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,overthinking,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959201.6520684,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,self_worth,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959814.1010525,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,self_worth,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959840.5732636,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,sleep_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959255.781975,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,sleep_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959305.3265157,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,sleep_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959283.8420196,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,social_anxiety,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959865.2752967,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,social_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959326.610333,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,social_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959353.751033,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,somatic_healing,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959889.8343039,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-entrepreneurs,somatic_healing,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959910.7790244,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,anxiety,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,anxiety,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,anxiety,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,boundaries,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959226.325093,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,boundaries,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959257.8331158,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,boundaries,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959196.2605722,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,burnout,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958932.7536879,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,burnout,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958797.730179,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,burnout,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958864.0272303,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,compassion_fatigue,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959495.5823748,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,compassion_fatigue,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959515.2045667,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,compassion_fatigue,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959533.8473122,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,courage,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,courage,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,courage,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,depression,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959550.6580167,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,depression,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959568.3849638,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,depression,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959584.5972264,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,financial_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958996.0635068,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,financial_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959092.746018,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,financial_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959047.9622438,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,financial_stress,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,financial_stress,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,financial_stress,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,grief,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959602.710561,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,grief,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959619.8906682,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,imposter_syndrome,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959163.6498716,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,imposter_syndrome,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959128.877595,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,overthinking,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959637.4060712,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,overthinking,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959653.1405566,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,overthinking,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959668.5620477,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,self_worth,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959684.1278203,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,self_worth,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959699.2535412,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,sleep_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959715.9172077,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,sleep_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959732.8491333,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,sleep_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959747.6767364,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,social_anxiety,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959762.5364022,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,social_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959778.0012817,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,social_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959791.6185331,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,somatic_healing,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959804.9194725,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-first_responders,somatic_healing,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959818.6855896,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,anxiety,comparison,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771882753.6154733,RED,"[""BAND_DEFICIT""]"
-gen_alpha_students,anxiety,false_alarm,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771882177.474013,RED,"[""BAND_DEFICIT""]"
-gen_alpha_students,anxiety,grief,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771882848.460277,RED,"[""BAND_DEFICIT""]"
-gen_alpha_students,anxiety,overwhelm,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771882459.5658863,RED,"[""BAND_DEFICIT""]"
-gen_alpha_students,anxiety,shame,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771882554.8212247,RED,"[""BAND_DEFICIT""]"
-gen_alpha_students,anxiety,spiral,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771882268.6431139,RED,"[""BAND_DEFICIT""]"
-gen_alpha_students,anxiety,watcher,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771882363.560123,RED,"[""BAND_DEFICIT""]"
-gen_alpha_students,boundaries,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969125.3885098,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,boundaries,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969125.3902733,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,boundaries,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969125.3916771,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,burnout,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959602.7116008,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,burnout,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959676.3405983,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,burnout,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959742.1061602,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,compassion_fatigue,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969125.3929296,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,compassion_fatigue,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969154.4285102,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,compassion_fatigue,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969154.4315326,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,courage,false_alarm,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771884058.5322247,RED,"[""BAND_DEFICIT""]"
-gen_alpha_students,courage,shame,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771884316.0896237,RED,"[""BAND_DEFICIT""]"
-gen_alpha_students,courage,spiral,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771885547.8092926,RED,"[""BAND_DEFICIT""]"
-gen_alpha_students,depression,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969174.8703506,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,depression,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969174.8735445,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,depression,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969192.3305428,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,financial_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959799.1533306,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,financial_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959850.306921,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,financial_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959894.503727,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,financial_stress,overwhelm,F006,True,True,16,"{""2"": 5, ""3"": 6, ""4"": 4, ""1"": 1}",[5],True,1771893551.7497752,RED,"[""BAND_DEFICIT""]"
-gen_alpha_students,financial_stress,shame,F006,True,True,17,"{""2"": 5, ""3"": 7, ""4"": 4, ""1"": 1}",[5],True,1771893551.7508,RED,"[""BAND_DEFICIT""]"
-gen_alpha_students,financial_stress,spiral,F006,True,True,17,"{""2"": 5, ""3"": 7, ""4"": 4, ""1"": 1}",[5],True,1771893551.751864,RED,"[""BAND_DEFICIT""]"
-gen_alpha_students,grief,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969154.4339013,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,grief,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969154.4366732,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,imposter_syndrome,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959927.6208162,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,imposter_syndrome,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959955.7879837,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,overthinking,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959982.483176,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,overthinking,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960008.425648,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,overthinking,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960036.1843712,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,self_worth,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969154.4399915,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,self_worth,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969154.4466202,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,sleep_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960059.7644553,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,sleep_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960090.674796,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,sleep_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960118.7248921,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,social_anxiety,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960143.6354082,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,social_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960164.4583116,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,social_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960187.5649402,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,somatic_healing,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960209.2912438,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_alpha_students,somatic_healing,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960231.4107409,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,anxiety,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,anxiety,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,anxiety,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,boundaries,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958374.7292655,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,boundaries,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958406.769556,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,boundaries,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958349.511994,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,burnout,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958176.040147,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,burnout,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958106.5066743,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,burnout,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958142.1685324,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,compassion_fatigue,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959085.5134313,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,compassion_fatigue,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959085.5088143,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,compassion_fatigue,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959085.511915,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,courage,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,courage,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,courage,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,depression,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959085.5156662,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,depression,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959085.51716,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,depression,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959085.514661,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,financial_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958209.5612648,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,financial_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958265.9641461,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,financial_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958237.554767,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,financial_stress,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,financial_stress,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,financial_stress,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,grief,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959136.9327507,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,grief,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959136.9363892,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,imposter_syndrome,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958322.9130113,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,imposter_syndrome,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958295.0731142,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,overthinking,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959085.4674838,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,overthinking,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959085.4611595,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,overthinking,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959085.4656298,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,self_worth,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959136.940243,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,self_worth,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959136.9382684,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,sleep_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959085.4737432,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,sleep_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959085.488772,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,sleep_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959085.4820738,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,social_anxiety,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959085.5029526,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,social_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959085.492173,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,social_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959085.496742,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,somatic_healing,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959085.505713,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_x_sandwich,somatic_healing,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959085.5045109,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,anxiety,comparison,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771876052.0323074,RED,"[""BAND_DEFICIT""]"
-gen_z_professionals,anxiety,false_alarm,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771875684.32389,RED,"[""BAND_DEFICIT""]"
-gen_z_professionals,anxiety,grief,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771876144.0285766,RED,"[""BAND_DEFICIT""]"
-gen_z_professionals,anxiety,overwhelm,F002,True,True,17,"{""2"": 5, ""3"": 7, ""4"": 4, ""1"": 1}",[],True,1771893551.7529714,GREEN,[]
-gen_z_professionals,anxiety,overwhelm,F006,True,True,17,"{""2"": 5, ""3"": 7, ""4"": 4, ""1"": 1}",[5],True,1771893551.7529714,RED,"[""BAND_DEFICIT""]"
-gen_z_professionals,anxiety,shame,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771875957.6945887,RED,"[""BAND_DEFICIT""]"
-gen_z_professionals,anxiety,spiral,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771875773.3427286,RED,"[""BAND_DEFICIT""]"
-gen_z_professionals,anxiety,watcher,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771875866.1924033,RED,"[""BAND_DEFICIT""]"
-gen_z_professionals,boundaries,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969044.9550009,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,boundaries,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969044.956979,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,boundaries,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969044.958506,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,burnout,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959545.4708657,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,burnout,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959592.3973553,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,burnout,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959627.848462,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,compassion_fatigue,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969044.9597337,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,compassion_fatigue,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969044.9639037,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,compassion_fatigue,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969044.965825,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,courage,false_alarm,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771876541.8866744,RED,"[""BAND_DEFICIT""]"
-gen_z_professionals,courage,shame,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771876632.306933,RED,"[""BAND_DEFICIT""]"
-gen_z_professionals,courage,spiral,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771876725.3659716,RED,"[""BAND_DEFICIT""]"
-gen_z_professionals,depression,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969044.9813557,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,depression,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969044.9826148,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,depression,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969044.9861615,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,financial_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959667.1097615,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,financial_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959700.1020644,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,financial_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959731.822264,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,financial_stress,overwhelm,F006,True,True,17,"{""2"": 5, ""3"": 7, ""4"": 4, ""1"": 1}",[5],True,1771893551.7635694,RED,"[""BAND_DEFICIT""]"
-gen_z_professionals,financial_stress,shame,F006,True,True,17,"{""2"": 5, ""3"": 7, ""4"": 4, ""1"": 1}",[5],True,1771893551.7659771,RED,"[""BAND_DEFICIT""]"
-gen_z_professionals,financial_stress,spiral,F006,True,True,17,"{""2"": 5, ""3"": 7, ""4"": 4, ""1"": 1}",[5],True,1771893551.767254,RED,"[""BAND_DEFICIT""]"
-gen_z_professionals,grief,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969044.9683795,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,grief,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969044.9707072,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,imposter_syndrome,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959761.4958565,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,imposter_syndrome,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959789.7183492,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,overthinking,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959814.9792664,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,overthinking,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959839.5877628,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,overthinking,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959859.6674392,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,self_worth,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969044.9740405,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,self_worth,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771969044.9768915,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,sleep_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959880.9816928,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,sleep_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959897.9147456,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,sleep_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959919.5643823,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,social_anxiety,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959937.8035116,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,social_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959954.7611787,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,social_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959971.8745701,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,somatic_healing,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959989.9672537,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-gen_z_professionals,somatic_healing,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960006.7523594,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,anxiety,comparison,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771879889.2705364,RED,"[""BAND_DEFICIT""]"
-healthcare_rns,anxiety,false_alarm,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771879334.9956262,RED,"[""BAND_DEFICIT""]"
-healthcare_rns,anxiety,grief,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771879985.3214576,RED,"[""BAND_DEFICIT""]"
-healthcare_rns,anxiety,overwhelm,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771879613.3938053,RED,"[""BAND_DEFICIT""]"
-healthcare_rns,anxiety,shame,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771879796.3152552,RED,"[""BAND_DEFICIT""]"
-healthcare_rns,anxiety,spiral,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771879427.0257876,RED,"[""BAND_DEFICIT""]"
-healthcare_rns,anxiety,watcher,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771879519.9774804,RED,"[""BAND_DEFICIT""]"
-healthcare_rns,boundaries,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771968468.5621085,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,boundaries,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771968468.563766,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,boundaries,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771968468.5656817,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,burnout,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959530.7423737,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,burnout,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959554.5601532,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,burnout,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959577.7755764,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,compassion_fatigue,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771968468.5671494,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,compassion_fatigue,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771968468.5688858,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,compassion_fatigue,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771968468.5702717,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,courage,false_alarm,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771880381.8909745,RED,"[""BAND_DEFICIT""]"
-healthcare_rns,courage,shame,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771880478.1447759,RED,"[""BAND_DEFICIT""]"
-healthcare_rns,courage,spiral,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}","[1, 5]",True,1771880796.9525144,RED,"[""BAND_DEFICIT""]"
-healthcare_rns,depression,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771968468.5801806,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,depression,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771968468.582083,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,depression,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771968468.583227,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,financial_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959602.706496,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,financial_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959625.2872581,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,financial_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959647.3267953,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,financial_stress,overwhelm,F006,True,True,20,"{""3"": 15, ""4"": 5}","[1, 2, 5]",True,1771893585.615501,RED,"[""BAND_DEFICIT""]"
-healthcare_rns,financial_stress,shame,F006,True,True,20,"{""1"": 5, ""2"": 5, ""3"": 5, ""4"": 5}",[5],True,1771893585.6166265,RED,"[""BAND_DEFICIT""]"
-healthcare_rns,financial_stress,spiral,F006,True,True,20,"{""2"": 10, ""3"": 5, ""4"": 5}","[1, 5]",True,1771893585.6176846,RED,"[""BAND_DEFICIT""]"
-healthcare_rns,grief,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771968468.5723054,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,grief,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771968468.5737693,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,imposter_syndrome,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959668.5611854,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,imposter_syndrome,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959687.3078487,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,overthinking,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959708.3276052,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,overthinking,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959726.8665593,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,overthinking,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959743.6169176,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,self_worth,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771968468.5751197,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,self_worth,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771968468.5773287,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,sleep_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959760.036444,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,sleep_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959776.3012664,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,sleep_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959791.7439575,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,social_anxiety,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959807.6429029,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,social_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959822.597825,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,social_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959836.5473406,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,somatic_healing,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959853.0603056,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-healthcare_rns,somatic_healing,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959868.4017549,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,anxiety,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,anxiety,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,anxiety,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,boundaries,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958547.9385836,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,boundaries,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958575.03431,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,boundaries,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958522.067,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,burnout,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958295.501309,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,burnout,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958171.540116,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,burnout,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958236.7250931,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,compassion_fatigue,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959027.0047665,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,compassion_fatigue,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958990.2988138,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,compassion_fatigue,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959008.7721145,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,courage,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,courage,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,courage,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,depression,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959059.028023,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,depression,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959074.5761652,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,depression,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959043.3532877,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,financial_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958347.48377,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,financial_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958424.9381614,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,financial_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958386.7254355,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,financial_stress,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,financial_stress,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,financial_stress,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,grief,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959089.9690397,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,grief,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959103.6819198,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,imposter_syndrome,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958489.8758855,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,imposter_syndrome,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958459.4482763,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,overthinking,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958778.0434701,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,overthinking,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958703.9843676,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,overthinking,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958744.1446025,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,self_worth,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959135.033346,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,self_worth,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959120.073947,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,sleep_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958807.0505142,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,sleep_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958861.9434848,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,sleep_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958836.0632265,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,social_anxiety,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958931.5449018,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,social_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958887.5332382,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,social_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958910.8581085,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,somatic_healing,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958971.4488168,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-millennial_women_professionals,somatic_healing,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958951.2354405,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-nyc_executives,boundaries,shame,F006,True,True,25,"{""1"": 5, ""2"": 5, ""3"": 5, ""4"": 5, ""5"": 5}",[],True,1771893551.7797039,GREEN,[]
-nyc_executives,self_worth,shame,F006,True,True,20,"{""1"": 5, ""2"": 5, ""4"": 3, ""5"": 2, ""3"": 5}",[],True,1771915694.4885545,GREEN,[]
-tech_finance_burnout,anxiety,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,anxiety,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,anxiety,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,boundaries,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958325.0846035,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,boundaries,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958342.974493,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,boundaries,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958307.4536302,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,burnout,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958173.1789958,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,burnout,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958080.2456264,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,burnout,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958136.2721322,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,compassion_fatigue,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959933.4165707,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,compassion_fatigue,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959954.6500185,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,compassion_fatigue,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959974.1794968,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,courage,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,courage,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,courage,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,depression,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960106.4517415,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,depression,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960013.0711641,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,depression,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960029.3822105,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,financial_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958206.1317196,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,financial_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958252.4963872,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,financial_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958232.925016,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,financial_stress,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,financial_stress,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,financial_stress,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,grief,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960048.4705384,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,grief,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960065.176889,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,imposter_syndrome,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958289.5086892,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,imposter_syndrome,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958271.9148583,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,overthinking,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958894.0626252,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,overthinking,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958814.433074,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,overthinking,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958854.5570517,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,self_worth,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960084.6670868,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,self_worth,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771960101.5818844,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,sleep_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958930.2129984,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,sleep_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958993.3759158,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,sleep_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958964.8833933,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,social_anxiety,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959085.4014993,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,social_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959026.5494406,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,social_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959057.1439884,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,somatic_healing,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959140.3600903,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-tech_finance_burnout,somatic_healing,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771959114.4231017,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,anxiety,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,anxiety,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,anxiety,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,boundaries,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958339.7446408,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,boundaries,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958370.6278298,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,boundaries,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958308.7297175,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,burnout,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958118.732432,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,burnout,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958044.6519043,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,burnout,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958081.0980816,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,compassion_fatigue,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958783.939193,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,compassion_fatigue,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958783.9077408,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,compassion_fatigue,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958783.922861,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,courage,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,courage,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,courage,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,depression,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958783.9848258,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,depression,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958783.992022,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,depression,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958783.9644625,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,financial_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958156.3989544,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,financial_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958219.837877,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,financial_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958191.8308828,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,financial_stress,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,financial_stress,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,financial_stress,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,grief,grief,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958784.047287,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,grief,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958784.1481197,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,imposter_syndrome,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958279.7679265,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,imposter_syndrome,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958248.9454944,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,overthinking,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958783.870791,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,overthinking,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958783.8687193,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,overthinking,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958783.8699722,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,self_worth,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958784.2497816,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,self_worth,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958784.2185538,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,sleep_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958783.8719,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,sleep_anxiety,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958783.8734066,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,sleep_anxiety,spiral,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958783.8726668,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,social_anxiety,comparison,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958783.8770432,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,social_anxiety,false_alarm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958783.8744664,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,social_anxiety,shame,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958783.8754063,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,somatic_healing,overwhelm,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958783.8954256,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
-working_parents,somatic_healing,watcher,F006,True,True,0,{},"[1, 2, 3, 4, 5]",False,1771958783.882251,RED,"[""NO_STORY_POOL"", ""BAND_DEFICIT""]"
+corporate_managers,anxiety,comparison,F006,True,True,22,"{""2"": 7, ""3"": 12, ""1"": 1, ""4"": 1, ""5"": 1}",[],True,1772593599.7595043,GREEN,[]
+corporate_managers,anxiety,false_alarm,F006,True,True,22,"{""2"": 7, ""3"": 12, ""1"": 1, ""4"": 1, ""5"": 1}",[],True,1772593599.7597065,GREEN,[]
+corporate_managers,anxiety,grief,F006,True,True,22,"{""2"": 7, ""3"": 12, ""1"": 1, ""4"": 1, ""5"": 1}",[],True,1772593599.7598526,GREEN,[]
+corporate_managers,anxiety,overwhelm,F006,True,True,22,"{""2"": 7, ""3"": 12, ""1"": 1, ""4"": 1, ""5"": 1}",[],True,1772593599.7600813,GREEN,[]
+corporate_managers,anxiety,shame,F006,True,True,21,"{""2"": 7, ""3"": 11, ""4"": 1, ""1"": 1, ""5"": 1}",[],True,1772593599.760609,GREEN,[]
+corporate_managers,anxiety,spiral,F006,True,True,22,"{""2"": 7, ""3"": 12, ""1"": 1, ""4"": 1, ""5"": 1}",[],True,1772593599.761072,GREEN,[]
+corporate_managers,anxiety,watcher,F006,True,True,22,"{""2"": 7, ""3"": 12, ""1"": 1, ""4"": 1, ""5"": 1}",[],True,1772593599.7614691,GREEN,[]
+corporate_managers,boundaries,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7620473,GREEN,[]
+corporate_managers,boundaries,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.762357,GREEN,[]
+corporate_managers,boundaries,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7627056,GREEN,[]
+corporate_managers,burnout,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7630687,GREEN,[]
+corporate_managers,burnout,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.763398,GREEN,[]
+corporate_managers,burnout,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.763732,GREEN,[]
+corporate_managers,compassion_fatigue,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.764101,GREEN,[]
+corporate_managers,compassion_fatigue,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7649872,GREEN,[]
+corporate_managers,compassion_fatigue,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7654805,GREEN,[]
+corporate_managers,courage,false_alarm,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.7660096,GREEN,[]
+corporate_managers,courage,shame,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.766377,GREEN,[]
+corporate_managers,courage,spiral,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.7666922,GREEN,[]
+corporate_managers,depression,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7669487,GREEN,[]
+corporate_managers,depression,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7672198,GREEN,[]
+corporate_managers,depression,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.767567,GREEN,[]
+corporate_managers,financial_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7679334,GREEN,[]
+corporate_managers,financial_anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7682264,GREEN,[]
+corporate_managers,financial_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7685041,GREEN,[]
+corporate_managers,financial_stress,overwhelm,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.7687304,GREEN,[]
+corporate_managers,financial_stress,shame,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.768999,GREEN,[]
+corporate_managers,financial_stress,spiral,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.7692451,GREEN,[]
+corporate_managers,grief,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7697797,GREEN,[]
+corporate_managers,grief,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.770205,GREEN,[]
+corporate_managers,imposter_syndrome,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.770593,GREEN,[]
+corporate_managers,imposter_syndrome,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7709281,GREEN,[]
+corporate_managers,overthinking,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.771382,GREEN,[]
+corporate_managers,overthinking,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7717092,GREEN,[]
+corporate_managers,overthinking,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7721202,GREEN,[]
+corporate_managers,self_worth,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7724159,GREEN,[]
+corporate_managers,self_worth,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.772639,GREEN,[]
+corporate_managers,sleep_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.772963,GREEN,[]
+corporate_managers,sleep_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.773086,GREEN,[]
+corporate_managers,sleep_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.773417,GREEN,[]
+corporate_managers,social_anxiety,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7737308,GREEN,[]
+corporate_managers,social_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7739336,GREEN,[]
+corporate_managers,social_anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7742867,GREEN,[]
+corporate_managers,somatic_healing,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7745357,GREEN,[]
+corporate_managers,somatic_healing,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7747123,GREEN,[]
+entrepreneurs,anxiety,comparison,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.7753725,GREEN,[]
+entrepreneurs,anxiety,false_alarm,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.775758,GREEN,[]
+entrepreneurs,anxiety,grief,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.775949,GREEN,[]
+entrepreneurs,anxiety,overwhelm,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.7761304,GREEN,[]
+entrepreneurs,anxiety,shame,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.776342,GREEN,[]
+entrepreneurs,anxiety,spiral,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.7764766,GREEN,[]
+entrepreneurs,anxiety,watcher,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.7765985,GREEN,[]
+entrepreneurs,boundaries,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7767909,GREEN,[]
+entrepreneurs,boundaries,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7769146,GREEN,[]
+entrepreneurs,boundaries,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.777028,GREEN,[]
+entrepreneurs,burnout,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.777137,GREEN,[]
+entrepreneurs,burnout,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7772408,GREEN,[]
+entrepreneurs,burnout,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7773778,GREEN,[]
+entrepreneurs,compassion_fatigue,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7775104,GREEN,[]
+entrepreneurs,compassion_fatigue,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.777855,GREEN,[]
+entrepreneurs,compassion_fatigue,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7779744,GREEN,[]
+entrepreneurs,courage,false_alarm,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.7781124,GREEN,[]
+entrepreneurs,courage,shame,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.7782612,GREEN,[]
+entrepreneurs,courage,spiral,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.7783945,GREEN,[]
+entrepreneurs,depression,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.778504,GREEN,[]
+entrepreneurs,depression,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7785983,GREEN,[]
+entrepreneurs,depression,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.778687,GREEN,[]
+entrepreneurs,financial_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7789435,GREEN,[]
+entrepreneurs,financial_anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7790797,GREEN,[]
+entrepreneurs,financial_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7792463,GREEN,[]
+entrepreneurs,financial_stress,overwhelm,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.7795188,GREEN,[]
+entrepreneurs,financial_stress,shame,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.7796695,GREEN,[]
+entrepreneurs,financial_stress,spiral,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.7797983,GREEN,[]
+entrepreneurs,grief,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7798908,GREEN,[]
+entrepreneurs,grief,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.779977,GREEN,[]
+entrepreneurs,imposter_syndrome,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7800663,GREEN,[]
+entrepreneurs,imposter_syndrome,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.780151,GREEN,[]
+entrepreneurs,overthinking,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7806542,GREEN,[]
+entrepreneurs,overthinking,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.780967,GREEN,[]
+entrepreneurs,overthinking,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7811542,GREEN,[]
+entrepreneurs,self_worth,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7813013,GREEN,[]
+entrepreneurs,self_worth,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7815492,GREEN,[]
+entrepreneurs,sleep_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7817106,GREEN,[]
+entrepreneurs,sleep_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7819066,GREEN,[]
+entrepreneurs,sleep_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7821467,GREEN,[]
+entrepreneurs,social_anxiety,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7823234,GREEN,[]
+entrepreneurs,social_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.78246,GREEN,[]
+entrepreneurs,social_anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7825987,GREEN,[]
+entrepreneurs,somatic_healing,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7827804,GREEN,[]
+entrepreneurs,somatic_healing,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7830641,GREEN,[]
+first_responders,anxiety,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 5, ""1"": 1, ""5"": 1}",[],True,1772593599.7832677,GREEN,[]
+first_responders,anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 5, ""1"": 1, ""5"": 1}",[],True,1772593599.7835698,GREEN,[]
+first_responders,anxiety,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 5, ""1"": 1, ""5"": 1}",[],True,1772593599.7837884,GREEN,[]
+first_responders,anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 5, ""1"": 1, ""5"": 1}",[],True,1772593599.783976,GREEN,[]
+first_responders,anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 5, ""1"": 1, ""5"": 1}",[],True,1772593599.784211,GREEN,[]
+first_responders,anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 5, ""1"": 1, ""5"": 1}",[],True,1772593599.7843435,GREEN,[]
+first_responders,anxiety,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 5, ""1"": 1, ""5"": 1}",[],True,1772593599.7845871,GREEN,[]
+first_responders,boundaries,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7846954,GREEN,[]
+first_responders,boundaries,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7847953,GREEN,[]
+first_responders,boundaries,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7848809,GREEN,[]
+first_responders,burnout,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7851138,GREEN,[]
+first_responders,burnout,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7852252,GREEN,[]
+first_responders,burnout,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7853472,GREEN,[]
+first_responders,compassion_fatigue,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.7857463,GREEN,[]
+first_responders,compassion_fatigue,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.7862577,GREEN,[]
+first_responders,compassion_fatigue,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.786928,GREEN,[]
+first_responders,courage,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 5, ""1"": 1, ""5"": 1}",[],True,1772593599.787193,GREEN,[]
+first_responders,courage,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 5, ""1"": 1, ""5"": 1}",[],True,1772593599.7875571,GREEN,[]
+first_responders,courage,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 5, ""1"": 1, ""5"": 1}",[],True,1772593599.7880552,GREEN,[]
+first_responders,depression,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.7885325,GREEN,[]
+first_responders,depression,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.7886977,GREEN,[]
+first_responders,depression,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.7888095,GREEN,[]
+first_responders,financial_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7889154,GREEN,[]
+first_responders,financial_anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.789015,GREEN,[]
+first_responders,financial_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7891102,GREEN,[]
+first_responders,financial_stress,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 5, ""1"": 1, ""5"": 1}",[],True,1772593599.7893734,GREEN,[]
+first_responders,financial_stress,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 5, ""1"": 1, ""5"": 1}",[],True,1772593599.7898655,GREEN,[]
+first_responders,financial_stress,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 5, ""1"": 1, ""5"": 1}",[],True,1772593599.7901888,GREEN,[]
+first_responders,grief,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.7904902,GREEN,[]
+first_responders,grief,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.7906234,GREEN,[]
+first_responders,imposter_syndrome,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7908514,GREEN,[]
+first_responders,imposter_syndrome,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7910328,GREEN,[]
+first_responders,overthinking,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.7911782,GREEN,[]
+first_responders,overthinking,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.7915142,GREEN,[]
+first_responders,overthinking,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.7916443,GREEN,[]
+first_responders,self_worth,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.7917938,GREEN,[]
+first_responders,self_worth,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.7919304,GREEN,[]
+first_responders,sleep_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.792051,GREEN,[]
+first_responders,sleep_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.7922297,GREEN,[]
+first_responders,sleep_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.7923415,GREEN,[]
+first_responders,social_anxiety,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.792449,GREEN,[]
+first_responders,social_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.792546,GREEN,[]
+first_responders,social_anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.792643,GREEN,[]
+first_responders,somatic_healing,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.7929256,GREEN,[]
+first_responders,somatic_healing,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""1"": 1, ""3"": 5, ""5"": 1}",[],True,1772593599.7930262,GREEN,[]
+gen_alpha_students,anxiety,comparison,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.7933614,GREEN,[]
+gen_alpha_students,anxiety,false_alarm,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.793619,GREEN,[]
+gen_alpha_students,anxiety,grief,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.7939007,GREEN,[]
+gen_alpha_students,anxiety,overwhelm,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.7943833,GREEN,[]
+gen_alpha_students,anxiety,shame,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.7948086,GREEN,[]
+gen_alpha_students,anxiety,spiral,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.7950718,GREEN,[]
+gen_alpha_students,anxiety,watcher,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.7954922,GREEN,[]
+gen_alpha_students,boundaries,comparison,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.7959037,GREEN,[]
+gen_alpha_students,boundaries,false_alarm,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.7963588,GREEN,[]
+gen_alpha_students,boundaries,shame,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.796662,GREEN,[]
+gen_alpha_students,burnout,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7969902,GREEN,[]
+gen_alpha_students,burnout,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7971432,GREEN,[]
+gen_alpha_students,burnout,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.7973404,GREEN,[]
+gen_alpha_students,compassion_fatigue,grief,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.7978225,GREEN,[]
+gen_alpha_students,compassion_fatigue,overwhelm,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.7980604,GREEN,[]
+gen_alpha_students,compassion_fatigue,watcher,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.7982612,GREEN,[]
+gen_alpha_students,courage,false_alarm,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.798477,GREEN,[]
+gen_alpha_students,courage,shame,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.7986505,GREEN,[]
+gen_alpha_students,courage,spiral,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.7989373,GREEN,[]
+gen_alpha_students,depression,grief,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.799272,GREEN,[]
+gen_alpha_students,depression,overwhelm,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.7995524,GREEN,[]
+gen_alpha_students,depression,watcher,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.7998068,GREEN,[]
+gen_alpha_students,financial_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8000412,GREEN,[]
+gen_alpha_students,financial_anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8001525,GREEN,[]
+gen_alpha_students,financial_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8003628,GREEN,[]
+gen_alpha_students,financial_stress,overwhelm,F006,True,True,17,"{""2"": 5, ""3"": 6, ""4"": 4, ""1"": 1, ""5"": 1}",[],True,1772593599.8006341,GREEN,[]
+gen_alpha_students,financial_stress,shame,F006,True,True,18,"{""2"": 5, ""3"": 7, ""4"": 4, ""1"": 1, ""5"": 1}",[],True,1772593599.8008392,GREEN,[]
+gen_alpha_students,financial_stress,spiral,F006,True,True,18,"{""2"": 5, ""3"": 7, ""4"": 4, ""1"": 1, ""5"": 1}",[],True,1772593599.8010526,GREEN,[]
+gen_alpha_students,grief,grief,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8012085,GREEN,[]
+gen_alpha_students,grief,watcher,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8015547,GREEN,[]
+gen_alpha_students,imposter_syndrome,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8022218,GREEN,[]
+gen_alpha_students,imposter_syndrome,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8028305,GREEN,[]
+gen_alpha_students,overthinking,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.803342,GREEN,[]
+gen_alpha_students,overthinking,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.803778,GREEN,[]
+gen_alpha_students,overthinking,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.804061,GREEN,[]
+gen_alpha_students,self_worth,comparison,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8046138,GREEN,[]
+gen_alpha_students,self_worth,shame,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8049695,GREEN,[]
+gen_alpha_students,sleep_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8059952,GREEN,[]
+gen_alpha_students,sleep_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8062356,GREEN,[]
+gen_alpha_students,sleep_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8064127,GREEN,[]
+gen_alpha_students,social_anxiety,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8071404,GREEN,[]
+gen_alpha_students,social_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8073337,GREEN,[]
+gen_alpha_students,social_anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8075757,GREEN,[]
+gen_alpha_students,somatic_healing,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.807707,GREEN,[]
+gen_alpha_students,somatic_healing,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8079593,GREEN,[]
+gen_x_sandwich,anxiety,comparison,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.808166,GREEN,[]
+gen_x_sandwich,anxiety,false_alarm,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.8083637,GREEN,[]
+gen_x_sandwich,anxiety,grief,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.8085792,GREEN,[]
+gen_x_sandwich,anxiety,overwhelm,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.8087578,GREEN,[]
+gen_x_sandwich,anxiety,shame,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.8090043,GREEN,[]
+gen_x_sandwich,anxiety,spiral,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.809188,GREEN,[]
+gen_x_sandwich,anxiety,watcher,F006,True,True,21,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 2, ""5"": 1}",[],True,1772593599.8093653,GREEN,[]
+gen_x_sandwich,boundaries,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8094864,GREEN,[]
+gen_x_sandwich,boundaries,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8095894,GREEN,[]
+gen_x_sandwich,boundaries,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8101156,GREEN,[]
+gen_x_sandwich,burnout,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8104055,GREEN,[]
+gen_x_sandwich,burnout,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8110056,GREEN,[]
+gen_x_sandwich,burnout,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8119159,GREEN,[]
+gen_x_sandwich,compassion_fatigue,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8124478,GREEN,[]
+gen_x_sandwich,compassion_fatigue,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8130376,GREEN,[]
+gen_x_sandwich,compassion_fatigue,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8141737,GREEN,[]
+gen_x_sandwich,courage,false_alarm,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8149917,GREEN,[]
+gen_x_sandwich,courage,shame,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8158178,GREEN,[]
+gen_x_sandwich,courage,spiral,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8163116,GREEN,[]
+gen_x_sandwich,depression,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8167179,GREEN,[]
+gen_x_sandwich,depression,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8171191,GREEN,[]
+gen_x_sandwich,depression,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8173752,GREEN,[]
+gen_x_sandwich,financial_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8177483,GREEN,[]
+gen_x_sandwich,financial_anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8179204,GREEN,[]
+gen_x_sandwich,financial_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8180475,GREEN,[]
+gen_x_sandwich,financial_stress,overwhelm,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8182158,GREEN,[]
+gen_x_sandwich,financial_stress,shame,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8185413,GREEN,[]
+gen_x_sandwich,financial_stress,spiral,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8187294,GREEN,[]
+gen_x_sandwich,grief,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8190684,GREEN,[]
+gen_x_sandwich,grief,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8193262,GREEN,[]
+gen_x_sandwich,imposter_syndrome,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8198147,GREEN,[]
+gen_x_sandwich,imposter_syndrome,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8203585,GREEN,[]
+gen_x_sandwich,overthinking,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8207598,GREEN,[]
+gen_x_sandwich,overthinking,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8211482,GREEN,[]
+gen_x_sandwich,overthinking,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.821307,GREEN,[]
+gen_x_sandwich,self_worth,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8215501,GREEN,[]
+gen_x_sandwich,self_worth,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.821775,GREEN,[]
+gen_x_sandwich,sleep_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8221889,GREEN,[]
+gen_x_sandwich,sleep_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8225312,GREEN,[]
+gen_x_sandwich,sleep_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8227575,GREEN,[]
+gen_x_sandwich,social_anxiety,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8228881,GREEN,[]
+gen_x_sandwich,social_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.823156,GREEN,[]
+gen_x_sandwich,social_anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8235545,GREEN,[]
+gen_x_sandwich,somatic_healing,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8240345,GREEN,[]
+gen_x_sandwich,somatic_healing,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8243413,GREEN,[]
+gen_z_professionals,anxiety,comparison,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.8248427,GREEN,[]
+gen_z_professionals,anxiety,false_alarm,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.8253713,GREEN,[]
+gen_z_professionals,anxiety,grief,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.825891,GREEN,[]
+gen_z_professionals,anxiety,overwhelm,F006,True,True,18,"{""2"": 5, ""3"": 7, ""4"": 4, ""1"": 1, ""5"": 1}",[],True,1772593599.8261783,GREEN,[]
+gen_z_professionals,anxiety,shame,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.8264282,GREEN,[]
+gen_z_professionals,anxiety,spiral,F006,True,True,20,"{""2"": 7, ""3"": 10, ""4"": 3}",[],True,1772511045.0382364,GREEN,[]
+gen_z_professionals,anxiety,watcher,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.8267698,GREEN,[]
+gen_z_professionals,boundaries,comparison,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8270993,GREEN,[]
+gen_z_professionals,boundaries,false_alarm,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8275309,GREEN,[]
+gen_z_professionals,boundaries,shame,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.827921,GREEN,[]
+gen_z_professionals,burnout,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.828356,GREEN,[]
+gen_z_professionals,burnout,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.828614,GREEN,[]
+gen_z_professionals,burnout,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.828876,GREEN,[]
+gen_z_professionals,compassion_fatigue,grief,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.829626,GREEN,[]
+gen_z_professionals,compassion_fatigue,overwhelm,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.829935,GREEN,[]
+gen_z_professionals,compassion_fatigue,watcher,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8301744,GREEN,[]
+gen_z_professionals,courage,false_alarm,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.8304045,GREEN,[]
+gen_z_professionals,courage,shame,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.8307438,GREEN,[]
+gen_z_professionals,courage,spiral,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.8309865,GREEN,[]
+gen_z_professionals,depression,grief,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8316474,GREEN,[]
+gen_z_professionals,depression,overwhelm,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8320854,GREEN,[]
+gen_z_professionals,depression,watcher,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8324406,GREEN,[]
+gen_z_professionals,financial_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8325927,GREEN,[]
+gen_z_professionals,financial_anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8327055,GREEN,[]
+gen_z_professionals,financial_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8328187,GREEN,[]
+gen_z_professionals,financial_stress,overwhelm,F006,True,True,18,"{""2"": 5, ""3"": 7, ""4"": 4, ""1"": 1, ""5"": 1}",[],True,1772593599.8329797,GREEN,[]
+gen_z_professionals,financial_stress,shame,F006,True,True,18,"{""2"": 5, ""3"": 7, ""4"": 4, ""1"": 1, ""5"": 1}",[],True,1772593599.8331418,GREEN,[]
+gen_z_professionals,financial_stress,spiral,F006,True,True,18,"{""2"": 5, ""3"": 7, ""4"": 4, ""1"": 1, ""5"": 1}",[],True,1772593599.8333056,GREEN,[]
+gen_z_professionals,grief,grief,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.833728,GREEN,[]
+gen_z_professionals,grief,watcher,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8340025,GREEN,[]
+gen_z_professionals,imposter_syndrome,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.834675,GREEN,[]
+gen_z_professionals,imposter_syndrome,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8347888,GREEN,[]
+gen_z_professionals,overthinking,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8349142,GREEN,[]
+gen_z_professionals,overthinking,spiral,F006,True,True,20,"{""2"": 4, ""3"": 9, ""5"": 2, ""4"": 2, ""1"": 3}",[],True,1772498400.698737,GREEN,[]
+gen_z_professionals,overthinking,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8351517,GREEN,[]
+gen_z_professionals,self_worth,comparison,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8358653,GREEN,[]
+gen_z_professionals,self_worth,shame,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8360434,GREEN,[]
+gen_z_professionals,sleep_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8365889,GREEN,[]
+gen_z_professionals,sleep_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.83708,GREEN,[]
+gen_z_professionals,sleep_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.837436,GREEN,[]
+gen_z_professionals,social_anxiety,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8376987,GREEN,[]
+gen_z_professionals,social_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.838058,GREEN,[]
+gen_z_professionals,social_anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8384516,GREEN,[]
+gen_z_professionals,somatic_healing,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8389096,GREEN,[]
+gen_z_professionals,somatic_healing,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8393738,GREEN,[]
+healthcare_rns,anxiety,comparison,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.8399086,GREEN,[]
+healthcare_rns,anxiety,false_alarm,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.840192,GREEN,[]
+healthcare_rns,anxiety,grief,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.840533,GREEN,[]
+healthcare_rns,anxiety,overwhelm,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.8409941,GREEN,[]
+healthcare_rns,anxiety,shame,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.841355,GREEN,[]
+healthcare_rns,anxiety,spiral,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.8419268,GREEN,[]
+healthcare_rns,anxiety,watcher,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.842506,GREEN,[]
+healthcare_rns,boundaries,comparison,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8429844,GREEN,[]
+healthcare_rns,boundaries,false_alarm,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8431478,GREEN,[]
+healthcare_rns,boundaries,shame,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8432968,GREEN,[]
+healthcare_rns,burnout,grief,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.8434076,GREEN,[]
+healthcare_rns,burnout,overwhelm,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.8435078,GREEN,[]
+healthcare_rns,burnout,watcher,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.8436027,GREEN,[]
+healthcare_rns,compassion_fatigue,grief,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8437297,GREEN,[]
+healthcare_rns,compassion_fatigue,overwhelm,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8438516,GREEN,[]
+healthcare_rns,compassion_fatigue,watcher,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8440259,GREEN,[]
+healthcare_rns,courage,false_alarm,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.8443506,GREEN,[]
+healthcare_rns,courage,shame,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.844821,GREEN,[]
+healthcare_rns,courage,spiral,F006,True,True,22,"{""2"": 7, ""3"": 10, ""4"": 3, ""1"": 1, ""5"": 1}",[],True,1772593599.8451207,GREEN,[]
+healthcare_rns,depression,grief,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.845381,GREEN,[]
+healthcare_rns,depression,overwhelm,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.845684,GREEN,[]
+healthcare_rns,depression,watcher,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8459911,GREEN,[]
+healthcare_rns,financial_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.8465948,GREEN,[]
+healthcare_rns,financial_anxiety,shame,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.8467495,GREEN,[]
+healthcare_rns,financial_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.8469312,GREEN,[]
+healthcare_rns,financial_stress,overwhelm,F006,True,True,23,"{""3"": 15, ""4"": 5, ""1"": 1, ""2"": 1, ""5"": 1}",[],True,1772593599.8472395,GREEN,[]
+healthcare_rns,financial_stress,shame,F006,True,True,21,"{""1"": 5, ""2"": 5, ""3"": 5, ""4"": 5, ""5"": 1}",[],True,1772593599.8476133,GREEN,[]
+healthcare_rns,financial_stress,spiral,F006,True,True,22,"{""2"": 10, ""3"": 5, ""4"": 5, ""1"": 1, ""5"": 1}",[],True,1772593599.8479028,GREEN,[]
+healthcare_rns,grief,grief,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8481138,GREEN,[]
+healthcare_rns,grief,watcher,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8482957,GREEN,[]
+healthcare_rns,imposter_syndrome,comparison,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.8484938,GREEN,[]
+healthcare_rns,imposter_syndrome,shame,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.8486166,GREEN,[]
+healthcare_rns,overthinking,false_alarm,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.8487923,GREEN,[]
+healthcare_rns,overthinking,spiral,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.849014,GREEN,[]
+healthcare_rns,overthinking,watcher,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.8491163,GREEN,[]
+healthcare_rns,self_worth,comparison,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.849299,GREEN,[]
+healthcare_rns,self_worth,shame,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.849426,GREEN,[]
+healthcare_rns,sleep_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.8495607,GREEN,[]
+healthcare_rns,sleep_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.8499045,GREEN,[]
+healthcare_rns,sleep_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.8500333,GREEN,[]
+healthcare_rns,social_anxiety,comparison,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.8502016,GREEN,[]
+healthcare_rns,social_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.8503704,GREEN,[]
+healthcare_rns,social_anxiety,shame,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.8504984,GREEN,[]
+healthcare_rns,somatic_healing,overwhelm,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.8507679,GREEN,[]
+healthcare_rns,somatic_healing,watcher,F006,True,True,12,"{""2"": 2, ""5"": 1, ""1"": 1, ""3"": 7, ""4"": 1}",[],True,1772593599.8508954,GREEN,[]
+millennial_women_professionals,anxiety,comparison,F006,True,True,21,"{""2"": 3, ""3"": 10, ""4"": 4, ""1"": 3, ""5"": 1}",[],True,1772593599.8511424,GREEN,[]
+millennial_women_professionals,anxiety,false_alarm,F006,True,True,21,"{""2"": 3, ""3"": 10, ""4"": 4, ""1"": 3, ""5"": 1}",[],True,1772593599.851447,GREEN,[]
+millennial_women_professionals,anxiety,grief,F006,True,True,21,"{""2"": 3, ""3"": 10, ""4"": 4, ""1"": 3, ""5"": 1}",[],True,1772593599.8516817,GREEN,[]
+millennial_women_professionals,anxiety,overwhelm,F006,True,True,21,"{""2"": 3, ""3"": 10, ""4"": 4, ""1"": 3, ""5"": 1}",[],True,1772593599.8519535,GREEN,[]
+millennial_women_professionals,anxiety,shame,F006,True,True,21,"{""2"": 3, ""3"": 10, ""4"": 4, ""1"": 3, ""5"": 1}",[],True,1772593599.8522189,GREEN,[]
+millennial_women_professionals,anxiety,spiral,F006,True,True,21,"{""2"": 3, ""3"": 10, ""4"": 4, ""1"": 3, ""5"": 1}",[],True,1772593599.8524785,GREEN,[]
+millennial_women_professionals,anxiety,watcher,F006,True,True,21,"{""2"": 3, ""3"": 10, ""4"": 4, ""1"": 3, ""5"": 1}",[],True,1772593599.852855,GREEN,[]
+millennial_women_professionals,boundaries,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.853433,GREEN,[]
+millennial_women_professionals,boundaries,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.853889,GREEN,[]
+millennial_women_professionals,boundaries,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.854335,GREEN,[]
+millennial_women_professionals,burnout,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8547037,GREEN,[]
+millennial_women_professionals,burnout,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.855196,GREEN,[]
+millennial_women_professionals,burnout,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8555315,GREEN,[]
+millennial_women_professionals,compassion_fatigue,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8558557,GREEN,[]
+millennial_women_professionals,compassion_fatigue,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8561878,GREEN,[]
+millennial_women_professionals,compassion_fatigue,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8565574,GREEN,[]
+millennial_women_professionals,courage,false_alarm,F006,True,True,21,"{""2"": 3, ""3"": 10, ""4"": 4, ""1"": 3, ""5"": 1}",[],True,1772593599.856878,GREEN,[]
+millennial_women_professionals,courage,shame,F006,True,True,21,"{""2"": 3, ""3"": 10, ""4"": 4, ""1"": 3, ""5"": 1}",[],True,1772593599.8570838,GREEN,[]
+millennial_women_professionals,courage,spiral,F006,True,True,21,"{""2"": 3, ""3"": 10, ""4"": 4, ""1"": 3, ""5"": 1}",[],True,1772593599.8574426,GREEN,[]
+millennial_women_professionals,depression,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8575838,GREEN,[]
+millennial_women_professionals,depression,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8578284,GREEN,[]
+millennial_women_professionals,depression,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8579743,GREEN,[]
+millennial_women_professionals,financial_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8581161,GREEN,[]
+millennial_women_professionals,financial_anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8582804,GREEN,[]
+millennial_women_professionals,financial_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8583896,GREEN,[]
+millennial_women_professionals,financial_stress,overwhelm,F006,True,True,21,"{""2"": 3, ""3"": 10, ""4"": 4, ""1"": 3, ""5"": 1}",[],True,1772593599.8586655,GREEN,[]
+millennial_women_professionals,financial_stress,shame,F006,True,True,21,"{""2"": 3, ""3"": 10, ""4"": 4, ""1"": 3, ""5"": 1}",[],True,1772593599.8590925,GREEN,[]
+millennial_women_professionals,financial_stress,spiral,F006,True,True,21,"{""2"": 3, ""3"": 10, ""4"": 4, ""1"": 3, ""5"": 1}",[],True,1772593599.8594935,GREEN,[]
+millennial_women_professionals,grief,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8599193,GREEN,[]
+millennial_women_professionals,grief,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.860371,GREEN,[]
+millennial_women_professionals,imposter_syndrome,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8610306,GREEN,[]
+millennial_women_professionals,imposter_syndrome,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8612998,GREEN,[]
+millennial_women_professionals,overthinking,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8614106,GREEN,[]
+millennial_women_professionals,overthinking,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.861629,GREEN,[]
+millennial_women_professionals,overthinking,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8617299,GREEN,[]
+millennial_women_professionals,self_worth,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8618622,GREEN,[]
+millennial_women_professionals,self_worth,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8619637,GREEN,[]
+millennial_women_professionals,sleep_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8620872,GREEN,[]
+millennial_women_professionals,sleep_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8624854,GREEN,[]
+millennial_women_professionals,sleep_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8626776,GREEN,[]
+millennial_women_professionals,social_anxiety,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8628335,GREEN,[]
+millennial_women_professionals,social_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8630385,GREEN,[]
+millennial_women_professionals,social_anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.863573,GREEN,[]
+millennial_women_professionals,somatic_healing,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8642945,GREEN,[]
+millennial_women_professionals,somatic_healing,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8645997,GREEN,[]
+tech_finance_burnout,anxiety,comparison,F006,True,True,21,"{""2"": 7, ""3"": 10, ""4"": 2, ""1"": 1, ""5"": 1}",[],True,1772593599.8650603,GREEN,[]
+tech_finance_burnout,anxiety,false_alarm,F006,True,True,21,"{""2"": 7, ""3"": 10, ""4"": 2, ""1"": 1, ""5"": 1}",[],True,1772593599.8652616,GREEN,[]
+tech_finance_burnout,anxiety,grief,F006,True,True,21,"{""2"": 7, ""3"": 10, ""4"": 2, ""1"": 1, ""5"": 1}",[],True,1772593599.8655086,GREEN,[]
+tech_finance_burnout,anxiety,overwhelm,F006,True,True,21,"{""2"": 7, ""3"": 10, ""4"": 2, ""1"": 1, ""5"": 1}",[],True,1772593599.865711,GREEN,[]
+tech_finance_burnout,anxiety,shame,F006,True,True,21,"{""2"": 7, ""3"": 10, ""4"": 2, ""1"": 1, ""5"": 1}",[],True,1772593599.8659334,GREEN,[]
+tech_finance_burnout,anxiety,spiral,F006,True,True,21,"{""2"": 7, ""3"": 10, ""4"": 2, ""1"": 1, ""5"": 1}",[],True,1772593599.8663366,GREEN,[]
+tech_finance_burnout,anxiety,watcher,F006,True,True,21,"{""2"": 7, ""3"": 10, ""4"": 2, ""1"": 1, ""5"": 1}",[],True,1772593599.8673286,GREEN,[]
+tech_finance_burnout,boundaries,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8675892,GREEN,[]
+tech_finance_burnout,boundaries,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.868287,GREEN,[]
+tech_finance_burnout,boundaries,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8689418,GREEN,[]
+tech_finance_burnout,burnout,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8696423,GREEN,[]
+tech_finance_burnout,burnout,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.870807,GREEN,[]
+tech_finance_burnout,burnout,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8719056,GREEN,[]
+tech_finance_burnout,compassion_fatigue,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8723745,GREEN,[]
+tech_finance_burnout,compassion_fatigue,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8729477,GREEN,[]
+tech_finance_burnout,compassion_fatigue,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.873373,GREEN,[]
+tech_finance_burnout,courage,false_alarm,F006,True,True,21,"{""2"": 7, ""3"": 10, ""4"": 2, ""1"": 1, ""5"": 1}",[],True,1772593599.8740637,GREEN,[]
+tech_finance_burnout,courage,shame,F006,True,True,20,"{""2"": 6, ""3"": 10, ""4"": 2, ""1"": 1, ""5"": 1}",[],True,1772593599.874702,GREEN,[]
+tech_finance_burnout,courage,spiral,F006,True,True,21,"{""2"": 7, ""3"": 10, ""4"": 2, ""1"": 1, ""5"": 1}",[],True,1772593599.8751013,GREEN,[]
+tech_finance_burnout,depression,grief,F006,True,True,21,"{""2"": 4, ""3"": 10, ""4"": 3, ""1"": 3, ""5"": 1}",[],True,1772593599.8755002,GREEN,[]
+tech_finance_burnout,depression,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8756447,GREEN,[]
+tech_finance_burnout,depression,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.875822,GREEN,[]
+tech_finance_burnout,financial_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8760028,GREEN,[]
+tech_finance_burnout,financial_anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8761137,GREEN,[]
+tech_finance_burnout,financial_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.876216,GREEN,[]
+tech_finance_burnout,financial_stress,overwhelm,F006,True,True,21,"{""2"": 7, ""3"": 10, ""4"": 2, ""1"": 1, ""5"": 1}",[],True,1772593599.8763254,GREEN,[]
+tech_finance_burnout,financial_stress,shame,F006,True,True,21,"{""2"": 7, ""3"": 10, ""4"": 2, ""1"": 1, ""5"": 1}",[],True,1772593599.8764594,GREEN,[]
+tech_finance_burnout,financial_stress,spiral,F006,True,True,21,"{""2"": 7, ""3"": 10, ""4"": 2, ""1"": 1, ""5"": 1}",[],True,1772593599.8765767,GREEN,[]
+tech_finance_burnout,grief,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8770597,GREEN,[]
+tech_finance_burnout,grief,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.87728,GREEN,[]
+tech_finance_burnout,imposter_syndrome,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.877748,GREEN,[]
+tech_finance_burnout,imposter_syndrome,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8780463,GREEN,[]
+tech_finance_burnout,overthinking,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8782964,GREEN,[]
+tech_finance_burnout,overthinking,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8784626,GREEN,[]
+tech_finance_burnout,overthinking,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.878693,GREEN,[]
+tech_finance_burnout,self_worth,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8789365,GREEN,[]
+tech_finance_burnout,self_worth,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8791308,GREEN,[]
+tech_finance_burnout,sleep_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8792648,GREEN,[]
+tech_finance_burnout,sleep_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.879391,GREEN,[]
+tech_finance_burnout,sleep_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8796566,GREEN,[]
+tech_finance_burnout,social_anxiety,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8798974,GREEN,[]
+tech_finance_burnout,social_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8801847,GREEN,[]
+tech_finance_burnout,social_anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8804543,GREEN,[]
+tech_finance_burnout,somatic_healing,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8806205,GREEN,[]
+tech_finance_burnout,somatic_healing,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8807976,GREEN,[]
+working_parents,anxiety,comparison,F006,True,True,21,"{""2"": 6, ""3"": 9, ""4"": 3, ""1"": 2, ""5"": 1}",[],True,1772593599.881068,GREEN,[]
+working_parents,anxiety,false_alarm,F006,True,True,21,"{""2"": 6, ""3"": 9, ""4"": 3, ""1"": 2, ""5"": 1}",[],True,1772593599.8814282,GREEN,[]
+working_parents,anxiety,grief,F006,True,True,21,"{""2"": 6, ""3"": 9, ""4"": 3, ""1"": 2, ""5"": 1}",[],True,1772593599.8817887,GREEN,[]
+working_parents,anxiety,overwhelm,F006,True,True,21,"{""2"": 6, ""3"": 9, ""4"": 3, ""1"": 2, ""5"": 1}",[],True,1772593599.8821766,GREEN,[]
+working_parents,anxiety,shame,F006,True,True,21,"{""2"": 6, ""3"": 9, ""4"": 3, ""1"": 2, ""5"": 1}",[],True,1772593599.8824809,GREEN,[]
+working_parents,anxiety,spiral,F006,True,True,21,"{""2"": 6, ""3"": 9, ""4"": 3, ""1"": 2, ""5"": 1}",[],True,1772593599.8827002,GREEN,[]
+working_parents,anxiety,watcher,F006,True,True,21,"{""2"": 6, ""3"": 9, ""4"": 3, ""1"": 2, ""5"": 1}",[],True,1772593599.8828907,GREEN,[]
+working_parents,boundaries,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8830168,GREEN,[]
+working_parents,boundaries,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8831255,GREEN,[]
+working_parents,boundaries,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8832304,GREEN,[]
+working_parents,burnout,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8833318,GREEN,[]
+working_parents,burnout,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8834584,GREEN,[]
+working_parents,burnout,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.883577,GREEN,[]
+working_parents,compassion_fatigue,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8837812,GREEN,[]
+working_parents,compassion_fatigue,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8839147,GREEN,[]
+working_parents,compassion_fatigue,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.884063,GREEN,[]
+working_parents,courage,false_alarm,F006,True,True,21,"{""2"": 6, ""3"": 9, ""4"": 3, ""1"": 2, ""5"": 1}",[],True,1772593599.884227,GREEN,[]
+working_parents,courage,shame,F006,True,True,21,"{""2"": 6, ""3"": 9, ""4"": 3, ""1"": 2, ""5"": 1}",[],True,1772593599.8844006,GREEN,[]
+working_parents,courage,spiral,F006,True,True,21,"{""2"": 6, ""3"": 9, ""4"": 3, ""1"": 2, ""5"": 1}",[],True,1772593599.88458,GREEN,[]
+working_parents,depression,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.88468,GREEN,[]
+working_parents,depression,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8847654,GREEN,[]
+working_parents,depression,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8848488,GREEN,[]
+working_parents,financial_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.884935,GREEN,[]
+working_parents,financial_anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8850236,GREEN,[]
+working_parents,financial_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8851209,GREEN,[]
+working_parents,financial_stress,overwhelm,F006,True,True,21,"{""2"": 6, ""3"": 9, ""4"": 3, ""1"": 2, ""5"": 1}",[],True,1772593599.8856556,GREEN,[]
+working_parents,financial_stress,shame,F006,True,True,21,"{""2"": 6, ""3"": 9, ""4"": 3, ""1"": 2, ""5"": 1}",[],True,1772593599.8858578,GREEN,[]
+working_parents,financial_stress,spiral,F006,True,True,21,"{""2"": 6, ""3"": 9, ""4"": 3, ""1"": 2, ""5"": 1}",[],True,1772593599.8863733,GREEN,[]
+working_parents,grief,grief,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.887417,GREEN,[]
+working_parents,grief,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8883648,GREEN,[]
+working_parents,imposter_syndrome,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8889806,GREEN,[]
+working_parents,imposter_syndrome,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8892832,GREEN,[]
+working_parents,overthinking,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8897722,GREEN,[]
+working_parents,overthinking,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.890105,GREEN,[]
+working_parents,overthinking,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8904433,GREEN,[]
+working_parents,self_worth,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8907351,GREEN,[]
+working_parents,self_worth,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8910284,GREEN,[]
+working_parents,sleep_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8913078,GREEN,[]
+working_parents,sleep_anxiety,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8916698,GREEN,[]
+working_parents,sleep_anxiety,spiral,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8919773,GREEN,[]
+working_parents,social_anxiety,comparison,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.892149,GREEN,[]
+working_parents,social_anxiety,false_alarm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8923082,GREEN,[]
+working_parents,social_anxiety,shame,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.892465,GREEN,[]
+working_parents,somatic_healing,overwhelm,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8926241,GREEN,[]
+working_parents,somatic_healing,watcher,F006,True,True,12,"{""2"": 2, ""4"": 3, ""3"": 4, ""1"": 2, ""5"": 1}",[],True,1772593599.8927302,GREEN,[]

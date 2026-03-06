@@ -12,8 +12,16 @@ struct GatesReleaseView: View {
                 runScript("scripts/run_production_readiness_gates.py", args: [])
             }
             .disabled(state.repoPath.isEmpty || isRunning)
+            Button("Run prepublish gates") {
+                runScript("scripts/ci/run_prepublish_gates.py", args: [])
+            }
+            .disabled(state.repoPath.isEmpty || isRunning)
             Button("Run rigorous system test") {
-                runScript("scripts/systems_test/run_systems_test.py", args: ["--all"])
+                runScript("scripts/ci/run_rigorous_system_test.py", args: [])
+            }
+            .disabled(state.repoPath.isEmpty || isRunning)
+            Button("Run canary 100 books") {
+                runScript("scripts/ci/run_canary_100_books.py", args: [])
             }
             .disabled(state.repoPath.isEmpty || isRunning)
             if isRunning {

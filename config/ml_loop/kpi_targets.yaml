@@ -1,0 +1,41 @@
+# Autonomous loop — KPI targets (WoW and promotion decisions).
+# Authority: docs/ML_AUTONOMOUS_LOOP_SPEC.md §12
+
+version: 1
+
+kpis:
+  - id: weak_section_rate
+    direction: down
+    description: "Weak-section rate WoW"
+    baseline_key: weak_section_rate_baseline
+
+  - id: variant_win_rate
+    direction: up
+    description: "Variant win-rate vs baseline"
+    baseline_key: variant_win_rate_baseline
+
+  - id: reader_fit_uplift
+    direction: up
+    description: "Reader-fit uplift by target segment"
+    cohorts: [persona_id, topic_id, locale]
+
+  - id: conversion_completion_proxy
+    direction: up
+    description: "Conversion/completion proxy uplift"
+
+  - id: compliance_incident_rate
+    direction: non_increasing
+    description: "Compliance incident rate"
+
+  - id: rollback_rate
+    threshold: 0.05
+    direction: below
+    description: "Rollback rate below threshold"
+
+  - id: mean_time_issue_to_merge
+    direction: down
+    description: "Mean time issue → merge (improvement)"
+
+# Weekly report and baseline output.
+weekly_report_path: artifacts/ml_loop/weekly_report.json
+baseline_path: artifacts/ml_loop/baseline.json

@@ -1,0 +1,36 @@
+# ML Editorial + Marketing Intelligence — weekly orchestration.
+# Runs section scoring, variant ranking, reader fit, rewrite recs, market router.
+# See docs/ML_EDITORIAL_MARKET_LOOP_SPEC.md
+name: ML Editorial weekly
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  ml-editorial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements-test.txt
+
+      - name: Run weekly ML Editorial
+        run: |
+          PYTHONPATH=. python scripts/ml_editorial/run_weekly_ml_editorial.py
+        continue-on-error: true
+
+      - name: Upload ML Editorial artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ml-editorial-artifacts
+          path: artifacts/ml_editorial/
+          if-no-files-found: ignore

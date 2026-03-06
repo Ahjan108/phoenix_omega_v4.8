@@ -105,6 +105,7 @@ def main() -> int:
     ap.add_argument("--out", default=None, help="Write CompiledBook JSON here")
     ap.add_argument("--generate-freebies", action="store_true", help="Generate HTML freebie artifacts (public/free/<slug>/)")
     ap.add_argument("--no-generate-freebies", action="store_true", help="Disable freebie HTML generation when writing plan (default: generate when --out)")
+    ap.add_argument("--no-update-freebie-index", action="store_true", help="Do not upsert plan row into artifacts/freebies/index.jsonl (use for test runs; DoD freebies governance)")
     ap.add_argument("--formats", default=None, help="Comma-separated freebie formats: html,pdf,epub,mp3 (default: html, or html+pdf if store has assets)")
     ap.add_argument("--skip-audio", action="store_true", help="Do not include mp3 in freebie formats")
     ap.add_argument("--publish-dir", default=None, help="Copy freebies to this dir for public/free (e.g. public/free)")
@@ -737,6 +738,8 @@ def main() -> int:
                 pass
     if getattr(compiled, "atom_sources", None):
         out["atom_sources"] = compiled.atom_sources
+    if getattr(compiled, "chapter_thesis", None):
+        out["chapter_thesis"] = compiled.chapter_thesis
     # Plan §3.12: when teacher_mode and any synthetic present, doctrine version must be pinned
     if teacher_id and teacher_id != "default_teacher" and getattr(compiled, "atom_sources", None):
         if "teacher_synthetic" in (compiled.atom_sources or []) and not out.get("teacher_doctrine_version"):
@@ -777,6 +780,8 @@ def main() -> int:
         out["chapter_story_depths"] = compiled.chapter_story_depths
     if compiled.chapter_planner_warnings:
         out["chapter_planner_warnings"] = compiled.chapter_planner_warnings
+    if getattr(compiled, "chapter_bestseller_structures", None):
+        out["chapter_bestseller_structures"] = compiled.chapter_bestseller_structures
     # Author identity and assets (Writer Spec §23)
     if book_spec_for_compiler.get("author_id"):
         out["author_id"] = book_spec_for_compiler["author_id"]
@@ -927,20 +932,21 @@ def main() -> int:
                 row["ending_signature"] = out["ending_signature"]
             with open(sig_path, "a", encoding="utf-8") as sf:
                 sf.write(json.dumps(row) + "\n")
-        # Upsert plan row into freebie plan index (one row per book_id)
-        index_path = REPO_ROOT / "artifacts" / "freebies" / "index.jsonl"
-        index_row = {
-            "book_id": out.get("plan_id") or out.get("plan_hash", ""),
-            "freebie_bundle": freebie_bundle,
-            "cta_template_id": cta_template_id,
-            "slug": freebie_slug,
-            "freebie_slug": freebie_slug,
-        }
-        # Structural Variation V4: include variation knobs in index for wave density / collision
-        for key in ("book_structure_id", "journey_shape_id", "motif_id", "section_reorder_mode", "reframe_profile_id", "variation_signature", "chapter_archetypes"):
-            if out.get(key) is not None:
-                index_row[key] = out[key]
-        _upsert_plan_index_row(index_path, index_row)
+        # Upsert plan row into freebie plan index (one row per book_id) unless test run
+        if not getattr(args, "no_update_freebie_index", False):
+            index_path = REPO_ROOT / "artifacts" / "freebies" / "index.jsonl"
+            index_row = {
+                "book_id": out.get("plan_id") or out.get("plan_hash", ""),
+                "freebie_bundle": freebie_bundle,
+                "cta_template_id": cta_template_id,
+                "slug": freebie_slug,
+                "freebie_slug": freebie_slug,
+            }
+            # Structural Variation V4: include variation knobs in index for wave density / collision
+            for key in ("book_structure_id", "journey_shape_id", "motif_id", "section_reorder_mode", "reframe_profile_id", "variation_signature", "chapter_archetypes"):
+                if out.get(key) is not None:
+                    index_row[key] = out[key]
+            _upsert_plan_index_row(index_path, index_row)
         # Generate freebies (HTML, optional PDF) when writing plan (default on; use --no-generate-freebies to disable)
         do_generate_freebies = (bool(args.out) and not args.no_generate_freebies) or args.generate_freebies
         if do_generate_freebies and freebie_slug:
@@ -1005,7 +1011,9 @@ def main() -> int:
                 prose_result = resolve_prose_for_plan(out, atoms_root=atoms_root)
                 prose_map = prose_result.prose_map
 
-                thesis = f"{canonical_topic} for {canonical_persona}"
+                book_thesis = f"{canonical_topic} for {canonical_persona}"
+                chapter_thesis_map = out.get("chapter_thesis") or {}
+                chapter_bestseller_structures = out.get("chapter_bestseller_structures") or []
                 chapter_slot_seq = out.get("chapter_slot_sequence", [])
                 atom_ids_list = out.get("atom_ids", [])
                 band_seq = out.get("dominant_band_sequence", [])
@@ -1029,7 +1037,17 @@ def main() -> int:
                     chapter_text = "\n\n".join(chapter_prose_parts)
                     band = band_seq[ch_idx] if ch_idx < len(band_seq) else None
                     role = emotional_roles[ch_idx] if ch_idx < len(emotional_roles) else ""
-                    arc_intent = {"band": band, "emotional_role": role, "chapter_index": ch_idx}
+                    # EI v2: use chapter thesis when present (for learning and thesis alignment)
+                    thesis_ch = chapter_thesis_map.get(ch_idx + 1) if isinstance(chapter_thesis_map, dict) else None
+                    thesis = (thesis_ch or "").strip() or book_thesis
+                    bestseller_structure = chapter_bestseller_structures[ch_idx] if ch_idx < len(chapter_bestseller_structures) else None
+                    arc_intent = {
+                        "band": band,
+                        "emotional_role": role,
+                        "chapter_index": ch_idx,
+                        "chapter_thesis": thesis_ch,
+                        "bestseller_structure": bestseller_structure,
+                    }
 
                     for slot_type, si, aid, prose in chapter_candidates_by_slot:
                         candidates_raw = [{"id": aid, "text": prose, "meta": {}}]
@@ -1044,7 +1062,7 @@ def main() -> int:
                                 thesis=thesis,
                                 v1_cfg=v1_cfg,
                                 v2_cfg=v2_cfg,
-                                selector_key=f"ei:{slot_type}:{canonical_persona}:{canonical_topic}",
+                                selector_key=f"ei:{slot_type}:ch{ch_idx}:{canonical_persona}:{canonical_topic}",
                                 teacher_mode=teacher_mode,
                                 chapter_text=chapter_text,
                                 arc_intent=arc_intent,

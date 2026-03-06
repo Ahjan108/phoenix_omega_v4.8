@@ -12,11 +12,11 @@ For 100% production confidence, configure branch protection on `main` (or `maste
 | Check | Workflow | Purpose |
 |-------|----------|---------|
 | **Core tests** | `core-tests.yml` | Fast pytest + production readiness gates |
-| **Teacher gates** | `teacher-gates.yml` | Teacher Mode (when teacher paths change) |
-| **Brand guards** | `brand-guards.yml` | NorCal Dharma (when brand paths change) |
-| **Pearl News gates** | `pearl_news_gates.yml` | Pearl News (when pearl_news paths change) |
+| **Release gates** | `release-gates.yml` | Release and production readiness workflow checks |
+| **EI V2 gates** | `ei-v2-gates.yml` | EI V2 tests, eval, calibration, promotion checks |
+| **Change impact** | `change-impact.yml` | Change observation + impact analysis evidence |
 
-**Minimum:** At least **Core tests** must be required. Without it, core pipeline changes can merge with zero CI.
+These four are required for d2/d3/d5/d6 go-live.
 
 ---
 
@@ -24,10 +24,12 @@ For 100% production confidence, configure branch protection on `main` (or `maste
 
 1. Go to **Settings → Branches → Branch protection rules** for `main`.
 2. Enable **Require status checks to pass before merging**.
-3. Add **Core tests** as a required check.
-4. Add **Teacher gates**, **Brand guards**, **Pearl News gates** if those workflows run on the PR (path-triggered workflows may not run if they don't match changed paths; in that case they may show as "skipped" and not block — consider requiring them only when they run, or use a workflow that always runs).
-
-**Note:** Path-triggered workflows (teacher-gates, brand-guards, pearl_news_gates) only run when their paths change. For PRs that touch only core code, only **Core tests** will run. Ensure **Core tests** is always required.
+3. Add required checks:
+   - **Core tests**
+   - **Release gates**
+   - **EI V2 gates**
+   - **Change impact**
+4. Save the rule and verify a test PR shows all four checks as required.
 
 ---
 
@@ -45,3 +47,9 @@ For immediate visibility when CI breaks:
    - `artifacts/observability/elevated_failures.jsonl`
 
 This gives both inbox visibility (email) and in-repo tracking (issues + artifacts).
+
+---
+
+## Auto-merge (optional)
+
+For low-risk agent PRs (e.g. dependency fixes from the observability agent), see [AUTO_MERGE_POLICY.md](AUTO_MERGE_POLICY.md). PRs labeled `bot-fix` that pass required checks may be auto-merged via `.github/workflows/auto-merge-bot-fix.yml`.

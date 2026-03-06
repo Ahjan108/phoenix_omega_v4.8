@@ -1,0 +1,19 @@
+# Cross-video dedup for daily batches. Prevents same-asset clustering in viewer feeds.
+
+# No two videos in the same publishing window may share more than this many
+# primary environment assets (prevents "same forest 3x in a row").
+max_shared_primary_assets_per_window: 1
+
+# Publishing window duration (hours). Videos in the same window on the same
+# platform are checked against max_shared_primary_assets_per_window.
+publishing_window_hours: 2
+
+# daily_batch (or distribution manifests) must include primary_asset_ids per video
+# so the partner or scheduler can enforce this before publish.
+require_primary_asset_ids_in_batch: true
+
+# Per-batch global cap: no single asset may appear more than this many times across
+# the entire daily output. When an asset hits the cap, it becomes unavailable for the
+# rest of the batch; coverage gaps surface in the preflight report (generate more
+# variants of high-use assets).
+max_asset_reuse_per_batch: 15
