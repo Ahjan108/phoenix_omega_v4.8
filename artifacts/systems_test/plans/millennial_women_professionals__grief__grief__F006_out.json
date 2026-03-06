@@ -1,6 +1,6 @@
 {
-  "plan_hash": "483f060e3ea6fd9aadd1ebf98a47560f",
-  "plan_id": "483f060e3ea6fd9aadd1ebf98a47560f",
+  "plan_hash": "b1ae6378ddce75ee54bdf5ec8921a189",
+  "plan_id": "b1ae6378ddce75ee54bdf5ec8921a189",
   "chapter_slot_sequence": [
     [
       "HOOK",
@@ -13,27 +13,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
+      "TAKEAWAY",
       "INTEGRATION",
-      "STORY"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "INTEGRATION"
+      "THREAD"
     ],
     [
       "HOOK",
@@ -54,7 +36,31 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
       "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -83,7 +89,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -118,7 +126,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -143,113 +153,123 @@
     ]
   ],
   "atom_ids": [
-    "millennial_women_professionals_grief_HOOK_v01",
-    "millennial_women_professionals_grief_SCENE_v01",
-    "millennial_women_professionals_grief_REFLECTION_v11",
-    "millennial_women_professionals_grief_INTEGRATION_v05",
-    "millennial_women_professionals_grief_watcher_EMBODIMENT_v04",
-    "millennial_women_professionals_grief_HOOK_v21",
-    "millennial_women_professionals_grief_SCENE_v12",
-    "millennial_women_professionals_grief_REFLECTION_v28",
-    "millennial_women_professionals_grief_INTEGRATION_v06",
-    "millennial_women_professionals_grief_HOOK_v04",
-    "millennial_women_professionals_grief_SCENE_v20",
-    "millennial_women_professionals_grief_REFLECTION_v24",
-    "millennial_women_professionals_grief_EXERCISE_v16",
-    "millennial_women_professionals_grief_INTEGRATION_v01",
-    "millennial_women_professionals_grief_HOOK_v13",
-    "millennial_women_professionals_grief_SCENE_v13",
-    "millennial_women_professionals_grief_REFLECTION_v06",
-    "millennial_women_professionals_grief_INTEGRATION_v03",
-    "millennial_women_professionals_grief_watcher_RECOGNITION_v15",
-    "millennial_women_professionals_grief_HOOK_v27",
-    "millennial_women_professionals_grief_SCENE_v04",
-    "millennial_women_professionals_grief_REFLECTION_v16",
-    "millennial_women_professionals_grief_INTEGRATION_v02",
-    "millennial_women_professionals_grief_HOOK_v22",
-    "millennial_women_professionals_grief_SCENE_v18",
-    "millennial_women_professionals_grief_REFLECTION_v18",
-    "millennial_women_professionals_grief_EXERCISE_v06",
-    "millennial_women_professionals_grief_INTEGRATION_v07",
-    "millennial_women_professionals_grief_grief_RECOGNITION_v14",
-    "millennial_women_professionals_grief_HOOK_v05",
-    "millennial_women_professionals_grief_SCENE_v03",
-    "millennial_women_professionals_grief_REFLECTION_v04",
-    "millennial_women_professionals_grief_INTEGRATION_v04",
-    "millennial_women_professionals_grief_grief_RECOGNITION_v07",
-    "millennial_women_professionals_grief_HOOK_v10",
-    "millennial_women_professionals_grief_SCENE_v29",
-    "millennial_women_professionals_grief_REFLECTION_v22",
-    "placeholder:INTEGRATION:ch7:slot3",
-    "millennial_women_professionals_grief_HOOK_v17",
-    "millennial_women_professionals_grief_SCENE_v05",
-    "millennial_women_professionals_grief_REFLECTION_v08",
-    "millennial_women_professionals_grief_EXERCISE_v26",
-    "placeholder:INTEGRATION:ch8:slot4",
-    "millennial_women_professionals_grief_watcher_TURNING_POINT_v01",
-    "millennial_women_professionals_grief_HOOK_v18",
-    "millennial_women_professionals_grief_SCENE_v19",
-    "millennial_women_professionals_grief_REFLECTION_v01",
-    "millennial_women_professionals_grief_EXERCISE_v13",
-    "placeholder:INTEGRATION:ch9:slot4",
-    "millennial_women_professionals_grief_watcher_TURNING_POINT_v03",
-    "millennial_women_professionals_grief_HOOK_v23",
-    "millennial_women_professionals_grief_SCENE_v22",
-    "millennial_women_professionals_grief_REFLECTION_v19",
-    "placeholder:INTEGRATION:ch10:slot3",
-    "millennial_women_professionals_grief_grief_RECOGNITION_v09",
-    "millennial_women_professionals_grief_HOOK_v06",
-    "millennial_women_professionals_grief_SCENE_v21",
-    "millennial_women_professionals_grief_REFLECTION_v05",
-    "placeholder:INTEGRATION:ch11:slot3",
-    "millennial_women_professionals_grief_HOOK_v24",
-    "millennial_women_professionals_grief_SCENE_v08",
-    "millennial_women_professionals_grief_REFLECTION_v23",
-    "millennial_women_professionals_grief_EXERCISE_v19",
-    "placeholder:INTEGRATION:ch12:slot4",
-    "millennial_women_professionals_grief_HOOK_v02",
-    "millennial_women_professionals_grief_SCENE_v25",
-    "millennial_women_professionals_grief_REFLECTION_v26",
-    "millennial_women_professionals_grief_EXERCISE_v12",
-    "placeholder:INTEGRATION:ch13:slot4",
-    "millennial_women_professionals_grief_grief_RECOGNITION_v10",
-    "millennial_women_professionals_grief_HOOK_v07",
-    "millennial_women_professionals_grief_SCENE_v02",
-    "millennial_women_professionals_grief_REFLECTION_v09",
-    "millennial_women_professionals_grief_EXERCISE_v09",
-    "placeholder:INTEGRATION:ch14:slot4",
-    "millennial_women_professionals_grief_HOOK_v16",
-    "millennial_women_professionals_grief_SCENE_v11",
-    "millennial_women_professionals_grief_REFLECTION_v21",
-    "millennial_women_professionals_grief_EXERCISE_v05",
-    "placeholder:INTEGRATION:ch15:slot4",
-    "millennial_women_professionals_grief_HOOK_v09",
-    "millennial_women_professionals_grief_SCENE_v24",
-    "millennial_women_professionals_grief_REFLECTION_v15",
-    "placeholder:INTEGRATION:ch16:slot3",
     "millennial_women_professionals_grief_HOOK_v26",
-    "millennial_women_professionals_grief_SCENE_v30",
-    "millennial_women_professionals_grief_REFLECTION_v30",
-    "placeholder:INTEGRATION:ch17:slot3",
-    "millennial_women_professionals_grief_watcher_RECOGNITION_v07",
+    "millennial_women_professionals_grief_SCENE_v25",
+    "millennial_women_professionals_grief_REFLECTION_v24",
+    "millennial_women_professionals_grief_INTEGRATION_v02",
+    "millennial_women_professionals_grief_grief_RECOGNITION_v13",
+    "millennial_women_professionals_grief_HOOK_v10",
+    "millennial_women_professionals_grief_SCENE_v22",
+    "millennial_women_professionals_grief_REFLECTION_v12",
+    "placeholder:TAKEAWAY:ch1:slot3",
+    "millennial_women_professionals_grief_INTEGRATION_v06",
+    "placeholder:THREAD:ch1:slot5",
+    "millennial_women_professionals_grief_HOOK_v02",
+    "millennial_women_professionals_grief_SCENE_v17",
+    "millennial_women_professionals_grief_REFLECTION_v11",
+    "millennial_women_professionals_grief_EXERCISE_v05",
+    "millennial_women_professionals_grief_INTEGRATION_v05",
+    "millennial_women_professionals_grief_watcher_RECOGNITION_v15",
+    "millennial_women_professionals_grief_HOOK_v16",
+    "millennial_women_professionals_grief_SCENE_v14",
+    "millennial_women_professionals_grief_REFLECTION_v13",
+    "millennial_women_professionals_grief_INTEGRATION_v03",
+    "millennial_women_professionals_grief_grief_RECOGNITION_v14",
     "millennial_women_professionals_grief_HOOK_v29",
-    "millennial_women_professionals_grief_SCENE_v06",
+    "millennial_women_professionals_grief_SCENE_v12",
     "millennial_women_professionals_grief_REFLECTION_v29",
-    "millennial_women_professionals_grief_EXERCISE_v20",
-    "placeholder:INTEGRATION:ch18:slot4",
+    "placeholder:TAKEAWAY:ch4:slot3",
+    "millennial_women_professionals_grief_INTEGRATION_v01",
+    "placeholder:THREAD:ch4:slot5",
+    "millennial_women_professionals_grief_HOOK_v06",
+    "millennial_women_professionals_grief_SCENE_v11",
+    "millennial_women_professionals_grief_REFLECTION_v08",
+    "millennial_women_professionals_grief_EXERCISE_v06",
+    "millennial_women_professionals_grief_INTEGRATION_v04",
+    "millennial_women_professionals_grief_HOOK_v14",
+    "millennial_women_professionals_grief_SCENE_v15",
+    "millennial_women_professionals_grief_REFLECTION_v20",
+    "millennial_women_professionals_grief_INTEGRATION_v07",
+    "millennial_women_professionals_grief_watcher_TURNING_POINT_v01",
     "millennial_women_professionals_grief_HOOK_v03",
-    "millennial_women_professionals_grief_SCENE_v09",
+    "millennial_women_professionals_grief_SCENE_v30",
+    "millennial_women_professionals_grief_REFLECTION_v04",
+    "placeholder:TAKEAWAY:ch7:slot3",
+    "placeholder:INTEGRATION:ch7:slot4",
+    "placeholder:THREAD:ch7:slot5",
+    "millennial_women_professionals_grief_HOOK_v23",
+    "millennial_women_professionals_grief_SCENE_v16",
+    "millennial_women_professionals_grief_REFLECTION_v30",
+    "millennial_women_professionals_grief_EXERCISE_v11",
+    "placeholder:INTEGRATION:ch8:slot4",
+    "millennial_women_professionals_grief_grief_TURNING_POINT_v01",
+    "millennial_women_professionals_grief_HOOK_v19",
+    "millennial_women_professionals_grief_SCENE_v07",
+    "millennial_women_professionals_grief_REFLECTION_v09",
+    "millennial_women_professionals_grief_EXERCISE_v14",
+    "placeholder:INTEGRATION:ch9:slot4",
+    "millennial_women_professionals_grief_grief_TURNING_POINT_v05",
+    "millennial_women_professionals_grief_HOOK_v11",
+    "millennial_women_professionals_grief_SCENE_v18",
     "millennial_women_professionals_grief_REFLECTION_v02",
-    "millennial_women_professionals_grief_EXERCISE_v04",
+    "placeholder:INTEGRATION:ch10:slot3",
+    "millennial_women_professionals_grief_grief_RECOGNITION_v12",
+    "millennial_women_professionals_grief_HOOK_v13",
+    "millennial_women_professionals_grief_SCENE_v02",
+    "millennial_women_professionals_grief_REFLECTION_v27",
+    "placeholder:TAKEAWAY:ch11:slot3",
+    "placeholder:INTEGRATION:ch11:slot4",
+    "placeholder:THREAD:ch11:slot5",
+    "millennial_women_professionals_grief_HOOK_v01",
+    "millennial_women_professionals_grief_SCENE_v09",
+    "millennial_women_professionals_grief_REFLECTION_v05",
+    "millennial_women_professionals_grief_EXERCISE_v18",
+    "placeholder:INTEGRATION:ch12:slot4",
+    "millennial_women_professionals_grief_HOOK_v21",
+    "millennial_women_professionals_grief_SCENE_v13",
+    "millennial_women_professionals_grief_REFLECTION_v01",
+    "millennial_women_professionals_grief_EXERCISE_v30",
+    "placeholder:INTEGRATION:ch13:slot4",
+    "millennial_women_professionals_grief_watcher_RECOGNITION_v09",
+    "millennial_women_professionals_grief_HOOK_v15",
+    "millennial_women_professionals_grief_SCENE_v28",
+    "millennial_women_professionals_grief_REFLECTION_v23",
+    "millennial_women_professionals_grief_EXERCISE_v12",
+    "placeholder:INTEGRATION:ch14:slot4",
+    "millennial_women_professionals_grief_HOOK_v05",
+    "millennial_women_professionals_grief_SCENE_v06",
+    "millennial_women_professionals_grief_REFLECTION_v10",
+    "millennial_women_professionals_grief_EXERCISE_v28",
+    "placeholder:INTEGRATION:ch15:slot4",
+    "millennial_women_professionals_grief_HOOK_v04",
+    "millennial_women_professionals_grief_SCENE_v26",
+    "millennial_women_professionals_grief_REFLECTION_v22",
+    "placeholder:TAKEAWAY:ch16:slot3",
+    "placeholder:INTEGRATION:ch16:slot4",
+    "placeholder:THREAD:ch16:slot5",
+    "millennial_women_professionals_grief_HOOK_v22",
+    "millennial_women_professionals_grief_SCENE_v01",
+    "millennial_women_professionals_grief_REFLECTION_v06",
+    "placeholder:INTEGRATION:ch17:slot3",
+    "millennial_women_professionals_grief_grief_RECOGNITION_v19",
+    "millennial_women_professionals_grief_HOOK_v18",
+    "millennial_women_professionals_grief_SCENE_v27",
+    "millennial_women_professionals_grief_REFLECTION_v17",
+    "millennial_women_professionals_grief_EXERCISE_v21",
+    "placeholder:INTEGRATION:ch18:slot4",
+    "millennial_women_professionals_grief_HOOK_v27",
+    "millennial_women_professionals_grief_SCENE_v19",
+    "millennial_women_professionals_grief_REFLECTION_v15",
+    "millennial_women_professionals_grief_EXERCISE_v15",
     "placeholder:INTEGRATION:ch19:slot4"
   ],
   "dominant_band_sequence": [
     1,
     null,
-    null,
+    2,
     2,
     null,
-    2,
+    null,
     3,
     null,
     3,
@@ -300,7 +320,7 @@
     18,
     19
   ],
-  "slot_sig": "MOD_pocket_guide:f390bd690a7f5360",
+  "slot_sig": "MOD_pocket_guide:1a5338ab551ae636",
   "format_id": "MOD_pocket_guide",
   "runtime_format_id": "",
   "output_format_id": "pocket_guide",
@@ -336,10 +356,10 @@
   "chapter_archetypes": [
     "intro_hook_heavy",
     "legacy_uniform",
-    "practice_heavy",
+    "deepen_mechanism",
     "challenge_cost",
     "legacy_uniform",
-    "deepen_mechanism",
+    "practice_heavy",
     "challenge_cost",
     "legacy_uniform",
     "deepen_mechanism",
@@ -358,10 +378,10 @@
   "chapter_exercise_modes": [
     "none",
     "none",
-    "full",
-    "none",
-    "none",
     "micro",
+    "none",
+    "none",
+    "full",
     "none",
     "none",
     "micro",
@@ -380,10 +400,10 @@
   "chapter_reflection_weights": [
     "light",
     "standard",
-    "light",
+    "standard",
     "heavy",
     "standard",
-    "standard",
+    "light",
     "heavy",
     "standard",
     "standard",
@@ -402,10 +422,10 @@
   "chapter_story_depths": [
     "standard",
     "standard",
-    "micro",
+    "standard",
     "deep",
     "standard",
-    "standard",
+    "micro",
     "deep",
     "standard",
     "standard",
@@ -423,6 +443,28 @@
   ],
   "chapter_planner_warnings": [
     "arc_role_distribution[long] challenge=8 outside target [3,5]"
+  ],
+  "chapter_bestseller_structures": [
+    "gladwell_spiral",
+    "promise_engine",
+    "case_file",
+    "case_file",
+    "van_der_kolk",
+    "ancestor",
+    "myth_killer",
+    "permission_slip",
+    "myth_killer",
+    "permission_slip",
+    "permission_slip",
+    "letter",
+    "zoom_lens",
+    "brene_brown",
+    "letter",
+    "myth_killer",
+    "gladwell_spiral",
+    "van_der_kolk",
+    "zoom_lens",
+    "atomic"
   ],
   "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
   "cover_art_style_hint": "contemplative",
@@ -455,7 +497,7 @@
   "emotional_role_sig": "r-r-d-f-f-d-f-f-d-d-f-f-d-d-s-s-f-f-i-i",
   "book_structure_id": "three_act",
   "journey_shape_id": "crisis_landing",
-  "motif_id": "motif_choice",
+  "motif_id": "motif_cost",
   "section_reorder_mode": "none",
   "reframe_profile_id": "elder_stabilizer",
   "variation_chapter_archetypes": [
@@ -480,67 +522,67 @@
     "establish",
     "expose"
   ],
-  "variation_signature": "914a09f89dc857d9acdbd41a44b99b9f",
+  "variation_signature": "d16418918a9290331738da1412fedf78",
   "motif_injections": [
     {
       "chapter_index": 0,
       "slot_index": 2,
-      "phrase": "One small choice can change the direction."
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 0,
       "slot_index": 4,
-      "phrase": "One small choice can change the direction."
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
-      "phrase": "This is where you choose."
+      "phrase": "What does it cost you to keep going like this?"
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 4,
+      "phrase": "Staying the same has a price."
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
-      "phrase": "You get to choose what happens next."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 2,
       "slot_index": 4,
-      "phrase": "One small choice can change the direction."
+      "phrase": "Staying the same has a price."
     },
     {
       "chapter_index": 3,
       "slot_index": 2,
-      "phrase": "One small choice can change the direction."
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 3,
       "slot_index": 4,
-      "phrase": "One small choice can change the direction."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
-      "phrase": "One small choice can change the direction."
+      "phrase": "The cost of not changing is already here."
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 4,
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
-      "phrase": "This is where you choose."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 5,
       "slot_index": 4,
-      "phrase": "You get to choose what happens next."
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 2,
-      "phrase": "You get to choose what happens next."
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 4,
-      "phrase": "This is where you choose."
+      "phrase": "The cost of not changing is already here."
     }
   ],
   "reframe_injections": [
@@ -548,7 +590,7 @@
       "chapter_index": 0,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Some things take the time they take."
+      "text": "You don't have to be ready to begin."
     },
     {
       "chapter_index": 1,
@@ -560,13 +602,13 @@
       "chapter_index": 2,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "What would support look like right now?"
+      "text": "You can pause here."
     },
     {
       "chapter_index": 3,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Some things take the time they take."
+      "text": "You don't have to be ready to begin."
     },
     {
       "chapter_index": 4,
@@ -578,25 +620,25 @@
       "chapter_index": 5,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "You can pause here."
+      "text": "No need to push through."
     },
     {
       "chapter_index": 6,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to be ready to begin."
+      "text": "Rest is part of the work."
     },
     {
       "chapter_index": 7,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Stability is a practice, not a destination."
+      "text": "You've already survived every hard moment so far."
     },
     {
       "chapter_index": 8,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "You can pause here."
+      "text": "No need to push through."
     },
     {
       "chapter_index": 9,
@@ -620,31 +662,31 @@
       "chapter_index": 12,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Rest is part of the work."
+      "text": "Some things take the time they take."
     },
     {
       "chapter_index": 13,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Stability is a practice, not a destination."
+      "text": "Being with is sometimes enough."
     },
     {
       "chapter_index": 14,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "You can pause here."
+      "text": "No need to push through."
     },
     {
       "chapter_index": 15,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Rest is part of the work."
+      "text": "You don't have to be ready to begin."
     },
     {
       "chapter_index": 16,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "You've already survived every hard moment so far."
+      "text": "Being with is sometimes enough."
     },
     {
       "chapter_index": 17,
@@ -656,13 +698,13 @@
       "chapter_index": 18,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Some things take the time they take."
+      "text": "Rest is part of the work."
     },
     {
       "chapter_index": 19,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "You've already survived every hard moment so far."
+      "text": "Stability is a practice, not a destination."
     }
   ],
   "freebie_bundle": [

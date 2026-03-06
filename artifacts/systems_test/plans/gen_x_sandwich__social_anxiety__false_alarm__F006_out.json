@@ -1,6 +1,6 @@
 {
-  "plan_hash": "cbe13e57295435ce27e3bc51ef67e1b2",
-  "plan_id": "cbe13e57295435ce27e3bc51ef67e1b2",
+  "plan_hash": "b8c35dd6452e5be05f8b629535a3f4cd",
+  "plan_id": "b8c35dd6452e5be05f8b629535a3f4cd",
   "chapter_slot_sequence": [
     [
       "HOOK",
@@ -13,6 +13,60 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
       "INTEGRATION"
     ],
     [
@@ -34,55 +88,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
+      "TAKEAWAY",
       "INTEGRATION",
-      "STORY"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION",
-      "STORY"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "INTEGRATION",
-      "STORY"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "INTEGRATION"
+      "THREAD"
     ],
     [
       "HOOK",
@@ -118,7 +126,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -143,104 +153,114 @@
     ]
   ],
   "atom_ids": [
-    "gen_x_sandwich_anxiety_HOOK_v29",
-    "gen_x_sandwich_anxiety_SCENE_v23",
-    "gen_x_sandwich_anxiety_REFLECTION_v30",
+    "gen_x_sandwich_anxiety_HOOK_v09",
+    "gen_x_sandwich_anxiety_SCENE_v13",
+    "gen_x_sandwich_anxiety_REFLECTION_v12",
+    "gen_x_sandwich_anxiety_INTEGRATION_v01",
+    "gen_x_sandwich_anxiety_spiral_EMBODIMENT_v02",
+    "gen_x_sandwich_anxiety_HOOK_v23",
+    "gen_x_sandwich_anxiety_SCENE_v10",
+    "gen_x_sandwich_anxiety_REFLECTION_v24",
+    "placeholder:TAKEAWAY:ch1:slot3",
+    "gen_x_sandwich_anxiety_INTEGRATION_v07",
+    "placeholder:THREAD:ch1:slot5",
+    "gen_x_sandwich_anxiety_HOOK_v30",
+    "gen_x_sandwich_anxiety_SCENE_v02",
+    "gen_x_sandwich_anxiety_REFLECTION_v07",
+    "gen_x_sandwich_anxiety_EXERCISE_v25",
     "gen_x_sandwich_anxiety_INTEGRATION_v03",
-    "gen_x_sandwich_anxiety_overwhelm_EMBODIMENT_v02",
+    "gen_x_sandwich_anxiety_watcher_RECOGNITION_v03",
+    "gen_x_sandwich_anxiety_HOOK_v19",
+    "gen_x_sandwich_anxiety_SCENE_v22",
+    "gen_x_sandwich_anxiety_REFLECTION_v22",
+    "gen_x_sandwich_anxiety_INTEGRATION_v05",
+    "gen_x_sandwich_anxiety_false_alarm_RECOGNITION_v05",
+    "gen_x_sandwich_anxiety_HOOK_v18",
+    "gen_x_sandwich_anxiety_SCENE_v23",
+    "gen_x_sandwich_anxiety_REFLECTION_v21",
+    "placeholder:TAKEAWAY:ch4:slot3",
+    "placeholder:INTEGRATION:ch4:slot4",
+    "placeholder:THREAD:ch4:slot5",
+    "gen_x_sandwich_anxiety_HOOK_v20",
+    "gen_x_sandwich_anxiety_SCENE_v14",
+    "gen_x_sandwich_anxiety_REFLECTION_v18",
+    "gen_x_sandwich_anxiety_EXERCISE_v14",
+    "placeholder:INTEGRATION:ch5:slot4",
+    "gen_x_sandwich_anxiety_HOOK_v08",
+    "gen_x_sandwich_anxiety_SCENE_v15",
+    "gen_x_sandwich_anxiety_REFLECTION_v01",
+    "placeholder:INTEGRATION:ch6:slot3",
+    "gen_x_sandwich_anxiety_watcher_TURNING_POINT_v03",
+    "gen_x_sandwich_anxiety_HOOK_v15",
+    "gen_x_sandwich_anxiety_SCENE_v16",
+    "gen_x_sandwich_anxiety_REFLECTION_v13",
+    "placeholder:TAKEAWAY:ch7:slot3",
+    "placeholder:INTEGRATION:ch7:slot4",
+    "placeholder:THREAD:ch7:slot5",
     "gen_x_sandwich_anxiety_HOOK_v04",
     "gen_x_sandwich_anxiety_SCENE_v24",
-    "gen_x_sandwich_anxiety_REFLECTION_v09",
-    "gen_x_sandwich_anxiety_INTEGRATION_v07",
-    "gen_x_sandwich_anxiety_HOOK_v09",
-    "gen_x_sandwich_anxiety_SCENE_v25",
-    "gen_x_sandwich_anxiety_REFLECTION_v13",
-    "gen_x_sandwich_anxiety_EXERCISE_v30",
-    "gen_x_sandwich_anxiety_INTEGRATION_v05",
-    "gen_x_sandwich_anxiety_comparison_EMBODIMENT_v01",
-    "gen_x_sandwich_anxiety_HOOK_v05",
-    "gen_x_sandwich_anxiety_SCENE_v05",
-    "gen_x_sandwich_anxiety_REFLECTION_v05",
-    "gen_x_sandwich_anxiety_INTEGRATION_v01",
-    "gen_x_sandwich_anxiety_grief_RECOGNITION_v01",
-    "gen_x_sandwich_anxiety_HOOK_v27",
-    "gen_x_sandwich_anxiety_SCENE_v14",
-    "gen_x_sandwich_anxiety_REFLECTION_v19",
-    "placeholder:INTEGRATION:ch4:slot3",
-    "gen_x_sandwich_anxiety_HOOK_v06",
-    "gen_x_sandwich_anxiety_SCENE_v04",
-    "gen_x_sandwich_anxiety_REFLECTION_v21",
-    "gen_x_sandwich_anxiety_EXERCISE_v27",
-    "placeholder:INTEGRATION:ch5:slot4",
-    "gen_x_sandwich_anxiety_HOOK_v03",
-    "gen_x_sandwich_anxiety_SCENE_v16",
-    "gen_x_sandwich_anxiety_REFLECTION_v07",
-    "placeholder:INTEGRATION:ch6:slot3",
-    "gen_x_sandwich_anxiety_watcher_MECHANISM_PROOF_v05",
-    "gen_x_sandwich_anxiety_HOOK_v13",
-    "gen_x_sandwich_anxiety_SCENE_v15",
-    "gen_x_sandwich_anxiety_REFLECTION_v24",
-    "placeholder:INTEGRATION:ch7:slot3",
-    "gen_x_sandwich_anxiety_HOOK_v25",
-    "gen_x_sandwich_anxiety_SCENE_v03",
-    "gen_x_sandwich_anxiety_REFLECTION_v22",
-    "gen_x_sandwich_anxiety_EXERCISE_v26",
-    "placeholder:INTEGRATION:ch8:slot4",
-    "gen_x_sandwich_anxiety_HOOK_v22",
-    "gen_x_sandwich_anxiety_SCENE_v11",
-    "gen_x_sandwich_anxiety_REFLECTION_v18",
-    "gen_x_sandwich_anxiety_EXERCISE_v01",
-    "placeholder:INTEGRATION:ch9:slot4",
-    "gen_x_sandwich_anxiety_spiral_MECHANISM_PROOF_v05",
-    "gen_x_sandwich_anxiety_HOOK_v18",
-    "gen_x_sandwich_anxiety_SCENE_v10",
-    "gen_x_sandwich_anxiety_REFLECTION_v06",
-    "placeholder:INTEGRATION:ch10:slot3",
-    "gen_x_sandwich_anxiety_grief_MECHANISM_PROOF_v04",
-    "gen_x_sandwich_anxiety_HOOK_v21",
-    "gen_x_sandwich_anxiety_SCENE_v06",
-    "gen_x_sandwich_anxiety_REFLECTION_v03",
-    "placeholder:INTEGRATION:ch11:slot3",
-    "gen_x_sandwich_anxiety_HOOK_v14",
-    "gen_x_sandwich_anxiety_SCENE_v07",
-    "gen_x_sandwich_anxiety_REFLECTION_v28",
-    "gen_x_sandwich_anxiety_EXERCISE_v28",
-    "placeholder:INTEGRATION:ch12:slot4",
-    "gen_x_sandwich_anxiety_shame_MECHANISM_PROOF_v02",
-    "gen_x_sandwich_anxiety_HOOK_v15",
-    "gen_x_sandwich_anxiety_SCENE_v08",
     "gen_x_sandwich_anxiety_REFLECTION_v17",
-    "gen_x_sandwich_anxiety_EXERCISE_v22",
-    "placeholder:INTEGRATION:ch13:slot4",
-    "gen_x_sandwich_anxiety_spiral_MECHANISM_PROOF_v04",
-    "gen_x_sandwich_anxiety_HOOK_v01",
-    "gen_x_sandwich_anxiety_SCENE_v27",
+    "gen_x_sandwich_anxiety_EXERCISE_v01",
+    "placeholder:INTEGRATION:ch8:slot4",
+    "gen_x_sandwich_anxiety_HOOK_v27",
+    "gen_x_sandwich_anxiety_SCENE_v11",
+    "gen_x_sandwich_anxiety_REFLECTION_v02",
+    "gen_x_sandwich_anxiety_EXERCISE_v05",
+    "placeholder:INTEGRATION:ch9:slot4",
+    "gen_x_sandwich_anxiety_comparison_MECHANISM_PROOF_v03",
+    "gen_x_sandwich_anxiety_HOOK_v28",
+    "gen_x_sandwich_anxiety_SCENE_v25",
+    "gen_x_sandwich_anxiety_REFLECTION_v11",
+    "placeholder:INTEGRATION:ch10:slot3",
+    "gen_x_sandwich_anxiety_watcher_MECHANISM_PROOF_v02",
+    "gen_x_sandwich_anxiety_HOOK_v03",
+    "gen_x_sandwich_anxiety_SCENE_v06",
     "gen_x_sandwich_anxiety_REFLECTION_v04",
-    "gen_x_sandwich_anxiety_EXERCISE_v24",
-    "placeholder:INTEGRATION:ch14:slot4",
-    "gen_x_sandwich_anxiety_HOOK_v08",
-    "gen_x_sandwich_anxiety_SCENE_v26",
-    "gen_x_sandwich_anxiety_REFLECTION_v20",
-    "gen_x_sandwich_anxiety_EXERCISE_v02",
-    "placeholder:INTEGRATION:ch15:slot4",
-    "gen_x_sandwich_anxiety_HOOK_v30",
-    "gen_x_sandwich_anxiety_SCENE_v12",
-    "gen_x_sandwich_anxiety_REFLECTION_v26",
-    "placeholder:INTEGRATION:ch16:slot3",
+    "placeholder:TAKEAWAY:ch11:slot3",
+    "placeholder:INTEGRATION:ch11:slot4",
+    "placeholder:THREAD:ch11:slot5",
     "gen_x_sandwich_anxiety_HOOK_v11",
-    "gen_x_sandwich_anxiety_SCENE_v30",
-    "gen_x_sandwich_anxiety_REFLECTION_v10",
-    "placeholder:INTEGRATION:ch17:slot3",
-    "gen_x_sandwich_anxiety_overwhelm_MECHANISM_PROOF_v03",
-    "gen_x_sandwich_anxiety_HOOK_v16",
-    "gen_x_sandwich_anxiety_SCENE_v13",
-    "gen_x_sandwich_anxiety_REFLECTION_v27",
-    "gen_x_sandwich_anxiety_EXERCISE_v07",
-    "placeholder:INTEGRATION:ch18:slot4",
-    "gen_x_sandwich_anxiety_HOOK_v26",
+    "gen_x_sandwich_anxiety_SCENE_v05",
+    "gen_x_sandwich_anxiety_REFLECTION_v30",
+    "gen_x_sandwich_anxiety_EXERCISE_v18",
+    "placeholder:INTEGRATION:ch12:slot4",
+    "gen_x_sandwich_anxiety_spiral_MECHANISM_PROOF_v02",
+    "gen_x_sandwich_anxiety_HOOK_v02",
     "gen_x_sandwich_anxiety_SCENE_v29",
-    "gen_x_sandwich_anxiety_REFLECTION_v14",
-    "gen_x_sandwich_anxiety_EXERCISE_v25",
+    "gen_x_sandwich_anxiety_REFLECTION_v10",
+    "gen_x_sandwich_anxiety_EXERCISE_v07",
+    "placeholder:INTEGRATION:ch13:slot4",
+    "gen_x_sandwich_anxiety_grief_MECHANISM_PROOF_v04",
+    "gen_x_sandwich_anxiety_HOOK_v14",
+    "gen_x_sandwich_anxiety_SCENE_v12",
+    "gen_x_sandwich_anxiety_REFLECTION_v09",
+    "gen_x_sandwich_anxiety_EXERCISE_v21",
+    "placeholder:INTEGRATION:ch14:slot4",
+    "gen_x_sandwich_anxiety_HOOK_v13",
+    "gen_x_sandwich_anxiety_SCENE_v19",
+    "gen_x_sandwich_anxiety_REFLECTION_v15",
+    "gen_x_sandwich_anxiety_EXERCISE_v04",
+    "placeholder:INTEGRATION:ch15:slot4",
+    "gen_x_sandwich_anxiety_HOOK_v06",
+    "gen_x_sandwich_anxiety_SCENE_v07",
+    "gen_x_sandwich_anxiety_REFLECTION_v26",
+    "placeholder:TAKEAWAY:ch16:slot3",
+    "placeholder:INTEGRATION:ch16:slot4",
+    "placeholder:THREAD:ch16:slot5",
+    "gen_x_sandwich_anxiety_HOOK_v25",
+    "gen_x_sandwich_anxiety_SCENE_v18",
+    "gen_x_sandwich_anxiety_REFLECTION_v03",
+    "placeholder:INTEGRATION:ch17:slot3",
+    "gen_x_sandwich_anxiety_false_alarm_RECOGNITION_v02",
+    "gen_x_sandwich_anxiety_HOOK_v12",
+    "gen_x_sandwich_anxiety_SCENE_v08",
+    "gen_x_sandwich_anxiety_REFLECTION_v19",
+    "gen_x_sandwich_anxiety_EXERCISE_v17",
+    "placeholder:INTEGRATION:ch18:slot4",
+    "gen_x_sandwich_anxiety_HOOK_v01",
+    "gen_x_sandwich_anxiety_SCENE_v17",
+    "gen_x_sandwich_anxiety_REFLECTION_v16",
+    "gen_x_sandwich_anxiety_EXERCISE_v13",
     "placeholder:INTEGRATION:ch19:slot4"
   ],
   "dominant_band_sequence": [
@@ -300,7 +320,7 @@
     18,
     19
   ],
-  "slot_sig": "MOD_pocket_guide:c447e7c26465a092",
+  "slot_sig": "MOD_pocket_guide:2c0f1a3eeeb2df42",
   "format_id": "MOD_pocket_guide",
   "runtime_format_id": "",
   "output_format_id": "pocket_guide",
@@ -424,6 +444,28 @@
   "chapter_planner_warnings": [
     "arc_role_distribution[long] challenge=8 outside target [3,5]"
   ],
+  "chapter_bestseller_structures": [
+    "van_der_kolk",
+    "myth_killer",
+    "zoom_lens",
+    "van_der_kolk",
+    "case_file",
+    "contrast_engine",
+    "atomic",
+    "promise_engine",
+    "letter",
+    "zoom_lens",
+    "myth_killer",
+    "permission_slip",
+    "van_der_kolk",
+    "gladwell_spiral",
+    "gladwell_spiral",
+    "zoom_lens",
+    "zoom_lens",
+    "zoom_lens",
+    "permission_slip",
+    "zoom_lens"
+  ],
   "narrator_id": "default_narrator",
   "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
   "cover_art_style_hint": "contemplative",
@@ -456,7 +498,7 @@
   "emotional_role_sig": "r-r-d-f-f-d-f-f-d-d-f-f-d-d-s-s-f-f-i-i",
   "book_structure_id": "classic_linear",
   "journey_shape_id": "recognition_to_agency",
-  "motif_id": "motif_pattern",
+  "motif_id": "motif_cost",
   "section_reorder_mode": "none",
   "reframe_profile_id": "balanced",
   "variation_chapter_archetypes": [
@@ -481,67 +523,67 @@
     "establish",
     "expose"
   ],
-  "variation_signature": "33e4d21995359d871456a97a216fb3e1",
+  "variation_signature": "d93acce8d8b60ef5ea4d93f5c05c44ba",
   "motif_injections": [
     {
       "chapter_index": 0,
       "slot_index": 2,
-      "phrase": "You've seen this before."
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 0,
       "slot_index": 4,
-      "phrase": "You've seen this before."
+      "phrase": "Staying the same has a price."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
-      "phrase": "The same pattern, different day."
+      "phrase": "Staying the same has a price."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 4,
+      "phrase": "Staying the same has a price."
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
-      "phrase": "It shows up again and again."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 2,
       "slot_index": 4,
-      "phrase": "You've seen this before."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 3,
       "slot_index": 2,
-      "phrase": "It shows up again and again."
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 3,
       "slot_index": 4,
-      "phrase": "The same pattern, different day."
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
-      "phrase": "The same pattern, different day."
+      "phrase": "What does it cost you to keep going like this?"
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 4,
+      "phrase": "Staying the same has a price."
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
-      "phrase": "The same pattern, different day."
+      "phrase": "Staying the same has a price."
     },
     {
       "chapter_index": 5,
       "slot_index": 4,
-      "phrase": "You've seen this before."
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 2,
-      "phrase": "You've seen this before."
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 4,
-      "phrase": "It shows up again and again."
+      "phrase": "The cost of not changing is already here."
     }
   ],
   "reframe_injections": [
@@ -549,19 +591,19 @@
       "chapter_index": 0,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Progress isn't linear."
+      "text": "You don't have to do it all at once."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Safety comes before growth."
+      "text": "Your nervous system is doing its best."
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "You're not behind; you're exactly where you are."
+      "text": "What if this moment could be different?"
     },
     {
       "chapter_index": 3,
@@ -579,31 +621,31 @@
       "chapter_index": 5,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "One breath can reset the script."
+      "text": "What if this moment could be different?"
     },
     {
       "chapter_index": 6,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
+      "text": "Progress isn't linear."
     },
     {
       "chapter_index": 7,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Your nervous system is doing its best."
+      "text": "Change happens in relationship, not in isolation."
     },
     {
       "chapter_index": 8,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "What if this moment could be different?"
+      "text": "One breath can reset the script."
     },
     {
       "chapter_index": 9,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to do it all at once."
+      "text": "Progress isn't linear."
     },
     {
       "chapter_index": 10,
@@ -633,13 +675,13 @@
       "chapter_index": 14,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "You're not behind; you're exactly where you are."
+      "text": "One breath can reset the script."
     },
     {
       "chapter_index": 15,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to do it all at once."
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
     },
     {
       "chapter_index": 16,
@@ -651,13 +693,13 @@
       "chapter_index": 17,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "What if this moment could be different?"
+      "text": "You're not behind; you're exactly where you are."
     },
     {
       "chapter_index": 18,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to do it all at once."
+      "text": "Progress isn't linear."
     },
     {
       "chapter_index": 19,

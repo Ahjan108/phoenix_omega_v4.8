@@ -1,6 +1,6 @@
 {
-  "plan_hash": "c071ca543b4fe54276a19f84088f4328",
-  "plan_id": "c071ca543b4fe54276a19f84088f4328",
+  "plan_hash": "b572ad68b60951a12be1e2d88bbccbcf",
+  "plan_id": "b572ad68b60951a12be1e2d88bbccbcf",
   "chapter_slot_sequence": [
     [
       "SCENE",
@@ -13,21 +13,9 @@
       "SCENE",
       "HOOK",
       "REFLECTION",
-      "INTEGRATION"
-    ],
-    [
-      "SCENE",
-      "HOOK",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION"
-    ],
-    [
-      "SCENE",
-      "HOOK",
-      "REFLECTION",
+      "TAKEAWAY",
       "INTEGRATION",
-      "STORY"
+      "THREAD"
     ],
     [
       "SCENE",
@@ -64,13 +52,30 @@
       "HOOK",
       "REFLECTION",
       "EXERCISE",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "SCENE",
+      "HOOK",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "SCENE",
+      "HOOK",
+      "REFLECTION",
+      "EXERCISE",
       "INTEGRATION"
     ],
     [
       "SCENE",
       "HOOK",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "SCENE",
@@ -88,71 +93,76 @@
     ]
   ],
   "atom_ids": [
-    "gen_z_professionals_anxiety_SCENE_v07",
-    "gen_z_professionals_anxiety_HOOK_v29",
-    "gen_z_professionals_anxiety_REFLECTION_v13",
-    "gen_z_professionals_anxiety_INTEGRATION_v06",
-    "gen_z_professionals_anxiety_shame_RECOGNITION_v06",
-    "gen_z_professionals_anxiety_SCENE_v26",
+    "gen_z_professionals_anxiety_SCENE_v01",
     "gen_z_professionals_anxiety_HOOK_v08",
-    "gen_z_professionals_anxiety_REFLECTION_v17",
-    "gen_z_professionals_anxiety_INTEGRATION_v01",
-    "gen_z_professionals_anxiety_SCENE_v21",
-    "gen_z_professionals_anxiety_HOOK_v06",
-    "gen_z_professionals_anxiety_REFLECTION_v09",
-    "gen_z_professionals_anxiety_EXERCISE_v20",
+    "gen_z_professionals_anxiety_REFLECTION_v05",
     "gen_z_professionals_anxiety_INTEGRATION_v13",
-    "gen_z_professionals_anxiety_SCENE_v11",
-    "gen_z_professionals_anxiety_HOOK_v12",
-    "gen_z_professionals_anxiety_REFLECTION_v27",
-    "gen_z_professionals_anxiety_INTEGRATION_v03",
-    "gen_z_professionals_anxiety_grief_RECOGNITION_v02",
-    "gen_z_professionals_anxiety_SCENE_v18",
-    "gen_z_professionals_anxiety_HOOK_v05",
-    "gen_z_professionals_anxiety_REFLECTION_v01",
-    "gen_z_professionals_anxiety_EXERCISE_v27",
-    "gen_z_professionals_anxiety_INTEGRATION_v08",
-    "gen_z_professionals_anxiety_false_alarm_TURNING_POINT_v05",
-    "gen_z_professionals_anxiety_SCENE_v03",
-    "gen_z_professionals_anxiety_HOOK_v30",
-    "gen_z_professionals_anxiety_REFLECTION_v19",
-    "gen_z_professionals_anxiety_INTEGRATION_v15",
-    "gen_z_professionals_anxiety_comparison_MECHANISM_PROOF_v04",
-    "gen_z_professionals_anxiety_SCENE_v24",
-    "gen_z_professionals_anxiety_HOOK_v25",
-    "gen_z_professionals_anxiety_REFLECTION_v25",
-    "gen_z_professionals_anxiety_EXERCISE_v29",
-    "gen_z_professionals_anxiety_INTEGRATION_v11",
-    "gen_z_professionals_anxiety_shame_TURNING_POINT_v03",
-    "gen_z_professionals_anxiety_SCENE_v09",
-    "gen_z_professionals_anxiety_HOOK_v19",
-    "gen_z_professionals_anxiety_REFLECTION_v11",
-    "gen_z_professionals_anxiety_INTEGRATION_v04",
-    "gen_z_professionals_anxiety_comparison_RECOGNITION_v05",
-    "gen_z_professionals_anxiety_SCENE_v06",
-    "gen_z_professionals_anxiety_HOOK_v17",
-    "gen_z_professionals_anxiety_REFLECTION_v29",
-    "gen_z_professionals_anxiety_EXERCISE_v22",
-    "gen_z_professionals_anxiety_INTEGRATION_v10",
-    "gen_z_professionals_anxiety_SCENE_v02",
-    "gen_z_professionals_anxiety_HOOK_v27",
-    "gen_z_professionals_anxiety_REFLECTION_v07",
-    "gen_z_professionals_anxiety_INTEGRATION_v09",
+    "gen_z_professionals_anxiety_overwhelm_EMBODIMENT_v04",
     "gen_z_professionals_anxiety_SCENE_v15",
-    "gen_z_professionals_anxiety_HOOK_v26",
-    "gen_z_professionals_anxiety_REFLECTION_v15",
-    "gen_z_professionals_anxiety_EXERCISE_v06",
+    "gen_z_professionals_anxiety_HOOK_v13",
+    "gen_z_professionals_anxiety_REFLECTION_v07",
+    "placeholder:TAKEAWAY:ch1:slot3",
     "gen_z_professionals_anxiety_INTEGRATION_v14",
-    "gen_z_professionals_anxiety_SCENE_v13",
-    "gen_z_professionals_anxiety_HOOK_v11",
+    "placeholder:THREAD:ch1:slot5",
+    "gen_z_professionals_anxiety_SCENE_v03",
+    "gen_z_professionals_anxiety_HOOK_v29",
     "gen_z_professionals_anxiety_REFLECTION_v03",
-    "gen_z_professionals_anxiety_EXERCISE_v25",
-    "gen_z_professionals_anxiety_INTEGRATION_v05"
+    "gen_z_professionals_anxiety_EXERCISE_v24",
+    "gen_z_professionals_anxiety_INTEGRATION_v11",
+    "gen_z_professionals_anxiety_grief_TURNING_POINT_v02",
+    "gen_z_professionals_anxiety_SCENE_v14",
+    "gen_z_professionals_anxiety_HOOK_v27",
+    "gen_z_professionals_anxiety_REFLECTION_v19",
+    "gen_z_professionals_anxiety_INTEGRATION_v05",
+    "gen_z_professionals_anxiety_watcher_RECOGNITION_v04",
+    "gen_z_professionals_anxiety_SCENE_v17",
+    "gen_z_professionals_anxiety_HOOK_v21",
+    "gen_z_professionals_anxiety_REFLECTION_v25",
+    "gen_z_professionals_anxiety_EXERCISE_v09",
+    "gen_z_professionals_anxiety_INTEGRATION_v08",
+    "gen_z_professionals_anxiety_false_alarm_EMBODIMENT_v04",
+    "gen_z_professionals_anxiety_SCENE_v16",
+    "gen_z_professionals_anxiety_HOOK_v15",
+    "gen_z_professionals_anxiety_REFLECTION_v09",
+    "gen_z_professionals_anxiety_INTEGRATION_v07",
+    "gen_z_professionals_anxiety_watcher_TURNING_POINT_v04",
+    "gen_z_professionals_anxiety_SCENE_v20",
+    "gen_z_professionals_anxiety_HOOK_v11",
+    "gen_z_professionals_anxiety_REFLECTION_v21",
+    "gen_z_professionals_anxiety_EXERCISE_v21",
+    "gen_z_professionals_anxiety_INTEGRATION_v09",
+    "gen_z_professionals_anxiety_overwhelm_TURNING_POINT_v05",
+    "gen_z_professionals_anxiety_SCENE_v25",
+    "gen_z_professionals_anxiety_HOOK_v05",
+    "gen_z_professionals_anxiety_REFLECTION_v13",
+    "gen_z_professionals_anxiety_INTEGRATION_v15",
+    "gen_z_professionals_anxiety_shame_MECHANISM_PROOF_v04",
+    "gen_z_professionals_anxiety_SCENE_v04",
+    "gen_z_professionals_anxiety_HOOK_v20",
+    "gen_z_professionals_anxiety_REFLECTION_v01",
+    "gen_z_professionals_anxiety_EXERCISE_v02",
+    "gen_z_professionals_anxiety_INTEGRATION_v02",
+    "gen_z_professionals_anxiety_SCENE_v09",
+    "gen_z_professionals_anxiety_HOOK_v03",
+    "gen_z_professionals_anxiety_REFLECTION_v27",
+    "placeholder:TAKEAWAY:ch9:slot3",
+    "gen_z_professionals_anxiety_INTEGRATION_v01",
+    "placeholder:THREAD:ch9:slot5",
+    "gen_z_professionals_anxiety_SCENE_v05",
+    "gen_z_professionals_anxiety_HOOK_v07",
+    "gen_z_professionals_anxiety_REFLECTION_v15",
+    "gen_z_professionals_anxiety_EXERCISE_v10",
+    "gen_z_professionals_anxiety_INTEGRATION_v10",
+    "gen_z_professionals_anxiety_SCENE_v07",
+    "gen_z_professionals_anxiety_HOOK_v09",
+    "gen_z_professionals_anxiety_REFLECTION_v29",
+    "gen_z_professionals_anxiety_EXERCISE_v28",
+    "gen_z_professionals_anxiety_INTEGRATION_v06"
   ],
   "dominant_band_sequence": [
     1,
     null,
-    null,
+    2,
     3,
     3,
     4,
@@ -186,7 +196,7 @@
     10,
     11
   ],
-  "slot_sig": "MOD_pocket_guide:675f946099af50e1",
+  "slot_sig": "MOD_pocket_guide:5cdcdeb39df61f5c",
   "format_id": "MOD_pocket_guide",
   "runtime_format_id": "",
   "output_format_id": "pocket_guide",
@@ -214,7 +224,7 @@
   "chapter_archetypes": [
     "intro_hook_heavy",
     "legacy_uniform",
-    "practice_heavy",
+    "deepen_mechanism",
     "challenge_cost",
     "deepen_mechanism",
     "challenge_cost",
@@ -222,41 +232,41 @@
     "challenge_cost",
     "resolve_integration",
     "legacy_uniform",
-    "resolve_integration",
+    "practice_heavy",
     "resolve_integration"
   ],
   "chapter_exercise_modes": [
     "none",
     "none",
+    "micro",
+    "none",
+    "micro",
+    "none",
+    "micro",
+    "none",
+    "micro",
+    "none",
     "full",
-    "none",
-    "micro",
-    "none",
-    "micro",
-    "none",
-    "micro",
-    "none",
-    "micro",
     "micro"
   ],
   "chapter_reflection_weights": [
     "light",
     "standard",
+    "standard",
+    "heavy",
+    "standard",
+    "heavy",
+    "standard",
+    "heavy",
+    "standard",
+    "standard",
     "light",
-    "heavy",
-    "standard",
-    "heavy",
-    "standard",
-    "heavy",
-    "standard",
-    "standard",
-    "standard",
     "standard"
   ],
   "chapter_story_depths": [
     "standard",
     "standard",
-    "micro",
+    "standard",
     "deep",
     "standard",
     "deep",
@@ -266,6 +276,20 @@
     "standard",
     "micro",
     "micro"
+  ],
+  "chapter_bestseller_structures": [
+    "myth_killer",
+    "contrast_engine",
+    "gladwell_spiral",
+    "atomic",
+    "gladwell_spiral",
+    "brene_brown",
+    "myth_killer",
+    "promise_engine",
+    "letter",
+    "gladwell_spiral",
+    "letter",
+    "atomic"
   ],
   "narrator_id": "default_narrator",
   "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
@@ -313,32 +337,37 @@
     {
       "chapter_index": 0,
       "slot_index": 2,
-      "phrase": "Come back to what's solid."
+      "phrase": "Ground first, then respond."
     },
     {
       "chapter_index": 0,
       "slot_index": 4,
-      "phrase": "Come back to what's solid."
+      "phrase": "Ground first, then respond."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
-      "phrase": "Your feet are on the ground."
-    },
-    {
-      "chapter_index": 2,
-      "slot_index": 2,
       "phrase": "Ground first, then respond."
     },
     {
-      "chapter_index": 2,
+      "chapter_index": 1,
       "slot_index": 4,
       "phrase": "Come back to what's solid."
     },
     {
+      "chapter_index": 2,
+      "slot_index": 2,
+      "phrase": "Come back to what's solid."
+    },
+    {
+      "chapter_index": 2,
+      "slot_index": 4,
+      "phrase": "Your feet are on the ground."
+    },
+    {
       "chapter_index": 3,
       "slot_index": 2,
-      "phrase": "Your feet are on the ground."
+      "phrase": "Ground first, then respond."
     },
     {
       "chapter_index": 3,
@@ -348,7 +377,7 @@
     {
       "chapter_index": 4,
       "slot_index": 2,
-      "phrase": "Ground first, then respond."
+      "phrase": "Your feet are on the ground."
     },
     {
       "chapter_index": 4,
@@ -363,11 +392,6 @@
     {
       "chapter_index": 5,
       "slot_index": 4,
-      "phrase": "Come back to what's solid."
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 2,
       "phrase": "Your feet are on the ground."
     }
   ],
@@ -382,7 +406,7 @@
       "chapter_index": 1,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Context shapes behavior more than we like to think."
+      "text": "The nervous system follows patterns we can learn."
     },
     {
       "chapter_index": 2,
@@ -394,37 +418,37 @@
       "chapter_index": 3,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "This isn't advice\u2014it's a map of what works for many."
+      "text": "You're the experiment; you get to decide."
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Curiosity beats judgment for change."
+      "text": "The nervous system follows patterns we can learn."
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "One variable at a time."
+      "text": "What does the data of your own experience say?"
     },
     {
       "chapter_index": 6,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You're the experiment; you get to decide."
+      "text": "Evidence suggests small steps compound."
     },
     {
       "chapter_index": 7,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Curiosity beats judgment for change."
+      "text": "Context shapes behavior more than we like to think."
     },
     {
       "chapter_index": 8,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "One variable at a time."
+      "text": "What does the data of your own experience say?"
     },
     {
       "chapter_index": 9,
@@ -442,7 +466,7 @@
       "chapter_index": 11,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "What does the data of your own experience say?"
+      "text": "What would you notice if you weren't trying to fix it?"
     }
   ],
   "freebie_bundle": [

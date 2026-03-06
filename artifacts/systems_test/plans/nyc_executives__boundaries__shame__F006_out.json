@@ -1,6 +1,6 @@
 {
-  "plan_hash": "73bbda42c8ae5f13445dd7ab249391a1",
-  "plan_id": "73bbda42c8ae5f13445dd7ab249391a1",
+  "plan_hash": "e99286dc5bd4f887a117a55eb0249ab6",
+  "plan_id": "e99286dc5bd4f887a117a55eb0249ab6",
   "chapter_slot_sequence": [
     [
       "HOOK",
@@ -13,27 +13,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
+      "TAKEAWAY",
       "INTEGRATION",
-      "STORY"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "INTEGRATION"
+      "THREAD"
     ],
     [
       "HOOK",
@@ -54,7 +36,61 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
       "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -76,49 +112,23 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "TAKEAWAY",
       "INTEGRATION",
-      "STORY"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION",
-      "STORY"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "INTEGRATION"
+      "THREAD"
     ],
     [
       "HOOK",
@@ -143,120 +153,130 @@
     ]
   ],
   "atom_ids": [
-    "nyc_executives_boundaries_HOOK_v06",
-    "nyc_executives_boundaries_SCENE_v12",
-    "nyc_executives_boundaries_REFLECTION_v01",
+    "nyc_executives_boundaries_HOOK_v25",
+    "nyc_executives_boundaries_SCENE_v23",
+    "nyc_executives_boundaries_REFLECTION_v09",
     "nyc_executives_boundaries_INTEGRATION_v03",
     "nyc_executives_boundaries_shame_RECOGNITION_v01",
-    "nyc_executives_boundaries_HOOK_v27",
-    "nyc_executives_boundaries_SCENE_v05",
-    "nyc_executives_boundaries_REFLECTION_v19",
-    "nyc_executives_boundaries_INTEGRATION_v05",
-    "nyc_executives_boundaries_HOOK_v02",
-    "nyc_executives_boundaries_SCENE_v14",
-    "nyc_executives_boundaries_REFLECTION_v05",
-    "nyc_executives_boundaries_EXERCISE_v04",
-    "nyc_executives_boundaries_INTEGRATION_v07",
-    "nyc_executives_boundaries_HOOK_v22",
-    "nyc_executives_boundaries_SCENE_v29",
-    "nyc_executives_boundaries_REFLECTION_v25",
-    "nyc_executives_boundaries_INTEGRATION_v02",
-    "nyc_executives_boundaries_false_alarm_RECOGNITION_v02",
-    "nyc_executives_boundaries_HOOK_v05",
-    "nyc_executives_boundaries_SCENE_v24",
-    "nyc_executives_boundaries_REFLECTION_v21",
-    "nyc_executives_boundaries_INTEGRATION_v04",
-    "nyc_executives_boundaries_HOOK_v07",
-    "nyc_executives_boundaries_SCENE_v27",
-    "nyc_executives_boundaries_REFLECTION_v17",
-    "nyc_executives_boundaries_EXERCISE_v02",
-    "nyc_executives_boundaries_INTEGRATION_v06",
-    "nyc_executives_boundaries_shame_RECOGNITION_v09",
     "nyc_executives_boundaries_HOOK_v17",
-    "nyc_executives_boundaries_SCENE_v03",
-    "nyc_executives_boundaries_REFLECTION_v13",
-    "nyc_executives_boundaries_INTEGRATION_v01",
-    "nyc_executives_boundaries_comparison_RECOGNITION_v04",
-    "nyc_executives_boundaries_HOOK_v16",
     "nyc_executives_boundaries_SCENE_v30",
-    "nyc_executives_boundaries_REFLECTION_v15",
-    "placeholder:INTEGRATION:ch7:slot3",
+    "nyc_executives_boundaries_REFLECTION_v19",
+    "placeholder:TAKEAWAY:ch1:slot3",
+    "nyc_executives_boundaries_INTEGRATION_v07",
+    "placeholder:THREAD:ch1:slot5",
+    "nyc_executives_boundaries_HOOK_v28",
+    "nyc_executives_boundaries_SCENE_v04",
+    "nyc_executives_boundaries_REFLECTION_v21",
+    "nyc_executives_boundaries_EXERCISE_v13",
+    "nyc_executives_boundaries_INTEGRATION_v04",
+    "nyc_executives_boundaries_comparison_RECOGNITION_v02",
+    "nyc_executives_boundaries_HOOK_v15",
+    "nyc_executives_boundaries_SCENE_v24",
+    "nyc_executives_boundaries_REFLECTION_v13",
+    "nyc_executives_boundaries_INTEGRATION_v02",
+    "nyc_executives_boundaries_false_alarm_RECOGNITION_v04",
+    "nyc_executives_boundaries_HOOK_v27",
+    "nyc_executives_boundaries_SCENE_v07",
+    "nyc_executives_boundaries_REFLECTION_v01",
+    "placeholder:TAKEAWAY:ch4:slot3",
+    "nyc_executives_boundaries_INTEGRATION_v06",
+    "placeholder:THREAD:ch4:slot5",
+    "nyc_executives_boundaries_HOOK_v04",
+    "nyc_executives_boundaries_SCENE_v02",
+    "nyc_executives_boundaries_REFLECTION_v05",
+    "nyc_executives_boundaries_EXERCISE_v29",
+    "nyc_executives_boundaries_INTEGRATION_v05",
     "nyc_executives_boundaries_HOOK_v29",
-    "nyc_executives_boundaries_SCENE_v18",
+    "nyc_executives_boundaries_SCENE_v21",
+    "nyc_executives_boundaries_REFLECTION_v17",
+    "nyc_executives_boundaries_INTEGRATION_v01",
+    "nyc_executives_boundaries_shame_RECOGNITION_v03",
+    "nyc_executives_boundaries_HOOK_v21",
+    "nyc_executives_boundaries_SCENE_v06",
+    "nyc_executives_boundaries_REFLECTION_v25",
+    "placeholder:TAKEAWAY:ch7:slot3",
+    "placeholder:INTEGRATION:ch7:slot4",
+    "placeholder:THREAD:ch7:slot5",
+    "nyc_executives_boundaries_HOOK_v24",
+    "nyc_executives_boundaries_SCENE_v25",
+    "nyc_executives_boundaries_REFLECTION_v29",
+    "nyc_executives_boundaries_EXERCISE_v12",
+    "placeholder:INTEGRATION:ch8:slot4",
+    "nyc_executives_boundaries_HOOK_v08",
+    "nyc_executives_boundaries_SCENE_v14",
+    "nyc_executives_boundaries_REFLECTION_v23",
+    "nyc_executives_boundaries_EXERCISE_v26",
+    "placeholder:INTEGRATION:ch9:slot4",
+    "nyc_executives_boundaries_shame_RECOGNITION_v07",
+    "nyc_executives_boundaries_HOOK_v07",
+    "nyc_executives_boundaries_SCENE_v22",
+    "nyc_executives_boundaries_REFLECTION_v15",
+    "placeholder:INTEGRATION:ch10:slot3",
+    "nyc_executives_boundaries_shame_RECOGNITION_v14",
+    "nyc_executives_boundaries_HOOK_v30",
+    "nyc_executives_boundaries_SCENE_v17",
+    "nyc_executives_boundaries_REFLECTION_v11",
+    "placeholder:TAKEAWAY:ch11:slot3",
+    "placeholder:INTEGRATION:ch11:slot4",
+    "placeholder:THREAD:ch11:slot5",
+    "nyc_executives_boundaries_HOOK_v11",
+    "nyc_executives_boundaries_SCENE_v09",
+    "nyc_executives_boundaries_REFLECTION_v27",
+    "nyc_executives_boundaries_EXERCISE_v01",
+    "placeholder:INTEGRATION:ch12:slot4",
+    "nyc_executives_boundaries_shame_RECOGNITION_v04",
+    "nyc_executives_boundaries_HOOK_v14",
+    "nyc_executives_boundaries_SCENE_v19",
+    "nyc_executives_boundaries_REFLECTION_v07",
+    "nyc_executives_boundaries_EXERCISE_v21",
+    "placeholder:INTEGRATION:ch13:slot4",
+    "nyc_executives_boundaries_shame_RECOGNITION_v11",
+    "nyc_executives_boundaries_HOOK_v10",
+    "nyc_executives_boundaries_SCENE_v01",
     "nyc_executives_boundaries_REFLECTION_v03",
     "nyc_executives_boundaries_EXERCISE_v18",
-    "placeholder:INTEGRATION:ch8:slot4",
-    "nyc_executives_boundaries_shame_RECOGNITION_v03",
-    "nyc_executives_boundaries_HOOK_v20",
-    "nyc_executives_boundaries_SCENE_v21",
-    "nyc_executives_boundaries_REFLECTION_v11",
-    "nyc_executives_boundaries_EXERCISE_v13",
-    "placeholder:INTEGRATION:ch9:slot4",
-    "nyc_executives_boundaries_comparison_RECOGNITION_v02",
-    "nyc_executives_boundaries_HOOK_v12",
-    "nyc_executives_boundaries_SCENE_v01",
-    "nyc_executives_boundaries_REFLECTION_v27",
-    "placeholder:INTEGRATION:ch10:slot3",
-    "nyc_executives_boundaries_shame_RECOGNITION_v04",
-    "nyc_executives_boundaries_HOOK_v15",
-    "nyc_executives_boundaries_SCENE_v10",
-    "nyc_executives_boundaries_REFLECTION_v09",
-    "placeholder:INTEGRATION:ch11:slot3",
-    "nyc_executives_boundaries_HOOK_v08",
-    "nyc_executives_boundaries_SCENE_v28",
-    "nyc_executives_boundaries_REFLECTION_v23",
-    "nyc_executives_boundaries_EXERCISE_v23",
-    "placeholder:INTEGRATION:ch12:slot4",
-    "nyc_executives_boundaries_HOOK_v30",
-    "nyc_executives_boundaries_SCENE_v25",
-    "nyc_executives_boundaries_REFLECTION_v07",
-    "nyc_executives_boundaries_EXERCISE_v17",
-    "placeholder:INTEGRATION:ch13:slot4",
-    "nyc_executives_boundaries_shame_RECOGNITION_v13",
-    "nyc_executives_boundaries_HOOK_v25",
-    "nyc_executives_boundaries_SCENE_v19",
-    "nyc_executives_boundaries_REFLECTION_v29",
-    "nyc_executives_boundaries_EXERCISE_v29",
     "placeholder:INTEGRATION:ch14:slot4",
-    "nyc_executives_boundaries_HOOK_v13",
-    "nyc_executives_boundaries_SCENE_v13",
+    "nyc_executives_boundaries_HOOK_v05",
+    "nyc_executives_boundaries_SCENE_v18",
     "placeholder:REFLECTION:ch15:slot2",
-    "nyc_executives_boundaries_EXERCISE_v21",
+    "nyc_executives_boundaries_EXERCISE_v22",
     "placeholder:INTEGRATION:ch15:slot4",
-    "nyc_executives_boundaries_HOOK_v23",
+    "nyc_executives_boundaries_HOOK_v03",
     "nyc_executives_boundaries_SCENE_v20",
     "placeholder:REFLECTION:ch16:slot2",
-    "placeholder:INTEGRATION:ch16:slot3",
-    "nyc_executives_boundaries_HOOK_v19",
-    "nyc_executives_boundaries_SCENE_v06",
+    "placeholder:TAKEAWAY:ch16:slot3",
+    "placeholder:INTEGRATION:ch16:slot4",
+    "placeholder:THREAD:ch16:slot5",
+    "nyc_executives_boundaries_HOOK_v16",
+    "nyc_executives_boundaries_SCENE_v12",
     "placeholder:REFLECTION:ch17:slot2",
     "placeholder:INTEGRATION:ch17:slot3",
-    "nyc_executives_boundaries_false_alarm_RECOGNITION_v04",
-    "nyc_executives_boundaries_HOOK_v24",
-    "nyc_executives_boundaries_SCENE_v23",
+    "nyc_executives_boundaries_false_alarm_RECOGNITION_v05",
+    "nyc_executives_boundaries_HOOK_v26",
+    "nyc_executives_boundaries_SCENE_v16",
     "placeholder:REFLECTION:ch18:slot2",
-    "nyc_executives_boundaries_EXERCISE_v16",
-    "placeholder:INTEGRATION:ch18:slot4",
-    "nyc_executives_boundaries_HOOK_v21",
-    "nyc_executives_boundaries_SCENE_v15",
-    "placeholder:REFLECTION:ch19:slot2",
     "nyc_executives_boundaries_EXERCISE_v06",
+    "placeholder:INTEGRATION:ch18:slot4",
+    "nyc_executives_boundaries_HOOK_v09",
+    "nyc_executives_boundaries_SCENE_v28",
+    "placeholder:REFLECTION:ch19:slot2",
+    "nyc_executives_boundaries_EXERCISE_v24",
     "placeholder:INTEGRATION:ch19:slot4"
   ],
   "dominant_band_sequence": [
     1,
     null,
-    null,
-    3,
-    null,
     3,
     3,
     null,
+    null,
     3,
+    null,
+    null,
     3,
     4,
     null,
-    null,
+    4,
     4,
     null,
     null,
@@ -300,7 +320,7 @@
     18,
     19
   ],
-  "slot_sig": "MOD_pocket_guide:f390bd690a7f5360",
+  "slot_sig": "MOD_pocket_guide:2c0f1a3eeeb2df42",
   "format_id": "MOD_pocket_guide",
   "runtime_format_id": "",
   "output_format_id": "pocket_guide",
@@ -336,17 +356,17 @@
   "chapter_archetypes": [
     "intro_hook_heavy",
     "legacy_uniform",
-    "practice_heavy",
-    "challenge_cost",
-    "legacy_uniform",
-    "deepen_mechanism",
-    "challenge_cost",
-    "legacy_uniform",
-    "deepen_mechanism",
     "deepen_mechanism",
     "challenge_cost",
     "legacy_uniform",
     "practice_heavy",
+    "challenge_cost",
+    "legacy_uniform",
+    "practice_heavy",
+    "deepen_mechanism",
+    "challenge_cost",
+    "legacy_uniform",
+    "deepen_mechanism",
     "deepen_mechanism",
     "resolve_integration",
     "resolve_integration",
@@ -358,17 +378,17 @@
   "chapter_exercise_modes": [
     "none",
     "none",
-    "full",
-    "none",
-    "none",
-    "micro",
-    "none",
-    "none",
-    "micro",
     "micro",
     "none",
     "none",
     "full",
+    "none",
+    "none",
+    "full",
+    "micro",
+    "none",
+    "none",
+    "micro",
     "micro",
     "micro",
     "micro",
@@ -380,17 +400,17 @@
   "chapter_reflection_weights": [
     "light",
     "standard",
-    "light",
-    "heavy",
-    "standard",
-    "standard",
-    "heavy",
-    "standard",
-    "standard",
     "standard",
     "heavy",
     "standard",
     "light",
+    "heavy",
+    "standard",
+    "light",
+    "standard",
+    "heavy",
+    "standard",
+    "standard",
     "standard",
     "standard",
     "standard",
@@ -402,17 +422,17 @@
   "chapter_story_depths": [
     "standard",
     "standard",
-    "micro",
-    "deep",
-    "standard",
-    "standard",
-    "deep",
-    "standard",
-    "standard",
     "standard",
     "deep",
     "standard",
     "micro",
+    "deep",
+    "standard",
+    "micro",
+    "standard",
+    "deep",
+    "standard",
+    "standard",
     "standard",
     "micro",
     "micro",
@@ -423,6 +443,28 @@
   ],
   "chapter_planner_warnings": [
     "arc_role_distribution[long] challenge=8 outside target [3,5]"
+  ],
+  "chapter_bestseller_structures": [
+    "brene_brown",
+    "van_der_kolk",
+    "atomic",
+    "zoom_lens",
+    "ancestor",
+    "ancestor",
+    "gladwell_spiral",
+    "contrast_engine",
+    "letter",
+    "atomic",
+    "atomic",
+    "case_file",
+    "contrast_engine",
+    "myth_killer",
+    "zoom_lens",
+    "permission_slip",
+    "case_file",
+    "atomic",
+    "contrast_engine",
+    "permission_slip"
   ],
   "narrator_id": "default_narrator",
   "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
@@ -486,7 +528,7 @@
     {
       "chapter_index": 0,
       "slot_index": 2,
-      "phrase": "The body doesn't lie."
+      "phrase": "Notice what your body is saying."
     },
     {
       "chapter_index": 0,
@@ -496,6 +538,11 @@
     {
       "chapter_index": 1,
       "slot_index": 2,
+      "phrase": "Your body already knows."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 4,
       "phrase": "The body doesn't lie."
     },
     {
@@ -506,12 +553,12 @@
     {
       "chapter_index": 2,
       "slot_index": 4,
-      "phrase": "Notice what your body is saying."
+      "phrase": "The body doesn't lie."
     },
     {
       "chapter_index": 3,
       "slot_index": 2,
-      "phrase": "The body doesn't lie."
+      "phrase": "Notice what your body is saying."
     },
     {
       "chapter_index": 3,
@@ -521,25 +568,20 @@
     {
       "chapter_index": 4,
       "slot_index": 2,
-      "phrase": "Your body already knows."
+      "phrase": "Notice what your body is saying."
     },
     {
-      "chapter_index": 5,
-      "slot_index": 2,
-      "phrase": "Your body already knows."
-    },
-    {
-      "chapter_index": 5,
+      "chapter_index": 4,
       "slot_index": 4,
-      "phrase": "The body doesn't lie."
+      "phrase": "Notice what your body is saying."
     },
     {
-      "chapter_index": 6,
+      "chapter_index": 5,
       "slot_index": 2,
       "phrase": "The body doesn't lie."
     },
     {
-      "chapter_index": 6,
+      "chapter_index": 5,
       "slot_index": 4,
       "phrase": "Notice what your body is saying."
     }
@@ -555,7 +597,7 @@
       "chapter_index": 1,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Context shapes behavior more than we like to think."
+      "text": "Curiosity beats judgment for change."
     },
     {
       "chapter_index": 2,
@@ -567,13 +609,13 @@
       "chapter_index": 3,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Evidence suggests small steps compound."
+      "text": "You're the experiment; you get to decide."
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Context shapes behavior more than we like to think."
+      "text": "Curiosity beats judgment for change."
     },
     {
       "chapter_index": 5,
@@ -591,7 +633,7 @@
       "chapter_index": 7,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Curiosity beats judgment for change."
+      "text": "Context shapes behavior more than we like to think."
     },
     {
       "chapter_index": 8,
@@ -603,31 +645,31 @@
       "chapter_index": 9,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "This isn't advice\u2014it's a map of what works for many."
+      "text": "You're the experiment; you get to decide."
     },
     {
       "chapter_index": 10,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Context shapes behavior more than we like to think."
+      "text": "The nervous system follows patterns we can learn."
     },
     {
       "chapter_index": 11,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "What would you notice if you weren't trying to fix it?"
+      "text": "What does the data of your own experience say?"
     },
     {
       "chapter_index": 12,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Evidence suggests small steps compound."
+      "text": "This isn't advice\u2014it's a map of what works for many."
     },
     {
       "chapter_index": 13,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "The nervous system follows patterns we can learn."
+      "text": "Context shapes behavior more than we like to think."
     },
     {
       "chapter_index": 14,
@@ -639,7 +681,7 @@
       "chapter_index": 15,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Evidence suggests small steps compound."
+      "text": "This isn't advice\u2014it's a map of what works for many."
     },
     {
       "chapter_index": 16,
@@ -651,13 +693,13 @@
       "chapter_index": 17,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "What does the data of your own experience say?"
+      "text": "What would you notice if you weren't trying to fix it?"
     },
     {
       "chapter_index": 18,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You're the experiment; you get to decide."
+      "text": "This isn't advice\u2014it's a map of what works for many."
     },
     {
       "chapter_index": 19,

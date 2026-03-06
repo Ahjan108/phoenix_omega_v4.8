@@ -1,6 +1,6 @@
 {
-  "plan_hash": "69268fde81270e16db8036093981fe8d",
-  "plan_id": "69268fde81270e16db8036093981fe8d",
+  "plan_hash": "68d096def7bf36f71782e3bc863f6b67",
+  "plan_id": "68d096def7bf36f71782e3bc863f6b67",
   "chapter_slot_sequence": [
     [
       "HOOK",
@@ -13,7 +13,31 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
       "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -34,27 +58,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
+      "TAKEAWAY",
       "INTEGRATION",
-      "STORY"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "INTEGRATION"
+      "THREAD"
     ],
     [
       "HOOK",
@@ -83,7 +89,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -118,7 +126,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -143,102 +153,112 @@
     ]
   ],
   "atom_ids": [
-    "healthcare_rns_depression_HOOK_v19",
-    "healthcare_rns_depression_SCENE_v10",
-    "healthcare_rns_depression_REFLECTION_v29",
-    "healthcare_rns_depression_INTEGRATION_v02",
-    "healthcare_rns_depression_watcher_EMBODIMENT_v02",
-    "healthcare_rns_depression_HOOK_v11",
-    "healthcare_rns_depression_SCENE_v02",
-    "healthcare_rns_depression_REFLECTION_v05",
-    "healthcare_rns_depression_INTEGRATION_v07",
-    "healthcare_rns_depression_HOOK_v15",
+    "healthcare_rns_depression_HOOK_v29",
     "healthcare_rns_depression_SCENE_v19",
     "healthcare_rns_depression_REFLECTION_v19",
-    "healthcare_rns_depression_EXERCISE_v01",
-    "healthcare_rns_depression_INTEGRATION_v01",
-    "healthcare_rns_depression_watcher_EMBODIMENT_v03",
-    "healthcare_rns_depression_HOOK_v06",
-    "healthcare_rns_depression_SCENE_v06",
-    "healthcare_rns_depression_REFLECTION_v27",
-    "healthcare_rns_depression_INTEGRATION_v03",
-    "healthcare_rns_depression_watcher_EMBODIMENT_v01",
-    "healthcare_rns_depression_HOOK_v20",
-    "healthcare_rns_depression_SCENE_v26",
-    "healthcare_rns_depression_REFLECTION_v07",
     "healthcare_rns_depression_INTEGRATION_v04",
-    "healthcare_rns_depression_HOOK_v07",
-    "healthcare_rns_depression_SCENE_v22",
-    "healthcare_rns_depression_REFLECTION_v21",
-    "healthcare_rns_depression_EXERCISE_v02",
-    "healthcare_rns_depression_INTEGRATION_v06",
-    "healthcare_rns_depression_HOOK_v14",
-    "healthcare_rns_depression_SCENE_v27",
+    "healthcare_rns_depression_watcher_EMBODIMENT_v04",
+    "healthcare_rns_depression_HOOK_v05",
+    "healthcare_rns_depression_SCENE_v11",
+    "healthcare_rns_depression_REFLECTION_v23",
+    "placeholder:TAKEAWAY:ch1:slot3",
+    "healthcare_rns_depression_INTEGRATION_v07",
+    "placeholder:THREAD:ch1:slot5",
+    "healthcare_rns_depression_HOOK_v01",
+    "healthcare_rns_depression_SCENE_v17",
     "healthcare_rns_depression_REFLECTION_v25",
+    "healthcare_rns_depression_EXERCISE_v01",
+    "healthcare_rns_depression_INTEGRATION_v03",
+    "healthcare_rns_depression_HOOK_v09",
+    "healthcare_rns_depression_SCENE_v25",
+    "healthcare_rns_depression_REFLECTION_v15",
+    "healthcare_rns_depression_INTEGRATION_v01",
+    "healthcare_rns_depression_overwhelm_EMBODIMENT_v01",
+    "healthcare_rns_depression_HOOK_v27",
+    "healthcare_rns_depression_SCENE_v18",
+    "healthcare_rns_depression_REFLECTION_v01",
+    "placeholder:TAKEAWAY:ch4:slot3",
+    "healthcare_rns_depression_INTEGRATION_v06",
+    "placeholder:THREAD:ch4:slot5",
+    "healthcare_rns_depression_HOOK_v25",
+    "healthcare_rns_depression_SCENE_v01",
+    "healthcare_rns_depression_REFLECTION_v29",
+    "healthcare_rns_depression_EXERCISE_v02",
     "healthcare_rns_depression_INTEGRATION_v05",
-    "healthcare_rns_depression_overwhelm_TURNING_POINT_v03",
-    "healthcare_rns_depression_HOOK_v29",
-    "healthcare_rns_depression_SCENE_v13",
-    "healthcare_rns_depression_REFLECTION_v13",
-    "placeholder:INTEGRATION:ch7:slot3",
-    "healthcare_rns_depression_HOOK_v04",
-    "healthcare_rns_depression_SCENE_v16",
+    "healthcare_rns_depression_grief_RECOGNITION_v02",
+    "healthcare_rns_depression_HOOK_v24",
+    "healthcare_rns_depression_SCENE_v21",
+    "healthcare_rns_depression_REFLECTION_v07",
+    "healthcare_rns_depression_INTEGRATION_v02",
+    "healthcare_rns_depression_overwhelm_TURNING_POINT_v04",
+    "healthcare_rns_depression_HOOK_v20",
+    "healthcare_rns_depression_SCENE_v12",
     "healthcare_rns_depression_REFLECTION_v09",
+    "placeholder:TAKEAWAY:ch7:slot3",
+    "placeholder:INTEGRATION:ch7:slot4",
+    "placeholder:THREAD:ch7:slot5",
+    "healthcare_rns_depression_HOOK_v22",
+    "healthcare_rns_depression_SCENE_v24",
+    "healthcare_rns_depression_REFLECTION_v13",
     "healthcare_rns_depression_EXERCISE_v03",
     "placeholder:INTEGRATION:ch8:slot4",
-    "healthcare_rns_depression_watcher_RECOGNITION_v04",
-    "healthcare_rns_depression_HOOK_v13",
-    "healthcare_rns_depression_SCENE_v12",
-    "healthcare_rns_depression_REFLECTION_v15",
+    "healthcare_rns_depression_overwhelm_TURNING_POINT_v01",
+    "healthcare_rns_depression_HOOK_v03",
+    "healthcare_rns_depression_SCENE_v20",
+    "healthcare_rns_depression_REFLECTION_v17",
     "placeholder:EXERCISE:ch9:slot3",
     "placeholder:INTEGRATION:ch9:slot4",
-    "healthcare_rns_depression_grief_TURNING_POINT_v01",
-    "healthcare_rns_depression_HOOK_v05",
-    "healthcare_rns_depression_SCENE_v18",
-    "healthcare_rns_depression_REFLECTION_v03",
+    "healthcare_rns_depression_overwhelm_MECHANISM_PROOF_v02",
+    "healthcare_rns_depression_HOOK_v11",
+    "healthcare_rns_depression_SCENE_v27",
+    "healthcare_rns_depression_REFLECTION_v21",
     "placeholder:INTEGRATION:ch10:slot3",
-    "healthcare_rns_depression_grief_RECOGNITION_v05",
-    "healthcare_rns_depression_HOOK_v25",
-    "healthcare_rns_depression_SCENE_v09",
-    "healthcare_rns_depression_REFLECTION_v17",
-    "placeholder:INTEGRATION:ch11:slot3",
-    "healthcare_rns_depression_HOOK_v30",
-    "healthcare_rns_depression_SCENE_v01",
-    "healthcare_rns_depression_REFLECTION_v23",
+    "healthcare_rns_depression_overwhelm_MECHANISM_PROOF_v04",
+    "healthcare_rns_depression_HOOK_v07",
+    "healthcare_rns_depression_SCENE_v03",
+    "healthcare_rns_depression_REFLECTION_v05",
+    "placeholder:TAKEAWAY:ch11:slot3",
+    "placeholder:INTEGRATION:ch11:slot4",
+    "placeholder:THREAD:ch11:slot5",
+    "healthcare_rns_depression_HOOK_v19",
+    "healthcare_rns_depression_SCENE_v14",
+    "healthcare_rns_depression_REFLECTION_v11",
     "placeholder:EXERCISE:ch12:slot3",
     "placeholder:INTEGRATION:ch12:slot4",
-    "healthcare_rns_depression_HOOK_v26",
-    "healthcare_rns_depression_SCENE_v24",
-    "healthcare_rns_depression_REFLECTION_v11",
-    "placeholder:EXERCISE:ch13:slot3",
-    "placeholder:INTEGRATION:ch13:slot4",
-    "healthcare_rns_depression_grief_MECHANISM_PROOF_v04",
     "healthcare_rns_depression_HOOK_v18",
     "healthcare_rns_depression_SCENE_v04",
-    "healthcare_rns_depression_REFLECTION_v01",
+    "healthcare_rns_depression_REFLECTION_v03",
+    "placeholder:EXERCISE:ch13:slot3",
+    "placeholder:INTEGRATION:ch13:slot4",
+    "healthcare_rns_depression_watcher_MECHANISM_PROOF_v04",
+    "healthcare_rns_depression_HOOK_v15",
+    "healthcare_rns_depression_SCENE_v22",
+    "healthcare_rns_depression_REFLECTION_v27",
     "placeholder:EXERCISE:ch14:slot3",
     "placeholder:INTEGRATION:ch14:slot4",
-    "healthcare_rns_depression_HOOK_v28",
-    "healthcare_rns_depression_SCENE_v21",
+    "healthcare_rns_depression_HOOK_v06",
+    "healthcare_rns_depression_SCENE_v28",
     "placeholder:REFLECTION:ch15:slot2",
     "placeholder:EXERCISE:ch15:slot3",
     "placeholder:INTEGRATION:ch15:slot4",
-    "healthcare_rns_depression_HOOK_v24",
+    "healthcare_rns_depression_HOOK_v21",
     "healthcare_rns_depression_SCENE_v15",
     "placeholder:REFLECTION:ch16:slot2",
-    "placeholder:INTEGRATION:ch16:slot3",
-    "healthcare_rns_depression_HOOK_v09",
-    "healthcare_rns_depression_SCENE_v05",
+    "placeholder:TAKEAWAY:ch16:slot3",
+    "placeholder:INTEGRATION:ch16:slot4",
+    "placeholder:THREAD:ch16:slot5",
+    "healthcare_rns_depression_HOOK_v30",
+    "healthcare_rns_depression_SCENE_v26",
     "placeholder:REFLECTION:ch17:slot2",
     "placeholder:INTEGRATION:ch17:slot3",
-    "healthcare_rns_depression_watcher_TURNING_POINT_v05",
-    "healthcare_rns_depression_HOOK_v27",
-    "healthcare_rns_depression_SCENE_v20",
+    "healthcare_rns_depression_watcher_RECOGNITION_v04",
+    "healthcare_rns_depression_HOOK_v23",
+    "healthcare_rns_depression_SCENE_v09",
     "placeholder:REFLECTION:ch18:slot2",
     "placeholder:EXERCISE:ch18:slot3",
     "placeholder:INTEGRATION:ch18:slot4",
-    "healthcare_rns_depression_HOOK_v03",
-    "healthcare_rns_depression_SCENE_v29",
+    "healthcare_rns_depression_HOOK_v08",
+    "healthcare_rns_depression_SCENE_v13",
     "placeholder:REFLECTION:ch19:slot2",
     "placeholder:EXERCISE:ch19:slot3",
     "placeholder:INTEGRATION:ch19:slot4"
@@ -246,10 +266,10 @@
   "dominant_band_sequence": [
     1,
     null,
-    2,
+    null,
     2,
     null,
-    null,
+    2,
     3,
     null,
     3,
@@ -300,7 +320,7 @@
     18,
     19
   ],
-  "slot_sig": "MOD_pocket_guide:ab7b86c03f0c6766",
+  "slot_sig": "MOD_pocket_guide:bc18f8d846b97280",
   "format_id": "MOD_pocket_guide",
   "runtime_format_id": "",
   "output_format_id": "pocket_guide",
@@ -336,10 +356,10 @@
   "chapter_archetypes": [
     "intro_hook_heavy",
     "legacy_uniform",
-    "deepen_mechanism",
+    "practice_heavy",
     "challenge_cost",
     "legacy_uniform",
-    "practice_heavy",
+    "deepen_mechanism",
     "challenge_cost",
     "legacy_uniform",
     "deepen_mechanism",
@@ -358,10 +378,10 @@
   "chapter_exercise_modes": [
     "none",
     "none",
-    "micro",
-    "none",
-    "none",
     "full",
+    "none",
+    "none",
+    "micro",
     "none",
     "none",
     "micro",
@@ -380,10 +400,10 @@
   "chapter_reflection_weights": [
     "light",
     "standard",
-    "standard",
+    "light",
     "heavy",
     "standard",
-    "light",
+    "standard",
     "heavy",
     "standard",
     "standard",
@@ -402,10 +422,10 @@
   "chapter_story_depths": [
     "standard",
     "standard",
-    "standard",
+    "micro",
     "deep",
     "standard",
-    "micro",
+    "standard",
     "deep",
     "standard",
     "standard",
@@ -423,6 +443,28 @@
   ],
   "chapter_planner_warnings": [
     "arc_role_distribution[long] challenge=8 outside target [3,5]"
+  ],
+  "chapter_bestseller_structures": [
+    "gladwell_spiral",
+    "gladwell_spiral",
+    "brene_brown",
+    "letter",
+    "contrast_engine",
+    "case_file",
+    "gladwell_spiral",
+    "myth_killer",
+    "letter",
+    "gladwell_spiral",
+    "myth_killer",
+    "gladwell_spiral",
+    "zoom_lens",
+    "van_der_kolk",
+    "permission_slip",
+    "ancestor",
+    "myth_killer",
+    "myth_killer",
+    "permission_slip",
+    "gladwell_spiral"
   ],
   "narrator_id": "default_narrator",
   "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
@@ -486,27 +528,32 @@
     {
       "chapter_index": 0,
       "slot_index": 2,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 0,
       "slot_index": 4,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
-      "phrase": "Staying the same has a price."
+      "phrase": "The cost of not changing is already here."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 4,
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
-      "phrase": "Staying the same has a price."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 2,
       "slot_index": 4,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 3,
@@ -524,22 +571,17 @@
       "phrase": "What does it cost you to keep going like this?"
     },
     {
-      "chapter_index": 5,
-      "slot_index": 2,
-      "phrase": "What does it cost you to keep going like this?"
-    },
-    {
-      "chapter_index": 5,
+      "chapter_index": 4,
       "slot_index": 4,
       "phrase": "Staying the same has a price."
     },
     {
-      "chapter_index": 6,
+      "chapter_index": 5,
       "slot_index": 2,
-      "phrase": "Staying the same has a price."
+      "phrase": "The cost of not changing is already here."
     },
     {
-      "chapter_index": 6,
+      "chapter_index": 5,
       "slot_index": 4,
       "phrase": "What does it cost you to keep going like this?"
     }
@@ -549,13 +591,13 @@
       "chapter_index": 0,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "The body holds what the mind can't yet process."
+      "text": "You don't have to name it to feel it."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Grounding isn't escape\u2014it's presence."
+      "text": "Regulation is a skill, not a trait."
     },
     {
       "chapter_index": 2,
@@ -567,19 +609,19 @@
       "chapter_index": 3,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "The body holds what the mind can't yet process."
+      "text": "Sensation before story."
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Your body is your ally."
+      "text": "Regulation is a skill, not a trait."
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "Let the exhale be longer than the inhale."
+      "text": "Feel your feet on the floor."
     },
     {
       "chapter_index": 6,
@@ -591,7 +633,7 @@
       "chapter_index": 7,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Your body is your ally."
+      "text": "Regulation is a skill, not a trait."
     },
     {
       "chapter_index": 8,
@@ -609,31 +651,31 @@
       "chapter_index": 10,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Regulation is a skill, not a trait."
+      "text": "Grounding isn't escape\u2014it's presence."
     },
     {
       "chapter_index": 11,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "Let the exhale be longer than the inhale."
+      "text": "Where do you feel this in your body?"
     },
     {
       "chapter_index": 12,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "The body holds what the mind can't yet process."
+      "text": "Sensation before story."
     },
     {
       "chapter_index": 13,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Grounding isn't escape\u2014it's presence."
+      "text": "Regulation is a skill, not a trait."
     },
     {
       "chapter_index": 14,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "Let the exhale be longer than the inhale."
+      "text": "Feel your feet on the floor."
     },
     {
       "chapter_index": 15,
@@ -645,19 +687,19 @@
       "chapter_index": 16,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Regulation is a skill, not a trait."
+      "text": "Your body is your ally."
     },
     {
       "chapter_index": 17,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "Where do you feel this in your body?"
+      "text": "Let the exhale be longer than the inhale."
     },
     {
       "chapter_index": 18,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "The body holds what the mind can't yet process."
+      "text": "Sensation before story."
     },
     {
       "chapter_index": 19,

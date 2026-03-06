@@ -1,6 +1,6 @@
 {
-  "plan_hash": "9a79edc20123a4dcd3788bb77ba4b382",
-  "plan_id": "9a79edc20123a4dcd3788bb77ba4b382",
+  "plan_hash": "db600012402e6d39a18fae5225c4a89d",
+  "plan_id": "db600012402e6d39a18fae5225c4a89d",
   "chapter_slot_sequence": [
     [
       "HOOK",
@@ -13,6 +13,60 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
       "INTEGRATION"
     ],
     [
@@ -34,56 +88,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
+      "TAKEAWAY",
       "INTEGRATION",
-      "STORY"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION",
-      "STORY"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION",
-      "STORY"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "INTEGRATION",
-      "STORY"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "INTEGRATION"
+      "THREAD"
     ],
     [
       "HOOK",
@@ -118,7 +125,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -143,103 +152,112 @@
     ]
   ],
   "atom_ids": [
-    "gen_alpha_students_imposter_syndrome_HOOK_v03",
-    "gen_alpha_students_imposter_syndrome_SCENE_v03",
-    "gen_alpha_students_imposter_syndrome_REFLECTION_v19",
-    "gen_alpha_students_imposter_syndrome_INTEGRATION_v03",
-    "gen_alpha_students_imposter_syndrome_shame_EMBODIMENT_v04",
-    "gen_alpha_students_imposter_syndrome_HOOK_v06",
-    "gen_alpha_students_imposter_syndrome_SCENE_v14",
-    "gen_alpha_students_imposter_syndrome_REFLECTION_v06",
-    "gen_alpha_students_imposter_syndrome_INTEGRATION_v05",
-    "gen_alpha_students_imposter_syndrome_HOOK_v25",
-    "gen_alpha_students_imposter_syndrome_SCENE_v29",
-    "gen_alpha_students_imposter_syndrome_REFLECTION_v20",
-    "gen_alpha_students_imposter_syndrome_EXERCISE_v03",
-    "gen_alpha_students_imposter_syndrome_INTEGRATION_v01",
-    "gen_alpha_students_imposter_syndrome_shame_RECOGNITION_v01",
-    "gen_alpha_students_imposter_syndrome_HOOK_v27",
-    "gen_alpha_students_imposter_syndrome_SCENE_v26",
-    "gen_alpha_students_imposter_syndrome_REFLECTION_v16",
-    "gen_alpha_students_imposter_syndrome_INTEGRATION_v07",
-    "gen_alpha_students_imposter_syndrome_shame_RECOGNITION_v16",
-    "gen_alpha_students_imposter_syndrome_HOOK_v13",
-    "gen_alpha_students_imposter_syndrome_SCENE_v09",
-    "gen_alpha_students_imposter_syndrome_REFLECTION_v21",
-    "placeholder:INTEGRATION:ch4:slot3",
-    "gen_alpha_students_imposter_syndrome_HOOK_v15",
-    "gen_alpha_students_imposter_syndrome_SCENE_v22",
-    "gen_alpha_students_imposter_syndrome_REFLECTION_v18",
-    "gen_alpha_students_imposter_syndrome_EXERCISE_v02",
-    "placeholder:INTEGRATION:ch5:slot4",
-    "gen_alpha_students_imposter_syndrome_HOOK_v10",
-    "gen_alpha_students_imposter_syndrome_SCENE_v19",
-    "gen_alpha_students_imposter_syndrome_REFLECTION_v11",
-    "placeholder:INTEGRATION:ch6:slot3",
-    "gen_alpha_students_imposter_syndrome_shame_RECOGNITION_v20",
-    "gen_alpha_students_imposter_syndrome_HOOK_v26",
-    "gen_alpha_students_imposter_syndrome_SCENE_v12",
-    "gen_alpha_students_imposter_syndrome_REFLECTION_v24",
-    "placeholder:INTEGRATION:ch7:slot3",
-    "gen_alpha_students_imposter_syndrome_HOOK_v14",
+    "gen_alpha_students_imposter_syndrome_HOOK_v17",
     "gen_alpha_students_imposter_syndrome_SCENE_v07",
-    "gen_alpha_students_imposter_syndrome_REFLECTION_v07",
+    "gen_alpha_students_imposter_syndrome_REFLECTION_v11",
+    "gen_alpha_students_imposter_syndrome_INTEGRATION_v05",
+    "gen_alpha_students_imposter_syndrome_comparison_EMBODIMENT_v02",
+    "gen_alpha_students_imposter_syndrome_HOOK_v27",
+    "gen_alpha_students_imposter_syndrome_SCENE_v06",
+    "gen_alpha_students_imposter_syndrome_REFLECTION_v03",
+    "placeholder:TAKEAWAY:ch1:slot3",
+    "gen_alpha_students_imposter_syndrome_INTEGRATION_v01",
+    "placeholder:THREAD:ch1:slot5",
+    "gen_alpha_students_imposter_syndrome_HOOK_v20",
+    "gen_alpha_students_imposter_syndrome_SCENE_v09",
+    "gen_alpha_students_imposter_syndrome_REFLECTION_v22",
+    "gen_alpha_students_imposter_syndrome_EXERCISE_v02",
+    "gen_alpha_students_imposter_syndrome_INTEGRATION_v03",
+    "gen_alpha_students_imposter_syndrome_shame_RECOGNITION_v15",
+    "gen_alpha_students_imposter_syndrome_HOOK_v23",
+    "gen_alpha_students_imposter_syndrome_SCENE_v27",
+    "gen_alpha_students_imposter_syndrome_REFLECTION_v05",
+    "gen_alpha_students_imposter_syndrome_INTEGRATION_v07",
+    "gen_alpha_students_imposter_syndrome_comparison_RECOGNITION_v18",
+    "gen_alpha_students_imposter_syndrome_HOOK_v26",
+    "gen_alpha_students_imposter_syndrome_SCENE_v30",
+    "gen_alpha_students_imposter_syndrome_REFLECTION_v08",
+    "placeholder:TAKEAWAY:ch4:slot3",
+    "placeholder:INTEGRATION:ch4:slot4",
+    "placeholder:THREAD:ch4:slot5",
+    "gen_alpha_students_imposter_syndrome_HOOK_v14",
+    "gen_alpha_students_imposter_syndrome_SCENE_v15",
+    "gen_alpha_students_imposter_syndrome_REFLECTION_v10",
     "gen_alpha_students_imposter_syndrome_EXERCISE_v01",
+    "placeholder:INTEGRATION:ch5:slot4",
+    "gen_alpha_students_imposter_syndrome_HOOK_v29",
+    "gen_alpha_students_imposter_syndrome_SCENE_v01",
+    "gen_alpha_students_imposter_syndrome_REFLECTION_v25",
+    "placeholder:INTEGRATION:ch6:slot3",
+    "gen_alpha_students_imposter_syndrome_comparison_TURNING_POINT_v05",
+    "gen_alpha_students_imposter_syndrome_HOOK_v25",
+    "gen_alpha_students_imposter_syndrome_SCENE_v22",
+    "gen_alpha_students_imposter_syndrome_REFLECTION_v01",
+    "placeholder:TAKEAWAY:ch7:slot3",
+    "placeholder:INTEGRATION:ch7:slot4",
+    "placeholder:THREAD:ch7:slot5",
+    "gen_alpha_students_imposter_syndrome_HOOK_v06",
+    "gen_alpha_students_imposter_syndrome_SCENE_v03",
+    "gen_alpha_students_imposter_syndrome_REFLECTION_v23",
+    "gen_alpha_students_imposter_syndrome_EXERCISE_v03",
     "placeholder:INTEGRATION:ch8:slot4",
-    "gen_alpha_students_imposter_syndrome_shame_RECOGNITION_v24",
-    "gen_alpha_students_imposter_syndrome_HOOK_v07",
-    "gen_alpha_students_imposter_syndrome_SCENE_v05",
-    "gen_alpha_students_imposter_syndrome_REFLECTION_v26",
+    "gen_alpha_students_imposter_syndrome_HOOK_v02",
+    "gen_alpha_students_imposter_syndrome_SCENE_v23",
+    "gen_alpha_students_imposter_syndrome_REFLECTION_v27",
     "placeholder:EXERCISE:ch9:slot3",
     "placeholder:INTEGRATION:ch9:slot4",
-    "gen_alpha_students_imposter_syndrome_shame_RECOGNITION_v25",
-    "gen_alpha_students_imposter_syndrome_HOOK_v02",
-    "gen_alpha_students_imposter_syndrome_SCENE_v30",
-    "gen_alpha_students_imposter_syndrome_REFLECTION_v25",
+    "gen_alpha_students_imposter_syndrome_comparison_RECOGNITION_v20",
+    "gen_alpha_students_imposter_syndrome_HOOK_v09",
+    "gen_alpha_students_imposter_syndrome_SCENE_v18",
+    "gen_alpha_students_imposter_syndrome_REFLECTION_v12",
     "placeholder:INTEGRATION:ch10:slot3",
-    "gen_alpha_students_imposter_syndrome_comparison_RECOGNITION_v09",
-    "gen_alpha_students_imposter_syndrome_HOOK_v05",
-    "gen_alpha_students_imposter_syndrome_SCENE_v20",
-    "gen_alpha_students_imposter_syndrome_REFLECTION_v02",
-    "placeholder:INTEGRATION:ch11:slot3",
-    "gen_alpha_students_imposter_syndrome_HOOK_v21",
-    "gen_alpha_students_imposter_syndrome_SCENE_v01",
+    "gen_alpha_students_imposter_syndrome_shame_RECOGNITION_v10",
+    "gen_alpha_students_imposter_syndrome_HOOK_v18",
+    "gen_alpha_students_imposter_syndrome_SCENE_v10",
     "gen_alpha_students_imposter_syndrome_REFLECTION_v28",
+    "placeholder:TAKEAWAY:ch11:slot3",
+    "placeholder:INTEGRATION:ch11:slot4",
+    "placeholder:THREAD:ch11:slot5",
+    "gen_alpha_students_imposter_syndrome_HOOK_v03",
+    "gen_alpha_students_imposter_syndrome_SCENE_v05",
+    "gen_alpha_students_imposter_syndrome_REFLECTION_v30",
     "placeholder:EXERCISE:ch12:slot3",
     "placeholder:INTEGRATION:ch12:slot4",
-    "gen_alpha_students_imposter_syndrome_HOOK_v22",
-    "gen_alpha_students_imposter_syndrome_SCENE_v13",
-    "gen_alpha_students_imposter_syndrome_REFLECTION_v09",
+    "gen_alpha_students_imposter_syndrome_HOOK_v04",
+    "gen_alpha_students_imposter_syndrome_SCENE_v11",
+    "gen_alpha_students_imposter_syndrome_REFLECTION_v06",
     "placeholder:EXERCISE:ch13:slot3",
     "placeholder:INTEGRATION:ch13:slot4",
-    "gen_alpha_students_imposter_syndrome_comparison_RECOGNITION_v08",
-    "gen_alpha_students_imposter_syndrome_HOOK_v12",
-    "gen_alpha_students_imposter_syndrome_SCENE_v04",
-    "gen_alpha_students_imposter_syndrome_REFLECTION_v17",
+    "gen_alpha_students_imposter_syndrome_shame_RECOGNITION_v08",
+    "gen_alpha_students_imposter_syndrome_HOOK_v15",
+    "gen_alpha_students_imposter_syndrome_SCENE_v24",
+    "gen_alpha_students_imposter_syndrome_REFLECTION_v26",
     "placeholder:EXERCISE:ch14:slot3",
     "placeholder:INTEGRATION:ch14:slot4",
-    "gen_alpha_students_imposter_syndrome_HOOK_v19",
-    "gen_alpha_students_imposter_syndrome_SCENE_v08",
-    "gen_alpha_students_imposter_syndrome_REFLECTION_v10",
+    "gen_alpha_students_imposter_syndrome_HOOK_v30",
+    "gen_alpha_students_imposter_syndrome_SCENE_v25",
+    "gen_alpha_students_imposter_syndrome_REFLECTION_v19",
     "placeholder:EXERCISE:ch15:slot3",
     "placeholder:INTEGRATION:ch15:slot4",
-    "gen_alpha_students_imposter_syndrome_HOOK_v01",
-    "gen_alpha_students_imposter_syndrome_SCENE_v21",
-    "gen_alpha_students_imposter_syndrome_REFLECTION_v15",
-    "placeholder:INTEGRATION:ch16:slot3",
-    "gen_alpha_students_imposter_syndrome_HOOK_v16",
-    "gen_alpha_students_imposter_syndrome_SCENE_v23",
-    "gen_alpha_students_imposter_syndrome_REFLECTION_v13",
-    "placeholder:INTEGRATION:ch17:slot3",
-    "gen_alpha_students_imposter_syndrome_comparison_TURNING_POINT_v05",
-    "gen_alpha_students_imposter_syndrome_HOOK_v09",
-    "gen_alpha_students_imposter_syndrome_SCENE_v02",
+    "gen_alpha_students_imposter_syndrome_HOOK_v22",
+    "gen_alpha_students_imposter_syndrome_SCENE_v13",
+    "gen_alpha_students_imposter_syndrome_REFLECTION_v02",
+    "placeholder:TAKEAWAY:ch16:slot3",
+    "placeholder:INTEGRATION:ch16:slot4",
+    "placeholder:THREAD:ch16:slot5",
+    "gen_alpha_students_imposter_syndrome_HOOK_v08",
+    "gen_alpha_students_imposter_syndrome_SCENE_v28",
     "gen_alpha_students_imposter_syndrome_REFLECTION_v29",
+    "placeholder:INTEGRATION:ch17:slot3",
+    "gen_alpha_students_imposter_syndrome_shame_RECOGNITION_v24",
+    "gen_alpha_students_imposter_syndrome_HOOK_v07",
+    "gen_alpha_students_imposter_syndrome_SCENE_v29",
+    "gen_alpha_students_imposter_syndrome_REFLECTION_v17",
     "placeholder:EXERCISE:ch18:slot3",
     "placeholder:INTEGRATION:ch18:slot4",
-    "gen_alpha_students_imposter_syndrome_HOOK_v18",
-    "gen_alpha_students_imposter_syndrome_SCENE_v24",
-    "gen_alpha_students_imposter_syndrome_REFLECTION_v27",
+    "gen_alpha_students_imposter_syndrome_HOOK_v11",
+    "gen_alpha_students_imposter_syndrome_SCENE_v21",
+    "gen_alpha_students_imposter_syndrome_REFLECTION_v18",
     "placeholder:EXERCISE:ch19:slot3",
     "placeholder:INTEGRATION:ch19:slot4"
   ],
@@ -252,7 +270,7 @@
     null,
     3,
     null,
-    3,
+    null,
     3,
     4,
     null,
@@ -300,7 +318,7 @@
     18,
     19
   ],
-  "slot_sig": "MOD_pocket_guide:ab7b86c03f0c6766",
+  "slot_sig": "MOD_pocket_guide:7bfd1a9f90fd4bf9",
   "format_id": "MOD_pocket_guide",
   "runtime_format_id": "",
   "output_format_id": "pocket_guide",
@@ -342,7 +360,7 @@
     "practice_heavy",
     "challenge_cost",
     "legacy_uniform",
-    "deepen_mechanism",
+    "practice_heavy",
     "deepen_mechanism",
     "challenge_cost",
     "legacy_uniform",
@@ -364,7 +382,7 @@
     "full",
     "none",
     "none",
-    "micro",
+    "full",
     "micro",
     "none",
     "none",
@@ -386,7 +404,7 @@
     "light",
     "heavy",
     "standard",
-    "standard",
+    "light",
     "standard",
     "heavy",
     "standard",
@@ -408,7 +426,7 @@
     "micro",
     "deep",
     "standard",
-    "standard",
+    "micro",
     "standard",
     "deep",
     "standard",
@@ -423,6 +441,28 @@
   ],
   "chapter_planner_warnings": [
     "arc_role_distribution[long] challenge=8 outside target [3,5]"
+  ],
+  "chapter_bestseller_structures": [
+    "letter",
+    "promise_engine",
+    "case_file",
+    "atomic",
+    "case_file",
+    "ancestor",
+    "letter",
+    "brene_brown",
+    "brene_brown",
+    "permission_slip",
+    "ancestor",
+    "ancestor",
+    "ancestor",
+    "brene_brown",
+    "letter",
+    "case_file",
+    "case_file",
+    "gladwell_spiral",
+    "promise_engine",
+    "zoom_lens"
   ],
   "narrator_id": "default_narrator",
   "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
@@ -486,7 +526,7 @@
     {
       "chapter_index": 0,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 0,
@@ -496,27 +536,32 @@
     {
       "chapter_index": 1,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
-      "chapter_index": 2,
-      "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
-    },
-    {
-      "chapter_index": 2,
+      "chapter_index": 1,
       "slot_index": 4,
-      "phrase": "Staying the same has a price."
+      "phrase": "The cost of not changing is already here."
     },
     {
-      "chapter_index": 3,
+      "chapter_index": 2,
       "slot_index": 2,
       "phrase": "What does it cost you to keep going like this?"
     },
     {
+      "chapter_index": 2,
+      "slot_index": 4,
+      "phrase": "The cost of not changing is already here."
+    },
+    {
+      "chapter_index": 3,
+      "slot_index": 2,
+      "phrase": "Staying the same has a price."
+    },
+    {
       "chapter_index": 3,
       "slot_index": 4,
-      "phrase": "Staying the same has a price."
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 4,
@@ -524,6 +569,11 @@
       "phrase": "Staying the same has a price."
     },
     {
+      "chapter_index": 4,
+      "slot_index": 4,
+      "phrase": "The cost of not changing is already here."
+    },
+    {
       "chapter_index": 5,
       "slot_index": 2,
       "phrase": "What does it cost you to keep going like this?"
@@ -531,17 +581,7 @@
     {
       "chapter_index": 5,
       "slot_index": 4,
-      "phrase": "The cost of not changing is already here."
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 2,
-      "phrase": "Staying the same has a price."
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 4,
-      "phrase": "Staying the same has a price."
+      "phrase": "What does it cost you to keep going like this?"
     }
   ],
   "reframe_injections": [
@@ -549,7 +589,7 @@
       "chapter_index": 0,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to do it all at once."
+      "text": "Progress isn't linear."
     },
     {
       "chapter_index": 1,
@@ -561,19 +601,19 @@
       "chapter_index": 2,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "You're not behind; you're exactly where you are."
+      "text": "What if this moment could be different?"
     },
     {
       "chapter_index": 3,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
+      "text": "Progress isn't linear."
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Safety comes before growth."
+      "text": "Change happens in relationship, not in isolation."
     },
     {
       "chapter_index": 5,
@@ -585,7 +625,7 @@
       "chapter_index": 6,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Progress isn't linear."
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
     },
     {
       "chapter_index": 7,
@@ -597,13 +637,13 @@
       "chapter_index": 8,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "One breath can reset the script."
+      "text": "What if this moment could be different?"
     },
     {
       "chapter_index": 9,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
+      "text": "Progress isn't linear."
     },
     {
       "chapter_index": 10,
@@ -615,7 +655,7 @@
       "chapter_index": 11,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "You're not behind; you're exactly where you are."
+      "text": "One breath can reset the script."
     },
     {
       "chapter_index": 12,
@@ -627,19 +667,19 @@
       "chapter_index": 13,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Safety comes before growth."
+      "text": "Change happens in relationship, not in isolation."
     },
     {
       "chapter_index": 14,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "You're not behind; you're exactly where you are."
+      "text": "What if this moment could be different?"
     },
     {
       "chapter_index": 15,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to do it all at once."
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
     },
     {
       "chapter_index": 16,
@@ -651,7 +691,7 @@
       "chapter_index": 17,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "What if this moment could be different?"
+      "text": "You're not behind; you're exactly where you are."
     },
     {
       "chapter_index": 18,
@@ -663,17 +703,17 @@
       "chapter_index": 19,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Safety comes before growth."
+      "text": "Your nervous system is doing its best."
     }
   ],
   "freebie_bundle": [
-    "anxiety_assessment_v1"
+    "breath_timer_v1"
   ],
-  "cta_template_id": "assessment_forward",
-  "freebie_slug": "imposter-syndrome-gen-alpha-students-anxiety-assessment-v1",
+  "cta_template_id": "tool_forward",
+  "freebie_slug": "imposter-syndrome-gen-alpha-students-breath-timer-v1",
   "freebie_bundle_with_formats": [
     {
-      "freebie_id": "anxiety_assessment_v1",
+      "freebie_id": "breath_timer_v1",
       "formats": [
         "html"
       ]

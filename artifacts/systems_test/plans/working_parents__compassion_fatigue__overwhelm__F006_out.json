@@ -1,6 +1,6 @@
 {
-  "plan_hash": "335391d6c9d77001283bbe59d6b5ab8d",
-  "plan_id": "335391d6c9d77001283bbe59d6b5ab8d",
+  "plan_hash": "a3a265de54f4d64815f6dd3553e5b971",
+  "plan_id": "a3a265de54f4d64815f6dd3553e5b971",
   "chapter_slot_sequence": [
     [
       "HOOK",
@@ -13,7 +13,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -34,7 +36,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -54,7 +58,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -83,7 +89,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -118,7 +126,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -143,103 +153,113 @@
     ]
   ],
   "atom_ids": [
+    "working_parents_compassion_fatigue_HOOK_v16",
+    "working_parents_compassion_fatigue_SCENE_v01",
+    "working_parents_compassion_fatigue_REFLECTION_v03",
+    "working_parents_compassion_fatigue_INTEGRATION_v02",
+    "working_parents_compassion_fatigue_grief_EMBODIMENT_v04",
+    "working_parents_compassion_fatigue_HOOK_v10",
+    "working_parents_compassion_fatigue_SCENE_v02",
+    "working_parents_compassion_fatigue_REFLECTION_v28",
+    "placeholder:TAKEAWAY:ch1:slot3",
+    "working_parents_compassion_fatigue_INTEGRATION_v07",
+    "placeholder:THREAD:ch1:slot5",
+    "working_parents_compassion_fatigue_HOOK_v25",
+    "working_parents_compassion_fatigue_SCENE_v03",
+    "working_parents_compassion_fatigue_REFLECTION_v20",
+    "working_parents_compassion_fatigue_EXERCISE_v02",
+    "working_parents_compassion_fatigue_INTEGRATION_v06",
+    "working_parents_compassion_fatigue_watcher_RECOGNITION_v14",
     "working_parents_compassion_fatigue_HOOK_v05",
     "working_parents_compassion_fatigue_SCENE_v04",
-    "working_parents_compassion_fatigue_REFLECTION_v09",
+    "working_parents_compassion_fatigue_REFLECTION_v13",
     "working_parents_compassion_fatigue_INTEGRATION_v01",
-    "working_parents_compassion_fatigue_watcher_EMBODIMENT_v02",
-    "working_parents_compassion_fatigue_HOOK_v04",
-    "working_parents_compassion_fatigue_SCENE_v01",
-    "working_parents_compassion_fatigue_REFLECTION_v08",
-    "working_parents_compassion_fatigue_INTEGRATION_v04",
-    "working_parents_compassion_fatigue_HOOK_v15",
-    "working_parents_compassion_fatigue_SCENE_v03",
-    "working_parents_compassion_fatigue_REFLECTION_v05",
-    "working_parents_compassion_fatigue_EXERCISE_v03",
-    "working_parents_compassion_fatigue_INTEGRATION_v06",
-    "working_parents_compassion_fatigue_overwhelm_RECOGNITION_v17",
-    "working_parents_compassion_fatigue_HOOK_v23",
-    "working_parents_compassion_fatigue_SCENE_v02",
-    "working_parents_compassion_fatigue_REFLECTION_v16",
-    "working_parents_compassion_fatigue_INTEGRATION_v05",
     "working_parents_compassion_fatigue_grief_RECOGNITION_v17",
-    "working_parents_compassion_fatigue_HOOK_v03",
+    "working_parents_compassion_fatigue_HOOK_v11",
     "placeholder:SCENE:ch4:slot1",
-    "working_parents_compassion_fatigue_REFLECTION_v02",
-    "working_parents_compassion_fatigue_INTEGRATION_v02",
-    "working_parents_compassion_fatigue_HOOK_v16",
+    "working_parents_compassion_fatigue_REFLECTION_v18",
+    "placeholder:TAKEAWAY:ch4:slot3",
+    "working_parents_compassion_fatigue_INTEGRATION_v05",
+    "placeholder:THREAD:ch4:slot5",
+    "working_parents_compassion_fatigue_HOOK_v08",
     "placeholder:SCENE:ch5:slot1",
-    "working_parents_compassion_fatigue_REFLECTION_v27",
-    "working_parents_compassion_fatigue_EXERCISE_v02",
+    "working_parents_compassion_fatigue_REFLECTION_v11",
+    "working_parents_compassion_fatigue_EXERCISE_v01",
     "working_parents_compassion_fatigue_INTEGRATION_v03",
-    "working_parents_compassion_fatigue_HOOK_v20",
+    "working_parents_compassion_fatigue_HOOK_v03",
     "placeholder:SCENE:ch6:slot1",
-    "working_parents_compassion_fatigue_REFLECTION_v22",
-    "working_parents_compassion_fatigue_INTEGRATION_v07",
-    "working_parents_compassion_fatigue_grief_RECOGNITION_v20",
+    "working_parents_compassion_fatigue_REFLECTION_v07",
+    "working_parents_compassion_fatigue_INTEGRATION_v04",
+    "working_parents_compassion_fatigue_watcher_TURNING_POINT_v03",
     "working_parents_compassion_fatigue_HOOK_v13",
     "placeholder:SCENE:ch7:slot1",
-    "working_parents_compassion_fatigue_REFLECTION_v26",
-    "placeholder:INTEGRATION:ch7:slot3",
-    "working_parents_compassion_fatigue_HOOK_v01",
+    "working_parents_compassion_fatigue_REFLECTION_v14",
+    "placeholder:TAKEAWAY:ch7:slot3",
+    "placeholder:INTEGRATION:ch7:slot4",
+    "placeholder:THREAD:ch7:slot5",
+    "working_parents_compassion_fatigue_HOOK_v26",
     "placeholder:SCENE:ch8:slot1",
-    "working_parents_compassion_fatigue_REFLECTION_v20",
-    "working_parents_compassion_fatigue_EXERCISE_v01",
+    "working_parents_compassion_fatigue_REFLECTION_v29",
+    "working_parents_compassion_fatigue_EXERCISE_v03",
     "placeholder:INTEGRATION:ch8:slot4",
-    "working_parents_compassion_fatigue_overwhelm_TURNING_POINT_v05",
+    "working_parents_compassion_fatigue_grief_RECOGNITION_v20",
     "working_parents_compassion_fatigue_HOOK_v09",
     "placeholder:SCENE:ch9:slot1",
-    "working_parents_compassion_fatigue_REFLECTION_v12",
+    "working_parents_compassion_fatigue_REFLECTION_v05",
     "placeholder:EXERCISE:ch9:slot3",
     "placeholder:INTEGRATION:ch9:slot4",
-    "working_parents_compassion_fatigue_watcher_RECOGNITION_v07",
-    "working_parents_compassion_fatigue_HOOK_v02",
+    "working_parents_compassion_fatigue_overwhelm_TURNING_POINT_v05",
+    "working_parents_compassion_fatigue_HOOK_v20",
     "placeholder:SCENE:ch10:slot1",
-    "working_parents_compassion_fatigue_REFLECTION_v13",
+    "working_parents_compassion_fatigue_REFLECTION_v06",
     "placeholder:INTEGRATION:ch10:slot3",
-    "working_parents_compassion_fatigue_grief_RECOGNITION_v09",
+    "working_parents_compassion_fatigue_watcher_MECHANISM_PROOF_v02",
     "working_parents_compassion_fatigue_HOOK_v28",
     "placeholder:SCENE:ch11:slot1",
-    "working_parents_compassion_fatigue_REFLECTION_v14",
-    "placeholder:INTEGRATION:ch11:slot3",
-    "working_parents_compassion_fatigue_HOOK_v08",
+    "working_parents_compassion_fatigue_REFLECTION_v16",
+    "placeholder:TAKEAWAY:ch11:slot3",
+    "placeholder:INTEGRATION:ch11:slot4",
+    "placeholder:THREAD:ch11:slot5",
+    "working_parents_compassion_fatigue_HOOK_v15",
     "placeholder:SCENE:ch12:slot1",
-    "working_parents_compassion_fatigue_REFLECTION_v10",
+    "working_parents_compassion_fatigue_REFLECTION_v24",
     "placeholder:EXERCISE:ch12:slot3",
     "placeholder:INTEGRATION:ch12:slot4",
-    "working_parents_compassion_fatigue_HOOK_v26",
+    "working_parents_compassion_fatigue_HOOK_v21",
     "placeholder:SCENE:ch13:slot1",
-    "working_parents_compassion_fatigue_REFLECTION_v11",
+    "working_parents_compassion_fatigue_REFLECTION_v23",
     "placeholder:EXERCISE:ch13:slot3",
     "placeholder:INTEGRATION:ch13:slot4",
-    "working_parents_compassion_fatigue_grief_RECOGNITION_v10",
-    "working_parents_compassion_fatigue_HOOK_v19",
+    "working_parents_compassion_fatigue_overwhelm_RECOGNITION_v10",
+    "working_parents_compassion_fatigue_HOOK_v23",
     "placeholder:SCENE:ch14:slot1",
-    "working_parents_compassion_fatigue_REFLECTION_v25",
+    "working_parents_compassion_fatigue_REFLECTION_v08",
     "placeholder:EXERCISE:ch14:slot3",
     "placeholder:INTEGRATION:ch14:slot4",
-    "working_parents_compassion_fatigue_HOOK_v11",
+    "working_parents_compassion_fatigue_HOOK_v06",
     "placeholder:SCENE:ch15:slot1",
-    "working_parents_compassion_fatigue_REFLECTION_v29",
+    "working_parents_compassion_fatigue_REFLECTION_v21",
     "placeholder:EXERCISE:ch15:slot3",
     "placeholder:INTEGRATION:ch15:slot4",
-    "working_parents_compassion_fatigue_HOOK_v07",
+    "working_parents_compassion_fatigue_HOOK_v22",
     "placeholder:SCENE:ch16:slot1",
-    "working_parents_compassion_fatigue_REFLECTION_v24",
-    "placeholder:INTEGRATION:ch16:slot3",
-    "working_parents_compassion_fatigue_HOOK_v10",
+    "working_parents_compassion_fatigue_REFLECTION_v30",
+    "placeholder:TAKEAWAY:ch16:slot3",
+    "placeholder:INTEGRATION:ch16:slot4",
+    "placeholder:THREAD:ch16:slot5",
+    "working_parents_compassion_fatigue_HOOK_v29",
     "placeholder:SCENE:ch17:slot1",
-    "working_parents_compassion_fatigue_REFLECTION_v17",
+    "working_parents_compassion_fatigue_REFLECTION_v27",
     "placeholder:INTEGRATION:ch17:slot3",
-    "working_parents_compassion_fatigue_overwhelm_TURNING_POINT_v03",
-    "working_parents_compassion_fatigue_HOOK_v18",
+    "working_parents_compassion_fatigue_watcher_TURNING_POINT_v01",
+    "working_parents_compassion_fatigue_HOOK_v04",
     "placeholder:SCENE:ch18:slot1",
-    "working_parents_compassion_fatigue_REFLECTION_v03",
+    "working_parents_compassion_fatigue_REFLECTION_v19",
     "placeholder:EXERCISE:ch18:slot3",
     "placeholder:INTEGRATION:ch18:slot4",
-    "working_parents_compassion_fatigue_HOOK_v29",
+    "working_parents_compassion_fatigue_HOOK_v18",
     "placeholder:SCENE:ch19:slot1",
-    "working_parents_compassion_fatigue_REFLECTION_v06",
+    "working_parents_compassion_fatigue_REFLECTION_v17",
     "placeholder:EXERCISE:ch19:slot3",
     "placeholder:INTEGRATION:ch19:slot4"
   ],
@@ -300,7 +320,7 @@
     18,
     19
   ],
-  "slot_sig": "MOD_pocket_guide:ab7b86c03f0c6766",
+  "slot_sig": "MOD_pocket_guide:1a5338ab551ae636",
   "format_id": "MOD_pocket_guide",
   "runtime_format_id": "",
   "output_format_id": "pocket_guide",
@@ -424,6 +444,28 @@
   "chapter_planner_warnings": [
     "arc_role_distribution[long] challenge=8 outside target [3,5]"
   ],
+  "chapter_bestseller_structures": [
+    "letter",
+    "permission_slip",
+    "letter",
+    "atomic",
+    "case_file",
+    "atomic",
+    "case_file",
+    "myth_killer",
+    "promise_engine",
+    "van_der_kolk",
+    "atomic",
+    "brene_brown",
+    "case_file",
+    "zoom_lens",
+    "permission_slip",
+    "zoom_lens",
+    "van_der_kolk",
+    "van_der_kolk",
+    "promise_engine",
+    "promise_engine"
+  ],
   "narrator_id": "default_narrator",
   "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
   "cover_art_style_hint": "contemplative",
@@ -486,22 +528,27 @@
     {
       "chapter_index": 0,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 0,
       "slot_index": 4,
-      "phrase": "Staying the same has a price."
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "The cost of not changing is already here."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 4,
+      "phrase": "Staying the same has a price."
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 2,
@@ -521,27 +568,22 @@
     {
       "chapter_index": 4,
       "slot_index": 2,
-      "phrase": "What does it cost you to keep going like this?"
-    },
-    {
-      "chapter_index": 5,
-      "slot_index": 2,
       "phrase": "Staying the same has a price."
     },
     {
-      "chapter_index": 5,
+      "chapter_index": 4,
       "slot_index": 4,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "The cost of not changing is already here."
     },
     {
-      "chapter_index": 6,
+      "chapter_index": 5,
       "slot_index": 2,
       "phrase": "The cost of not changing is already here."
     },
     {
-      "chapter_index": 6,
+      "chapter_index": 5,
       "slot_index": 4,
-      "phrase": "Staying the same has a price."
+      "phrase": "What does it cost you to keep going like this?"
     }
   ],
   "reframe_injections": [
@@ -549,19 +591,19 @@
       "chapter_index": 0,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Some things take the time they take."
+      "text": "Rest is part of the work."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Stability is a practice, not a destination."
+      "text": "You've already survived every hard moment so far."
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "What would support look like right now?"
+      "text": "No need to push through."
     },
     {
       "chapter_index": 3,
@@ -573,13 +615,13 @@
       "chapter_index": 4,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Being with is sometimes enough."
+      "text": "Stability is a practice, not a destination."
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "What would support look like right now?"
+      "text": "No need to push through."
     },
     {
       "chapter_index": 6,
@@ -603,19 +645,19 @@
       "chapter_index": 9,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to be ready to begin."
+      "text": "Rest is part of the work."
     },
     {
       "chapter_index": 10,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Stability is a practice, not a destination."
+      "text": "Being with is sometimes enough."
     },
     {
       "chapter_index": 11,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "You can pause here."
+      "text": "No need to push through."
     },
     {
       "chapter_index": 12,
@@ -627,7 +669,7 @@
       "chapter_index": 13,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Being with is sometimes enough."
+      "text": "You've already survived every hard moment so far."
     },
     {
       "chapter_index": 14,
@@ -639,25 +681,25 @@
       "chapter_index": 15,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to be ready to begin."
+      "text": "Rest is part of the work."
     },
     {
       "chapter_index": 16,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Being with is sometimes enough."
+      "text": "Stability is a practice, not a destination."
     },
     {
       "chapter_index": 17,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "What would support look like right now?"
+      "text": "No need to push through."
     },
     {
       "chapter_index": 18,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to be ready to begin."
+      "text": "Some things take the time they take."
     },
     {
       "chapter_index": 19,

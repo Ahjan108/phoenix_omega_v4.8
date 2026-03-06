@@ -1,6 +1,6 @@
 {
-  "plan_hash": "35b9e4edefda7b3795db85c1e5f67358",
-  "plan_id": "35b9e4edefda7b3795db85c1e5f67358",
+  "plan_hash": "946e7720db4ac4310c49abf9136a6b08",
+  "plan_id": "946e7720db4ac4310c49abf9136a6b08",
   "chapter_slot_sequence": [
     [
       "HOOK",
@@ -13,7 +13,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -34,7 +36,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -54,7 +58,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -83,7 +89,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -118,7 +126,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -143,103 +153,113 @@
     ]
   ],
   "atom_ids": [
-    "corporate_managers_imposter_syndrome_HOOK_v23",
-    "corporate_managers_imposter_syndrome_SCENE_v23",
-    "corporate_managers_imposter_syndrome_REFLECTION_v07",
-    "corporate_managers_imposter_syndrome_INTEGRATION_v05",
-    "corporate_managers_imposter_syndrome_shame_EMBODIMENT_v02",
-    "corporate_managers_imposter_syndrome_HOOK_v05",
-    "corporate_managers_imposter_syndrome_SCENE_v26",
-    "corporate_managers_imposter_syndrome_REFLECTION_v05",
-    "corporate_managers_imposter_syndrome_INTEGRATION_v03",
-    "corporate_managers_imposter_syndrome_HOOK_v01",
-    "corporate_managers_imposter_syndrome_SCENE_v03",
-    "corporate_managers_imposter_syndrome_REFLECTION_v25",
-    "corporate_managers_imposter_syndrome_EXERCISE_v01",
-    "corporate_managers_imposter_syndrome_INTEGRATION_v01",
-    "corporate_managers_imposter_syndrome_comparison_RECOGNITION_v17",
-    "corporate_managers_imposter_syndrome_HOOK_v30",
-    "corporate_managers_imposter_syndrome_SCENE_v13",
-    "corporate_managers_imposter_syndrome_REFLECTION_v17",
+    "corporate_managers_imposter_syndrome_HOOK_v22",
+    "corporate_managers_imposter_syndrome_SCENE_v18",
+    "corporate_managers_imposter_syndrome_REFLECTION_v30",
     "corporate_managers_imposter_syndrome_INTEGRATION_v07",
-    "corporate_managers_imposter_syndrome_comparison_RECOGNITION_v16",
-    "corporate_managers_imposter_syndrome_HOOK_v15",
-    "corporate_managers_imposter_syndrome_SCENE_v24",
-    "corporate_managers_imposter_syndrome_REFLECTION_v01",
-    "placeholder:INTEGRATION:ch4:slot3",
-    "corporate_managers_imposter_syndrome_HOOK_v24",
-    "corporate_managers_imposter_syndrome_SCENE_v10",
-    "corporate_managers_imposter_syndrome_REFLECTION_v09",
-    "corporate_managers_imposter_syndrome_EXERCISE_v03",
-    "placeholder:INTEGRATION:ch5:slot4",
-    "corporate_managers_imposter_syndrome_HOOK_v27",
-    "corporate_managers_imposter_syndrome_SCENE_v04",
-    "corporate_managers_imposter_syndrome_REFLECTION_v15",
-    "placeholder:INTEGRATION:ch6:slot3",
-    "corporate_managers_imposter_syndrome_comparison_RECOGNITION_v07",
-    "corporate_managers_imposter_syndrome_HOOK_v29",
+    "corporate_managers_imposter_syndrome_shame_EMBODIMENT_v04",
+    "corporate_managers_imposter_syndrome_HOOK_v07",
+    "corporate_managers_imposter_syndrome_SCENE_v19",
+    "corporate_managers_imposter_syndrome_REFLECTION_v20",
+    "placeholder:TAKEAWAY:ch1:slot3",
+    "corporate_managers_imposter_syndrome_INTEGRATION_v03",
+    "placeholder:THREAD:ch1:slot5",
+    "corporate_managers_imposter_syndrome_HOOK_v30",
     "corporate_managers_imposter_syndrome_SCENE_v01",
     "corporate_managers_imposter_syndrome_REFLECTION_v18",
-    "placeholder:INTEGRATION:ch7:slot3",
-    "corporate_managers_imposter_syndrome_HOOK_v19",
-    "corporate_managers_imposter_syndrome_SCENE_v30",
-    "corporate_managers_imposter_syndrome_REFLECTION_v03",
-    "corporate_managers_imposter_syndrome_EXERCISE_v02",
-    "placeholder:INTEGRATION:ch8:slot4",
-    "corporate_managers_imposter_syndrome_shame_TURNING_POINT_v05",
-    "corporate_managers_imposter_syndrome_HOOK_v02",
-    "corporate_managers_imposter_syndrome_SCENE_v16",
-    "corporate_managers_imposter_syndrome_REFLECTION_v06",
-    "placeholder:EXERCISE:ch9:slot3",
-    "placeholder:INTEGRATION:ch9:slot4",
-    "corporate_managers_imposter_syndrome_comparison_TURNING_POINT_v01",
-    "corporate_managers_imposter_syndrome_HOOK_v10",
-    "corporate_managers_imposter_syndrome_SCENE_v15",
-    "corporate_managers_imposter_syndrome_REFLECTION_v29",
-    "placeholder:INTEGRATION:ch10:slot3",
-    "corporate_managers_imposter_syndrome_shame_MECHANISM_PROOF_v02",
-    "corporate_managers_imposter_syndrome_HOOK_v12",
-    "corporate_managers_imposter_syndrome_SCENE_v20",
-    "corporate_managers_imposter_syndrome_REFLECTION_v16",
-    "placeholder:INTEGRATION:ch11:slot3",
-    "corporate_managers_imposter_syndrome_HOOK_v17",
+    "corporate_managers_imposter_syndrome_EXERCISE_v03",
+    "corporate_managers_imposter_syndrome_INTEGRATION_v01",
+    "corporate_managers_imposter_syndrome_shame_RECOGNITION_v14",
+    "corporate_managers_imposter_syndrome_HOOK_v23",
+    "corporate_managers_imposter_syndrome_SCENE_v13",
+    "corporate_managers_imposter_syndrome_REFLECTION_v07",
+    "corporate_managers_imposter_syndrome_INTEGRATION_v05",
+    "corporate_managers_imposter_syndrome_shame_RECOGNITION_v17",
+    "corporate_managers_imposter_syndrome_HOOK_v28",
     "corporate_managers_imposter_syndrome_SCENE_v21",
     "corporate_managers_imposter_syndrome_REFLECTION_v08",
+    "placeholder:TAKEAWAY:ch4:slot3",
+    "placeholder:INTEGRATION:ch4:slot4",
+    "placeholder:THREAD:ch4:slot5",
+    "corporate_managers_imposter_syndrome_HOOK_v12",
+    "corporate_managers_imposter_syndrome_SCENE_v25",
+    "corporate_managers_imposter_syndrome_REFLECTION_v02",
+    "corporate_managers_imposter_syndrome_EXERCISE_v01",
+    "placeholder:INTEGRATION:ch5:slot4",
+    "corporate_managers_imposter_syndrome_HOOK_v01",
+    "corporate_managers_imposter_syndrome_SCENE_v05",
+    "corporate_managers_imposter_syndrome_REFLECTION_v01",
+    "placeholder:INTEGRATION:ch6:slot3",
+    "corporate_managers_imposter_syndrome_shame_RECOGNITION_v07",
+    "corporate_managers_imposter_syndrome_HOOK_v21",
+    "corporate_managers_imposter_syndrome_SCENE_v14",
+    "corporate_managers_imposter_syndrome_REFLECTION_v12",
+    "placeholder:TAKEAWAY:ch7:slot3",
+    "placeholder:INTEGRATION:ch7:slot4",
+    "placeholder:THREAD:ch7:slot5",
+    "corporate_managers_imposter_syndrome_HOOK_v24",
+    "corporate_managers_imposter_syndrome_SCENE_v08",
+    "corporate_managers_imposter_syndrome_REFLECTION_v04",
+    "corporate_managers_imposter_syndrome_EXERCISE_v02",
+    "placeholder:INTEGRATION:ch8:slot4",
+    "corporate_managers_imposter_syndrome_comparison_RECOGNITION_v19",
+    "corporate_managers_imposter_syndrome_HOOK_v16",
+    "corporate_managers_imposter_syndrome_SCENE_v10",
+    "corporate_managers_imposter_syndrome_REFLECTION_v21",
+    "placeholder:EXERCISE:ch9:slot3",
+    "placeholder:INTEGRATION:ch9:slot4",
+    "corporate_managers_imposter_syndrome_comparison_TURNING_POINT_v05",
+    "corporate_managers_imposter_syndrome_HOOK_v15",
+    "corporate_managers_imposter_syndrome_SCENE_v28",
+    "corporate_managers_imposter_syndrome_REFLECTION_v27",
+    "placeholder:INTEGRATION:ch10:slot3",
+    "corporate_managers_imposter_syndrome_shame_RECOGNITION_v08",
+    "corporate_managers_imposter_syndrome_HOOK_v26",
+    "corporate_managers_imposter_syndrome_SCENE_v09",
+    "corporate_managers_imposter_syndrome_REFLECTION_v03",
+    "placeholder:TAKEAWAY:ch11:slot3",
+    "placeholder:INTEGRATION:ch11:slot4",
+    "placeholder:THREAD:ch11:slot5",
+    "corporate_managers_imposter_syndrome_HOOK_v11",
+    "corporate_managers_imposter_syndrome_SCENE_v11",
+    "corporate_managers_imposter_syndrome_REFLECTION_v15",
     "placeholder:EXERCISE:ch12:slot3",
     "placeholder:INTEGRATION:ch12:slot4",
-    "corporate_managers_imposter_syndrome_HOOK_v21",
-    "corporate_managers_imposter_syndrome_SCENE_v19",
-    "corporate_managers_imposter_syndrome_REFLECTION_v04",
+    "corporate_managers_imposter_syndrome_HOOK_v25",
+    "corporate_managers_imposter_syndrome_SCENE_v15",
+    "corporate_managers_imposter_syndrome_REFLECTION_v28",
     "placeholder:EXERCISE:ch13:slot3",
     "placeholder:INTEGRATION:ch13:slot4",
-    "corporate_managers_imposter_syndrome_shame_RECOGNITION_v08",
-    "corporate_managers_imposter_syndrome_HOOK_v09",
-    "corporate_managers_imposter_syndrome_SCENE_v29",
-    "corporate_managers_imposter_syndrome_REFLECTION_v13",
+    "corporate_managers_imposter_syndrome_comparison_RECOGNITION_v09",
+    "corporate_managers_imposter_syndrome_HOOK_v06",
+    "corporate_managers_imposter_syndrome_SCENE_v30",
+    "corporate_managers_imposter_syndrome_REFLECTION_v11",
     "placeholder:EXERCISE:ch14:slot3",
     "placeholder:INTEGRATION:ch14:slot4",
-    "corporate_managers_imposter_syndrome_HOOK_v06",
-    "corporate_managers_imposter_syndrome_SCENE_v14",
-    "corporate_managers_imposter_syndrome_REFLECTION_v24",
+    "corporate_managers_imposter_syndrome_HOOK_v18",
+    "corporate_managers_imposter_syndrome_SCENE_v02",
+    "corporate_managers_imposter_syndrome_REFLECTION_v26",
     "placeholder:EXERCISE:ch15:slot3",
     "placeholder:INTEGRATION:ch15:slot4",
-    "corporate_managers_imposter_syndrome_HOOK_v26",
-    "corporate_managers_imposter_syndrome_SCENE_v27",
-    "corporate_managers_imposter_syndrome_REFLECTION_v27",
-    "placeholder:INTEGRATION:ch16:slot3",
-    "corporate_managers_imposter_syndrome_HOOK_v11",
-    "corporate_managers_imposter_syndrome_SCENE_v05",
-    "corporate_managers_imposter_syndrome_REFLECTION_v26",
-    "placeholder:INTEGRATION:ch17:slot3",
-    "corporate_managers_imposter_syndrome_shame_RECOGNITION_v07",
     "corporate_managers_imposter_syndrome_HOOK_v13",
+    "corporate_managers_imposter_syndrome_SCENE_v07",
+    "corporate_managers_imposter_syndrome_REFLECTION_v16",
+    "placeholder:TAKEAWAY:ch16:slot3",
+    "placeholder:INTEGRATION:ch16:slot4",
+    "placeholder:THREAD:ch16:slot5",
+    "corporate_managers_imposter_syndrome_HOOK_v19",
+    "corporate_managers_imposter_syndrome_SCENE_v26",
+    "corporate_managers_imposter_syndrome_REFLECTION_v05",
+    "placeholder:INTEGRATION:ch17:slot3",
+    "corporate_managers_imposter_syndrome_shame_RECOGNITION_v20",
+    "corporate_managers_imposter_syndrome_HOOK_v14",
     "corporate_managers_imposter_syndrome_SCENE_v22",
-    "corporate_managers_imposter_syndrome_REFLECTION_v21",
+    "corporate_managers_imposter_syndrome_REFLECTION_v25",
     "placeholder:EXERCISE:ch18:slot3",
     "placeholder:INTEGRATION:ch18:slot4",
-    "corporate_managers_imposter_syndrome_HOOK_v04",
-    "corporate_managers_imposter_syndrome_SCENE_v09",
-    "corporate_managers_imposter_syndrome_REFLECTION_v02",
+    "corporate_managers_imposter_syndrome_HOOK_v17",
+    "corporate_managers_imposter_syndrome_SCENE_v04",
+    "corporate_managers_imposter_syndrome_REFLECTION_v17",
     "placeholder:EXERCISE:ch19:slot3",
     "placeholder:INTEGRATION:ch19:slot4"
   ],
@@ -300,7 +320,7 @@
     18,
     19
   ],
-  "slot_sig": "MOD_pocket_guide:ab7b86c03f0c6766",
+  "slot_sig": "MOD_pocket_guide:1a5338ab551ae636",
   "format_id": "MOD_pocket_guide",
   "runtime_format_id": "",
   "output_format_id": "pocket_guide",
@@ -424,6 +444,28 @@
   "chapter_planner_warnings": [
     "arc_role_distribution[long] challenge=8 outside target [3,5]"
   ],
+  "chapter_bestseller_structures": [
+    "ancestor",
+    "van_der_kolk",
+    "myth_killer",
+    "gladwell_spiral",
+    "myth_killer",
+    "contrast_engine",
+    "atomic",
+    "van_der_kolk",
+    "gladwell_spiral",
+    "ancestor",
+    "myth_killer",
+    "case_file",
+    "brene_brown",
+    "promise_engine",
+    "letter",
+    "zoom_lens",
+    "van_der_kolk",
+    "gladwell_spiral",
+    "van_der_kolk",
+    "van_der_kolk"
+  ],
   "narrator_id": "default_narrator",
   "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
   "cover_art_style_hint": "contemplative",
@@ -456,7 +498,7 @@
   "emotional_role_sig": "r-r-d-f-f-d-f-f-d-d-f-f-d-d-s-s-f-f-i-i",
   "book_structure_id": "linear_transformation",
   "journey_shape_id": "linear_rise",
-  "motif_id": "motif_cost",
+  "motif_id": "motif_pattern",
   "section_reorder_mode": "none",
   "reframe_profile_id": "balanced",
   "variation_chapter_archetypes": [
@@ -481,67 +523,67 @@
     "establish",
     "expose"
   ],
-  "variation_signature": "5504e1197a4f213cfbc6af55319616ec",
+  "variation_signature": "a4a53b55a4515fd2f32e42f9a4a579f2",
   "motif_injections": [
     {
       "chapter_index": 0,
       "slot_index": 2,
-      "phrase": "Staying the same has a price."
+      "phrase": "It shows up again and again."
     },
     {
       "chapter_index": 0,
       "slot_index": 4,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "The same pattern, different day."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "It shows up again and again."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 4,
+      "phrase": "The same pattern, different day."
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "The same pattern, different day."
     },
     {
       "chapter_index": 2,
       "slot_index": 4,
-      "phrase": "Staying the same has a price."
+      "phrase": "You've seen this before."
     },
     {
       "chapter_index": 3,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "You've seen this before."
     },
     {
       "chapter_index": 3,
       "slot_index": 4,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "The same pattern, different day."
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "You've seen this before."
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 4,
+      "phrase": "You've seen this before."
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
-      "phrase": "Staying the same has a price."
+      "phrase": "The same pattern, different day."
     },
     {
       "chapter_index": 5,
       "slot_index": 4,
-      "phrase": "What does it cost you to keep going like this?"
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 2,
-      "phrase": "What does it cost you to keep going like this?"
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 4,
-      "phrase": "Staying the same has a price."
+      "phrase": "You've seen this before."
     }
   ],
   "reframe_injections": [
@@ -549,7 +591,7 @@
       "chapter_index": 0,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to do it all at once."
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
     },
     {
       "chapter_index": 1,
@@ -561,7 +603,7 @@
       "chapter_index": 2,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "What if this moment could be different?"
+      "text": "You're not behind; you're exactly where you are."
     },
     {
       "chapter_index": 3,
@@ -573,7 +615,7 @@
       "chapter_index": 4,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Safety comes before growth."
+      "text": "Change happens in relationship, not in isolation."
     },
     {
       "chapter_index": 5,
@@ -603,37 +645,37 @@
       "chapter_index": 9,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Progress isn't linear."
+      "text": "You don't have to do it all at once."
     },
     {
       "chapter_index": 10,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Change happens in relationship, not in isolation."
+      "text": "Your nervous system is doing its best."
     },
     {
       "chapter_index": 11,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "One breath can reset the script."
+      "text": "What if this moment could be different?"
     },
     {
       "chapter_index": 12,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to do it all at once."
+      "text": "Progress isn't linear."
     },
     {
       "chapter_index": 13,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Safety comes before growth."
+      "text": "Your nervous system is doing its best."
     },
     {
       "chapter_index": 14,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "What if this moment could be different?"
+      "text": "You're not behind; you're exactly where you are."
     },
     {
       "chapter_index": 15,
@@ -645,19 +687,19 @@
       "chapter_index": 16,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Safety comes before growth."
+      "text": "Your nervous system is doing its best."
     },
     {
       "chapter_index": 17,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "You're not behind; you're exactly where you are."
+      "text": "One breath can reset the script."
     },
     {
       "chapter_index": 18,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
+      "text": "You don't have to do it all at once."
     },
     {
       "chapter_index": 19,

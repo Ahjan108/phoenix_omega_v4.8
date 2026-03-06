@@ -1,6 +1,6 @@
 {
-  "plan_hash": "27a26adfc1a54c03e1e1af29ab383fd9",
-  "plan_id": "27a26adfc1a54c03e1e1af29ab383fd9",
+  "plan_hash": "78cdc0f2a77164dfd9fff27fc8ffe47d",
+  "plan_id": "78cdc0f2a77164dfd9fff27fc8ffe47d",
   "chapter_slot_sequence": [
     [
       "HOOK",
@@ -13,7 +13,31 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
       "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -34,27 +58,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
+      "TAKEAWAY",
       "INTEGRATION",
-      "STORY"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "INTEGRATION"
+      "THREAD"
     ],
     [
       "HOOK",
@@ -83,7 +89,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -118,7 +126,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -143,102 +153,112 @@
     ]
   ],
   "atom_ids": [
-    "healthcare_rns_financial_stress_HOOK_v28",
-    "healthcare_rns_financial_stress_SCENE_v13",
-    "healthcare_rns_financial_stress_REFLECTION_v25",
-    "healthcare_rns_financial_stress_INTEGRATION_v06",
-    "healthcare_rns_financial_stress_shame_RECOGNITION_v05",
-    "healthcare_rns_financial_stress_HOOK_v03",
-    "healthcare_rns_financial_stress_SCENE_v15",
-    "healthcare_rns_financial_stress_REFLECTION_v11",
-    "healthcare_rns_financial_stress_INTEGRATION_v01",
-    "healthcare_rns_financial_stress_HOOK_v17",
-    "healthcare_rns_financial_stress_SCENE_v28",
-    "healthcare_rns_financial_stress_REFLECTION_v27",
-    "healthcare_rns_financial_stress_EXERCISE_v02",
-    "healthcare_rns_financial_stress_INTEGRATION_v02",
-    "healthcare_rns_financial_stress_spiral_RECOGNITION_v01",
-    "healthcare_rns_financial_stress_HOOK_v18",
-    "healthcare_rns_financial_stress_SCENE_v07",
+    "healthcare_rns_financial_stress_HOOK_v11",
+    "healthcare_rns_financial_stress_SCENE_v05",
     "healthcare_rns_financial_stress_REFLECTION_v13",
-    "healthcare_rns_financial_stress_INTEGRATION_v03",
-    "healthcare_rns_financial_stress_shame_MECHANISM_PROOF_v03",
-    "healthcare_rns_financial_stress_HOOK_v19",
-    "healthcare_rns_financial_stress_SCENE_v23",
-    "healthcare_rns_financial_stress_REFLECTION_v01",
-    "healthcare_rns_financial_stress_INTEGRATION_v04",
-    "healthcare_rns_financial_stress_HOOK_v13",
-    "healthcare_rns_financial_stress_SCENE_v12",
-    "healthcare_rns_financial_stress_REFLECTION_v29",
-    "healthcare_rns_financial_stress_EXERCISE_v03",
-    "healthcare_rns_financial_stress_INTEGRATION_v05",
-    "healthcare_rns_financial_stress_HOOK_v24",
-    "healthcare_rns_financial_stress_SCENE_v08",
-    "healthcare_rns_financial_stress_REFLECTION_v05",
     "healthcare_rns_financial_stress_INTEGRATION_v07",
-    "healthcare_rns_financial_stress_overwhelm_MECHANISM_PROOF_v05",
-    "healthcare_rns_financial_stress_HOOK_v20",
-    "healthcare_rns_financial_stress_SCENE_v17",
-    "healthcare_rns_financial_stress_REFLECTION_v07",
-    "placeholder:INTEGRATION:ch7:slot3",
-    "healthcare_rns_financial_stress_HOOK_v04",
-    "healthcare_rns_financial_stress_SCENE_v14",
-    "healthcare_rns_financial_stress_REFLECTION_v19",
-    "healthcare_rns_financial_stress_EXERCISE_v01",
-    "placeholder:INTEGRATION:ch8:slot4",
-    "healthcare_rns_financial_stress_overwhelm_MECHANISM_PROOF_v02",
+    "healthcare_rns_financial_stress_shame_RECOGNITION_v02",
+    "healthcare_rns_financial_stress_HOOK_v21",
+    "healthcare_rns_financial_stress_SCENE_v20",
+    "healthcare_rns_financial_stress_REFLECTION_v29",
+    "placeholder:TAKEAWAY:ch1:slot3",
+    "healthcare_rns_financial_stress_INTEGRATION_v03",
+    "placeholder:THREAD:ch1:slot5",
     "healthcare_rns_financial_stress_HOOK_v22",
     "healthcare_rns_financial_stress_SCENE_v26",
-    "healthcare_rns_financial_stress_REFLECTION_v03",
+    "healthcare_rns_financial_stress_REFLECTION_v19",
+    "healthcare_rns_financial_stress_EXERCISE_v02",
+    "healthcare_rns_financial_stress_INTEGRATION_v06",
+    "healthcare_rns_financial_stress_HOOK_v28",
+    "healthcare_rns_financial_stress_SCENE_v10",
+    "healthcare_rns_financial_stress_REFLECTION_v21",
+    "healthcare_rns_financial_stress_INTEGRATION_v05",
+    "healthcare_rns_financial_stress_spiral_MECHANISM_PROOF_v04",
+    "healthcare_rns_financial_stress_HOOK_v30",
+    "healthcare_rns_financial_stress_SCENE_v07",
+    "healthcare_rns_financial_stress_REFLECTION_v17",
+    "placeholder:TAKEAWAY:ch4:slot3",
+    "healthcare_rns_financial_stress_INTEGRATION_v01",
+    "placeholder:THREAD:ch4:slot5",
+    "healthcare_rns_financial_stress_HOOK_v20",
+    "healthcare_rns_financial_stress_SCENE_v21",
+    "healthcare_rns_financial_stress_REFLECTION_v25",
+    "healthcare_rns_financial_stress_EXERCISE_v03",
+    "healthcare_rns_financial_stress_INTEGRATION_v02",
+    "healthcare_rns_financial_stress_shame_MECHANISM_PROOF_v02",
+    "healthcare_rns_financial_stress_HOOK_v16",
+    "healthcare_rns_financial_stress_SCENE_v27",
+    "healthcare_rns_financial_stress_REFLECTION_v11",
+    "healthcare_rns_financial_stress_INTEGRATION_v04",
+    "healthcare_rns_financial_stress_overwhelm_TURNING_POINT_v03",
+    "healthcare_rns_financial_stress_HOOK_v12",
+    "healthcare_rns_financial_stress_SCENE_v23",
+    "healthcare_rns_financial_stress_REFLECTION_v15",
+    "placeholder:TAKEAWAY:ch7:slot3",
+    "placeholder:INTEGRATION:ch7:slot4",
+    "placeholder:THREAD:ch7:slot5",
+    "healthcare_rns_financial_stress_HOOK_v23",
+    "healthcare_rns_financial_stress_SCENE_v11",
+    "healthcare_rns_financial_stress_REFLECTION_v09",
+    "healthcare_rns_financial_stress_EXERCISE_v01",
+    "placeholder:INTEGRATION:ch8:slot4",
+    "healthcare_rns_financial_stress_overwhelm_TURNING_POINT_v04",
+    "healthcare_rns_financial_stress_HOOK_v10",
+    "healthcare_rns_financial_stress_SCENE_v01",
+    "healthcare_rns_financial_stress_REFLECTION_v01",
     "placeholder:EXERCISE:ch9:slot3",
     "placeholder:INTEGRATION:ch9:slot4",
-    "healthcare_rns_financial_stress_spiral_TURNING_POINT_v01",
-    "healthcare_rns_financial_stress_HOOK_v30",
-    "healthcare_rns_financial_stress_SCENE_v06",
-    "healthcare_rns_financial_stress_REFLECTION_v23",
+    "healthcare_rns_financial_stress_overwhelm_TURNING_POINT_v05",
+    "healthcare_rns_financial_stress_HOOK_v19",
+    "healthcare_rns_financial_stress_SCENE_v13",
+    "healthcare_rns_financial_stress_REFLECTION_v05",
     "placeholder:INTEGRATION:ch10:slot3",
-    "healthcare_rns_financial_stress_shame_EMBODIMENT_v04",
-    "healthcare_rns_financial_stress_HOOK_v26",
-    "healthcare_rns_financial_stress_SCENE_v01",
-    "healthcare_rns_financial_stress_REFLECTION_v09",
-    "placeholder:INTEGRATION:ch11:slot3",
-    "healthcare_rns_financial_stress_HOOK_v21",
-    "healthcare_rns_financial_stress_SCENE_v10",
-    "healthcare_rns_financial_stress_REFLECTION_v15",
+    "healthcare_rns_financial_stress_spiral_EMBODIMENT_v02",
+    "healthcare_rns_financial_stress_HOOK_v15",
+    "healthcare_rns_financial_stress_SCENE_v17",
+    "healthcare_rns_financial_stress_REFLECTION_v27",
+    "placeholder:TAKEAWAY:ch11:slot3",
+    "placeholder:INTEGRATION:ch11:slot4",
+    "placeholder:THREAD:ch11:slot5",
+    "healthcare_rns_financial_stress_HOOK_v06",
+    "healthcare_rns_financial_stress_SCENE_v06",
+    "healthcare_rns_financial_stress_REFLECTION_v07",
     "placeholder:EXERCISE:ch12:slot3",
     "placeholder:INTEGRATION:ch12:slot4",
-    "healthcare_rns_financial_stress_HOOK_v14",
-    "healthcare_rns_financial_stress_SCENE_v24",
-    "healthcare_rns_financial_stress_REFLECTION_v21",
+    "healthcare_rns_financial_stress_HOOK_v27",
+    "healthcare_rns_financial_stress_SCENE_v16",
+    "healthcare_rns_financial_stress_REFLECTION_v03",
     "placeholder:EXERCISE:ch13:slot3",
     "placeholder:INTEGRATION:ch13:slot4",
-    "healthcare_rns_financial_stress_overwhelm_EMBODIMENT_v03",
-    "healthcare_rns_financial_stress_HOOK_v10",
-    "healthcare_rns_financial_stress_SCENE_v25",
-    "healthcare_rns_financial_stress_REFLECTION_v17",
+    "healthcare_rns_financial_stress_spiral_EMBODIMENT_v03",
+    "healthcare_rns_financial_stress_HOOK_v24",
+    "healthcare_rns_financial_stress_SCENE_v09",
+    "healthcare_rns_financial_stress_REFLECTION_v23",
     "placeholder:EXERCISE:ch14:slot3",
     "placeholder:INTEGRATION:ch14:slot4",
-    "healthcare_rns_financial_stress_HOOK_v11",
+    "healthcare_rns_financial_stress_HOOK_v25",
     "healthcare_rns_financial_stress_SCENE_v03",
     "placeholder:REFLECTION:ch15:slot2",
     "placeholder:EXERCISE:ch15:slot3",
     "placeholder:INTEGRATION:ch15:slot4",
     "healthcare_rns_financial_stress_HOOK_v05",
-    "healthcare_rns_financial_stress_SCENE_v09",
+    "healthcare_rns_financial_stress_SCENE_v12",
     "placeholder:REFLECTION:ch16:slot2",
-    "placeholder:INTEGRATION:ch16:slot3",
-    "healthcare_rns_financial_stress_HOOK_v01",
-    "healthcare_rns_financial_stress_SCENE_v19",
+    "placeholder:TAKEAWAY:ch16:slot3",
+    "placeholder:INTEGRATION:ch16:slot4",
+    "placeholder:THREAD:ch16:slot5",
+    "healthcare_rns_financial_stress_HOOK_v08",
+    "healthcare_rns_financial_stress_SCENE_v29",
     "placeholder:REFLECTION:ch17:slot2",
     "placeholder:INTEGRATION:ch17:slot3",
-    "healthcare_rns_financial_stress_shame_TURNING_POINT_v03",
-    "healthcare_rns_financial_stress_HOOK_v15",
-    "healthcare_rns_financial_stress_SCENE_v21",
+    "healthcare_rns_financial_stress_overwhelm_RECOGNITION_v03",
+    "healthcare_rns_financial_stress_HOOK_v26",
+    "healthcare_rns_financial_stress_SCENE_v18",
     "placeholder:REFLECTION:ch18:slot2",
     "placeholder:EXERCISE:ch18:slot3",
     "placeholder:INTEGRATION:ch18:slot4",
-    "healthcare_rns_financial_stress_HOOK_v16",
-    "healthcare_rns_financial_stress_SCENE_v02",
+    "healthcare_rns_financial_stress_HOOK_v13",
+    "healthcare_rns_financial_stress_SCENE_v25",
     "placeholder:REFLECTION:ch19:slot2",
     "placeholder:EXERCISE:ch19:slot3",
     "placeholder:INTEGRATION:ch19:slot4"
@@ -246,10 +266,10 @@
   "dominant_band_sequence": [
     1,
     null,
-    2,
+    null,
     2,
     null,
-    null,
+    2,
     3,
     null,
     3,
@@ -300,7 +320,7 @@
     18,
     19
   ],
-  "slot_sig": "MOD_pocket_guide:ab7b86c03f0c6766",
+  "slot_sig": "MOD_pocket_guide:bc18f8d846b97280",
   "format_id": "MOD_pocket_guide",
   "runtime_format_id": "",
   "output_format_id": "pocket_guide",
@@ -336,10 +356,10 @@
   "chapter_archetypes": [
     "intro_hook_heavy",
     "legacy_uniform",
-    "deepen_mechanism",
+    "practice_heavy",
     "challenge_cost",
     "legacy_uniform",
-    "practice_heavy",
+    "deepen_mechanism",
     "challenge_cost",
     "legacy_uniform",
     "deepen_mechanism",
@@ -358,10 +378,10 @@
   "chapter_exercise_modes": [
     "none",
     "none",
-    "micro",
-    "none",
-    "none",
     "full",
+    "none",
+    "none",
+    "micro",
     "none",
     "none",
     "micro",
@@ -380,10 +400,10 @@
   "chapter_reflection_weights": [
     "light",
     "standard",
-    "standard",
+    "light",
     "heavy",
     "standard",
-    "light",
+    "standard",
     "heavy",
     "standard",
     "standard",
@@ -402,10 +422,10 @@
   "chapter_story_depths": [
     "standard",
     "standard",
-    "standard",
+    "micro",
     "deep",
     "standard",
-    "micro",
+    "standard",
     "deep",
     "standard",
     "standard",
@@ -423,6 +443,28 @@
   ],
   "chapter_planner_warnings": [
     "arc_role_distribution[long] challenge=8 outside target [3,5]"
+  ],
+  "chapter_bestseller_structures": [
+    "contrast_engine",
+    "contrast_engine",
+    "permission_slip",
+    "letter",
+    "zoom_lens",
+    "ancestor",
+    "promise_engine",
+    "van_der_kolk",
+    "van_der_kolk",
+    "letter",
+    "case_file",
+    "permission_slip",
+    "van_der_kolk",
+    "van_der_kolk",
+    "van_der_kolk",
+    "permission_slip",
+    "atomic",
+    "letter",
+    "brene_brown",
+    "contrast_engine"
   ],
   "narrator_id": "default_narrator",
   "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
@@ -456,7 +498,7 @@
   "emotional_role_sig": "r-r-d-f-f-d-f-f-d-d-f-f-d-d-s-s-f-f-i-i",
   "book_structure_id": "recognition_to_agency",
   "journey_shape_id": "scaffold_deepen",
-  "motif_id": "motif_ground",
+  "motif_id": "motif_choice",
   "section_reorder_mode": "none",
   "reframe_profile_id": "somatic_companion",
   "variation_chapter_archetypes": [
@@ -481,67 +523,67 @@
     "shift",
     "embody"
   ],
-  "variation_signature": "2d62a600bcaf418edaa5db14394cb5cf",
+  "variation_signature": "350059c390d7d156b2d56bfc872d9dc5",
   "motif_injections": [
     {
       "chapter_index": 0,
       "slot_index": 2,
-      "phrase": "Your feet are on the ground."
+      "phrase": "You get to choose what happens next."
     },
     {
       "chapter_index": 0,
       "slot_index": 4,
-      "phrase": "Ground first, then respond."
+      "phrase": "You get to choose what happens next."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
-      "phrase": "Come back to what's solid."
+      "phrase": "This is where you choose."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 4,
+      "phrase": "One small choice can change the direction."
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
-      "phrase": "Your feet are on the ground."
+      "phrase": "This is where you choose."
     },
     {
       "chapter_index": 2,
       "slot_index": 4,
-      "phrase": "Come back to what's solid."
+      "phrase": "One small choice can change the direction."
     },
     {
       "chapter_index": 3,
       "slot_index": 2,
-      "phrase": "Come back to what's solid."
+      "phrase": "You get to choose what happens next."
     },
     {
       "chapter_index": 3,
       "slot_index": 4,
-      "phrase": "Your feet are on the ground."
+      "phrase": "One small choice can change the direction."
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
-      "phrase": "Come back to what's solid."
+      "phrase": "This is where you choose."
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 4,
+      "phrase": "One small choice can change the direction."
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
-      "phrase": "Your feet are on the ground."
+      "phrase": "This is where you choose."
     },
     {
       "chapter_index": 5,
       "slot_index": 4,
-      "phrase": "Your feet are on the ground."
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 2,
-      "phrase": "Come back to what's solid."
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 4,
-      "phrase": "Your feet are on the ground."
+      "phrase": "You get to choose what happens next."
     }
   ],
   "reframe_injections": [
@@ -549,7 +591,7 @@
       "chapter_index": 0,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "The body holds what the mind can't yet process."
+      "text": "Sensation before story."
     },
     {
       "chapter_index": 1,
@@ -567,31 +609,31 @@
       "chapter_index": 3,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Sensation before story."
+      "text": "You don't have to name it to feel it."
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Grounding isn't escape\u2014it's presence."
+      "text": "Regulation is a skill, not a trait."
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "Let the exhale be longer than the inhale."
+      "text": "Where do you feel this in your body?"
     },
     {
       "chapter_index": 6,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "The body holds what the mind can't yet process."
+      "text": "Sensation before story."
     },
     {
       "chapter_index": 7,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Regulation is a skill, not a trait."
+      "text": "Your body is your ally."
     },
     {
       "chapter_index": 8,
@@ -603,7 +645,7 @@
       "chapter_index": 9,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to name it to feel it."
+      "text": "Sensation before story."
     },
     {
       "chapter_index": 10,
@@ -627,25 +669,25 @@
       "chapter_index": 13,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Grounding isn't escape\u2014it's presence."
+      "text": "Regulation is a skill, not a trait."
     },
     {
       "chapter_index": 14,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "Let the exhale be longer than the inhale."
+      "text": "Feel your feet on the floor."
     },
     {
       "chapter_index": 15,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to name it to feel it."
+      "text": "Sensation before story."
     },
     {
       "chapter_index": 16,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Regulation is a skill, not a trait."
+      "text": "Grounding isn't escape\u2014it's presence."
     },
     {
       "chapter_index": 17,
@@ -657,13 +699,13 @@
       "chapter_index": 18,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "The body holds what the mind can't yet process."
+      "text": "You don't have to name it to feel it."
     },
     {
       "chapter_index": 19,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Regulation is a skill, not a trait."
+      "text": "Your body is your ally."
     }
   ],
   "freebie_bundle": [

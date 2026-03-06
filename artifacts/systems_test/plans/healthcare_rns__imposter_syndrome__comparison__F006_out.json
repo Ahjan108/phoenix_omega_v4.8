@@ -1,6 +1,6 @@
 {
-  "plan_hash": "dd5e35eedd66b339e26dcddb979187a4",
-  "plan_id": "dd5e35eedd66b339e26dcddb979187a4",
+  "plan_hash": "7bd971378edd6136fd743c00f52c9a16",
+  "plan_id": "7bd971378edd6136fd743c00f52c9a16",
   "chapter_slot_sequence": [
     [
       "HOOK",
@@ -13,7 +13,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -34,7 +36,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -54,7 +58,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -83,7 +89,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -118,7 +126,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -143,103 +153,113 @@
     ]
   ],
   "atom_ids": [
-    "healthcare_rns_imposter_syndrome_HOOK_v21",
-    "healthcare_rns_imposter_syndrome_SCENE_v23",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v16",
-    "healthcare_rns_imposter_syndrome_INTEGRATION_v01",
-    "healthcare_rns_imposter_syndrome_comparison_RECOGNITION_v06",
-    "healthcare_rns_imposter_syndrome_HOOK_v20",
-    "healthcare_rns_imposter_syndrome_SCENE_v13",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v25",
-    "healthcare_rns_imposter_syndrome_INTEGRATION_v05",
-    "healthcare_rns_imposter_syndrome_HOOK_v25",
-    "healthcare_rns_imposter_syndrome_SCENE_v09",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v02",
-    "healthcare_rns_imposter_syndrome_EXERCISE_v03",
-    "healthcare_rns_imposter_syndrome_INTEGRATION_v03",
-    "healthcare_rns_imposter_syndrome_comparison_RECOGNITION_v01",
-    "healthcare_rns_imposter_syndrome_HOOK_v07",
+    "healthcare_rns_imposter_syndrome_HOOK_v26",
     "healthcare_rns_imposter_syndrome_SCENE_v14",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v28",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v02",
+    "healthcare_rns_imposter_syndrome_INTEGRATION_v01",
+    "healthcare_rns_imposter_syndrome_shame_RECOGNITION_v06",
+    "healthcare_rns_imposter_syndrome_HOOK_v10",
+    "healthcare_rns_imposter_syndrome_SCENE_v28",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v06",
+    "placeholder:TAKEAWAY:ch1:slot3",
+    "healthcare_rns_imposter_syndrome_INTEGRATION_v03",
+    "placeholder:THREAD:ch1:slot5",
+    "healthcare_rns_imposter_syndrome_HOOK_v05",
+    "healthcare_rns_imposter_syndrome_SCENE_v04",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v23",
+    "healthcare_rns_imposter_syndrome_EXERCISE_v01",
     "healthcare_rns_imposter_syndrome_INTEGRATION_v07",
-    "healthcare_rns_imposter_syndrome_shame_RECOGNITION_v03",
-    "healthcare_rns_imposter_syndrome_HOOK_v24",
-    "healthcare_rns_imposter_syndrome_SCENE_v05",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v18",
-    "placeholder:INTEGRATION:ch4:slot3",
+    "healthcare_rns_imposter_syndrome_comparison_RECOGNITION_v01",
     "healthcare_rns_imposter_syndrome_HOOK_v27",
     "healthcare_rns_imposter_syndrome_SCENE_v27",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v01",
-    "healthcare_rns_imposter_syndrome_EXERCISE_v01",
-    "placeholder:INTEGRATION:ch5:slot4",
-    "healthcare_rns_imposter_syndrome_HOOK_v06",
-    "healthcare_rns_imposter_syndrome_SCENE_v03",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v15",
+    "healthcare_rns_imposter_syndrome_INTEGRATION_v05",
+    "healthcare_rns_imposter_syndrome_shame_RECOGNITION_v03",
+    "healthcare_rns_imposter_syndrome_HOOK_v16",
+    "healthcare_rns_imposter_syndrome_SCENE_v29",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v26",
+    "placeholder:TAKEAWAY:ch4:slot3",
+    "placeholder:INTEGRATION:ch4:slot4",
+    "placeholder:THREAD:ch4:slot5",
+    "healthcare_rns_imposter_syndrome_HOOK_v15",
+    "healthcare_rns_imposter_syndrome_SCENE_v23",
     "healthcare_rns_imposter_syndrome_REFLECTION_v19",
-    "placeholder:INTEGRATION:ch6:slot3",
-    "healthcare_rns_imposter_syndrome_shame_RECOGNITION_v13",
-    "healthcare_rns_imposter_syndrome_HOOK_v19",
-    "healthcare_rns_imposter_syndrome_SCENE_v06",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v13",
-    "placeholder:INTEGRATION:ch7:slot3",
-    "healthcare_rns_imposter_syndrome_HOOK_v29",
-    "healthcare_rns_imposter_syndrome_SCENE_v28",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v24",
     "healthcare_rns_imposter_syndrome_EXERCISE_v02",
+    "placeholder:INTEGRATION:ch5:slot4",
+    "healthcare_rns_imposter_syndrome_HOOK_v20",
+    "healthcare_rns_imposter_syndrome_SCENE_v08",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v28",
+    "placeholder:INTEGRATION:ch6:slot3",
+    "healthcare_rns_imposter_syndrome_comparison_RECOGNITION_v14",
+    "healthcare_rns_imposter_syndrome_HOOK_v12",
+    "healthcare_rns_imposter_syndrome_SCENE_v17",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v24",
+    "placeholder:TAKEAWAY:ch7:slot3",
+    "placeholder:INTEGRATION:ch7:slot4",
+    "placeholder:THREAD:ch7:slot5",
+    "healthcare_rns_imposter_syndrome_HOOK_v02",
+    "healthcare_rns_imposter_syndrome_SCENE_v15",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v29",
+    "healthcare_rns_imposter_syndrome_EXERCISE_v03",
     "placeholder:INTEGRATION:ch8:slot4",
-    "healthcare_rns_imposter_syndrome_comparison_RECOGNITION_v12",
-    "healthcare_rns_imposter_syndrome_HOOK_v23",
-    "healthcare_rns_imposter_syndrome_SCENE_v26",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v17",
-    "placeholder:EXERCISE:ch9:slot3",
-    "placeholder:INTEGRATION:ch9:slot4",
     "healthcare_rns_imposter_syndrome_comparison_RECOGNITION_v11",
     "healthcare_rns_imposter_syndrome_HOOK_v18",
-    "healthcare_rns_imposter_syndrome_SCENE_v11",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v15",
+    "healthcare_rns_imposter_syndrome_SCENE_v16",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v12",
+    "placeholder:EXERCISE:ch9:slot3",
+    "placeholder:INTEGRATION:ch9:slot4",
+    "healthcare_rns_imposter_syndrome_shame_RECOGNITION_v13",
+    "healthcare_rns_imposter_syndrome_HOOK_v25",
+    "healthcare_rns_imposter_syndrome_SCENE_v20",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v16",
     "placeholder:INTEGRATION:ch10:slot3",
     "healthcare_rns_imposter_syndrome_shame_RECOGNITION_v08",
-    "healthcare_rns_imposter_syndrome_HOOK_v16",
-    "healthcare_rns_imposter_syndrome_SCENE_v17",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v09",
-    "placeholder:INTEGRATION:ch11:slot3",
-    "healthcare_rns_imposter_syndrome_HOOK_v11",
-    "healthcare_rns_imposter_syndrome_SCENE_v04",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v30",
+    "healthcare_rns_imposter_syndrome_HOOK_v19",
+    "healthcare_rns_imposter_syndrome_SCENE_v12",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v03",
+    "placeholder:TAKEAWAY:ch11:slot3",
+    "placeholder:INTEGRATION:ch11:slot4",
+    "placeholder:THREAD:ch11:slot5",
+    "healthcare_rns_imposter_syndrome_HOOK_v23",
+    "healthcare_rns_imposter_syndrome_SCENE_v11",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v13",
     "placeholder:EXERCISE:ch12:slot3",
     "placeholder:INTEGRATION:ch12:slot4",
-    "healthcare_rns_imposter_syndrome_HOOK_v05",
-    "healthcare_rns_imposter_syndrome_SCENE_v30",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v14",
+    "healthcare_rns_imposter_syndrome_HOOK_v28",
+    "healthcare_rns_imposter_syndrome_SCENE_v01",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v07",
     "placeholder:EXERCISE:ch13:slot3",
     "placeholder:INTEGRATION:ch13:slot4",
     "healthcare_rns_imposter_syndrome_comparison_RECOGNITION_v08",
     "healthcare_rns_imposter_syndrome_HOOK_v01",
-    "healthcare_rns_imposter_syndrome_SCENE_v21",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v04",
+    "healthcare_rns_imposter_syndrome_SCENE_v06",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v30",
     "placeholder:EXERCISE:ch14:slot3",
     "placeholder:INTEGRATION:ch14:slot4",
-    "healthcare_rns_imposter_syndrome_HOOK_v26",
-    "healthcare_rns_imposter_syndrome_SCENE_v25",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v29",
+    "healthcare_rns_imposter_syndrome_HOOK_v06",
+    "healthcare_rns_imposter_syndrome_SCENE_v13",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v22",
     "placeholder:EXERCISE:ch15:slot3",
     "placeholder:INTEGRATION:ch15:slot4",
-    "healthcare_rns_imposter_syndrome_HOOK_v28",
-    "healthcare_rns_imposter_syndrome_SCENE_v19",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v26",
-    "placeholder:INTEGRATION:ch16:slot3",
-    "healthcare_rns_imposter_syndrome_HOOK_v03",
-    "healthcare_rns_imposter_syndrome_SCENE_v15",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v03",
+    "healthcare_rns_imposter_syndrome_HOOK_v22",
+    "healthcare_rns_imposter_syndrome_SCENE_v10",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v27",
+    "placeholder:TAKEAWAY:ch16:slot3",
+    "placeholder:INTEGRATION:ch16:slot4",
+    "placeholder:THREAD:ch16:slot5",
+    "healthcare_rns_imposter_syndrome_HOOK_v04",
+    "healthcare_rns_imposter_syndrome_SCENE_v24",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v21",
     "placeholder:INTEGRATION:ch17:slot3",
-    "healthcare_rns_imposter_syndrome_shame_RECOGNITION_v10",
-    "healthcare_rns_imposter_syndrome_HOOK_v09",
-    "healthcare_rns_imposter_syndrome_SCENE_v20",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v06",
+    "healthcare_rns_imposter_syndrome_comparison_RECOGNITION_v10",
+    "healthcare_rns_imposter_syndrome_HOOK_v14",
+    "healthcare_rns_imposter_syndrome_SCENE_v21",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v05",
     "placeholder:EXERCISE:ch18:slot3",
     "placeholder:INTEGRATION:ch18:slot4",
-    "healthcare_rns_imposter_syndrome_HOOK_v04",
-    "healthcare_rns_imposter_syndrome_SCENE_v02",
-    "healthcare_rns_imposter_syndrome_REFLECTION_v27",
+    "healthcare_rns_imposter_syndrome_HOOK_v24",
+    "healthcare_rns_imposter_syndrome_SCENE_v07",
+    "healthcare_rns_imposter_syndrome_REFLECTION_v20",
     "placeholder:EXERCISE:ch19:slot3",
     "placeholder:INTEGRATION:ch19:slot4"
   ],
@@ -300,7 +320,7 @@
     18,
     19
   ],
-  "slot_sig": "MOD_pocket_guide:ab7b86c03f0c6766",
+  "slot_sig": "MOD_pocket_guide:1a5338ab551ae636",
   "format_id": "MOD_pocket_guide",
   "runtime_format_id": "",
   "output_format_id": "pocket_guide",
@@ -424,6 +444,28 @@
   "chapter_planner_warnings": [
     "arc_role_distribution[long] challenge=8 outside target [3,5]"
   ],
+  "chapter_bestseller_structures": [
+    "contrast_engine",
+    "zoom_lens",
+    "brene_brown",
+    "promise_engine",
+    "atomic",
+    "zoom_lens",
+    "ancestor",
+    "contrast_engine",
+    "atomic",
+    "ancestor",
+    "contrast_engine",
+    "letter",
+    "permission_slip",
+    "zoom_lens",
+    "zoom_lens",
+    "contrast_engine",
+    "contrast_engine",
+    "ancestor",
+    "myth_killer",
+    "ancestor"
+  ],
   "narrator_id": "default_narrator",
   "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
   "cover_art_style_hint": "contemplative",
@@ -486,16 +528,21 @@
     {
       "chapter_index": 0,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 0,
       "slot_index": 4,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
+      "phrase": "What does it cost you to keep going like this?"
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 4,
       "phrase": "The cost of not changing is already here."
     },
     {
@@ -506,12 +553,12 @@
     {
       "chapter_index": 2,
       "slot_index": 4,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 3,
       "slot_index": 2,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "Staying the same has a price."
     },
     {
       "chapter_index": 3,
@@ -521,27 +568,22 @@
     {
       "chapter_index": 4,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "Staying the same has a price."
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 4,
+      "phrase": "Staying the same has a price."
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "Staying the same has a price."
     },
     {
       "chapter_index": 5,
       "slot_index": 4,
       "phrase": "Staying the same has a price."
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 4,
-      "phrase": "What does it cost you to keep going like this?"
     }
   ],
   "reframe_injections": [
@@ -549,31 +591,31 @@
       "chapter_index": 0,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to name it to feel it."
+      "text": "The body holds what the mind can't yet process."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Grounding isn't escape\u2014it's presence."
+      "text": "Your body is your ally."
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "Where do you feel this in your body?"
+      "text": "Feel your feet on the floor."
     },
     {
       "chapter_index": 3,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Sensation before story."
+      "text": "You don't have to name it to feel it."
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Regulation is a skill, not a trait."
+      "text": "Your body is your ally."
     },
     {
       "chapter_index": 5,
@@ -597,13 +639,13 @@
       "chapter_index": 8,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "Feel your feet on the floor."
+      "text": "Where do you feel this in your body?"
     },
     {
       "chapter_index": 9,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Sensation before story."
+      "text": "The body holds what the mind can't yet process."
     },
     {
       "chapter_index": 10,
@@ -615,13 +657,13 @@
       "chapter_index": 11,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "Where do you feel this in your body?"
+      "text": "Let the exhale be longer than the inhale."
     },
     {
       "chapter_index": 12,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to name it to feel it."
+      "text": "The body holds what the mind can't yet process."
     },
     {
       "chapter_index": 13,
@@ -639,13 +681,13 @@
       "chapter_index": 15,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Sensation before story."
+      "text": "You don't have to name it to feel it."
     },
     {
       "chapter_index": 16,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Regulation is a skill, not a trait."
+      "text": "Your body is your ally."
     },
     {
       "chapter_index": 17,
@@ -667,13 +709,13 @@
     }
   ],
   "freebie_bundle": [
-    "breath_reset_structured_v1"
+    "shame_assessment_v1"
   ],
-  "cta_template_id": "tool_forward",
-  "freebie_slug": "imposter-syndrome-healthcare-rns-breath-reset-structured-v1",
+  "cta_template_id": "assessment_forward",
+  "freebie_slug": "imposter-syndrome-healthcare-rns-shame-assessment-v1",
   "freebie_bundle_with_formats": [
     {
-      "freebie_id": "breath_reset_structured_v1",
+      "freebie_id": "shame_assessment_v1",
       "formats": [
         "html"
       ]

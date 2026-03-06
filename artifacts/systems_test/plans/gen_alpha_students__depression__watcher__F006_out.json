@@ -1,6 +1,6 @@
 {
-  "plan_hash": "3c4a7e8e49147ea76c3fe53c3f99032a",
-  "plan_id": "3c4a7e8e49147ea76c3fe53c3f99032a",
+  "plan_hash": "8b7b5fd0ce5544b8447fd717a8a88d2c",
+  "plan_id": "8b7b5fd0ce5544b8447fd717a8a88d2c",
   "chapter_slot_sequence": [
     [
       "HOOK",
@@ -13,7 +13,31 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
       "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -34,27 +58,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
+      "TAKEAWAY",
       "INTEGRATION",
-      "STORY"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "INTEGRATION"
+      "THREAD"
     ],
     [
       "HOOK",
@@ -83,7 +89,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -118,7 +126,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -143,102 +153,112 @@
     ]
   ],
   "atom_ids": [
-    "gen_alpha_students_depression_HOOK_v27",
-    "gen_alpha_students_depression_SCENE_v09",
-    "gen_alpha_students_depression_REFLECTION_v29",
-    "gen_alpha_students_depression_INTEGRATION_v04",
-    "gen_alpha_students_depression_watcher_EMBODIMENT_v04",
-    "gen_alpha_students_depression_HOOK_v10",
-    "gen_alpha_students_depression_SCENE_v18",
-    "gen_alpha_students_depression_REFLECTION_v19",
-    "gen_alpha_students_depression_INTEGRATION_v03",
-    "gen_alpha_students_depression_HOOK_v11",
-    "gen_alpha_students_depression_SCENE_v21",
-    "gen_alpha_students_depression_REFLECTION_v09",
-    "gen_alpha_students_depression_EXERCISE_v02",
-    "gen_alpha_students_depression_INTEGRATION_v05",
-    "gen_alpha_students_depression_overwhelm_RECOGNITION_v02",
-    "gen_alpha_students_depression_HOOK_v07",
-    "gen_alpha_students_depression_SCENE_v07",
-    "gen_alpha_students_depression_REFLECTION_v15",
-    "gen_alpha_students_depression_INTEGRATION_v07",
-    "gen_alpha_students_depression_grief_EMBODIMENT_v03",
-    "gen_alpha_students_depression_HOOK_v30",
-    "gen_alpha_students_depression_SCENE_v30",
-    "gen_alpha_students_depression_REFLECTION_v05",
-    "gen_alpha_students_depression_INTEGRATION_v06",
-    "gen_alpha_students_depression_HOOK_v25",
-    "gen_alpha_students_depression_SCENE_v04",
-    "gen_alpha_students_depression_REFLECTION_v13",
-    "gen_alpha_students_depression_EXERCISE_v29",
-    "gen_alpha_students_depression_INTEGRATION_v01",
-    "gen_alpha_students_depression_HOOK_v06",
+    "gen_alpha_students_depression_HOOK_v23",
     "gen_alpha_students_depression_SCENE_v14",
-    "gen_alpha_students_depression_REFLECTION_v07",
-    "gen_alpha_students_depression_INTEGRATION_v02",
-    "gen_alpha_students_depression_watcher_TURNING_POINT_v03",
-    "gen_alpha_students_depression_HOOK_v22",
-    "gen_alpha_students_depression_SCENE_v19",
-    "gen_alpha_students_depression_REFLECTION_v01",
-    "placeholder:INTEGRATION:ch7:slot3",
-    "gen_alpha_students_depression_HOOK_v24",
-    "gen_alpha_students_depression_SCENE_v05",
     "gen_alpha_students_depression_REFLECTION_v23",
-    "gen_alpha_students_depression_EXERCISE_v30",
-    "placeholder:INTEGRATION:ch8:slot4",
-    "gen_alpha_students_depression_grief_RECOGNITION_v04",
-    "gen_alpha_students_depression_HOOK_v04",
-    "gen_alpha_students_depression_SCENE_v23",
+    "gen_alpha_students_depression_INTEGRATION_v03",
+    "gen_alpha_students_depression_grief_EMBODIMENT_v04",
+    "gen_alpha_students_depression_HOOK_v16",
+    "gen_alpha_students_depression_SCENE_v18",
+    "gen_alpha_students_depression_REFLECTION_v05",
+    "placeholder:TAKEAWAY:ch1:slot3",
+    "gen_alpha_students_depression_INTEGRATION_v05",
+    "placeholder:THREAD:ch1:slot5",
+    "gen_alpha_students_depression_HOOK_v24",
+    "gen_alpha_students_depression_SCENE_v24",
     "gen_alpha_students_depression_REFLECTION_v25",
-    "gen_alpha_students_depression_EXERCISE_v08",
-    "placeholder:INTEGRATION:ch9:slot4",
-    "gen_alpha_students_depression_grief_TURNING_POINT_v04",
-    "gen_alpha_students_depression_HOOK_v14",
-    "gen_alpha_students_depression_SCENE_v11",
-    "gen_alpha_students_depression_REFLECTION_v17",
-    "placeholder:INTEGRATION:ch10:slot3",
-    "gen_alpha_students_depression_watcher_RECOGNITION_v05",
-    "gen_alpha_students_depression_HOOK_v26",
-    "gen_alpha_students_depression_SCENE_v26",
-    "gen_alpha_students_depression_REFLECTION_v11",
-    "placeholder:INTEGRATION:ch11:slot3",
-    "gen_alpha_students_depression_HOOK_v28",
-    "gen_alpha_students_depression_SCENE_v08",
-    "gen_alpha_students_depression_REFLECTION_v03",
-    "gen_alpha_students_depression_EXERCISE_v01",
-    "placeholder:INTEGRATION:ch12:slot4",
-    "gen_alpha_students_depression_HOOK_v08",
-    "gen_alpha_students_depression_SCENE_v22",
+    "gen_alpha_students_depression_EXERCISE_v16",
+    "gen_alpha_students_depression_INTEGRATION_v02",
+    "gen_alpha_students_depression_HOOK_v21",
+    "gen_alpha_students_depression_SCENE_v25",
+    "gen_alpha_students_depression_REFLECTION_v09",
+    "gen_alpha_students_depression_INTEGRATION_v06",
+    "gen_alpha_students_depression_watcher_RECOGNITION_v01",
+    "gen_alpha_students_depression_HOOK_v13",
+    "gen_alpha_students_depression_SCENE_v04",
     "gen_alpha_students_depression_REFLECTION_v27",
+    "placeholder:TAKEAWAY:ch4:slot3",
+    "gen_alpha_students_depression_INTEGRATION_v01",
+    "placeholder:THREAD:ch4:slot5",
+    "gen_alpha_students_depression_HOOK_v01",
+    "gen_alpha_students_depression_SCENE_v17",
+    "gen_alpha_students_depression_REFLECTION_v11",
+    "gen_alpha_students_depression_EXERCISE_v30",
+    "gen_alpha_students_depression_INTEGRATION_v07",
+    "gen_alpha_students_depression_watcher_RECOGNITION_v02",
+    "gen_alpha_students_depression_HOOK_v17",
+    "gen_alpha_students_depression_SCENE_v28",
+    "gen_alpha_students_depression_REFLECTION_v17",
+    "gen_alpha_students_depression_INTEGRATION_v04",
+    "gen_alpha_students_depression_grief_TURNING_POINT_v02",
+    "gen_alpha_students_depression_HOOK_v10",
+    "gen_alpha_students_depression_SCENE_v21",
+    "gen_alpha_students_depression_REFLECTION_v21",
+    "placeholder:TAKEAWAY:ch7:slot3",
+    "placeholder:INTEGRATION:ch7:slot4",
+    "placeholder:THREAD:ch7:slot5",
+    "gen_alpha_students_depression_HOOK_v11",
+    "gen_alpha_students_depression_SCENE_v22",
+    "gen_alpha_students_depression_REFLECTION_v03",
+    "gen_alpha_students_depression_EXERCISE_v24",
+    "placeholder:INTEGRATION:ch8:slot4",
+    "gen_alpha_students_depression_overwhelm_MECHANISM_PROOF_v01",
+    "gen_alpha_students_depression_HOOK_v04",
+    "gen_alpha_students_depression_SCENE_v20",
+    "gen_alpha_students_depression_REFLECTION_v07",
+    "gen_alpha_students_depression_EXERCISE_v03",
+    "placeholder:INTEGRATION:ch9:slot4",
+    "gen_alpha_students_depression_watcher_TURNING_POINT_v02",
+    "gen_alpha_students_depression_HOOK_v30",
+    "gen_alpha_students_depression_SCENE_v16",
+    "gen_alpha_students_depression_REFLECTION_v29",
+    "placeholder:INTEGRATION:ch10:slot3",
+    "gen_alpha_students_depression_overwhelm_RECOGNITION_v05",
+    "gen_alpha_students_depression_HOOK_v05",
+    "gen_alpha_students_depression_SCENE_v10",
+    "gen_alpha_students_depression_REFLECTION_v15",
+    "placeholder:TAKEAWAY:ch11:slot3",
+    "placeholder:INTEGRATION:ch11:slot4",
+    "placeholder:THREAD:ch11:slot5",
+    "gen_alpha_students_depression_HOOK_v15",
+    "gen_alpha_students_depression_SCENE_v15",
+    "gen_alpha_students_depression_REFLECTION_v19",
+    "gen_alpha_students_depression_EXERCISE_v22",
+    "placeholder:INTEGRATION:ch12:slot4",
+    "gen_alpha_students_depression_HOOK_v26",
+    "gen_alpha_students_depression_SCENE_v12",
+    "gen_alpha_students_depression_REFLECTION_v13",
     "gen_alpha_students_depression_EXERCISE_v19",
     "placeholder:INTEGRATION:ch13:slot4",
-    "gen_alpha_students_depression_grief_RECOGNITION_v05",
-    "gen_alpha_students_depression_HOOK_v17",
-    "gen_alpha_students_depression_SCENE_v16",
-    "gen_alpha_students_depression_REFLECTION_v21",
-    "gen_alpha_students_depression_EXERCISE_v07",
+    "gen_alpha_students_depression_grief_MECHANISM_PROOF_v03",
+    "gen_alpha_students_depression_HOOK_v09",
+    "gen_alpha_students_depression_SCENE_v06",
+    "gen_alpha_students_depression_REFLECTION_v01",
+    "gen_alpha_students_depression_EXERCISE_v14",
     "placeholder:INTEGRATION:ch14:slot4",
-    "gen_alpha_students_depression_HOOK_v02",
-    "gen_alpha_students_depression_SCENE_v20",
+    "gen_alpha_students_depression_HOOK_v08",
+    "gen_alpha_students_depression_SCENE_v09",
     "placeholder:REFLECTION:ch15:slot2",
-    "gen_alpha_students_depression_EXERCISE_v16",
+    "gen_alpha_students_depression_EXERCISE_v02",
     "placeholder:INTEGRATION:ch15:slot4",
-    "gen_alpha_students_depression_HOOK_v16",
-    "gen_alpha_students_depression_SCENE_v27",
-    "placeholder:REFLECTION:ch16:slot2",
-    "placeholder:INTEGRATION:ch16:slot3",
-    "gen_alpha_students_depression_HOOK_v13",
+    "gen_alpha_students_depression_HOOK_v12",
     "gen_alpha_students_depression_SCENE_v01",
+    "placeholder:REFLECTION:ch16:slot2",
+    "placeholder:TAKEAWAY:ch16:slot3",
+    "placeholder:INTEGRATION:ch16:slot4",
+    "placeholder:THREAD:ch16:slot5",
+    "gen_alpha_students_depression_HOOK_v28",
+    "gen_alpha_students_depression_SCENE_v29",
     "placeholder:REFLECTION:ch17:slot2",
     "placeholder:INTEGRATION:ch17:slot3",
-    "gen_alpha_students_depression_grief_TURNING_POINT_v03",
-    "gen_alpha_students_depression_HOOK_v01",
-    "gen_alpha_students_depression_SCENE_v06",
+    "gen_alpha_students_depression_overwhelm_RECOGNITION_v04",
+    "gen_alpha_students_depression_HOOK_v02",
+    "gen_alpha_students_depression_SCENE_v08",
     "placeholder:REFLECTION:ch18:slot2",
-    "gen_alpha_students_depression_EXERCISE_v09",
+    "gen_alpha_students_depression_EXERCISE_v01",
     "placeholder:INTEGRATION:ch18:slot4",
-    "gen_alpha_students_depression_HOOK_v03",
-    "gen_alpha_students_depression_SCENE_v15",
+    "gen_alpha_students_depression_HOOK_v07",
+    "gen_alpha_students_depression_SCENE_v13",
     "placeholder:REFLECTION:ch19:slot2",
     "gen_alpha_students_depression_EXERCISE_v04",
     "placeholder:INTEGRATION:ch19:slot4"
@@ -246,10 +266,10 @@
   "dominant_band_sequence": [
     1,
     null,
-    2,
+    null,
     2,
     null,
-    null,
+    2,
     3,
     null,
     3,
@@ -300,7 +320,7 @@
     18,
     19
   ],
-  "slot_sig": "MOD_pocket_guide:ab7b86c03f0c6766",
+  "slot_sig": "MOD_pocket_guide:bc18f8d846b97280",
   "format_id": "MOD_pocket_guide",
   "runtime_format_id": "",
   "output_format_id": "pocket_guide",
@@ -336,10 +356,10 @@
   "chapter_archetypes": [
     "intro_hook_heavy",
     "legacy_uniform",
-    "deepen_mechanism",
+    "practice_heavy",
     "challenge_cost",
     "legacy_uniform",
-    "practice_heavy",
+    "deepen_mechanism",
     "challenge_cost",
     "legacy_uniform",
     "deepen_mechanism",
@@ -358,10 +378,10 @@
   "chapter_exercise_modes": [
     "none",
     "none",
-    "micro",
-    "none",
-    "none",
     "full",
+    "none",
+    "none",
+    "micro",
     "none",
     "none",
     "micro",
@@ -380,10 +400,10 @@
   "chapter_reflection_weights": [
     "light",
     "standard",
-    "standard",
+    "light",
     "heavy",
     "standard",
-    "light",
+    "standard",
     "heavy",
     "standard",
     "standard",
@@ -402,10 +422,10 @@
   "chapter_story_depths": [
     "standard",
     "standard",
-    "standard",
+    "micro",
     "deep",
     "standard",
-    "micro",
+    "standard",
     "deep",
     "standard",
     "standard",
@@ -423,6 +443,28 @@
   ],
   "chapter_planner_warnings": [
     "arc_role_distribution[long] challenge=8 outside target [3,5]"
+  ],
+  "chapter_bestseller_structures": [
+    "case_file",
+    "brene_brown",
+    "ancestor",
+    "myth_killer",
+    "zoom_lens",
+    "promise_engine",
+    "gladwell_spiral",
+    "atomic",
+    "gladwell_spiral",
+    "brene_brown",
+    "contrast_engine",
+    "atomic",
+    "letter",
+    "zoom_lens",
+    "brene_brown",
+    "case_file",
+    "zoom_lens",
+    "ancestor",
+    "van_der_kolk",
+    "zoom_lens"
   ],
   "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
   "cover_art_style_hint": "contemplative",
@@ -455,7 +497,7 @@
   "emotional_role_sig": "r-r-d-f-f-d-f-f-d-d-f-f-d-d-s-s-f-f-i-i",
   "book_structure_id": "classic_linear",
   "journey_shape_id": "recognition_to_agency",
-  "motif_id": "motif_pattern",
+  "motif_id": "motif_cost",
   "section_reorder_mode": "none",
   "reframe_profile_id": "balanced",
   "variation_chapter_archetypes": [
@@ -480,67 +522,67 @@
     "establish",
     "expose"
   ],
-  "variation_signature": "afa4ec5751ab63854734b12b7a1073ab",
+  "variation_signature": "838a346e71a90a02ccdab5616913f2b5",
   "motif_injections": [
     {
       "chapter_index": 0,
       "slot_index": 2,
-      "phrase": "The same pattern, different day."
+      "phrase": "The cost of not changing is already here."
     },
     {
       "chapter_index": 0,
       "slot_index": 4,
-      "phrase": "It shows up again and again."
+      "phrase": "Staying the same has a price."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
-      "phrase": "The same pattern, different day."
+      "phrase": "The cost of not changing is already here."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 4,
+      "phrase": "Staying the same has a price."
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
-      "phrase": "You've seen this before."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 2,
       "slot_index": 4,
-      "phrase": "You've seen this before."
+      "phrase": "Staying the same has a price."
     },
     {
       "chapter_index": 3,
       "slot_index": 2,
-      "phrase": "The same pattern, different day."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 3,
       "slot_index": 4,
-      "phrase": "It shows up again and again."
+      "phrase": "What does it cost you to keep going like this?"
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
-      "phrase": "The same pattern, different day."
+      "phrase": "The cost of not changing is already here."
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 4,
+      "phrase": "Staying the same has a price."
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
-      "phrase": "You've seen this before."
+      "phrase": "Staying the same has a price."
     },
     {
       "chapter_index": 5,
       "slot_index": 4,
-      "phrase": "You've seen this before."
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 2,
-      "phrase": "It shows up again and again."
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 4,
-      "phrase": "You've seen this before."
+      "phrase": "The cost of not changing is already here."
     }
   ],
   "reframe_injections": [
@@ -548,13 +590,13 @@
       "chapter_index": 0,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
+      "text": "Progress isn't linear."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Your nervous system is doing its best."
+      "text": "Change happens in relationship, not in isolation."
     },
     {
       "chapter_index": 2,
@@ -566,13 +608,13 @@
       "chapter_index": 3,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to do it all at once."
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Your nervous system is doing its best."
+      "text": "Change happens in relationship, not in isolation."
     },
     {
       "chapter_index": 5,
@@ -584,7 +626,7 @@
       "chapter_index": 6,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Progress isn't linear."
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
     },
     {
       "chapter_index": 7,
@@ -596,19 +638,19 @@
       "chapter_index": 8,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "One breath can reset the script."
+      "text": "You're not behind; you're exactly where you are."
     },
     {
       "chapter_index": 9,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
+      "text": "You don't have to do it all at once."
     },
     {
       "chapter_index": 10,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Safety comes before growth."
+      "text": "Your nervous system is doing its best."
     },
     {
       "chapter_index": 11,
@@ -632,7 +674,7 @@
       "chapter_index": 14,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "One breath can reset the script."
+      "text": "What if this moment could be different?"
     },
     {
       "chapter_index": 15,
@@ -644,25 +686,25 @@
       "chapter_index": 16,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Change happens in relationship, not in isolation."
+      "text": "Safety comes before growth."
     },
     {
       "chapter_index": 17,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "You're not behind; you're exactly where you are."
+      "text": "One breath can reset the script."
     },
     {
       "chapter_index": 18,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to do it all at once."
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
     },
     {
       "chapter_index": 19,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Your nervous system is doing its best."
+      "text": "Safety comes before growth."
     }
   ],
   "freebie_bundle": [

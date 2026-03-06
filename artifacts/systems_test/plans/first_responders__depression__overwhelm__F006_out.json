@@ -1,6 +1,6 @@
 {
-  "plan_hash": "aebaba0818a8f8ccc227ed8e677536e3",
-  "plan_id": "aebaba0818a8f8ccc227ed8e677536e3",
+  "plan_hash": "0b15eeaf0e6dd59a6757a7c38490c29b",
+  "plan_id": "0b15eeaf0e6dd59a6757a7c38490c29b",
   "chapter_slot_sequence": [
     [
       "HOOK",
@@ -13,7 +13,31 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
       "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -34,27 +58,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
+      "TAKEAWAY",
       "INTEGRATION",
-      "STORY"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "INTEGRATION"
+      "THREAD"
     ],
     [
       "HOOK",
@@ -83,7 +89,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -118,7 +126,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -143,113 +153,123 @@
     ]
   ],
   "atom_ids": [
-    "first_responders_depression_HOOK_v16",
-    "first_responders_depression_SCENE_v02",
-    "first_responders_depression_REFLECTION_v14",
-    "first_responders_depression_INTEGRATION_v07",
-    "first_responders_depression_grief_RECOGNITION_v06",
-    "first_responders_depression_HOOK_v25",
-    "first_responders_depression_SCENE_v19",
-    "first_responders_depression_REFLECTION_v15",
-    "first_responders_depression_INTEGRATION_v05",
-    "first_responders_depression_HOOK_v26",
-    "first_responders_depression_SCENE_v07",
-    "first_responders_depression_REFLECTION_v04",
-    "first_responders_depression_EXERCISE_v03",
-    "first_responders_depression_INTEGRATION_v03",
-    "first_responders_depression_grief_RECOGNITION_v01",
-    "first_responders_depression_HOOK_v29",
-    "first_responders_depression_SCENE_v18",
-    "first_responders_depression_REFLECTION_v22",
-    "first_responders_depression_INTEGRATION_v01",
-    "first_responders_depression_watcher_RECOGNITION_v03",
-    "first_responders_depression_HOOK_v06",
-    "first_responders_depression_SCENE_v15",
-    "first_responders_depression_REFLECTION_v21",
-    "placeholder:INTEGRATION:ch4:slot3",
-    "first_responders_depression_HOOK_v30",
-    "first_responders_depression_SCENE_v29",
-    "first_responders_depression_REFLECTION_v28",
-    "first_responders_depression_EXERCISE_v02",
-    "placeholder:INTEGRATION:ch5:slot4",
-    "first_responders_depression_HOOK_v05",
-    "first_responders_depression_SCENE_v01",
-    "first_responders_depression_REFLECTION_v23",
-    "placeholder:INTEGRATION:ch6:slot3",
-    "first_responders_depression_grief_RECOGNITION_v11",
-    "first_responders_depression_HOOK_v19",
-    "first_responders_depression_SCENE_v12",
-    "first_responders_depression_REFLECTION_v01",
-    "placeholder:INTEGRATION:ch7:slot3",
-    "first_responders_depression_HOOK_v18",
-    "first_responders_depression_SCENE_v27",
-    "first_responders_depression_REFLECTION_v29",
-    "first_responders_depression_EXERCISE_v01",
-    "placeholder:INTEGRATION:ch8:slot4",
-    "first_responders_depression_watcher_RECOGNITION_v07",
     "first_responders_depression_HOOK_v17",
-    "first_responders_depression_SCENE_v30",
-    "first_responders_depression_REFLECTION_v17",
+    "first_responders_depression_SCENE_v21",
+    "first_responders_depression_REFLECTION_v14",
+    "first_responders_depression_INTEGRATION_v03",
+    "first_responders_depression_watcher_RECOGNITION_v06",
+    "first_responders_depression_HOOK_v21",
+    "first_responders_depression_SCENE_v08",
+    "first_responders_depression_REFLECTION_v07",
+    "placeholder:TAKEAWAY:ch1:slot3",
+    "first_responders_depression_INTEGRATION_v07",
+    "placeholder:THREAD:ch1:slot5",
+    "first_responders_depression_HOOK_v01",
+    "first_responders_depression_SCENE_v02",
+    "first_responders_depression_REFLECTION_v11",
+    "first_responders_depression_EXERCISE_v01",
+    "first_responders_depression_INTEGRATION_v05",
+    "first_responders_depression_HOOK_v24",
+    "first_responders_depression_SCENE_v17",
+    "first_responders_depression_REFLECTION_v01",
+    "first_responders_depression_INTEGRATION_v01",
+    "first_responders_depression_watcher_RECOGNITION_v01",
+    "first_responders_depression_HOOK_v16",
+    "first_responders_depression_SCENE_v04",
+    "first_responders_depression_REFLECTION_v08",
+    "placeholder:TAKEAWAY:ch4:slot3",
+    "placeholder:INTEGRATION:ch4:slot4",
+    "placeholder:THREAD:ch4:slot5",
+    "first_responders_depression_HOOK_v20",
+    "first_responders_depression_SCENE_v20",
+    "first_responders_depression_REFLECTION_v19",
+    "first_responders_depression_EXERCISE_v03",
+    "placeholder:INTEGRATION:ch5:slot4",
+    "first_responders_depression_overwhelm_RECOGNITION_v03",
+    "first_responders_depression_HOOK_v18",
+    "first_responders_depression_SCENE_v10",
+    "first_responders_depression_REFLECTION_v24",
+    "placeholder:INTEGRATION:ch6:slot3",
+    "first_responders_depression_watcher_RECOGNITION_v12",
+    "first_responders_depression_HOOK_v28",
+    "first_responders_depression_SCENE_v12",
+    "first_responders_depression_REFLECTION_v23",
+    "placeholder:TAKEAWAY:ch7:slot3",
+    "placeholder:INTEGRATION:ch7:slot4",
+    "placeholder:THREAD:ch7:slot5",
+    "first_responders_depression_HOOK_v19",
+    "first_responders_depression_SCENE_v11",
+    "first_responders_depression_REFLECTION_v22",
+    "first_responders_depression_EXERCISE_v02",
+    "placeholder:INTEGRATION:ch8:slot4",
+    "first_responders_depression_watcher_RECOGNITION_v10",
+    "first_responders_depression_HOOK_v10",
+    "first_responders_depression_SCENE_v29",
+    "first_responders_depression_REFLECTION_v02",
     "placeholder:EXERCISE:ch9:slot3",
     "placeholder:INTEGRATION:ch9:slot4",
-    "first_responders_depression_grief_RECOGNITION_v07",
-    "first_responders_depression_HOOK_v14",
-    "first_responders_depression_SCENE_v25",
+    "first_responders_depression_grief_RECOGNITION_v10",
+    "first_responders_depression_HOOK_v08",
+    "first_responders_depression_SCENE_v24",
     "first_responders_depression_REFLECTION_v03",
     "placeholder:INTEGRATION:ch10:slot3",
-    "first_responders_depression_watcher_MECHANISM_PROOF_v02",
-    "first_responders_depression_HOOK_v23",
-    "first_responders_depression_SCENE_v05",
-    "first_responders_depression_REFLECTION_v20",
-    "placeholder:INTEGRATION:ch11:slot3",
-    "first_responders_depression_HOOK_v21",
-    "first_responders_depression_SCENE_v24",
-    "first_responders_depression_REFLECTION_v16",
+    "first_responders_depression_grief_RECOGNITION_v05",
+    "first_responders_depression_HOOK_v07",
+    "first_responders_depression_SCENE_v13",
+    "first_responders_depression_REFLECTION_v18",
+    "placeholder:TAKEAWAY:ch11:slot3",
+    "placeholder:INTEGRATION:ch11:slot4",
+    "placeholder:THREAD:ch11:slot5",
+    "first_responders_depression_HOOK_v09",
+    "first_responders_depression_SCENE_v01",
+    "first_responders_depression_REFLECTION_v25",
     "placeholder:EXERCISE:ch12:slot3",
     "placeholder:INTEGRATION:ch12:slot4",
-    "first_responders_depression_HOOK_v20",
-    "first_responders_depression_SCENE_v16",
-    "first_responders_depression_REFLECTION_v27",
+    "first_responders_depression_HOOK_v23",
+    "first_responders_depression_SCENE_v30",
+    "first_responders_depression_REFLECTION_v29",
     "placeholder:EXERCISE:ch13:slot3",
     "placeholder:INTEGRATION:ch13:slot4",
-    "first_responders_depression_overwhelm_RECOGNITION_v05",
-    "first_responders_depression_HOOK_v11",
-    "first_responders_depression_SCENE_v20",
-    "first_responders_depression_REFLECTION_v09",
+    "first_responders_depression_watcher_MECHANISM_PROOF_v02",
+    "first_responders_depression_HOOK_v13",
+    "first_responders_depression_SCENE_v03",
+    "first_responders_depression_REFLECTION_v15",
     "placeholder:EXERCISE:ch14:slot3",
     "placeholder:INTEGRATION:ch14:slot4",
-    "first_responders_depression_HOOK_v03",
-    "first_responders_depression_SCENE_v09",
-    "first_responders_depression_REFLECTION_v07",
+    "first_responders_depression_HOOK_v30",
+    "first_responders_depression_SCENE_v18",
+    "first_responders_depression_REFLECTION_v04",
     "placeholder:EXERCISE:ch15:slot3",
     "placeholder:INTEGRATION:ch15:slot4",
-    "first_responders_depression_HOOK_v08",
-    "first_responders_depression_SCENE_v06",
-    "first_responders_depression_REFLECTION_v06",
-    "placeholder:INTEGRATION:ch16:slot3",
-    "first_responders_depression_HOOK_v02",
-    "first_responders_depression_SCENE_v17",
-    "first_responders_depression_REFLECTION_v26",
+    "first_responders_depression_HOOK_v15",
+    "first_responders_depression_SCENE_v25",
+    "first_responders_depression_REFLECTION_v30",
+    "placeholder:TAKEAWAY:ch16:slot3",
+    "placeholder:INTEGRATION:ch16:slot4",
+    "placeholder:THREAD:ch16:slot5",
+    "first_responders_depression_HOOK_v05",
+    "first_responders_depression_SCENE_v09",
+    "first_responders_depression_REFLECTION_v16",
     "placeholder:INTEGRATION:ch17:slot3",
-    "first_responders_depression_watcher_RECOGNITION_v12",
-    "first_responders_depression_HOOK_v24",
-    "first_responders_depression_SCENE_v11",
-    "first_responders_depression_REFLECTION_v11",
+    "first_responders_depression_overwhelm_RECOGNITION_v10",
+    "first_responders_depression_HOOK_v22",
+    "first_responders_depression_SCENE_v14",
+    "first_responders_depression_REFLECTION_v05",
     "placeholder:EXERCISE:ch18:slot3",
     "placeholder:INTEGRATION:ch18:slot4",
-    "first_responders_depression_HOOK_v22",
-    "first_responders_depression_SCENE_v08",
-    "first_responders_depression_REFLECTION_v24",
+    "first_responders_depression_HOOK_v27",
+    "first_responders_depression_SCENE_v28",
+    "first_responders_depression_REFLECTION_v26",
     "placeholder:EXERCISE:ch19:slot3",
     "placeholder:INTEGRATION:ch19:slot4"
   ],
   "dominant_band_sequence": [
     1,
     null,
-    2,
+    null,
     2,
     null,
-    null,
+    2,
     3,
     null,
     3,
@@ -300,7 +320,7 @@
     18,
     19
   ],
-  "slot_sig": "MOD_pocket_guide:ab7b86c03f0c6766",
+  "slot_sig": "MOD_pocket_guide:bc18f8d846b97280",
   "format_id": "MOD_pocket_guide",
   "runtime_format_id": "",
   "output_format_id": "pocket_guide",
@@ -336,10 +356,10 @@
   "chapter_archetypes": [
     "intro_hook_heavy",
     "legacy_uniform",
-    "deepen_mechanism",
+    "practice_heavy",
     "challenge_cost",
     "legacy_uniform",
-    "practice_heavy",
+    "deepen_mechanism",
     "challenge_cost",
     "legacy_uniform",
     "deepen_mechanism",
@@ -358,10 +378,10 @@
   "chapter_exercise_modes": [
     "none",
     "none",
-    "micro",
-    "none",
-    "none",
     "full",
+    "none",
+    "none",
+    "micro",
     "none",
     "none",
     "micro",
@@ -380,10 +400,10 @@
   "chapter_reflection_weights": [
     "light",
     "standard",
-    "standard",
+    "light",
     "heavy",
     "standard",
-    "light",
+    "standard",
     "heavy",
     "standard",
     "standard",
@@ -402,10 +422,10 @@
   "chapter_story_depths": [
     "standard",
     "standard",
-    "standard",
+    "micro",
     "deep",
     "standard",
-    "micro",
+    "standard",
     "deep",
     "standard",
     "standard",
@@ -423,6 +443,28 @@
   ],
   "chapter_planner_warnings": [
     "arc_role_distribution[long] challenge=8 outside target [3,5]"
+  ],
+  "chapter_bestseller_structures": [
+    "myth_killer",
+    "van_der_kolk",
+    "letter",
+    "ancestor",
+    "permission_slip",
+    "gladwell_spiral",
+    "myth_killer",
+    "promise_engine",
+    "ancestor",
+    "contrast_engine",
+    "case_file",
+    "contrast_engine",
+    "myth_killer",
+    "gladwell_spiral",
+    "myth_killer",
+    "atomic",
+    "permission_slip",
+    "gladwell_spiral",
+    "contrast_engine",
+    "gladwell_spiral"
   ],
   "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
   "cover_art_style_hint": "contemplative",
@@ -455,7 +497,7 @@
   "emotional_role_sig": "r-r-d-f-f-d-f-f-d-d-f-f-d-d-s-s-f-f-i-i",
   "book_structure_id": "three_act",
   "journey_shape_id": "wave_three_peaks",
-  "motif_id": "motif_cost",
+  "motif_id": "motif_pattern",
   "section_reorder_mode": "none",
   "reframe_profile_id": "balanced",
   "variation_chapter_archetypes": [
@@ -480,67 +522,67 @@
     "establish",
     "expose"
   ],
-  "variation_signature": "83f97efd0c9ea71ec7f858b9e4fbac28",
+  "variation_signature": "b48d92dfbdeef54208eb3a1d72ee8de2",
   "motif_injections": [
     {
       "chapter_index": 0,
       "slot_index": 2,
-      "phrase": "Staying the same has a price."
+      "phrase": "It shows up again and again."
     },
     {
       "chapter_index": 0,
       "slot_index": 4,
-      "phrase": "Staying the same has a price."
+      "phrase": "The same pattern, different day."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "The same pattern, different day."
+    },
+    {
+      "chapter_index": 1,
+      "slot_index": 4,
+      "phrase": "The same pattern, different day."
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "It shows up again and again."
     },
     {
       "chapter_index": 2,
       "slot_index": 4,
-      "phrase": "Staying the same has a price."
+      "phrase": "It shows up again and again."
     },
     {
       "chapter_index": 3,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "The same pattern, different day."
     },
     {
       "chapter_index": 3,
       "slot_index": 4,
-      "phrase": "Staying the same has a price."
+      "phrase": "The same pattern, different day."
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "It shows up again and again."
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 4,
+      "phrase": "It shows up again and again."
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
-      "phrase": "Staying the same has a price."
+      "phrase": "You've seen this before."
     },
     {
       "chapter_index": 5,
       "slot_index": 4,
-      "phrase": "Staying the same has a price."
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 2,
-      "phrase": "What does it cost you to keep going like this?"
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 4,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "You've seen this before."
     }
   ],
   "reframe_injections": [
@@ -554,13 +596,13 @@
       "chapter_index": 1,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Safety comes before growth."
+      "text": "Change happens in relationship, not in isolation."
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "One breath can reset the script."
+      "text": "What if this moment could be different?"
     },
     {
       "chapter_index": 3,
@@ -578,43 +620,43 @@
       "chapter_index": 5,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "You're not behind; you're exactly where you are."
+      "text": "What if this moment could be different?"
     },
     {
       "chapter_index": 6,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to do it all at once."
+      "text": "Progress isn't linear."
     },
     {
       "chapter_index": 7,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Your nervous system is doing its best."
+      "text": "Safety comes before growth."
     },
     {
       "chapter_index": 8,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "What if this moment could be different?"
+      "text": "One breath can reset the script."
     },
     {
       "chapter_index": 9,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Progress isn't linear."
+      "text": "You don't have to do it all at once."
     },
     {
       "chapter_index": 10,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Safety comes before growth."
+      "text": "Your nervous system is doing its best."
     },
     {
       "chapter_index": 11,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "One breath can reset the script."
+      "text": "You're not behind; you're exactly where you are."
     },
     {
       "chapter_index": 12,
@@ -638,7 +680,7 @@
       "chapter_index": 15,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Progress isn't linear."
+      "text": "You don't have to do it all at once."
     },
     {
       "chapter_index": 16,
@@ -650,19 +692,19 @@
       "chapter_index": 17,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "One breath can reset the script."
+      "text": "You're not behind; you're exactly where you are."
     },
     {
       "chapter_index": 18,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to do it all at once."
+      "text": "Progress isn't linear."
     },
     {
       "chapter_index": 19,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Safety comes before growth."
+      "text": "Your nervous system is doing its best."
     }
   ],
   "freebie_bundle": [

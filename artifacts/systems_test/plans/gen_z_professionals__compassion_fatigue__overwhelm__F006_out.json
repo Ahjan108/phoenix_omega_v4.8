@@ -1,6 +1,6 @@
 {
-  "plan_hash": "55b5a8aaf6314bb04d5cbd7bad6fb0f4",
-  "plan_id": "55b5a8aaf6314bb04d5cbd7bad6fb0f4",
+  "plan_hash": "da077d7b04da421a8487badd3c48f0c8",
+  "plan_id": "da077d7b04da421a8487badd3c48f0c8",
   "chapter_slot_sequence": [
     [
       "HOOK",
@@ -13,7 +13,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -34,7 +36,39 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
       "INTEGRATION"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "INTEGRATION",
+      "STORY"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
+    ],
+    [
+      "HOOK",
+      "SCENE",
+      "REFLECTION",
+      "EXERCISE",
+      "INTEGRATION",
+      "STORY"
     ],
     [
       "HOOK",
@@ -55,35 +89,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
-      "INTEGRATION"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "EXERCISE",
+      "TAKEAWAY",
       "INTEGRATION",
-      "STORY"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "INTEGRATION",
-      "STORY"
-    ],
-    [
-      "HOOK",
-      "SCENE",
-      "REFLECTION",
-      "INTEGRATION"
+      "THREAD"
     ],
     [
       "HOOK",
@@ -118,7 +126,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -143,104 +153,114 @@
     ]
   ],
   "atom_ids": [
-    "gen_z_professionals_compassion_fatigue_HOOK_v27",
-    "gen_z_professionals_compassion_fatigue_SCENE_v30",
-    "gen_z_professionals_compassion_fatigue_REFLECTION_v19",
-    "gen_z_professionals_compassion_fatigue_INTEGRATION_v03",
-    "gen_z_professionals_compassion_fatigue_grief_EMBODIMENT_v02",
-    "gen_z_professionals_compassion_fatigue_HOOK_v24",
-    "gen_z_professionals_compassion_fatigue_SCENE_v17",
-    "gen_z_professionals_compassion_fatigue_REFLECTION_v21",
-    "gen_z_professionals_compassion_fatigue_INTEGRATION_v07",
-    "gen_z_professionals_compassion_fatigue_HOOK_v02",
-    "gen_z_professionals_compassion_fatigue_SCENE_v04",
-    "gen_z_professionals_compassion_fatigue_REFLECTION_v11",
-    "gen_z_professionals_compassion_fatigue_EXERCISE_v13",
-    "gen_z_professionals_compassion_fatigue_INTEGRATION_v02",
-    "gen_z_professionals_compassion_fatigue_watcher_RECOGNITION_v02",
-    "gen_z_professionals_compassion_fatigue_HOOK_v06",
-    "gen_z_professionals_compassion_fatigue_SCENE_v26",
-    "gen_z_professionals_compassion_fatigue_REFLECTION_v13",
+    "gen_z_professionals_compassion_fatigue_HOOK_v08",
+    "gen_z_professionals_compassion_fatigue_SCENE_v10",
+    "gen_z_professionals_compassion_fatigue_REFLECTION_v27",
     "gen_z_professionals_compassion_fatigue_INTEGRATION_v05",
-    "gen_z_professionals_compassion_fatigue_grief_EMBODIMENT_v03",
-    "gen_z_professionals_compassion_fatigue_HOOK_v13",
-    "gen_z_professionals_compassion_fatigue_SCENE_v05",
+    "gen_z_professionals_compassion_fatigue_grief_EMBODIMENT_v02",
+    "gen_z_professionals_compassion_fatigue_HOOK_v23",
+    "gen_z_professionals_compassion_fatigue_SCENE_v17",
+    "gen_z_professionals_compassion_fatigue_REFLECTION_v13",
+    "placeholder:TAKEAWAY:ch1:slot3",
+    "gen_z_professionals_compassion_fatigue_INTEGRATION_v01",
+    "placeholder:THREAD:ch1:slot5",
+    "gen_z_professionals_compassion_fatigue_HOOK_v27",
+    "gen_z_professionals_compassion_fatigue_SCENE_v23",
+    "gen_z_professionals_compassion_fatigue_REFLECTION_v15",
+    "gen_z_professionals_compassion_fatigue_EXERCISE_v16",
+    "gen_z_professionals_compassion_fatigue_INTEGRATION_v06",
+    "gen_z_professionals_compassion_fatigue_watcher_RECOGNITION_v02",
+    "gen_z_professionals_compassion_fatigue_HOOK_v28",
+    "gen_z_professionals_compassion_fatigue_SCENE_v02",
+    "gen_z_professionals_compassion_fatigue_REFLECTION_v19",
+    "gen_z_professionals_compassion_fatigue_INTEGRATION_v02",
+    "gen_z_professionals_compassion_fatigue_grief_RECOGNITION_v01",
+    "gen_z_professionals_compassion_fatigue_HOOK_v11",
+    "gen_z_professionals_compassion_fatigue_SCENE_v07",
+    "gen_z_professionals_compassion_fatigue_REFLECTION_v11",
+    "placeholder:TAKEAWAY:ch4:slot3",
+    "gen_z_professionals_compassion_fatigue_INTEGRATION_v03",
+    "placeholder:THREAD:ch4:slot5",
+    "gen_z_professionals_compassion_fatigue_HOOK_v12",
+    "gen_z_professionals_compassion_fatigue_SCENE_v13",
+    "gen_z_professionals_compassion_fatigue_REFLECTION_v21",
+    "gen_z_professionals_compassion_fatigue_EXERCISE_v06",
+    "gen_z_professionals_compassion_fatigue_INTEGRATION_v07",
+    "gen_z_professionals_compassion_fatigue_HOOK_v03",
+    "gen_z_professionals_compassion_fatigue_SCENE_v09",
     "gen_z_professionals_compassion_fatigue_REFLECTION_v07",
     "gen_z_professionals_compassion_fatigue_INTEGRATION_v04",
-    "gen_z_professionals_compassion_fatigue_HOOK_v29",
-    "gen_z_professionals_compassion_fatigue_SCENE_v28",
-    "gen_z_professionals_compassion_fatigue_REFLECTION_v29",
-    "gen_z_professionals_compassion_fatigue_EXERCISE_v30",
-    "gen_z_professionals_compassion_fatigue_INTEGRATION_v01",
-    "gen_z_professionals_compassion_fatigue_watcher_EMBODIMENT_v03",
-    "gen_z_professionals_compassion_fatigue_HOOK_v30",
-    "gen_z_professionals_compassion_fatigue_SCENE_v09",
-    "gen_z_professionals_compassion_fatigue_REFLECTION_v23",
-    "gen_z_professionals_compassion_fatigue_INTEGRATION_v06",
-    "gen_z_professionals_compassion_fatigue_overwhelm_MECHANISM_PROOF_v05",
+    "gen_z_professionals_compassion_fatigue_watcher_TURNING_POINT_v02",
     "gen_z_professionals_compassion_fatigue_HOOK_v17",
-    "gen_z_professionals_compassion_fatigue_SCENE_v22",
-    "gen_z_professionals_compassion_fatigue_REFLECTION_v05",
-    "placeholder:INTEGRATION:ch7:slot3",
-    "gen_z_professionals_compassion_fatigue_HOOK_v28",
-    "gen_z_professionals_compassion_fatigue_SCENE_v16",
-    "gen_z_professionals_compassion_fatigue_REFLECTION_v25",
-    "gen_z_professionals_compassion_fatigue_EXERCISE_v19",
-    "placeholder:INTEGRATION:ch8:slot4",
-    "gen_z_professionals_compassion_fatigue_HOOK_v14",
-    "gen_z_professionals_compassion_fatigue_SCENE_v19",
-    "gen_z_professionals_compassion_fatigue_REFLECTION_v17",
-    "gen_z_professionals_compassion_fatigue_EXERCISE_v11",
-    "placeholder:INTEGRATION:ch9:slot4",
-    "gen_z_professionals_compassion_fatigue_overwhelm_TURNING_POINT_v05",
-    "gen_z_professionals_compassion_fatigue_HOOK_v25",
-    "gen_z_professionals_compassion_fatigue_SCENE_v02",
-    "gen_z_professionals_compassion_fatigue_REFLECTION_v27",
-    "placeholder:INTEGRATION:ch10:slot3",
-    "gen_z_professionals_compassion_fatigue_overwhelm_MECHANISM_PROOF_v03",
-    "gen_z_professionals_compassion_fatigue_HOOK_v09",
-    "gen_z_professionals_compassion_fatigue_SCENE_v11",
-    "gen_z_professionals_compassion_fatigue_REFLECTION_v15",
-    "placeholder:INTEGRATION:ch11:slot3",
-    "gen_z_professionals_compassion_fatigue_HOOK_v01",
-    "gen_z_professionals_compassion_fatigue_SCENE_v01",
-    "gen_z_professionals_compassion_fatigue_REFLECTION_v03",
-    "gen_z_professionals_compassion_fatigue_EXERCISE_v21",
-    "placeholder:INTEGRATION:ch12:slot4",
-    "gen_z_professionals_compassion_fatigue_HOOK_v21",
-    "gen_z_professionals_compassion_fatigue_SCENE_v14",
-    "gen_z_professionals_compassion_fatigue_REFLECTION_v09",
-    "gen_z_professionals_compassion_fatigue_EXERCISE_v01",
-    "placeholder:INTEGRATION:ch13:slot4",
-    "gen_z_professionals_compassion_fatigue_grief_MECHANISM_PROOF_v03",
-    "gen_z_professionals_compassion_fatigue_HOOK_v19",
-    "gen_z_professionals_compassion_fatigue_SCENE_v23",
-    "gen_z_professionals_compassion_fatigue_REFLECTION_v01",
-    "gen_z_professionals_compassion_fatigue_EXERCISE_v03",
-    "placeholder:INTEGRATION:ch14:slot4",
+    "gen_z_professionals_compassion_fatigue_SCENE_v27",
+    "gen_z_professionals_compassion_fatigue_REFLECTION_v23",
+    "placeholder:TAKEAWAY:ch7:slot3",
+    "placeholder:INTEGRATION:ch7:slot4",
+    "placeholder:THREAD:ch7:slot5",
     "gen_z_professionals_compassion_fatigue_HOOK_v18",
-    "gen_z_professionals_compassion_fatigue_SCENE_v10",
-    "placeholder:REFLECTION:ch15:slot2",
-    "gen_z_professionals_compassion_fatigue_EXERCISE_v27",
-    "placeholder:INTEGRATION:ch15:slot4",
-    "gen_z_professionals_compassion_fatigue_HOOK_v16",
+    "gen_z_professionals_compassion_fatigue_SCENE_v15",
+    "gen_z_professionals_compassion_fatigue_REFLECTION_v09",
+    "gen_z_professionals_compassion_fatigue_EXERCISE_v25",
+    "placeholder:INTEGRATION:ch8:slot4",
+    "gen_z_professionals_compassion_fatigue_overwhelm_TURNING_POINT_v01",
+    "gen_z_professionals_compassion_fatigue_HOOK_v22",
     "gen_z_professionals_compassion_fatigue_SCENE_v12",
-    "placeholder:REFLECTION:ch16:slot2",
-    "placeholder:INTEGRATION:ch16:slot3",
-    "gen_z_professionals_compassion_fatigue_HOOK_v12",
+    "gen_z_professionals_compassion_fatigue_REFLECTION_v01",
+    "gen_z_professionals_compassion_fatigue_EXERCISE_v12",
+    "placeholder:INTEGRATION:ch9:slot4",
+    "gen_z_professionals_compassion_fatigue_grief_TURNING_POINT_v01",
+    "gen_z_professionals_compassion_fatigue_HOOK_v06",
+    "gen_z_professionals_compassion_fatigue_SCENE_v16",
+    "gen_z_professionals_compassion_fatigue_REFLECTION_v03",
+    "placeholder:INTEGRATION:ch10:slot3",
+    "gen_z_professionals_compassion_fatigue_watcher_RECOGNITION_v05",
+    "gen_z_professionals_compassion_fatigue_HOOK_v30",
+    "gen_z_professionals_compassion_fatigue_SCENE_v06",
+    "gen_z_professionals_compassion_fatigue_REFLECTION_v25",
+    "placeholder:TAKEAWAY:ch11:slot3",
+    "placeholder:INTEGRATION:ch11:slot4",
+    "placeholder:THREAD:ch11:slot5",
+    "gen_z_professionals_compassion_fatigue_HOOK_v01",
     "gen_z_professionals_compassion_fatigue_SCENE_v03",
+    "gen_z_professionals_compassion_fatigue_REFLECTION_v17",
+    "gen_z_professionals_compassion_fatigue_EXERCISE_v02",
+    "placeholder:INTEGRATION:ch12:slot4",
+    "gen_z_professionals_compassion_fatigue_HOOK_v13",
+    "gen_z_professionals_compassion_fatigue_SCENE_v24",
+    "gen_z_professionals_compassion_fatigue_REFLECTION_v05",
+    "gen_z_professionals_compassion_fatigue_EXERCISE_v10",
+    "placeholder:INTEGRATION:ch13:slot4",
+    "gen_z_professionals_compassion_fatigue_watcher_MECHANISM_PROOF_v04",
+    "gen_z_professionals_compassion_fatigue_HOOK_v07",
+    "gen_z_professionals_compassion_fatigue_SCENE_v19",
+    "gen_z_professionals_compassion_fatigue_REFLECTION_v29",
+    "gen_z_professionals_compassion_fatigue_EXERCISE_v18",
+    "placeholder:INTEGRATION:ch14:slot4",
+    "gen_z_professionals_compassion_fatigue_HOOK_v24",
+    "gen_z_professionals_compassion_fatigue_SCENE_v22",
+    "placeholder:REFLECTION:ch15:slot2",
+    "gen_z_professionals_compassion_fatigue_EXERCISE_v29",
+    "placeholder:INTEGRATION:ch15:slot4",
+    "gen_z_professionals_compassion_fatigue_HOOK_v14",
+    "gen_z_professionals_compassion_fatigue_SCENE_v14",
+    "placeholder:REFLECTION:ch16:slot2",
+    "placeholder:TAKEAWAY:ch16:slot3",
+    "placeholder:INTEGRATION:ch16:slot4",
+    "placeholder:THREAD:ch16:slot5",
+    "gen_z_professionals_compassion_fatigue_HOOK_v25",
+    "gen_z_professionals_compassion_fatigue_SCENE_v18",
     "placeholder:REFLECTION:ch17:slot2",
     "placeholder:INTEGRATION:ch17:slot3",
-    "gen_z_professionals_compassion_fatigue_grief_TURNING_POINT_v02",
-    "gen_z_professionals_compassion_fatigue_HOOK_v10",
-    "gen_z_professionals_compassion_fatigue_SCENE_v18",
+    "gen_z_professionals_compassion_fatigue_watcher_TURNING_POINT_v05",
+    "gen_z_professionals_compassion_fatigue_HOOK_v20",
+    "gen_z_professionals_compassion_fatigue_SCENE_v30",
     "placeholder:REFLECTION:ch18:slot2",
-    "gen_z_professionals_compassion_fatigue_EXERCISE_v15",
+    "gen_z_professionals_compassion_fatigue_EXERCISE_v26",
     "placeholder:INTEGRATION:ch18:slot4",
-    "gen_z_professionals_compassion_fatigue_HOOK_v15",
-    "gen_z_professionals_compassion_fatigue_SCENE_v24",
+    "gen_z_professionals_compassion_fatigue_HOOK_v21",
+    "gen_z_professionals_compassion_fatigue_SCENE_v26",
     "placeholder:REFLECTION:ch19:slot2",
-    "gen_z_professionals_compassion_fatigue_EXERCISE_v16",
+    "gen_z_professionals_compassion_fatigue_EXERCISE_v19",
     "placeholder:INTEGRATION:ch19:slot4"
   ],
   "dominant_band_sequence": [
@@ -249,10 +269,10 @@
     2,
     2,
     null,
-    2,
+    null,
     3,
     null,
-    null,
+    3,
     3,
     4,
     null,
@@ -300,7 +320,7 @@
     18,
     19
   ],
-  "slot_sig": "MOD_pocket_guide:391ec1c037fb6540",
+  "slot_sig": "MOD_pocket_guide:1a5338ab551ae636",
   "format_id": "MOD_pocket_guide",
   "runtime_format_id": "",
   "output_format_id": "pocket_guide",
@@ -339,10 +359,10 @@
     "deepen_mechanism",
     "challenge_cost",
     "legacy_uniform",
-    "deepen_mechanism",
+    "practice_heavy",
     "challenge_cost",
     "legacy_uniform",
-    "practice_heavy",
+    "deepen_mechanism",
     "deepen_mechanism",
     "challenge_cost",
     "legacy_uniform",
@@ -361,10 +381,10 @@
     "micro",
     "none",
     "none",
-    "micro",
-    "none",
-    "none",
     "full",
+    "none",
+    "none",
+    "micro",
     "micro",
     "none",
     "none",
@@ -383,10 +403,10 @@
     "standard",
     "heavy",
     "standard",
-    "standard",
+    "light",
     "heavy",
     "standard",
-    "light",
+    "standard",
     "standard",
     "heavy",
     "standard",
@@ -405,10 +425,10 @@
     "standard",
     "deep",
     "standard",
-    "standard",
+    "micro",
     "deep",
     "standard",
-    "micro",
+    "standard",
     "standard",
     "deep",
     "standard",
@@ -423,6 +443,28 @@
   ],
   "chapter_planner_warnings": [
     "arc_role_distribution[long] challenge=8 outside target [3,5]"
+  ],
+  "chapter_bestseller_structures": [
+    "zoom_lens",
+    "atomic",
+    "van_der_kolk",
+    "gladwell_spiral",
+    "myth_killer",
+    "contrast_engine",
+    "zoom_lens",
+    "brene_brown",
+    "gladwell_spiral",
+    "gladwell_spiral",
+    "van_der_kolk",
+    "zoom_lens",
+    "myth_killer",
+    "zoom_lens",
+    "promise_engine",
+    "zoom_lens",
+    "van_der_kolk",
+    "gladwell_spiral",
+    "myth_killer",
+    "myth_killer"
   ],
   "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
   "cover_art_style_hint": "contemplative",
@@ -485,12 +527,12 @@
     {
       "chapter_index": 0,
       "slot_index": 2,
-      "phrase": "This is where you choose."
+      "phrase": "You get to choose what happens next."
     },
     {
       "chapter_index": 0,
       "slot_index": 4,
-      "phrase": "One small choice can change the direction."
+      "phrase": "This is where you choose."
     },
     {
       "chapter_index": 1,
@@ -498,49 +540,49 @@
       "phrase": "One small choice can change the direction."
     },
     {
-      "chapter_index": 2,
-      "slot_index": 2,
+      "chapter_index": 1,
+      "slot_index": 4,
       "phrase": "This is where you choose."
     },
     {
       "chapter_index": 2,
+      "slot_index": 2,
+      "phrase": "One small choice can change the direction."
+    },
+    {
+      "chapter_index": 2,
       "slot_index": 4,
+      "phrase": "This is where you choose."
+    },
+    {
+      "chapter_index": 3,
+      "slot_index": 2,
       "phrase": "One small choice can change the direction."
     },
     {
       "chapter_index": 3,
-      "slot_index": 2,
-      "phrase": "This is where you choose."
-    },
-    {
-      "chapter_index": 3,
       "slot_index": 4,
-      "phrase": "This is where you choose."
+      "phrase": "You get to choose what happens next."
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
+      "phrase": "One small choice can change the direction."
+    },
+    {
+      "chapter_index": 4,
+      "slot_index": 4,
       "phrase": "You get to choose what happens next."
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
-      "phrase": "You get to choose what happens next."
+      "phrase": "One small choice can change the direction."
     },
     {
       "chapter_index": 5,
       "slot_index": 4,
-      "phrase": "You get to choose what happens next."
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 2,
-      "phrase": "This is where you choose."
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 4,
-      "phrase": "This is where you choose."
+      "phrase": "One small choice can change the direction."
     }
   ],
   "reframe_injections": [
@@ -548,25 +590,25 @@
       "chapter_index": 0,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Rest is part of the work."
+      "text": "Some things take the time they take."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "You've already survived every hard moment so far."
+      "text": "Stability is a practice, not a destination."
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "No need to push through."
+      "text": "What would support look like right now?"
     },
     {
       "chapter_index": 3,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Some things take the time they take."
+      "text": "Rest is part of the work."
     },
     {
       "chapter_index": 4,
@@ -578,7 +620,7 @@
       "chapter_index": 5,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "You can pause here."
+      "text": "What would support look like right now?"
     },
     {
       "chapter_index": 6,
@@ -596,49 +638,49 @@
       "chapter_index": 8,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "No need to push through."
+      "text": "What would support look like right now?"
     },
     {
       "chapter_index": 9,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Rest is part of the work."
+      "text": "Some things take the time they take."
     },
     {
       "chapter_index": 10,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Being with is sometimes enough."
+      "text": "Stability is a practice, not a destination."
     },
     {
       "chapter_index": 11,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "What would support look like right now?"
+      "text": "No need to push through."
     },
     {
       "chapter_index": 12,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to be ready to begin."
+      "text": "Rest is part of the work."
     },
     {
       "chapter_index": 13,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Stability is a practice, not a destination."
+      "text": "You've already survived every hard moment so far."
     },
     {
       "chapter_index": 14,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "You can pause here."
+      "text": "No need to push through."
     },
     {
       "chapter_index": 15,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Rest is part of the work."
+      "text": "Some things take the time they take."
     },
     {
       "chapter_index": 16,
@@ -656,13 +698,13 @@
       "chapter_index": 18,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to be ready to begin."
+      "text": "Rest is part of the work."
     },
     {
       "chapter_index": 19,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Being with is sometimes enough."
+      "text": "Stability is a practice, not a destination."
     }
   ],
   "freebie_bundle": [

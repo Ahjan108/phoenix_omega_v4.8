@@ -1,6 +1,6 @@
 {
-  "plan_hash": "c7372b6765ded83e320de55921e64b19",
-  "plan_id": "c7372b6765ded83e320de55921e64b19",
+  "plan_hash": "9f6731d31bf7dbf10c69c3ec523e0d07",
+  "plan_id": "9f6731d31bf7dbf10c69c3ec523e0d07",
   "chapter_slot_sequence": [
     [
       "HOOK",
@@ -43,7 +43,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -61,46 +63,48 @@
     ]
   ],
   "atom_ids": [
-    "educators_anxiety_HOOK_v08",
-    "educators_anxiety_SCENE_v14",
-    "educators_anxiety_REFLECTION_v11",
-    "educators_anxiety_INTEGRATION_v02",
-    "educators_anxiety_shame_RECOGNITION_v02",
-    "educators_anxiety_HOOK_v11",
-    "educators_anxiety_SCENE_v10",
-    "educators_anxiety_REFLECTION_v29",
-    "educators_anxiety_EXERCISE_v13",
+    "educators_anxiety_HOOK_v04",
+    "educators_anxiety_SCENE_v03",
+    "educators_anxiety_REFLECTION_v05",
     "educators_anxiety_INTEGRATION_v01",
-    "educators_anxiety_grief_TURNING_POINT_v03",
-    "educators_anxiety_HOOK_v27",
-    "educators_anxiety_SCENE_v20",
-    "educators_anxiety_REFLECTION_v01",
-    "educators_anxiety_EXERCISE_v16",
-    "educators_anxiety_INTEGRATION_v03",
+    "educators_anxiety_comparison_MECHANISM_PROOF_v03",
+    "educators_anxiety_HOOK_v25",
+    "educators_anxiety_SCENE_v07",
+    "educators_anxiety_REFLECTION_v23",
+    "educators_anxiety_EXERCISE_v03",
+    "educators_anxiety_INTEGRATION_v04",
+    "educators_anxiety_comparison_TURNING_POINT_v01",
+    "educators_anxiety_HOOK_v23",
+    "educators_anxiety_SCENE_v24",
+    "educators_anxiety_REFLECTION_v25",
+    "educators_anxiety_EXERCISE_v01",
+    "educators_anxiety_INTEGRATION_v02",
     "educators_anxiety_spiral_RECOGNITION_v04",
-    "educators_anxiety_HOOK_v07",
+    "educators_anxiety_HOOK_v20",
+    "educators_anxiety_SCENE_v23",
+    "educators_anxiety_REFLECTION_v03",
+    "educators_anxiety_INTEGRATION_v07",
+    "educators_anxiety_grief_EMBODIMENT_v05",
+    "educators_anxiety_HOOK_v26",
     "educators_anxiety_SCENE_v21",
     "educators_anxiety_REFLECTION_v13",
-    "educators_anxiety_INTEGRATION_v05",
-    "educators_anxiety_shame_RECOGNITION_v04",
-    "educators_anxiety_HOOK_v06",
-    "educators_anxiety_SCENE_v27",
-    "educators_anxiety_REFLECTION_v21",
-    "educators_anxiety_EXERCISE_v07",
-    "educators_anxiety_INTEGRATION_v04",
-    "educators_anxiety_HOOK_v25",
-    "educators_anxiety_SCENE_v04",
-    "educators_anxiety_REFLECTION_v27",
-    "educators_anxiety_INTEGRATION_v06",
-    "educators_anxiety_HOOK_v15",
-    "educators_anxiety_SCENE_v28",
-    "educators_anxiety_REFLECTION_v03",
-    "educators_anxiety_EXERCISE_v09",
-    "educators_anxiety_INTEGRATION_v07",
-    "educators_anxiety_HOOK_v19",
+    "educators_anxiety_EXERCISE_v24",
+    "educators_anxiety_INTEGRATION_v03",
+    "educators_anxiety_HOOK_v29",
     "educators_anxiety_SCENE_v29",
+    "educators_anxiety_REFLECTION_v15",
+    "placeholder:TAKEAWAY:ch5:slot3",
+    "educators_anxiety_INTEGRATION_v05",
+    "placeholder:THREAD:ch5:slot5",
+    "educators_anxiety_HOOK_v24",
+    "educators_anxiety_SCENE_v27",
     "educators_anxiety_REFLECTION_v19",
-    "educators_anxiety_EXERCISE_v22",
+    "educators_anxiety_EXERCISE_v16",
+    "educators_anxiety_INTEGRATION_v06",
+    "educators_anxiety_HOOK_v28",
+    "educators_anxiety_SCENE_v20",
+    "educators_anxiety_REFLECTION_v01",
+    "educators_anxiety_EXERCISE_v26",
     "placeholder:INTEGRATION:ch7:slot4"
   ],
   "dominant_band_sequence": [
@@ -131,7 +135,7 @@
     6,
     7
   ],
-  "slot_sig": "MOD_pocket_guide:7b49b9c6cfb7a19e",
+  "slot_sig": "MOD_pocket_guide:2e10a7f8fd56b93b",
   "format_id": "MOD_pocket_guide",
   "runtime_format_id": "",
   "output_format_id": "pocket_guide",
@@ -192,6 +196,16 @@
     "micro",
     "micro"
   ],
+  "chapter_bestseller_structures": [
+    "letter",
+    "permission_slip",
+    "zoom_lens",
+    "brene_brown",
+    "zoom_lens",
+    "atomic",
+    "brene_brown",
+    "van_der_kolk"
+  ],
   "narrator_id": "default_narrator",
   "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
   "cover_art_style_hint": "contemplative",
@@ -212,7 +226,7 @@
   "emotional_role_sig": "r-d-d-f-s-f-s-i",
   "book_structure_id": "linear_transformation",
   "journey_shape_id": "linear_rise",
-  "motif_id": "motif_cost",
+  "motif_id": "motif_ground",
   "section_reorder_mode": "local_reflection_integration",
   "reframe_profile_id": "balanced",
   "variation_chapter_archetypes": [
@@ -225,67 +239,67 @@
     "establish",
     "expose"
   ],
-  "variation_signature": "7b0477ca5b57984858196c8b70835c45",
+  "variation_signature": "591c5b7c20db2c5d74d0c8a423fef93c",
   "motif_injections": [
     {
       "chapter_index": 0,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "Come back to what's solid."
     },
     {
       "chapter_index": 0,
       "slot_index": 4,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "Ground first, then respond."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "Your feet are on the ground."
     },
     {
       "chapter_index": 1,
       "slot_index": 4,
-      "phrase": "Staying the same has a price."
+      "phrase": "Come back to what's solid."
     },
     {
       "chapter_index": 2,
       "slot_index": 2,
-      "phrase": "Staying the same has a price."
+      "phrase": "Ground first, then respond."
     },
     {
       "chapter_index": 2,
       "slot_index": 4,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "Come back to what's solid."
     },
     {
       "chapter_index": 3,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "Ground first, then respond."
     },
     {
       "chapter_index": 3,
       "slot_index": 4,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "Ground first, then respond."
     },
     {
       "chapter_index": 4,
       "slot_index": 2,
-      "phrase": "The cost of not changing is already here."
+      "phrase": "Come back to what's solid."
     },
     {
       "chapter_index": 4,
       "slot_index": 4,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "Come back to what's solid."
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
-      "phrase": "What does it cost you to keep going like this?"
+      "phrase": "Come back to what's solid."
     },
     {
-      "chapter_index": 6,
-      "slot_index": 2,
-      "phrase": "What does it cost you to keep going like this?"
+      "chapter_index": 5,
+      "slot_index": 4,
+      "phrase": "Ground first, then respond."
     }
   ],
   "reframe_injections": [
@@ -293,13 +307,13 @@
       "chapter_index": 0,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to do it all at once."
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Change happens in relationship, not in isolation."
+      "text": "Your nervous system is doing its best."
     },
     {
       "chapter_index": 2,
@@ -317,25 +331,25 @@
       "chapter_index": 4,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Your nervous system is doing its best."
+      "text": "Safety comes before growth."
     },
     {
       "chapter_index": 5,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "One breath can reset the script."
+      "text": "What if this moment could be different?"
     },
     {
       "chapter_index": 6,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to do it all at once."
+      "text": "This isn't about fixing yourself\u2014it's about meeting yourself."
     },
     {
       "chapter_index": 7,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Safety comes before growth."
+      "text": "Change happens in relationship, not in isolation."
     }
   ],
   "freebie_bundle": [

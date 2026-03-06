@@ -1,6 +1,6 @@
 {
-  "plan_hash": "5dad0043545309ab6f794e8164e72577",
-  "plan_id": "5dad0043545309ab6f794e8164e72577",
+  "plan_hash": "b8a33dc9c6e5938c9eb5ff42807ced3b",
+  "plan_id": "b8a33dc9c6e5938c9eb5ff42807ced3b",
   "chapter_slot_sequence": [
     [
       "HOOK",
@@ -13,7 +13,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -34,7 +36,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -54,7 +58,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -83,7 +89,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -118,7 +126,9 @@
       "HOOK",
       "SCENE",
       "REFLECTION",
-      "INTEGRATION"
+      "TAKEAWAY",
+      "INTEGRATION",
+      "THREAD"
     ],
     [
       "HOOK",
@@ -143,103 +153,113 @@
     ]
   ],
   "atom_ids": [
-    "first_responders_compassion_fatigue_HOOK_v22",
-    "first_responders_compassion_fatigue_SCENE_v27",
-    "first_responders_compassion_fatigue_REFLECTION_v18",
+    "first_responders_compassion_fatigue_HOOK_v28",
+    "first_responders_compassion_fatigue_SCENE_v06",
+    "first_responders_compassion_fatigue_REFLECTION_v27",
     "first_responders_compassion_fatigue_INTEGRATION_v05",
-    "first_responders_compassion_fatigue_watcher_RECOGNITION_v06",
-    "first_responders_compassion_fatigue_HOOK_v10",
-    "first_responders_compassion_fatigue_SCENE_v18",
-    "first_responders_compassion_fatigue_REFLECTION_v12",
-    "first_responders_compassion_fatigue_INTEGRATION_v01",
-    "first_responders_compassion_fatigue_HOOK_v16",
-    "first_responders_compassion_fatigue_SCENE_v22",
-    "first_responders_compassion_fatigue_REFLECTION_v24",
-    "first_responders_compassion_fatigue_EXERCISE_v01",
-    "first_responders_compassion_fatigue_INTEGRATION_v07",
-    "first_responders_compassion_fatigue_overwhelm_RECOGNITION_v03",
-    "first_responders_compassion_fatigue_HOOK_v01",
-    "first_responders_compassion_fatigue_SCENE_v28",
-    "first_responders_compassion_fatigue_REFLECTION_v16",
-    "first_responders_compassion_fatigue_INTEGRATION_v03",
-    "first_responders_compassion_fatigue_overwhelm_RECOGNITION_v01",
+    "first_responders_compassion_fatigue_overwhelm_RECOGNITION_v06",
     "first_responders_compassion_fatigue_HOOK_v14",
-    "first_responders_compassion_fatigue_SCENE_v11",
-    "first_responders_compassion_fatigue_REFLECTION_v02",
-    "placeholder:INTEGRATION:ch4:slot3",
-    "first_responders_compassion_fatigue_HOOK_v25",
-    "first_responders_compassion_fatigue_SCENE_v14",
-    "first_responders_compassion_fatigue_REFLECTION_v30",
-    "first_responders_compassion_fatigue_EXERCISE_v03",
-    "placeholder:INTEGRATION:ch5:slot4",
-    "first_responders_compassion_fatigue_HOOK_v02",
-    "first_responders_compassion_fatigue_SCENE_v26",
-    "first_responders_compassion_fatigue_REFLECTION_v08",
-    "placeholder:INTEGRATION:ch6:slot3",
-    "first_responders_compassion_fatigue_watcher_RECOGNITION_v07",
-    "first_responders_compassion_fatigue_HOOK_v17",
     "first_responders_compassion_fatigue_SCENE_v17",
-    "first_responders_compassion_fatigue_REFLECTION_v03",
-    "placeholder:INTEGRATION:ch7:slot3",
-    "first_responders_compassion_fatigue_HOOK_v07",
-    "first_responders_compassion_fatigue_SCENE_v08",
-    "first_responders_compassion_fatigue_REFLECTION_v07",
+    "first_responders_compassion_fatigue_REFLECTION_v05",
+    "placeholder:TAKEAWAY:ch1:slot3",
+    "first_responders_compassion_fatigue_INTEGRATION_v07",
+    "placeholder:THREAD:ch1:slot5",
+    "first_responders_compassion_fatigue_HOOK_v13",
+    "first_responders_compassion_fatigue_SCENE_v03",
+    "first_responders_compassion_fatigue_REFLECTION_v19",
     "first_responders_compassion_fatigue_EXERCISE_v02",
-    "placeholder:INTEGRATION:ch8:slot4",
+    "first_responders_compassion_fatigue_INTEGRATION_v01",
+    "first_responders_compassion_fatigue_watcher_RECOGNITION_v01",
+    "first_responders_compassion_fatigue_HOOK_v20",
+    "first_responders_compassion_fatigue_SCENE_v16",
+    "first_responders_compassion_fatigue_REFLECTION_v22",
+    "first_responders_compassion_fatigue_INTEGRATION_v03",
+    "first_responders_compassion_fatigue_watcher_RECOGNITION_v03",
+    "first_responders_compassion_fatigue_HOOK_v12",
+    "first_responders_compassion_fatigue_SCENE_v30",
+    "first_responders_compassion_fatigue_REFLECTION_v01",
+    "placeholder:TAKEAWAY:ch4:slot3",
+    "placeholder:INTEGRATION:ch4:slot4",
+    "placeholder:THREAD:ch4:slot5",
+    "first_responders_compassion_fatigue_HOOK_v30",
+    "first_responders_compassion_fatigue_SCENE_v15",
+    "first_responders_compassion_fatigue_REFLECTION_v14",
+    "first_responders_compassion_fatigue_EXERCISE_v01",
+    "placeholder:INTEGRATION:ch5:slot4",
+    "first_responders_compassion_fatigue_HOOK_v01",
+    "first_responders_compassion_fatigue_SCENE_v11",
+    "first_responders_compassion_fatigue_REFLECTION_v04",
+    "placeholder:INTEGRATION:ch6:slot3",
     "first_responders_compassion_fatigue_grief_RECOGNITION_v07",
-    "first_responders_compassion_fatigue_HOOK_v05",
-    "first_responders_compassion_fatigue_SCENE_v12",
-    "first_responders_compassion_fatigue_REFLECTION_v21",
+    "first_responders_compassion_fatigue_HOOK_v17",
+    "first_responders_compassion_fatigue_SCENE_v07",
+    "first_responders_compassion_fatigue_REFLECTION_v06",
+    "placeholder:TAKEAWAY:ch7:slot3",
+    "placeholder:INTEGRATION:ch7:slot4",
+    "placeholder:THREAD:ch7:slot5",
+    "first_responders_compassion_fatigue_HOOK_v04",
+    "first_responders_compassion_fatigue_SCENE_v01",
+    "first_responders_compassion_fatigue_REFLECTION_v12",
+    "first_responders_compassion_fatigue_EXERCISE_v03",
+    "placeholder:INTEGRATION:ch8:slot4",
+    "first_responders_compassion_fatigue_overwhelm_RECOGNITION_v10",
+    "first_responders_compassion_fatigue_HOOK_v10",
+    "first_responders_compassion_fatigue_SCENE_v05",
+    "first_responders_compassion_fatigue_REFLECTION_v10",
     "placeholder:EXERCISE:ch9:slot3",
     "placeholder:INTEGRATION:ch9:slot4",
-    "first_responders_compassion_fatigue_overwhelm_RECOGNITION_v10",
-    "first_responders_compassion_fatigue_HOOK_v18",
-    "first_responders_compassion_fatigue_SCENE_v03",
-    "first_responders_compassion_fatigue_REFLECTION_v05",
+    "first_responders_compassion_fatigue_watcher_RECOGNITION_v11",
+    "first_responders_compassion_fatigue_HOOK_v21",
+    "first_responders_compassion_fatigue_SCENE_v25",
+    "first_responders_compassion_fatigue_REFLECTION_v16",
     "placeholder:INTEGRATION:ch10:slot3",
-    "first_responders_compassion_fatigue_overwhelm_RECOGNITION_v05",
-    "first_responders_compassion_fatigue_HOOK_v30",
-    "first_responders_compassion_fatigue_SCENE_v30",
-    "first_responders_compassion_fatigue_REFLECTION_v17",
-    "placeholder:INTEGRATION:ch11:slot3",
+    "first_responders_compassion_fatigue_overwhelm_MECHANISM_PROOF_v02",
     "first_responders_compassion_fatigue_HOOK_v06",
-    "first_responders_compassion_fatigue_SCENE_v20",
-    "first_responders_compassion_fatigue_REFLECTION_v19",
+    "first_responders_compassion_fatigue_SCENE_v18",
+    "first_responders_compassion_fatigue_REFLECTION_v07",
+    "placeholder:TAKEAWAY:ch11:slot3",
+    "placeholder:INTEGRATION:ch11:slot4",
+    "placeholder:THREAD:ch11:slot5",
+    "first_responders_compassion_fatigue_HOOK_v27",
+    "first_responders_compassion_fatigue_SCENE_v12",
+    "first_responders_compassion_fatigue_REFLECTION_v09",
     "placeholder:EXERCISE:ch12:slot3",
     "placeholder:INTEGRATION:ch12:slot4",
-    "first_responders_compassion_fatigue_HOOK_v03",
-    "first_responders_compassion_fatigue_SCENE_v07",
-    "first_responders_compassion_fatigue_REFLECTION_v25",
+    "first_responders_compassion_fatigue_HOOK_v29",
+    "first_responders_compassion_fatigue_SCENE_v09",
+    "first_responders_compassion_fatigue_REFLECTION_v23",
     "placeholder:EXERCISE:ch13:slot3",
     "placeholder:INTEGRATION:ch13:slot4",
-    "first_responders_compassion_fatigue_grief_MECHANISM_PROOF_v04",
-    "first_responders_compassion_fatigue_HOOK_v04",
-    "first_responders_compassion_fatigue_SCENE_v19",
-    "first_responders_compassion_fatigue_REFLECTION_v06",
+    "first_responders_compassion_fatigue_watcher_MECHANISM_PROOF_v04",
+    "first_responders_compassion_fatigue_HOOK_v05",
+    "first_responders_compassion_fatigue_SCENE_v29",
+    "first_responders_compassion_fatigue_REFLECTION_v03",
     "placeholder:EXERCISE:ch14:slot3",
     "placeholder:INTEGRATION:ch14:slot4",
-    "first_responders_compassion_fatigue_HOOK_v09",
-    "first_responders_compassion_fatigue_SCENE_v02",
-    "first_responders_compassion_fatigue_REFLECTION_v15",
+    "first_responders_compassion_fatigue_HOOK_v26",
+    "first_responders_compassion_fatigue_SCENE_v21",
+    "first_responders_compassion_fatigue_REFLECTION_v08",
     "placeholder:EXERCISE:ch15:slot3",
     "placeholder:INTEGRATION:ch15:slot4",
-    "first_responders_compassion_fatigue_HOOK_v12",
-    "first_responders_compassion_fatigue_SCENE_v05",
-    "first_responders_compassion_fatigue_REFLECTION_v04",
-    "placeholder:INTEGRATION:ch16:slot3",
-    "first_responders_compassion_fatigue_HOOK_v13",
-    "first_responders_compassion_fatigue_SCENE_v21",
-    "first_responders_compassion_fatigue_REFLECTION_v09",
+    "first_responders_compassion_fatigue_HOOK_v11",
+    "first_responders_compassion_fatigue_SCENE_v22",
+    "first_responders_compassion_fatigue_REFLECTION_v26",
+    "placeholder:TAKEAWAY:ch16:slot3",
+    "placeholder:INTEGRATION:ch16:slot4",
+    "placeholder:THREAD:ch16:slot5",
+    "first_responders_compassion_fatigue_HOOK_v03",
+    "first_responders_compassion_fatigue_SCENE_v28",
+    "first_responders_compassion_fatigue_REFLECTION_v30",
     "placeholder:INTEGRATION:ch17:slot3",
-    "first_responders_compassion_fatigue_watcher_RECOGNITION_v12",
-    "first_responders_compassion_fatigue_HOOK_v28",
-    "first_responders_compassion_fatigue_SCENE_v13",
-    "first_responders_compassion_fatigue_REFLECTION_v01",
+    "first_responders_compassion_fatigue_grief_RECOGNITION_v10",
+    "first_responders_compassion_fatigue_HOOK_v23",
+    "first_responders_compassion_fatigue_SCENE_v08",
+    "first_responders_compassion_fatigue_REFLECTION_v28",
     "placeholder:EXERCISE:ch18:slot3",
     "placeholder:INTEGRATION:ch18:slot4",
-    "first_responders_compassion_fatigue_HOOK_v19",
-    "first_responders_compassion_fatigue_SCENE_v16",
-    "first_responders_compassion_fatigue_REFLECTION_v27",
+    "first_responders_compassion_fatigue_HOOK_v15",
+    "first_responders_compassion_fatigue_SCENE_v23",
+    "first_responders_compassion_fatigue_REFLECTION_v18",
     "placeholder:EXERCISE:ch19:slot3",
     "placeholder:INTEGRATION:ch19:slot4"
   ],
@@ -300,7 +320,7 @@
     18,
     19
   ],
-  "slot_sig": "MOD_pocket_guide:ab7b86c03f0c6766",
+  "slot_sig": "MOD_pocket_guide:1a5338ab551ae636",
   "format_id": "MOD_pocket_guide",
   "runtime_format_id": "",
   "output_format_id": "pocket_guide",
@@ -424,6 +444,28 @@
   "chapter_planner_warnings": [
     "arc_role_distribution[long] challenge=8 outside target [3,5]"
   ],
+  "chapter_bestseller_structures": [
+    "zoom_lens",
+    "letter",
+    "atomic",
+    "gladwell_spiral",
+    "permission_slip",
+    "ancestor",
+    "gladwell_spiral",
+    "van_der_kolk",
+    "ancestor",
+    "promise_engine",
+    "atomic",
+    "van_der_kolk",
+    "contrast_engine",
+    "myth_killer",
+    "contrast_engine",
+    "letter",
+    "contrast_engine",
+    "van_der_kolk",
+    "myth_killer",
+    "brene_brown"
+  ],
   "narrator_id": "default_narrator",
   "cover_art_base": "assets/authors/cover_art/ahjan_base.png",
   "cover_art_style_hint": "contemplative",
@@ -491,7 +533,7 @@
     {
       "chapter_index": 0,
       "slot_index": 4,
-      "phrase": "One small choice can change the direction."
+      "phrase": "You get to choose what happens next."
     },
     {
       "chapter_index": 1,
@@ -499,6 +541,11 @@
       "phrase": "You get to choose what happens next."
     },
     {
+      "chapter_index": 1,
+      "slot_index": 4,
+      "phrase": "This is where you choose."
+    },
+    {
       "chapter_index": 2,
       "slot_index": 2,
       "phrase": "One small choice can change the direction."
@@ -506,17 +553,17 @@
     {
       "chapter_index": 2,
       "slot_index": 4,
-      "phrase": "You get to choose what happens next."
+      "phrase": "One small choice can change the direction."
     },
     {
       "chapter_index": 3,
       "slot_index": 2,
-      "phrase": "This is where you choose."
+      "phrase": "You get to choose what happens next."
     },
     {
       "chapter_index": 3,
       "slot_index": 4,
-      "phrase": "You get to choose what happens next."
+      "phrase": "This is where you choose."
     },
     {
       "chapter_index": 4,
@@ -524,24 +571,19 @@
       "phrase": "This is where you choose."
     },
     {
+      "chapter_index": 4,
+      "slot_index": 4,
+      "phrase": "This is where you choose."
+    },
+    {
       "chapter_index": 5,
       "slot_index": 2,
-      "phrase": "This is where you choose."
+      "phrase": "One small choice can change the direction."
     },
     {
       "chapter_index": 5,
       "slot_index": 4,
-      "phrase": "You get to choose what happens next."
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 2,
-      "phrase": "This is where you choose."
-    },
-    {
-      "chapter_index": 6,
-      "slot_index": 4,
-      "phrase": "This is where you choose."
+      "phrase": "One small choice can change the direction."
     }
   ],
   "reframe_injections": [
@@ -549,13 +591,13 @@
       "chapter_index": 0,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to be ready to begin."
+      "text": "Some things take the time they take."
     },
     {
       "chapter_index": 1,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "You've already survived every hard moment so far."
+      "text": "Stability is a practice, not a destination."
     },
     {
       "chapter_index": 2,
@@ -567,7 +609,7 @@
       "chapter_index": 3,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Rest is part of the work."
+      "text": "Some things take the time they take."
     },
     {
       "chapter_index": 4,
@@ -591,25 +633,25 @@
       "chapter_index": 7,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Stability is a practice, not a destination."
+      "text": "You've already survived every hard moment so far."
     },
     {
       "chapter_index": 8,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "No need to push through."
+      "text": "What would support look like right now?"
     },
     {
       "chapter_index": 9,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Rest is part of the work."
+      "text": "Some things take the time they take."
     },
     {
       "chapter_index": 10,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "Stability is a practice, not a destination."
+      "text": "You've already survived every hard moment so far."
     },
     {
       "chapter_index": 11,
@@ -621,31 +663,31 @@
       "chapter_index": 12,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "You don't have to be ready to begin."
+      "text": "Rest is part of the work."
     },
     {
       "chapter_index": 13,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "You've already survived every hard moment so far."
+      "text": "Being with is sometimes enough."
     },
     {
       "chapter_index": 14,
       "slot_index": 2,
       "line_type": "micro_reframe",
-      "text": "What would support look like right now?"
+      "text": "No need to push through."
     },
     {
       "chapter_index": 15,
       "slot_index": 2,
       "line_type": "constraint",
-      "text": "Some things take the time they take."
+      "text": "You don't have to be ready to begin."
     },
     {
       "chapter_index": 16,
       "slot_index": 2,
       "line_type": "worldview",
-      "text": "You've already survived every hard moment so far."
+      "text": "Stability is a practice, not a destination."
     },
     {
       "chapter_index": 17,
