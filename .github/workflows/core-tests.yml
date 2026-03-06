@@ -38,6 +38,12 @@ jobs:
           PYTHONPATH=. python -m phoenix_v4.qa.validate_marketing_config
         continue-on-error: false
 
+      - name: Rebuild curated freebie index for deterministic gates
+        run: |
+          python scripts/rebuild_freebie_index_from_plans.py \
+            --plans-dir artifacts/freebies/blessed_plans \
+            --out artifacts/freebies/index.jsonl
+
       - name: Run production readiness gates
         run: |
           PYTHONPATH=. python scripts/run_production_readiness_gates.py
