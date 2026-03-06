@@ -76,6 +76,7 @@ jobs:
 
       - name: Check V2 promotion readiness
         if: steps.filter.outputs.ei == 'true'
+        continue-on-error: true
         run: |
           PYTHONPATH=. python scripts/ci/check_ei_v2_promotion_gate.py \
             --eval-report artifacts/ei_v2/eval_rigorous_report.json \

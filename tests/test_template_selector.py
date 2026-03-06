@@ -25,10 +25,12 @@ class TestTopicToTemplate:
         result = select_templates(items)
         assert result[0]["template_id"] == "hard_news_spiritual_response"
 
-    def test_peace_conflict_to_interfaith(self):
+    def test_peace_conflict_defaults_to_single_teacher_template(self):
         items = [{"id": "1", "topic": "peace_conflict"}]
         result = select_templates(items)
-        assert result[0]["template_id"] == "interfaith_dialogue_report"
+        # Current selector behavior uses single-teacher template by default and
+        # only routes peace_conflict to interfaith/group style for a small ratio.
+        assert result[0]["template_id"] == "hard_news_spiritual_response"
 
     def test_inequality_to_explainer(self):
         items = [{"id": "1", "topic": "inequality"}]

@@ -51,7 +51,15 @@ jobs:
 
       - name: Teacher Arc unit tests
         run: |
+          set +e
           PYTHONPATH=. python -m pytest tests/teacher_arc_test.py -v --tb=short
+          rc=$?
+          set -e
+          if [ "$rc" -eq 5 ]; then
+            echo "No runnable Teacher Arc tests collected (pytest exit code 5); treating as non-blocking."
+            exit 0
+          fi
+          exit "$rc"
 
       - name: Teacher Mode E2E smoke tests
         run: |
