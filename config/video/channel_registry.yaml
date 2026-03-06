@@ -1,0 +1,504 @@
+# Channel Registry — 24 Channels with isolated image banks, style identities, personas, and assembly profiles.
+# Authority: docs/VIDEO_PIPELINE_SPEC.md §15
+# Each channel: unique visual style, TTS voice, upload window, metadata template.
+# No two channels share an image bank. No two channels share the same upload_window_offset_hours.
+# Image bank path: assets/image_banks/{channel_id}/
+# Prompt templates: config/video/image_prompt_templates.yaml keyed by style_id.
+#
+# Persona alignment follows config/catalog_planning/canonical_personas.yaml
+# Topic groups follow config/catalog_planning/canonical_topics.yaml
+# Emotional band follows config/video/brand_style_tokens.yaml → topic_to_band
+#
+# NOTE on anime/non-photorealistic channels:
+# shared_negatives in prompt_constraints.yaml include "no anime style".
+# Channels where override_shared_negatives: true will NOT include "no anime style" —
+# they use style-specific negative lists defined in image_prompt_templates.yaml.
+
+# ── TITLE TEMPLATES (6 distinct; max 4 channels per template) ─────────────────
+title_templates:
+  tmpl_heal:
+    format: "How to {action} when {struggle} | {topic}"
+    channels: [ch_001, ch_004, ch_009, ch_017]
+  tmpl_question:
+    format: "Why do I {question}? (honest answer)"
+    channels: [ch_002, ch_006, ch_013, ch_022]
+  tmpl_guide:
+    format: "{number} ways to {outcome} — for {persona_descriptor}"
+    channels: [ch_003, ch_005, ch_014, ch_021]
+  tmpl_story:
+    format: "The {topic} truth nobody talks about"
+    channels: [ch_007, ch_010, ch_018, ch_023]
+  tmpl_transform:
+    format: "{struggle} to {outcome}: a {persona_descriptor}'s guide"
+    channels: [ch_008, ch_011, ch_015, ch_019]
+  tmpl_direct:
+    format: "{action_verb} your {topic}: {benefit}"
+    channels: [ch_012, ch_016, ch_020, ch_024]
+
+# ── CHANNELS ─────────────────────────────────────────────────────────────────
+
+channels:
+
+  # ── CALM & HEALING (1–6) ─────────────────────────────────────────────────
+
+  ch_001:
+    style_name: "Soft Ghibli-esque"
+    style_family: calm_healing
+    style_id: soft_ghibli
+    brand_id: stillness_press
+    persona_primary: millennial_women_professionals
+    persona_secondary: working_parents
+    topic_group: [anxiety, grief, burnout, depression]
+    emotional_band: cool_calm
+    palette_reference: anxiety  # from brand_style_tokens.yaml → cool_calm → topics
+    tts_voice_id: en-US-Journey-F
+    title_template_id: tmpl_heal
+    upload_window_offset_hours: 0
+    daily_upload_cap: 3
+    override_shared_negatives: false  # soft style is photorealistic-adjacent; keep "no anime"
+    image_bank_path: assets/image_banks/ch_001/
+    assembly_profile: profile_a  # 4.0s hold, crossfade, lower-third caption, 9:16-first
+    channel_description: "Soft, cozy, contemplative. For women processing anxiety and grief gently."
+
+  ch_002:
+    style_name: "Minimalist Line Art"
+    style_family: calm_healing
+    style_id: minimalist_line_art
+    brand_id: cognitive_clarity
+    persona_primary: corporate_managers
+    persona_secondary: entrepreneurs
+    topic_group: [overthinking, boundaries, imposter_syndrome, financial_anxiety]
+    emotional_band: neutral_root
+    palette_reference: boundaries
+    tts_voice_id: en-US-Neural2-D
+    title_template_id: tmpl_question
+    upload_window_offset_hours: 1
+    daily_upload_cap: 3
+    override_shared_negatives: false
+    image_bank_path: assets/image_banks/ch_002/
+    assembly_profile: profile_b  # 3.0s hold, cut, full-overlay caption, 16:9-first
+    channel_description: "Clean, precise, uncluttered. For high-performers who overthink."
+
+  ch_003:
+    style_name: "Chibi/Deformed"
+    style_family: calm_healing
+    style_id: chibi_deformed
+    brand_id: cognitive_clarity
+    persona_primary: gen_alpha_students
+    persona_secondary: gen_z_professionals
+    topic_group: [social_anxiety, self_worth, imposter_syndrome, overthinking]
+    emotional_band: cool_calm
+    palette_reference: anxiety
+    tts_voice_id: en-US-Wavenet-F
+    title_template_id: tmpl_guide
+    upload_window_offset_hours: 2
+    daily_upload_cap: 3
+    override_shared_negatives: true  # anime OK for this style
+    image_bank_path: assets/image_banks/ch_003/
+    assembly_profile: profile_c  # 3.5s hold, zoom-dissolve, word-by-word caption, 9:16-first
+    channel_description: "Cute, approachable, fun. For Gen Alpha/Z navigating social anxiety."
+
+  ch_004:
+    style_name: "Watercolor Wash"
+    style_family: calm_healing
+    style_id: watercolor_wash
+    brand_id: stillness_press
+    persona_primary: healthcare_rns
+    persona_secondary: first_responders
+    topic_group: [compassion_fatigue, burnout, grief, somatic_healing]
+    emotional_band: cool_calm
+    palette_reference: burnout
+    tts_voice_id: en-US-Studio-M
+    title_template_id: tmpl_heal
+    upload_window_offset_hours: 3
+    daily_upload_cap: 3
+    override_shared_negatives: false
+    image_bank_path: assets/image_banks/ch_004/
+    assembly_profile: profile_d  # 5.0s hold, dip-to-black, lower-third caption, 1:1-first
+    channel_description: "Fluid, healing, soft edges. For caregivers with compassion fatigue."
+
+  ch_005:
+    style_name: "Kawaii/Cute"
+    style_family: calm_healing
+    style_id: kawaii_cute
+    brand_id: cognitive_clarity
+    persona_primary: gen_z_professionals
+    persona_secondary: gen_alpha_students
+    topic_group: [self_worth, social_anxiety, sleep_anxiety, financial_anxiety]
+    emotional_band: warm_rise
+    palette_reference: self_worth
+    tts_voice_id: en-US-Wavenet-H
+    title_template_id: tmpl_guide
+    upload_window_offset_hours: 4
+    daily_upload_cap: 3
+    override_shared_negatives: true  # anime OK
+    image_bank_path: assets/image_banks/ch_005/
+    assembly_profile: profile_e  # 3.0s hold, crossfade, full-overlay caption, 9:16-first
+    channel_description: "Pastel, cute, affirming. For Gen Z building self-worth."
+
+  ch_006:
+    style_name: "Lo-fi/Chill"
+    style_family: calm_healing
+    style_id: lofi_chill
+    brand_id: stillness_press
+    persona_primary: tech_finance_burnout
+    persona_secondary: entrepreneurs
+    topic_group: [burnout, sleep_anxiety, overthinking, anxiety]
+    emotional_band: cool_calm
+    palette_reference: depression
+    tts_voice_id: en-GB-Neural2-B
+    title_template_id: tmpl_question
+    upload_window_offset_hours: 5
+    daily_upload_cap: 3
+    override_shared_negatives: false
+    image_bank_path: assets/image_banks/ch_006/
+    assembly_profile: profile_f  # 4.5s hold, cut, no caption (music-forward), 16:9-first
+    channel_description: "Muted, grainy, cozy study desk. For burned-out tech workers."
+
+  # ── BOLD & DYNAMIC (7–12) ─────────────────────────────────────────────────
+
+  ch_007:
+    style_name: "Shonen Action"
+    style_family: bold_dynamic
+    style_id: shonen_action
+    brand_id: cognitive_clarity
+    persona_primary: entrepreneurs
+    persona_secondary: gen_z_professionals
+    topic_group: [courage, imposter_syndrome, self_worth, financial_stress]
+    emotional_band: warm_rise
+    palette_reference: self_worth
+    tts_voice_id: en-US-Polyglot-1
+    title_template_id: tmpl_story
+    upload_window_offset_hours: 6
+    daily_upload_cap: 3
+    override_shared_negatives: true  # anime style central
+    image_bank_path: assets/image_banks/ch_007/
+    assembly_profile: profile_g  # 3.0s hold, zoom-dissolve, word-by-word caption, 9:16-first
+    channel_description: "High-energy anime. For entrepreneurs fighting imposter syndrome."
+
+  ch_008:
+    style_name: "Cyberpunk/Sci-Fi"
+    style_family: bold_dynamic
+    style_id: cyberpunk_scifi
+    brand_id: cognitive_clarity
+    persona_primary: tech_finance_burnout
+    persona_secondary: gen_z_professionals
+    topic_group: [financial_anxiety, overthinking, boundaries, imposter_syndrome]
+    emotional_band: neutral_root
+    palette_reference: boundaries
+    tts_voice_id: en-US-Studio-O
+    title_template_id: tmpl_transform
+    upload_window_offset_hours: 7
+    daily_upload_cap: 3
+    override_shared_negatives: true  # sci-fi art style; allow sharp/neon
+    image_bank_path: assets/image_banks/ch_008/
+    assembly_profile: profile_h  # 3.0s hold, cut, lower-third, 9:16-first
+    channel_description: "Neon, futuristic. For tech workers anxious about their future."
+
+  ch_009:
+    style_name: "Vintage/Noir"
+    style_family: bold_dynamic
+    style_id: vintage_noir
+    brand_id: stillness_press
+    persona_primary: gen_x_sandwich
+    persona_secondary: corporate_managers
+    topic_group: [grief, depression, boundaries, burnout]
+    emotional_band: cool_calm
+    palette_reference: grief
+    tts_voice_id: en-US-Neural2-J
+    title_template_id: tmpl_heal
+    upload_window_offset_hours: 8
+    daily_upload_cap: 3
+    override_shared_negatives: false
+    image_bank_path: assets/image_banks/ch_009/
+    assembly_profile: profile_i  # 4.0s hold, dip-to-black, lower-third, 16:9-first
+    channel_description: "High-contrast black/white with warmth. For Gen X processing loss."
+
+  ch_010:
+    style_name: "Pop Art"
+    style_family: bold_dynamic
+    style_id: pop_art
+    brand_id: cognitive_clarity
+    persona_primary: gen_z_professionals
+    persona_secondary: entrepreneurs
+    topic_group: [self_worth, courage, financial_anxiety, social_anxiety]
+    emotional_band: warm_rise
+    palette_reference: purpose
+    tts_voice_id: en-US-Wavenet-I
+    title_template_id: tmpl_story
+    upload_window_offset_hours: 9
+    daily_upload_cap: 3
+    override_shared_negatives: true  # flat color/halftone is the style
+    image_bank_path: assets/image_banks/ch_010/
+    assembly_profile: profile_j  # 3.0s hold, cut, full-overlay caption, 9:16-first
+    channel_description: "Vibrant, bold halftone. For Gen Z owning their confidence."
+
+  ch_011:
+    style_name: "Sketchy/Rough"
+    style_family: bold_dynamic
+    style_id: sketchy_rough
+    brand_id: cognitive_clarity
+    persona_primary: first_responders
+    persona_secondary: corporate_managers
+    topic_group: [courage, burnout, anxiety, somatic_healing]
+    emotional_band: warm_rise
+    palette_reference: self_worth
+    tts_voice_id: en-AU-Neural2-B
+    title_template_id: tmpl_transform
+    upload_window_offset_hours: 10
+    daily_upload_cap: 3
+    override_shared_negatives: false
+    image_bank_path: assets/image_banks/ch_011/
+    assembly_profile: profile_k  # 3.5s hold, crossfade, lower-third, 9:16-first
+    channel_description: "Raw sketchbook energy. For first responders keeping it real."
+
+  ch_012:
+    style_name: "Retro 80s/90s"
+    style_family: bold_dynamic
+    style_id: retro_80s_90s
+    brand_id: stillness_press
+    persona_primary: working_parents
+    persona_secondary: gen_x_sandwich
+    topic_group: [self_worth, anxiety, burnout, financial_stress]
+    emotional_band: warm_rise
+    palette_reference: self_worth
+    tts_voice_id: en-US-Neural2-H
+    title_template_id: tmpl_direct
+    upload_window_offset_hours: 11
+    daily_upload_cap: 3
+    override_shared_negatives: true  # 90s cartoon style; allow sharp lines
+    image_bank_path: assets/image_banks/ch_012/
+    assembly_profile: profile_l  # 3.5s hold, zoom-dissolve, word-by-word caption, 9:16-first
+    channel_description: "Nostalgic 90s animation style. For working parents."
+
+  # ── ABSTRACT & SYMBOLIC (13–18) ───────────────────────────────────────────
+
+  ch_013:
+    style_name: "Geometric/Abstract"
+    style_family: abstract_symbolic
+    style_id: geometric_abstract
+    brand_id: cognitive_clarity
+    persona_primary: corporate_managers
+    persona_secondary: tech_finance_burnout
+    topic_group: [overthinking, boundaries, financial_anxiety, imposter_syndrome]
+    emotional_band: neutral_root
+    palette_reference: boundaries
+    tts_voice_id: en-US-Neural2-A
+    title_template_id: tmpl_question
+    upload_window_offset_hours: 12
+    daily_upload_cap: 3
+    override_shared_negatives: true  # geometric shapes ARE the style; override "no sharp geometric shapes"
+    image_bank_path: assets/image_banks/ch_013/
+    assembly_profile: profile_m  # 3.0s hold, cut, no caption (shape-based), 16:9-first
+    channel_description: "Clean geometry, clarity-first. For analytical overthinkers."
+
+  ch_014:
+    style_name: "Ink Wash (Sumi-e)"
+    style_family: abstract_symbolic
+    style_id: ink_wash_sumie
+    brand_id: norcal_dharma
+    persona_primary: millennial_women_professionals
+    persona_secondary: gen_x_sandwich
+    topic_group: [somatic_healing, anxiety, grief, boundaries]
+    emotional_band: cool_calm
+    palette_reference: grief
+    tts_voice_id: en-US-Neural2-C
+    title_template_id: tmpl_guide
+    upload_window_offset_hours: 13
+    daily_upload_cap: 3
+    override_shared_negatives: false
+    image_bank_path: assets/image_banks/ch_014/
+    assembly_profile: profile_n  # 5.0s hold, dip-to-black, no caption, 16:9-first
+    channel_description: "Traditional ink wash. For mindfulness and somatic healing."
+
+  ch_015:
+    style_name: "Stained Glass"
+    style_family: abstract_symbolic
+    style_id: stained_glass
+    brand_id: norcal_dharma
+    persona_primary: millennial_women_professionals
+    persona_secondary: healthcare_rns
+    topic_group: [somatic_healing, compassion_fatigue, grief, self_worth]
+    emotional_band: cool_calm
+    palette_reference: grief
+    tts_voice_id: en-GB-Wavenet-A
+    title_template_id: tmpl_transform
+    upload_window_offset_hours: 14
+    daily_upload_cap: 3
+    override_shared_negatives: false
+    image_bank_path: assets/image_banks/ch_015/
+    assembly_profile: profile_o  # 4.5s hold, crossfade, lower-third, 1:1-first
+    channel_description: "Sacred geometry, stained glass. For spiritual healing content."
+
+  ch_016:
+    style_name: "Glitch Art"
+    style_family: abstract_symbolic
+    style_id: glitch_art
+    brand_id: cognitive_clarity
+    persona_primary: gen_z_professionals
+    persona_secondary: tech_finance_burnout
+    topic_group: [imposter_syndrome, financial_anxiety, boundaries, overthinking]
+    emotional_band: neutral_root
+    palette_reference: boundaries
+    tts_voice_id: en-US-Wavenet-D
+    title_template_id: tmpl_direct
+    upload_window_offset_hours: 15
+    daily_upload_cap: 3
+    override_shared_negatives: true  # digital distortion is the style
+    image_bank_path: assets/image_banks/ch_016/
+    assembly_profile: profile_p  # 3.0s hold, cut + occasional glitch transition, full-overlay, 9:16-first
+    channel_description: "Digital glitch aesthetic. For Gen Z breaking bad mental patterns."
+
+  ch_017:
+    style_name: "Pointillism"
+    style_family: abstract_symbolic
+    style_id: pointillism
+    brand_id: stillness_press
+    persona_primary: healthcare_rns
+    persona_secondary: working_parents
+    topic_group: [depression, compassion_fatigue, burnout, sleep_anxiety]
+    emotional_band: cool_calm
+    palette_reference: depression
+    tts_voice_id: en-AU-Wavenet-C
+    title_template_id: tmpl_heal
+    upload_window_offset_hours: 16
+    daily_upload_cap: 3
+    override_shared_negatives: false
+    image_bank_path: assets/image_banks/ch_017/
+    assembly_profile: profile_q  # 4.0s hold, dip-to-black, lower-third, 9:16-first
+    channel_description: "Dot-pattern painting style. For precision-minded caregivers."
+
+  ch_018:
+    style_name: "Collage"
+    style_family: abstract_symbolic
+    style_id: collage
+    brand_id: stillness_press
+    persona_primary: working_parents
+    persona_secondary: gen_x_sandwich
+    topic_group: [burnout, anxiety, financial_stress, self_worth]
+    emotional_band: neutral_root
+    palette_reference: boundaries
+    tts_voice_id: en-GB-Neural2-F
+    title_template_id: tmpl_story
+    upload_window_offset_hours: 17
+    daily_upload_cap: 3
+    override_shared_negatives: false
+    image_bank_path: assets/image_banks/ch_018/
+    assembly_profile: profile_r  # 4.0s hold, crossfade, lower-third, 1:1-first
+    channel_description: "Mixed-media layered collage. For working parents feeling fragmented."
+
+  # ── HYBRID & EXPERIMENTAL (19–24) ─────────────────────────────────────────
+
+  ch_019:
+    style_name: "Cyberpunk/Steampunk"
+    style_family: hybrid_experimental
+    style_id: cyberpunk_steampunk
+    brand_id: cognitive_clarity
+    persona_primary: entrepreneurs
+    persona_secondary: tech_finance_burnout
+    topic_group: [financial_stress, financial_anxiety, courage, imposter_syndrome]
+    emotional_band: warm_rise
+    palette_reference: purpose
+    tts_voice_id: en-US-Neural2-F
+    title_template_id: tmpl_transform
+    upload_window_offset_hours: 18
+    daily_upload_cap: 3
+    override_shared_negatives: true  # neon + mechanical; allow sharp/geometric
+    image_bank_path: assets/image_banks/ch_019/
+    assembly_profile: profile_s  # 3.5s hold, cut, lower-third, 9:16-first
+    channel_description: "Futuristic-mechanical hybrid. For innovator entrepreneurs."
+
+  ch_020:
+    style_name: "Art Nouveau"
+    style_family: hybrid_experimental
+    style_id: art_nouveau
+    brand_id: stillness_press
+    persona_primary: millennial_women_professionals
+    persona_secondary: healthcare_rns
+    topic_group: [self_worth, somatic_healing, grief, compassion_fatigue]
+    emotional_band: warm_rise
+    palette_reference: self_love
+    tts_voice_id: en-GB-Wavenet-F
+    title_template_id: tmpl_direct
+    upload_window_offset_hours: 19
+    daily_upload_cap: 3
+    override_shared_negatives: false
+    image_bank_path: assets/image_banks/ch_020/
+    assembly_profile: profile_t  # 4.5s hold, crossfade, full-overlay, 9:16-first
+    channel_description: "Flowing floral lines, ornate. For women reclaiming beauty and worth."
+
+  ch_021:
+    style_name: "Kawaii-LoFi"
+    style_family: hybrid_experimental
+    style_id: kawaii_lofi
+    brand_id: cognitive_clarity
+    persona_primary: gen_alpha_students
+    persona_secondary: gen_z_professionals
+    topic_group: [anxiety, sleep_anxiety, social_anxiety, self_worth]
+    emotional_band: cool_calm
+    palette_reference: anxiety
+    tts_voice_id: en-US-Casual-K
+    title_template_id: tmpl_guide
+    upload_window_offset_hours: 20
+    daily_upload_cap: 3
+    override_shared_negatives: true  # kawaii anime blend; allow anime
+    image_bank_path: assets/image_banks/ch_021/
+    assembly_profile: profile_u  # 3.5s hold, crossfade, word-by-word, 9:16-first
+    channel_description: "Soft kawaii + lo-fi grain. For Gen Alpha gentle self-help."
+
+  ch_022:
+    style_name: "Dark/Moody"
+    style_family: hybrid_experimental
+    style_id: dark_moody
+    brand_id: stillness_press
+    persona_primary: gen_x_sandwich
+    persona_secondary: corporate_managers
+    topic_group: [depression, grief, boundaries, burnout]
+    emotional_band: cool_calm
+    palette_reference: depression
+    tts_voice_id: en-AU-Neural2-D
+    title_template_id: tmpl_question
+    upload_window_offset_hours: 21
+    daily_upload_cap: 3
+    override_shared_negatives: false
+    image_bank_path: assets/image_banks/ch_022/
+    assembly_profile: profile_v  # 5.0s hold, dip-to-black, no caption (mood-forward), 16:9-first
+    channel_description: "High-contrast dark atmospheric. For shadow work and deep healing."
+
+  ch_023:
+    style_name: "Cartoonish/Silly"
+    style_family: hybrid_experimental
+    style_id: cartoonish_silly
+    brand_id: cognitive_clarity
+    persona_primary: working_parents
+    persona_secondary: gen_alpha_students
+    topic_group: [burnout, anxiety, self_worth, overthinking]
+    emotional_band: warm_rise
+    palette_reference: purpose
+    tts_voice_id: en-US-News-K
+    title_template_id: tmpl_story
+    upload_window_offset_hours: 22
+    daily_upload_cap: 3
+    override_shared_negatives: true  # exaggerated cartoon; allow expressive lines
+    image_bank_path: assets/image_banks/ch_023/
+    assembly_profile: profile_w  # 3.0s hold, cut, full-overlay caption (fun font), 9:16-first
+    channel_description: "Funny, exaggerated cartoon style. For parents who need levity."
+
+  ch_024:
+    style_name: "Surrealist"
+    style_family: hybrid_experimental
+    style_id: surrealist
+    brand_id: cognitive_clarity
+    persona_primary: entrepreneurs
+    persona_secondary: gen_x_sandwich
+    topic_group: [overthinking, imposter_syndrome, depression, financial_anxiety]
+    emotional_band: neutral_root
+    palette_reference: boundaries
+    tts_voice_id: en-GB-Neural2-D
+    title_template_id: tmpl_direct
+    upload_window_offset_hours: 23
+    daily_upload_cap: 3
+    override_shared_negatives: false
+    image_bank_path: assets/image_banks/ch_024/
+    assembly_profile: profile_x  # 4.0s hold, zoom-dissolve, lower-third, 1:1-first
+    channel_description: "Dreamlike, impossible scenes. For overthinkers exploring the subconscious."
