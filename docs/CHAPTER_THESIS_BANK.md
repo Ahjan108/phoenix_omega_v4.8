@@ -595,3 +595,296 @@ These intents deepen the work beyond the first-half cycle. They appear after the
 
 - **2026-03-06**: First release. Complete thesis bank for 20 intents across 4 engine types (Watcher, False_Alarm, Shame, Grief). Includes prose examples, thread sentences, and quick reference tables.
 
+
+---
+
+## MACHINE-READABLE LOOKUP TABLES
+
+**YAML-formatted lookup data for dev script automation.** The dev script reads each arc's `engine` and `chapter_intent`, then uses these tables to auto-populate thesis, thread, and permission fields in chapter YAML files.
+
+### A. chapter_thesis lookup (YAML)
+
+```yaml
+chapter_thesis_lookup:
+  establish_mask:
+    watcher: "Your constant surveillance keeps you performing when you're already running on empty."
+    false_alarm: "The hypervigilance you've built is so familiar you can't feel it anymore."
+    shame: "You learned to disappear into usefulness before anyone could find fault."
+    grief: "You've been still and small to honor what was lost, and that stillness became your identity."
+    spiral: "The loop you're caught in was once a solution to something real."
+    overwhelm: "The system that keeps you moving has become the thing that's stopping you."
+    comparison: "The measuring started as motivation. It became the only way you know you're real."
+  expose_cost:
+    watcher: "Your body is paying the price of the strategy your mind thinks is keeping you safe."
+    false_alarm: "The protection you've built is expensive and you're the only one paying."
+    shame: "Usefulness is slowly consuming the parts of you that have nothing to offer."
+    grief: "Honoring loss through absence means you're also absent from your own life."
+    spiral: "The rumination protects you from action, and protection is the only thing you know."
+    overwhelm: "You've sacrificed your own capacity to manage everyone else's emergency."
+    comparison: "Measuring yourself against others is slowly consuming your capacity to know yourself."
+  destabilize_strategy:
+    watcher: "All your monitoring hasn't actually prevented the collapse you fear."
+    false_alarm: "Your preparation has prepared you for nothing that actually happens."
+    shame: "Disappearing has never made you safe, only made you disappear."
+    grief: "Stillness isn't honoring what was lost; it's letting loss define the rest."
+    spiral: "The thinking that was supposed to protect you is the cage that's holding you."
+    overwhelm: "The shutdown you've learned is not rest; it's a system failure you've mistaken for safety."
+    comparison: "The positioning game was supposed to make you safe. It's made you exhausted."
+  reveal_hidden_belief:
+    watcher: "You believe your value lives in your usefulness, nowhere else."
+    false_alarm: "You believe the only safety is total knowledge, total control."
+    shame: "You believe if anyone saw the real you, you wouldn't be chosen."
+    grief: "You believe your love is measured in how much you've been willing to forfeit."
+    spiral: "You believe if you can just understand it completely, you can control what happens."
+    overwhelm: "You believe your job is to absorb what others cannot hold."
+    comparison: "You believe if you position yourself correctly, you'll finally be enough."
+  confrontation:
+    watcher: "You see now that the system you built is turning against you."
+    false_alarm: "You can no longer deny that your fear is your own creation."
+    shame: "The invisibility you've maintained is a choice, not a destiny."
+    grief: "You're aware now that you chose to stop living."
+    spiral: "You can see the loop now, and that means you can step out of it."
+    overwhelm: "You can no longer pretend that absorbing everything is necessary or noble."
+    comparison: "You see that the race has no finish line, and you're free to step out."
+  somatic_repair:
+    watcher: "Your nervous system knows the truth before your mind will admit it."
+    false_alarm: "Your body can learn to trust before your thoughts catch up."
+    shame: "Feeling is the path back to yourself when thinking got you lost."
+    grief: "The body grieves differently than the mind; it holds what can't be said."
+    spiral: "Your body knows the difference between thinking and being; it's ready to teach you."
+    overwhelm: "Your body's shutdown is not weakness; it's a signal you need to hear."
+    comparison: "Your body doesn't care how you measure against others; it just needs to be met."
+  relational_shift:
+    watcher: "Your control strategy makes genuine connection impossible; they feel managed, not met."
+    false_alarm: "Your need for reassurance is actually a need to be believed about your fear."
+    shame: "You've been relating from a place of apology, and they've learned to accept it."
+    grief: "Your withdrawal has convinced people that you prefer to be left alone."
+    spiral: "You've been inviting them into your mind instead of your presence."
+    overwhelm: "You've been the container for everything; they've forgotten how to hold their own weight."
+    comparison: "You've been relating from a place of deficit, and they've learned to manage it."
+  embodied_identity:
+    watcher: "You are not the efficient, untiring thing you've been trying to be."
+    false_alarm: "You are not your anxiety; you are the one anxiety is happening to."
+    shame: "You are not small; you are the one who learned to make yourself small."
+    grief: "You are not an absence; you are a person who was living in one."
+    spiral: "You are not the problem; you are the one the problem is happening to."
+    overwhelm: "You are not a vessel; you are a person with the same limits as everyone else."
+    comparison: "You are not a ranked position; you are a person being alive right now."
+  grounded_reframe:
+    watcher: "Your body's depletion is not weakness; it's information about what was unsustainable."
+    false_alarm: "Your anxiety isn't a character flaw; it's a sensitivity that needs different care."
+    shame: "Your need to be seen isn't arrogance; it's necessary to being human."
+    grief: "Your pain is evidence of what mattered to you; don't call it weakness."
+    spiral: "Your depth is not a liability; your mind's intensity is trying to protect something real."
+    overwhelm: "Your limits are not failure; they're the boundary of what you can actually carry."
+    comparison: "Your uniqueness isn't failure; it's the signature of who you are."
+  witness_without_fix:
+    watcher: "You can observe the urge to manage without acting on every impulse."
+    false_alarm: "The anxiety can be present without requiring you to solve it."
+    shame: "You can see the impulse to disappear without disappearing."
+    grief: "Loss can be real without requiring you to become smaller in response."
+    spiral: "The thought can arise without you following it down the hole."
+    overwhelm: "The overwhelm can be present without requiring you to manage everyone's emergency."
+    comparison: "You can see the comparison without believing it's a measure of your worth."
+  the_cost_named:
+    watcher: "You've lost the ability to rest without guilt, and rest is what you need most."
+    false_alarm: "You've lost the capacity to be surprised by joy because you're always braced."
+    shame: "You've lost the chance to be ordinary, and ordinariness was where safety was."
+    grief: "You've lost the companion who understood your language before any words were spoken."
+    spiral: "You've lost hours, days, years to loops that never resolved anything."
+    overwhelm: "You've lost the memory of what it feels like to have space inside yourself."
+    comparison: "You've lost the ability to enjoy your own life while measuring it against another."
+  the_oldest_version:
+    watcher: "That vigilance came from somewhere real; it was once the smartest thing you could do."
+    false_alarm: "Your fear learned in a house where things actually happened without warning."
+    shame: "You disappeared because the cost of being seen was higher than the cost of hiding."
+    grief: "You learned to be still from someone who needed you to be; stillness was service."
+    spiral: "The rumination learned you from a place where understanding was the only control you had."
+    overwhelm: "The absorption learned you from a place where your capacity to hold things was your only value."
+    comparison: "The measuring learned you in a place where positioning determined safety."
+  the_body_after:
+    watcher: "Your body doesn't know what to do with the space where urgency used to be."
+    false_alarm: "Calm is unfamiliar to your nervous system; it almost feels like danger."
+    shame: "The absence of judgment feels like a trap; you're waiting for the other person to notice you're present."
+    grief: "The loosening in your chest will feel like betrayal before it feels like relief."
+    spiral: "The silence in your mind is so unfamiliar it almost feels like disappearing."
+    overwhelm: "The rest you finally have feels like falling because you've never truly stopped moving."
+    comparison: "The freedom from measuring feels like vertigo; there's no reference point anymore."
+  what_you_protected:
+    watcher: "Your vigilance protects everyone around you from ever having to need you."
+    false_alarm: "Your fear protects you from the grief underneath—the thing you're actually afraid of."
+    shame: "Your invisibility protects you from the possibility of being truly rejected."
+    grief: "Your stillness protects others from the burden of your aliveness."
+    spiral: "Your thinking protects you from the unknown—and it protects the unknown from ever becoming known."
+    overwhelm: "Your absorption protects others from ever having to feel the weight of their own lives."
+    comparison: "Your inadequacy protects you from the responsibility of your own potential."
+  the_price_of_knowing:
+    watcher: "You can no longer unsee that you're building your own collapse through vigilance."
+    false_alarm: "Awareness that your fear is self-generated is a burden you can't put down."
+    shame: "You've seen yourself disappearing and can't pretend it's necessary anymore."
+    grief: "You know now that your stillness is a choice, and that means you can unchosen it."
+    spiral: "You know now that the loop is a choice, and that knowledge is a weight you have to carry."
+    overwhelm: "You know that you're not required to absorb what others won't hold, but you're not sure how to stop."
+    comparison: "You know that the measuring is optional, but you don't know who you are without it."
+  moving_without_certainty:
+    watcher: "You must stop managing before you feel safe; safety comes after the stopping."
+    false_alarm: "You move toward what you need while the terror insists it's not safe yet."
+    shame: "You take up space while part of you still insists you shouldn't be visible."
+    grief: "You live while grief is still fresh, before it becomes safe to live."
+    spiral: "You move while the urge to understand remains; certainty never comes."
+    overwhelm: "You set boundaries while part of you still believes you should be endlessly available."
+    comparison: "You build your life while part of you is still convinced you're not enough for it."
+  the_relational_truth:
+    watcher: "They've felt controlled by your management; they've learned to mistrust your care."
+    false_alarm: "They've learned that reassuring you is an endless job with no exit."
+    shame: "They've experienced your absence and learned not to expect your presence."
+    grief: "They've adjusted to you being unavailable, and that adjustment has become permanent."
+    spiral: "They've learned that your mind will loop no matter what they say or do."
+    overwhelm: "They've learned that you will absorb anything, so they keep offering more."
+    comparison: "They've learned to mirror your self-doubt, and now they doubt themselves too."
+  the_new_self:
+    watcher: "The person who can rest without earning it is already showing up in brief moments."
+    false_alarm: "The you that isn't afraid is flickering into existence in moments you're not watching for it."
+    shame: "The visible version of you—the one who doesn't apologize for existing—appears when you're not guarding."
+    grief: "The person living fully is already present in the moments when pain doesn't silence you."
+    spiral: "The mind that can rest is already present in the spaces between thoughts."
+    overwhelm: "The person who has boundaries is already showing up when you stop managing other people's feelings."
+    comparison: "The person you are when you're not measuring is already here, becoming visible."
+  carrying_forward:
+    watcher: "You'll manage your energy differently now; not because you've stopped caring, but because you've learned to care for yourself."
+    false_alarm: "The fear will still arrive, but you'll know it's not the truth, and that changes everything."
+    shame: "The impulse to disappear will still be there; you'll choose visibility anyway."
+    grief: "The grief doesn't leave; you become someone who can carry it without letting it carry you."
+    spiral: "The loops will still arise; you'll know how to step out of them now."
+    overwhelm: "The overwhelm will still show up; you'll know it's not your job to solve it."
+    comparison: "The measuring impulse will still exist; you'll have a different relationship to it now."
+  the_open_hand:
+    watcher: "You release the need for perfect control and keep the ability to affect your own life."
+    false_alarm: "You release the belief that safety requires knowing everything and keep the wisdom you've earned."
+    shame: "You release the invisibility and keep the sensitivity that taught you to be careful."
+    grief: "You release the paralysis and keep the love that made you still."
+    spiral: "You release the need to solve everything and keep the intelligence that helped you survive."
+    overwhelm: "You release the need to absorb everything and keep the compassion that moves you."
+    comparison: "You release the race and keep the discernment that was trying to protect you."
+```
+
+### B. chapter_thread lookup (YAML)
+
+```yaml
+chapter_thread_lookup:
+  establish_mask:
+    default: "You know what the pattern is now. The harder question is: what would you be without it?"
+  expose_cost:
+    default: "The protection is expensive. You're beginning to understand you can't afford it forever."
+  destabilize_strategy:
+    default: "Everything you built to prevent collapse is building the collapse instead."
+  reveal_hidden_belief:
+    default: "A single conviction has been running your life, and you've never questioned it until now."
+  confrontation:
+    default: "You can't unknow this. Everything changes now."
+  somatic_repair:
+    default: "Your body has been speaking. You're finally learning to listen."
+  relational_shift:
+    default: "You've been relating from a particular shape. What becomes possible when you soften that shape?"
+  embodied_identity:
+    default: "There's someone underneath the strategy. And they're bigger than you thought."
+  grounded_reframe:
+    default: "The story changes when you change the frame. Everything you thought was weakness might be something else entirely."
+  witness_without_fix:
+    default: "This is a quieter kind of power—not controlling the pattern, but not being controlled by it."
+  the_cost_named:
+    default: "You've named it now. The absence is real and it has a shape."
+  the_oldest_version:
+    default: "It came from somewhere real. That doesn't change what you need to do now, but it changes how you think about it."
+  the_body_after:
+    default: "Calm is a foreign country. You're slowly learning its language."
+  what_you_protected:
+    default: "The pattern wasn't random. It was built to keep something safe. Now you know what, and you can decide if it's worth the price."
+  the_price_of_knowing:
+    default: "You can't unsee yourself. The only way out is through."
+  moving_without_certainty:
+    default: "The certainty will never come. You're learning to move in spite of that."
+  the_relational_truth:
+    default: "The pattern affected them in ways you're only now beginning to see. That seeing is the beginning of change."
+  the_new_self:
+    default: "The person you're becoming is already here. You're just making room for her to be visible."
+  carrying_forward:
+    default: "Not healed. Integrated. You're the same person, but you know something different now about what you can carry."
+  the_open_hand:
+    default: "You're learning to hold things loosely. The past can rest in an open hand."
+```
+
+### C. chapter_permission lookup (YAML)
+
+**HIGH-COST INTENTS ONLY.** Permission text is written only for chapters with intents: confrontation, somatic_repair, the_price_of_knowing, moving_without_certainty, the_relational_truth, expose_cost, destabilize_strategy, the_cost_named.
+
+```yaml
+chapter_permission_lookup:
+  confrontation:
+    default: "You are allowed to see this clearly and not know what to do with it yet. Clarity and readiness are not the same thing. You do not have to act on what you now know. Not today."
+  somatic_repair:
+    default: "You are allowed to not be further along than you are. The body moves on its own schedule. Pushing harder is not the variable that changes this."
+  the_price_of_knowing:
+    default: "You are allowed to carry the weight of seeing yourself. Knowledge doesn't require action. You can know something and still sit with the knowing before you move."
+  moving_without_certainty:
+    default: "You are allowed to move while afraid, while uncertain, while the ground is still unmapped. You do not need permission to begin. Your hesitation is not a barrier to action—it is the cost of action."
+  the_relational_truth:
+    default: "You are allowed to let go of the narrative you've held about how they should adjust to you. Their truth about your impact doesn't make you bad. You can hold both your intention and their experience at the same time."
+  expose_cost:
+    default: "You are allowed to finally count what this has cost you. You don't have to minimize it or explain why it was worth it. The cost is real. Naming it doesn't mean you'll leave; it means you're no longer pretending the cost is acceptable."
+  destabilize_strategy:
+    default: "You are allowed to let the strategy crumble. It doesn't require you to have a replacement ready. You can stand in the rubble and not know what comes next. The discomfort of not having a plan is not a sign you should return to the old one."
+  the_cost_named:
+    default: "You are allowed to feel the weight of what you've lost. You don't have to redeem the loss by making meaning from it right now. The absence is enough. Let it be enough."
+```
+
+### D. Dev Usage Note
+
+**How the script reads these tables:**
+
+1. **Script Input**: For each chapter in an arc YAML file, the script reads:
+   - `engine`: One of [watcher, false_alarm, shame, grief, spiral, overwhelm, comparison]
+   - `chapter_intent`: One of the 20 intent keys listed above
+
+2. **Lookup Logic**:
+   - **Thesis**: `chapter_thesis_lookup[chapter_intent][engine]` → writes to `chapter_thesis` field
+   - **Thread**: `chapter_thread_lookup[chapter_intent]['default']` → writes to `chapter_thread` field
+   - **Permission**: (only if intent is in high-cost list) `chapter_permission_lookup[chapter_intent]['default']` → writes to `chapter_permission` field
+
+3. **High-Cost Intents** (only these get permission fields):
+   - expose_cost, destabilize_strategy, confrontation, somatic_repair, the_cost_named, the_price_of_knowing, moving_without_certainty, the_relational_truth
+
+4. **Arc YAML Fields**:
+   - `chapter_thesis`: dict with integer keys (1..chapter_count) mapping to thesis string
+   - `chapter_thread`: dict with integer keys (1..chapter_count) mapping to thread string
+   - `chapter_permission`: dict with integer keys (1..chapter_count) mapping to permission string (optional; only for high-cost chapters)
+
+5. **Example Populated Arc Chapter Block**:
+   ```yaml
+   arc:
+     title: "Burnout and Recovery"
+     engine: "watcher"
+     chapter_count: 9
+     chapter_intent:
+       1: establish_mask
+       2: expose_cost
+       3: destabilize_strategy
+     chapter_thesis:
+       1: "Your constant surveillance keeps you performing when you're already running on empty."
+       2: "Your body is paying the price of the strategy your mind thinks is keeping you safe."
+       3: "All your monitoring hasn't actually prevented the collapse you fear."
+     chapter_thread:
+       1: "You know what the pattern is now. The harder question is: what would you be without it?"
+       2: "The protection is expensive. You're beginning to understand you can't afford it forever."
+       3: "Everything you built to prevent collapse is building the collapse instead."
+     chapter_permission:
+       2: "You are allowed to finally count what this has cost you. You don't have to minimize it or explain why it was worth it. The cost is real. Naming it doesn't mean you'll leave; it means you're no longer pretending the cost is acceptable."
+       3: "You are allowed to let the strategy crumble. It doesn't require you to have a replacement ready. You can stand in the rubble and not know what comes next. The discomfort of not having a plan is not a sign you should return to the old one."
+   ```
+
+6. **Notes**:
+   - All thesis/thread/permission text is required; do not skip
+   - If an intent is not found in the lookup, the script should error (missing data)
+   - Thread uses only `default` key; there are no engine-specific thread variants
+   - Permission fields are optional in the output YAML but should be included for all high-cost chapters
+

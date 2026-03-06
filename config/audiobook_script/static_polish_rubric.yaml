@@ -1,0 +1,208 @@
+schema_version: "2.0"
+description: >
+  Static polish rubric for audiobook script quality. Authored offline once (optionally with Claude
+  assistance) and locked into the comparator checklist as `rubric_ref` items. The judge scores
+  "polish" and "emotional/psychological impact" gates against these rules — no Claude API at
+  runtime. Rules apply across all locales unless `locale_override` is specified.
+
+  Authority: docs/GO_LIVE_FINAL_CHECKLIST.md, config/audiobook_script/comparison_checklist_v2.yaml.
+  Owned by: writing team. Update via PR + rubric_version bump.
+
+rubric_version: "2.0.0"
+last_updated: "2026-03-06"
+
+# ─── TTS CADENCE RULES ─────────────────────────────────────────────────────
+# These feed the tts_readability_cadence gate (HARD gate).
+# Source: config/tts/engines.yaml + audiobook ops manual.
+
+tts_cadence:
+  - rule_id: tts_c1
+    name: sentence_length_cap
+    description: >
+      No sentence exceeds 20 words. Audiobook delivery requires breath points.
+      Split at natural clause boundaries; never truncate meaning.
+    check: "max words per sentence ≤ 20"
+    severity: hard
+
+  - rule_id: tts_c2
+    name: no_parenthetical_asides
+    description: >
+      No parenthetical asides or em-dash interruptions in the middle of a sentence.
+      TTS engines render these as unnatural pauses. Rewrite as separate sentences.
+    check: "no ( ) or — inside sentence midpoints"
+    severity: hard
+
+  - rule_id: tts_c3
+    name: punctuation_breath_points
+    description: >
+      Emotional beats must be separated by commas, periods, or line breaks — not
+      conjunctions only. "She was tired and sad and defeated" → "She was tired. Sad. Defeated."
+    check: "emotional beats broken into short sentences or comma-separated clauses"
+    severity: hard
+
+  - rule_id: tts_c4
+    name: number_format
+    description: >
+      Write numbers as words when they appear in flowing prose (not data/statistics).
+      "73%" → "seventy-three percent" for TTS naturalness. Keep numerals only in lists.
+    check: "prose numbers written as words"
+    severity: scored
+    weight: 0.5
+
+  - rule_id: tts_c5
+    name: no_abbreviations_in_prose
+    description: >
+      Abbreviations cause mispronunciation. "e.g." → "for example", "etc." → "and so on",
+      "Dr." → "Doctor". Locale-safe expansions required.
+    check: "no unexpanded abbreviations in flowing prose"
+    severity: hard
+
+# ─── PSYCHOLOGICAL IMPACT RULES ────────────────────────────────────────────
+# These feed the emotional_arc_alignment and narrative_flow gates (SCORED).
+
+psychological_impact:
+  - rule_id: psy_p1
+    name: concrete_anchors_for_internal_states
+    description: >
+      Abstract internal states must have a concrete behavioral or sensory anchor.
+      Never: "She felt overwhelmed." Always: "She stopped mid-sentence and looked at her hands."
+      The listener needs an image, not a label.
+    check: "every internal state has a concrete anchor within 1–2 sentences"
+    severity: scored
+    weight: 2.0
+
+  - rule_id: psy_p2
+    name: short_punchy_sentences_at_peak_moments
+    description: >
+      At emotional peaks (realization, grief, breakthrough), switch to short declarative
+      sentences of 3–7 words. The rhythm signals importance. "He knew. That was enough."
+    check: "peak emotional moments use sentences ≤ 7 words"
+    severity: scored
+    weight: 1.5
+
+  - rule_id: psy_p3
+    name: no_emotion_labels_as_explanation
+    description: >
+      Never explain what the listener should feel. No: "This is heartbreaking." or
+      "You might feel angry here." Let the scene do the work. The emotion label is a writing
+      failure — it means the scene didn't land.
+    check: "no direct emotion labels addressed to the reader"
+    severity: scored
+    weight: 2.0
+
+  - rule_id: psy_p4
+    name: warmth_in_closing
+    description: >
+      Chapter and section closes must carry warmth and forward momentum. Not detached summary.
+      End with an image, a question, or a short declarative that opens the next beat.
+    check: "closing sentences are warm and forward-facing"
+    severity: scored
+    weight: 1.0
+
+  - rule_id: psy_p5
+    name: silence_beat_before_reframe
+    description: >
+      Before any reframe or insight, allow one beat of stillness (1–2 sentences that
+      pause and don't move forward). The reframe lands harder after silence.
+    check: "reframes are preceded by a stillness/pause beat"
+    severity: scored
+    weight: 1.0
+
+# ─── NARRATIVE FLOW RULES ──────────────────────────────────────────────────
+# These feed the narrative_flow_cohesion gate (SCORED).
+
+narrative_flow:
+  - rule_id: flow_f1
+    name: no_summary_sentences_mid_chapter
+    description: >
+      Do not summarize what was just said mid-chapter. "In other words..." or
+      "To summarize..." mid-section breaks narrative momentum. Move forward or stay; don't recap.
+    check: "no mid-section summary phrases"
+    severity: scored
+    weight: 1.0
+
+  - rule_id: flow_f2
+    name: scene_before_insight
+    description: >
+      Insights and principles must be grounded in a scene or story before they are stated.
+      Never open with the abstract idea; always open with the specific moment.
+    check: "abstract insight is preceded by a scene or concrete example"
+    severity: scored
+    weight: 1.5
+
+  - rule_id: flow_f3
+    name: paragraph_opening_variation
+    description: >
+      No three consecutive paragraphs may open with the same grammatical structure
+      (e.g., three "She..." sentences or three "There is..." openings). Vary the entry.
+    check: "paragraph openings vary in grammatical structure"
+    severity: scored
+    weight: 0.5
+
+  - rule_id: flow_f4
+    name: transition_specificity
+    description: >
+      Transitions between scenes or ideas must be specific, not generic. Not: "Now let's
+      look at..." — instead: "Three weeks later, she was still thinking about that meeting."
+    check: "transitions are specific and scene-grounded"
+    severity: scored
+    weight: 1.0
+
+# ─── REGIONAL FIT RULES ─────────────────────────────────────────────────────
+# These feed the native_regional_language_fit gate (SCORED).
+# Base rules; locale_overrides in comparison_checklist_v2.yaml add locale-specific terms.
+
+regional_fit:
+  - rule_id: reg_r1
+    name: no_us_idiom_in_non_english
+    description: >
+      US idioms do not translate culturally. Flag if a translated draft carries structural
+      US idiom patterns ("at the end of the day", "circle back", "move the needle").
+      These must be replaced with region-authentic equivalents.
+    check: "no calqued US idioms in translated prose"
+    severity: scored
+    weight: 1.5
+
+  - rule_id: reg_r2
+    name: register_consistency
+    description: >
+      Formal/informal register must be consistent throughout a section. Mixed register
+      (half polite-formal, half casual) is jarring in audiobook narration.
+    check: "register is consistent within section"
+    severity: scored
+    weight: 1.0
+
+# ─── COMPLIANCE LANGUAGE RULES ──────────────────────────────────────────────
+# These feed the compliance_disclaimer_preservation gate (HARD gate).
+
+compliance:
+  - rule_id: comp_c1
+    name: required_disclaimer_verbatim
+    description: >
+      Required disclaimers (medical, financial, professional advice) must appear verbatim
+      or in an approved locale-equivalent translation — not paraphrased. Paraphrase changes
+      legal meaning.
+    check: "required disclaimers are verbatim or approved locale-equivalent"
+    severity: hard
+
+  - rule_id: comp_c2
+    name: no_harm_framing_reversal
+    description: >
+      Non-harm framing of sensitive topics (mental health, trauma, grief) must not be
+      reversed or softened in a way that changes the safety posture of the source text.
+    check: "harm-adjacent topics maintain source framing direction"
+    severity: hard
+
+# ─── AGGREGATE WEIGHTS SUMMARY ──────────────────────────────────────────────
+# Total max scored weight across all scored rubric rules:
+# psy_p1: 2.0, psy_p2: 1.5, psy_p3: 2.0, psy_p4: 1.0, psy_p5: 1.0
+# flow_f1: 1.0, flow_f2: 1.5, flow_f3: 0.5, flow_f4: 1.0
+# reg_r1: 1.5, reg_r2: 1.0, tts_c4: 0.5
+# Total max rubric contribution: 14.5 (distributed across gates via rubric_ref)
+
+rubric_usage_note: >
+  Each gate in comparison_checklist_v2.yaml that carries a `rubric_ref` list uses the
+  rules above as sub-criteria for judge scoring. The judge does not score each rule
+  independently; instead, it scores the gate holistically informed by the referenced rules
+  and reports which specific rule(s) caused any deduction. This keeps judge output compact
+  while preserving full traceability to the rule that failed.

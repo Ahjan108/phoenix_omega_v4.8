@@ -93,3 +93,25 @@ Fill this after a green run:
 Notes:
 - `run_ei_v2_rigorous_eval.py` produced required artifacts.
 - `check_ei_v2_promotion_gate.py` currently returns BLOCKED (expected when thresholds are not met), but still writes `artifacts/ei_v2/promotion_gate_result.json`. This does not block artifact-contract enforcement.
+
+## Go-live evidence — merged PR #13
+
+- Date (UTC): 2026-03-06T05:20:11Z
+- PR merged: https://github.com/Ahjan108/phoenix_omega_v4.8/pull/13
+- Merge status: merged and closed
+
+Run URLs:
+
+- PR checks overview: https://github.com/Ahjan108/phoenix_omega_v4.8/pull/13/checks
+- Core tests workflow: https://github.com/Ahjan108/phoenix_omega_v4.8/actions/workflows/core-tests.yml
+- EI V2 gates workflow: https://github.com/Ahjan108/phoenix_omega_v4.8/actions/workflows/ei-v2-gates.yml
+- Change impact workflow: https://github.com/Ahjan108/phoenix_omega_v4.8/actions/workflows/change-impact.yml
+
+Branch protection:
+
+- Ruleset: `Main protection` (active)
+- Required checks: `Core tests`, `EI V2 gates`, `Change impact / change-impact`
+
+Go-live decision:
+
+- GO

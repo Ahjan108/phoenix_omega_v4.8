@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "comparator_result_v2",
+  "title": "Comparator Result v2",
+  "description": "Schema for judge output in the Qwen-Only Audiobook Comparator Loop. Version-aligned with comparison_checklist_v2.yaml (schema_version: 2.0). The checklist_schema_version field in each result object must match the checklist's schema_version or the result is rejected as a schema mismatch.",
+  "version": "2.0",
+  "checklist_schema_binding": "config/audiobook_script/comparison_checklist_v2.yaml#schema_version=2.0",
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "$ref": "#/definitions/GateResult"
+  },
+  "definitions": {
+    "GateResult": {
+      "type": "object",
+      "required": [
+        "gate_id",
+        "pass",
+        "checklist_schema_version",
+        "loop_index",
+        "section_id",
+        "locale"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "gate_id": {
+          "type": "string",
+          "description": "Must match one of the gate_id values in comparison_checklist_v2.yaml",
+          "enum": [
+            "semantic_fidelity",
+            "claim_integrity",
+            "emotional_arc_alignment",
+            "psychological_safety",
+            "native_regional_language_fit",
+            "narrative_flow_cohesion",
+            "tts_readability_cadence",
+            "compliance_disclaimer_preservation",
+            "polish_emotional_impact"
+          ]
+        },
+        "checklist_schema_version": {
+          "type": "string",
+          "description": "Must match the schema_version of the checklist used for this run. Binding: comparison_checklist_v2.yaml schema_version=2.0. Mismatch routes to manual_review.",
+          "pattern": "^2\\.0(\\.\\d+)?$"
+        },
+        "pass": {
+          "type": "boolean",
+          "description": "True if this gate passed, false if it failed. Hard gate: fail → repair loop or manual_review. Scored gate: fail reduces aggregate_score."
+        },
+        "gate_type": {
+          "type": "string",
+          "enum": ["hard", "scored"],
+          "description": "Gate type as defined in checklist. Must match checklist definition."
+        },
+        "score": {
+          "type": ["number", "null"],
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "Required for scored gates. Null for hard gates. 0.0 = worst, 1.0 = best."
+        },
+        "weight": {
+          "type": ["number", "null"],
+          "minimum": 0.0,
+          "description": "Gate weight as defined in checklist. Null for hard gates. Used in aggregate_score calculation."
+        },
+        "defect": {
+          "type": ["string", "null"],
+          "maxLength": 1000,
+          "description": "Short structured defect description if pass=false. Null if pass=true. Format follows checklist defect_format."
+        },
+        "prompt_patch": {
+          "type": ["string", "null"],
+          "maxLength": 500,
+          "description": "Suggested instruction patch for the next Qwen draft call if pass=false. Null if pass=true. Applied automatically by PatchApplier — not reviewed by human before injection."
+        },
+        "rubric_rules_failed": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "string"
+          },
+          "description": "List of rubric rule_ids from static_polish_rubric.yaml that caused deductions. Null if pass=true or no rubric_ref applies."
+        },
+        "loop_index": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5,
+          "description": "1-indexed loop number that produced this judge result."
+        },
+        "section_id": {
+          "type": "string",
+          "description": "Unique identifier for the audiobook section being judged."
+        },
+        "locale": {
+          "type": "string",
+          "description": "Locale code for this draft (e.g. zh-TW, zh-HK, ja-JP).",
+          "enum": ["zh-TW", "zh-HK", "zh-SG", "zh-CN", "ja-JP", "ko-KR", "en-US"]
+        },
+        "judge_confidence": {
+          "type": ["number", "null"],
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "Optional: judge self-reported confidence in its verdict for this gate. Use for human audit sampling prioritization."
+        },
+        "timestamp_utc": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "ISO 8601 UTC timestamp when this gate was evaluated."
+        }
+      }
+    }
+  },
+  "_envelope_schema": {
+    "description": "The loop script wraps the judge result array in an envelope for artifact persistence. The envelope is NOT validated by this schema (it is pipeline-internal) but is documented here for completeness.",
+    "envelope_fields": {
+      "run_id": "string — stable batch+section+loop identifier",
+      "batch_id": "string",
+      "book_id": "string",
+      "section_id": "string",
+      "locale": "string",
+      "loop_index": "integer",
+      "input_draft_hash": "string — SHA-256 of draft text",
+      "rerun_prompt_hash": "string — SHA-256 of patched system prompt for next loop",
+      "prompt_patch": "string — assembled patch block injected into next Qwen call",
+      "aggregate_score": "float — scored_total / max_scored_total",
+      "hard_gates_passed": "boolean — all hard gates pass=true this loop",
+      "final_decision": "enum: pass | continue | manual_review",
+      "timestamp_utc": "ISO 8601",
+      "gate_results": "array — the GateResult array validated by this schema"
+    }
+  }
+}

@@ -1,0 +1,237 @@
+schema_version: "2.0"
+description: >
+  Master runtime configuration for the Qwen-Only Audiobook Comparator Loop.
+  All parameters that would otherwise be hardcoded in run_comparator_loop.py live here.
+  No human is in the loop at runtime — all repair and routing is automated.
+
+  Authority: docs/GO_LIVE_FINAL_CHECKLIST.md, scripts/audiobook_script/run_comparator_loop.py.
+  Change via PR; bump config_version on any parameter change.
+
+config_version: "2.0.0"
+last_updated: "2026-03-06"
+
+# ─── LOOP CONTROL ────────────────────────────────────────────────────────────
+# max_loops: how many total generation+judge cycles per section before routing to
+#   manual_review. Range: [1, 5]. Do not set above 5 — schema enforces this.
+# Schema enforcement: run_comparator_loop.py validates max_loops in [1,5] on startup.
+# Never auto-pass on loop exhaustion — always route to manual_review_queue.
+
+loop_control:
+  max_loops: 3                    # config-driven, not hardcoded; schema max=5
+  hard_fail_routes_to: manual_review   # always; never auto_pass
+  loop_index_base: 1              # loops are 1-indexed in artifact trace
+
+# ─── PARALLEL SECTION PROCESSING ─────────────────────────────────────────────
+# Audiobooks have N independent sections. Each section runs its own comparator loop.
+# Sections within a book are embarrassingly parallel — maximize agents.
+#
+# Architecture:
+#   asyncio.gather + asyncio.Semaphore(max_parallel_sections)
+#   Each section → own artifact subdirectory → own run_id
+#   Semaphore prevents simultaneous API calls exceeding rate limits
+#
+# max_parallel_sections: concurrent section workers per book.
+#   Set based on API rate limits for both draft_model and judge_model.
+#   Default 6 = safe for Qwen Cloud tier; raise to 12 on higher-tier endpoint.
+# max_parallel_books: concurrent books in a batch run (e.g. full catalog run).
+#   Total simultaneous Qwen calls = max_parallel_books × max_parallel_sections.
+
+parallel:
+  max_parallel_sections: 6        # per book; bounded by API rate limits
+  max_parallel_books: 2           # concurrent books in batch mode
+  section_timeout_seconds: 180    # per section × all loops; hard kill after this
+  batch_timeout_seconds: 7200     # hard kill for full book batch
+  semaphore_strategy: sliding     # sliding window; faster sections don't block slower
+  retry_on_timeout: true
+  timeout_routes_to: manual_review
+
+# ─── TOKEN BUDGET / COST PROTECTION ──────────────────────────────────────────
+# Per-section token caps. Exceeded budget → abort section → manual_review.
+# These are approximate; actual counts depend on model tokenizer.
+# Estimated per section: ~2,000 tokens (source) + ~1,500 (draft) + ~500 (judge) = ~4,000/loop
+# 3 loops × ~4,000 = ~12,000 tokens per section; full audiobook (20 sections) ≈ 240k tokens.
+
+token_budget:
+  max_tokens_per_section_per_loop: 6000   # draft + judge combined
+  max_tokens_per_section_total: 20000     # across all loops
+  max_tokens_per_batch: 2000000           # full catalog batch safety cap
+  on_budget_exceeded: manual_review       # never silent; always routes explicitly
+
+# ─── DRAFT MODEL CONFIG ───────────────────────────────────────────────────────
+# The model that generates the translated/localized audiobook section draft.
+# temperature: 0.7 — allows natural regional variation
+# seed: derived from section_id hash (deterministic per section, different per locale)
+
+draft_model:
+  provider: qwen_cloud             # Qwen Cloud API (Dashscope)
+  model_id: qwen-max              # qwen-max or qwen-plus depending on quality tier
+  temperature: 0.7
+  top_p: 0.9
+  seed_strategy: section_hash     # seed = hash(section_id + locale) → deterministic
+  max_output_tokens: 3000
+  system_prompt_id: draft_audiobook_v2   # prompt file: prompts/draft_audiobook_v2.txt
+  timeout_seconds: 60
+
+# ─── JUDGE MODEL CONFIG ──────────────────────────────────────────────────────
+# COMMITTED: Qwen-72B with dedicated judge endpoint.
+# Key independence properties vs draft model:
+#   - Separate system prompt (judge_audiobook_v2 vs draft_audiobook_v2)
+#   - temperature: 0.1 (near-deterministic; reproducible judge verdicts)
+#   - seed_strategy: rotated — seed = hash(section_id + loop_index + "judge_salt")
+#     so each loop gets a fresh but deterministic judge seed; prevents judge anchoring
+#   - Separate API endpoint / API key (see secrets config)
+# This is the committed production judge model — regressions sets are reproducible because
+# the judge config is pinned and version-tracked here.
+
+judge_model:
+  provider: qwen_cloud
+  model_id: qwen-max              # same model family; judge independence comes from config
+  temperature: 0.1                # near-deterministic for reproducible verdicts
+  top_p: 0.95
+  seed_strategy: rotated          # seed = hash(section_id + loop_index + "JUDGE_SALT_V2")
+  max_output_tokens: 1500         # judge output is compact JSON; 1500 is sufficient
+  system_prompt_id: judge_audiobook_v2   # prompt file: prompts/judge_audiobook_v2.txt
+  timeout_seconds: 45
+  require_json_output: true       # judge MUST return valid JSON; schema validated
+  json_schema_id: comparator_result_v2  # must match schemas/comparator_result_v2.schema.json
+  on_schema_fail: manual_review   # never silent pass; schema failure → manual_review
+
+# ─── PATCH INJECTION CONFIG ───────────────────────────────────────────────────
+# How the loop script applies judge-returned prompt_patches automatically.
+# No human in the loop for patch application.
+#
+# Mechanism:
+#   1. Judge returns [{gate_id, pass, defect, prompt_patch}] for all failed gates.
+#   2. PatchApplier sorts patches: hard gate failures first, then scored failures by weight.
+#   3. Assembles: original_system_prompt + REVISION_BLOCK
+#   4. REVISION_BLOCK format:
+#        ## REVISION INSTRUCTIONS (Loop {n})
+#        [HARD] {gate_id}: {prompt_patch}
+#        [SCORED] {gate_id}: {prompt_patch}
+#   5. Assembled prompt is hashed → stored as rerun_prompt_hash in artifact trace.
+#   6. Rerun Qwen with patched system prompt, same section content.
+#
+# injection_strategy options:
+#   append_to_system   — patches appended to system prompt after REVISION_BLOCK header
+#   prefix_to_system   — patches prepended to system prompt (stronger signal, but risks
+#                        overwhelming the original instructions for small models)
+# Use append_to_system (default) — keeps original instructions dominant.
+
+patch_injection:
+  injection_strategy: append_to_system
+  revision_block_header: "## REVISION INSTRUCTIONS (Loop {loop_index})\n## Fix ALL issues below before producing the draft.\n"
+  hard_gate_prefix: "[HARD — must fix]"
+  scored_gate_prefix: "[IMPROVE]"
+  sort_order: [hard_gates_first, then_by_weight_descending]
+  include_defect_in_patch: true   # prepend defect summary before prompt_patch for context
+  max_patch_tokens: 600           # cap patch block size to avoid overwhelming the prompt
+  on_patch_overflow: truncate_scored_keep_hard   # always preserve hard gate patches
+
+# ─── ARTIFACT TRACE CONFIG ────────────────────────────────────────────────────
+# Every loop pass persists a trace record. These are the fields required per loop.
+# See schemas/comparator_result_v2.schema.json for the result schema.
+
+artifact_trace:
+  base_path: "artifacts/audiobook"    # all runs live under here
+  structure: "{batch_id}/{book_id}/{section_id}/loop_{loop_index}/"
+  required_fields_per_loop:
+    - input_draft_hash           # SHA-256 of the draft text sent to judge
+    - judge_result_json          # full judge JSON output (all gate verdicts)
+    - prompt_patch               # assembled patch block (empty string if loop_index=1)
+    - rerun_prompt_hash          # SHA-256 of patched system prompt for next loop
+    - final_decision             # "pass" | "continue" | "manual_review"
+    - aggregate_score            # float: scored_total / max_scored_total
+    - hard_gates_passed          # bool: all hard gates passed this loop
+    - loop_index                 # 1-indexed
+    - timestamp_utc              # ISO 8601
+  batch_summary_file: "artifacts/audiobook/{batch_id}/batch_summary.json"
+  manual_review_queue_file: "artifacts/audiobook/manual_review_queue.json"  # high-visibility
+
+# ─── MANUAL REVIEW PACKET SPEC ───────────────────────────────────────────────
+# When a section exhausts max_loops without passing all hard gates:
+#   - Automated: never auto-pass; always write manual review packet
+#   - Packet contains everything the reviewer needs (no mystery files)
+#
+# best_draft selection: the loop pass with the highest aggregate_score.
+#   If multiple loops tie on aggregate_score, prefer the one with the most hard gates passed.
+#   If still tied, use the latest loop.
+#
+# UI visibility: manual_review_queue.json is the single source of truth for the
+#   PhoenixControl "Manual Review" tab. It is appended (not overwritten) per batch,
+#   so it accumulates all pending reviews across runs. It must be sorted by severity
+#   (number of hard gate failures descending) in the UI.
+
+manual_review_packet:
+  files:
+    - filename: best_draft.txt
+      content: "Highest aggregate_score draft from all loops (see selection logic above)"
+    - filename: final_draft.txt
+      content: "Last loop's draft (may differ from best_draft)"
+    - filename: defect_history.json
+      content: "All loop judge_result_json records, ordered by loop_index"
+    - filename: review_summary.txt
+      content: >
+        Human-readable: section_id, locale, total loops attempted, which hard gates
+        failed in each loop, which scored gates were below threshold, what patches
+        were tried, aggregate_score trajectory across loops, recommended fix direction.
+    - filename: status.json
+      content: "requires_manual_review: true, reason, section_id, locale, batch_id, timestamp_utc"
+  manual_review_queue_entry:
+    fields: [section_id, locale, book_id, batch_id, hard_gate_failures, aggregate_score_best, timestamp_utc, packet_path]
+    severity_sort_key: hard_gate_failures   # sort descending in UI (most broken = top)
+
+# ─── AGGREGATE PASS LOGIC ─────────────────────────────────────────────────────
+# A section PASSES if and only if BOTH conditions are met:
+#   1. All hard gates return pass=true
+#   2. scored_total / max_scored_total >= min_scored_pass_threshold
+#
+# scored_total = sum(gate.score * gate.weight) for all scored gates
+# max_scored_total = sum(gate.weight) for all scored gates
+#
+# min_scored_pass_threshold: 0.75 = 75% of maximum weighted scored gate points.
+# Rationale: 75% allows Qwen regional variation while blocking substantively weak drafts.
+# This threshold applies uniformly across all locales unless locale_override is set below.
+
+scoring:
+  pass_requires_all_hard_gates: true
+  min_scored_pass_threshold: 0.75    # 75% of max weighted scored points
+  score_scale: [0.0, 1.0]            # gate scores are 0.0–1.0 floats
+  tie_break_on_loop_selection: [highest_hard_gates_passed, latest_loop]
+
+# ─── LOCALE THRESHOLD OVERRIDES ──────────────────────────────────────────────
+# Some locales can relax the scored threshold (e.g. emerging markets with less training data)
+# or tighten it. Hard gate requirements cannot be relaxed per locale.
+
+locale_threshold_overrides:
+  zh-TW:
+    min_scored_pass_threshold: 0.75   # same as default
+  zh-HK:
+    min_scored_pass_threshold: 0.75
+  zh-SG:
+    min_scored_pass_threshold: 0.72   # slight relaxation; zh-SG corpus is smaller
+  zh-CN:
+    min_scored_pass_threshold: 0.75
+  ja-JP:
+    min_scored_pass_threshold: 0.78   # tighter; Japanese TTS readability is critical
+  ko-KR:
+    min_scored_pass_threshold: 0.75
+
+# ─── GOLDEN REGRESSION SET ────────────────────────────────────────────────────
+# Fixed multilingual set used for regression gating. Populated before go-live.
+# Block promotion if fidelity/compliance hard-gate pass rate drops on this set.
+
+regression:
+  golden_set_path: "config/audiobook_script/golden_regression_set/"
+  required_locales: [zh-TW, zh-HK, zh-SG, zh-CN]
+  optional_locales: [ja-JP, ko-KR]
+  min_hard_gate_pass_rate: 1.0      # 100% hard gates on golden set; never less
+  min_scored_pass_rate: 0.90        # 90% of golden set must fully pass
+  block_promotion_on_regression: true
+
+# ─── OBSERVABILITY ────────────────────────────────────────────────────────────
+
+observability:
+  jsonl_log_path: "artifacts/audiobook/loop_decisions.jsonl"
+  alert_on_manual_review_rate_above: 0.10    # alert if >10% of sections go to manual review
+  alert_on_hard_gate_fail_rate_above: 0.05   # alert if >5% of sections fail a hard gate
+  alert_channel: ops_webhook                  # configured in secrets / env

@@ -147,5 +147,46 @@ From Canonical Spec and Writer Spec:
 - **Recommended when assembly is role-aware:** `role` (recognition | embodiment | pattern | mechanism_proof | agency_glimmer).
 - **Optional from STORY_TYPES_AND_STRUCTURES:** `story_origin` (true_story | composite), `story_type` (parable | direct_teaching | character_study | atmospheric | recognition_exchange).
 - **Tags for Four Story Rules:** e.g. `misfire_tax: true`, `silence_beat: true`, `never_know: true` (and one interrupt per book). Documented in Writer Spec §16.8 and emotional governance.
+- **`pivot` field (recommended for formats that use PIVOT slot):** 2–3 sentences that name what this story shows — without teaching it. Written alongside the story body. Assembly reads this field when filling a PIVOT slot that follows this STORY atom. Write in third-person or second-person present. Name the visible dynamic only; no mechanism explanation.
+
+```yaml
+# Example STORY atom with pivot field
+atom_id: maya_story_001
+story_type: character_study
+emotional_intensity_band: 3
+body: |
+  Maya gets the feedback in writing. She reads it three times. She does not reply.
+  She closes the laptop and does not open it again until morning.
+pivot: |
+  She did not go quiet because she agreed. She went quiet because the alarm fired
+  and the only move that felt safe was stillness.
+misfire_tax: true
+never_know: false
+```
+
+**When to write a pivot field:** Any story where the mechanism is not immediately obvious — where the reader might see *what happened* but miss *what it means about the pattern*. Character_study and atmospheric types benefit most. Parable types often carry their own meaning implicitly.
+
+---
+
+## 7. New slot types (v2 — Pearl Prime structural upgrade)
+
+These slots are in the pipeline as of 2026-03-06. Writers do not author atoms for TAKEAWAY or THREAD directly — those resolve from the arc. PIVOT content comes from the `pivot` field on STORY atoms. PERMISSION needs authored atoms.
+
+| Slot | How it fills | Writer task |
+|------|-------------|-------------|
+| **PIVOT** | From `pivot` field on the preceding STORY atom | Write `pivot:` field on every STORY atom (see §6 above) |
+| **TAKEAWAY** | From `chapter_thesis[ch]` in the arc YAML | None — arc generates it; see `docs/CHAPTER_THESIS_BANK.md` |
+| **THREAD** | From `chapter_thread[ch]` in the arc YAML | None — arc generates it; see `docs/CHAPTER_THESIS_BANK.md` |
+| **PERMISSION** | From `chapter_permission[ch]` in the arc YAML | None — arc generates it; see `docs/CHAPTER_THESIS_BANK.md` |
+
+**PIVOT rules (for `pivot` field on STORY atoms):**
+- 2–3 sentences maximum
+- Names the visible dynamic only — not the mechanism
+- Third-person or second-person present tense
+- No "this shows us," "notice how," "here we see" — no transition language
+- No teaching. PIVOT ends where REFLECTION begins.
+- ≤ 12 words per sentence (TTS rule)
+
+Full spec for all four slot types: `specs/PHOENIX_V4_5_WRITER_SPEC.md` §4.3a, §4.7, §4.7a, §4.8.
 
 Use this extract when the full Writer Spec isn’t available. For everything else, use `specs/PHOENIX_V4_5_WRITER_SPEC.md`.

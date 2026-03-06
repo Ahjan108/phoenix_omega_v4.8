@@ -220,6 +220,36 @@ Named character. Specific moment. Third-person present tense. The story SHOWS th
 | 4 | breaking point |
 | 5 | crisis / rupture |
 
+**`pivot` field (recommended — write alongside every STORY atom):**
+
+2–3 sentences that name the visible dynamic in the story without explaining the mechanism. Assembly reads this field to fill a PIVOT slot that follows this STORY atom. Write it when authoring the story — it is part of the story's voice, not a separate editorial note.
+
+Rules for the pivot field:
+- Names what was visible in the story — the pattern, the move, the cost — without explaining *why*
+- No teaching language: no "this shows us," "notice how," "here we see," "the mechanism is"
+- No emotion labels
+- Third-person or second-person present tense; matches the story's register
+- ≤ 12 words per sentence (TTS rule applies)
+- 2–3 sentences maximum
+
+```yaml
+# Full example
+atom_id: junko_STORY_004
+story_origin: composite
+story_type: character_study
+emotional_intensity_band: 3
+body: |
+  A woman I'll call Sera gets the feedback in a group email. She reads it twice.
+  She does not reply. She closes the laptop. She does not open it again until morning.
+pivot: |
+  She did not go quiet because she agreed. She went quiet because stillness
+  was the only move that felt safe. The silence looked like composure.
+misfire_tax: true
+never_know: false
+```
+
+When PIVOT slot does not exist in the format, the pivot field is ignored. Write it anyway — formats can change, and the field costs nothing.
+
 **QA Checklist — STORY:**
 
 - [ ] Named character (not "she" / "he" generic)
@@ -229,6 +259,7 @@ Named character. Specific moment. Third-person present tense. The story SHOWS th
 - [ ] No emotion labels ("felt anxious," "felt overwhelmed")
 - [ ] ≤ 15 words per emotional beat
 - [ ] Dialogue used for volatile/cost moments
+- [ ] `pivot` field present (2–3 sentences, no teaching language, ≤ 12 words/sentence)
 
 ---
 

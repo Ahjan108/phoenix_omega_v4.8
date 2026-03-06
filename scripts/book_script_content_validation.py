@@ -6,15 +6,25 @@ Knows where all content is that may be used in a book script. Checks:
 - All locations and languages (per locale_registry + content_roots_by_locale)
 - Enough stories for all persona × topic × engine (STORY pools + min depth)
 - Non-STORY slots (HOOK, SCENE, REFLECTION, EXERCISE, INTEGRATION) for all persona × topic
+- Pearl Prime v2 slots (PIVOT, TAKEAWAY, THREAD, PERMISSION) — assembled from arc fields and
+  STORY atom `pivot` field, NOT from atom-pool directories:
+    PIVOT      — from `pivot` field on STORY atoms (checked per teacher bank)
+    TAKEAWAY   — from `chapter_thesis[ch]` in master_arcs (20 entries per arc)
+    THREAD     — from `chapter_thread[ch]` in master_arcs (20 entries per arc)
+    PERMISSION — from `chapter_permission[ch]` in master_arcs (high-cost chapters only)
+  See docs/CHAPTER_THESIS_BANK.md and docs/BESTSELLER_STRUCTURES.md for machine-readable
+  lookup tables used to auto-populate these fields. See specs/PHOENIX_V4_5_WRITER_SPEC.md §4.
 - 100% teacher readiness (doctrine, approved_atoms min counts per teacher)
 - 100% system content that appears IN the book script (mechanism_aliases, arcs, reframe bank, etc.)
 - 100% system metadata that does NOT appear in the book script (BookSpec/CompiledBook fields)
 
 Authority: docs/DOCS_INDEX.md, config/catalog_planning, config/localization,
-  config/source_of_truth, SOURCE_OF_TRUTH/teacher_banks, specs/OMEGA_LAYER_CONTRACTS.md.
+  config/source_of_truth, SOURCE_OF_TRUTH/teacher_banks, specs/OMEGA_LAYER_CONTRACTS.md,
+  docs/CHAPTER_THESIS_BANK.md, docs/BESTSELLER_STRUCTURES.md.
 
 Usage:
   python scripts/book_script_content_validation.py [--locale LOC] [--teacher ID] [--plan PATH] [--json]
+  python scripts/book_script_content_validation.py --check-v2-slots  (Pearl Prime v2 arc field check)
 """
 
 from __future__ import annotations
@@ -334,6 +344,117 @@ def check_plan_metadata(plan_path: Path) -> dict | None:
     }
 
 
+# ---------------------------------------------------------------------------
+# Pearl Prime v2 slot checks (added 2026-03-06 / Pearl Prime structural upgrade)
+# PIVOT/TAKEAWAY/THREAD/PERMISSION are NOT atom-pool directories.
+# They are assembled from arc YAML fields and the `pivot` field on STORY atoms.
+# ---------------------------------------------------------------------------
+
+_V2_ARC_FIELDS = ("chapter_thesis", "chapter_thread", "chapter_permission")
+_V2_REQUIRED_LENGTH = 20   # chapter_thesis and chapter_thread need 20 entries
+_HIGH_COST_INTENTS = {
+    "confrontation", "somatic_repair", "expose_cost", "destabilize_strategy",
+    "the_cost_named", "the_price_of_knowing", "moving_without_certainty", "the_relational_truth",
+}
+
+
+def _check_arc_file_v2(path: Path) -> dict:
+    """Return v2 field status for a single arc YAML file."""
+    try:
+        import yaml
+        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    except Exception as e:
+        return {"error": str(e)}
+    result: dict = {}
+    for field in ("chapter_thesis", "chapter_thread"):
+        val = data.get(field)
+        if val is None:
+            result[field] = "missing"
+        elif not isinstance(val, list):
+            result[field] = "wrong_type"
+        elif len(val) < _V2_REQUIRED_LENGTH:
+            result[field] = f"short:{len(val)}/{_V2_REQUIRED_LENGTH}"
+        else:
+            result[field] = "ok"
+    # chapter_permission: only required for high-cost intents; warn if absent on them
+    cp = data.get("chapter_permission")
+    arc_intent = data.get("arc_intent") or ""
+    if arc_intent in _HIGH_COST_INTENTS:
+        result["chapter_permission"] = "ok" if cp else "missing_high_cost"
+    else:
+        result["chapter_permission"] = "ok" if cp is not None else "not_required"
+    return result
+
+
+def check_v2_slots(repo: Path) -> dict:
+    """
+    Check Pearl Prime v2 slot readiness across master_arcs and teacher STORY atoms.
+
+    Returns counts and first-20 problem arcs/atoms per issue type.
+    """
+    arcs_root = repo / "config" / "source_of_truth" / "master_arcs"
+    arc_files = sorted(arcs_root.rglob("*.yaml")) if arcs_root.exists() else []
+    arc_results: dict[str, list[str]] = {
+        "chapter_thesis_missing": [],
+        "chapter_thesis_short": [],
+        "chapter_thread_missing": [],
+        "chapter_thread_short": [],
+        "chapter_permission_missing_high_cost": [],
+    }
+    for arc_path in arc_files:
+        status = _check_arc_file_v2(arc_path)
+        name = arc_path.stem
+        for field in ("chapter_thesis", "chapter_thread"):
+            val = status.get(field, "")
+            if val == "missing":
+                arc_results[f"{field}_missing"].append(name)
+            elif val.startswith("short:"):
+                arc_results[f"{field}_short"].append(f"{name} ({val})")
+        if status.get("chapter_permission") == "missing_high_cost":
+            arc_results["chapter_permission_missing_high_cost"].append(name)
+
+    # Check STORY atoms for `pivot` field
+    banks_root = repo / "SOURCE_OF_TRUTH" / "teacher_banks"
+    pivot_missing: list[str] = []
+    pivot_present = 0
+    if banks_root.exists():
+        for story_yaml in banks_root.rglob("approved_atoms/STORY/*.yaml"):
+            try:
+                import yaml
+                atom = yaml.safe_load(story_yaml.read_text(encoding="utf-8")) or {}
+                if atom.get("pivot"):
+                    pivot_present += 1
+                else:
+                    pivot_missing.append(str(story_yaml.relative_to(repo)))
+            except Exception:
+                pass
+
+    total_arcs = len(arc_files)
+    any_gap = (
+        bool(arc_results["chapter_thesis_missing"])
+        or bool(arc_results["chapter_thesis_short"])
+        or bool(arc_results["chapter_thread_missing"])
+        or bool(arc_results["chapter_thread_short"])
+        or bool(arc_results["chapter_permission_missing_high_cost"])
+        or bool(pivot_missing)
+    )
+    return {
+        "status": "gaps" if any_gap else "ok",
+        "total_arcs_scanned": total_arcs,
+        "arc_issues": {k: v[:20] for k, v in arc_results.items()},
+        "arc_issue_counts": {k: len(v) for k, v in arc_results.items()},
+        "story_atoms_with_pivot": pivot_present,
+        "story_atoms_missing_pivot": len(pivot_missing),
+        "story_atoms_missing_pivot_sample": pivot_missing[:20],
+        "note": (
+            "TAKEAWAY assembles from chapter_thesis[ch]; THREAD from chapter_thread[ch]; "
+            "PERMISSION from chapter_permission[ch] (high-cost intents only); "
+            "PIVOT from `pivot` field on the preceding STORY atom. "
+            "Use CHAPTER_THESIS_BANK.md machine-readable tables to auto-populate arc fields."
+        ),
+    }
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Book script content validation (all locs, langs, teachers, system content)")
     ap.add_argument("--locale", default=None, help="Check only this locale (default: all)")
@@ -341,6 +462,11 @@ def main() -> int:
     ap.add_argument("--plan", default=None, help="Path to plan JSON: report metadata vs script for this book")
     ap.add_argument("--json", action="store_true", help="Output JSON report")
     ap.add_argument("--repo", default=None, help="Repo root (default: script parent parent)")
+    ap.add_argument(
+        "--check-v2-slots",
+        action="store_true",
+        help="Include Pearl Prime v2 slot check (PIVOT/TAKEAWAY/THREAD/PERMISSION arc fields + atom pivot field)",
+    )
     args = ap.parse_args()
     repo = Path(args.repo) if args.repo else REPO_ROOT
 
@@ -350,6 +476,8 @@ def main() -> int:
         "system_content_in_script": check_system_content_in_script(repo),
         "system_metadata_not_in_script": system_metadata_not_in_script_report(),
     }
+    if args.check_v2_slots:
+        out["v2_slots"] = check_v2_slots(repo)
     if args.plan:
         out["plan_metadata"] = check_plan_metadata(Path(args.plan))
 
@@ -369,6 +497,8 @@ def main() -> int:
                 failed = True
                 break
         if out["system_content_in_script"].get("status") != "ok":
+            failed = True
+        if out.get("v2_slots", {}).get("status") == "gaps":
             failed = True
         return 1 if failed else 0
 
@@ -416,6 +546,23 @@ def main() -> int:
     lines.append("System metadata NOT in book script (reference)")
     lines.append(f"  {meta.get('description', '')}")
     lines.append(f"  fields: {len(meta.get('fields', []))} (see --json for list)")
+    if out.get("v2_slots"):
+        v2 = out["v2_slots"]
+        lines.append("Pearl Prime v2 slots (PIVOT/TAKEAWAY/THREAD/PERMISSION)")
+        lines.append(f"  status: {v2.get('status', '?')} ({v2.get('total_arcs_scanned', 0)} arcs scanned)")
+        counts = v2.get("arc_issue_counts", {})
+        for issue, cnt in counts.items():
+            if cnt:
+                lines.append(f"  {issue}: {cnt} arcs affected")
+                for arc_name in (v2.get("arc_issues") or {}).get(issue, [])[:3]:
+                    lines.append(f"    {arc_name}")
+        pivot_ok = v2.get("story_atoms_with_pivot", 0)
+        pivot_missing = v2.get("story_atoms_missing_pivot", 0)
+        lines.append(f"  STORY atoms with pivot field: {pivot_ok} ok / {pivot_missing} missing")
+        for s in (v2.get("story_atoms_missing_pivot_sample") or [])[:3]:
+            lines.append(f"    {s}")
+        lines.append(f"  note: {v2.get('note', '')}")
+        lines.append("")
     if out.get("plan_metadata"):
         pm = out["plan_metadata"]
         lines.append(f"\nPlan: {pm.get('plan_path', '')}")
@@ -436,6 +583,8 @@ def main() -> int:
             failed = True
             break
     if sc.get("status") != "ok":
+        failed = True
+    if out.get("v2_slots", {}).get("status") == "gaps":
         failed = True
     return 1 if failed else 0
 

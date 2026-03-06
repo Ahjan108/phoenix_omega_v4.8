@@ -1,0 +1,247 @@
+schema_version: "2.0"
+description: >
+  Comparison checklist for the Qwen-Only Audiobook Comparator Loop.
+  The judge LLM evaluates the Qwen draft against the English source using these gates
+  and returns a structured JSON result (schema: schemas/comparator_result_v2.schema.json).
+  No Claude API at runtime — polish and emotional/psychological impact come from rubric_ref
+  rules authored once offline and locked here.
+
+  Pass condition (enforced by comparator_config.yaml > scoring):
+    ALL hard gates pass=true
+    AND scored_total / max_scored_total >= min_scored_pass_threshold (0.75 default)
+
+  Authority: config/audiobook_script/comparator_config.yaml (scoring thresholds),
+             config/audiobook_script/static_polish_rubric.yaml (rubric rules).
+
+checklist_version: "2.0.0"
+last_updated: "2026-03-06"
+rubric_source: "config/audiobook_script/static_polish_rubric.yaml"
+result_schema: "schemas/comparator_result_v2.schema.json"   # binds checklist to result schema
+
+# ─── AGGREGATE PASS THRESHOLDS ────────────────────────────────────────────────
+# Source of truth for scoring is comparator_config.yaml > scoring.
+# Replicated here for judge prompt context and documentation.
+scoring:
+  min_scored_pass_threshold: 0.75
+  score_scale: [0.0, 1.0]
+  hard_gate_failure_routing: manual_review   # never auto_pass
+
+# ─── GATE DEFINITIONS ─────────────────────────────────────────────────────────
+# gate_id:     unique identifier; referenced in judge output and artifact trace
+# type:        "hard" = must pass; any fail → defect + patch → repair loop; exhaustion → manual_review
+#              "scored" = score 0.0–1.0; weighted contribution to aggregate_score
+# weight:      scored gates only; used in aggregate_score calculation
+# rubric_ref:  list of rule_ids from static_polish_rubric.yaml the judge uses as sub-criteria
+# judge_instruction: specific judge directive for this gate; injected into judge prompt
+
+gates:
+
+  # ── GATE 1: SEMANTIC FIDELITY ──────────────────────────────────────────────
+  - gate_id: semantic_fidelity
+    name: Semantic Fidelity
+    description: >
+      The meaning of the draft must be fully preserved relative to the English source.
+      No ideas added, no ideas removed, no meaning shifted. Paraphrase is acceptable;
+      omission and invention are not.
+    type: hard
+    judge_instruction: >
+      Compare the draft to the English source sentence by sentence. Identify any idea
+      present in the source but absent from the draft, or any idea in the draft not
+      present in the source. Score pass=true only if meaning is fully preserved.
+    defect_format: "List each semantic gap: [added/removed/shifted] → specific text"
+    prompt_patch_format: >
+      "Restore the following missing/altered meaning from the English source: {defect_list}"
+
+  # ── GATE 2: CLAIM/NUMBER/ENTITY INTEGRITY ──────────────────────────────────
+  - gate_id: claim_integrity
+    name: Claim / Number / Entity Integrity
+    description: >
+      Numbers, dates, names, statistics, and key claims must be identical to the source.
+      No rounding, no substitution, no invented specificity.
+    type: hard
+    judge_instruction: >
+      Extract all numbers, dates, names, and factual claims from the English source.
+      Verify each appears correctly in the draft. Report any discrepancy.
+    defect_format: "List: [source value] → [draft value] for each mismatch"
+    prompt_patch_format: >
+      "Correct the following values to match the English source exactly: {defect_list}"
+
+  # ── GATE 3: EMOTIONAL ARC ALIGNMENT ────────────────────────────────────────
+  - gate_id: emotional_arc_alignment
+    name: Emotional Arc Alignment
+    description: >
+      The draft must follow the same emotional beats and emphasis as the English source.
+      The listener should experience the same emotional journey in the same sequence,
+      even if the words differ. Intensity of key moments must match.
+    type: scored
+    weight: 2.0
+    rubric_ref: [psy_p1, psy_p2, psy_p3, psy_p4, psy_p5]
+    judge_instruction: >
+      Identify the 3–5 main emotional beats in the English source (e.g. tension, release,
+      realization, warmth). Score 0.0–1.0 based on how closely the draft matches these beats
+      in sequence and intensity. Deduct for: wrong emotional register at peak moments,
+      missing beats, added sentimental beats not in source.
+    defect_format: "List missed or mismatched emotional beats with location in text"
+    prompt_patch_format: >
+      "Align the emotional arc at these points: {defect_list}. Reference rubric rules: psy_p1, psy_p2."
+
+  # ── GATE 4: PSYCHOLOGICAL SAFETY / NON-HARM ────────────────────────────────
+  - gate_id: psychological_safety
+    name: Psychological Safety / Non-Harm
+    description: >
+      Non-harm framing must be preserved or strengthened. The draft must not reverse
+      safety framing, normalize harmful behavior, or introduce triggering content
+      not present in the source. Includes: mental health, trauma, grief, addiction references.
+    type: hard
+    rubric_ref: [comp_c2]
+    judge_instruction: >
+      Evaluate any harm-adjacent content in both source and draft. Flag if the draft
+      softens, reverses, or reframes the source's safety posture. Also flag if the
+      draft introduces harm-adjacent content not in the source.
+    defect_format: "Quote the source text and draft text where framing diverges"
+    prompt_patch_format: >
+      "Restore the non-harm framing at: {defect_list}. Do not soften or reverse the source's safety posture."
+
+  # ── GATE 5: NATIVE REGIONAL LANGUAGE FIT ───────────────────────────────────
+  - gate_id: native_regional_language_fit
+    name: Native Regional Language Fit
+    description: >
+      The draft must use idiomatic, natural language for the target locale (zh-TW, zh-HK,
+      zh-SG, zh-CN, ja-JP, ko-KR). Calqued US idioms, formal/informal register mixing,
+      and non-regional expressions are failures. This is Qwen's primary strength — score
+      harshly on regional fit failures.
+    type: scored
+    weight: 2.5
+    rubric_ref: [reg_r1, reg_r2]
+    judge_instruction: >
+      Evaluate as a native speaker of the target locale. Score 0.0–1.0: 1.0 = completely
+      natural regional expression; 0.5 = understandable but clearly translated; 0.0 = unnatural.
+      Penalize: calqued idioms, wrong register, non-regional vocabulary choices.
+    defect_format: "List each non-regional expression: [draft text] → [suggested regional alternative]"
+    prompt_patch_format: >
+      "Replace these non-regional expressions with locale-authentic alternatives: {defect_list}"
+
+  # ── GATE 6: NARRATIVE FLOW / COHESION ──────────────────────────────────────
+  - gate_id: narrative_flow_cohesion
+    name: Narrative Flow / Cohesion
+    description: >
+      The draft must read as native-speaker prose, not as a translation. Transitions must
+      be specific, paragraph openings must vary, scene precedes insight. No summary sentences
+      mid-chapter. Qwen's regional flow is the target; English word-order carryover is a fail.
+    type: scored
+    weight: 1.5
+    rubric_ref: [flow_f1, flow_f2, flow_f3, flow_f4]
+    judge_instruction: >
+      Read the draft as a native-speaker audiobook listener. Score 0.0–1.0: 1.0 = fully
+      cohesive natural flow; 0.0 = clearly translated, choppy, or poorly paced. Penalize:
+      translation artifacts, generic transitions, paragraph structure borrowed from English.
+    defect_format: "List specific flow failures with draft text location"
+    prompt_patch_format: >
+      "Improve the following flow issues using native {locale} narrative patterns: {defect_list}"
+
+  # ── GATE 7: TTS READABILITY CADENCE ──────────────────────────────────────────
+  # HARD GATE: Audiobook = TTS output. A section that fails TTS cadence is unshippable
+  # regardless of semantic accuracy. Bumped from scored to hard.
+  - gate_id: tts_readability_cadence
+    name: TTS Readability Cadence
+    description: >
+      HARD GATE. Every sentence must be TTS-safe: max 20 words, no mid-sentence
+      parenthetical asides, no unexpanded abbreviations, proper breath-point punctuation.
+      Emotional beats must be separated into short sentences. Numbers written as words in prose.
+      A section that fails TTS cadence is not shippable as an audiobook.
+    type: hard
+    rubric_ref: [tts_c1, tts_c2, tts_c3, tts_c4, tts_c5]
+    judge_instruction: >
+      Check every sentence against TTS rules: (1) ≤20 words per sentence, (2) no parenthetical
+      asides or em-dash interruptions mid-sentence, (3) no unexpanded abbreviations,
+      (4) emotional beats in short sentences, (5) prose numbers as words.
+      Return pass=true only if ALL rules are satisfied for ALL sentences.
+    defect_format: "List each failing sentence with the specific rule violated (tts_c1–c5)"
+    prompt_patch_format: >
+      "Fix these TTS violations in the draft: {defect_list}. Apply rules: tts_c1 (≤20 words), tts_c2 (no asides), tts_c3 (breath points), tts_c5 (expand abbreviations)."
+
+  # ── GATE 8: COMPLIANCE / DISCLAIMER PRESERVATION ───────────────────────────
+  - gate_id: compliance_disclaimer_preservation
+    name: Compliance / Disclaimer Preservation
+    description: >
+      Required disclaimers (medical, financial, professional advice) must appear verbatim
+      or in an approved locale-equivalent translation. No paraphrase; paraphrase changes
+      legal meaning. Required compliance phrases must be present and unmodified.
+    type: hard
+    rubric_ref: [comp_c1]
+    judge_instruction: >
+      Extract all disclaimer and compliance phrases from the English source. Verify each
+      appears in the draft verbatim or as an approved locale-equivalent. Report any
+      paraphrase, omission, or modification.
+    defect_format: "Quote source disclaimer → draft version with specific change highlighted"
+    prompt_patch_format: >
+      "Restore these compliance phrases verbatim (or approved locale-equivalent): {defect_list}"
+
+  # ── GATE 9: POLISH / EMOTIONAL-PSYCHOLOGICAL IMPACT ────────────────────────
+  # This gate encodes "Claude-level" polish as a static rubric. No Claude at runtime.
+  - gate_id: polish_emotional_impact
+    name: Polish / Emotional-Psychological Impact
+    description: >
+      The draft must meet the static polish rubric standards: concrete anchors for
+      internal states, short punchy sentences at peak moments, warmth in closings,
+      silence beats before reframes, no emotion-label explanations. These rules were
+      authored once offline and are enforced here by the judge using rubric_ref.
+    type: scored
+    weight: 2.0
+    rubric_ref: [psy_p1, psy_p2, psy_p3, psy_p4, psy_p5, flow_f2]
+    judge_instruction: >
+      Evaluate the draft against the static polish rubric rules (psy_p1–p5, flow_f2).
+      Score 0.0–1.0: 1.0 = fully meets polish and emotional impact standards;
+      0.0 = abstract, label-heavy, emotionally flat. For each rubric rule violated,
+      note which rule and where in the draft.
+    defect_format: "List: [rule_id] violated at: [draft text excerpt]"
+    prompt_patch_format: >
+      "Improve polish and emotional impact at these points: {defect_list}. Apply rules: {failed_rule_ids}."
+
+# ─── LOCALE OVERRIDES ─────────────────────────────────────────────────────────
+# Per-locale additional checks or stricter rules layered on top of the base gates.
+# These are additive — they do not replace base gates.
+
+locale_overrides:
+  zh-TW:
+    additional_checks:
+      - "Use Traditional Chinese characters throughout; no Simplified characters"
+      - "Formal written register (書面語 elements) appropriate for self-help audiobooks"
+      - "Preferred terms: see config/localization/quality_contracts/ zh-TW glossary"
+    native_regional_language_fit_weight_modifier: 0.0   # no change from base
+
+  zh-HK:
+    additional_checks:
+      - "Use Traditional Chinese characters; Cantonese-influenced vocabulary where natural"
+      - "Avoid Mainland PRC cultural references; use HK-relevant analogies"
+      - "Preferred terms: see config/localization/quality_contracts/ zh-HK glossary"
+
+  zh-SG:
+    additional_checks:
+      - "Simplified Chinese; Singapore formal written register"
+      - "Avoid PRC-specific cultural references; Singapore multicultural context"
+
+  zh-CN:
+    additional_checks:
+      - "Simplified Chinese only; Mainland PRC cultural references acceptable"
+      - "Avoid Taiwan/HK-specific political or cultural references"
+
+  ja-JP:
+    additional_checks:
+      - "Appropriate keigo level for self-help genre (丁寧語 base, not 敬語 unless brand requires)"
+      - "No kanji strings exceeding 4 characters without furigana guidance in script"
+      - "TTS: all numbers in prose as kanji numerals, not Arabic"
+
+  ko-KR:
+    additional_checks:
+      - "Appropriate formality level (합쇼체 or 해요체) consistent throughout section"
+      - "Korean TTS: sentence-final endings must be consistent within a paragraph"
+
+# ─── JUDGE PROMPT TEMPLATE REFERENCE ──────────────────────────────────────────
+# The full judge prompt is in: prompts/judge_audiobook_v2.txt
+# It includes: English source, Qwen draft, locale, loop_index, this checklist's gate list,
+#   the locale_overrides for the target locale, and the scoring instructions.
+# Output instruction embedded in prompt:
+#   "Return ONLY a valid JSON array conforming to schemas/comparator_result_v2.schema.json.
+#    One object per gate_id. Do not add commentary outside the JSON array."
+judge_prompt_template: "prompts/judge_audiobook_v2.txt"
