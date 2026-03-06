@@ -791,8 +791,8 @@ Layered selection with override logic. V1 picks the winner; V2 scores the same c
 - [docs/NARRATIVE_TENSION_VALIDATOR.md](./NARRATIVE_TENSION_VALIDATOR.md) — Narrative tension validator (prevents flat arcs)
 - [docs/SIMPLIFIED_EMOTIONAL_IMPACT_SCORING.md](./SIMPLIFIED_EMOTIONAL_IMPACT_SCORING.md) — Simplified emotional impact scoring
 - [docs/UNIFIED_PERSONAS_BOOK_READINESS_ANALYSIS.md](./UNIFIED_PERSONAS_BOOK_READINESS_ANALYSIS.md) — Unified personas book readiness analysis
-- [docs/BESTSELLER_STRUCTURES.md](./BESTSELLER_STRUCTURES.md) — 12 bestseller narrative structures: beat orders, slot mappings, phase assignments, THREAD/PERMISSION guidance; dev uses for structure assignment; writers use for chapter shape
-- [docs/CHAPTER_THESIS_BANK.md](./CHAPTER_THESIS_BANK.md) — Canonical chapter thesis sentences for all 20 chapter intents × 7 engine types; first-half 9 intents + 11 new second-half intents; THREAD sentences per intent; quick-reference tables
+- docs/BESTSELLER_STRUCTURES.md (file may be absent in some forks; treat as backlog item when missing) — 12 bestseller narrative structures: beat orders, slot mappings, phase assignments, THREAD/PERMISSION guidance; dev uses for structure assignment; writers use for chapter shape
+- docs/CHAPTER_THESIS_BANK.md (file may be absent in some forks; treat as backlog item when missing) — Canonical chapter thesis sentences for all 20 chapter intents × 7 engine types; first-half 9 intents + 11 new second-half intents; THREAD sentences per intent; quick-reference tables
 
 ---
 
@@ -1640,8 +1640,8 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [NARRATIVE_TENSION_VALIDATOR.md](./NARRATIVE_TENSION_VALIDATOR.md) | Writing & content quality | ✓ |
 | [SIMPLIFIED_EMOTIONAL_IMPACT_SCORING.md](./SIMPLIFIED_EMOTIONAL_IMPACT_SCORING.md) | Writing & content quality | ✓ |
 | [UNIFIED_PERSONAS_BOOK_READINESS_ANALYSIS.md](./UNIFIED_PERSONAS_BOOK_READINESS_ANALYSIS.md) | Writing & content quality | ✓ |
-| [BESTSELLER_STRUCTURES.md](./BESTSELLER_STRUCTURES.md) | Writing & content quality | ✓ |
-| [CHAPTER_THESIS_BANK.md](./CHAPTER_THESIS_BANK.md) | Writing & content quality | ✓ |
+| BESTSELLER_STRUCTURES.md (backlog if missing in fork) | Writing & content quality | ✓ |
+| CHAPTER_THESIS_BANK.md (backlog if missing in fork) | Writing & content quality | ✓ |
 | [ATOM_NATIVE_MODULAR_FORMATS.md](./ATOM_NATIVE_MODULAR_FORMATS.md) | Atoms & formats | ✓ |
 | [INTRO_AND_CONCLUSION_SYSTEM.md](./INTRO_AND_CONCLUSION_SYSTEM.md) | Atoms & formats | ✓ |
 | [PRACTICE_LIBRARY_TEACHER_FALLBACK.md](./PRACTICE_LIBRARY_TEACHER_FALLBACK.md) | Atoms & formats | ✓ |
