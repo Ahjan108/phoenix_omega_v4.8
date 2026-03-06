@@ -420,7 +420,9 @@ def main() -> int:
             "title": item.get("article_title") or item.get("title"),
             "topic": item.get("topic"),
             "failed_gates": (item.get("_validation") or {}).get("failed_gates", []),
+            "gate_details": (item.get("_validation") or {}).get("gates", {}),
             "expansion_failed": item.get("_expansion_failed", False),
+            "expanded_content": item.get("expanded_content") or item.get("content", ""),
             "queued_at": build_date,
         }
         for item in items

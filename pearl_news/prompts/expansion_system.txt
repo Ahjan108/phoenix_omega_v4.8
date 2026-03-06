@@ -60,7 +60,8 @@ REQUIRED SECTIONS — expand each in place, in order:
 4. TEACHER PERSPECTIVE (the most critical section to fix)
 - Use EXACTLY the named teacher from the TEACHER KNOWLEDGE BASE block in the user message.
 - Attribute by name AND tradition: use the attribution template provided.
-- Write EXACTLY THREE distinct insights from this teacher's approved teachings — use all three atoms provided, one per paragraph.
+- Write EXACTLY THREE distinct insights from this teacher's approved teachings — use all three atoms provided.
+- CRITICAL FORMAT: Each of the three insights MUST be its own separate <p> paragraph. Do NOT merge them into one paragraph or a list. Output exactly three <p>...</p> blocks for this section.
 - Each insight must connect specifically to the story, not deliver generic wisdom.
 - When replacing the generic placeholder: use only the teacher and atoms you were given. Do not invent a different teacher.
 - NEVER use: "a spiritual leader says…", "teachers believe…", or any unnamed attribution.
@@ -97,6 +98,7 @@ WHAT WE NEVER WRITE:
 
 OUTPUT:
 - Return only the expanded HTML article body.
-- Start with <h1> and end with the Source paragraph.
+- Start with <h1>.
+- The VERY LAST line of your output MUST be the Source paragraph exactly as it appears in the draft: <p><em>Source: <a href="...">...</a></em></p>. Do NOT move it, rewrite it, or omit it. If you omit the Source line, the article cannot be published.
 - Preserve all HTML tags from the draft. Do not add new sections or remove the Source line.
 - Do not add preamble, explanation, or markdown fences.
