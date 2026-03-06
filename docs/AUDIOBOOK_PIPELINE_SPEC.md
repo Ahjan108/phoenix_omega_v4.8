@@ -413,30 +413,42 @@ for the sign-off gate version of this list.
 
 | # | Item | Owner | Status |
 |---|------|-------|--------|
-| 1 | `_call_qwen_draft()` — real Dashscope API call | Engineering | ⚠ STUB |
-| 2 | `_call_qwen_judge()` — real Dashscope API call | Engineering | ⚠ STUB |
-| 3 | `prompts/draft_audiobook_v2.txt` | Content team | ⚠ MISSING |
-| 4 | `prompts/judge_audiobook_v2.txt` | Content team | ⚠ MISSING |
-| 5 | `config/audiobook_script/golden_regression_set/` (zh-TW, HK, SG, CN) | Locale owners | ⚠ MISSING |
-| 6 | `scripts/audiobook_script/run_regression.py` | Engineering | ⚠ MISSING |
-| 7 | PhoenixControl "Manual Review" tab | Frontend | ⚠ NOT BUILT |
-| 8 | `QWEN_DRAFT_API_KEY` GitHub Secret | Engineering | ⚠ NOT SET |
-| 9 | `QWEN_JUDGE_API_KEY` GitHub Secret | Engineering | ⚠ NOT SET |
-| 10 | `docs/audiobook_operator_runbook.md` | Pipeline lead | ⚠ MISSING |
-| 11 | `scripts/release/audiobook_rollback.sh` | Engineering | ⚠ MISSING |
-| 12 | Staging run + evidence pack | Pipeline lead | ⚠ NOT RUN |
+| 1 | LM Studio API wired (`_call_qwen_draft()` + `_call_qwen_judge()`) | Engineering | ✅ DONE — `http://127.0.0.1:1234/v1` |
+| 2 | Dashscope API — **DROPPED** | — | ✅ Replaced by LM Studio |
+| 3 | Draft prompts (4 content types) | Content team | ✅ DONE — `prompts/audiobook/draft_*_v2.txt` |
+| 4 | Judge prompt | Content team | ✅ DONE — `prompts/audiobook/judge_audiobook_v2.txt` |
+| 5 | Golden regression set (zh-TW, HK, SG, CN) | Locale owners | ✅ DONE — 4 samples written |
+| 6 | `scripts/audiobook_script/run_regression.py` | Engineering | ✅ DONE |
+| 7 | PhoenixControl "Manual Review" tab | Frontend | ✅ DONE — `ManualReviewView.swift` |
+| 8 | `QWEN_DRAFT_API_KEY` — **DROPPED** (LM Studio is local, no key) | — | ✅ N/A |
+| 9 | `QWEN_JUDGE_API_KEY` — **DROPPED** | — | ✅ N/A |
+| 10 | `docs/audiobook_operator_runbook.md` | Pipeline lead | ✅ DONE |
+| 11 | `scripts/release/audiobook_rollback.sh` | Engineering | ✅ DONE |
+| 12 | Staging run + evidence pack | Pipeline lead | ⚠ NOT RUN — only remaining blocker |
 
-**Files complete (architecture):**
+> **Status**: 11 of 12 items complete. One remaining blocker: staging run.
+
+**Files complete:**
 
 | File | Status |
 |------|--------|
-| `config/audiobook_script/static_polish_rubric.yaml` | ✅ Written |
-| `config/audiobook_script/comparator_config.yaml` | ✅ Written |
-| `config/audiobook_script/comparison_checklist_v2.yaml` | ✅ Written |
-| `schemas/comparator_result_v2.schema.json` | ✅ Written |
-| `scripts/audiobook_script/run_comparator_loop.py` | ✅ Written |
-| `docs/GO_LIVE_FINAL_CHECKLIST.md` | ✅ Written |
-| `docs/AUDIOBOOK_PIPELINE_SPEC.md` | ✅ Written (this file) |
+| `config/audiobook_script/static_polish_rubric.yaml` | ✅ |
+| `config/audiobook_script/comparator_config.yaml` | ✅ — LM Studio wired |
+| `config/audiobook_script/comparison_checklist_v2.yaml` | ✅ |
+| `config/audiobook_script/golden_regression_set/` (4 samples) | ✅ |
+| `schemas/comparator_result_v2.schema.json` | ✅ |
+| `scripts/audiobook_script/run_comparator_loop.py` | ✅ — LM Studio wired |
+| `scripts/audiobook_script/run_regression.py` | ✅ |
+| `scripts/release/audiobook_rollback.sh` | ✅ |
+| `prompts/audiobook/draft_pearl_prime_v2.txt` | ✅ |
+| `prompts/audiobook/draft_pearl_news_v2.txt` | ✅ |
+| `prompts/audiobook/draft_phoenix_v4_v2.txt` | ✅ |
+| `prompts/audiobook/draft_teacher_mode_v2.txt` | ✅ |
+| `prompts/audiobook/judge_audiobook_v2.txt` | ✅ |
+| `PhoenixControl/Views/ManualReviewView.swift` | ✅ |
+| `docs/audiobook_operator_runbook.md` | ✅ |
+| `docs/GO_LIVE_FINAL_CHECKLIST.md` | ✅ |
+| `docs/AUDIOBOOK_PIPELINE_SPEC.md` | ✅ |
 
 ---
 

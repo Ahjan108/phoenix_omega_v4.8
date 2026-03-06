@@ -2,7 +2,9 @@
 
 **Purpose:** Run the Pearl News pipeline (RSS ingest, minimal drafts, optional WordPress post) on a schedule using GitHub Actions, so articles can be produced even when your laptop is off.
 
-**Workflow:** [.github/workflows/pearl_news_scheduled.yml](../.github/workflows/pearl_news_scheduled.yml)
+**Canonical location:** Pearl News workflows are external to this repo and live in **Ahjan108/Qwen-Agent**.
+- [Qwen-Agent Actions](https://github.com/Ahjan108/Qwen-Agent/actions)
+- [Option B runbook](./PEARL_NEWS_OPTION_B_RUNBOOK.md)
 
 ---
 
@@ -31,14 +33,9 @@ With these set, the “Test WordPress integration” step will post the first mi
 
 ---
 
-## 3. Running the pipeline in other repos (Qwen / Qwen-Agent)
+## 3. Running the pipeline (Qwen-Agent canonical)
 
-You can run the same pipeline from your forks [Ahjan108/Qwen](https://github.com/Ahjan108/Qwen) or [Ahjan108/Qwen-Agent](https://github.com/Ahjan108/Qwen-Agent) so that scheduling lives there.
-
-**Option A — Keep code in phoenix_omega:**  
-The scheduled workflow runs here. No move required.
-
-**Option B — Move pipeline to Qwen or Qwen-Agent (step-by-step):**
+Use [Ahjan108/Qwen-Agent](https://github.com/Ahjan108/Qwen-Agent) as the canonical place for Pearl News workflows and feature updates.
 
 **Full runbook:** [PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md) — exact `cp` commands, self-hosted workflow for LM Studio, secrets, and verify steps.
 
@@ -48,23 +45,21 @@ The scheduled workflow runs here. No move required.
    - `pearl_news/` (entire folder: pipeline, publish, config, article_templates, atoms, governance, prompts, del_intake_pics)
    - `scripts/pearl_news_post_to_wp.py`
    - `tests/test_pearl_news_quality_gates_minimal.py`, `tests/test_pearl_news_pipeline_e2e.py`
-   - `.github/workflows/pearl_news_scheduled.yml` — or use **`.github/workflows/pearl_news_scheduled_self_hosted.yml`** (copy as `pearl_news_scheduled.yml`) when running with LM Studio on a self-hosted runner.
+   - Do **not** copy Pearl News workflow YAMLs from phoenix_omega (they were removed here and are canonical in Qwen-Agent).
 
-3. **Create `.github/workflows/`** in the target repo if it doesn't exist. Add the workflow file.
-
-4. **Adjust workflow paths** if the target repo structure differs:
+3. **Adjust workflow paths** if the target repo structure differs:
    - `pearl_news/config/feeds.yaml` — should exist at repo root
    - `scripts/pearl_news_post_to_wp.py` — or move to `pearl_news/scripts/` and update the workflow `run` command
 
-5. **Add repository secrets** in the target repo: Settings → Secrets and variables → Actions:
+4. **Add repository secrets** in the target repo: Settings → Secrets and variables → Actions:
    - `WORDPRESS_SITE_URL`, `WORDPRESS_USERNAME`, `WORDPRESS_APP_PASSWORD`
    - For LLM expansion on self-hosted runner: `QWEN_BASE_URL`, `QWEN_API_KEY`, `QWEN_MODEL` (e.g. LM Studio at `http://localhost:1234/v1`).
 
-6. **Self-hosted runner:** If using LM Studio (localhost), the workflow must use `runs-on: self-hosted`; add a self-hosted runner on the machine where LM Studio runs. See [PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md).
+5. **Self-hosted runner:** If using LM Studio (localhost), the workflow must use `runs-on: self-hosted`; add a self-hosted runner on the machine where LM Studio runs. See [PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md).
 
-7. **Push to main.** The workflow will run on schedule (6:00 and 18:00 UTC) and on `workflow_dispatch`.
+6. **Push to main.** The Qwen-Agent workflows will run on schedule and/or on `workflow_dispatch`.
 
-7. **Optional:** Add `pearl_news` to `.gitignore` in phoenix_omega if you no longer want it there, or keep both in sync.
+7. **All Pearl News workflow and feature updates happen in Qwen-Agent main/PR flow.**
 
 ---
 

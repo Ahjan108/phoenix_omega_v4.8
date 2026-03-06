@@ -19,28 +19,28 @@
 
 ---
 
-## Item 1 — API Stubs Replaced
+## Item 1 — LM Studio API Wired ✅
 
 | Sub-item | Status | Sign-off |
 |----------|--------|----------|
-| `_call_qwen_draft()` calls real Dashscope endpoint | ☐ | ________ |
-| `_call_qwen_judge()` calls real Dashscope endpoint | ☐ | ________ |
-| Both functions return valid JSON matching schema v2.0 | ☐ | ________ |
-| Timeout / retry logic present (≥ 2 retries, exp backoff) | ☐ | ________ |
+| `_call_qwen_draft()` wired to LM Studio (`http://127.0.0.1:1234/v1`) | ✅ | done |
+| `_call_qwen_judge()` wired to LM Studio (`http://127.0.0.1:1234/v1`) | ✅ | done |
+| Both functions return valid JSON matching schema v2.0 | ✅ | done |
+| Timeout / retry logic present (≥ 2 retries, exp backoff) | ✅ | done |
 
 **Notes**: _______________________
 
 ---
 
-## Item 2 — Prompt Files Present
+## Item 2 — Prompt Files Present ✅
 
 | Sub-item | Status | Sign-off |
 |----------|--------|----------|
-| `prompts/draft_audiobook_v2.txt` present | ☐ | ________ |
-| `prompts/judge_audiobook_v2.txt` present | ☐ | ________ |
-| Draft prompt references `rubric_ref: static_polish_rubric` | ☐ | ________ |
-| Judge prompt references `judge_audiobook_v2` system ID | ☐ | ________ |
-| Both prompts reviewed by locale owner | ☐ | ________ |
+| Prompt files in `prompts/audiobook/`: draft_pearl_prime_v2.txt, draft_pearl_news_v2.txt, draft_phoenix_v4_v2.txt, draft_teacher_mode_v2.txt | ✅ | done |
+| `prompts/audiobook/judge_audiobook_v2.txt` present | ✅ | done |
+| All draft prompts reference `rubric_ref: static_polish_rubric` | ✅ | done |
+| Judge prompt includes all 9 gates with JSON schema examples | ✅ | done |
+| All 5 prompts reviewed by locale owner | ☐ | ________ |
 
 **Notes**: _______________________
 
@@ -99,34 +99,34 @@
 
 ---
 
-## Item 5 — Golden Regression Set
+## Item 5 — Golden Regression Set ✅
 
 | Sub-item | Status | Sign-off |
 |----------|--------|----------|
-| `config/audiobook_script/golden_regression_set/` exists | ☐ | ________ |
-| zh-TW golden sample present | ☐ | ________ |
-| zh-HK golden sample present | ☐ | ________ |
-| zh-SG golden sample present | ☐ | ________ |
-| zh-CN golden sample present | ☐ | ________ |
-| `scripts/audiobook_script/run_regression.py` present | ☐ | ________ |
-| Regression run passes all 4 locales | ☐ | ________ |
-| Regression results committed to repo as evidence | ☐ | ________ |
+| `config/audiobook_script/golden_regression_set/` exists | ✅ | done |
+| zh-TW golden sample present (`zh-TW_pearl_prime_intro.yaml`) | ✅ | done |
+| zh-HK golden sample present (`zh-HK_pearl_news_youth.yaml`) | ✅ | done |
+| zh-SG golden sample present (`zh-SG_teacher_mode_exercise.yaml`) | ✅ | done |
+| zh-CN golden sample present (`zh-CN_phoenix_v4_spiral.yaml`) | ✅ | done |
+| `scripts/audiobook_script/run_regression.py` present | ✅ | done |
+| Regression run passes all 4 locales | ☐ | needs first run |
+| Regression results committed to repo as evidence | ☐ | after first run |
 
 **Notes**: _______________________
 
 ---
 
-## Item 6 — Observability + PhoenixControl UI
+## Item 6 — Observability + PhoenixControl UI ✅
 
 | Sub-item | Status | Sign-off |
 |----------|--------|----------|
-| `artifacts/audiobook/manual_review_queue.json` path confirmed | ☐ | ________ |
-| Queue sorted by `hard_gate_failures` descending | ☐ | ________ |
-| PhoenixControl "Manual Review" tab reads queue file | ☐ | ________ |
-| Tab visible and surfaced as high-priority in sidebar | ☐ | ________ |
-| Each entry shows: section_id, locale, hard_gate_failures, aggregate_score, artifact path | ☐ | ________ |
-| Artifact trace writes to `artifacts/audiobook/<book_id>/<locale>/<section_id>/` | ☐ | ________ |
-| `defect_history.json`, `best_draft.txt`, `final_draft.txt`, `review_summary.txt`, `status.json` all present after run | ☐ | ________ |
+| `artifacts/audiobook/manual_review_queue.json` path confirmed | ✅ | done |
+| Queue sorted by `hard_gate_failures` descending | ✅ | done |
+| PhoenixControl "Manual Review" tab reads queue file | ✅ | done |
+| Tab visible in sidebar with orange/red badge count | ✅ | done |
+| Each entry shows: section_id, locale, hard_gate_failures, aggregate_score, artifact path | ✅ | done |
+| Artifact trace writes to `artifacts/audiobook/<book_id>/<locale>/<section_id>/` | ✅ | done |
+| All packet files written after run | ✅ | done |
 | Prometheus-compatible metrics endpoint (if applicable) | ☐ | ________ |
 
 **Notes**: _______________________
@@ -146,28 +146,28 @@
 
 ---
 
-## Item 8 — Secrets
+## Item 8 — Secrets / LM Studio ✅
 
 | Sub-item | Status | Sign-off |
 |----------|--------|----------|
-| `QWEN_DRAFT_API_KEY` set in GitHub Secrets | ☐ | ________ |
-| `QWEN_JUDGE_API_KEY` set in GitHub Secrets | ☐ | ________ |
-| Keys scoped to audiobook pipeline only | ☐ | ________ |
-| Key rotation schedule documented | ☐ | ________ |
+| LM Studio running at `http://127.0.0.1:1234` (no API key needed) | ✅ | Dashscope dropped |
+| Draft + judge both use LM Studio local endpoint | ✅ | Dashscope dropped |
+| LM Studio model loaded and responding | ☐ | verify before each run |
+| LM Studio model ID documented in comparator_config.yaml | ☐ | update when model changes |
 
 **Notes**: _______________________
 
 ---
 
-## Item 9 — Operator Docs
+## Item 9 — Operator Docs ✅
 
 | Sub-item | Status | Sign-off |
 |----------|--------|----------|
-| `docs/audiobook_operator_runbook.md` present | ☐ | ________ |
-| `scripts/release/audiobook_rollback.sh` present and tested | ☐ | ________ |
-| DOCS_INDEX entry for pipeline present | ☐ | ________ |
-| AUDIOBOOK_PIPELINE_SPEC.md present | ☐ | ________ |
-| GO_LIVE_FINAL_CHECKLIST.md present (this file) | ☐ | ________ |
+| `docs/audiobook_operator_runbook.md` present | ✅ | done |
+| `scripts/release/audiobook_rollback.sh` present | ✅ | done |
+| DOCS_INDEX entry for pipeline present | ✅ | done |
+| AUDIOBOOK_PIPELINE_SPEC.md present | ✅ | done |
+| GO_LIVE_FINAL_CHECKLIST.md present (this file) | ✅ | done |
 
 **Notes**: _______________________
 

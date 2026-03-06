@@ -37,7 +37,7 @@ All tests must pass.
 
 ### 4. CI Green
 
-`.github/workflows/pearl_news_gates.yml` runs on push/PR to `main` when Pearl News files change. Workflow must succeed.
+Pearl News workflow runs in **Ahjan108/Qwen-Agent** must succeed on push/PR to `main`.
 
 ---
 
@@ -48,9 +48,9 @@ These 6 must be confirmed **on `main`** with evidence links before declaring Pea
 | # | Gate | Evidence link |
 |---|------|---------------|
 | 1 | **Merge to `main`** | PR URL: _______________ |
-| 2 | **`pearl_news_gates.yml` green on `main`** | [Actions → Pearl News gates](https://github.com/OWNER/REPO/actions/workflows/pearl_news_gates.yml) run URL: _______________ |
+| 2 | **Pearl News workflow suite green on `main` (Qwen-Agent)** | [Qwen-Agent Actions](https://github.com/Ahjan108/Qwen-Agent/actions) run URL: _______________ |
 | 3 | **Networked pipeline smoke run passes on `main`** | Run URL or artifact: _______________ |
-| 4 | **Scheduled workflow (`pearl_news_scheduled.yml`) run passes** | [Actions → Pearl News scheduled](https://github.com/OWNER/REPO/actions/workflows/pearl_news_scheduled.yml) run URL: _______________ |
+| 4 | **Scheduled workflow run passes (Qwen-Agent)** | [Qwen-Agent Actions](https://github.com/Ahjan108/Qwen-Agent/actions) run URL: _______________ |
 | 5 | **WordPress draft-post flow verified with real secrets** | Post URL or draft ID: _______________ |
 | 6 | **Checklist doc completed with evidence links** | All above cells filled; Evidence Lock (below) signed |
 
@@ -61,7 +61,7 @@ These 6 must be confirmed **on `main`** with evidence links before declaring Pea
 1. [ ] Run `python -m pearl_news.pipeline.run_article_pipeline --limit 5`
 2. [ ] Confirm `artifacts/pearl_news/article_metadata.jsonl` has new lines
 3. [ ] Run `pytest tests/test_topic_sdg_classifier.py tests/test_template_selector.py tests/test_pearl_news_quality_gates_minimal.py tests/test_pearl_news_pipeline_e2e.py -v`
-4. [ ] Push branch and verify `pearl_news_gates` workflow passes
+4. [ ] Push branch and verify Pearl News workflows pass in Qwen-Agent
 
 ---
 
@@ -69,7 +69,7 @@ These 6 must be confirmed **on `main`** with evidence links before declaring Pea
 
 Validate **at least once** before go-live. Document date and outcome.
 
-1. **Disable scheduler** — In repo Settings → Actions → General, or by editing `.github/workflows/pearl_news_scheduled.yml` to disable.
+1. **Disable scheduler** — In Qwen-Agent Actions, disable the Pearl News scheduled workflow.
 2. **Rotate/revoke WP app password** — In WordPress admin, revoke the application password used by `WORDPRESS_APP_PASSWORD`. Set `WORDPRESS_APP_PASSWORD` empty in repo secrets to force dry-run mode.
 3. **Dry-run mode until fixed** — With `WORDPRESS_APP_PASSWORD` unset, workflow runs in dry-run; no posts are published.
 
@@ -109,9 +109,9 @@ Signed by: _______________
 
 Operational gates (evidence links):
 1. Merge PR: _______________
-2. pearl_news_gates run: _______________
+2. Qwen-Agent Pearl News workflow run: _______________
 3. Networked smoke run: _______________ (or artifact link)
-4. pearl_news_scheduled run: _______________
+4. Qwen-Agent Pearl News scheduled run: _______________
 5. WordPress draft-post: _______________
 6. This checklist completed: ✓
 

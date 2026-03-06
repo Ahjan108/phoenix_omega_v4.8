@@ -30,6 +30,22 @@ from phoenix_v4.quality.ei_v2.cross_encoder_reranker import (
 )
 from phoenix_v4.quality.ei_v2.marketing_lexicons import get_persona_topic_lexicons
 
+# Research KB signals (lazy-loaded, cached per config)
+_research_signals_cache: dict[int, Any] = {}
+
+def _get_research_signals_cached(cfg: dict) -> "ResearchSignals | None":
+    """Load research signals from KB (once per unique config object). Returns None if disabled."""
+    try:
+        from phoenix_v4.quality.ei_v2.research_lexicons import get_research_signals
+        key = id(cfg)
+        if key not in _research_signals_cache:
+            _research_signals_cache[key] = get_research_signals(cfg)
+        return _research_signals_cache[key]
+    except Exception as e:
+        import logging
+        logging.getLogger(__name__).debug("Research signals unavailable: %s", e)
+        return None
+
 
 # Persona context lexicons: words/phrases strongly associated with each persona.
 _PERSONA_LEXICONS: Dict[str, set] = {
@@ -217,4 +233,29 @@ def domain_thesis_similarity(
     topic_score = _topic_coherence(c_tokens, topic_id, topic_lex_override)
 
     composite = w_thesis * thesis_sim + w_persona * persona_score + w_topic * topic_score
-    return round(min(1.0, composite), 4)
+
+    # Research KB boost (additive, capped so composite stays ≤ 1)
+    research_boost = 0.0
+    if cfg:
+        rk_cfg = cfg.get("research_kb") or {}
+        if rk_cfg.get("enabled", False):
+            rs = _get_research_signals_cached(cfg)
+            if rs and rs.loaded_from_kb:
+                c_text_lower = candidate_text.lower()
+                # Youth anchor boost
+                anchor_weight = float(rk_cfg.get("youth_anchor_weight", 0.08))
+                anchor_hits = sum(1 for a in rs.youth_anchors if a.lower() in c_text_lower)
+                if anchor_hits > 0:
+                    research_boost += anchor_weight * min(1.0, anchor_hits / 3.0)
+                # Invisible script boost (text that surfaces hidden assumptions)
+                invis_weight = float(rk_cfg.get("invisible_script_weight", 0.05))
+                invis_hits = sum(1 for s in rs.invisible_scripts if s[:30] in c_text_lower)
+                if invis_hits > 0:
+                    research_boost += invis_weight * min(1.0, invis_hits / 2.0)
+                # Contradiction marker boost
+                contr_weight = float(rk_cfg.get("contradiction_weight", 0.06))
+                contr_hits = sum(1 for m in rs.contradiction_markers[:10] if m.lower() in c_text_lower)
+                if contr_hits > 0:
+                    research_boost += contr_weight * min(1.0, contr_hits / 3.0)
+
+    return round(min(1.0, composite + research_boost), 4)

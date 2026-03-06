@@ -2,6 +2,8 @@
 
 Scripts in this directory are used by production readiness gates and CI. Run from **repo root** with `PYTHONPATH=.` when needed.
 
+**GitHub workflows and two-repo setup:** For which repo has which workflow, branch protection, PR flow, merge to main, and Qwen-Agent runner/secrets, see [docs/DOCS_INDEX.md](../../docs/DOCS_INDEX.md) → GitHub Operations Framework and [docs/GITHUB_OPERATIONS_FRAMEWORK.md](../../docs/GITHUB_OPERATIONS_FRAMEWORK.md).
+
 ## Required dependency: jsonschema
 
 **`jsonschema` is required in CI and for ops artifact validation.** It is not optional.

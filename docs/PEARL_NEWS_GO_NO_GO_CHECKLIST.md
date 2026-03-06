@@ -21,10 +21,10 @@ The 7 steps here are **operational hardening** and should be evidenced as you co
 |---|------|------------|----------------|
 | 1 | **Prove live pipeline run on `main`** | ☑ | Done. Evidence: `artifacts/pearl_news/evaluation/networked_run_evidence.json` |
 | 2 | **Prove CI gate on `main`** | ☑ | Done. Evidence: Actions run URL in Evidence section |
-| 3 | **Prove scheduled runtime** | ☐ | Trigger `pearl_news_scheduled.yml` manually once. Confirm artifact upload and no runtime errors. |
+| 3 | **Prove scheduled runtime** | ☐ | Trigger Qwen-Agent Pearl News scheduled workflow manually once. Confirm artifact upload and no runtime errors. |
 | 4 | **Prove WordPress draft-post path** | ☐ | Run `scripts/pearl_news_do_it.sh --post` with real secrets. Verify draft appears correctly in WP. |
 | 5 | **Finalize GO/NO-GO signoff** | ☑ | Done. CI URL + networked run evidence + signed by/date present below |
-| 6 | **Lock branch protection** | ☐ | Require `pearl_news_gates` (and `docs-ci` if used) on `main`. |
+| 6 | **Lock branch protection** | ☐ | In Qwen-Agent, require Pearl News workflow checks on `main` (and `docs-ci` if used). |
 | 7 | **Verify rollback once** | ☐ | Disable scheduler + rotate WP app password + confirm no-post mode works. Record rollback proof in checklist/runbook. |
 
 **Runtime status:** **Production 100% achieved for this checklist's authoritative GO criteria.**  
@@ -57,7 +57,7 @@ Hardening status: 3/7 evidenced (steps 3,4,6,7 pending).
 
 | # | Requirement | Status | How to verify |
 |---|--------------|--------|----------------|
-| 6 | CI passes for Pearl News pipeline | ✅ Done | Workflow `.github/workflows/pearl_news_gates.yml` green on `main` (run evidence in table below). |
+| 6 | CI passes for Pearl News pipeline | ✅ Done | Qwen-Agent Pearl News workflows green on `main` (run evidence in table below). |
 
 ---
 
@@ -65,7 +65,7 @@ Hardening status: 3/7 evidenced (steps 3,4,6,7 pending).
 
 | # | Requirement | Status | How to verify |
 |---|--------------|--------|----------------|
-| 7 | Full flow from feeds to drafts | ✅ Done | Run pipeline with network (live UN feeds). Local: `pip install feedparser pyyaml` then `./scripts/pearl_news_networked_run_and_evidence.sh --limit 5` or `python -m pearl_news.pipeline.run_article_pipeline --feeds pearl_news/config/feeds.yaml --out-dir artifacts/pearl_news/drafts --limit 5`. Or trigger `.github/workflows/pearl_news_scheduled.yml` (workflow_dispatch) and use uploaded artifact as evidence. |
+| 7 | Full flow from feeds to drafts | ✅ Done | Run pipeline with network (live UN feeds). Local: `pip install feedparser pyyaml` then `./scripts/pearl_news_networked_run_and_evidence.sh --limit 5` or `python -m pearl_news.pipeline.run_article_pipeline --feeds pearl_news/config/feeds.yaml --out-dir artifacts/pearl_news/drafts --limit 5`. Or trigger Pearl News workflow in Qwen-Agent (workflow_dispatch) and use uploaded artifact as evidence. |
 
 ---
 
@@ -111,6 +111,6 @@ python -m pearl_news.pipeline.run_article_pipeline --feeds pearl_news/config/fee
 ls artifacts/pearl_news/drafts/article_*.json
 # Expect: at least one article_<id>.json
 
-# CI (local): run the same tests as pearl_news_gates.yml
+# CI (local): run the same Pearl News gate test set used by Qwen-Agent workflows
 PYTHONPATH=. python -m pytest tests/test_pearl_news_quality_gates_minimal.py tests/test_pearl_news_pipeline_e2e.py -v
 ```

@@ -105,6 +105,8 @@ Each runbook must include:
 - fix commands
 - verify command
 
+For repo-specific workflows, required checks, and Qwen-Agent runner/secrets, see [GITHUB_OPERATIONS_FRAMEWORK.md](GITHUB_OPERATIONS_FRAMEWORK.md).
+
 ---
 
 ## 8) Governance Automation (required)
