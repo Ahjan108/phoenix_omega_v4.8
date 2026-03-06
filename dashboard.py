@@ -91,7 +91,17 @@ with tab_pearl_news:
         if build_manifest.exists():
             import json
             with open(build_manifest) as f:
-                manifest_data = json.load(f)
+            manifest_data = json.load(f)
+            records = manifest_data if isinstance(manifest_data, list) else [manifest_data]
+            st.metric("Articles written", len(records))
+            if records:
+                latest = records[-1]
+                st.metric("Build date", latest.get("built_at", "—")[:10])
+                passed = latest.get("validation", {}).get("passed", None)
+                gates = latest.get("validation", {}).get("passed_count", "?")
+                total = latest.get("validation", {}).get("gate_count", "?")
+                status = "✅" if passed else "⚠️"
+                st.caption(f"Language: {latest.get('language', '—')} · Validation: {status} {gates}/{total} gates")
             # build_manifests.json is a list of article records
             records = manifest_data if isinstance(manifest_data, list) else [manifest_data]
             st.metric("Articles written", len(records))
