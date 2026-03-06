@@ -41,6 +41,7 @@
 ## 4. System/domain registry
 
 - **Location:** `config/governance/system_registry.yaml` (or `config/observability/system_registry.yaml`).
+- **Implementation note:** Current repo implementation uses `config/governance/system_registry.yaml`.
 - **Contents:**
   - **Systems:** id, name, domain (aligned with DOCS_INDEX sections): e.g. `marketing`, `pearl_news`, `teacher_mode`, `observability`, `freebies`, `title_engine`, `ei_v2`, `ml_loop`.
   - **Per system:**

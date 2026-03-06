@@ -78,6 +78,21 @@ jobs:
             --eval-report artifacts/ei_v2/eval_rigorous_report.json \
             --criteria config/quality/ei_v2_promotion_criteria.yaml
 
+      - name: Verify required EI V2 artifacts exist
+        if: steps.filter.outputs.ei == 'true'
+        run: |
+          required=(
+            "artifacts/ei_v2/catalog_calibration.json"
+            "artifacts/ei_v2/eval_rigorous_report.json"
+            "artifacts/ei_v2/promotion_gate_result.json"
+          )
+          for f in "${required[@]}"; do
+            if [ ! -f "$f" ]; then
+              echo "Missing required artifact: $f" >&2
+              exit 1
+            fi
+          done
+
       - name: Upload EI V2 evidence
         if: always() && steps.filter.outputs.ei == 'true'
         uses: actions/upload-artifact@v4

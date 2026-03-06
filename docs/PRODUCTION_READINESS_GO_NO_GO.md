@@ -1,7 +1,7 @@
 # Production readiness go/no-go
 
 **Purpose:** Criteria and process for production go/no-go decisions.  
-**Evidence:** See [RELEASE_PRODUCTION_READINESS_CHECKLIST.md](RELEASE_PRODUCTION_READINESS_CHECKLIST.md) and `artifacts/governance/`.
+**Evidence:** See [RELEASE_PRODUCTION_READINESS_CHECKLIST.md](RELEASE_PRODUCTION_READINESS_CHECKLIST.md), [GO_LIVE_EVIDENCE_D2_D3_D5_D6.md](GO_LIVE_EVIDENCE_D2_D3_D5_D6.md), and `artifacts/governance/`.
 
 ---
 

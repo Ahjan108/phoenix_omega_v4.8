@@ -1,13 +1,17 @@
 {
-  "timestamp": "2026-03-03T10:25:33.360204+00:00",
+  "timestamp": "2026-03-06T02:18:38.085311+00:00",
   "all_gates_pass": false,
   "promotion_ready": false,
   "consecutive_passes": 0,
   "consecutive_required": 5,
   "auto_promote": false,
   "gate_1_quality": {
-    "pass": true,
-    "issues": []
+    "pass": false,
+    "issues": [
+      "overall_composite 0.5395 < min 0.55",
+      "engagement 0.2365 < min 0.25",
+      "marketability 0.2433 < min 0.25"
+    ]
   },
   "gate_2_performance": {
     "pass": true,
@@ -16,13 +20,13 @@
   "gate_3_safety": {
     "pass": false,
     "issues": [
-      "safety_regressions 2 > max 0"
+      "safety_regressions 1 > max 0"
     ]
   },
   "eval_summary": {
-    "overall_composite": 0.5625,
-    "safety_compliance": 0.9947,
-    "agreement_rate": 0.2042,
-    "books_evaluated": 6
+    "overall_composite": 0.5395,
+    "safety_compliance": 0.9964,
+    "agreement_rate": 0.2424,
+    "books_evaluated": 3
   }
 }
