@@ -8,6 +8,14 @@ Runs in parallel with EI V1 for A/B comparison. Every module is:
   - Fail-open by default (scores/flags, never blocks unless configured)
   - Config-gated (enable/disable per dimension)
 
+Thesis and arc context (for EI learning and book assembly):
+  - When the plan has chapter_thesis (from arc), callers pass the chapter thesis
+    for that chapter as thesis; otherwise a book-level thesis (e.g. topic + persona).
+  - arc_intent may include: band, emotional_role, chapter_index, chapter_thesis,
+    bestseller_structure. EI v2 uses these for thesis alignment and emotion arc.
+  - Slot may be any known type, including PIVOT, TAKEAWAY, PERMISSION, THREAD
+    (see config book_structure.known_slot_types).
+
 Usage (parallel comparison):
     from phoenix_v4.quality.ei_v2 import run_ei_v2_analysis
 
@@ -16,9 +24,9 @@ Usage (parallel comparison):
         candidates=candidates_raw,
         persona_id="gen_z_professionals",
         topic_id="anxiety",
-        thesis="Your nervous system fires an alarm...",
+        thesis="Your nervous system fires an alarm...",  # chapter thesis when from arc
         chapter_text="...",
-        arc_intent={"band": 3, "emotional_role": "MECHANISM_PROOF"},
+        arc_intent={"band": 3, "emotional_role": "MECHANISM_PROOF", "chapter_thesis": "...", "bestseller_structure": "case_file"},
         cfg=ei_v2_config,
     )
 """

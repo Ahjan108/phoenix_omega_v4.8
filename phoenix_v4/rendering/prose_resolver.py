@@ -280,6 +280,20 @@ def resolve_prose_for_plan(
     except Exception:
         pass
 
+    # TAKEAWAY slots: resolve arc_thesis:chN from plan.chapter_thesis (1-based key = N+1)
+    chapter_thesis = plan.get("chapter_thesis")
+    if isinstance(chapter_thesis, dict) and chapter_thesis:
+        for aid in plan.get("atom_ids") or []:
+            if aid.startswith("arc_thesis:ch"):
+                try:
+                    ch_str = aid.split(":", 2)[-1]
+                    ch_0based = int(ch_str)
+                    thesis = chapter_thesis.get(ch_0based + 1)
+                    if thesis:
+                        prose_map[aid] = thesis
+                except (ValueError, IndexError):
+                    pass
+
     atom_ids = plan.get("atom_ids") or []
     for aid in atom_ids:
         if _is_placeholder_or_silence(aid):

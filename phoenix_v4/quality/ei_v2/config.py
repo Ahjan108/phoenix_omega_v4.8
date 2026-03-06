@@ -96,6 +96,17 @@ DEFAULTS: Dict[str, Any] = {
         "domain_similarity": 0.20,
         "tts_readability": 0.20,
     },
+    # Book structure (Pearl Prime): slot types and arc context for EI learning and assembly.
+    # When plan has chapter_thesis, callers pass chapter thesis per chapter; arc_intent may include
+    # chapter_thesis, bestseller_structure. Known slot types include structural slots beyond core 6.
+    "book_structure": {
+        "known_slot_types": [
+            "HOOK", "SCENE", "STORY", "REFLECTION", "EXERCISE", "INTEGRATION", "COMPRESSION",
+            "PIVOT", "TAKEAWAY", "PERMISSION", "THREAD",
+        ],
+        "thesis_from_arc": True,   # When True, thesis is chapter-level from arc chapter_thesis when present
+        "arc_intent_keys": ["band", "emotional_role", "chapter_index", "chapter_thesis", "bestseller_structure"],
+    },
 }
 
 

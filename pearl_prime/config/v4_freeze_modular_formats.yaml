@@ -8,12 +8,12 @@ output_formats:
   five_min_practice:
     name: "5-Minute Practice"
     runtime_format_id: micro_book_15
-    slot_template: [HOOK, SCENE, REFLECTION, EXERCISE, INTEGRATION]
+    slot_template: [HOOK, SCENE, REFLECTION, EXERCISE, TAKEAWAY, INTEGRATION, THREAD]
     target_word_range: [350, 650]
   pocket_guide:
     name: "Pocket Guide"
     runtime_format_id: short_book_30
-    slot_template: [HOOK, SCENE, REFLECTION, EXERCISE, INTEGRATION]
+    slot_template: [HOOK, SCENE, REFLECTION, EXERCISE, TAKEAWAY, INTEGRATION, THREAD]
     target_word_range: [200, 450]
   ten_things_to_do:
     name: "10 Things To Do For X"
@@ -43,12 +43,12 @@ output_formats:
   faq_audiobook:
     name: "FAQ Audiobook"
     runtime_format_id: short_book_30
-    slot_template: [HOOK, SCENE, REFLECTION, EXERCISE, INTEGRATION]
+    slot_template: [HOOK, SCENE, REFLECTION, EXERCISE, TAKEAWAY, PERMISSION, INTEGRATION, THREAD]
     target_word_range: [320, 700]
   myth_vs_mechanism:
     name: "Myth vs Mechanism"
     runtime_format_id: short_book_30
-    slot_template: [HOOK, SCENE, STORY, REFLECTION, EXERCISE, INTEGRATION]
+    slot_template: [HOOK, SCENE, STORY, PIVOT, REFLECTION, EXERCISE, TAKEAWAY, INTEGRATION, THREAD]
     target_word_range: [450, 900]
   protocol_library:
     name: "Protocol Library"

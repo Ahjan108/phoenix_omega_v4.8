@@ -14,7 +14,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, List, Optional
 
-from phoenix_v4.quality.chapter_flow_gate import evaluate_chapter_flow
+from phoenix_v4.quality.chapter_flow_gate import evaluate_chapter_flow, evaluate_chapter_flow_with_slots
 
 # ---------------------------------------------------------------------------
 # Delivery contract: forbidden patterns that must never reach output
@@ -354,27 +354,65 @@ def _extract_rendered_chapters(rendered_text: str) -> list[tuple[int, str]]:
     return chapters
 
 
-def chapter_flow_gate_report(rendered_text: str) -> dict[str, Any]:
+def chapter_flow_gate_report(
+    rendered_text: str,
+    plan: Optional[dict[str, Any]] = None,
+    prose_map: Optional[dict[str, str]] = None,
+) -> dict[str, Any]:
     """
     Evaluate each rendered chapter with chapter_flow_gate and return summary report.
+    When plan and prose_map are provided, uses slot-level checks so TAKEAWAY and THREAD
+    are required to be non-empty when present.
     """
-    chapters = _extract_rendered_chapters(rendered_text)
-    chapter_reports: list[dict[str, Any]] = []
-    failed = 0
-    for chapter_number, chapter_text in chapters:
-        res = evaluate_chapter_flow(chapter_text)
-        if res.status != "PASS":
-            failed += 1
-        chapter_reports.append(
-            {
-                "chapter": chapter_number,
+    chapter_slot_sequence = (plan or {}).get("chapter_slot_sequence") or []
+    atom_ids = (plan or {}).get("atom_ids") or []
+    if plan and prose_map and chapter_slot_sequence and atom_ids:
+        # Slot-level: require TAKEAWAY and THREAD content when present
+        chapter_reports = []
+        failed = 0
+        idx = 0
+        for ch, slots in enumerate(chapter_slot_sequence):
+            segment_proses = []
+            for _ in slots:
+                if idx < len(atom_ids):
+                    aid = atom_ids[idx]
+                    segment_proses.append(prose_map.get(aid, ""))
+                else:
+                    segment_proses.append("")
+                idx += 1
+            res = evaluate_chapter_flow_with_slots(slots, segment_proses)
+            if res.status != "PASS":
+                failed += 1
+            chapter_reports.append({
+                "chapter": ch + 1,
                 "status": res.status,
                 "score": res.score,
                 "errors": res.errors,
                 "warnings": res.warnings,
                 "metrics": res.metrics,
-            }
-        )
+            })
+        return {
+            "chapter_count": len(chapter_reports),
+            "failed_chapters": failed,
+            "status": "PASS" if failed == 0 else "FAIL",
+            "chapters": chapter_reports,
+        }
+    # Fallback: text-only (no TAKEAWAY/THREAD slot enforcement)
+    chapters = _extract_rendered_chapters(rendered_text)
+    chapter_reports = []
+    failed = 0
+    for chapter_number, chapter_text in chapters:
+        res = evaluate_chapter_flow(chapter_text)
+        if res.status != "PASS":
+            failed += 1
+        chapter_reports.append({
+            "chapter": chapter_number,
+            "status": res.status,
+            "score": res.score,
+            "errors": res.errors,
+            "warnings": res.warnings,
+            "metrics": res.metrics,
+        })
     return {
         "chapter_count": len(chapters),
         "failed_chapters": failed,
@@ -678,7 +716,7 @@ def render_book(
 
         # Word-count gate + slot-level deficit report (always written, gate optional)
         rendered_text = out_path.read_text(encoding="utf-8")
-        flow_report = chapter_flow_gate_report(rendered_text)
+        flow_report = chapter_flow_gate_report(rendered_text, plan=plan, prose_map=render_result.prose_map)
         flow_path = output_dir / "chapter_flow_report.json"
         flow_path.write_text(json.dumps(flow_report, indent=2), encoding="utf-8")
         written["chapter_flow_report"] = flow_path

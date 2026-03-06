@@ -9,7 +9,9 @@
     "SCENE": 20,
     "REFLECTION": 20,
     "EXERCISE": 20,
-    "INTEGRATION": 20
+    "TAKEAWAY": 20,
+    "INTEGRATION": 20,
+    "THREAD": 20
   },
   "required_story_by_band": {},
   "available_by_slot": {
@@ -35,6 +37,12 @@
       "total_missing": 20
     },
     "SCENE": {
+      "total_missing": 20
+    },
+    "TAKEAWAY": {
+      "total_missing": 20
+    },
+    "THREAD": {
       "total_missing": 20
     }
   },

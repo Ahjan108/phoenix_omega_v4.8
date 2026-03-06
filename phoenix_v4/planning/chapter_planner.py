@@ -33,6 +33,55 @@ ROLE_MAP = {
 }
 
 
+# 12 Bestseller chapter structures (narrative shapes). Max 3 same in a row per book.
+BESTSELLER_STRUCTURES = [
+    "promise_engine",
+    "gladwell_spiral",
+    "van_der_kolk",
+    "atomic",
+    "brene_brown",
+    "myth_killer",
+    "case_file",
+    "permission_slip",
+    "zoom_lens",
+    "contrast_engine",
+    "ancestor",
+    "letter",
+]
+MAX_BESTSELLER_RUN = 3
+
+
+def assign_bestseller_structures(chapter_count: int, selector_key_prefix: str) -> list[str]:
+    """
+    Assign one of the 12 Bestseller structures per chapter. Deterministic.
+    Never more than MAX_BESTSELLER_RUN (3) of the same structure in a row.
+    """
+    result: list[str] = []
+    n = len(BESTSELLER_STRUCTURES)
+    for ch in range(chapter_count):
+        seed = f"{selector_key_prefix}:bestseller:ch{ch}"
+        h = hashlib.sha256(seed.encode("utf-8")).digest()
+        idx = int.from_bytes(h[:2], "big") % n
+        candidate = BESTSELLER_STRUCTURES[idx]
+        run_len = 0
+        for i in range(len(result) - 1, -1, -1):
+            if result[i] == candidate:
+                run_len += 1
+            else:
+                break
+        if run_len >= MAX_BESTSELLER_RUN:
+            # Pick next distinct structure (deterministic)
+            used = {result[i] for i in range(max(0, len(result) - MAX_BESTSELLER_RUN), len(result))}
+            for j in range(1, n):
+                next_idx = (idx + j) % n
+                alt = BESTSELLER_STRUCTURES[next_idx]
+                if alt not in used:
+                    candidate = alt
+                    break
+        result.append(candidate)
+    return result
+
+
 @dataclass
 class ChapterPlanResult:
     slot_definitions: list[list[str]]
@@ -41,6 +90,7 @@ class ChapterPlanResult:
     chapter_reflection_weights: list[str]
     chapter_story_depths: list[str]
     warnings: list[str]
+    chapter_bestseller_structures: Optional[list[str]] = None  # length == chapter_count
 
 
 def _load_yaml(path: Path) -> dict[str, Any]:
@@ -179,6 +229,8 @@ def plan_chapters(
     if enforce_role_distribution and warnings:
         raise ValueError("; ".join(warnings))
 
+    chapter_bestseller_structures = assign_bestseller_structures(chapter_count, selector_key_prefix)
+
     archetypes = (policy.get("archetypes") or {})
     quotas = (policy.get("quotas") or {}).get(size) or {}
     full_exercise_max = int(quotas.get("full_exercise_max") or 0)
@@ -295,4 +347,5 @@ def plan_chapters(
         chapter_reflection_weights=chapter_reflection_weights,
         chapter_story_depths=chapter_story_depths,
         warnings=warnings,
+        chapter_bestseller_structures=chapter_bestseller_structures,
     )

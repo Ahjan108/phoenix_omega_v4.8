@@ -62,6 +62,8 @@ class ArcBlueprint:
     opening_override: bool = False
     # Asymmetry: optional weight/density per chapter (validators may allow unevenness)
     chapter_weights: Optional[list[float]] = None  # length == chapter_count
+    # Chapter thesis: one sentence per chapter (claim the chapter proves). Optional; used for TAKEAWAY slot and atom filtering.
+    chapter_thesis: Optional[dict[int, str]] = None  # keys 1..chapter_count
 
 
 def _load_yaml(p: Path) -> dict:
@@ -136,6 +138,24 @@ def validate_arc_schema(arc: dict[str, Any]) -> list[str]:
                         float(w)
                     except (TypeError, ValueError):
                         errors.append(f"chapter_weights[{i}] must be numeric, got {w!r}")
+
+    # Optional chapter_thesis: when present, must have one string per chapter (keys 1..chapter_count)
+    nc_thesis = arc.get("chapter_count")
+    if nc_thesis is not None and isinstance(nc_thesis, int) and nc_thesis >= 1:
+        thesis = arc.get("chapter_thesis")
+        if thesis is not None:
+            if not isinstance(thesis, dict):
+                errors.append("chapter_thesis must be a dict (chapter index -> thesis sentence)")
+            else:
+                for k, v in thesis.items():
+                    try:
+                        ki = int(k)
+                        if ki < 1 or ki > nc_thesis:
+                            errors.append(f"chapter_thesis key {k} must be 1..chapter_count ({nc_thesis})")
+                    except (TypeError, ValueError):
+                        errors.append(f"chapter_thesis key must be int, got {k!r}")
+                    if not isinstance(v, str) or not v.strip():
+                        errors.append(f"chapter_thesis[{k}] must be non-empty string")
 
     # DEV SPEC 3: emotional_role_sequence
     nc = arc.get("chapter_count")
@@ -266,6 +286,11 @@ def load_arc(arc_path: Path, arcs_root: Optional[Path] = None) -> ArcBlueprint:
         except (TypeError, ValueError):
             chapter_weights = None
 
+    chapter_thesis = None
+    raw_thesis = data.get("chapter_thesis")
+    if isinstance(raw_thesis, dict) and raw_thesis:
+        chapter_thesis = {int(k): str(v).strip() for k, v in raw_thesis.items() if str(v).strip()}
+
     return ArcBlueprint(
         arc_id=str(data["arc_id"]),
         persona=str(data["persona"]),
@@ -284,6 +309,7 @@ def load_arc(arc_path: Path, arcs_root: Optional[Path] = None) -> ArcBlueprint:
         emotional_role_sequence=emotional_role_sequence,
         opening_override=opening_override,
         chapter_weights=chapter_weights,
+        chapter_thesis=chapter_thesis,
     )
 
 
@@ -399,6 +425,11 @@ def load_or_generate_arc(
         except (TypeError, ValueError):
             chapter_weights = None
 
+    chapter_thesis = None
+    raw_thesis = data.get("chapter_thesis")
+    if isinstance(raw_thesis, dict) and raw_thesis:
+        chapter_thesis = {int(k): str(v).strip() for k, v in raw_thesis.items() if str(v).strip()}
+
     return ArcBlueprint(
         arc_id=str(data["arc_id"]),
         persona=str(data["persona"]),
@@ -417,4 +448,5 @@ def load_or_generate_arc(
         emotional_role_sequence=list(role_seq),
         opening_override=opening_override,
         chapter_weights=chapter_weights,
+        chapter_thesis=chapter_thesis,
     )

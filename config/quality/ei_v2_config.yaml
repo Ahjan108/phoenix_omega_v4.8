@@ -71,6 +71,12 @@ emotion_arc:
   arc_deviation_warn: 0.3        # Deviation from expected valence triggers warning
   arc_deviation_fail: 0.6        # Deviation above this = fail
 
+# ── Book structure (Pearl Prime) ──
+# EI v2 uses chapter_thesis (from arc) and bestseller_structure for learning and assembly.
+# known_slot_types include PIVOT, TAKEAWAY, PERMISSION, THREAD. Full defaults in config.py.
+book_structure:
+  thesis_from_arc: true
+
 # Composite weights for V2 candidate selection (sum to 1.0 recommended)
 # These are defaults; the learner can adjust them over time.
 composite_weights:
