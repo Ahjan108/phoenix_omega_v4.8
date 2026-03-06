@@ -4,6 +4,8 @@
 **Missing-file policy:** Only existing files are linked; planned or missing files are listed as backlog items (plain text or `path` with ⚠️ *file not present*).  
 **Last updated:** 2026-03-05
 
+**Recent implementation (d1–d6 + payouts):** Freebies (d1) — `--no-update-freebie-index` in run_pipeline/systems_test. Change observation & impact (d2) — [config/governance/system_registry.yaml](../config/governance/system_registry.yaml), [scripts/observability/detect_changes.py](../scripts/observability/detect_changes.py), [scripts/observability/impact_from_changes.py](../scripts/observability/impact_from_changes.py), [.github/workflows/change-impact.yml](../.github/workflows/change-impact.yml). EI V2 (d3) — [phoenix_v4/quality/ei_v2/learner.py](../phoenix_v4/quality/ei_v2/learner.py), [phoenix_v4/quality/ei_v2/dimension_gates.py](../phoenix_v4/quality/ei_v2/dimension_gates.py), [phoenix_v4/quality/ei_v2/hybrid_selector.py](../phoenix_v4/quality/ei_v2/hybrid_selector.py), [scripts/ci/run_ei_v2_catalog_calibration.py](../scripts/ci/run_ei_v2_catalog_calibration.py), [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py). Translation (d4) — [config/localization/quality_contracts/](../config/localization/quality_contracts/) (README, glossary, release_thresholds, golden_translation_regression), script stubs: [translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py), [validate_translations.py](../scripts/validate_translations.py), [merge_translation_shards.py](../scripts/merge_translation_shards.py), [check_golden_translation.py](../scripts/check_golden_translation.py), [native_prompts_eval_learn.py](../scripts/native_prompts_eval_learn.py), [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml), [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml). Simulation/quality (d5) — [scripts/ci/run_simulation_100k.py](../scripts/ci/run_simulation_100k.py), [config/source_of_truth/chapter_order_modes.yaml](../config/source_of_truth/chapter_order_modes.yaml), [scripts/ci/tier0_trend.py](../scripts/ci/tier0_trend.py), [config/quality/canary_config.yaml](../config/quality/canary_config.yaml). Payouts — [config/payouts/](../config/payouts/) (churches, payees, credentials.example, fill_template.csv). Video (d6) — no code changes (run_render duration already correct). **Cohesive bestseller tester (this session):** robust, intelligent testing for 10k Pearl Prime + 10k teacher-mode + EI v2 — [llm_cohesive_bestseller_tester.py](../scripts/ci/llm_cohesive_bestseller_tester.py), [llm_bestseller_error_report.py](../scripts/ci/llm_bestseller_error_report.py); health score, severity, dimension analysis, baseline, LLM; see [Rigorous system test & simulation (document all)](#rigorous-system-test--simulation-document-all) and [scripts/ci/README.md](../scripts/ci/README.md) § AI/LLM cohesive bestseller tester. All listed assets are in the [Document all — complete inventory](#document-all--complete-inventory) with ✓ where present.
+
 ---
 
 ## How to use this index
@@ -11,11 +13,13 @@
 | Task | Where to go |
 |------|-------------|
 | **Document all (single source)** | This file: [Document all — complete inventory](#document-all--complete-inventory) lists every doc/spec/config/script; domain "(document all)" subsections list every asset per domain. |
-| **Document all (autonomous & ML)** | [docs/AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md](./AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md) — Full inventory: observability, operations board, agent PRs, auto-merge, weekly pipeline, KPI triggers, ML editorial, ML autonomous loop (24/7 + daily + weekly). |
+| **Document all (autonomous & ML)** | [docs/AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md](./AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md) — Full inventory: observability, change observation & impact, operations board, agent PRs, auto-merge, weekly pipeline, KPI triggers, ML editorial, ML autonomous loop (24/7 + daily + weekly). See also [Change observation and impact (document all)](#change-observation-and-impact-document-all). |
 | **Find a doc** | Browse sections below, or search [Document all — complete inventory](#document-all--complete-inventory). |
 | **Add a doc** | Follow [Document all — usage](#document-all--usage): place in correct section, add to inventory, reference canonical anchors if authority doc. |
 | **Check domain coverage** | Use "(document all)" subsections (e.g. [V4 features, scale & knobs](#v4-features-scale--knobs-document-all), [Marketing & deep research](#marketing--deep-research-document-all), [Freebie funnel, Proof Loop & launch](#freebie-funnel-proof-loop--launch-document-all), [Teacher Mode](#teacher-mode--production-readiness-document-all)) — each lists every asset for that domain. |
 | **Change observation / impact / synergy** | [Change observation and impact (document all)](#change-observation-and-impact-document-all) — System registry, add/change/drop detection, impact analysis, LLM synergy recommendations, running best; spec and asset list. |
+| **Implementation batch (d1–d6 + payouts)** | [Implementation batch (d1–d6 + payouts)](#implementation-batch-d1d6--payouts) — Traceability: freebies, change observation & impact, EI V2, translation, simulation/quality, video pipeline, payouts. |
+| **Cohesive bestseller tester** | [Rigorous system test & simulation (document all)](#rigorous-system-test--simulation-document-all) — 10k Pearl Prime + teacher-mode + EI v2; [llm_cohesive_bestseller_tester.py](../scripts/ci/llm_cohesive_bestseller_tester.py), [llm_bestseller_error_report.py](../scripts/ci/llm_bestseller_error_report.py); health score, severity, baseline, LLM; usage in [scripts/ci/README.md](../scripts/ci/README.md) § AI/LLM cohesive bestseller tester. |
 | **Run tests / understand test suite** | [Test suite (document all)](#test-suite-document-all): how to run (local + CI), markers, workflows, full file list (36 files, 222 tests), fixtures, [FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md). |
 | **Check for missing book content** | [How to check for missing book content](#how-to-check-for-missing-book-content) — Single report script, atoms + plan + teacher readiness; PhoenixControl Docs & Config tab shows results. |
 | **Go/no-go decision** | [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md) §6 Hard NOs. |
@@ -40,6 +44,25 @@
 **Master spec rule:** [EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md](./EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md) is the **master spec**. When you run (implement) the master spec, **all specs in this bundle must be 100% coded** — no partial implementation. Every requirement in each doc must be implemented before the master spec is considered done.
 
 **Summary:** If dev uses only one doc (e.g. a short “Phoenix Omega — Native macOS Control Plane App” blurb), UI coverage is **not** 100%. If dev uses the **full doc bundle** above from DOCS_INDEX, they are **covered to move forward** for all system areas that need UI to manage.
+
+---
+
+## Phoenix Control app (native macOS) (document all)
+
+Native Swift/SwiftUI macOS app implementing the plan "Phoenix Omega — Native macOS Control Plane App": multi-tab control plane (Dashboard, Pipeline, Simulation, Tests, Observability, Gates & Release, Pearl News, Teacher, CI/Workflows, Docs & Config). See [control plane doc bundle](#control-plane--operator-ui--full-doc-bundle) for specs.
+
+| Item | Location |
+|------|----------|
+| **App README (build & run)** | [PhoenixControl/README.md](../PhoenixControl/README.md) — Open PhoenixControl.xcodeproj in Xcode, scheme "Phoenix Control", Product → Run; repo path required; macOS 13+, Xcode 14+ |
+| **Xcode project** | [PhoenixControl/PhoenixControl.xcodeproj](../PhoenixControl/PhoenixControl.xcodeproj) — Single target "Phoenix Control", all Swift sources, Assets.xcassets, Info.plist |
+| **App entry** | [PhoenixControl/PhoenixControlApp.swift](../PhoenixControl/PhoenixControlApp.swift) — @main, WindowGroup, AppState, ArtifactReader, ScriptRunner, GitHubService |
+| **Models** | [PhoenixControl/Models/AppState.swift](../PhoenixControl/Models/AppState.swift), [PhoenixControl/Models/ObservabilitySnapshot.swift](../PhoenixControl/Models/ObservabilitySnapshot.swift) — App state, snapshot, EvidenceLogRow, IdentifiableEvidenceRow |
+| **Services** | [PhoenixControl/Services/ScriptRunner.swift](../PhoenixControl/Services/ScriptRunner.swift), [PhoenixControl/Services/ArtifactReader.swift](../PhoenixControl/Services/ArtifactReader.swift), [PhoenixControl/Services/GitHubService.swift](../PhoenixControl/Services/GitHubService.swift) — Script run (allowlist), artifacts + startup health check, Keychain + GitHub API |
+| **Views (tabs)** | [PhoenixControl/Views/ContentView.swift](../PhoenixControl/Views/ContentView.swift) + DashboardView, PipelineView, SimulationView, TestsView, ObservabilityView, GatesReleaseView, PearlNewsView, TeacherView, CIWorkflowsView, DocsConfigView |
+| **Views (components)** | [PhoenixControl/Views/Components/LiveLogView.swift](../PhoenixControl/Views/Components/LiveLogView.swift), [StatusBadge.swift](../PhoenixControl/Views/Components/StatusBadge.swift), [ErrorStateView.swift](../PhoenixControl/Views/Components/ErrorStateView.swift), [EvidenceLogTable.swift](../PhoenixControl/Views/Components/EvidenceLogTable.swift) |
+| **Theme** | [PhoenixControl/Theme/Colors.swift](../PhoenixControl/Theme/Colors.swift) — phoenixBlue, phoenixBackground, phoenixCardTint |
+| **Info.plist** | [PhoenixControl/Info.plist](../PhoenixControl/Info.plist) |
+| **Assets** | [PhoenixControl/Assets.xcassets](../PhoenixControl/Assets.xcassets) — AppIcon, AccentColor |
 
 ---
 
@@ -88,13 +111,14 @@ Metadata-driven visual storytelling engine: script segments → Shot Planner →
 | **Image bank asset schema** | [schemas/video/image_bank_asset_v1.schema.json](../schemas/video/image_bank_asset_v1.schema.json) — asset_id, composition_compat (per aspect), caption_safe_zone, safety_score, style_version |
 | **Video config** | [config/video/](../config/video/) — pacing_by_content_type, caption_policies, degraded_render_policy, visual_intent_defaults, emotion_to_camera_overrides, motion_policy, hook_selection_rules, music_policy, brand_style_tokens, aspect_ratio_presets, visual_metaphor_library, cross_video_dedup, asset_selection_priority, color_grade_presets, render_params (crop_margin_pct) |
 | **Golden fixtures** | [fixtures/video_pipeline/](../fixtures/video_pipeline/) — render_manifest, script_segments, shot_plan, timeline, distribution_manifest, video_provenance |
-| **Pipeline scripts** | [scripts/video/](../scripts/video/) — prepare_script_segments, run_shot_planner, run_asset_resolver, run_timeline_builder, run_caption_adapter, run_qc, write_provenance, write_metadata, run_render (stub), run_pipeline (orchestrator), [run_flux_generate.py](../scripts/video/run_flux_generate.py) (FLUX image bank generation) |
+| **Pipeline scripts** | [scripts/video/](../scripts/video/) — prepare_script_segments, run_shot_planner, run_asset_resolver, run_timeline_builder, run_caption_adapter, run_qc, write_provenance, write_metadata, run_render (end_time_s = end timestamp, duration_s = end_s − start_s), run_pipeline (orchestrator), [run_flux_generate.py](../scripts/video/run_flux_generate.py) (FLUX image bank generation) |
 | **Storage layout (persistent vs ephemeral)** | [docs/VIDEO_PIPELINE_STORAGE_LAYOUT.md](./VIDEO_PIPELINE_STORAGE_LAYOUT.md) — artifacts/video/ (persistent); staging/&lt;date&gt;/ (ephemeral, wipe after ack) |
 | **Test and review plan** | [docs/VIDEO_PIPELINE_TEST_AND_REVIEW_PLAN.md](./VIDEO_PIPELINE_TEST_AND_REVIEW_PLAN.md) — regression (fixture), real 15+ segment run, teacher mode alignment, fix plan |
 | **Post–first-video backlog** | [docs/VIDEO_PIPELINE_POST_FIRST_VIDEO_BACKLOG.md](./VIDEO_PIPELINE_POST_FIRST_VIDEO_BACKLOG.md) — pipeline_version, input refs, placeholder naming, timing log, QC expansion, FFmpeg params |
 | **Visual brief (image bank)** | [docs/VIDEO_PIPELINE_VISUAL_BRIEF.md](./VIDEO_PIPELINE_VISUAL_BRIEF.md) — hook types, composition targets, emotion–visual alignment; reference for prompt/composition only |
 | **FFmpeg reference (renderer)** | [docs/VIDEO_PIPELINE_FFMPEG_REFERENCE.md](./VIDEO_PIPELINE_FFMPEG_REFERENCE.md) — zoompan, eq, drawtext/drawbox, encoding presets; render-time params only |
 | **FLUX/Shnell research (Workers AI)** | [docs/flux_shnell_research.rtf](./flux_shnell_research.rtf) — Cloudflare Workers AI FLUX API format, auth, request body, image size/aspect, prompt handling; use for video image bank generation (and any future T2I cover art) |
+| **FLUX credentials** | [docs/VIDEO_CLOUDFLARE_FLUX_CREDENTIALS.md](./VIDEO_CLOUDFLARE_FLUX_CREDENTIALS.md) — Cloudflare account/token setup for run_flux_generate.py; env or key file |
 | **Video color master system** | [docs/video-color-master-system.html](./video-color-master-system.html) — Canonical palette: 4 bands (Hook, Cool/Calm, Warm/Rise, Neutral/Root), per-topic hex, text-on-color previews, Shnell seed/guidance, per-band never rules; source for brand_style_tokens.yaml |
 | **Video image master prompt spec** | [docs/VIDEO_IMAGE_MASTER_PROMPT_SPEC.md](./VIDEO_IMAGE_MASTER_PROMPT_SPEC.md) — Template (foreground → Background: → Overall lighting: 9:16), anxiety/cool_calm example, Cloudflare FLUX API, run_flux_generate.py |
 
@@ -129,10 +153,11 @@ Single index: every doc, script, config, and artifact for simulation, 10k/100k k
 | **Phase 2** | [simulation/phase2.py](../simulation/phase2.py) — Waveform, arc, drift on Phase 1 results |
 | **Phase 3 MVP** | [simulation/phase3_mvp.py](../simulation/phase3_mvp.py) — Volatility, cognitive, consequence, reassurance on synthetic text |
 | **10k sim runner** | [scripts/ci/run_simulation_10k.py](../scripts/ci/run_simulation_10k.py) — n=10000, --use-format-selector, --phase2, --phase3 (CI) |
-| **100k sim runner** | `scripts/ci/run_simulation_100k.py` — n=100000, --full-knobs; optional --n, --out ⚠️ *file not present* |
-| **Analyzer** | [scripts/ci/analyze_pearl_prime_sim.py](../scripts/ci/analyze_pearl_prime_sim.py) — Pass rate by dimension; best/worst combos; --input, --out |
+| **100k sim runner** | [scripts/ci/run_simulation_100k.py](../scripts/ci/run_simulation_100k.py) — n=100000 (or --n); --use-format-selector, --phase2, --phase3; optional --out (default artifacts/simulation_100k.json) |
+| **Analyzer** | [scripts/ci/analyze_pearl_prime_sim.py](../scripts/ci/analyze_pearl_prime_sim.py) — **Robust intelligent:** pass rate by format/tier; best/worst combos; --min-pass-rate, --min-format-rate, --min-tier-rate, --min-phase2-rate, --min-phase3-rate; --baseline + --regress-tolerance for regression; binomial stderr; phase2/phase3 dimension gates; --input, --out |
+| **Intelligent sim gates runner** | [scripts/ci/run_intelligent_sim_gates.py](../scripts/ci/run_intelligent_sim_gates.py) — Single entry: optional --run-sim (10k), then analyzer (per-dimension + baseline), then bestseller report; --sim-artifact, --min-pass-rate, --min-format-rate, --min-tier-rate, --baseline, --strict, --llm, --no-fail |
 | **Cohesive bestseller tester** | [scripts/ci/llm_cohesive_bestseller_tester.py](../scripts/ci/llm_cohesive_bestseller_tester.py) — Robust testing: 10k Pearl Prime + 10k teacher-mode matrix + EI v2; read-all config, dimension analysis, severity (CRITICAL/HIGH/MEDIUM/LOW), health score 0–100, baseline comparison, optional LLM; --pearl-prime-input, --teacher-matrix, --ei-v2-report, --llm, --baseline, --require-100 |
-| **Bestseller error report** | [scripts/ci/llm_bestseller_error_report.py](../scripts/ci/llm_bestseller_error_report.py) — From 10k sim: identify bestseller-tier failures; optional LLM classify/summarize; --input, --llm, --out; use with analyze_pearl_prime_sim --min-pass-rate 1.0 for 100% gate |
+| **Bestseller error report** | [scripts/ci/llm_bestseller_error_report.py](../scripts/ci/llm_bestseller_error_report.py) — From 10k sim: heuristic root-cause buckets (insufficient_pool, phase2/phase3, etc.), high-risk format/tier (failure rate >20%); bestseller-tier failures; optional --llm; --strict fails on high-risk; --input, --out; use with analyzer --min-pass-rate 1.0 for 100% gate |
 | **Rigorous suite runner** | [scripts/ci/run_rigorous_system_test.py](../scripts/ci/run_rigorous_system_test.py) — Systems test + variation + atoms coverage + optional sim |
 | **Canary** | [scripts/ci/run_canary_100_books.py](../scripts/ci/run_canary_100_books.py) — Real pipeline on sampled arcs |
 | **Variation report** | [scripts/ci/report_variation_knobs.py](../scripts/ci/report_variation_knobs.py) — variation_knob_distribution, pearl_prime block from plans/index |
@@ -151,7 +176,7 @@ Single index: every doc, script, config, and artifact for simulation, 10k/100k k
 | **Canonical personas/topics** | [config/catalog_planning/canonical_personas.yaml](../config/catalog_planning/canonical_personas.yaml), [config/catalog_planning/canonical_topics.yaml](../config/catalog_planning/canonical_topics.yaml) — Knob sampler / full-knobs source |
 | **Angles** | [config/angles/angle_registry.yaml](../config/angles/angle_registry.yaml) — angle_id for sim |
 | **Book structure / journey / motif / reframe** | [config/source_of_truth/book_structure_archetypes.yaml](../config/source_of_truth/book_structure_archetypes.yaml), [config/source_of_truth/journey_shapes.yaml](../config/source_of_truth/journey_shapes.yaml), [config/source_of_truth/recurring_motif_bank.yaml](../config/source_of_truth/recurring_motif_bank.yaml), [config/source_of_truth/reframe_line_bank.yaml](../config/source_of_truth/reframe_line_bank.yaml) |
-| **Section / chapter order** | [config/source_of_truth/section_reorder_modes.yaml](../config/source_of_truth/section_reorder_modes.yaml) — `chapter_order_modes.yaml` ⚠️ *file not present* |
+| **Section / chapter order** | [config/source_of_truth/section_reorder_modes.yaml](../config/source_of_truth/section_reorder_modes.yaml), [config/source_of_truth/chapter_order_modes.yaml](../config/source_of_truth/chapter_order_modes.yaml) — Section reorder policies; chapter order modes for simulation |
 
 ### Artifacts
 
@@ -361,6 +386,21 @@ Single inventory: observability, operations board, agent PRs, auto-merge, weekly
 | **Weekly pipeline** | [.github/workflows/weekly-pipeline.yml](../.github/workflows/weekly-pipeline.yml) |
 | **ML editorial weekly** | [.github/workflows/ml-editorial-weekly.yml](../.github/workflows/ml-editorial-weekly.yml) |
 | **ML loop** | [.github/workflows/ml-loop-continuous.yml](../.github/workflows/ml-loop-continuous.yml), [ml-loop-daily-promotion.yml](../.github/workflows/ml-loop-daily-promotion.yml), [ml-loop-weekly-recalibration.yml](../.github/workflows/ml-loop-weekly-recalibration.yml) |
+
+---
+
+## Change observation and impact (document all)
+
+System registry, add/change/drop detection, impact analysis. **Spec:** [docs/CHANGE_OBSERVATION_AND_IMPACT_SPEC.md](./CHANGE_OBSERVATION_AND_IMPACT_SPEC.md).
+
+| Item | Location |
+|------|----------|
+| **Spec** | [docs/CHANGE_OBSERVATION_AND_IMPACT_SPEC.md](./CHANGE_OBSERVATION_AND_IMPACT_SPEC.md) |
+| **System registry** | [config/governance/system_registry.yaml](../config/governance/system_registry.yaml) — systems, assets, related_systems, downstream |
+| **Detect changes** | [scripts/observability/detect_changes.py](../scripts/observability/detect_changes.py) — `--base` / `--head` Git refs → change_events.jsonl |
+| **Impact from changes** | [scripts/observability/impact_from_changes.py](../scripts/observability/impact_from_changes.py) — change_events → impact summary (affected_systems, downstream, related) |
+| **CI workflow** | [.github/workflows/change-impact.yml](../.github/workflows/change-impact.yml) — PR/push to main; runs detect + impact; uploads artifacts |
+| **Artifacts** | artifacts/observability/change_events.jsonl, impact_*.json |
 
 ---
 
@@ -590,7 +630,7 @@ EI V1 is 100% at **test slice** when the 4 targeted unit tests pass. It is **100
 | Item | Location |
 |------|----------|
 | **Rigorous eval harness** | [scripts/ci/run_ei_v2_rigorous_eval.py](../scripts/ci/run_ei_v2_rigorous_eval.py) — Compiles + renders books across persona × topic × engine matrix, evaluates each chapter on 10 quality dimensions (therapeutic value, emotional coherence, engagement, chapter journey, cohesion, listen experience, marketability, safety compliance, content uniqueness, somatic precision), runs V1/V2 slot comparison, benchmarks timing. Flags: `--full` (7 books), `--sample N`. Outputs: `artifacts/ei_v2/eval_rigorous_report.json`, `artifacts/ei_v2/eval_rigorous_summary.txt` |
-| **Catalog calibrator** | `scripts/ci/run_ei_v2_catalog_calibration.py` — Runs V2 dimension gates across all compilable catalog combos, discovers optimal percentile thresholds, feeds learner. Flags: `--learn`, `--out`. Output: `artifacts/ei_v2/catalog_calibration.json` |
+| **Catalog calibrator** | [scripts/ci/run_ei_v2_catalog_calibration.py](../scripts/ci/run_ei_v2_catalog_calibration.py) — Stub; extend to run V2 dimension gates across compilable catalog combos, discover percentile thresholds, feed learner. Flags: `--learn`, `--out`. Output: `artifacts/ei_v2/catalog_calibration.json` |
 | **EI v2 Marketing dashboard tab** | [scripts/ei_v2_marketing_dashboard_tab.py](../scripts/ei_v2_marketing_dashboard_tab.py) — Streamlit: `render_marketing_tab()`. Last 100 log events, file hashes, last-event age, schema guards, empty-state guidance. Optional Plotly “events by source over time”. Log: `artifacts/ei_v2/marketing_integration.log` |
 
 ### Pipeline integration
@@ -692,7 +732,7 @@ Layered selection with override logic. V1 picks the winner; V2 scores the same c
 | **Learning system** | `phoenix_v4/quality/ei_v2/learner.py` — EMA-based weight/threshold tuning from hybrid feedback; per-persona/topic adjustments |
 | **Dimension gates** | `phoenix_v4/quality/ei_v2/dimension_gates.py` — Per-chapter enforcement: uniqueness, engagement, somatic precision, listen experience, cohesion |
 | **Catalog calibrator** | `scripts/ci/run_ei_v2_catalog_calibration.py` — Catalog-level threshold discovery; feeds learner with whole-catalog observations |
-| **Tests** | [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py) — 25 tests: learner, dimension gates, hybrid selector, config, integration |
+| **Tests** | [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py) — 17 tests: learner, dimension gates, hybrid selector, config, integration |
 | **Learned params** | `artifacts/ei_v2/learned_params.json` — Latest learned composite weights, override margin, per-persona/topic adjustments |
 | **Learner feedback** | `artifacts/ei_v2/learner_feedback.jsonl` — Append-only log of every hybrid decision (override/keep) with full scores |
 | **Calibration report** | `artifacts/ei_v2/catalog_calibration.json` — Percentile thresholds per dimension from catalog sweep |
@@ -732,9 +772,9 @@ Layered selection with override logic. V1 picks the winner; V2 scores the same c
 |------|----------|
 | **Checklist (Tier 0–4, canary, verification)** | [docs/MANUSCRIPT_QUALITY_IMPLEMENTATION_CHECKLIST.md](./MANUSCRIPT_QUALITY_IMPLEMENTATION_CHECKLIST.md) |
 | **Tier 0 contract config** | [config/quality/tier0_book_output_contract.yaml](../config/quality/tier0_book_output_contract.yaml) |
-| **Canary config** | `config/quality/canary_config.yaml` ⚠️ *file not present* |
+| **Canary config** | [config/quality/canary_config.yaml](../config/quality/canary_config.yaml) — sample_size, max_failures for canary runs |
 | **Tier 0 checker** | [scripts/ci/check_book_output_tier0_contract.py](../scripts/ci/check_book_output_tier0_contract.py) |
-| **Trend dashboard** | `scripts/ci/tier0_trend.py` ⚠️ *file not present* — violations over time; observability add-on, not a production gate |
+| **Trend dashboard** | [scripts/ci/tier0_trend.py](../scripts/ci/tier0_trend.py) — Stub; extend for tier0 contract violations over time; observability add-on |
 | **Canary script** | [scripts/ci/run_canary_100_books.py](../scripts/ci/run_canary_100_books.py) |
 | **Tests** | [tests/test_book_pass_gate.py](../tests/test_book_pass_gate.py) |
 | **Release checklist (item 12)** | [docs/RELEASE_PRODUCTION_READINESS_CHECKLIST.md](./RELEASE_PRODUCTION_READINESS_CHECKLIST.md) — block release on Tier 0 fail |
@@ -815,7 +855,7 @@ Clean epub/TTS-ready output pipeline with delivery contract gate, word-count gat
 
 | Item | Location |
 |------|----------|
-| **Run pipeline** | [scripts/run_pipeline.py](../scripts/run_pipeline.py) — Full 6-stage pipeline: BookSpec → FormatPlan → CompiledBook → render. Flags: `--topic`, `--persona`, `--arc`, `--structural-format`, `--runtime-format`, `--render-book`, `--render-formats`, `--skip-word-count-gate`, `--generate-freebies` |
+| **Run pipeline** | [scripts/run_pipeline.py](../scripts/run_pipeline.py) — Full 6-stage pipeline: BookSpec → FormatPlan → CompiledBook → render. Flags: `--topic`, `--persona`, `--arc`, `--structural-format`, `--runtime-format`, `--render-book`, `--render-formats`, `--skip-word-count-gate`, `--generate-freebies`, `--no-update-freebie-index` (used by production gates so sim doesn't mutate freebie index) |
 | **Render plan to txt** | [scripts/render_plan_to_txt.py](../scripts/render_plan_to_txt.py) — Standalone render from saved plan JSON |
 
 ### Delivery contract gate (forbidden patterns)
@@ -1015,7 +1055,7 @@ Single index: every test file, how to run, markers, CI workflows, and test infra
 | [tests/test_ei_v2_marketing_lexicons.py](../tests/test_ei_v2_marketing_lexicons.py) | EI V2 marketing: loader, tokenizer, fail-safe, calibration gate (locked thresholds) |
 | [tests/fixtures/ei_v2_marketing/](../tests/fixtures/ei_v2_marketing/) | EI V2 marketing: minimal valid 02/03/04 YAML fixtures for tests |
 | [tests/fixtures/ei_v2_marketing_calibration_eval.json](../tests/fixtures/ei_v2_marketing_calibration_eval.json) | EI V2 marketing: fixed eval set for calibration gate (domain Δ ≤ 0.12, safety Δ ≤ 0.10) |
-| [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py) | EI V2 hybrid: 25 tests — learner, dimension gates, hybrid selector, config, integration |
+| [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py) | EI V2 hybrid: 17 tests — learner, dimension gates, hybrid selector, config, integration |
 | [tests/test_emotional_curve_golden.py](../tests/test_emotional_curve_golden.py) | Emotional curve golden regression |
 | [tests/test_format_selector.py](../tests/test_format_selector.py) | Format selector Stage 2 logic |
 | [tests/test_intro_ending_variation.py](../tests/test_intro_ending_variation.py) | Intro/ending variation feature flag |
@@ -1078,7 +1118,7 @@ Single index: every test file, how to run, markers, CI workflows, and test infra
 
 | Item | Location |
 |------|----------|
-| **Run pipeline** | [scripts/run_pipeline.py](../scripts/run_pipeline.py) — Full 6-stage; --topic, --persona, --arc, --teacher, --author, --render-book, --generate-freebies, etc. |
+| **Run pipeline** | [scripts/run_pipeline.py](../scripts/run_pipeline.py) — Full 6-stage; --topic, --persona, --arc, --teacher, --author, --render-book, --generate-freebies, --no-update-freebie-index, etc. |
 | **Render plan to txt** | [scripts/render_plan_to_txt.py](../scripts/render_plan_to_txt.py) — Stage 6 standalone render |
 | **Plan freebie assets** | [scripts/plan_freebie_assets.py](../scripts/plan_freebie_assets.py) — Catalog or canonical; manifest output |
 | **Create freebie assets** | [scripts/create_freebie_assets.py](../scripts/create_freebie_assets.py) — HTML, PDF, EPUB, MP3 |
@@ -1223,7 +1263,7 @@ Landing page (6 sections), form capture, 4–5 email Proof-Loop sequence (Brevo 
 
 ## Phoenix Churches Payout System (document all)
 
-Biweekly payouts for 24 churches; Plaid sync, Bluevine, 90/10 split, human-in-the-loop execution. ⚠️ **Most payout files not present in repo** — spec and config referenced below, implementation files missing.
+Biweekly payouts for 24 churches; Plaid sync, Bluevine, 90/10 split, human-in-the-loop execution. **Config stubs present** (churches.yaml, payees.yaml, credentials.yaml.example, fill_template.csv); populate per CHECKLIST.md. ⚠️ Spec (PHOENIX_CHURCHES_PAYOUT_SPEC.md) and payout package (cli, plaid_sync, etc.) not yet in repo.
 
 ### Spec & checklist
 
@@ -1232,10 +1272,10 @@ Biweekly payouts for 24 churches; Plaid sync, Bluevine, 90/10 split, human-in-th
 
 ### Config
 
-- `config/payouts/churches.yaml` ⚠️ *file not present* — Church registry (24 churches; bluevine_account_last4, payee_id, rules)
-- `config/payouts/payees.yaml` ⚠️ *file not present* — Payee registry (24 payees; display_name, bank_last4)
-- `config/payouts/credentials.yaml.example` ⚠️ *file not present* — Credentials template (plaid, access_tokens; copy to credentials.yaml)
-- `config/payouts/fill_template.csv` ⚠️ *file not present* — CSV template for batch-filling church + payee info
+- [config/payouts/churches.yaml](../config/payouts/churches.yaml) — Church registry stub (24 churches; bluevine_account_last4, payee_id, rules; populate per CHECKLIST.md)
+- [config/payouts/payees.yaml](../config/payouts/payees.yaml) — Payee registry stub (24 payees; display_name, bank_last4)
+- [config/payouts/credentials.yaml.example](../config/payouts/credentials.yaml.example) — Credentials template (plaid, access_tokens; copy to credentials.yaml)
+- [config/payouts/fill_template.csv](../config/payouts/fill_template.csv) — CSV template for batch-filling church + payee info
 
 ### Package & CLI
 
@@ -1251,7 +1291,7 @@ All payout package files (`payouts/cli.py`, `payouts/setup.py`, `payouts/plaid_s
 
 ## Translation, validation & multilingual
 
-Translation and validation pipeline: parallel sharded translation (atoms + exercises) to **all system languages** (see [Translate / prompt via Qwen GitHub pipeline CLI](#translate--prompt-via-qwen-github-pipeline-cli-all-system-languages)), deterministic validation (schema, locale script, coverage, meta/leakage, repetition), merge + global QA, golden regression. **Status:** core docs/planning exist, but translation execution scripts, CI workflows, locale stub trees, and quality-contract files are **not yet present in this repo** (see ⚠️ inventory rows below).
+Translation and validation pipeline: parallel sharded translation (atoms + exercises) to **all system languages** (see [Translate / prompt via Qwen GitHub pipeline CLI](#translate--prompt-via-qwen-github-pipeline-cli-all-system-languages)), deterministic validation (schema, locale script, coverage, meta/leakage, repetition), merge + global QA, golden regression. **Status:** Core docs/planning exist. Translation execution scripts and CI workflows exist as **stubs** (translate_atoms_all_locales_cloud, validate_translations, merge_translation_shards, check_golden_translation, native_prompts_eval_learn; translate-atoms-qwen-matrix.yml, locale-gate.yml). Quality contracts present under config/localization/quality_contracts/ (README, glossary, release_thresholds, golden_translation_regression — stubs). Locale stub trees and scripts/scaffold_locale_atom_stubs.py not yet in repo (see ⚠️ inventory where applicable).
 
 ### Translate / prompt via Qwen GitHub pipeline CLI (all system languages)
 
@@ -1272,8 +1312,8 @@ Translation and validation pipeline: parallel sharded translation (atoms + exerc
 **Remaining: translation infrastructure + execution pending:**
 
 1. **Locale atom stubs** — `atoms/<locale>/` stub trees are not yet present. Planned generator: `scripts/scaffold_locale_atom_stubs.py` ⚠️ *file not present*.
-2. **Translation execution** — `scripts/translate_atoms_all_locales_cloud.py` ⚠️ *file not present* (parallel sharded translation via API).
-3. **CI workflows** — `.github/workflows/translate-atoms-qwen-matrix.yml` and `.github/workflows/locale-gate.yml` ⚠️ *file not present*.
+2. **Translation execution** — [scripts/translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py) (stub; implement for parallel sharded translation via API).
+3. **CI workflows** — [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml), [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml) (stub workflows; implement when translation pipeline is ready).
 
 ### Docs
 
@@ -1293,12 +1333,12 @@ Translation and validation pipeline: parallel sharded translation (atoms + exerc
 
 | Item | Location |
 |------|----------|
-| **Translate atoms/exercises (cloud)** | `scripts/translate_atoms_all_locales_cloud.py` ⚠️ *file not present* — Parallel sharded translation to all locales; runs N shards in parallel, each shard translates atoms/exercises via API |
+| **Translate atoms/exercises (cloud)** | [scripts/translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py) — Stub; implement for parallel sharded translation to all locales via API |
 | **Scaffold locale atom stubs** | `scripts/scaffold_locale_atom_stubs.py` ⚠️ *file not present* — Create TRANSLATION PENDING stub files for all atom types in a locale directory |
-| **Validate translations** | `scripts/validate_translations.py` ⚠️ *file not present* — Structure check, script encoding check, glossary consistency, golden regression |
-| **Merge translation shards** | `scripts/merge_translation_shards.py` ⚠️ *file not present* — Merges parallel shard outputs into locale atom tree; conflict detection |
-| **Golden translation regression** | `scripts/check_golden_translation.py` ⚠️ *file not present* — Regression check against golden translation samples per locale |
-| **Native prompts / eval / learn** | `scripts/native_prompts_eval_learn.py` ⚠️ *file not present* — Generates native-speaker evaluation prompts (4 dimensions: Fluency, Register, Term Consistency, Structure); output: `artifacts/evaluations/{locale}/` |
+| **Validate translations** | [scripts/validate_translations.py](../scripts/validate_translations.py) — Stub; implement for structure, glossary, golden regression |
+| **Merge translation shards** | [scripts/merge_translation_shards.py](../scripts/merge_translation_shards.py) — Stub; implement to merge shard outputs into locale atom tree |
+| **Golden translation regression** | [scripts/check_golden_translation.py](../scripts/check_golden_translation.py) — Stub; implement for regression against config/localization/quality_contracts/golden_translation_regression.yaml |
+| **Native prompts / eval / learn** | [scripts/native_prompts_eval_learn.py](../scripts/native_prompts_eval_learn.py) — Stub; implement for native-speaker eval prompts and learn; output: artifacts/evaluations/{locale}/ |
 
 ### Config & quality contracts
 
@@ -1308,11 +1348,11 @@ Translation and validation pipeline: parallel sharded translation (atoms + exerc
 | **Locale registry** | [config/localization/locale_registry.yaml](../config/localization/locale_registry.yaml) — All 13 locale definitions: language, script, TTS provider, storefront IDs, distribution rules; EU group includes it-IT. |
 | **Brand locale extension** | [config/localization/brand_registry_locale_extension.yaml](../config/localization/brand_registry_locale_extension.yaml) — Per-brand locale and territory. One brand = one locale. |
 
-**Quality contracts** — `config/localization/quality_contracts/` ⚠️ *not present in repo* (planned: `glossary.yaml`, `release_thresholds.yaml`, `golden_translation_regression.yaml`, `README.md`, `INTEGRATION_GUIDE.md`).
+**Quality contracts** — [config/localization/quality_contracts/](../config/localization/quality_contracts/) (README.md, glossary.yaml, release_thresholds.yaml, golden_translation_regression.yaml; stubs for locale gate).
 
 ### CI / workflow
 
-`.github/workflows/translate-atoms-qwen-matrix.yml` ⚠️ *file not present* — Parallel sharded translation workflow; triggered manually or weekly; runs N shards in matrix, merges results, validates all locales. (Also planned: `.github/workflows/locale-gate.yml`.)
+[.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml) — Stub workflow; implement for parallel sharded translation (manual/weekly). [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml) — Stub workflow; implement for locale validation on config/localization and atoms.
 
 ### Artifacts
 
@@ -1345,9 +1385,9 @@ Planned: atoms for non-en-US locales (`atoms/zh-CN/`, `atoms/zh-TW/`, `atoms/zh-
 ### Related scripts
 
 - `scripts/scaffold_locale_atom_stubs.py` ⚠️ *file not present* — Create stub trees per locale
-- `scripts/translate_atoms_all_locales_cloud.py` ⚠️ *file not present* — Fill stubs via parallel sharded API calls
-- `.github/workflows/translate-atoms-qwen-matrix.yml` ⚠️ *file not present* — Orchestrate translation; weekly/manual
-- `.github/workflows/locale-gate.yml` ⚠️ *file not present* — Validate translations per locale and report coverage
+- [scripts/translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py) — Stub; implement for parallel sharded API calls
+- [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml) — Stub workflow; implement to orchestrate translation (weekly/manual)
+- [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml) — Stub workflow; implement to validate translations per locale
 
 ---
 
@@ -1546,9 +1586,11 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md) | Core system docs | ✓ |
 | [DISASTER_RECOVERY_DRILL_CHECKLIST.md](./DISASTER_RECOVERY_DRILL_CHECKLIST.md) | Core system docs | ✓ |
 | [VIDEO_PIPELINE_SPEC.md](./VIDEO_PIPELINE_SPEC.md) | Video pipeline | ✓ |
+| [VIDEO_CLOUDFLARE_FLUX_CREDENTIALS.md](./VIDEO_CLOUDFLARE_FLUX_CREDENTIALS.md) | Video pipeline (FLUX) | ✓ |
 | [research/MARKETING_DEEP_RESEARCH_PROMPTS.md](./research/MARKETING_DEEP_RESEARCH_PROMPTS.md) | Marketing & deep research | ✓ |
 | [PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md](./PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md) | Core system docs | ✓ |
 | [CHANGE_OBSERVATION_AND_IMPACT_SPEC.md](./CHANGE_OBSERVATION_AND_IMPACT_SPEC.md) | Change observation and impact (document all) | ✓ |
+| [PHOENIX_OMEGA_ERROR_STATE_UX_SPEC.md](./PHOENIX_OMEGA_ERROR_STATE_UX_SPEC.md) | Control plane & operator UI (error state UX) | ✓ |
 | [AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md](./AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md) | Autonomous improvement & ML system (document all) | ✓ |
 | [SYSTEMS_V4.md](./SYSTEMS_V4.md) | Core system docs | ✓ |
 | [PLANNING_STATUS.md](./PLANNING_STATUS.md) | Core system docs | ✓ |
@@ -1615,6 +1657,7 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [email_sequences/exercise-one-liners.md](./email_sequences/exercise-one-liners.md) | Email sequences | ✓ |
 | [email_sequences/FORMSPREE_SETUP.md](./email_sequences/FORMSPREE_SETUP.md) | Email sequences | ✓ |
 | [FREEBIE_MARKETING_PLAN.md](./FREEBIE_MARKETING_PLAN.md) | Freebie funnel / Marketing | ✓ — Proof Loop, funnel stages, GHL, MVP scope |
+| [funnel/burnout_reset/GHL_HANDBOFF.md](../funnel/burnout_reset/GHL_HANDBOFF.md) | Freebie funnel | ✓ — GHL API key, Location ID, payload, custom field UUIDs; handoff for GHL operator |
 | [GITHUB_BACKUP_SETUP.md](./GITHUB_BACKUP_SETUP.md) | Operations & infra | ✓ |
 | [QWEN_FORKS_AND_BACKUP.md](./QWEN_FORKS_AND_BACKUP.md) | Operations & infra | ✓ |
 | [adr/README.md](./adr/README.md) | ADRs | ✓ |
@@ -1718,6 +1761,8 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [artifacts/research/README.md](../artifacts/research/README.md) | Marketing & deep research (Generational) | ✓ — Layout: raw/, youth_feed_snapshots/, psychology/, pain_points/, world_events/, narrative/, platform/, manifests/, marketing_sources/ |
 | [research/prompts/schemas/README.md](../research/prompts/schemas/README.md) | Marketing & deep research (Generational) | ✓ — YAML schema refs for research prompts |
 | [artifacts/content_coverage_report.json](../artifacts/content_coverage_report.json) | Content coverage report (from content_coverage_report.py); atoms + plan + teacher readiness | ✓ |
+| `artifacts/simulation_100k.json` | Simulation | Output from run_simulation_100k.py (optional --out); created on run |
+| [artifacts/observability/change_events.jsonl](../artifacts/observability/change_events.jsonl) | Change observation and impact | ✓ — From detect_changes.py; impact_*.json from impact_from_changes.py (change-impact workflow) |
 
 ### Config
 
@@ -1728,12 +1773,12 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [config/quality/ei_v2_promotion_criteria.yaml](../config/quality/ei_v2_promotion_criteria.yaml) | Enlightened Intelligence V2 promotion | ✓ — Five gates (quality, performance, safety, dimension gates, hybrid override), consecutive passes, auto_promote |
 | [config/quality/tier0_book_output_contract.yaml](../config/quality/tier0_book_output_contract.yaml) | Manuscript quality | ✓ |
 | [config/observability_production_signals.yaml](../config/observability_production_signals.yaml) | Observability | ✓ |
-| `config/governance/system_registry.yaml` | Change observation and impact | ⚠️ missing — System registry (systems, assets, related_systems, downstream); create per [CHANGE_OBSERVATION_AND_IMPACT_SPEC.md](./CHANGE_OBSERVATION_AND_IMPACT_SPEC.md) |
-| `config/quality/canary_config.yaml` | Manuscript quality | ⚠️ missing |
-| `config/payouts/churches.yaml` | Phoenix Churches Payout | ⚠️ missing |
-| `config/payouts/payees.yaml` | Phoenix Churches Payout | ⚠️ missing |
-| `config/payouts/credentials.yaml.example` | Phoenix Churches Payout | ⚠️ missing |
-| `config/payouts/fill_template.csv` | Phoenix Churches Payout | ⚠️ missing |
+| [config/governance/system_registry.yaml](../config/governance/system_registry.yaml) | Change observation and impact | ✓ — System registry (systems, assets, related_systems, downstream); consumed by detect_changes, impact_from_changes |
+| [config/quality/canary_config.yaml](../config/quality/canary_config.yaml) | Manuscript quality | ✓ — Canary sample size, max_failures; used by run_canary_100_books |
+| [config/payouts/churches.yaml](../config/payouts/churches.yaml) | Phoenix Churches Payout | ✓ — Church registry stub; populate per CHECKLIST.md |
+| [config/payouts/payees.yaml](../config/payouts/payees.yaml) | Phoenix Churches Payout | ✓ — Payee registry stub; populate per CHECKLIST.md |
+| [config/payouts/credentials.yaml.example](../config/payouts/credentials.yaml.example) | Phoenix Churches Payout | ✓ — Credentials template; copy to credentials.yaml |
+| [config/payouts/fill_template.csv](../config/payouts/fill_template.csv) | Phoenix Churches Payout | ✓ — CSV template for batch-filling church + payee info |
 | [config/teachers/teacher_registry.yaml](../config/teachers/teacher_registry.yaml) | Teacher Mode | ✓ |
 | [config/authoring/author_cover_art_registry.yaml](../config/authoring/author_cover_art_registry.yaml) | Book & authoring (Author cover art) | ✓ |
 | [config/marketing/consumer_language_by_topic.yaml](../config/marketing/consumer_language_by_topic.yaml) | Marketing & deep research | ✓ — 14 topics, consumer phrases, banned clinical terms, bridge language, search clusters, platform risk terms |
@@ -1745,13 +1790,13 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [.github/workflows/research_feeds_ingest.yml](../.github/workflows/research_feeds_ingest.yml) | Marketing & deep research (Generational) | ✓ — Weekly + manual; fetch RSS to artifacts/research/raw/; no model run |
 | [.github/workflows/teacher-gates.yml](../.github/workflows/teacher-gates.yml) | Teacher Mode | ✓ |
 | [.github/workflows/brand-guards.yml](../.github/workflows/brand-guards.yml) | Church & payout (NorCal Dharma brand guards) | ✓ |
-| `config/localization/quality_contracts/README.md` | Translation | ⚠️ missing |
-| `quality_contracts/glossary.yaml` | Translation | ⚠️ missing |
-| `quality_contracts/release_thresholds.yaml` | Translation | ⚠️ missing |
-| `quality_contracts/golden_translation_regression.yaml` | Translation | ⚠️ missing |
+| [config/localization/quality_contracts/README.md](../config/localization/quality_contracts/README.md) | Translation | ✓ — Quality contracts overview; glossary, thresholds, golden regression |
+| [config/localization/quality_contracts/glossary.yaml](../config/localization/quality_contracts/glossary.yaml) | Translation | ✓ — Canonical terms and preferred translations per locale (stub) |
+| [config/localization/quality_contracts/release_thresholds.yaml](../config/localization/quality_contracts/release_thresholds.yaml) | Translation | ✓ — Release thresholds for locale gate (stub) |
+| [config/localization/quality_contracts/golden_translation_regression.yaml](../config/localization/quality_contracts/golden_translation_regression.yaml) | Translation | ✓ — Golden segments for regression tests (stub) |
 | [config/localization/content_roots_by_locale.yaml](../config/localization/content_roots_by_locale.yaml) | Translation | ✓ — all 12 locales mapped with atoms_root, TTS constraints, rollout phase, distribution blockers |
-| `.github/workflows/translate-atoms-qwen-matrix.yml` | Translation | ⚠️ missing |
-| `.github/workflows/locale-gate.yml` | Translation | ⚠️ missing |
+| [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml) | Translation | ✓ — Stub: placeholder for translation matrix; weekly/manual |
+| [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml) | Translation | ✓ — Stub: placeholder for locale gate on config/localization and atoms |
 | [.github/workflows/core-tests.yml](../.github/workflows/core-tests.yml) | Core CI | ✓ |
 | [.github/workflows/pearl_news_scheduled_self_hosted.yml](../.github/workflows/pearl_news_scheduled_self_hosted.yml) | Pearl News (Option B) | ✓ — Self-hosted workflow; copy as pearl_news_scheduled.yml |
 | [pearl_news/config/llm_expansion.yaml](../pearl_news/config/llm_expansion.yaml) | Pearl News | ✓ — Expansion API config; timeout, max_tokens, target_word_count |
@@ -1760,11 +1805,13 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [.github/workflows/simulation-10k.yml](../.github/workflows/simulation-10k.yml) | Simulation CI | ✓ |
 | [.github/workflows/release-gates.yml](../.github/workflows/release-gates.yml) | Release CI | ✓ |
 | [.github/workflows/production-observability.yml](../.github/workflows/production-observability.yml) | Observability | ✓ |
-| `.github/workflows/change-impact.yml` | Change observation and impact | ⚠️ missing — Run detect + impact on PR; optionally synergy LLM and comment; create per [CHANGE_OBSERVATION_AND_IMPACT_SPEC.md](./CHANGE_OBSERVATION_AND_IMPACT_SPEC.md) |
+| [.github/workflows/change-impact.yml](../.github/workflows/change-impact.yml) | Change observation and impact | ✓ — Run detect_changes + impact_from_changes on PR/push to main; upload artifacts |
 | [.github/workflows/ei-v2-gates.yml](../.github/workflows/ei-v2-gates.yml) | Enlightened Intelligence V2 CI | ✓ — Unit tests → rigorous eval → promotion gate check; weekly + on EI code changes |
 | [config/format_selection/format_registry.yaml](../config/format_selection/format_registry.yaml) | Simulation / Delivery | ✓ |
 | [config/format_selection/selection_rules.yaml](../config/format_selection/selection_rules.yaml) | Simulation | ✓ |
-| `config/source_of_truth/chapter_order_modes.yaml` | Simulation | ⚠️ missing |
+| [config/source_of_truth/chapter_order_modes.yaml](../config/source_of_truth/chapter_order_modes.yaml) | Simulation | ✓ — Chapter order modes for simulation; aligned with section_reorder_modes |
+| [config/freebies/funnel_proof_loop.yaml](../config/freebies/funnel_proof_loop.yaml) | Freebie funnel | ✓ — topic, first_exercise, story_id, book_slug per hub |
+| [config/freebies/freebie_to_book_map.yaml](../config/freebies/freebie_to_book_map.yaml) | Freebie funnel | ✓ — exercise/topic → book_title, book_url, more_books; slugs for /books/<slug> |
 
 ### Scripts & code
 
@@ -1772,8 +1819,8 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 |-----------------|---------|--------|
 | [scripts/run_pipeline.py](../scripts/run_pipeline.py) | Delivery pipeline | ✓ |
 | [scripts/run_production_readiness_gates.py](../scripts/run_production_readiness_gates.py) | Simulation | ✓ |
-| `scripts/observability/detect_changes.py` | Change observation and impact | ⚠️ missing — Git diff + registry → change_events.jsonl; create per [CHANGE_OBSERVATION_AND_IMPACT_SPEC.md](./CHANGE_OBSERVATION_AND_IMPACT_SPEC.md) |
-| `scripts/observability/impact_from_changes.py` | Change observation and impact | ⚠️ missing — change_events → impact summary; create per [CHANGE_OBSERVATION_AND_IMPACT_SPEC.md](./CHANGE_OBSERVATION_AND_IMPACT_SPEC.md) |
+| [scripts/observability/detect_changes.py](../scripts/observability/detect_changes.py) | Change observation and impact | ✓ — Git diff (--base/--head) + registry → change_events.jsonl |
+| [scripts/observability/impact_from_changes.py](../scripts/observability/impact_from_changes.py) | Change observation and impact | ✓ — change_events.jsonl → impact summary (affected_systems, downstream, related) |
 | [scripts/render_plan_to_txt.py](../scripts/render_plan_to_txt.py) | Delivery pipeline | ✓ |
 | [scripts/pearl_news_networked_run_and_evidence.sh](../scripts/pearl_news_networked_run_and_evidence.sh) | Pearl News | ✓ |
 | [scripts/pearl_news_post_to_wp.py](../scripts/pearl_news_post_to_wp.py) | Pearl News | ✓ |
@@ -1807,11 +1854,11 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [scripts/ci/run_ei_v2_rigorous_eval.py](../scripts/ci/run_ei_v2_rigorous_eval.py) | Enlightened Intelligence (eval) | ✓ — 10-dimension quality eval + V1/V2 comparison + timing benchmarks |
 | [scripts/ei_v2_marketing_dashboard_tab.py](../scripts/ei_v2_marketing_dashboard_tab.py) | Enlightened Intelligence V2 (marketing dashboard) | ✓ — Streamlit `render_marketing_tab()`: log tail, hashes, freshness, schema guards, optional Plotly chart |
 | [scripts/ci/check_ei_v2_promotion_gate.py](../scripts/ci/check_ei_v2_promotion_gate.py) | Enlightened Intelligence (promotion) | ✓ — Checks eval report against promotion criteria; tracks consecutive passes |
-| `phoenix_v4/quality/ei_v2/hybrid_selector.py` | Enlightened Intelligence V2 (hybrid) | ⚠️ missing |
-| `phoenix_v4/quality/ei_v2/learner.py` | Enlightened Intelligence V2 (learner) | ⚠️ missing |
-| `phoenix_v4/quality/ei_v2/dimension_gates.py` | Enlightened Intelligence V2 (gates) | ⚠️ missing |
-| `scripts/ci/run_ei_v2_catalog_calibration.py` | Enlightened Intelligence (calibration) | ⚠️ missing |
-| [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py) | Enlightened Intelligence V2 (tests) | ✓ — 25 tests: learner, dimension gates, hybrid selector, config, integration |
+| [phoenix_v4/quality/ei_v2/hybrid_selector.py](../phoenix_v4/quality/ei_v2/hybrid_selector.py) | Enlightened Intelligence V2 (hybrid) | ✓ — HybridDecision, hybrid_select; V1 pick + optional V2/override |
+| [phoenix_v4/quality/ei_v2/learner.py](../phoenix_v4/quality/ei_v2/learner.py) | Enlightened Intelligence V2 (learner) | ✓ — LearnedParams, load/save_learned_params, FeedbackRecord, log_feedback, load_feedback |
+| [phoenix_v4/quality/ei_v2/dimension_gates.py](../phoenix_v4/quality/ei_v2/dimension_gates.py) | Enlightened Intelligence V2 (gates) | ✓ — gate_uniqueness, gate_engagement, gate_somatic_precision; GateResult, ChapterGateReport |
+| [scripts/ci/run_ei_v2_catalog_calibration.py](../scripts/ci/run_ei_v2_catalog_calibration.py) | Enlightened Intelligence (calibration) | ✓ — Stub: writes minimal calibration report; extend for catalog scan |
+| [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py) | Enlightened Intelligence V2 (tests) | ✓ — 17 tests: learner, dimension gates, hybrid selector, config, integration |
 | [phoenix_title_engine.py](../phoenix_title_engine.py) | Marketing & deep research | ✓ |
 | [phoenix_title_engine_v3.py](../phoenix_title_engine_v3.py) | Marketing & deep research | ✓ |
 | [phoenix_title_engine_v4.py](../phoenix_title_engine_v4.py) | Marketing & deep research | ✓ |
@@ -1825,11 +1872,11 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [phoenix_v4/planning/author_cover_art_resolver.py](../phoenix_v4/planning/author_cover_art_resolver.py) | Book & authoring (Author cover art; pipeline output) | ✓ |
 | [scripts/ci/report_variation_knobs.py](../scripts/ci/report_variation_knobs.py) | Simulation | ✓ |
 | [scripts/ci/run_simulation_10k.py](../scripts/ci/run_simulation_10k.py) | Simulation | ✓ |
-| `scripts/ci/run_simulation_100k.py` | Simulation | ⚠️ missing |
+| [scripts/ci/run_simulation_100k.py](../scripts/ci/run_simulation_100k.py) | Simulation | ✓ — n=100000 (or --n), --use-format-selector, --phase2, --phase3; output artifacts/simulation_100k.json |
 | [scripts/ci/analyze_pearl_prime_sim.py](../scripts/ci/analyze_pearl_prime_sim.py) | Simulation | ✓ |
 | [scripts/ci/run_rigorous_system_test.py](../scripts/ci/run_rigorous_system_test.py) | Simulation | ✓ |
 | [scripts/ci/check_book_output_tier0_contract.py](../scripts/ci/check_book_output_tier0_contract.py) | Manuscript quality | ✓ |
-| `scripts/ci/tier0_trend.py` | Manuscript quality | ⚠️ missing |
+| [scripts/ci/tier0_trend.py](../scripts/ci/tier0_trend.py) | Manuscript quality | ✓ — Stub: tier0 contract trend report; extend for input scan of check outputs |
 | [scripts/ci/run_canary_100_books.py](../scripts/ci/run_canary_100_books.py) | Simulation / Release | ✓ |
 | [scripts/release/rollback_smoke.sh](../scripts/release/rollback_smoke.sh) | Release / DR | ✓ |
 | [scripts/ci/check_norcal_dharma_brand_guards.py](../scripts/ci/check_norcal_dharma_brand_guards.py) | Church & payout | ✓ |
@@ -1837,10 +1884,11 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [scripts/ci/check_system_governance_status.py](../scripts/ci/check_system_governance_status.py) | Governance — all checks + report; optional --fix | ✓ |
 | [scripts/ci/content_coverage_report.py](../scripts/ci/content_coverage_report.py) | Content coverage — atoms + plan + teacher readiness; single report | ✓ |
 | [scripts/rebuild_freebie_index_from_plans.py](../scripts/rebuild_freebie_index_from_plans.py) | Freebies — rebuild index from blessed plans (Gate 16/16b) | ✓ |
+| [funnel/burnout_reset/app.py](../funnel/burnout_reset/app.py) | Freebie funnel | ✓ — Flask: landing, POST /submit, /unsubscribe, /books/<slug>; leads; E1–E5 schedule (APScheduler) |
 | [scripts/ops/smoke_church_brand_resolution.py](../scripts/ops/smoke_church_brand_resolution.py) | Church & payout | ✓ |
 | [phoenix_v4/ops/church_loader.py](../phoenix_v4/ops/church_loader.py) | Church & payout | ✓ |
-| `scripts/translate_atoms_all_locales_cloud.py` | Translation | ⚠️ missing |
-| `scripts/validate_translations.py` | Translation | ⚠️ missing |
-| `scripts/merge_translation_shards.py` | Translation | ⚠️ missing |
-| `scripts/check_golden_translation.py` | Translation | ⚠️ missing |
-| `scripts/native_prompts_eval_learn.py` | Translation | ⚠️ missing |
+| [scripts/translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py) | Translation | ✓ — Stub: implement for parallel sharded translation via API |
+| [scripts/validate_translations.py](../scripts/validate_translations.py) | Translation | ✓ — Stub: implement for structure/glossary/golden validation |
+| [scripts/merge_translation_shards.py](../scripts/merge_translation_shards.py) | Translation | ✓ — Stub: implement to merge shard outputs into locale atom tree |
+| [scripts/check_golden_translation.py](../scripts/check_golden_translation.py) | Translation | ✓ — Stub: implement for golden_translation_regression.yaml check |
+| [scripts/native_prompts_eval_learn.py](../scripts/native_prompts_eval_learn.py) | Translation | ✓ — Stub: implement for native-speaker eval prompts and learn |

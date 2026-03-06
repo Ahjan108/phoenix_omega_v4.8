@@ -236,3 +236,4 @@ Set **after** Stage 3 by the freebie planner. Arc unchanged. Planner may receive
 - [docs/PLANNING_STATUS.md](../docs/PLANNING_STATUS.md) — Freebie pipeline status.
 - [docs/SYSTEMS_V4.md](../docs/SYSTEMS_V4.md) — §7 Freebie and asset pipeline; CTA and freebie anti-spam table (in-book CTA, CTA signature caps, delivery gate, wave CTA diversity).
 - [docs/V4_FEATURES_SCALE_AND_KNOBS.md](../docs/V4_FEATURES_SCALE_AND_KNOBS.md) — Freebie density gate, CTA signature caps, delivery gate, wave CTA diversity (scripts and config).
+- **Marketing funnel & locale:** [docs/FREEBIE_MARKETING_PLAN.md](../docs/FREEBIE_MARKETING_PLAN.md) — Funnel strategy, Proof Loop (E1–E5), GHL, analytics, governance; 4-email MVP vs E5. Landing/funnel URL structure and per-locale rollout are defined there and in [docs/DOCS_INDEX.md](../docs/DOCS_INDEX.md) § Freebie funnel, Proof Loop & launch.
