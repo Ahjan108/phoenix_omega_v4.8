@@ -78,7 +78,17 @@ Requires `python-dotenv`; the script loads it automatically if present. Do not c
 
 ---
 
-## 3. Run the image generator
+## 3. Confirm credentials (optional)
+
+From the repo root, verify that Cloudflare accepts your token and account ID:
+
+```bash
+python3 scripts/video/confirm_cloudflare_credentials.py
+```
+
+On success you’ll see “Credentials confirmed.” On failure you’ll get a clear message (missing vars, invalid token, or wrong account ID).
+
+## 4. Run the image generator
 
 From the repo root:
 
@@ -97,7 +107,7 @@ Output image path: `image_bank/master_prompt_test_<topic>.png` unless `--out` is
 
 ---
 
-## 4. Related docs and config
+## 5. Related docs and config
 
 | Item | Location |
 |------|----------|

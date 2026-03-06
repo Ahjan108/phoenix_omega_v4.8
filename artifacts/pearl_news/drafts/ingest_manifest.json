@@ -1,41 +1,22 @@
 {
-  "build_date": "2026-03-03T08:22:03.148049+00:00",
+  "build_date": "2026-03-06T10:19:46.715126+00:00",
+  "language": "en",
   "feeds_path": "pearl_news/config/feeds.yaml",
-  "limit": 5,
+  "limit": 1,
   "per_feed_limit": null,
-  "item_count": 5,
-  "articles_passed_qc": 5,
-  "articles_output": 5,
+  "item_count": 1,
+  "articles_passed_qc": 0,
+  "articles_validation_failed": 1,
+  "articles_output": 0,
   "items": [
     {
-      "id": "99d6dbe6a6137bad",
-      "title": "World News in Brief: Gaza crossings closed, fighting in Sudan continues, Afghanistan quake victims",
-      "topic": "partnerships",
-      "qc_passed": true
-    },
-    {
-      "id": "094afe22e13a2eb7",
-      "title": "SECURITY COUNCIL LIVE: Melania Trump presides over historic session on children in conflict",
+      "id": "658431c22335edec",
+      "title": "MIDDLE EAST LIVE: Strikes continue across Middle East as humanitarian concerns grow",
       "topic": "peace_conflict",
-      "qc_passed": true
-    },
-    {
-      "id": "fbb04cf8c6693af1",
-      "title": "MIDDLE EAST LIVE: Strikes continue from US, Israel and Iran as UN urges restraint",
-      "topic": "partnerships",
-      "qc_passed": true
-    },
-    {
-      "id": "bbb7d4a9bc8f4109",
-      "title": "Iran crisis: Nuclear watchdog urges restraint amid ongoing strikes",
-      "topic": "partnerships",
-      "qc_passed": true
-    },
-    {
-      "id": "ea16f1a8c4d14f27",
-      "title": "Deadly bombing of Iran primary school ‘a grave violation of humanitarian law’: UNESCO",
-      "topic": "education",
-      "qc_passed": true
+      "language": "en",
+      "qc_passed": false,
+      "validation_passed": false,
+      "teacher": "Ma'at"
     }
   ]
 }
