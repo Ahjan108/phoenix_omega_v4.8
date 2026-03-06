@@ -50,14 +50,14 @@
 
 | Sub-item | Status | Sign-off |
 |----------|--------|----------|
-| `max_loops` = 3 in `comparator_config.yaml` (default) | ☐ | ________ |
-| `max_parallel_sections` ≤ 6 | ☐ | ________ |
-| `max_parallel_books` ≤ 2 | ☐ | ________ |
-| Max simultaneous API calls confirmed ≤ 24 (2×6×2) | ☐ | ________ |
-| Schema startup validation fires on `max_loops` out-of-range | ☐ | ________ |
-| Loop-exhaustion routes to `manual_review` (never auto-pass) | ☐ | ________ |
+| `max_loops` = 3 in `comparator_config.yaml` (default) | ✅ | verified 2026-03-06 |
+| `max_parallel_sections` ≤ 6 | ✅ | verified 2026-03-06 |
+| `max_parallel_books` ≤ 2 | ✅ | verified 2026-03-06 |
+| Max simultaneous API calls confirmed ≤ 24 (2×6×2) | ✅ | verified 2026-03-06 |
+| Schema startup validation fires on `max_loops` out-of-range | ✅ | line 79 run_comparator_loop.py |
+| Loop-exhaustion routes to `manual_review` (never auto-pass) | ✅ | hard_fail_routes_to: manual_review |
 
-**Notes**: _______________________
+**Notes**: All values confirmed programmatically against comparator_config.yaml + run_comparator_loop.py source.
 
 ---
 
@@ -137,12 +137,12 @@
 
 | Sub-item | Status | Sign-off |
 |----------|--------|----------|
-| GitHub Actions workflow for audiobook pipeline present | ☐ | ________ |
-| Regression gate blocks merge on failure | ☐ | ________ |
-| Schema validation in CI (not just runtime) | ☐ | ________ |
-| DOCS_INDEX governance check passes | ☐ | ________ |
+| GitHub Actions workflow for audiobook pipeline present | ✅ | .github/workflows/audiobook-regression.yml |
+| Regression gate blocks merge on failure | ✅ | path-filtered on audiobook files, blocks on schema-and-config job |
+| Schema validation in CI (not just runtime) | ✅ | job 1 validates config + checklist + schema + prompts + golden set |
+| DOCS_INDEX governance check passes | ☐ | run after next docs-ci push |
 
-**Notes**: _______________________
+**Notes**: CI workflow created 2026-03-06. Job 1 (schema-and-config) runs on ubuntu-latest, no LM Studio. Job 2 (golden-regression) self-hosted, manual dispatch only.
 
 ---
 
