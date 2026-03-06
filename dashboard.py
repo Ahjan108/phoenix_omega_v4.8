@@ -91,10 +91,20 @@ with tab_pearl_news:
         if build_manifest.exists():
             import json
             with open(build_manifest) as f:
-                manifest = json.load(f)
-            st.metric("Articles written", manifest.get("articles_written", 0))
-            st.metric("Build date", manifest.get("build_date", "—")[:10])
-            st.caption(f"Language: {manifest.get('language', '—')}")
+                manifest_data = json.load(f)
+            # build_manifests.json is a list of article records
+            records = manifest_data if isinstance(manifest_data, list) else [manifest_data]
+            st.metric("Articles written", len(records))
+            if records:
+                latest = records[-1]
+                built_at = latest.get("built_at", "—")[:10]
+                st.metric("Build date", built_at)
+                lang = latest.get("language", "—")
+                passed = latest.get("validation", {}).get("passed", None)
+                gates = latest.get("validation", {}).get("passed_count", "?")
+                total = latest.get("validation", {}).get("gate_count", "?")
+                status = "✅" if passed else "⚠️"
+                st.caption(f"Language: {lang} · Validation: {status} {gates}/{total} gates")
         else:
             st.info("No build manifest yet — run the pipeline first.")
 
