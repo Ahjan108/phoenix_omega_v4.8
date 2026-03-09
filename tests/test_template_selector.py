@@ -61,3 +61,18 @@ class TestCustomMapping:
         override = {"mental_health": "explainer_context"}
         result = select_templates(items, topic_to_template=override)
         assert result[0]["template_id"] == "explainer_context"
+
+
+class TestEqualMixBalancing:
+    def test_equal_mix_for_10_items(self):
+        items = [{"id": f"item_{i}", "topic": "mental_health"} for i in range(10)]
+        result = select_templates(items)
+        counts = {}
+        for row in result:
+            counts[row["template_id"]] = counts.get(row["template_id"], 0) + 1
+
+        assert counts["hard_news_spiritual_response"] == 2
+        assert counts["youth_feature"] == 2
+        assert counts["interfaith_dialogue_report"] == 2
+        assert counts["explainer_context"] == 2
+        assert counts["commentary"] == 2

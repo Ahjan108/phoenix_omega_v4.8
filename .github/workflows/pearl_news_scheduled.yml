@@ -39,8 +39,8 @@ jobs:
       QWEN_BASE_URL: ${{ secrets.QWEN_BASE_URL }}
       QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
       QWEN_MODEL: ${{ secrets.QWEN_MODEL }}
-      # Schedule = no expand (reliable drafts). For manual expand run: use pearl_news_manual_expand.yml
-      PEARL_NEWS_EXPAND: "false"
+      # Scheduled run is publish-grade: expand + validate + image select + strict gates.
+      PEARL_NEWS_EXPAND: "true"
       PEARL_NEWS_LIMIT: "3"
     steps:
       - uses: actions/checkout@v4
@@ -115,9 +115,8 @@ jobs:
         run: |
           LANG="${{ steps.lang.outputs.language }}"
           EXPAND_FLAG=""
-          VALIDATE_FLAG=""
           if [ "$PEARL_NEWS_EXPAND" = "true" ]; then
-            EXPAND_FLAG="--expand --validate"
+            EXPAND_FLAG="--expand --validate --select-image --strict-publish-grade --repair-max-attempts 3"
           fi
           for attempt in 1 2; do
             echo "attempt=${attempt}"
@@ -144,23 +143,32 @@ jobs:
           done
 
       - name: Upload draft artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: pearl_news_drafts_${{ steps.lang.outputs.language }}
           path: artifacts/pearl_news/drafts/
           retention-days: 7
 
-      - name: Test WordPress integration (dry-run or post)
+      - name: Push to WordPress (publish 1, draft others)
         run: |
           shopt -s nullglob
-          first=$(ls -1 artifacts/pearl_news/drafts/*/article_*.json artifacts/pearl_news/drafts/article_*.json 2>/dev/null | head -1)
-          if [ -z "$first" ]; then
+          files=(artifacts/pearl_news/drafts/*/article_*.json artifacts/pearl_news/drafts/article_*.json)
+          if [ "${#files[@]}" -eq 0 ]; then
             echo "No article_*.json found; skipping"
             exit 0
           fi
           if [ -z "$WORDPRESS_APP_PASSWORD" ]; then
-            python3 scripts/pearl_news_post_to_wp.py --article "$first" --dry-run
+            echo "WordPress credentials missing; running dry-run on first article only."
+            python3 scripts/pearl_news_post_to_wp.py --article "${files[0]}" --dry-run
           else
-            python3 scripts/pearl_news_post_to_wp.py --article "$first" --status draft
+            idx=0
+            for f in "${files[@]}"; do
+              if [ "$idx" -eq 0 ]; then
+                python3 scripts/pearl_news_post_to_wp.py --article "$f" --status publish
+              else
+                python3 scripts/pearl_news_post_to_wp.py --article "$f" --status draft
+              fi
+              idx=$((idx+1))
+            done
           fi
-        continue-on-error: true

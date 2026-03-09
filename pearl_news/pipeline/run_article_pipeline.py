@@ -28,6 +28,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -60,6 +61,82 @@ LANGUAGE_LABELS = {
     "ja": "Japanese",
     "zh-cn": "Simplified Chinese",
 }
+
+TOPIC_TITLE_MAP = {
+    "mental_health": "Mental Health",
+    "education": "Education",
+    "peace_conflict": "Peace and Conflict",
+    "inequality": "Inequality",
+    "climate": "Climate",
+    "economy_work": "Work and Economy",
+    "partnerships": "Global Partnerships",
+    "general": "Global Affairs",
+}
+
+
+def _headline_topic(topic: str) -> str:
+    return TOPIC_TITLE_MAP.get(topic, topic.replace("_", " ").title() if topic else "Global Affairs")
+
+
+def _build_contextual_title(item: dict[str, Any]) -> str:
+    """
+    Build a non-RSS-restatement title using teacher + youth + SDG context.
+    """
+    teacher = item.get("_teacher_resolved") or {}
+    teacher_name = teacher.get("display_name") or "Forum Teacher"
+    sdg = str(item.get("primary_sdg") or "17")
+    topic_label = _headline_topic(item.get("topic") or "general")
+    return f"{teacher_name} on {topic_label}: What It Means for Youth and SDG {sdg}"
+
+
+def _replace_h1(content: str, new_title: str) -> str:
+    if not content:
+        return content
+    if re.search(r"<h1[^>]*>.*?</h1>", content, re.IGNORECASE | re.DOTALL):
+        return re.sub(
+            r"<h1[^>]*>.*?</h1>",
+            f"<h1>{new_title}</h1>",
+            content,
+            count=1,
+            flags=re.IGNORECASE | re.DOTALL,
+        )
+    return f"<h1>{new_title}</h1>\n\n{content}"
+
+
+def _qc_failed_gate_ids(item: dict[str, Any]) -> list[str]:
+    qc = item.get("qc_results") or {}
+    return [
+        gate for gate, status in qc.items()
+        if gate != "timestamp" and status == "FAIL"
+    ]
+
+
+def _build_repair_feedback(item: dict[str, Any]) -> str:
+    parts: list[str] = []
+    if item.get("_expansion_failed"):
+        parts.append("Expansion failed previously. Produce complete HTML and preserve all required sections.")
+    failed_validation = (item.get("_validation") or {}).get("failed_gates") or []
+    if failed_validation:
+        parts.append(f"Fix validation gates: {', '.join(failed_validation)}.")
+    failed_qc = _qc_failed_gate_ids(item)
+    if failed_qc:
+        parts.append(f"Fix quality gates: {', '.join(failed_qc)}.")
+    if not parts:
+        parts.append("Improve clarity, specificity, and compliance while preserving facts and source line.")
+    return " ".join(parts)
+
+
+def _is_llm_connectivity_failure(item: dict[str, Any]) -> bool:
+    if not item.get("_expansion_failed"):
+        return False
+    msg = str(item.get("_expansion_error") or "").lower()
+    if not msg:
+        return True
+    connectivity_markers = [
+        "connect", "connection", "timeout", "timed out", "refused",
+        "unreachable", "network", "503", "502", "api connection",
+    ]
+    return any(marker in msg for marker in connectivity_markers)
 
 
 def _build_manifest_item(item: dict[str, Any]) -> dict[str, Any]:
@@ -162,6 +239,17 @@ def main() -> int:
         help="Run rule-based featured image selection using image_catalog.yaml",
     )
     ap.add_argument(
+        "--strict-publish-grade",
+        action="store_true",
+        help="Fail hard unless all items pass expansion+validation+QC; no fallback output.",
+    )
+    ap.add_argument(
+        "--repair-max-attempts",
+        type=int,
+        default=2,
+        help="Strict mode: max rewrite repair rounds for failed items (default: 2).",
+    )
+    ap.add_argument(
         "-v",
         "--verbose",
         action="store_true",
@@ -198,6 +286,9 @@ def main() -> int:
                 lang_args_list.append("--validate")
             if args.select_image:
                 lang_args_list.append("--select-image")
+            if args.strict_publish_grade:
+                lang_args_list.append("--strict-publish-grade")
+                lang_args_list.append(f"--repair-max-attempts={args.repair_max_attempts}")
             if args.verbose:
                 lang_args_list.append("--verbose")
             if args.no_filter_qc:
@@ -226,9 +317,13 @@ def main() -> int:
     atoms_root = root / "atoms" / "teacher_quotes_practices"
 
     logger.info(
-        "Pipeline start: language=%s out_dir=%s expand=%s validate=%s",
-        language, out_dir, args.expand, args.validate,
+        "Pipeline start: language=%s out_dir=%s expand=%s validate=%s strict=%s",
+        language, out_dir, args.expand, args.validate, args.strict_publish_grade,
     )
+
+    if args.strict_publish_grade and (not args.expand or not args.validate):
+        logger.error("--strict-publish-grade requires both --expand and --validate")
+        return 1
 
     # Step 1: Ingest
     try:
@@ -270,27 +365,97 @@ def main() -> int:
         teacher = resolve_teacher(item, config_root=config_root, atoms_root=atoms_root)
         item["_teacher_resolved"] = teacher
 
-    # Step 4b: Optional LLM expansion (v2: injects teacher, research, language, audience)
-    if args.expand:
-        items = run_expansion(items, config_root=config_root)
+    # Refine H1/article titles so they are contextual (not RSS-title restatements).
+    for item in items:
+        new_title = _build_contextual_title(item)
+        item["article_title"] = new_title
+        item["content"] = _replace_h1(item.get("content") or "", new_title)
 
-    # Step 4c (NEW): Post-expansion validation gates
-    if args.validate and args.expand:
-        items = run_validation(items)
-        n_failed = sum(1 for i in items if i.get("_validation_failed"))
-        if n_failed:
-            logger.warning(
-                "%d articles failed validation gates and need manual review", n_failed
-            )
+    # Step 4b/4c/5: Expansion + validation + QC (with strict repair loop if enabled)
+    repair_round = 0
+    max_rounds = max(0, int(args.repair_max_attempts)) if args.strict_publish_grade else 0
+    while True:
+        if args.expand:
+            items = run_expansion(items, config_root=config_root)
+        if args.validate and args.expand:
+            items = run_validation(items)
+        items = run_quality_gates(items)
+
+        failed_ids: list[str] = []
+        for item in items:
+            article_id = str(item.get("id") or "")
+            failed = bool(item.get("_expansion_failed")) or bool(item.get("_validation_failed")) or (not item.get("qc_passed", False))
+            if failed:
+                failed_ids.append(article_id)
+                item["_repair_feedback"] = _build_repair_feedback(item)
+                item["_needs_manual_review"] = True
+
+        if not failed_ids:
+            break
+        if not args.strict_publish_grade or repair_round >= max_rounds:
+            break
+
+        repair_round += 1
+        logger.warning(
+            "Strict publish-grade repair round %d/%d for failed articles: %s",
+            repair_round, max_rounds, ", ".join(failed_ids),
+        )
+        for item in items:
+            if str(item.get("id") or "") in failed_ids:
+                item["_expansion_failed"] = False
+                item["_validation_failed"] = False
 
     # Step 4d (NEW): Rule-based featured image selection
     if args.select_image:
         items = run_image_selection(items, config_root=config_root)
 
-    # Step 5: Quality gates (sets qc_results, qc_passed on each)
-    items = run_quality_gates(items)
     # Step 6: QC checklist (optionally filter to passed only)
     articles_to_output = run_qc_checklist(items, filter_to_passed=not args.no_filter_qc)
+
+    strict_failures = [
+        item for item in items
+        if item.get("_expansion_failed") or item.get("_validation_failed") or (not item.get("qc_passed", False))
+    ]
+    if args.strict_publish_grade and strict_failures:
+        failure_report = {
+            "language": language,
+            "strict_publish_grade": True,
+            "repair_rounds_used": repair_round,
+            "failed_count": len(strict_failures),
+            "failed_items": [
+                {
+                    "id": i.get("id"),
+                    "title": i.get("article_title") or i.get("title"),
+                    "expansion_failed": bool(i.get("_expansion_failed")),
+                    "expansion_error": i.get("_expansion_error"),
+                    "validation_failed_gates": (i.get("_validation") or {}).get("failed_gates", []),
+                    "qc_failed_gates": _qc_failed_gate_ids(i),
+                    "llm_connectivity_blocked": _is_llm_connectivity_failure(i),
+                }
+                for i in strict_failures
+            ],
+        }
+        failure_path = out_dir / "strict_publish_grade_failures.json"
+        failure_path.write_text(json.dumps(failure_report, indent=2, ensure_ascii=False), encoding="utf-8")
+
+        connectivity_blocked = any(_is_llm_connectivity_failure(i) for i in strict_failures)
+        if connectivity_blocked:
+            retry_flag = {
+                "status": "blocked_waiting_for_llm_connectivity",
+                "language": language,
+                "retry_when": "llm_connectivity_restored",
+                "failure_report": str(failure_path),
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+            }
+            (out_dir / "llm_retry_pending.json").write_text(
+                json.dumps(retry_flag, indent=2, ensure_ascii=False),
+                encoding="utf-8",
+            )
+        logger.error(
+            "Strict publish-grade failed: %d article(s) did not pass expansion/validation/QC. See %s",
+            len(strict_failures), failure_path,
+        )
+        return 1
 
     # Ingest manifest
     build_date = datetime.now(timezone.utc).isoformat()

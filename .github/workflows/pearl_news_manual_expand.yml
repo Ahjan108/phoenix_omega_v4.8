@@ -104,7 +104,9 @@ jobs:
               --language "$PEARL_NEWS_LANGUAGE" \
               --expand \
               --validate \
-              --select-image && exit 0
+              --select-image \
+              --strict-publish-grade \
+              --repair-max-attempts 3 && exit 0
             if [ "$attempt" -eq 2 ]; then
               echo "pipeline failed after retry"
               exit 1
@@ -113,23 +115,32 @@ jobs:
           done
 
       - name: Upload draft artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: pearl_news_drafts_${{ inputs.language || 'en' }}
           path: artifacts/pearl_news/drafts/
           retention-days: 7
 
-      - name: Test WordPress integration (dry-run or post)
+      - name: Push to WordPress (publish 1, draft others)
         run: |
           shopt -s nullglob
-          first=$(ls -1 artifacts/pearl_news/drafts/*/article_*.json artifacts/pearl_news/drafts/article_*.json 2>/dev/null | head -1)
-          if [ -z "$first" ]; then
+          files=(artifacts/pearl_news/drafts/*/article_*.json artifacts/pearl_news/drafts/article_*.json)
+          if [ "${#files[@]}" -eq 0 ]; then
             echo "No article_*.json found; skipping"
             exit 0
           fi
           if [ -z "$WORDPRESS_APP_PASSWORD" ]; then
-            python3 scripts/pearl_news_post_to_wp.py --article "$first" --dry-run
+            echo "WordPress credentials missing; running dry-run on first article only."
+            python3 scripts/pearl_news_post_to_wp.py --article "${files[0]}" --dry-run
           else
-            python3 scripts/pearl_news_post_to_wp.py --article "$first" --status draft
+            idx=0
+            for f in "${files[@]}"; do
+              if [ "$idx" -eq 0 ]; then
+                python3 scripts/pearl_news_post_to_wp.py --article "$f" --status publish
+              else
+                python3 scripts/pearl_news_post_to_wp.py --article "$f" --status draft
+              fi
+              idx=$((idx+1))
+            done
           fi
-        continue-on-error: true

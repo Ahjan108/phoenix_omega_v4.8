@@ -202,6 +202,7 @@ def expand_article_with_llm(
     rss_date: str = "",
     rss_source_url: str = "",
     research_excerpt: str = "",
+    repair_feedback: str = "",
 ) -> str | None:
     """
     Call OpenAI-compatible API to expand article HTML toward target_word_count.
@@ -263,6 +264,13 @@ def expand_article_with_llm(
         region_label = region
 
     # --- Full user message ---
+    repair_block = ""
+    if repair_feedback.strip():
+        repair_block = (
+            "\nREPAIR FEEDBACK FROM FAILED GATES (must fix all):\n"
+            f"{repair_feedback.strip()}\n"
+        )
+
     user_prompt = f"""Expand and improve the following Pearl News draft article to approximately {target_word_count} words.
 
 ARTICLE LANGUAGE: {lang_label}
@@ -277,6 +285,7 @@ Date: {rss_date}
 
 SDG: {primary_sdg} — {sdg_label}
 TOPIC: {topic}
+{repair_block}
 
 TEACHER KNOWLEDGE BASE:
 {teacher_block}
@@ -375,6 +384,7 @@ def run_expansion(
 
         # Research excerpt (from item or embedded KB)
         research_excerpt = item.get("_research_excerpt") or ""
+        repair_feedback = item.get("_repair_feedback") or ""
 
         # RSS fields for user message context
         rss_title = item.get("raw_title") or item.get("title") or title
@@ -406,9 +416,11 @@ def run_expansion(
                     rss_date=rss_date,
                     rss_source_url=rss_source_url,
                     research_excerpt=research_excerpt,
+                    repair_feedback=repair_feedback,
                 )
             except Exception as e:
                 logger.warning("Expansion attempt %d failed for %s: %s", attempt, item.get("id"), e)
+                item["_expansion_error"] = str(e)
             attempt += 1
 
         if expanded:
