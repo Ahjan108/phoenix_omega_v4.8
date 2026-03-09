@@ -1,12 +1,39 @@
 # Landing page sections per hub: hero, authority, problem, solution, CTA.
 # Phase 1: static copy; Phase 2: consumer_language / invisible_script by topic.
-# Authority narrative (Section 2): Nihala's paragraph only; copywriter one light edit.
+#
+# authority_narrative: Tied to the author of the book that the hub's freebie leads to.
+# For author-bound hubs → written in the pen-name author's voice (from approved bio/why_this_book).
+# For brand-level hubs → Pearl Prime §2 voice: no "we", no tentative language, precision over credentials.
+# 150–200 words per hub. Authors never cross brands (author_registry.yaml).
 # See specs/FUNNEL_AND_BOOK_COPY_WRITER_SPEC.md §1 for format and validity rules.
+#
+# A/B testing schema (per FUNNEL_AND_BOOK_COPY_WRITER_SPEC §4):
+#   hero_headline_variants:   # optional list; app can serve by rotation or test logic
+#     - label: "control"
+#       headline: "Reset your nervous system in 60 seconds"
+#     - label: "teaching_language"
+#       headline: "When Your Body Won't Turn Off"
+#   Test protocol: define control, variant(s), metric (submit rate), sample size (min 200 visits).
+#   At least one variant MUST use Nihala's teaching language. Nihala approves final.
 
 burnout_reset:
   hero_headline: "Reset your nervous system in 60 seconds"
   hero_subhead: "One breath. No sign-up walls. Use it when you need it."
-  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE (3–5 sentences, her voice)
+  authority_narrative: >-
+    Luna started writing this after noticing a pattern: the people she worked
+    with had already read the articles, downloaded the apps, started the gratitude
+    journals. They could name burnout correctly in conversation. And they were
+    still burning. The knowledge was not the problem. The body was. Burnout had
+    settled into the nervous system — not as a mood but as a state. The
+    shoulders stayed up. The breathing stayed shallow. The alarm system kept
+    running even when the calendar said rest. She had seen this pattern in
+    nurses between shifts, in teachers after the last bell, in founders who
+    could not stop scanning email at midnight. The interventions that worked
+    were never the ones that required more effort. They were the ones that
+    interrupted the state directly — one breath that shifted the autonomic
+    balance long enough for the body to remember what regulation felt like.
+    That is what this practice does. One reset. No app. No account. Just the
+    breath your nervous system has been waiting for.
   problem: "Burnout doesn't fix itself with more rest. Your body is stuck in go-mode — and the same breath pattern that got you here can get you out."
   solution: "A single, research-backed reset. No app, no account. Just the practice."
   cta: "Yes — I'm ready to start"
@@ -14,7 +41,20 @@ burnout_reset:
 anxiety_reset:
   hero_headline: "When your mind won't stop"
   hero_subhead: "A 2-minute practice that actually shifts your state."
-  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  authority_narrative: >-
+    Anxiety does not start in the mind. It starts in the body — a tightness
+    in the chest, a shallow breath pattern, a heart rate that spikes before
+    the thought has fully formed. Most resources for anxiety treat it as a
+    thinking problem. They offer reframes, mantras, cognitive restructuring.
+    And for many people, those tools arrive too late — the body has already
+    entered the state, and no amount of rational argument will override a
+    nervous system in threat mode. This practice works before the thought.
+    Box breathing creates a rhythm that directly activates the parasympathetic
+    system — the branch of the nervous system responsible for the shift from
+    alert to calm. Four counts in, four held, four out, four held. The
+    pattern is simple enough to use in a meeting, a car, a bathroom stall.
+    It does not require belief. It does not require a diagnosis. It requires
+    four breaths and sixty seconds. The nervous system does the rest.
   problem: "Anxiety lives in the body before it hits the mind. Telling yourself to relax rarely works."
   solution: "This practice works with your nervous system — not against it."
   cta: "Get the free practice"
@@ -22,7 +62,20 @@ anxiety_reset:
 boundaries_reset:
   hero_headline: "When you know the boundary but can't say it"
   hero_subhead: "A breathing practice that lets your body lead — so the words can follow."
-  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  authority_narrative: >-
+    Boundary work fails at the moment it matters most — not because the person
+    lacks knowledge, but because the nervous system floods before the words
+    form. The throat closes. The rehearsed script vanishes. Afterward, the
+    frustration doubles: once for not speaking and again for knowing better.
+    This pattern is consistent across professions, income levels, and
+    personality types. It is not a personality deficiency. It is a regulation
+    problem. The body enters a threat state, and threat states do not produce
+    clear speech. They produce freeze, appease, or explode — none of which are
+    boundaries. The practice offered here does one thing before the words: it
+    brings the nervous system out of flood state. Extended exhale breathing
+    shifts the autonomic balance long enough for the prefrontal cortex to
+    participate in what happens next. The boundary does not require courage
+    first. It requires regulation first. This practice is that regulation.
   problem: "You've read every article. You know what you should say. But when the moment arrives, something in your body overrides what your mind decided. That isn't weakness — it's a nervous system pattern."
   solution: "One practice to regulate before you respond. The boundary starts with your breath, not your words."
   cta: "Get the free practice"
@@ -30,7 +83,20 @@ boundaries_reset:
 compassion_fatigue_reset:
   hero_headline: "You can't pour from an empty nervous system"
   hero_subhead: "A grounding practice for the ones who hold everyone else together."
-  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  authority_narrative: >-
+    Compassion fatigue does not look like the dramatic burnout that makes
+    headlines. It looks like holding a warm coffee cup every morning and not
+    tasting it. It looks like dreaming someone else's stories. It looks like
+    efficiency without presence — a body that shows up and performs care while
+    something essential has gone offline. The people carrying this are not
+    weak. They gave too much without a return signal, and the nervous system
+    adjusted by going numb. The numbness is protective. It is also expensive.
+    Five-senses grounding does one thing: it brings the senses back to present
+    tense. Five things seen. Four heard. Three touched. Two smelled. One
+    tasted. Not someone else's crisis. Not the patient's vitals. Not the
+    client's emergency. Your body. Your senses. Right now. The practice is a
+    return signal — the one the nervous system stopped sending when it ran out
+    of bandwidth.
   problem: "You spend your days absorbing other people's pain. You're not burned out from working too hard — you're burned out from feeling too much without a reset."
   solution: "A sensory grounding practice that brings you back to your own body. No app. No waiting list. Just the practice."
   cta: "Get the free practice"
@@ -38,7 +104,20 @@ compassion_fatigue_reset:
 depression_reset:
   hero_headline: "When everything feels flat"
   hero_subhead: "A walking practice that reconnects breath and movement — gently."
-  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  authority_narrative: >-
+    Depression, as it presents in the body, often arrives not as sadness but
+    as flatness. The nervous system has pulled the emergency brake and will not
+    release it. The person has not lost intelligence or will. They have lost
+    access to the activation system that converts intention into movement. Most
+    resources for depression require the very thing depression removes:
+    initiative. They ask someone to start a routine, build a habit, take a
+    first step — when the body has already decided that stillness is the
+    safest available option. This practice does not require initiative. It
+    pairs breath with the smallest possible movement. Twelve steps. Bed to
+    kitchen. That is the whole practice. Breath-walking does not ask the body
+    to override its shutdown. It works inside it — using rhythmic breath to
+    nudge the activation system back online, one step at a time. It starts
+    where the body actually is.
   problem: "Depression isn't always sadness. Sometimes it's the absence of feeling anything at all. Your nervous system downregulated to protect you — and forgot to come back."
   solution: "A breath-and-movement practice that doesn't ask you to feel better. It asks your body to move — and lets feeling follow."
   cta: "Get the free practice"
@@ -46,7 +125,20 @@ depression_reset:
 financial_anxiety_reset:
   hero_headline: "When money stress lives in your chest"
   hero_subhead: "A breathing practice that calms the panic before you open the app."
-  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  authority_narrative: >-
+    Financial anxiety attaches threat signals to the act of looking. The
+    numbers themselves are often not the problem. The problem is that the
+    nervous system has learned to treat financial information as a source of
+    danger — and no spreadsheet, budget app, or financial literacy course
+    overrides a threat response. The avoidance compounds. The gap between what
+    someone knows they should do and what their body lets them do grows wider
+    each month. Opening the bank app requires a window of nervous system
+    regulation. Without that window, the app stays closed and the anxiety
+    justifies itself with each passing statement. This practice interrupts the
+    spiral at the body level. Triangle breathing creates a measured rhythm that
+    shifts the autonomic state from threat to tolerance — long enough to open
+    the app, read the number, and respond from regulation instead of from the
+    flinch.
   problem: "Financial anxiety isn't a budgeting problem. It's a nervous system problem that shows up every time you check your balance, open a bill, or hear the word 'retirement.'"
   solution: "A simple breathing pattern that interrupts the spiral — so you can think clearly about money instead of reacting to it."
   cta: "Get the free practice"
@@ -54,7 +146,19 @@ financial_anxiety_reset:
 grief_reset:
   hero_headline: "When grief shows up in your body"
   hero_subhead: "A practice for the weight that words can't reach."
-  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  authority_narrative: >-
+    Grief does not follow the stages. It settles into the body — the
+    shoulders, the chest, the held breath that no one notices because the
+    person holding it has learned to appear functional. The weight is not
+    conceptual. It is physical. And it does not lighten on a timeline. Most
+    resources for grief address the mind: reframe, accept, find meaning. They
+    skip the body entirely. But the body is where grief lives — not as an
+    emotion to be processed, but as a weight to be carried differently.
+    Tonglen breathing gives grief a rhythm. Inhale what is present. Exhale
+    what is wished for. Not to resolve the loss. Not to reframe it. To create
+    enough movement that the weight shifts from static to something the body
+    can carry without bracing against it continuously. This practice does not
+    fix grief. It gives the body something to do with it.
   problem: "Grief doesn't follow stages. It shows up as tightness in the chest, shallow breathing, a heaviness that doesn't lift. Your body is carrying what your mind has already processed."
   solution: "A compassion-based breathing practice that meets the grief where it lives — in the body — without asking you to move past it."
   cta: "Get the free practice"
@@ -62,7 +166,19 @@ grief_reset:
 imposter_syndrome_reset:
   hero_headline: "When your own success feels like a mistake"
   hero_subhead: "A reset for the moment before you convince yourself you don't belong."
-  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  authority_narrative: >-
+    Imposter syndrome does not correlate with incompetence. It correlates with
+    velocity. The faster someone advances through roles, titles, and
+    responsibilities, the less time the body has to register that the new
+    floor is solid. The promotions arrive. The nervous system does not update.
+    And so the body prepares for every room as though exposure is imminent,
+    even when the evidence says otherwise. This is not a confidence problem
+    that self-talk can resolve. It is a body state — a held breath, a locked
+    jaw, a posture that braces for judgment that is not coming. The
+    sigh-of-relief practice releases the held breath pattern directly. One
+    full inhale followed by a second stacked inhale and a long, audible
+    exhale. The chest drops. The jaw unclenches. The body receives one signal:
+    the floor is solid. Stand on it.
   problem: "Imposter syndrome doesn't care about your résumé. It activates in the body — racing heart, tight throat, shallow breath — right when you need to show up most."
   solution: "A quick nervous system reset that breaks the freeze response — so you can walk into the room as yourself."
   cta: "Get the free practice"
@@ -70,7 +186,21 @@ imposter_syndrome_reset:
 overthinking_reset:
   hero_headline: "When your mind won't let go"
   hero_subhead: "A breathing practice that interrupts the loop — in under three minutes."
-  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  authority_narrative: >-
+    Diane started writing about this pattern during her third year off the
+    floor, when she realized she was still running clinical simulations in her
+    head at 2am — not for any active patient, but because her nervous system
+    had not received the memo that the shift was over. Overthinking, as she
+    understood it from decades of clinical work, is not a thinking problem. It
+    is a scanning problem. The nervous system locks into threat detection mode
+    and will not release until it receives a physiological signal that the
+    environment is safe. No amount of journaling, reframing, or meditation
+    apps can override an autonomic state with a cognitive tool. 4-7-8
+    breathing sends that physiological signal directly. The extended exhale
+    activates the vagus nerve, shifts the autonomic balance, and interrupts
+    the scan loop. The thinking does not stop because you decided to stop. It
+    stops because the body received a signal that scanning is no longer
+    required.
   problem: "Overthinking isn't a thinking problem. It's a nervous system stuck in scan mode — looking for threats that aren't there. More analysis won't fix it. Your body has to shift first."
   solution: "A timed breathing practice that down-regulates the scan response. No journaling. No reframing. Just breath and a timer."
   cta: "Get the free practice"
@@ -78,7 +208,19 @@ overthinking_reset:
 self_worth_reset:
   hero_headline: "When you don't feel like enough"
   hero_subhead: "A practice that meets the ache before the story kicks in."
-  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  authority_narrative: >-
+    Self-worth, as it presents in the body, is not a belief that can be
+    installed through repetition. It is a somatic state — a felt sense of
+    being safe enough to take up space. When that state was never established
+    or was interrupted early, no affirmation script reaches the layer where
+    the signal originates. The people carrying this pattern have done the work
+    at the cognitive level. They know the arguments. They can articulate their
+    value in a performance review. And the feeling has not landed, because the
+    body was not included in the conversation. This practice works at the
+    level of rhythm and breath — the frequency at which the nervous system
+    registers safety. Not relaxation as a concept. Regulation as a measurable
+    shift in heart rate variability. One entry point into the signal the body
+    has been waiting for.
   problem: "Low self-worth isn't a belief you can think your way out of. It lives deeper — in how you hold your breath when someone compliments you, in the flinch before you share your work."
   solution: "A loving-kindness breathing practice that bypasses the inner critic and speaks directly to the nervous system."
   cta: "Get the free practice"
@@ -86,7 +228,19 @@ self_worth_reset:
 sleep_anxiety_reset:
   hero_headline: "When you can't stop thinking at bedtime"
   hero_subhead: "A breathing practice that tells your nervous system it's safe to rest."
-  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  authority_narrative: >-
+    Sleep anxiety is not insomnia in the clinical sense. It is a nervous
+    system that has not received the signal that the day is over. The threat
+    scan that was useful at 3pm is still running at midnight — not because the
+    person is anxious about sleep, but because the body never transitioned out
+    of vigilance. The apps, the supplements, the dark rooms and weighted
+    blankets address the environment. They do not address the autonomic state.
+    Coherence breathing at five breaths per minute shifts heart rate
+    variability into the specific range the body associates with safety. Not
+    relaxation as a feeling — regulation as a measurable state. The
+    parasympathetic system engages. The scanning stops. This practice sends
+    one signal to a nervous system that has been running all day: the shift is
+    over. Power down.
   problem: "Sleep anxiety isn't about sleep. It's about a nervous system that won't downshift — replaying the day, rehearsing tomorrow, scanning for threats in the dark."
   solution: "A coherence breathing practice timed to your body's natural rest rhythm. No screens. No supplements. Just breath."
   cta: "Get the free practice"
@@ -94,7 +248,20 @@ sleep_anxiety_reset:
 social_anxiety_reset:
   hero_headline: "When being around people drains everything"
   hero_subhead: "A practice you can use before, during, or after — without anyone noticing."
-  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  authority_narrative: >-
+    Marcus began writing about social anxiety after a pattern became impossible
+    to ignore: the people he worked with managed teams, closed deals, and ran
+    rooms. They also spent significant energy before, during, and after nearly
+    every encounter calculating how they were received. The anxiety was
+    rational — social environments carry real consequences. The cost of
+    carrying the scanning was not. The body was running threat detection
+    calibrated for rejection in every room, including rooms full of allies.
+    Bee breath activates the vagus nerve through vibration — the humming
+    creates a resonance in the chest cavity that directly shifts the autonomic
+    state from social threat to social tolerance. The practice is quiet enough
+    to use in a bathroom before a meeting. It does not require the anxiety to
+    be irrational. It requires the nervous system to downregulate the
+    scanning long enough for the person to enter the room without bracing.
   problem: "Social anxiety isn't shyness. It's a nervous system on high alert in the presence of other people — scanning faces, anticipating rejection, bracing for judgment."
   solution: "A humming breath practice that activates the vagus nerve and calms the social threat response. Quiet enough to use anywhere."
   cta: "Get the free practice"
@@ -102,7 +269,19 @@ social_anxiety_reset:
 somatic_healing_reset:
   hero_headline: "When your body remembers what your mind moved past"
   hero_subhead: "A practice for the tension that doesn't have a name."
-  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  authority_narrative: >-
+    The body stores what the mind moves past. That storage has a cost: tension
+    that persists after the event, a startle response that outlives the threat,
+    muscles bracing for a situation that ended years ago. Somatic healing is
+    not a wellness category. It is the recognition that cognitive processing
+    alone does not reach what the body is holding. Many people have already
+    addressed the cognitive dimension. They understand what happened. They have
+    processed it verbally, sometimes for years. But the body did not receive
+    the update. The shoulders did not get the memo. The jaw did not unclench.
+    A body scan practice moves attention through the body, breath by breath.
+    Not forcing release. Not demanding relaxation. Just noticing what is there
+    and breathing with it until the nervous system registers that the bracing
+    can stop. Not all at once. Region by region. Breath by breath.
   problem: "You've done the therapy. You understand the story. But your body still holds it — in your shoulders, your jaw, the catch in your breath that shows up without warning."
   solution: "A body scan breathing practice that meets the stored tension region by region. Not to fix it. To let your nervous system know it's been heard."
   cta: "Get the free practice"

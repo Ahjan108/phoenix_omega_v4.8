@@ -86,17 +86,21 @@ When you’re asked to “write for all hubs/topics/personas,” you’re coveri
 
 ### What it is
 
-The **single highest-leverage block of copy on the funnel page.** It sits between Hero and Problem (Section 2). It establishes *who this is from* and *why they can be trusted* — in **Nihala’s voice**, drawing from **her actual arc**, not a brand voice or a generic expert.
+The **single highest-leverage block of copy on the funnel page.** It sits between Hero and Problem (Section 2). It establishes *who this is from* and *why they can be trusted.* The authority narrative is **tied to the author of the book that the hub’s freebie leads to:**
+
+- **Author-bound hubs** (where a registered pen-name author exists for that topic): the authority narrative is written **in that author’s voice**, drawing from their approved bio and `why_this_book` assets. The author’s lived experience and positioning ground the narrative.
+- **Brand-level hubs** (where no registered author exists): the authority narrative is written **in Phoenix Protocol brand voice** — Pearl Prime §2: no “we”, no tentative language, no inspirational claims. Authority from precision, not credentials.
 
 ### Who writes it
 
-- **Author:** Nihala only. No copywriter can source this; it must come from her lived experience and positioning.
-- **Edit:** One **light copyedit pass** by a copywriter for clarity and rhythm only. No substantive change to meaning or voice.
+- **Author-bound hubs:** The assigned pen-name author (e.g. Luna Hart for burnout_reset, Marcus Cole for social_anxiety_reset, Diane Reyes for overthinking_reset). Copywriter may do one light edit for clarity and rhythm. See `config/freebies/author_funnel_bridge.yaml` for the full mapping.
+- **Brand-level hubs:** Written as brand copy following Pearl Prime §2 voice. No pen-name attribution. Copywriter drafts; Nihala approves.
 
 ### Where it lives
 
 - **Config:** `config/freebies/funnel_sections.yaml` → per hub (e.g. `burnout_reset`) → `authority_narrative`.
-- **Template:** `funnel/burnout_reset/templates/burnout_reset.html` Section 2: `sections.authority_narrative` (with placeholder comment for Nihala’s paragraph).
+- **Template:** `funnel/burnout_reset/templates/hub_landing.html` Section 2: `sections.authority_narrative`.
+- **Author mapping:** `config/freebies/author_funnel_bridge.yaml` — determines which hubs get author voice vs. brand voice.
 
 ### Format (exact)
 
@@ -104,20 +108,21 @@ In `funnel_sections.yaml`, under the hub key, add or edit a single string. Examp
 
 ```yaml
 burnout_reset:
-  hero_headline: "Reset your nervous system in 60 seconds"
-  hero_subhead: "One breath. No sign-up walls. Use it when you need it."
-  authority_narrative: "Your paragraph here. Second sentence. Third. Keep Nihala's voice."
-  problem: "Burnout doesn't fix itself with more rest..."
+  hero_headline: “Reset your nervous system in 60 seconds”
+  hero_subhead: “One breath. No sign-up walls. Use it when you need it.”
+  authority_narrative: “Luna started writing this after noticing a pattern...”
+  problem: “Burnout doesn’t fix itself with more rest...”
 ```
 
-The value is one string (one paragraph). No markdown or bullets in the YAML value unless the template renders it.
+The value is one string (one paragraph, 150–200 words). No markdown or bullets in the YAML value unless the template renders it.
 
 ### Validity
 
-- One paragraph (target length TBD by Nihala; suggest 3–5 sentences).
-- First person or close third acceptable; must feel like *her*, not “the brand.”
-- No generic expert claims; anchor in specific turning points, training, or client work if she chooses.
-- Copywriter does **not** draft from scratch; only edits what Nihala provides.
+- One paragraph, 150–200 words.
+- **Author-bound hubs:** First person or close third in the author’s voice; must feel like *them*, not “the brand.” Anchor in the author’s specific turning points, training, or client work from their approved assets.
+- **Brand-level hubs:** Pearl Prime §2 voice — precision, mechanism, no tentative language. Authority from the specificity of the nervous system pattern, not from credentials or inspiration.
+- No generic expert claims in either case.
+- Authors never cross brands (`config/author_registry.yaml`).
 
 ---
 
