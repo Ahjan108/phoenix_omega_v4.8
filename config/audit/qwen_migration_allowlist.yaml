@@ -16,13 +16,19 @@ scripts:
   - scripts/localization/translate_atoms_all_locales.py
   - scripts/localization/validate_translations.py
   - scripts/pearl_news_article_judge.py
-  # scripts/runner/* — add explicit files only when identified by audit
+  - scripts/runner/runner_cleanup.sh
+  - scripts/runner/heavy_window_guard.py
+  - scripts/runner/runner_watchdog.sh
+  - scripts/runner/install_watchdog_launchd.sh
 
-config: []
-# Required supporting config paths; add as identified by audit (e.g. config/audiobook_script/, config/localization/)
+config:
+  - config/content_type_registry.yaml
+  - config/runner/heavy_windows.yaml
 
-docs: []
-# Required supporting docs; add as identified by audit
+docs:
+  - docs/RUNTIME_CONSOLIDATION_MIGRATION_MANIFEST.md
+  - docs/OWNERSHIP_MATRIX.md
+  - docs/LOCALIZATION_100_PERCENT_RUNBOOK.md
 
-pearl_news_assets: []
-# Pearl News–specific assets (templates, prompts); add as identified by audit
+pearl_news_assets:
+  - prompts/article_judge/judge_pearl_news_v1.txt

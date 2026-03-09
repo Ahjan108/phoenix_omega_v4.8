@@ -6,16 +6,33 @@ on:
   schedule:
     - cron: '0 4 * * *'
   workflow_dispatch:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
 
 jobs:
   drift-audit:
+    name: Drift audit
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
       - name: Run drift audit
         run: |
           python3 scripts/ci/drift_audit.py
+
+      - name: Validate allowlist usage
+        run: |
+          python3 scripts/audit/validate_allowlist_usage.py
 
       - name: Upload drift report
         uses: actions/upload-artifact@v4

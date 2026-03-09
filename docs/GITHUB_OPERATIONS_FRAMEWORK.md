@@ -29,6 +29,20 @@ See [CANONICAL_EDIT_RULE.md](./CANONICAL_EDIT_RULE.md) and [QWEN_SAFE_CONSOLIDAT
 
 ---
 
+## Monthly stable baseline and rollback runbooks
+
+**Monthly baseline:** Tag a stable baseline from `main` once per month (e.g. first Monday after truth-audit passes). Use tag format `stable-YYYY-MM`. See [RELEASE_POLICY.md](./RELEASE_POLICY.md) § Monthly stable baseline.
+
+**Rollback runbooks:** Keep rollback and DR runbooks current. Canonical index: [ROLLBACK_RUNBOOKS_INDEX.md](./ROLLBACK_RUNBOOKS_INDEX.md). Review the index monthly and on every release; update it in the same PR when a rollback script or doc changes.
+
+---
+
+## Remote-only commit review
+
+A **weekly** workflow (`.github/workflows/remote-commit-review.yml`) lists commits on `main` from the last 7 days that were **not** made via a merged PR (e.g. direct push or merge without PR). The report is uploaded as an artifact; **triage within 24 hours**. Script: [scripts/audit/remote_commit_review.py](../scripts/audit/remote_commit_review.py).
+
+---
+
 ## Architecture (overview)
 
 ```mermaid
@@ -92,7 +106,24 @@ flowchart TB
 | marketing-briefs-and-proposals.yml | Marketing briefs | schedule, dispatch | self-hosted | No |
 | drift-audit.yml | Drift audit | schedule (daily 4am UTC), dispatch | ubuntu-latest | No |
 
-**Branch protection (main):** Require **Core tests**, **Release gates**, **EI V2 gates**, **Change impact**. See [BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md). Machine-readable policy: [config/governance/required_checks.yaml](../config/governance/required_checks.yaml).
+**Branch protection (main):** Require **Core tests**, **Release gates**, **EI V2 gates**, **Change impact**, **truth-audit-gate**, **drift-gate**. See [BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md). Machine-readable policy: [config/governance/required_checks.yaml](../config/governance/required_checks.yaml).
+All changes to `main` must go through PRs; no force-push.
+
+---
+
+## Governance loops
+
+- **PR-safe required gates:** [truth-audit-gate.yml](../.github/workflows/truth-audit-gate.yml), [drift-gate.yml](../.github/workflows/drift-gate.yml)
+- **Full scheduled audits:** [system-truth-audit.yml](../.github/workflows/system-truth-audit.yml) (weekly), [drift-audit.yml](../.github/workflows/drift-audit.yml) (daily)
+- **Remote-only commit review:** [remote-commit-review.yml](../.github/workflows/remote-commit-review.yml) writes weekly triage report to `artifacts/audit/remote_commit_review_*.{json,md}`; triage SLA 24h.
+- **Required-check name drift prevention:** [scripts/ci/validate_required_checks_match.py](../scripts/ci/validate_required_checks_match.py) runs in [github-governance-check.yml](../.github/workflows/github-governance-check.yml).
+
+---
+
+## Monthly baseline
+
+- Create monthly stable tags from green `main`: `stable-YYYY-MM` (or `baseline-YYYY-MM`).
+- Keep rollback references current via [ROLLBACK_RUNBOOKS_INDEX.md](./ROLLBACK_RUNBOOKS_INDEX.md).
 
 ---
 

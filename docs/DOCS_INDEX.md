@@ -31,6 +31,8 @@
 | **Do GitHub operations (both repos)** | [GitHub Operations Framework](#github-operations-framework) — repo map, workflow matrix, canonical ownership, system functions (PR flow, merge to main, Qwen-Agent push, runner start/clean, recovery). **Production = phoenix_omega only; Qwen-Agent = backup, manual dispatch only.** |
 | **Truth Audit Governance Loop** | [Truth Audit Governance Loop](#truth-audit-governance-loop) — Weekly CI regenerates/validates audit artifacts; Section G → issues; canonical ownership enforcement; Qwen-Agent delta addendum. Workflow, scripts, configs. |
 | **Safe Qwen-Agent consolidation** | [docs/QWEN_SAFE_CONSOLIDATION_SPEC.md](./QWEN_SAFE_CONSOLIDATION_SPEC.md) — Promote runtime assets to phoenix_omega, freeze Qwen-Agent as backup-only, parity gates, archive (no delete). Allowlist: config/audit/qwen_migration_allowlist.yaml. Handoff addendum: exemption rules (owner, removal date, no new exemptions without justification). |
+| **Monthly stable baselines** | [docs/RELEASE_POLICY.md](./RELEASE_POLICY.md) § Monthly stable baseline — tag `stable-YYYY-MM` from main monthly; keep rollback runbooks current. |
+| **Rollback runbooks index** | [docs/ROLLBACK_RUNBOOKS_INDEX.md](./ROLLBACK_RUNBOOKS_INDEX.md) — Canonical rollback/DR runbook list and keep-current policy. |
 
 ---
 
@@ -41,14 +43,19 @@
 | Item | Location |
 |------|----------|
 | **Workflow** | [.github/workflows/system-truth-audit.yml](../.github/workflows/system-truth-audit.yml) — Weekly schedule + workflow_dispatch + push on audit paths; runs audit, validation, ownership enforcement, Section G → issues sync, Qwen delta addendum; uploads artifacts. |
+| **PR-safe required gate** | [.github/workflows/truth-audit-gate.yml](../.github/workflows/truth-audit-gate.yml) — Runs on every PR to main; required check name: `truth-audit-gate`. |
 | **Run audit** | [scripts/audit/run_truth_audit.py](../scripts/audit/run_truth_audit.py) — Regenerates SYSTEM_TRUTH_REPORT.md, DRIFT_MATRIX.csv, MISSING_REFERENCED_FILES.md, IMPLEMENTATION_STATUS_LEDGER.csv. |
 | **Validate artifacts** | [scripts/audit/validate_truth_artifacts.py](../scripts/audit/validate_truth_artifacts.py) — Ensures four required artifacts exist and parse; optional SHA freshness check vs `main`. |
 | **Enforce ownership** | [scripts/audit/enforce_canonical_ownership.py](../scripts/audit/enforce_canonical_ownership.py) — Reads DRIFT_MATRIX + ownership_policy; fails CI when forbidden shadow paths exist; writes ownership_violations.json. |
 | **Sync Section G to issues** | [scripts/audit/sync_section_g_issues.py](../scripts/audit/sync_section_g_issues.py) — remediation_registry.yaml → GitHub issues (create/update/close); writes remediation_issue_map.json. |
 | **Qwen delta addendum** | [scripts/audit/build_qwen_delta_addendum.py](../scripts/audit/build_qwen_delta_addendum.py) — Compares Qwen-Agent snapshot to baseline; writes QWEN_DELTA_ADDENDUM.md, qwen_delta.json. |
+| **Drift gates** | [.github/workflows/drift-gate.yml](../.github/workflows/drift-gate.yml) (required PR gate, `drift-gate`) and [.github/workflows/drift-audit.yml](../.github/workflows/drift-audit.yml) (daily full run). |
+| **Allowlist usage validation** | [scripts/audit/validate_allowlist_usage.py](../scripts/audit/validate_allowlist_usage.py) — Ensures drift audit uses `config/audit/qwen_migration_allowlist.yaml` as single source. |
+| **Required check name validation** | [scripts/ci/validate_required_checks_match.py](../scripts/ci/validate_required_checks_match.py) — Fails CI if required check names do not match workflow/job names. |
+| **Remote-only commit review** | [.github/workflows/remote-commit-review.yml](../.github/workflows/remote-commit-review.yml) + [scripts/audit/remote_commit_review.py](../scripts/audit/remote_commit_review.py) — Weekly report; triage within 24h. |
 | **Ownership policy** | [config/audit/ownership_policy.yaml](../config/audit/ownership_policy.yaml) — Forbidden duplicate types; exempt_shadow_paths (explicit exemptions until shadows removed); hard-fail on violations. |
 | **Remediation registry** | [config/audit/remediation_registry.yaml](../config/audit/remediation_registry.yaml) — Machine-readable Section G: id, title, owner, due_date, priority, status, evidence_refs. |
-| **Qwen migration allowlist** | [config/audit/qwen_migration_allowlist.yaml](../config/audit/qwen_migration_allowlist.yaml) — Authoritative allowlist for Qwen-Agent → phoenix_omega; no path outside may be copied. See [QWEN_SAFE_CONSOLIDATION_SPEC.md](./QWEN_SAFE_CONSOLIDATION_SPEC.md) §3. |
+| **Qwen migration allowlist** | [config/audit/qwen_migration_allowlist.yaml](../config/audit/qwen_migration_allowlist.yaml) — Single authoritative allowlist for Qwen-Agent → phoenix_omega; no path outside may be copied. CI fails if allowlist is violated or missing ([scripts/audit/validate_allowlist_usage.py](../scripts/audit/validate_allowlist_usage.py)). See [QWEN_SAFE_CONSOLIDATION_SPEC.md](./QWEN_SAFE_CONSOLIDATION_SPEC.md) §3. |
 | **Audit artifacts** | [artifacts/audit/](../artifacts/audit/) — SYSTEM_TRUTH_REPORT.md, DRIFT_MATRIX.csv, MISSING_REFERENCED_FILES.md, IMPLEMENTATION_STATUS_LEDGER.csv, ownership_violations.json, remediation_issue_map.json, QWEN_DELTA_ADDENDUM.md, qwen_delta.json, baselines/qwen/. |
 | **Issue template** | [.github/ISSUE_TEMPLATE/audit-gap.yml](../.github/ISSUE_TEMPLATE/audit-gap.yml) — Audit-gap issue form (description, priority, due date, owner). |
 
@@ -369,10 +376,11 @@ Single entry point for GitHub operations across **Ahjan108/phoenix_omega_v4.8** 
 | Item | Location |
 |------|----------|
 | **Framework doc** | [docs/GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md) — Repo identity, workflow matrix (phoenix_omega_v4.8 + Qwen-Agent), canonical ownership, secrets and runners, branch protection, system functions (procedures and commands), before-you-push checklists, recovery pointers. |
-| **Branch protection** | [docs/BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md) — Required checks for main (Core tests, Release gates, EI V2 gates, Change impact). |
+| **Branch protection** | [docs/BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md) — Required checks for main (Core tests, release-gates, EI V2 gates, change-impact, truth-audit-gate, drift-gate); require PR, no force-push. |
 | **Pearl News (consolidated)** | Pearl News workflows now live in **phoenix_omega** (scheduled + manual expand). Qwen-Agent retains copies for backup only (no production cron after PR B). Setup and runner: [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md). |
 | **Runtime consolidation** | [RUNTIME_CONSOLIDATION_MIGRATION_MANIFEST.md](./RUNTIME_CONSOLIDATION_MIGRATION_MANIFEST.md) — Migration allowlist and manifest. [OWNERSHIP_MATRIX.md](./OWNERSHIP_MATRIX.md) — Path ownership. [drift-audit.yml](../.github/workflows/drift-audit.yml) — Daily audit. |
 | **Sync from canonical** | [docs/CANONICAL_EDIT_RULE.md](./CANONICAL_EDIT_RULE.md) — Shared runtime files may only be edited in phoenix_omega; edits in Qwen-Agent do not count as source of truth. |
+| **Remote commit review** | [.github/workflows/remote-commit-review.yml](../.github/workflows/remote-commit-review.yml) — Weekly report of commits on main not from a PR; triage within 24h. |
 | **Localization runbook** | [LOCALIZATION_100_PERCENT_RUNBOOK.md](./LOCALIZATION_100_PERCENT_RUNBOOK.md) — Localization pipeline operations. |
 
 ---

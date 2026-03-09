@@ -7,9 +7,9 @@ version: 1
 # Required status checks for main. Each must match a job name in some workflow.
 always_required:
   - "Core tests"
-  - "release-gates"
+  - "Release gates"
   - "EI V2 gates"
-  - "change-impact"
+  - "Change impact"
   - "truth-audit-gate"
   - "drift-gate"
 

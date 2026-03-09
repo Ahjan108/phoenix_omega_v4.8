@@ -29,7 +29,7 @@ For 100% production confidence, configure branch protection on `main` (or `maste
 1. Go to **Settings → Branches → Branch protection rules** for `main`.
 2. Enable **Require a pull request before merging** (no direct pushes to main).
 3. Enable **Require status checks to pass before merging**.
-4. Add required checks (use **exact** job names as shown in GitHub Actions):
+4. Add required checks (use **exact** job names as shown in GitHub Actions; see [config/governance/required_checks.yaml](../config/governance/required_checks.yaml)):
    - **Core tests**
    - **Release gates**
    - **EI V2 gates**
@@ -37,7 +37,10 @@ For 100% production confidence, configure branch protection on `main` (or `maste
    - **truth-audit-gate**
    - **drift-gate**
 5. Enable **Do not allow force pushes**.
-6. Save the rule and verify a test PR shows all six checks as required.
+6. (Recommended) Enable **Do not allow bypassing the above settings** so admins also follow the rules.
+7. Save the rule and verify a test PR shows all six checks as required.
+
+**Note:** Branch protection is configured in GitHub **Settings → Branches → Branch protection rules** for `main`. This repo cannot change it from code; apply the above steps manually.
 
 ---
 

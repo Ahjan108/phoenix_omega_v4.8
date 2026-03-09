@@ -1,0 +1,41 @@
+# Weekly remote-only commit review: commits on main not from a merged PR.
+# Report for triage within 24h. See docs/GITHUB_OPERATIONS_FRAMEWORK.md.
+name: Remote commit review
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+jobs:
+  remote-commit-review:
+    name: Remote commit review
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_REPOSITORY: ${{ github.repository }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run remote commit review
+        run: python3 scripts/audit/remote_commit_review.py
+
+      - name: Upload review artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: remote-commit-review-${{ github.run_id }}
+          path: |
+            artifacts/audit/remote_commit_review_*.json
+            artifacts/audit/remote_commit_review_*.md
+          retention-days: 90
+          if-no-files-found: ignore
