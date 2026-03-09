@@ -1,0 +1,135 @@
+# Pearl News: manual run with LLM expansion (self-hosted runner / LM Studio).
+# Use when you want expanded drafts; schedule uses pearl_news_scheduled.yml (no expand).
+# See docs/PEARL_NEWS_OPTION_B_RUNBOOK.md.
+
+name: Pearl News manual (expand)
+concurrency:
+  group: pearl-news-manual-expand
+  cancel-in-progress: true
+
+on:
+  workflow_dispatch:
+    inputs:
+      language:
+        description: 'Language (en, ja, zh-cn, or all)'
+        required: false
+        default: 'en'
+        type: choice
+        options:
+          - en
+          - ja
+          - zh-cn
+          - all
+      limit:
+        description: 'Max articles to process'
+        required: false
+        default: '1'
+        type: string
+
+jobs:
+  pearl-news:
+    runs-on: self-hosted
+    timeout-minutes: 60
+    env:
+      WORDPRESS_SITE_URL: ${{ secrets.WORDPRESS_SITE_URL }}
+      WORDPRESS_USERNAME: ${{ secrets.WORDPRESS_USERNAME }}
+      WORDPRESS_APP_PASSWORD: ${{ secrets.WORDPRESS_APP_PASSWORD }}
+      QWEN_BASE_URL: ${{ secrets.QWEN_BASE_URL }}
+      QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
+      QWEN_MODEL: ${{ secrets.QWEN_MODEL }}
+      PEARL_NEWS_EXPAND: "true"
+      PEARL_NEWS_LIMIT: ${{ inputs.limit || '1' }}
+      PEARL_NEWS_LANGUAGE: ${{ inputs.language || 'en' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Check Python
+        run: |
+          python3 --version
+          python3 -m pip --version
+
+      - name: Install Pearl News dependencies
+        run: |
+          python3 -m pip install feedparser pyyaml requests pytest openai
+
+      - name: Preflight runner + LM health
+        run: |
+          set -euo pipefail
+          echo "== LM Studio model check =="
+          curl -fsS "$QWEN_BASE_URL/models" >/tmp/models.json
+          cat /tmp/models.json | head -c 400; echo
+          echo "== LM Studio warmup call =="
+          curl -fsS --max-time 45 "$QWEN_BASE_URL/chat/completions" \
+            -H 'Content-Type: application/json' \
+            -H "Authorization: Bearer $QWEN_API_KEY" \
+            -d "{\"model\":\"$QWEN_MODEL\",\"messages\":[{\"role\":\"user\",\"content\":\"ok\"}],\"max_tokens\":64,\"temperature\":0.0,\"enable_thinking\":false}" >/tmp/warmup.json
+          python3 - <<'PY'
+          import json
+          data = json.load(open("/tmp/warmup.json"))
+          if "error" in data:
+            raise SystemExit(f"Warmup failed: {data['error']}")
+          print("warmup_ok=true")
+          PY
+
+      - name: Validate WordPress env (if configured)
+        run: |
+          PYTHONPATH=. python3 - <<'PY'
+          import os
+          from pearl_news.publish.wordpress_client import _normalize_site_url
+          raw = os.environ.get("WORDPRESS_SITE_URL", "").strip()
+          if not raw:
+              print("WORDPRESS_SITE_URL not set; skipping WP env validation.")
+          else:
+              normalized = _normalize_site_url(raw)
+              print(f"WORDPRESS_SITE_URL normalized to: {normalized}")
+          PY
+
+      - name: Run Pearl News tests
+        run: |
+          PYTHONPATH=. python3 -m pytest \
+            tests/test_pearl_news_quality_gates_minimal.py \
+            tests/test_pearl_news_pipeline_e2e.py \
+            -v
+
+      - name: Run full pipeline (ingest → assemble → expand → validate → QC)
+        run: |
+          for attempt in 1 2; do
+            echo "attempt=${attempt}"
+            python3 -m pearl_news.pipeline.run_article_pipeline \
+              --feeds pearl_news/config/feeds.yaml \
+              --out-dir "artifacts/pearl_news/drafts/$PEARL_NEWS_LANGUAGE" \
+              --limit "$PEARL_NEWS_LIMIT" \
+              --language "$PEARL_NEWS_LANGUAGE" \
+              --expand \
+              --validate \
+              --select-image && exit 0
+            if [ "$attempt" -eq 2 ]; then
+              echo "pipeline failed after retry"
+              exit 1
+            fi
+            sleep 15
+          done
+
+      - name: Upload draft artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pearl_news_drafts_${{ inputs.language || 'en' }}
+          path: artifacts/pearl_news/drafts/
+          retention-days: 7
+
+      - name: Test WordPress integration (dry-run or post)
+        run: |
+          shopt -s nullglob
+          first=$(ls -1 artifacts/pearl_news/drafts/*/article_*.json artifacts/pearl_news/drafts/article_*.json 2>/dev/null | head -1)
+          if [ -z "$first" ]; then
+            echo "No article_*.json found; skipping"
+            exit 0
+          fi
+          if [ -z "$WORDPRESS_APP_PASSWORD" ]; then
+            python3 scripts/pearl_news_post_to_wp.py --article "$first" --dry-run
+          else
+            python3 scripts/pearl_news_post_to_wp.py --article "$first" --status draft
+          fi
+        continue-on-error: true

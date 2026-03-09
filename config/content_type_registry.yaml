@@ -1,0 +1,6 @@
+# Minimal registry for Pearl News article judge (pearl_news_article_judge.py).
+# Defines content types and gate weights; expand as needed for EI V2 ingestion.
+# See docs/PEARL_NEWS_ARTICLE_METADATA_SCHEMA.md.
+
+version: 1
+content_types: {}
