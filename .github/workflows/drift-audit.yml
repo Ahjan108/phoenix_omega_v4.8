@@ -1,0 +1,26 @@
+# Drift audit: ensure phoenix_omega has all consolidated runtime paths (allowlist).
+# Fails if any required path is missing. See docs/RUNTIME_CONSOLIDATION_MIGRATION_MANIFEST.md.
+name: Drift audit
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  drift-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run drift audit
+        run: |
+          python3 scripts/ci/drift_audit.py
+
+      - name: Upload drift report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: drift-report
+          path: artifacts/drift_report.json
+          if-no-files-found: ignore

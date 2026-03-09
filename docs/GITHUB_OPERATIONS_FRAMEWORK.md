@@ -12,8 +12,8 @@
 
 | GitHub repo | Default branch | Local path | Note |
 |-------------|----------------|------------|------|
-| **Ahjan108/phoenix_omega_v4.8** | main | phoenix_omega | Phoenix system. phoenix_omega_v4.8 = this repo on GitHub. |
-| **Ahjan108/Qwen-Agent** | main | Qwen-Agent (sibling or elsewhere) | Pearl News only; fork of QwenLM/Qwen-Agent. |
+| **Ahjan108/phoenix_omega_v4.8** | main | phoenix_omega | **Single production repo:** v4, video, pearl_prime, EI v2, ML, localization, pearl_news (assembly mode). phoenix_omega_v4.8 = this repo. |
+| **Ahjan108/Qwen-Agent** | main | Qwen-Agent (sibling or elsewhere) | **Backup / experiment only.** After PR B: no production cron; workflow_dispatch only. Fork of QwenLM/Qwen-Agent. |
 
 ---
 
@@ -88,8 +88,8 @@ Branch protection: not specified in this framework; Qwen-Agent typically does no
 
 | Feature / capability | Primary repo | Workflows | Notes |
 |----------------------|--------------|-----------|--------|
-| Phoenix (EI V2, Core, Release, Change impact, Teacher, Brand, ML loop, etc.) | phoenix_omega_v4.8 | All workflows in phoenix_omega | No Pearl News workflows in this repo. |
-| Pearl News (scheduled + manual expand) | Qwen-Agent | pearl_news_scheduled.yml, pearl_news_manual_expand.yml | Canonical workflows live in Qwen-Agent only. phoenix_omega does not contain pearl_news_*.yml. |
+| Phoenix (EI V2, Core, Release, Change impact, Teacher, Brand, ML loop, video, pearl_prime, v4, localization, Pearl News mode) | phoenix_omega_v4.8 | All workflows in phoenix_omega | **Single production repo.** Pearl News, audiobook, locale_max_agents run here. |
+| Qwen-Agent | Qwen-Agent | Same workflow names | **Backup only.** After PR B: no production cron; workflow_dispatch only. See [OWNERSHIP_MATRIX.md](./OWNERSHIP_MATRIX.md). |
 
 ---
 

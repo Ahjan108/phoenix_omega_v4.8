@@ -32,6 +32,16 @@ repos:
       - translate-atoms-qwen-matrix.yml
       - research_feeds_ingest.yml
       - pages.yml
+      # Migrated from Qwen-Agent (origin/main only); single production repo
+      - audiobook_manual.yml
+      - audiobook_regression.yml
+      - audiobook_scheduled.yml
+      - locale_max_agents.yml
+      - pearl_news_scheduled.yml
+      - pearl_news_manual_expand.yml
+      - runner_artifacts_cleanup.yml
+      - catalog-book-pipeline.yml
+      - marketing-briefs-and-proposals.yml
     required_checks:
       - Core tests
       - Release gates
@@ -44,6 +54,7 @@ repos:
     repo: Qwen-Agent
     default_branch: main
     local_path: null  # sibling or elsewhere
+    production_schedules: false  # PR B: cron disabled; workflow_dispatch only (backup)
     workflow_files:
       - pearl_news_scheduled.yml
       - pearl_news_manual_expand.yml
