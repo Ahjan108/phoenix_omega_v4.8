@@ -33,7 +33,8 @@ CONFIG_AUTHORING = REPO_ROOT / "config" / "authoring"
 class BookSpec:
     """Stage 1 output. Stage 2 consumes required; identity passed through to Stage 3.
     author_id / author_positioning_profile: Layer 2 Identity (Writer Spec §24).
-    If author_id present, author_positioning_profile is required and must match registry."""
+    If author_id present, author_positioning_profile is required and must match registry.
+    program_id: Editorial program (Brand → Program → Series → Book)."""
     topic_id: str
     persona_id: str
     series_id: Optional[str]
@@ -50,6 +51,16 @@ class BookSpec:
     author_positioning_profile: Optional[str] = None
     narrator_id: Optional[str] = None
     atoms_model: Optional[AtomsModel] = None
+    program_id: Optional[str] = None
+    worldview_id: Optional[str] = None
+    concept_id: Optional[str] = None
+    depth_level: Optional[str] = None
+    series_key: Optional[str] = None
+    similarity_score: Optional[float] = None
+    metadata_style_id: Optional[str] = None
+    release_wave_id: Optional[str] = None
+    advisory_status: Optional[str] = None
+    human_decision: Optional[str] = None
     # Companion workbook type: "full" | "light_guide" | None (no workbook).
     # Resolved by freebie_planner from domain_id + book_duration_minutes.
     # Authority: specs/COMPANION_WORKBOOK_CATALOG_SPEC.md §2
@@ -79,6 +90,26 @@ class BookSpec:
             out["narrator_id"] = self.narrator_id
         if self.atoms_model is not None:
             out["atoms_model"] = self.atoms_model.value
+        if self.program_id is not None:
+            out["program_id"] = self.program_id
+        if self.worldview_id is not None:
+            out["worldview_id"] = self.worldview_id
+        if self.concept_id is not None:
+            out["concept_id"] = self.concept_id
+        if self.depth_level is not None:
+            out["depth_level"] = self.depth_level
+        if self.series_key is not None:
+            out["series_key"] = self.series_key
+        if self.similarity_score is not None:
+            out["similarity_score"] = self.similarity_score
+        if self.metadata_style_id is not None:
+            out["metadata_style_id"] = self.metadata_style_id
+        if self.release_wave_id is not None:
+            out["release_wave_id"] = self.release_wave_id
+        if self.advisory_status is not None:
+            out["advisory_status"] = self.advisory_status
+        if self.human_decision is not None:
+            out["human_decision"] = self.human_decision
         if self.companion_workbook_type is not None:
             out["companion_workbook_type"] = self.companion_workbook_type
         return out
@@ -115,6 +146,8 @@ class CatalogPlanner:
         self._positioning_profiles_path = positioning_profiles_path
         self._author_registry: Optional[dict] = None
         self._positioning_profiles: Optional[dict] = None
+        self._series_mix_targets_path = CONFIG_CATALOG / "series_mix_targets.yaml"
+        self._series_mix_targets: Optional[dict] = None
 
     @staticmethod
     def _load_yaml(p: Path) -> dict:
@@ -140,6 +173,20 @@ class CatalogPlanner:
             return self._positioning_profiles
         self._positioning_profiles = self._load_yaml(self._positioning_profiles_path)
         return self._positioning_profiles
+
+    def get_series_mix_targets(self, path: Optional[Path] = None) -> dict:
+        if self._series_mix_targets is not None:
+            return self._series_mix_targets
+        p = path or self._series_mix_targets_path
+        self._series_mix_targets = self._load_yaml(p)
+        return self._series_mix_targets
+
+    def target_series_count_for_wave(self, wave_size: int, path: Optional[Path] = None) -> Optional[int]:
+        cfg = self.get_series_mix_targets(path)
+        if not cfg or wave_size <= 0:
+            return None
+        pct = cfg.get("ideal_midpoint_pct") or cfg.get("series_share_pct_max") or 70
+        return max(0, int(round(wave_size * (pct / 100.0))))
 
     def _resolve_author_positioning(
         self,
@@ -194,6 +241,9 @@ class CatalogPlanner:
         author_positioning_profile: Optional[str] = None,
         narrator_id: Optional[str] = None,
         atoms_model: Optional[AtomsModel] = None,
+        program_id: Optional[str] = None,
+        worldview_id: Optional[str] = None,
+        depth_level: Optional[str] = None,
     ) -> BookSpec:
         """Produce one BookSpec. Required: topic_id, persona_id.
 
@@ -204,6 +254,7 @@ class CatalogPlanner:
         author_id: when set, author_positioning_profile is resolved from author_registry (mandatory there).
         author_positioning_profile: if supplied with author_id, must match registry or Stage 1 fails.
         narrator_id: optional; when set, validated against narrator_registry (Writer Spec §23.5).
+        program_id: optional editorial program id.
         """
         if not topic_id or not persona_id:
             raise ValueError("BookSpec requires topic_id and persona_id")
@@ -247,6 +298,11 @@ class CatalogPlanner:
         if not domain_id:
             domain_id = self._topic_to_domain(topic_id)
 
+        depth_level_val = depth_level or "default"
+        concept_id_val = self._compute_concept_id(topic_id, angle_id, persona_id, depth_level_val)
+        domain_val = domain_id or "default_domain"
+        series_key_val = self._compute_series_key(brand_id, domain_val, series_id)
+
         return BookSpec(
             topic_id=topic_id,
             persona_id=persona_id,
@@ -255,7 +311,7 @@ class CatalogPlanner:
             teacher_id=teacher_id,
             brand_id=brand_id,
             angle_id=angle_id,
-            domain_id=domain_id or "default_domain",
+            domain_id=domain_val,
             seed=seed,
             locale=locale,
             territory=territory,
@@ -264,7 +320,20 @@ class CatalogPlanner:
             author_positioning_profile=positioning,
             narrator_id=narrator_id,
             atoms_model=atoms_model,
+            program_id=program_id,
+            worldview_id=worldview_id,
+            concept_id=concept_id_val,
+            depth_level=depth_level if depth_level else None,
+            series_key=series_key_val,
         )
+
+    @staticmethod
+    def _compute_concept_id(topic_id: str, angle_id: str, persona_id: str, depth_level: str) -> str:
+        return f"{topic_id}|{angle_id}|{persona_id}|{depth_level or 'default'}"
+
+    @staticmethod
+    def _compute_series_key(brand_id: str, domain_id: str, series_id: Optional[str]) -> str:
+        return f"{brand_id}|{domain_id}|{domain_id}|{series_id or ''}"
 
     def _derive_angle(
         self,
@@ -370,6 +439,9 @@ class CatalogPlanner:
             inst = (i // (len(angles) * max(len(high), 1))) + 1
             spec_seed = hashlib.sha256(f"{seed}:{i}:{series_id}:{angle_id}".encode()).hexdigest()[:24]
             positioning = self._resolve_author_positioning(None, brand_id, None)
+            depth_level_wave = "default"
+            concept_id_wave = self._compute_concept_id(topic_id, angle_id, persona_id, depth_level_wave)
+            series_key_wave = self._compute_series_key(brand_id, domain_id, series_id)
             specs.append(BookSpec(
                 topic_id=topic_id,
                 persona_id=persona_id,
@@ -379,6 +451,9 @@ class CatalogPlanner:
                 brand_id=brand_id,
                 angle_id=angle_id,
                 domain_id=domain_id,
+                concept_id=concept_id_wave,
+                depth_level=depth_level_wave,
+                series_key=series_key_wave,
                 seed=spec_seed,
                 locale=wave_locale,
                 territory=wave_territory,

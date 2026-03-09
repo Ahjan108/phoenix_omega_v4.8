@@ -102,18 +102,6 @@ with tab_pearl_news:
                 total = latest.get("validation", {}).get("gate_count", "?")
                 status = "✅" if passed else "⚠️"
                 st.caption(f"Language: {latest.get('language', '—')} · Validation: {status} {gates}/{total} gates")
-            # build_manifests.json is a list of article records
-            st.metric("Articles written", len(records))
-            if records:
-                latest = records[-1]
-                built_at = latest.get("built_at", "—")[:10]
-                st.metric("Build date", built_at)
-                lang = latest.get("language", "—")
-                passed = latest.get("validation", {}).get("passed", None)
-                gates = latest.get("validation", {}).get("passed_count", "?")
-                total = latest.get("validation", {}).get("gate_count", "?")
-                status = "✅" if passed else "⚠️"
-                st.caption(f"Language: {lang} · Validation: {status} {gates}/{total} gates")
         else:
             st.info("No build manifest yet — run the pipeline first.")
 

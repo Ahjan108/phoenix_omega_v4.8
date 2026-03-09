@@ -32,6 +32,7 @@ def main() -> int:
     ap.add_argument("--bank-dir", type=Path, default=None, help="Image bank directory (default: repo image_bank/)")
     ap.add_argument("--topics", type=str, default=None, help="Comma-separated topics (default: from canonical_topics.yaml)")
     ap.add_argument("--limit", type=int, default=None, help="Max number of (topic,intent) pairs to generate (for testing)")
+    ap.add_argument("--variants", type=int, default=1, help="Number of image variants per (topic,intent)")
     ap.add_argument("--force", action="store_true", help="Overwrite existing images")
     ap.add_argument("--dry-run", action="store_true", help="Print plan only, no API calls")
     args = ap.parse_args()
@@ -58,20 +59,22 @@ def main() -> int:
         print("Set CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN. See docs/VIDEO_CLOUDFLARE_FLUX_CREDENTIALS.md.", file=sys.stderr)
         return 1
 
+    variants = max(1, int(args.variants))
     index_entries = []
     planned = []
     for topic in topics:
         for intent in intents:
             scene = (intent_map.get(intent) or {}).get("scene") or default_scene
-            asset_id = f"{_slug(topic)}_{_slug(intent)}"
-            out_path = bank_dir / f"{asset_id}.png"
-            planned.append((topic, intent, scene, asset_id, out_path))
+            for variant in range(1, variants + 1):
+                asset_id = f"{_slug(topic)}_{_slug(intent)}_{variant}"
+                out_path = bank_dir / f"{asset_id}.png"
+                planned.append((topic, intent, scene, asset_id, out_path))
 
     if args.limit:
         planned = planned[: args.limit]
 
     if args.dry_run:
-        print(f"Would generate {len(planned)} images into {bank_dir}")
+        print(f"Would generate {len(planned)} images into {bank_dir} ({variants} variant(s) per intent)")
         for topic, intent, scene, asset_id, out_path in planned:
             print(f"  {asset_id} <- {topic} / {intent}")
         print("Index would contain visual_intent + composition_compat 16:9/9:16 + asset_id per row.")
