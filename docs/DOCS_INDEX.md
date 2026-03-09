@@ -322,7 +322,7 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 
 ### CI / workflows
 
-**Pearl News workflows are not in this repo.** They live in **Ahjan108/Qwen-Agent**: `pearl_news_scheduled.yml` (schedule + dispatch, no expand by default) and `pearl_news_manual_expand.yml` (dispatch, with LLM expand). Setup and self-hosted runner: [PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md). Full workflow matrix and secrets: [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md).
+**Pearl News workflows now live in this repo (phoenix_omega)** after runtime consolidation: `pearl_news_scheduled.yml` (schedule + dispatch, no expand by default) and `pearl_news_manual_expand.yml` (dispatch, with LLM expand). Qwen-Agent retains copies for backup/manual dispatch only (no production cron). Setup, self-hosted runner, and secrets: [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md). Migration manifest: [RUNTIME_CONSOLIDATION_MIGRATION_MANIFEST.md](./RUNTIME_CONSOLIDATION_MIGRATION_MANIFEST.md). Ownership: [OWNERSHIP_MATRIX.md](./OWNERSHIP_MATRIX.md).
 
 ---
 
@@ -344,7 +344,9 @@ Single entry point for GitHub operations across **Ahjan108/phoenix_omega_v4.8** 
 |------|----------|
 | **Framework doc** | [docs/GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md) — Repo identity, workflow matrix (phoenix_omega_v4.8 + Qwen-Agent), canonical ownership, secrets and runners, branch protection, system functions (procedures and commands), before-you-push checklists, recovery pointers. |
 | **Branch protection** | [docs/BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md) — Required checks for main (Core tests, Release gates, EI V2 gates, Change impact). |
-| **Pearl News in Qwen-Agent** | Pearl News workflows live only in **Ahjan108/Qwen-Agent** (scheduled + manual expand). phoenix_omega has no Pearl News workflow files. Setup and runner: [PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md). Workflow matrix and secrets: [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md). |
+| **Pearl News (consolidated)** | Pearl News workflows now live in **phoenix_omega** (scheduled + manual expand). Qwen-Agent retains copies for backup only (no production cron after PR B). Setup and runner: [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md). |
+| **Runtime consolidation** | [RUNTIME_CONSOLIDATION_MIGRATION_MANIFEST.md](./RUNTIME_CONSOLIDATION_MIGRATION_MANIFEST.md) — Migration allowlist and manifest. [OWNERSHIP_MATRIX.md](./OWNERSHIP_MATRIX.md) — Path ownership. [drift-audit.yml](../.github/workflows/drift-audit.yml) — Daily audit. |
+| **Localization runbook** | [LOCALIZATION_100_PERCENT_RUNBOOK.md](./LOCALIZATION_100_PERCENT_RUNBOOK.md) — Localization pipeline operations. |
 
 ---
 

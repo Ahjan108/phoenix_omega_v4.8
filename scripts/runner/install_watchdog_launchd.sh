@@ -5,9 +5,9 @@ set -euo pipefail
 # When run from phoenix_omega: WATCHDOG_SCRIPT defaults to this repo's scripts/runner/runner_watchdog.sh.
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-RUNNER_DIR="${RUNNER_DIR:-/Users/ahjan/Qwen-Agent/actions-runner}"
+RUNNER_DIR="${RUNNER_DIR:-${HOME}/actions-runner}"
 WATCHDOG_SCRIPT="${WATCHDOG_SCRIPT:-$SCRIPT_DIR/runner_watchdog.sh}"
-PLIST_ID="${PLIST_ID:-com.ahjan.qwen.runner.watchdog}"
+PLIST_ID="${PLIST_ID:-com.ahjan.phoenix.runner.watchdog}"
 PLIST_PATH="$HOME/Library/LaunchAgents/${PLIST_ID}.plist"
 LOG_DIR="$RUNNER_DIR/_diag/watchdog"
 

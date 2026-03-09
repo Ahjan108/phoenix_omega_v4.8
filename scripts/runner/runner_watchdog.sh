@@ -5,9 +5,9 @@ set -euo pipefail
 # - Ensures GitHub runner service is active.
 # - Restarts service if inactive.
 # - Emits lightweight diagnostics to runner/watchdog log dir.
-# When run from phoenix_omega: set RUNNER_DIR to your actions-runner path (e.g. Qwen-Agent/actions-runner).
+# When run from phoenix_omega: set RUNNER_DIR to your actions-runner path (e.g. $HOME/actions-runner).
 
-RUNNER_DIR="${RUNNER_DIR:-/Users/ahjan/Qwen-Agent/actions-runner}"
+RUNNER_DIR="${RUNNER_DIR:-${HOME}/actions-runner}"
 LOG_DIR="${LOG_DIR:-$RUNNER_DIR/_diag/watchdog}"
 MAX_BROKER_ERRORS_WINDOW="${MAX_BROKER_ERRORS_WINDOW:-20}"
 

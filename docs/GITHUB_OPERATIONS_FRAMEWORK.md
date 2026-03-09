@@ -20,22 +20,25 @@
 ## Architecture (overview)
 
 ```mermaid
-flowchart LR
-  subgraph Phoenix ["phoenix_omega_v4.8 (local: phoenix_omega)"]
-    W1[Core tests]
-    W2[Release gates]
-    W3[EI V2 gates]
-    W4[Change impact]
-    BP[Branch protection]
+flowchart TB
+  subgraph prod [phoenix_omega — single production repo]
+    V4[v4 / catalog / weekly]
+    Video[video pipeline + QC]
+    PP[pearl_prime]
+    EI[EI v2 + ML + rewrite]
+    Loc[localization]
+    PN[pearl_news mode]
+    AB[audiobook]
+    Core[Core tests / Release / EI gates / Change impact]
+    Drift[drift-audit.yml]
+    Runner[Self-hosted runner + LM lock]
   end
-  subgraph Qwen ["Ahjan108/Qwen-Agent"]
-    PN1[Pearl News scheduled]
-    PN2[Pearl News manual expand]
-    Runner[Self-hosted runner]
-    Secrets[6 secrets]
+  subgraph backup [Qwen-Agent — backup / experiment only]
+    NoCron[No production cron]
+    Manual[Optional workflow_dispatch only]
   end
-  Phoenix --> BP
-  Qwen --> Runner
+  prod --> Core
+  prod --> Runner
 ```
 
 ---
@@ -66,21 +69,33 @@ flowchart LR
 | translate-atoms-qwen-matrix.yml | Translate atoms (Qwen matrix) | schedule, dispatch | ubuntu-latest | No |
 | research_feeds_ingest.yml | Research feeds ingest | schedule, dispatch | ubuntu-latest | No |
 | pages.yml | pages build and deployment | push (e.g. main) | ubuntu-latest | No |
+| audiobook_manual.yml | Audiobook manual | workflow_dispatch | self-hosted | No |
+| audiobook_regression.yml | Audiobook regression | PR (path-filtered), dispatch | self-hosted | No |
+| audiobook_scheduled.yml | Audiobook scheduled | schedule, dispatch | self-hosted | No |
+| locale_max_agents.yml | Locale max agents | schedule, dispatch | self-hosted | No |
+| pearl_news_scheduled.yml | Pearl News scheduled | schedule, dispatch | self-hosted | No |
+| pearl_news_manual_expand.yml | Pearl News manual (expand) | workflow_dispatch | self-hosted | No |
+| runner_artifacts_cleanup.yml | Runner artifacts cleanup | schedule, dispatch | self-hosted | No |
+| catalog-book-pipeline.yml | Catalog book pipeline | schedule, dispatch | self-hosted | No |
+| marketing-briefs-and-proposals.yml | Marketing briefs | schedule, dispatch | self-hosted | No |
+| drift-audit.yml | Drift audit | schedule (daily 4am UTC), dispatch | ubuntu-latest | No |
 
 **Branch protection (main):** Require **Core tests**, **Release gates**, **EI V2 gates**, **Change impact**. See [BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md). Machine-readable policy: [config/governance/required_checks.yaml](../config/governance/required_checks.yaml).
 
 ---
 
-## Workflow matrix: Qwen-Agent
+## Workflow matrix: Qwen-Agent (backup only — no production cron)
+
+After PR B, all `schedule:` triggers are removed from Qwen-Agent. Only `workflow_dispatch` remains for manual backup runs.
 
 | Workflow file | Name | Trigger | Runner | Secrets |
 |---------------|------|---------|--------|---------|
-| pearl_news_scheduled.yml | Pearl News scheduled | schedule (6am/6pm UTC), workflow_dispatch | self-hosted | All 6 below |
+| pearl_news_scheduled.yml | Pearl News scheduled | ~~schedule~~ → workflow_dispatch only | self-hosted | All 6 below |
 | pearl_news_manual_expand.yml | Pearl News manual (expand) | workflow_dispatch | self-hosted | All 6 below |
 
-**Secrets (Settings → Secrets and variables → Actions):** WORDPRESS_SITE_URL, WORDPRESS_USERNAME, WORDPRESS_APP_PASSWORD, QWEN_BASE_URL, QWEN_API_KEY, QWEN_MODEL.
+**Secrets (Qwen-Agent):** WORDPRESS_SITE_URL, WORDPRESS_USERNAME, WORDPRESS_APP_PASSWORD, QWEN_BASE_URL, QWEN_API_KEY, QWEN_MODEL. These same secrets must also be configured in phoenix_omega (see below).
 
-Branch protection: not specified in this framework; Qwen-Agent typically does not require status checks for main.
+Branch protection: not specified; Qwen-Agent does not require status checks for main.
 
 ---
 
@@ -95,15 +110,16 @@ Branch protection: not specified in this framework; Qwen-Agent typically does no
 
 ## Secrets and runners
 
-### phoenix_omega_v4.8
+### phoenix_omega_v4.8 (single production repo)
 
-- **Secrets:** Per-workflow (e.g. observability, ML, production alerts may use tokens). See workflow files and [AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md](./AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md).
-- **Runner:** GitHub-hosted only (ubuntu-latest). No self-hosted runner.
+- **Secrets (required for migrated workflows):** WORDPRESS_SITE_URL, WORDPRESS_USERNAME, WORDPRESS_APP_PASSWORD, QWEN_BASE_URL, QWEN_API_KEY, QWEN_MODEL. Plus per-workflow tokens (observability, ML, production alerts). See workflow files and [AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md](./AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md).
+- **Runner:** GitHub-hosted (ubuntu-latest) for CI/gate workflows. **Self-hosted** for Pearl News, audiobook, localization, catalog, marketing, and runner cleanup workflows. Self-hosted runner path: `$HOME/actions-runner/`. Start: `cd ~/actions-runner && ./run.sh`. Ensure LM Studio is running when workflows use `--expand` or LLM calls.
+- **LM Studio lock:** `scripts/lm_studio_lock.py` (canonical location). All heavy workflows acquire/release this lock. Concurrency groups prevent overlap.
 
-### Qwen-Agent
+### Qwen-Agent (backup only)
 
-- **Secrets (6):** WORDPRESS_SITE_URL, WORDPRESS_USERNAME, WORDPRESS_APP_PASSWORD, QWEN_BASE_URL, QWEN_API_KEY, QWEN_MODEL.
-- **Runner:** Self-hosted on the machine where LM Studio runs. Typical path: `Qwen-Agent/actions-runner/`. Start: `cd /path/to/Qwen-Agent/actions-runner && ./run.sh`. Ensure LM Studio is running when workflows that use `--expand` are triggered.
+- **Secrets (6):** Same as phoenix_omega (WORDPRESS_*, QWEN_*). Already configured.
+- **Runner:** Same self-hosted runner. After PR B, no production cron — manual dispatch only.
 
 ---
 
@@ -140,28 +156,30 @@ When changing only Qwen-Agent (e.g. workflow or Pearl News code):
 2. `git pull origin main` (avoid rejected push).
 3. `git add <files> && git commit -m "<message>" && git push origin main`.
 
-### Start self-hosted runner (Qwen-Agent)
+### Start self-hosted runner
 
-On the machine where LM Studio runs:
+On the machine where LM Studio runs (serves both phoenix_omega and Qwen-Agent workflows):
 
 ```bash
-cd /path/to/Qwen-Agent/actions-runner
+cd ~/actions-runner
 ./run.sh
 ```
 
-Run in background or a dedicated terminal. Keep LM Studio running if you trigger workflows that use LLM expansion.
+Or use the watchdog: `scripts/runner/install_watchdog_launchd.sh` (checks every 5 minutes, auto-restarts). Run in background or a dedicated terminal. Keep LM Studio running for workflows that use LLM expansion.
 
-### Runner _diag "file already exists" fix (Qwen-Agent)
+### Runner _diag "file already exists" fix
 
-If the workflow fails with a message like `The file '.../actions-runner/_diag/pages/...log' already exists`:
+If a workflow fails with `The file '.../actions-runner/_diag/pages/...log' already exists`:
 
-1. Stop the runner (Ctrl+C in the terminal where `./run.sh` is running).
+1. Stop the runner (Ctrl+C or `./svc.sh stop`).
 2. Clear diagnostic files:
    ```bash
-   rm -rf /path/to/Qwen-Agent/actions-runner/_diag/pages/*
+   rm -rf ~/actions-runner/_diag/pages/*
    ```
-   If the error persists, clear all: `rm -rf /path/to/Qwen-Agent/actions-runner/_diag/*`
-3. Start the runner again: `cd /path/to/Qwen-Agent/actions-runner && ./run.sh`
+   If the error persists, clear all: `rm -rf ~/actions-runner/_diag/*`
+3. Start the runner again: `cd ~/actions-runner && ./run.sh`
+
+Automated cleanup: `runner_artifacts_cleanup.yml` runs on schedule and cleans old diag/artifact files.
 
 ### Recovery: rejected push (non–fast-forward)
 

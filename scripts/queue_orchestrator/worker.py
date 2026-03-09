@@ -47,7 +47,7 @@ def get_redis():
 
 
 def _lm_studio_lock_module():
-    for rel in ["scripts/lm_studio_lock.py", "Qwen-Agent/scripts/lm_studio_lock.py"]:
+    for rel in ["scripts/lm_studio_lock.py"]:
         p = REPO_ROOT / rel.replace("/", os.sep)
         if p.exists():
             spec = importlib.util.spec_from_file_location("lm_studio_lock_mod", p)

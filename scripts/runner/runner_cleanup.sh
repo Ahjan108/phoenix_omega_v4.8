@@ -5,7 +5,7 @@ set -euo pipefail
 # Intended for scheduled maintenance.
 # When run from phoenix_omega CI: REPO_DIR = workspace (phoenix_omega root).
 
-RUNNER_DIR="${RUNNER_DIR:-$GITHUB_WORKSPACE/../Qwen-Agent/actions-runner}"
+RUNNER_DIR="${RUNNER_DIR:-${GITHUB_WORKSPACE:-$HOME}/actions-runner}"
 REPO_DIR="${REPO_DIR:-$GITHUB_WORKSPACE}"
 DIAG_KEEP_DAYS="${DIAG_KEEP_DAYS:-14}"
 ARTIFACT_KEEP_DAYS="${ARTIFACT_KEEP_DAYS:-14}"
