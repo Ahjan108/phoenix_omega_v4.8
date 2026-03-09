@@ -1,0 +1,28 @@
+# Authoritative allowlist for Qwen-Agent → phoenix_omega migration.
+# No path outside this list may be copied. See docs/QWEN_SAFE_CONSOLIDATION_SPEC.md §3.
+
+workflows:
+  - .github/workflows/audiobook_manual.yml
+  - .github/workflows/audiobook_regression.yml
+  - .github/workflows/audiobook_scheduled.yml
+  - .github/workflows/locale_max_agents.yml
+  - .github/workflows/pearl_news_scheduled.yml
+  - .github/workflows/pearl_news_manual_expand.yml
+  - .github/workflows/runner_artifacts_cleanup.yml
+
+scripts:
+  - scripts/lm_studio_lock.py
+  - scripts/localization/run_locale_batches.py
+  - scripts/localization/translate_atoms_all_locales.py
+  - scripts/localization/validate_translations.py
+  - scripts/pearl_news_article_judge.py
+  # scripts/runner/* — add explicit files only when identified by audit
+
+config: []
+# Required supporting config paths; add as identified by audit (e.g. config/audiobook_script/, config/localization/)
+
+docs: []
+# Required supporting docs; add as identified by audit
+
+pearl_news_assets: []
+# Pearl News–specific assets (templates, prompts); add as identified by audit

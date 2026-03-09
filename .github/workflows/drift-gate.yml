@@ -1,0 +1,18 @@
+# PR-safe gate: runs on every pull_request to main. Required for branch protection.
+# Full daily audit is drift-audit.yml (schedule + dispatch).
+name: Drift gate
+
+on:
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  drift-gate:
+    name: drift-gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run drift audit
+        run: python3 scripts/ci/drift_audit.py

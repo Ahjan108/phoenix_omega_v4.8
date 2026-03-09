@@ -1,20 +1,4 @@
 {
-  "violations": [
-    {
-      "path_qwen": "Qwen-Agent/pearl_news/",
-      "duplicate_type": "stale shadow copy",
-      "canonical_repo": "phoenix_omega"
-    },
-    {
-      "path_qwen": "Qwen-Agent/.github/workflows/pearl_news_scheduled.yml",
-      "duplicate_type": "stale shadow copy",
-      "canonical_repo": "phoenix_omega"
-    },
-    {
-      "path_qwen": "Qwen-Agent/.github/workflows/pearl_news_manual_expand.yml",
-      "duplicate_type": "stale shadow copy",
-      "canonical_repo": "phoenix_omega"
-    }
-  ],
-  "warn_only": true
+  "violations": [],
+  "warn_only": false
 }

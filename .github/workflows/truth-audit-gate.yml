@@ -1,0 +1,35 @@
+# PR-safe gate: runs on every pull_request to main. Required for branch protection.
+# Full weekly audit is system-truth-audit.yml (schedule + path-triggered).
+name: Truth audit gate
+
+on:
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  truth-audit-gate:
+    name: truth-audit-gate
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Run truth audit (generate artifacts)
+        run: python scripts/audit/run_truth_audit.py
+
+      - name: Validate required artifacts
+        run: python scripts/audit/validate_truth_artifacts.py
+
+      - name: Enforce canonical ownership
+        run: python scripts/audit/enforce_canonical_ownership.py
+        # No Qwen-Agent clone in gate; script exits 0 when repo not present (no shadow paths to check)

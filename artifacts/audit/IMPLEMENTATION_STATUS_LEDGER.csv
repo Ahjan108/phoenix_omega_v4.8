@@ -1,7 +1,7 @@
 system,documented,implemented,wired,tested,prod_ready,status,evidence_files,evidence_lines,confidence,last_verified_sha,owner
-Arc-First pipeline,TRUE,TRUE,TRUE,TRUE,TRUE,Mostly complete,"scripts/run_pipeline.py, phoenix_v4/planning/",run_pipeline imports phoenix_v4.planning,high,a841a04577eb3526999377065e5ef17e63d56953,PHOENIX_ARC_FIRST_CANONICAL_SPEC
-EI V1,TRUE,TRUE,TRUE,TRUE,TRUE,Production-ready,phoenix_v4/quality/ei_adapter.py,apply_ei_selection,high,a841a04577eb3526999377065e5ef17e63d56953,ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST
-EI V2,TRUE,TRUE,TRUE,FALSE,FALSE,Implemented but not promoted,phoenix_v4/quality/ei_v2/,promotion 0/5 BLOCKED,high,a841a04577eb3526999377065e5ef17e63d56953,DOCS_INDEX
-Pearl News,TRUE,TRUE,TRUE,TRUE,FALSE,Mostly complete,pearl_news/pipeline/run_article_pipeline.py,pearl_news_scheduled in phoenix_omega,high,a841a04577eb3526999377065e5ef17e63d56953,PEARL_NEWS_ARCHITECTURE_SPEC
-Translation scripts,TRUE,FALSE,FALSE,FALSE,FALSE,Stub only,scripts/translate_atoms_all_locales_cloud.py,DOCS_INDEX Stub,high,a841a04577eb3526999377065e5ef17e63d56953,DOCS_INDEX
-Core tests workflow,TRUE,TRUE,TRUE,TRUE,FALSE,N/A,.github/workflows/core-tests.yml,pytest; validate_marketing_config; run_production_readiness_gates,high,a841a04577eb3526999377065e5ef17e63d56953,DOCS_INDEX
+Arc-First pipeline,TRUE,TRUE,TRUE,TRUE,TRUE,Mostly complete,"scripts/run_pipeline.py, phoenix_v4/planning/",run_pipeline imports phoenix_v4.planning,high,11c9e0b0e92ff3303d4ca35bda5c4327bf86c46c,PHOENIX_ARC_FIRST_CANONICAL_SPEC
+EI V1,TRUE,TRUE,TRUE,TRUE,TRUE,Production-ready,phoenix_v4/quality/ei_adapter.py,apply_ei_selection,high,11c9e0b0e92ff3303d4ca35bda5c4327bf86c46c,ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST
+EI V2,TRUE,TRUE,TRUE,FALSE,FALSE,Implemented but not promoted,phoenix_v4/quality/ei_v2/,promotion 0/5 BLOCKED,high,11c9e0b0e92ff3303d4ca35bda5c4327bf86c46c,DOCS_INDEX
+Pearl News,TRUE,TRUE,TRUE,TRUE,FALSE,Mostly complete,pearl_news/pipeline/run_article_pipeline.py,pearl_news_scheduled in phoenix_omega,high,11c9e0b0e92ff3303d4ca35bda5c4327bf86c46c,PEARL_NEWS_ARCHITECTURE_SPEC
+Translation scripts,TRUE,FALSE,FALSE,FALSE,FALSE,Stub only,scripts/translate_atoms_all_locales_cloud.py,DOCS_INDEX Stub,high,11c9e0b0e92ff3303d4ca35bda5c4327bf86c46c,DOCS_INDEX
+Core tests workflow,TRUE,TRUE,TRUE,TRUE,FALSE,N/A,.github/workflows/core-tests.yml,pytest; validate_marketing_config; run_production_readiness_gates,high,11c9e0b0e92ff3303d4ca35bda5c4327bf86c46c,DOCS_INDEX

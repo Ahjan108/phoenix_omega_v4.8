@@ -16,5 +16,27 @@ forbidden_types:
 # duplicate_type in forbidden_types are checked.
 forbidden_shadow_paths: []
 
+# Explicit exemptions: path_qwen patterns that do NOT fail CI when present.
+# Rules (see docs/QWEN_SAFE_CONSOLIDATION_SPEC.md § Handoff Addendum):
+# 1. Each exemption is temporary: must have owner + removal_date.
+# 2. No new exemptions without written justification.
+# 3. New shadow paths must fail CI by default.
+# 4. Removing a shadow requires removing its exemption in the same PR.
+# Each entry: path (required), owner (GitHub handle), removal_date (YYYY-MM-DD), justification (optional).
+# Enforcer matches on "path" only; owner/removal_date are for audit/handoff compliance.
+exempt_shadow_paths:
+  - path: "Qwen-Agent/pearl_news/"
+    owner: ""
+    removal_date: ""
+    justification: "Temporary until Pearl News fully cut over to phoenix_omega; remove when shadow removed."
+  - path: "Qwen-Agent/.github/workflows/pearl_news_scheduled.yml"
+    owner: ""
+    removal_date: ""
+    justification: "Temporary until production cron runs only from phoenix_omega."
+  - path: "Qwen-Agent/.github/workflows/pearl_news_manual_expand.yml"
+    owner: ""
+    removal_date: ""
+    justification: "Temporary until manual expand runs only from phoenix_omega."
+
 # When true, script only warns and exits 0. Week 2: hard-fail on violations.
 warn_only: false

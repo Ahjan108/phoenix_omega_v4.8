@@ -7,7 +7,7 @@
 
 ## Required status checks
 
-For 100% production confidence, configure branch protection on `main` (or `master`) to require:
+For 100% production confidence, configure branch protection on `main` (or `master`) to require the following. Use **exact** check run names as emitted by workflows (see [config/governance/required_checks.yaml](../config/governance/required_checks.yaml)):
 
 | Check | Workflow | Purpose |
 |-------|----------|---------|
@@ -15,21 +15,29 @@ For 100% production confidence, configure branch protection on `main` (or `maste
 | **Release gates** | `release-gates.yml` | Release and production readiness workflow checks |
 | **EI V2 gates** | `ei-v2-gates.yml` | EI V2 tests, eval, calibration, promotion checks |
 | **Change impact** | `change-impact.yml` | Change observation + impact analysis evidence |
+| **truth-audit-gate** | `truth-audit-gate.yml` | PR-safe audit gate; ownership/config validation |
+| **drift-gate** | `drift-gate.yml` | PR-safe drift gate; required paths + allowlist |
 
-These four are required for d2/d3/d5/d6 go-live.
+**Require PR for all changes to main.** **Do not allow force pushes.**
 
 ---
+
+**CODEOWNERS:** Changes under `/.github/workflows/`, `/scripts/`, `/config/`, and `/docs/` require review from designated owners (see [.github/CODEOWNERS](../.github/CODEOWNERS)). All changes to `main` must go through a PR.
 
 ## How to configure
 
 1. Go to **Settings → Branches → Branch protection rules** for `main`.
-2. Enable **Require status checks to pass before merging**.
-3. Add required checks:
+2. Enable **Require a pull request before merging** (no direct pushes to main).
+3. Enable **Require status checks to pass before merging**.
+4. Add required checks (use **exact** job names as shown in GitHub Actions):
    - **Core tests**
    - **Release gates**
    - **EI V2 gates**
    - **Change impact**
-4. Save the rule and verify a test PR shows all four checks as required.
+   - **truth-audit-gate**
+   - **drift-gate**
+5. Enable **Do not allow force pushes**.
+6. Save the rule and verify a test PR shows all six checks as required.
 
 ---
 

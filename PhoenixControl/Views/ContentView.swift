@@ -11,6 +11,10 @@ enum TabTag: String, CaseIterable, Identifiable {
     case teacher
     case ci
     case docs
+    case completeness
+    case approvals
+    case systemMetadata
+    case agentsLearning
     case manualReview
     var id: String { rawValue }
     var title: String {
@@ -25,6 +29,10 @@ enum TabTag: String, CaseIterable, Identifiable {
         case .teacher: return "Teacher"
         case .ci: return "CI / Workflows"
         case .docs: return "Docs & Config"
+        case .completeness: return "Completeness"
+        case .approvals: return "Approvals"
+        case .systemMetadata: return "System Metadata"
+        case .agentsLearning: return "Agents & Learning"
         case .manualReview: return "Manual Review"
         }
     }
@@ -40,6 +48,10 @@ enum TabTag: String, CaseIterable, Identifiable {
         case .teacher: return "person.crop.circle"
         case .ci: return "arrow.triangle.2.circlepath"
         case .docs: return "doc.text"
+        case .completeness: return "chart.pie"
+        case .approvals: return "checkmark.seal"
+        case .systemMetadata: return "list.bullet.rectangle"
+        case .agentsLearning: return "brain.head.profile"
         case .manualReview: return "exclamationmark.triangle.fill"
         }
     }
@@ -50,9 +62,12 @@ struct ContentView: View {
     let artifactReader: ArtifactReader
     let scriptRunner: ScriptRunner
     let githubService: GitHubService
+    let dashboardLauncher: ExecutiveDashboardLauncher
     @State private var selectedTab: TabTag = .dashboard
     @State private var showingPathSheet = false
     @State private var pathInput: String = ""
+    @State private var dashboardLaunchError: String?
+    @State private var isLaunchingDashboard = false
 
     private var startupBlocked: Bool {
         guard let passed = state.healthCheckPassed else { return true }
@@ -121,6 +136,11 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     HStack(spacing: 8) {
+                        Button(action: launchExecutiveDashboard) {
+                            Label("Executive Dashboard", systemImage: "chart.bar.doc.horizontal")
+                        }
+                        .disabled(state.repoPath.isEmpty || isLaunchingDashboard)
+                        .help("Launch Streamlit Executive Dashboard and open in browser")
                         Text(state.repoPath.isEmpty ? "Set repo path" : abbreviatedPath(state.repoPath))
                             .lineLimit(1)
                             .truncationMode(.middle)
@@ -131,10 +151,22 @@ struct ContentView: View {
                     }
                 }
             }
+            .alert("Executive Dashboard", isPresented: Binding(
+                get: { dashboardLaunchError != nil },
+                set: { if !$0 { dashboardLaunchError = nil } }
+            )) {
+                Button("OK") { dashboardLaunchError = nil }
+            } message: {
+                if let msg = dashboardLaunchError {
+                    Text(msg)
+                }
+            }
         }
     }
     .commands {
         CommandGroup(after: .sidebar) {
+            Button("Executive Dashboard") { launchExecutiveDashboard() }
+                .keyboardShortcut("e", modifiers: [.command, .shift])
             ForEach(Array(TabTag.allCases.enumerated()), id: \.element) { index, tab in
                 Button(tab.title) { selectedTab = tab }
                     .keyboardShortcut(KeyEquivalent(Character(Unicode.Scalar(48 + (index == 9 ? 0 : index + 1))!)), modifiers: .command)
@@ -148,7 +180,7 @@ struct ContentView: View {
         Group {
             switch selectedTab {
             case .dashboard:
-                DashboardView(state: state, artifactReader: artifactReader, onSelectObservability: { selectedTab = .observability })
+                DashboardView(state: state, artifactReader: artifactReader, scriptRunner: scriptRunner, onSelectObservability: { selectedTab = .observability }, onGovernanceRan: { runStartupHealthCheckIfNeeded(); refreshCurrentTab() })
             case .pipeline:
                 PipelineView(state: state, scriptRunner: scriptRunner)
             case .simulation:
@@ -167,6 +199,14 @@ struct ContentView: View {
                 CIWorkflowsView(state: state, githubService: githubService)
             case .docs:
                 DocsConfigView(state: state, artifactReader: artifactReader, scriptRunner: scriptRunner)
+            case .completeness:
+                CompletenessView(state: state, scriptRunner: scriptRunner)
+            case .approvals:
+                ApprovalsView(state: state, artifactReader: artifactReader)
+            case .systemMetadata:
+                SystemMetadataView(state: state, artifactReader: artifactReader, scriptRunner: scriptRunner)
+            case .agentsLearning:
+                AgentsLearningView(state: state, githubService: githubService)
             case .manualReview:
                 ManualReviewView(state: state, artifactReader: artifactReader, scriptRunner: scriptRunner)
             }
@@ -223,5 +263,21 @@ struct ContentView: View {
             return "~" + String(expanded.dropFirst(home.count))
         }
         return path
+    }
+
+    private func launchExecutiveDashboard() {
+        guard !state.repoPath.isEmpty else { return }
+        isLaunchingDashboard = true
+        dashboardLauncher.launch(repoPath: state.repoPath) { result in
+            DispatchQueue.main.async {
+                isLaunchingDashboard = false
+                switch result {
+                case .success:
+                    break
+                case .failure(let message):
+                    dashboardLaunchError = message
+                }
+            }
+        }
     }
 }

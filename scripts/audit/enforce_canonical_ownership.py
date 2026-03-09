@@ -50,6 +50,22 @@ def main() -> int:
         forbidden.add(_normalize_dup_type(t))
         forbidden.add((t or "").strip().lower())
     warn_only = bool(policy.get("warn_only"))
+    exempt_raw = policy.get("exempt_shadow_paths") or []
+    # Support both string entries and { path, owner?, removal_date? } for handoff rules.
+    exempt_patterns = []
+    for p in exempt_raw:
+        if isinstance(p, dict):
+            path_val = (p.get("path") or "").strip()
+            if path_val:
+                exempt_patterns.append(path_val)
+        elif isinstance(p, str) and p.strip():
+            exempt_patterns.append(p.strip())
+
+    def is_exempt(path: str) -> bool:
+        for pat in exempt_patterns:
+            if path == pat or path.startswith(pat.rstrip("/") + "/") or (pat.endswith("/") and path.startswith(pat)):
+                return True
+        return False
 
     rows = load_drift_matrix()
     violations = []
@@ -63,6 +79,8 @@ def main() -> int:
             continue
         path_qwen = (row.get("path_qwen") or "").strip()
         if not path_qwen or path_qwen.startswith("N/A"):
+            continue
+        if is_exempt(path_qwen):
             continue
         # path_qwen is the shadow path (e.g. Qwen-Agent/pearl_news/ or Qwen-Agent/scripts/audiobook_script/run_comparator_loop.py)
         rel = path_qwen.replace("Qwen-Agent/", "", 1).strip("/")

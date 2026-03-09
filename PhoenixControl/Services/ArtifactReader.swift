@@ -47,6 +47,31 @@ final class ArtifactReader {
         return try? JSONDecoder().decode(ContentCoverageReport.self, from: data)
     }
 
+    /// Freebies index health for Governance/Executive spec: path, row count, last modified.
+    struct FreebiesIndexInfo {
+        let path: String
+        let rowCount: Int
+        let lastModified: Date?
+        let exists: Bool
+    }
+    func loadFreebiesIndexInfo(repoPath: String) -> FreebiesIndexInfo {
+        let base = repoURL(repoPath: repoPath)
+        let path = base.appendingPathComponent("artifacts/freebies/index.jsonl")
+        let pathStr = "artifacts/freebies/index.jsonl"
+        guard fileManager.fileExists(atPath: path.path) else {
+            return FreebiesIndexInfo(path: pathStr, rowCount: 0, lastModified: nil, exists: false)
+        }
+        var count = 0
+        if let content = try? String(contentsOf: path, encoding: .utf8) {
+            count = content.split(separator: "\n", omittingEmptySubsequences: true).count
+        }
+        var mtime: Date?
+        if let attrs = try? fileManager.attributesOfItem(atPath: path.path) {
+            mtime = attrs[.modificationDate] as? Date
+        }
+        return FreebiesIndexInfo(path: pathStr, rowCount: count, lastModified: mtime, exists: true)
+    }
+
     private func loadJSONL(path: URL, limit: Int) -> [EvidenceLogRow] {
         guard let content = try? String(contentsOf: path, encoding: .utf8) else { return [] }
         let lines = content.split(separator: "\n", omittingEmptySubsequences: true)

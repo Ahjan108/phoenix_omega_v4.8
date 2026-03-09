@@ -15,6 +15,18 @@
 | **Ahjan108/phoenix_omega_v4.8** | main | phoenix_omega | **Single production repo:** v4, video, pearl_prime, EI v2, ML, localization, pearl_news (assembly mode). phoenix_omega_v4.8 = this repo. |
 | **Ahjan108/Qwen-Agent** | main | Qwen-Agent (sibling or elsewhere) | **Backup / experiment only.** After PR B: no production cron; workflow_dispatch only. Fork of QwenLM/Qwen-Agent. |
 
+**Production rule:** phoenix_omega is the **only** production repo. Qwen-Agent is **dispatch-only** (no production traffic, no production writes). All production schedules and writes run from phoenix_omega.
+
+**Backup freeze:** Backup repos (e.g. Qwen-Agent) are **frozen**: no schedule triggers, no production writes, manual dispatch only. See [QWEN_SAFE_CONSOLIDATION_SPEC.md](./QWEN_SAFE_CONSOLIDATION_SPEC.md) §4.
+
+---
+
+## Sync from canonical
+
+**Rule:** Any shared runtime file may only be edited in the **canonical location** (phoenix_omega). Edits in Qwen-Agent to allowlisted or shared paths do **not** count as source of truth. When syncing or copying from Qwen-Agent, phoenix_omega is always the authority; do not treat Qwen-Agent as the place to make changes to shared code, config, or docs.
+
+See [CANONICAL_EDIT_RULE.md](./CANONICAL_EDIT_RULE.md) and [QWEN_SAFE_CONSOLIDATION_SPEC.md](./QWEN_SAFE_CONSOLIDATION_SPEC.md).
+
 ---
 
 ## Architecture (overview)
@@ -120,6 +132,7 @@ Branch protection: not specified; Qwen-Agent does not require status checks for 
 
 - **Secrets (6):** Same as phoenix_omega (WORDPRESS_*, QWEN_*). Already configured.
 - **Runner:** Same self-hosted runner. After PR B, no production cron — manual dispatch only.
+- **Freeze:** Backup repos are frozen: no schedule triggers, no production writes, manual dispatch only.
 
 ---
 
@@ -132,7 +145,7 @@ Branch protection: not specified; Qwen-Agent does not require status checks for 
 3. Commit, push branch: `git add -A && git commit -m "<type>: <scope>" && git push -u origin codex/<topic>`
 4. Open PR to main; wait for required checks (Core tests, Release gates, EI V2 gates, Change impact); merge.
 
-See [GITHUB_SUPPORT_SYSTEM_SPEC.md](./GITHUB_SUPPORT_SYSTEM_SPEC.md) §5–6.
+All changes to `main` must go through a PR. Paths `workflows/`, `scripts/`, `config/`, and `docs/` are CODEOWNERS-protected. See [GITHUB_SUPPORT_SYSTEM_SPEC.md](./GITHUB_SUPPORT_SYSTEM_SPEC.md) §5–6.
 
 ### Merge to main when local main is behind
 

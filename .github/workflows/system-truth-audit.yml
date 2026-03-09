@@ -54,6 +54,7 @@ jobs:
         working-directory: phoenix_omega
 
       - name: Validate artifact freshness (SHA vs main)
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         run: |
           python scripts/audit/validate_truth_artifacts.py --check-sha
         working-directory: phoenix_omega

@@ -8,6 +8,8 @@
 
 ## Single production repo
 
+phoenix_omega is the **only** production repo. Qwen-Agent is **dispatch-only** (no production traffic, no production writes).
+
 | Repo | Role | Production schedules? |
 |------|------|------------------------|
 | **phoenix_omega (Ahjan108/phoenix_omega_v4.8)** | Single production repo for v4, video, pearl_prime, EI v2, ML, localization, pearl_news (assembly mode) | Yes |

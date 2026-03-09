@@ -28,8 +28,9 @@
 | **Go/no-go decision** | [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md) §6 Hard NOs. |
 | **Freebie funnel & launch** | [Freebie funnel, Proof Loop & launch (document all)](#freebie-funnel-proof-loop--launch-document-all) — landing, form, Proof-Loop emails, GHL push, writer spec, GO_NO_GO, three things from Nihala. |
 | **UI / operator coverage (full)** | No single spec covers all UI. For 100% coverage of everything that needs UI to manage, use the **full doc bundle**: [Control plane & operator UI — full doc bundle](#control-plane--operator-ui--full-doc-bundle) below. |
-| **Do GitHub operations (both repos)** | [GitHub Operations Framework](#github-operations-framework) — repo map, workflow matrix, canonical ownership, system functions (PR flow, merge to main, Qwen-Agent push, runner start/clean, recovery). |
+| **Do GitHub operations (both repos)** | [GitHub Operations Framework](#github-operations-framework) — repo map, workflow matrix, canonical ownership, system functions (PR flow, merge to main, Qwen-Agent push, runner start/clean, recovery). **Production = phoenix_omega only; Qwen-Agent = backup, manual dispatch only.** |
 | **Truth Audit Governance Loop** | [Truth Audit Governance Loop](#truth-audit-governance-loop) — Weekly CI regenerates/validates audit artifacts; Section G → issues; canonical ownership enforcement; Qwen-Agent delta addendum. Workflow, scripts, configs. |
+| **Safe Qwen-Agent consolidation** | [docs/QWEN_SAFE_CONSOLIDATION_SPEC.md](./QWEN_SAFE_CONSOLIDATION_SPEC.md) — Promote runtime assets to phoenix_omega, freeze Qwen-Agent as backup-only, parity gates, archive (no delete). Allowlist: config/audit/qwen_migration_allowlist.yaml. Handoff addendum: exemption rules (owner, removal date, no new exemptions without justification). |
 
 ---
 
@@ -45,10 +46,13 @@
 | **Enforce ownership** | [scripts/audit/enforce_canonical_ownership.py](../scripts/audit/enforce_canonical_ownership.py) — Reads DRIFT_MATRIX + ownership_policy; fails CI when forbidden shadow paths exist; writes ownership_violations.json. |
 | **Sync Section G to issues** | [scripts/audit/sync_section_g_issues.py](../scripts/audit/sync_section_g_issues.py) — remediation_registry.yaml → GitHub issues (create/update/close); writes remediation_issue_map.json. |
 | **Qwen delta addendum** | [scripts/audit/build_qwen_delta_addendum.py](../scripts/audit/build_qwen_delta_addendum.py) — Compares Qwen-Agent snapshot to baseline; writes QWEN_DELTA_ADDENDUM.md, qwen_delta.json. |
-| **Ownership policy** | [config/audit/ownership_policy.yaml](../config/audit/ownership_policy.yaml) — Forbidden duplicate types; warn_only (Week 1) vs hard-fail (Week 2). |
+| **Ownership policy** | [config/audit/ownership_policy.yaml](../config/audit/ownership_policy.yaml) — Forbidden duplicate types; exempt_shadow_paths (explicit exemptions until shadows removed); hard-fail on violations. |
 | **Remediation registry** | [config/audit/remediation_registry.yaml](../config/audit/remediation_registry.yaml) — Machine-readable Section G: id, title, owner, due_date, priority, status, evidence_refs. |
+| **Qwen migration allowlist** | [config/audit/qwen_migration_allowlist.yaml](../config/audit/qwen_migration_allowlist.yaml) — Authoritative allowlist for Qwen-Agent → phoenix_omega; no path outside may be copied. See [QWEN_SAFE_CONSOLIDATION_SPEC.md](./QWEN_SAFE_CONSOLIDATION_SPEC.md) §3. |
 | **Audit artifacts** | [artifacts/audit/](../artifacts/audit/) — SYSTEM_TRUTH_REPORT.md, DRIFT_MATRIX.csv, MISSING_REFERENCED_FILES.md, IMPLEMENTATION_STATUS_LEDGER.csv, ownership_violations.json, remediation_issue_map.json, QWEN_DELTA_ADDENDUM.md, qwen_delta.json, baselines/qwen/. |
 | **Issue template** | [.github/ISSUE_TEMPLATE/audit-gap.yml](../.github/ISSUE_TEMPLATE/audit-gap.yml) — Audit-gap issue form (description, priority, due date, owner). |
+
+**Required for main:** The PR-safe **truth-audit-gate** (`.github/workflows/truth-audit-gate.yml`) is a required status check for `main`; the weekly **system-truth-audit** runs the full audit separately (schedule + path-triggered push).
 
 **Rollout:** Week 1 workflow_dispatch + warn_only; Week 2 hard-fail on ownership; Week 3 enforce issue-sync as required. Secrets: GITHUB_TOKEN (issues); optional GH_PAT for Qwen-Agent clone.
 
@@ -368,6 +372,7 @@ Single entry point for GitHub operations across **Ahjan108/phoenix_omega_v4.8** 
 | **Branch protection** | [docs/BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md) — Required checks for main (Core tests, Release gates, EI V2 gates, Change impact). |
 | **Pearl News (consolidated)** | Pearl News workflows now live in **phoenix_omega** (scheduled + manual expand). Qwen-Agent retains copies for backup only (no production cron after PR B). Setup and runner: [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md). |
 | **Runtime consolidation** | [RUNTIME_CONSOLIDATION_MIGRATION_MANIFEST.md](./RUNTIME_CONSOLIDATION_MIGRATION_MANIFEST.md) — Migration allowlist and manifest. [OWNERSHIP_MATRIX.md](./OWNERSHIP_MATRIX.md) — Path ownership. [drift-audit.yml](../.github/workflows/drift-audit.yml) — Daily audit. |
+| **Sync from canonical** | [docs/CANONICAL_EDIT_RULE.md](./CANONICAL_EDIT_RULE.md) — Shared runtime files may only be edited in phoenix_omega; edits in Qwen-Agent do not count as source of truth. |
 | **Localization runbook** | [LOCALIZATION_100_PERCENT_RUNBOOK.md](./LOCALIZATION_100_PERCENT_RUNBOOK.md) — Localization pipeline operations. |
 
 ---

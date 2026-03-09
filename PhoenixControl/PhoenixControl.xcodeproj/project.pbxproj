@@ -32,6 +32,12 @@
 		A10000000000000000000017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000017 /* Assets.xcassets */; };
 		A10000000000000000000018 /* GovernanceReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000019 /* GovernanceReport.swift */; };
 		A10000000000000000000019 /* ContentCoverageReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000001A /* ContentCoverageReport.swift */; };
+		A1000000000000000000001B /* ExecutiveDashboardLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000001B /* ExecutiveDashboardLauncher.swift */; };
+		A1000000000000000000001C /* CompletenessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000001C /* CompletenessView.swift */; };
+		A1000000000000000000001D /* ApprovalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000001D /* ApprovalsView.swift */; };
+		A1000000000000000000001E /* SystemMetadataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000001E /* SystemMetadataView.swift */; };
+		A1000000000000000000001F /* AgentsLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000000000000000000001F /* AgentsLearningView.swift */; };
+		A10000000000000000000020 /* ManualReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000020 /* ManualReviewView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +67,12 @@
 		A20000000000000000000018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A20000000000000000000019 /* GovernanceReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GovernanceReport.swift; sourceTree = "<group>"; };
 		A2000000000000000000001A /* ContentCoverageReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCoverageReport.swift; sourceTree = "<group>"; };
+		A2000000000000000000001B /* ExecutiveDashboardLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutiveDashboardLauncher.swift; sourceTree = "<group>"; };
+		A2000000000000000000001C /* CompletenessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletenessView.swift; sourceTree = "<group>"; };
+		A2000000000000000000001D /* ApprovalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovalsView.swift; sourceTree = "<group>"; };
+		A2000000000000000000001E /* SystemMetadataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetadataView.swift; sourceTree = "<group>"; };
+		A2000000000000000000001F /* AgentsLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentsLearningView.swift; sourceTree = "<group>"; };
+		A20000000000000000000020 /* ManualReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualReviewView.swift; sourceTree = "<group>"; };
 		A30000000000000000000001 /* Phoenix Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Phoenix Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -122,6 +134,7 @@
 				A20000000000000000000004 /* ArtifactReader.swift */,
 				A20000000000000000000005 /* GitHubService.swift */,
 				A20000000000000000000006 /* ScriptRunner.swift */,
+				A2000000000000000000001B /* ExecutiveDashboardLauncher.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -148,6 +161,11 @@
 				A20000000000000000000010 /* TeacherView.swift */,
 				A20000000000000000000011 /* CIWorkflowsView.swift */,
 				A20000000000000000000012 /* DocsConfigView.swift */,
+				A2000000000000000000001C /* CompletenessView.swift */,
+				A2000000000000000000001D /* ApprovalsView.swift */,
+				A2000000000000000000001E /* SystemMetadataView.swift */,
+				A2000000000000000000001F /* AgentsLearningView.swift */,
+				A20000000000000000000020 /* ManualReviewView.swift */,
 				A50000000000000000000008 /* Components */,
 			);
 			path = Views;
@@ -252,6 +270,12 @@
 				A10000000000000000000016 /* EvidenceLogTable.swift in Sources */,
 				A10000000000000000000018 /* GovernanceReport.swift in Sources */,
 				A10000000000000000000019 /* ContentCoverageReport.swift in Sources */,
+				A1000000000000000000001B /* ExecutiveDashboardLauncher.swift in Sources */,
+				A1000000000000000000001C /* CompletenessView.swift in Sources */,
+				A1000000000000000000001D /* ApprovalsView.swift in Sources */,
+				A1000000000000000000001E /* SystemMetadataView.swift in Sources */,
+				A1000000000000000000001F /* AgentsLearningView.swift in Sources */,
+				A10000000000000000000020 /* ManualReviewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

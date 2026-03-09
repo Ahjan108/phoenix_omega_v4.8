@@ -1,6 +1,10 @@
 # Governance and CI: require review from repo admins or designated owners.
-# Update the path below to your team or usernames.
+# Critical paths: workflows, scripts, config, docs. Update the path below to your team or usernames.
 /.github/workflows/           @Ahjan108
+/scripts/                     @Ahjan108
+/config/                      @Ahjan108
+/docs/                        @Ahjan108
+# Specific governance files (also covered by /docs/ above)
 /scripts/ci/verify_github_governance.py   @Ahjan108
 /config/governance/           @Ahjan108
 /docs/GITHUB_GOVERNANCE.md    @Ahjan108

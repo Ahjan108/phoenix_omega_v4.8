@@ -1,10 +1,17 @@
 # Machine-readable required status checks policy for main.
-# Used by scripts/ci/verify_github_governance.py (no hardcoded checks in script).
+# Used by scripts/ci/verify_github_governance.py and scripts/ci/validate_required_checks_match.py.
+# Store EXACT check run names as emitted by workflows (job name: or job id).
+# Branch protection must require these exact strings.
 version: 1
 
-# At least one of these must be required on main. Prefer non-path-filtered workflows.
+# Required status checks for main. Each must match a job name in some workflow.
 always_required:
   - "Core tests"
+  - "release-gates"
+  - "EI V2 gates"
+  - "change-impact"
+  - "truth-audit-gate"
+  - "drift-gate"
 
 # Path-filtered checks: optional. If required on main, they must not be the only required checks.
 path_filtered_optional:
