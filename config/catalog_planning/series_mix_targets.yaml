@@ -1,0 +1,45 @@
+# Series vs standalone mix for catalog planning.
+# Authority: docs/CATALOG_GROWTH_AND_ADVISORY_POLICY.md.
+# Rationale: Industry-informed guideline for Google Play Books + Findaway Voices (and similar).
+# Platforms favor read-through and binge listening; series boost LTV. Standalones aid discovery and SEO.
+# Source: digital-first publisher practice and read-through data (e.g. ~68% buy book 2, ~51% book 3);
+# the 70/30 split is a catalog strategy, not a single published study.
+
+schema_version: 1
+
+# ─── Catalog-level ratio ───────────────────────────────────────────────────
+# Recommended: 65–75% series, 25–35% standalone. Ideal midpoint used for planning.
+series_share_pct_min: 65
+series_share_pct_max: 75
+ideal_midpoint_pct: 70
+standalone_share_pct_min: 25
+standalone_share_pct_max: 35
+
+# ─── Series length distribution (of series titles only) ─────────────────────
+# Platforms perform best with short-to-medium series. Avoid 1–2 book "series" (weak); avoid 20+ unless proven.
+# % of series = share of all series titles that fall in this length band.
+series_length_distribution:
+  micro:        # 3–4 books, fast read-through
+    length_min: 3
+    length_max: 4
+    pct_of_series: 40
+  mid:          # 5–7 books, ideal engagement depth
+    length_min: 5
+    length_max: 7
+    pct_of_series: 40
+  flagship:     # 8–12 books, flagship series
+    length_min: 8
+    length_max: 12
+    pct_of_series: 20
+
+# Avoid creating new series with these lengths (algorithms treat 1–2 as weak).
+avoid_series_lengths: [1, 2]
+# Cap default max series length; 20+ only when audience is proven.
+long_series_cap_default: 20
+
+# Complete series clusters before starting too many new ones (anti-fragmentation).
+# Prefer: Series A book 1, 2, 3 → Series B book 1, 2 …  rather than A1, B1, C1, D1.
+complete_series_clusters: true
+
+# Nonfiction/self-help: slightly more standalone for topic discovery (optional override).
+# nonfic_series_share_midpoint: 60   # 60% series / 40% standalone when set

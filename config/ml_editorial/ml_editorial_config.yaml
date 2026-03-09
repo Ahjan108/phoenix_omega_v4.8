@@ -36,6 +36,8 @@ reader_fit:
 rewrite_recs:
   enforce_forbidden_tokens: true
   max_recommendations_per_chapter: 3
+  # Per-book rollback: list of book_id for which overlay is disabled (original prose only).
+  disable_overlay_for_book_ids: []
 
 # Market router.
 market_router:

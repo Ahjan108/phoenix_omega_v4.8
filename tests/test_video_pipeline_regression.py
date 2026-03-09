@@ -5,6 +5,7 @@ Run: pytest tests/test_video_pipeline_regression.py -v
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -23,6 +24,10 @@ def run_pipeline():
     manifest = REPO_ROOT / "fixtures" / "video_pipeline" / "render_manifest.json"
     if not manifest.exists():
         pytest.skip("fixtures/video_pipeline/render_manifest.json not found")
+    if not os.environ.get("OPENAI_BASE_URL"):
+        pytest.skip("OPENAI_BASE_URL not set for strict segment-scene extraction")
+    if not (os.environ.get("CLOUDFLARE_ACCOUNT_ID") and (os.environ.get("CLOUDFLARE_API_TOKEN") or os.environ.get("CLOUDFLARE_AI_API_TOKEN"))):
+        pytest.skip("Cloudflare FLUX credentials not set for strict segment image generation")
     script = REPO_ROOT / "scripts" / "video" / "run_pipeline.py"
     r = subprocess.run(
         [sys.executable, str(script), "--plan-id", PLAN_ID, "--force"],

@@ -1,0 +1,76 @@
+{
+  "pipeline_version": "video-pipeline-v1",
+  "plan_id": "depression-genz-nyc-90s",
+  "stages": [
+    {
+      "name": "prepare_script_segments",
+      "start_time": 0.096152,
+      "end_time": 0.188982875,
+      "duration_ms": 93,
+      "success": true
+    },
+    {
+      "name": "shot_planner",
+      "start_time": 0.189026291,
+      "end_time": 0.280750333,
+      "duration_ms": 92,
+      "success": true
+    },
+    {
+      "name": "asset_resolver",
+      "start_time": 0.280791291,
+      "end_time": 0.371909583,
+      "duration_ms": 91,
+      "success": true
+    },
+    {
+      "name": "timeline_builder",
+      "start_time": 0.371972791,
+      "end_time": 0.456582166,
+      "duration_ms": 85,
+      "success": true
+    },
+    {
+      "name": "caption_adapter",
+      "start_time": 0.456624916,
+      "end_time": 0.565127708,
+      "duration_ms": 109,
+      "success": true
+    },
+    {
+      "name": "qc",
+      "start_time": 0.565157083,
+      "end_time": 0.697274708,
+      "duration_ms": 132,
+      "success": true
+    },
+    {
+      "name": "render",
+      "start_time": 0.697483666,
+      "end_time": 28.959473333,
+      "duration_ms": 28262,
+      "success": true
+    },
+    {
+      "name": "provenance",
+      "start_time": 28.961374208,
+      "end_time": 30.013948541,
+      "duration_ms": 1053,
+      "success": true
+    },
+    {
+      "name": "metadata",
+      "start_time": 30.014637833,
+      "end_time": 30.219327166,
+      "duration_ms": 205,
+      "success": true
+    },
+    {
+      "name": "thumbnail",
+      "start_time": 30.219460791,
+      "end_time": 30.620633208,
+      "duration_ms": 401,
+      "success": true
+    }
+  ]
+}

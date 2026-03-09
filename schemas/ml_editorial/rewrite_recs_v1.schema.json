@@ -11,6 +11,10 @@
     "recommendation": { "type": "string" },
     "constraint_set": { "type": ["string", "array"] },
     "expected_gain": { "type": "number", "minimum": 0, "maximum": 1 },
-    "ts": { "type": "string", "format": "date-time" }
+    "ts": { "type": "string", "format": "date-time" },
+    "atom_id": { "type": "string", "description": "Optional; when present with replacement_text, used for prose overlay." },
+    "replacement_text": { "type": "string", "description": "Optional; replacement prose for atom_id at render time (overlay only)." },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1, "description": "Optional; conflict policy: highest confidence wins, then newest ts." },
+    "plan_hash": { "type": "string", "description": "Optional; hash of plan slot sequence when rec was generated. At overlay time, if present and not equal to current plan hash, overlay is skipped (staleness guard)." }
   }
 }

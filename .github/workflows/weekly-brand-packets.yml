@@ -1,0 +1,174 @@
+# Weekly brand packets: export -> upload to R2 -> notify admins.
+# Dependency check: schedule and assembled outputs must exist for target week.
+# Secrets: R2_*, SMTP_*, Slack webhooks (env or GitHub secrets).
+
+name: Weekly brand packets
+
+on:
+  schedule:
+    - cron: '0 2 * * 2'
+  workflow_dispatch:
+    inputs:
+      week_start:
+        description: 'Week start (YYYY-MM-DD) or leave empty for first week in schedule'
+        required: false
+        type: string
+      skip_notify:
+        description: 'Skip notify step'
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: weekly-brand-packets
+  cancel-in-progress: false
+
+jobs:
+  dependency-check:
+    name: Dependency check
+    runs-on: ubuntu-latest
+    outputs:
+      week_start: ${{ steps.set_week.outputs.week_start }}
+      week_key: ${{ steps.set_week.outputs.week_key }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set week
+        id: set_week
+        run: |
+          WEEK_START="${{ inputs.week_start }}"
+          if [ -z "$WEEK_START" ] && [ -f artifacts/release_schedule.json ]; then
+            WEEK_START=$(python3 -c "
+          import json
+          try:
+            d = json.load(open('artifacts/release_schedule.json'))
+            s = d.get('schedule') or [d]
+            if s:
+              print(s[0].get('week_start', ''))
+          except Exception:
+            pass
+          ")
+          fi
+          if [ -z "$WEEK_START" ]; then
+            echo "::error::Cannot determine week_start. Provide workflow_dispatch input week_start (YYYY-MM-DD) or ensure artifacts/release_schedule.json exists (e.g. from catalog-book-pipeline)."
+            exit 1
+          fi
+          # Normalize to Monday so we match schedule rows (week_start is always Monday)
+          WEEK_START=$(python3 -c "
+          from datetime import datetime, timedelta
+          d = datetime.strptime('$WEEK_START', '%Y-%m-%d')
+          wd = d.isoweekday()
+          monday = d - timedelta(days=wd - 1)
+          print(monday.strftime('%Y-%m-%d'))
+          ")
+          echo "week_start=$WEEK_START" >> $GITHUB_OUTPUT
+          WW=$(python3 -c "from datetime import datetime; d=datetime.strptime('$WEEK_START','%Y-%m-%d'); y,w,_=d.isocalendar(); print(f'{y}-W{w:02d}')")
+          echo "week_key=$WW" >> $GITHUB_OUTPUT
+          echo "Using week_start=$WEEK_START week_key=$WW"
+
+  export-upload-notify:
+    name: Export, upload, notify
+    runs-on: self-hosted
+    needs: [dependency-check]
+    if: success()
+    timeout-minutes: 60
+    env:
+      WEEK_START: ${{ needs.dependency-check.outputs.week_start }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Validate schedule source (candidates-dir or wave used upstream)
+        run: |
+          python3 -c "
+          import json, sys
+          p = 'artifacts/release_schedule.json'
+          try:
+            d = json.load(open(p))
+          except Exception as e:
+            print('::error::Could not load', p, e)
+            sys.exit(1)
+          src = d.get('schedule_source')
+          if src not in ('candidates_dir', 'wave'):
+            print('::error::Schedule was not built with --candidates-dir or --wave. Run generate_weekly_schedule.py with --candidates-dir or --wave so schedule_source is set. Current schedule_source:', repr(src))
+            sys.exit(1)
+          if src == 'candidates_dir' and not d.get('candidates_dir'):
+            print('::error::Schedule has schedule_source=candidates_dir but candidates_dir missing')
+            sys.exit(1)
+          if src == 'wave' and not d.get('wave'):
+            print('::error::Schedule has schedule_source=wave but wave path missing')
+            sys.exit(1)
+          print('Schedule source OK:', src)
+          "
+
+      - name: Dependency check - assembled outputs exist
+        run: |
+          python3 -c "
+          import json, sys
+          from pathlib import Path
+          d = json.load(open('artifacts/release_schedule.json'))
+          s = d.get('schedule') or [d]
+          ws = '${{ env.WEEK_START }}'
+          row = next((r for r in s if r.get('week_start') == ws), None)
+          if not row:
+            print('::error::Schedule week not found. week_start=', ws, '(use YYYY-MM-DD Monday or leave empty for first week)')
+            sys.exit(1)
+          missing = []
+          for brand, paths in (row.get('assignments') or {}).items():
+            for p in paths or []:
+              path = Path(p) if Path(p).is_absolute() else Path(p)
+              if not path.is_absolute():
+                path = Path('.') / path
+              if not path.exists():
+                missing.append(str(path))
+              else:
+                plan_id = path.stem
+                rendered_book = Path('artifacts/rendered') / plan_id / 'book.txt'
+                if not rendered_book.exists():
+                  missing.append(str(rendered_book))
+          if missing:
+            print('::error::Missing plan files or rendered book.txt:', missing[:15])
+            sys.exit(1)
+          print('Assembled outputs present (plans + artifacts/rendered/<plan_id>/book.txt)')
+          "
+
+      - name: Export brand packets
+        run: |
+          python3 scripts/release/export_brand_packets.py --week-start "$WEEK_START"
+
+      - name: Upload to R2
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+        run: |
+          python3 scripts/release/upload_brand_packets_r2.py --week-start "$WEEK_START" --expiry-hours 72
+
+      - name: Notify brand admins
+        if: ${{ !inputs.skip_notify }}
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          NOTIFY_FROM_EMAIL: ${{ secrets.NOTIFY_FROM_EMAIL }}
+        run: |
+          python3 scripts/release/notify_brand_admins.py --week-start "$WEEK_START" --channel email --channel slack
+
+      - name: Upload packet artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: brand-packets-${{ needs.dependency-check.outputs.week_key }}
+          path: artifacts/brand_packets/

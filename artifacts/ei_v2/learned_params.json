@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "override_margin": 0.12,
+  "total_observations": 2,
+  "composite_weights": {
+    "rerank": 0.35,
+    "domain": 0.25,
+    "safety": 0.2,
+    "tts": 0.1,
+    "emotion_arc": 0.1
+  }
+}

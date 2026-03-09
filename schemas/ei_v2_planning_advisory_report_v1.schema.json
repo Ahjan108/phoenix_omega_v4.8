@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phoenix/schemas/ei_v2_planning_advisory_report_v1.schema.json",
+  "title": "EI v2 Planning Advisory Report",
+  "description": "Advisory output from EI v2 in planning: scores, recommendations, warnings. UI contract per specs/EI_V2_IN_PLANNING_SPEC.md.",
+  "type": "object",
+  "required": ["plan_id", "candidates", "tuple_scores", "boost_cut_recommendations", "series_recommendations", "warnings", "ranked_candidate_indices"],
+  "properties": {
+    "plan_id": { "type": "string" },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["brand_id", "teacher_id", "topic_id", "persona_id", "program_id", "worldview_id"],
+        "properties": {
+          "brand_id": { "type": "string" },
+          "teacher_id": { "type": "string" },
+          "topic_id": { "type": "string" },
+          "persona_id": { "type": "string" },
+          "program_id": { "type": "string" },
+          "worldview_id": { "type": "string" },
+          "position_in_wave": { "type": "integer" },
+          "series_id": { "type": "string" },
+          "concept_id": { "type": "string" }
+        }
+      }
+    },
+    "tuple_scores": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["candidate_index", "quality_confidence", "duplication_risk", "metadata_risk", "expected_engagement", "composite"],
+        "properties": {
+          "candidate_index": { "type": "integer" },
+          "quality_confidence": { "type": "number" },
+          "duplication_risk": { "type": "number" },
+          "metadata_risk": { "type": "number" },
+          "expected_engagement": { "type": "number" },
+          "composite": { "type": "number" },
+          "dimensions": { "type": "object" }
+        }
+      }
+    },
+    "boost_cut_recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["dimension", "dimension_value", "direction", "reason", "score_delta", "confidence", "policy_check_status"],
+        "properties": {
+          "dimension": { "type": "string", "enum": ["program_id", "teacher_id", "topic_id", "persona_id"] },
+          "dimension_value": { "type": "string" },
+          "direction": { "type": "string", "enum": ["boost", "cut"] },
+          "reason": { "type": "string" },
+          "score_delta": { "type": "number" },
+          "confidence": { "type": "number" },
+          "expected_kpi_effect": { "type": "string" },
+          "policy_check_status": { "type": "string", "enum": ["allowed", "not_allowed", "unknown"] }
+        }
+      }
+    },
+    "series_recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["series_id", "recommendation", "reason", "confidence"],
+        "properties": {
+          "series_id": { "type": "string" },
+          "recommendation": { "type": "string", "enum": ["continue_first", "new_start_ok", "complete_cluster_first"] },
+          "reason": { "type": "string" },
+          "confidence": { "type": "number" },
+          "expected_read_through": { "type": "number" }
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["code", "message", "severity"],
+        "properties": {
+          "code": { "type": "string" },
+          "message": { "type": "string" },
+          "severity": { "type": "string", "enum": ["high", "medium", "low"] },
+          "candidate_indices": { "type": "array", "items": { "type": "integer" } },
+          "dimension": { "type": "string" }
+        }
+      }
+    },
+    "ranked_candidate_indices": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "Recommended order (indices into candidates)"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "ei_planning_advisory_enabled": { "type": "boolean" },
+        "historical_outcomes_used": { "type": "boolean" },
+        "content_signals_used": { "type": "boolean" }
+      }
+    }
+  },
+  "additionalProperties": true
+}

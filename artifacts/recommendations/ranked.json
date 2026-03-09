@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "generated_at": "2026-03-07T19:46:59.649371",
+    "total_candidates_scored": 5,
+    "recommender_version": "1.0.0"
+  },
+  "candidates": [
+    {
+      "position": 1,
+      "candidate_id": "fbe52a0a7c95",
+      "persona": "millennial_women_professionals",
+      "topic": "anxiety",
+      "teacher": "ahjan",
+      "language": "en",
+      "format": "core",
+      "city_overlay": "nyc",
+      "score": 0.5800000000000002,
+      "reason_codes": [
+        "coverage_gap",
+        "high_demand",
+        "performance_lift"
+      ],
+      "slot_type": "exploit"
+    },
+    {
+      "position": 2,
+      "candidate_id": "d4af4a8640bf",
+      "persona": "millennial_women_professionals",
+      "topic": "anxiety",
+      "teacher": "ahjan",
+      "language": "en",
+      "format": "core",
+      "city_overlay": "london",
+      "score": 0.5800000000000002,
+      "reason_codes": [
+        "coverage_gap",
+        "high_demand",
+        "performance_lift"
+      ],
+      "slot_type": "exploit"
+    },
+    {
+      "position": 3,
+      "candidate_id": "9baa23ebd53b",
+      "persona": "millennial_women_professionals",
+      "topic": "anxiety",
+      "teacher": "ahjan",
+      "language": "en",
+      "format": "core",
+      "city_overlay": "sydney",
+      "score": 0.5800000000000002,
+      "reason_codes": [
+        "coverage_gap",
+        "high_demand",
+        "performance_lift"
+      ],
+      "slot_type": "exploit"
+    },
+    {
+      "position": 4,
+      "candidate_id": "b29fe261cb3b",
+      "persona": "millennial_women_professionals",
+      "topic": "anxiety",
+      "teacher": "ahjan",
+      "language": "en",
+      "format": "companion",
+      "city_overlay": "nyc",
+      "score": 0.5800000000000002,
+      "reason_codes": [
+        "coverage_gap",
+        "high_demand",
+        "performance_lift"
+      ],
+      "slot_type": "exploit"
+    },
+    {
+      "position": 5,
+      "candidate_id": "38ab7ba258f9",
+      "persona": "millennial_women_professionals",
+      "topic": "anxiety",
+      "teacher": "ahjan",
+      "language": "en",
+      "format": "companion",
+      "city_overlay": "london",
+      "score": 0.5800000000000002,
+      "reason_codes": [
+        "coverage_gap",
+        "high_demand",
+        "performance_lift"
+      ],
+      "slot_type": "exploit"
+    }
+  ]
+}

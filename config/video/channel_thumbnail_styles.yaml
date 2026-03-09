@@ -1,0 +1,183 @@
+# Per-channel thumbnail visual identity.
+# Each channel MUST produce thumbnails that look distinct from every other channel.
+# Palette derived from brand_style_tokens.yaml → bands → topics → palette.
+# Authority: docs/VIDEO_PIPELINE_SPEC.md §10 (thumbnail), §15 (anti-spam).
+#
+# Rule: No two channels may share the same (bg_hex, text_hex, accent_hex) triple.
+# generate_thumbnail.py resolves channel_id → palette here, overriding the shared hook band.
+
+# ── CALM & HEALING (1–6) ─────────────────────────────────────────────────────
+
+ch_001:
+  # Soft Ghibli — anxiety, cool_calm
+  bg_hex: "#1B2A3A"        # dark steel blue (from anxiety slate tones)
+  text_hex: "#C5D1DB"      # pale mist blue
+  accent_hex: "#7B8FA1"    # slate blue grey
+  font_style: clean        # standard sans-serif
+
+ch_002:
+  # Minimalist Line Art — boundaries, neutral_root
+  bg_hex: "#FFFFFF"        # white (minimalist)
+  text_hex: "#2A4A6B"      # steel blue dark
+  accent_hex: "#4682B4"    # steel blue
+  font_style: thin         # light weight for minimal feel
+
+ch_003:
+  # Chibi/Deformed — anxiety, cool_calm
+  bg_hex: "#E8EDF1"        # pale mist (light, cute)
+  text_hex: "#4B3F6B"      # muted violet
+  accent_hex: "#F5C842"    # butter gold accent
+  font_style: rounded      # soft rounded for chibi
+
+ch_004:
+  # Watercolor Wash — burnout, cool_calm
+  bg_hex: "#D9C4A6"        # linen
+  text_hex: "#5A3D1E"      # dark brown
+  accent_hex: "#C4A882"    # warm sand
+  font_style: handwritten  # organic brush feel
+
+ch_005:
+  # Kawaii/Cute — self_worth, warm_rise
+  bg_hex: "#FFF0E0"        # pastel peach
+  text_hex: "#D4614A"      # warm terracotta
+  accent_hex: "#F0C75E"    # gold
+  font_style: rounded      # bubbly cute
+
+ch_006:
+  # Lo-fi/Chill — depression, cool_calm
+  bg_hex: "#2D2B4E"        # deep indigo
+  text_hex: "#F0C87E"      # warm glow
+  accent_hex: "#4B3F6B"    # muted violet
+  font_style: mono         # chill/retro coding vibe
+
+# ── BOLD & DYNAMIC (7–12) ────────────────────────────────────────────────────
+
+ch_007:
+  # Shonen Action — self_worth, warm_rise
+  bg_hex: "#1A1714"        # near black
+  text_hex: "#F0C75E"      # gold (action hero)
+  accent_hex: "#D4614A"    # terracotta red
+  font_style: impact       # bold impact
+
+ch_008:
+  # Cyberpunk/Sci-Fi — boundaries, neutral_root
+  bg_hex: "#0A0E1A"        # deep dark blue
+  text_hex: "#00FFCC"      # neon cyan
+  accent_hex: "#FF00FF"    # hot magenta
+  font_style: tech         # monospace/futuristic
+
+ch_009:
+  # Vintage/Noir — grief, cool_calm
+  bg_hex: "#1A1A1A"        # true dark
+  text_hex: "#E0DCE8"      # pale lavender
+  accent_hex: "#8A849A"    # lavender grey
+  font_style: serif        # classic noir
+
+ch_010:
+  # Pop Art — purpose, warm_rise
+  bg_hex: "#1A0033"        # deep purple-black (high contrast base)
+  text_hex: "#FFF200"      # bright yellow (pop on dark)
+  accent_hex: "#FF3366"    # hot pink
+  font_style: impact       # bold pop
+
+ch_011:
+  # Sketchy/Rough — self_worth, warm_rise
+  bg_hex: "#F5EDE0"        # cream paper
+  text_hex: "#333333"      # charcoal
+  accent_hex: "#D4AF5A"    # gold
+  font_style: handwritten  # rough sketchbook
+
+ch_012:
+  # Retro 80s/90s — self_worth, warm_rise
+  bg_hex: "#2A0845"        # dark purple
+  text_hex: "#FF6EC7"      # hot neon pink
+  accent_hex: "#00FFFF"    # cyan
+  font_style: retro        # chunky 80s
+
+# ── ABSTRACT & SYMBOLIC (13–18) ──────────────────────────────────────────────
+
+ch_013:
+  # Geometric/Abstract — boundaries, neutral_root
+  bg_hex: "#F0F0F0"        # near white
+  text_hex: "#2A4A6B"      # steel blue dark
+  accent_hex: "#FF6B3D"    # warm citrus pop
+  font_style: geometric    # clean angular
+
+ch_014:
+  # Ink Wash (Sumi-e) — grief, cool_calm
+  bg_hex: "#F5F0E8"        # warm rice paper
+  text_hex: "#2A2218"      # ink black
+  accent_hex: "#8B2D2D"    # deep crimson seal
+  font_style: brush        # calligraphic
+
+ch_015:
+  # Stained Glass — grief, cool_calm
+  bg_hex: "#1A1A2E"        # deep midnight
+  text_hex: "#FFD700"      # gold
+  accent_hex: "#B0AABC"    # soft lavender
+  font_style: serif        # ornate
+
+ch_016:
+  # Glitch Art — boundaries, neutral_root
+  bg_hex: "#000000"        # pure black
+  text_hex: "#39FF14"      # neon green
+  accent_hex: "#FF073A"    # neon red
+  font_style: mono         # digital
+
+ch_017:
+  # Pointillism — depression, cool_calm
+  bg_hex: "#2D2B4E"        # deep indigo
+  text_hex: "#E8EDF1"      # pale mist
+  accent_hex: "#F0C87E"    # warm glow
+  font_style: clean        # clear on dot pattern
+
+ch_018:
+  # Collage — boundaries, neutral_root
+  bg_hex: "#D4C5A9"        # kraft paper
+  text_hex: "#1A1714"      # near black
+  accent_hex: "#E8823A"    # sunrise orange
+  font_style: mixed        # cut-out collage feel
+
+# ── HYBRID & EXPERIMENTAL (19–24) ────────────────────────────────────────────
+
+ch_019:
+  # Cyberpunk/Steampunk — purpose, warm_rise
+  bg_hex: "#1A1000"        # dark bronze
+  text_hex: "#F0B060"      # warm gold
+  accent_hex: "#CC5500"    # copper
+  font_style: tech         # mechanical
+
+ch_020:
+  # Art Nouveau — self_love, warm_rise
+  bg_hex: "#2A1A2A"        # deep plum
+  text_hex: "#D9A0AA"      # blush
+  accent_hex: "#C47A8A"    # dusty rose
+  font_style: ornate       # flowing art nouveau
+
+ch_021:
+  # Kawaii-LoFi — anxiety, cool_calm
+  bg_hex: "#E8D5F5"        # soft lilac
+  text_hex: "#4B3F6B"      # muted violet
+  accent_hex: "#FFB6C1"    # light pink
+  font_style: rounded      # kawaii soft
+
+ch_022:
+  # Dark/Moody — depression, cool_calm
+  bg_hex: "#0D0D0D"        # almost black
+  text_hex: "#A0A0A0"      # muted grey
+  accent_hex: "#4B3F6B"    # muted violet
+  font_style: serif        # dark atmospheric
+
+ch_023:
+  # Cartoonish/Silly — purpose, warm_rise
+  bg_hex: "#1A1714"        # near black (high contrast base)
+  text_hex: "#FF6B3D"      # warm citrus (bold pop)
+  accent_hex: "#FFE566"    # soft yellow
+  font_style: cartoon      # fun bouncy
+
+ch_024:
+  # Surrealist — boundaries, neutral_root
+  bg_hex: "#1A1A3E"        # deep blue-violet
+  text_hex: "#E8C97A"      # amber
+  accent_hex: "#B0C4DE"    # light steel blue
+  font_style: serif        # dreamlike

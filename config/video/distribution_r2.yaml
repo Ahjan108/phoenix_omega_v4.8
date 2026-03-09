@@ -1,0 +1,17 @@
+# R2 distribution config — non-secret fields only.
+# Secrets: set in .env (copy from .env.example; values in cloudflare_api.rtf at repo root).
+# See docs/VIDEO_R2_CREDENTIALS.md and docs/VIDEO_PIPELINE_SPEC.md §10.
+
+account_id: ""          # Cloudflare account ID (or set R2_ACCOUNT_ID env)
+bucket_name: "pearl-video-handoff"
+endpoint: ""            # auto-derived from account_id if blank; or set R2_ENDPOINT env
+region: "auto"          # Cloudflare R2 always uses "auto"
+
+# Optional: upload throughput (for large daily batches)
+parallel_uploads: 8
+chunk_size_mb: 16
+# target_upload_window_hours: 3
+
+# Layout: <bucket>/<YYYY-MM-DD>/{long|shorts}/<video_id>/{video.mp4, thumb.jpg, distribution_manifest.json}
+# daily_batch.json written to <bucket>/<YYYY-MM-DD>/daily_batch.json
+# batch_acknowledged.json written by partner to <bucket>/<YYYY-MM-DD>/batch_acknowledged.json

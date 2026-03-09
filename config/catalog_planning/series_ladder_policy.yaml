@@ -1,0 +1,32 @@
+# Series ladder: scale from proven concepts without cloning content.
+# Authority: docs/CATALOG_ARCHITECTURE_AT_SCALE.md §21.
+# One core series expands into specialized → audience → situation series.
+# Expansion must be evidence-driven and uniqueness-checked.
+
+schema_version: 1
+
+# 1. Distinct rung objective
+# Each ladder rung must have a distinct angle, audience, or situation (no clone rungs).
+# Enforced via concept_id / angle_id / persona_id and series_key in planning.
+rung_uniqueness:
+  require_distinct_angle: true    # specialized rungs differ by angle_id / mechanism
+  require_distinct_audience: true  # audience rungs differ by persona_id
+  require_distinct_situation: true # situation rungs differ by situation/context (angle or tag)
+  fail_on_rung_overlap: false     # if true, block new rung when concept+angle+persona too close to existing
+
+# 2. Cross-rung similarity checks
+# Use same similarity and coverage logic as concept_expansion_policy when adding ladder rungs.
+# Prevents near-duplicate concepts or metadata across rungs.
+cross_rung_checks:
+  use_concept_expansion_similarity: true   # apply similarity_block_threshold to new rung vs existing rungs
+  use_coverage_targets: true              # avoid overusing one angle/audience across ladder
+  advisory_only: true                     # warn only, unless fail_on_rung_overlap above is true
+
+# 3. Evidence-driven expansion
+# Trigger ladder expansion only after performance evidence from core series.
+# Operational: track core-series metrics; gate "add new rung" on evidence threshold.
+evidence_gate:
+  require_core_evidence: true       # do not add specialized/audience/situation rungs until core has signals
+  evidence_metrics: []            # e.g. read_through_rate, completion_rate, engagement_score (fill when dashboards exist)
+  min_core_books_before_expand: 2  # at least this many books in core series before allowing first rung
+  advisory_only: true              # if true, recommend only; human decides when to expand

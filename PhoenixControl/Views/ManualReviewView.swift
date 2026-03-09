@@ -1,8 +1,9 @@
 import SwiftUI
+import AppKit
 
 // MARK: - Models
 
-struct ManualReviewEntry: Identifiable, Decodable {
+struct ManualReviewEntry: Identifiable, Decodable, Hashable {
     let id = UUID()
     let section_id: String
     let locale: String
@@ -110,7 +111,7 @@ struct ManualReviewView: View {
                         .tag(entry)
                 }
                 .listStyle(.inset)
-                .onChange(of: selectedEntry) { _, newEntry in
+                .onChange(of: selectedEntry) { newEntry in
                     if let e = newEntry { loadPacket(e) }
                 }
             }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pearl Prime</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header" role="banner">
+    <img src="assets/pearl_prime_icon.png" alt="" class="header__icon" width="28" height="28" />
+    <span class="header__title">Pearl Prime</span>
+  </header>
+
+  <div class="layout">
+    <aside class="runner-column" aria-label="Inspirational messages">
+      <div class="runner-wrap">
+        <div class="runner-track" id="runner-track">
+          <!-- Filled by app.js -->
+        </div>
+      </div>
+    </aside>
+    <main class="main" id="main-content">
+      <p class="main__placeholder">Welcome. Wisdom, peace, and compassion flow through this space.</p>
+    </main>
+  </div>
+
+  <footer class="ticker-wrap" role="region" aria-label="Scrolling wisdom">
+    <div class="ticker-inner">
+      <div class="ticker-track" id="ticker-track">
+        <!-- Filled by app.js -->
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+{
+  "plan_id": "depression-genz-nyc-90s",
+  "topic": "depression",
+  "segments": [
+    {
+      "segment_id": "seg-1",
+      "slot_id": "slot-hook",
+      "text_preview": "You're in your Brooklyn apartment. It's 3 PM. You've been in bed since noon. The weight isn't just in your body—it's in the air...",
+      "scene_description": "a quiet bedroom in a Brooklyn apartment in afternoon light, rumpled bedcovers, window with soft daylight, empty space suggesting someone has been lying there, no figure or face visible, contemplative and heavy mood",
+      "mood": "heavy",
+      "avoid": ["faces", "bright colors", "busy composition"]
+    },
+    {
+      "segment_id": "seg-2",
+      "slot_id": "slot-body-1",
+      "text_preview": "Depression doesn't always look like crying. Sometimes it looks like scrolling. Sometimes it looks like canceling plans again...",
+      "scene_description": "a smartphone screen glowing in a dim room, one hand holding the phone, suggestion of a social feed or notifications, muted cool tones, no face visible, sense of staying in while others are out",
+      "mood": "subdued",
+      "avoid": ["faces", "literal text on screen", "dramatic lighting"]
+    },
+    {
+      "segment_id": "seg-3",
+      "slot_id": "slot-body-2",
+      "text_preview": "Your brain might tell you you're broken. That you should be doing more. That everyone else has it figured out...",
+      "scene_description": "abstract suggestion of inner noise or a critical voice: soft shadows and a single muted light in darkness, like a thought or weight, no literal brain or face, metaphorical and subdued",
+      "mood": "subdued",
+      "avoid": ["faces", "literal brain imagery", "symbols or runes"]
+    },
+    {
+      "segment_id": "seg-4",
+      "slot_id": "slot-body-3",
+      "text_preview": "Here's what actually helps: one small move. Not fixing everything. Just one thing that feels slightly less impossible...",
+      "scene_description": "a single hand reaching toward a simple object—a glass of water on a bedside table or a window latch—soft daylight, one small gesture of movement, hopeful and minimal, no face",
+      "mood": "hopeful",
+      "avoid": ["faces", "clasped hands", "dramatic gesture"]
+    },
+    {
+      "segment_id": "seg-5",
+      "slot_id": "slot-body-4",
+      "text_preview": "Maybe it's opening the window. Maybe it's one sip of water. Maybe it's texting one person. Maybe it's standing in the shower...",
+      "scene_description": "a window cracked open with soft daylight streaming in, or a glass of water on a windowsill with city light behind, small concrete comforts, gentle and specific, no face",
+      "mood": "gentle",
+      "avoid": ["faces", "busy scene", "multiple people"]
+    },
+    {
+      "segment_id": "seg-6",
+      "slot_id": "slot-body-5",
+      "text_preview": "You're not lazy. You're not failing. You're carrying something heavy in a city that never stops moving. NYC doesn't give you a break...",
+      "scene_description": "a quiet moment in an urban setting: view through a window of city haze or rooftops, or a still interior with city light at the edge, one hand at rest on a sill or knee, self-compassion not hustle, no face",
+      "mood": "grounded",
+      "avoid": ["faces", "crowds", "busy street"]
+    },
+    {
+      "segment_id": "seg-7",
+      "slot_id": "slot-close",
+      "text_preview": "One small move. That's the reset. Not the whole day. Just the next 60 seconds. You've got this. One thing. Then you can rest again.",
+      "scene_description": "a single small gesture of pause and reset: hand resting gently on a surface, or soft light through a curtain, suggesting the next 60 seconds and permission to rest, hopeful and quiet close, no face",
+      "mood": "hopeful",
+      "avoid": ["faces", "dramatic symbol", "clasped hands"]
+    }
+  ]
+}

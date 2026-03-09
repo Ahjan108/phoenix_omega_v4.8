@@ -1,0 +1,23 @@
+# Angle Matrix: Topic × Angle × Series scaling policy.
+# Authority: docs/CATALOG_ARCHITECTURE_AT_SCALE.md §12.
+# Ensures genuinely distinct editorial concepts (topic × angle), not keyword permutations.
+# angle_id is mandatory in planning and metadata (BookSpec, compiled plan).
+
+schema_version: 1
+
+# Block same (topic_id, angle_id) reuse within a recent window to avoid catalog cloning.
+# Within the last N books (or within same wave), the same topic+angle may only repeat if
+# it is intentionally sequenced (e.g. same series_id = continuation).
+block_same_topic_angle_within_books: 24   # e.g. no duplicate topic+angle in rolling window of 24 books
+allow_sequenced_reuse: true               # same topic+angle OK when same series_id (book 2, 3, ... of same series)
+fail_on_topic_angle_reuse: false          # when true, generate_full_catalog exits 1 on violation; default false (advisory only)
+
+# Similarity tracking: by topic+angle family, not only global.
+# Similarity index includes topic_id + angle_id so we can report or cap similarity
+# within (topic_id, angle_id) family as well as global. See scripts/ci/update_similarity_index.py.
+track_similarity_by_topic_angle_family: true
+
+# Angle-specific title/description templates.
+# Downstream (naming engine, metadata writer) should use angle_id to select template family.
+# Config: config/angles/angle_registry.yaml (and optional angle_metadata_templates when added).
+use_angle_specific_templates: true

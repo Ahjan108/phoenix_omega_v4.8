@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -188,6 +189,11 @@ def main() -> int:
         action="store_true",
         help="Allow wave to mix legacy and cluster atoms_model when using allocation_personas_file (e.g. ZH matrix). Default: assert all cluster.",
     )
+    ap.add_argument(
+        "--ei-planning-advisory",
+        action="store_true",
+        help="Run EI v2 planning advisory on allocated candidates; write report to artifacts/ei_v2/planning_advisory_report.json (specs/EI_V2_IN_PLANNING_SPEC.md).",
+    )
     args = ap.parse_args()
 
     brand_matrix_path = args.brand_matrix
@@ -274,6 +280,96 @@ def main() -> int:
             print(f"Weak-fit cap: kept {len(kept)} allocations (dropped {len(allocations) - len(kept)} over weak_fit_max_books_per_triple={weak_max}).")
             allocations = kept
 
+    # EI v2 planning advisory (optional): score candidates, produce recommendations; reorder allocations by EI rank (specs/EI_V2_IN_PLANNING_SPEC.md).
+    if getattr(args, "ei_planning_advisory", False):
+        try:
+            from phoenix_v4.planning.content_quality_signals import load_content_quality_signals_from_file
+            from phoenix_v4.planning.ei_planning_advisory import PlanningCandidate, run_ei_planning_advisory
+            from phoenix_v4.planning.outcome_ingestion import load_historical_outcomes_from_file
+
+            advisory_cfg = _load_yaml(REPO_ROOT / "config" / "quality" / "ei_v2_planning_advisory.yaml")
+            candidates = [PlanningCandidate.from_allocation(a) for a in allocations]
+
+            historical_outcomes: list = []
+            outcomes_loaded = outcomes_dropped = 0
+            ho_path = (advisory_cfg.get("historical_outcomes_path") or "").strip()
+            if ho_path:
+                path = REPO_ROOT / ho_path if not os.path.isabs(ho_path) else Path(ho_path)
+                rows, outcomes_loaded, outcomes_dropped, ho_errors = load_historical_outcomes_from_file(path)
+                historical_outcomes = rows
+                if ho_errors:
+                    print(f"EI planning: historical_outcomes loaded={outcomes_loaded}, dropped={outcomes_dropped}", file=sys.stderr)
+
+            content_quality_signals: list = []
+            sig_loaded = sig_dropped = 0
+            req_fields = advisory_cfg.get("required_signal_fields") or []
+            sq_path = (advisory_cfg.get("content_quality_signals_path") or "").strip()
+            if sq_path:
+                path = REPO_ROOT / sq_path if not os.path.isabs(sq_path) else Path(sq_path)
+                rows, sig_loaded, sig_dropped, sq_errors = load_content_quality_signals_from_file(path, required_signal_fields=req_fields)
+                content_quality_signals = rows
+                if sq_errors:
+                    print(f"EI planning: content_quality_signals loaded={sig_loaded}, dropped={sig_dropped}", file=sys.stderr)
+
+            report = run_ei_planning_advisory(
+                candidates,
+                plan_id=wave_id,
+                historical_outcomes=historical_outcomes or None,
+                content_quality_signals=content_quality_signals or None,
+                cfg=advisory_cfg,
+            )
+            out_path = REPO_ROOT / (advisory_cfg.get("report_path", "artifacts/ei_v2/planning_advisory_report.json"))
+            out_path.parent.mkdir(parents=True, exist_ok=True)
+            report_dict = report.to_dict()
+            meta = report_dict.setdefault("metadata", {})
+            meta["outcomes_loaded"] = outcomes_loaded
+            meta["outcomes_dropped"] = outcomes_dropped
+            meta["signals_loaded"] = sig_loaded
+            meta["signals_dropped"] = sig_dropped
+
+            # Trust gating: when auto_apply_enabled, only reorder if trust thresholds met.
+            auto_apply_enabled = advisory_cfg.get("auto_apply_enabled", False)
+            should_reorder = False
+            if auto_apply_enabled:
+                from phoenix_v4.planning.trust_metrics import compute_trust_metrics, is_trust_eligible
+                trust_path = REPO_ROOT / (advisory_cfg.get("audit_log_path", "artifacts/ei_v2/planning_advisory_audit.jsonl"))
+                thresholds = advisory_cfg.get("trust_thresholds") or {}
+                trust_metrics = compute_trust_metrics(
+                    historical_outcomes,
+                    report_path=out_path,
+                    audit_log_path=trust_path,
+                    min_observation_weeks=thresholds.get("min_observation_weeks"),
+                )
+                meta["trust_metrics"] = trust_metrics
+                if is_trust_eligible(trust_metrics, thresholds):
+                    should_reorder = True
+                    meta["auto_apply_eligible"] = True
+                else:
+                    meta["auto_apply_eligible"] = False
+            else:
+                should_reorder = True
+
+            out_path.write_text(json.dumps(report_dict, indent=2), encoding="utf-8")
+            print(f"EI planning advisory: {out_path} ({len(report.warnings)} warnings, {len(report.boost_cut_recommendations)} boost/cut recs).")
+
+            # Baseline snapshot (no-EI order) for lift measurement: record planner order before any reorder.
+            baseline_path = REPO_ROOT / "artifacts" / "ei_v2" / "planning_baseline_snapshot.json"
+            baseline_path.parent.mkdir(parents=True, exist_ok=True)
+            baseline_order = [{"teacher_id": a.teacher_id, "topic_id": a.topic_id, "persona_id": a.persona_id, "brand_id": getattr(a, "brand_id", "")} for a in allocations]
+            from datetime import datetime, timezone
+            baseline_path.write_text(
+                json.dumps({"plan_id": wave_id, "allocations_baseline_order": baseline_order, "ts": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")}, indent=2),
+                encoding="utf-8",
+            )
+
+            if should_reorder and report.ranked_candidate_indices and len(report.ranked_candidate_indices) == len(allocations):
+                allocations = [allocations[i] for i in report.ranked_candidate_indices]
+                print("EI planning: allocations reordered by advisory rank.")
+            elif auto_apply_enabled and not should_reorder:
+                print("EI planning: auto_apply enabled but trust thresholds not met; reorder skipped.")
+        except Exception as e:
+            print(f"EI planning advisory failed (non-blocking): {e}", file=sys.stderr)
+
     # --- Step 2: BookSpec per allocation ---
     from phoenix_v4.planning.catalog_planner import CatalogPlanner, AtomsModel
     from phoenix_v4.planning.atoms_model_loader import atoms_model_for_persona
@@ -283,6 +379,8 @@ def main() -> int:
     for i, alloc in enumerate(allocations):
         try:
             atoms_model = atoms_model_for_persona(alloc.persona_id)
+            program_id = getattr(alloc, "program_id", None) or alloc.brand_id
+            worldview_id = getattr(alloc, "worldview_id", None) or program_id
             spec = planner.produce_single(
                 topic_id=alloc.topic_id,
                 persona_id=alloc.persona_id,
@@ -291,6 +389,8 @@ def main() -> int:
                 seed=f"{args.seed}:{i}:{alloc.position_in_wave}",
                 teacher_mode=(alloc.teacher_id and alloc.teacher_id != "default_teacher"),
                 atoms_model=atoms_model,
+                program_id=program_id,
+                worldview_id=worldview_id,
             )
             specs.append((alloc, spec))
         except Exception as e:
@@ -321,19 +421,179 @@ def main() -> int:
         specs = specs[: args.max_books]
     print(f"BookSpecs produced: {len(specs)}.")
 
-    # Diversity guard: max share per topic/persona when using locale-group or custom brand matrix
+    # Series mix advisory: compare actual vs target (config/catalog_planning/series_mix_targets.yaml)
+    n_specs = len(specs)
+    if n_specs:
+        series_count = sum(1 for _, s in specs if getattr(s, "series_id", None))
+        mix_path = REPO_ROOT / "config" / "catalog_planning" / "series_mix_targets.yaml"
+        mix_cfg = _load_yaml(mix_path) if mix_path.exists() else {}
+        if mix_cfg:
+            target_pct = mix_cfg.get("ideal_midpoint_pct", 70)
+            target_series = max(0, int(round(n_specs * (target_pct / 100.0))))
+            actual_pct = 100.0 * (series_count / n_specs) if n_specs else 0
+            print(f"Series mix: {series_count}/{n_specs} in series ({actual_pct:.0f}%); target ~{target_pct}% (~{target_series} series).", file=sys.stderr)
+
+    # Angle Matrix: block same (topic_id, angle_id) within recent window unless same series (config/catalog_planning/angle_matrix_policy.yaml)
+    angle_policy_path = REPO_ROOT / "config" / "catalog_planning" / "angle_matrix_policy.yaml"
+    angle_policy = _load_yaml(angle_policy_path) if angle_policy_path.exists() else {}
+    # Production CI fail-hard: override to true when STRICT_ANGLE_CONCEPT=1 or CI=true (local/dev stays advisory)
+    if os.environ.get("STRICT_ANGLE_CONCEPT") == "1" or os.environ.get("CI") == "true":
+        angle_policy = {**angle_policy, "fail_on_topic_angle_reuse": True}
+    block_window = angle_policy.get("block_same_topic_angle_within_books")
+    allow_sequenced = angle_policy.get("allow_sequenced_reuse", True)
+    if block_window and block_window > 0 and specs:
+        # Rolling window: list of (topic_id, angle_id, series_id). Same (topic, angle) allowed only if same series.
+        window: list[tuple[str, str, str | None]] = []
+        violations_ta: list[str] = []
+        for _, spec in specs:
+            topic_id = getattr(spec, "topic_id", "") or ""
+            angle_id = getattr(spec, "angle_id", "") or ""
+            series_id = getattr(spec, "series_id", None)
+            if topic_id and angle_id:
+                for (t, a, s) in window:
+                    if (t, a) == (topic_id, angle_id):
+                        if allow_sequenced and s is not None and series_id is not None and s == series_id:
+                            pass
+                        else:
+                            violations_ta.append(f"duplicate topic+angle ({topic_id}, {angle_id}) within window of {block_window} (not same series)")
+                        break
+            window.append((topic_id, angle_id, series_id))
+            if len(window) > block_window:
+                window.pop(0)
+        if violations_ta:
+            for v in set(violations_ta):
+                print(f"Angle Matrix: {v}", file=sys.stderr)
+            if angle_policy.get("fail_on_topic_angle_reuse", False):
+                print("Angle Matrix policy: fail_on_topic_angle_reuse. Adjust allocation or config/catalog_planning/angle_matrix_policy.yaml", file=sys.stderr)
+                return 1
+
+    # Concept expansion: no new concept unless concept key is unique in active pipeline (§16).
+    # Enforced by blocking same concept_id within recent window unless same series (intentional progression).
+    concept_policy_path = REPO_ROOT / "config" / "catalog_planning" / "concept_expansion_policy.yaml"
+    concept_policy = _load_yaml(concept_policy_path) if concept_policy_path.exists() else {}
+    # Production CI fail-hard: override when STRICT_ANGLE_CONCEPT=1 or CI=true
+    if os.environ.get("STRICT_ANGLE_CONCEPT") == "1" or os.environ.get("CI") == "true":
+        concept_policy = {
+            **concept_policy,
+            "fail_on_concept_id_reuse": True,
+            "fail_on_similarity": True if concept_policy.get("similarity_check_enabled") else concept_policy.get("fail_on_similarity", False),
+        }
+    concept_window = concept_policy.get("block_same_concept_id_within_books")
+    concept_allow_sequenced = concept_policy.get("allow_sequenced_reuse", True)
+    if concept_window and concept_window > 0 and specs:
+        c_window: list[tuple[str, str | None]] = []
+        violations_c: list[str] = []
+        for _, spec in specs:
+            concept_id = getattr(spec, "concept_id", "") or ""
+            series_id = getattr(spec, "series_id", None)
+            if concept_id:
+                for (c, s) in c_window:
+                    if c == concept_id:
+                        if concept_allow_sequenced and s is not None and series_id is not None and s == series_id:
+                            pass
+                        else:
+                            violations_c.append(f"duplicate concept_id within window of {concept_window} (not same series)")
+                        break
+            c_window.append((concept_id, series_id))
+            if len(c_window) > concept_window:
+                c_window.pop(0)
+        if violations_c:
+            for v in set(violations_c):
+                print(f"Concept expansion: {v}", file=sys.stderr)
+            if concept_policy.get("fail_on_concept_id_reuse", False):
+                print("Concept expansion policy: fail_on_concept_id_reuse. Adjust or config/catalog_planning/concept_expansion_policy.yaml", file=sys.stderr)
+                return 1
+
+    # Similarity check at planning time (§15): flag or block near-duplicate concepts before writing.
+    sim_enabled = concept_policy.get("similarity_check_enabled", False)
+    sim_threshold = float(concept_policy.get("similarity_block_threshold", 0.92))
+    fail_on_sim = concept_policy.get("fail_on_similarity", False)
+    if sim_enabled and specs:
+        sim_window = min(concept_window or 32, len(specs))
+
+        def _concept_similarity(cid1: str, cid2: str) -> float:
+            if not cid1 or not cid2:
+                return 0.0
+            if cid1 == cid2:
+                return 1.0
+            s1, s2 = cid1.split("|"), cid2.split("|")
+            if len(s1) != 4 or len(s2) != 4:
+                return 0.5 if cid1.split("|")[:2] == cid2.split("|")[:2] else 0.0
+            matches = sum(1 for a, b in zip(s1, s2) if a == b)
+            if matches >= 3:
+                return 0.9
+            if matches >= 2:
+                return 0.6
+            return 0.25 if matches >= 1 else 0.0
+
+        for idx in range(len(specs)):
+            _, spec = specs[idx]
+            cid = getattr(spec, "concept_id", "") or ""
+            if not cid:
+                continue
+            start = max(0, idx - sim_window)
+            max_sim = 0.0
+            for j in range(start, idx):
+                _, other = specs[j]
+                ocid = getattr(other, "concept_id", "") or ""
+                if ocid:
+                    sim = _concept_similarity(cid, ocid)
+                    if sim > max_sim:
+                        max_sim = sim
+            if max_sim >= sim_threshold:
+                setattr(spec, "similarity_score", max_sim)
+                setattr(spec, "advisory_status", "warn")
+                setattr(spec, "human_decision", "hold")
+                print(f"Concept similarity: {cid} score={max_sim:.2f} (threshold {sim_threshold}) -> advisory_status=warn, human_decision=hold", file=sys.stderr)
+        if fail_on_sim and any((getattr(s, "similarity_score", 0) or 0) >= sim_threshold for _, s in specs):
+            print("Concept expansion: fail_on_similarity. Resolve near-duplicates or adjust config.", file=sys.stderr)
+            return 1
+
+    # Coverage targets (§15): balance across angle/topic; set advisory when overuse.
+    coverage = (concept_policy.get("coverage_targets") or {})
+    max_share_angle = coverage.get("max_share_per_angle")
+    min_distinct_angles = coverage.get("min_distinct_angles")
+    advisory_only = coverage.get("advisory_only", True)
+    if specs and (max_share_angle is not None or min_distinct_angles is not None):
+        from collections import Counter
+        n_specs = len(specs)
+        angle_ct = Counter(getattr(s, "angle_id", "") or "" for _, s in specs)
+        distinct_angles = len([k for k in angle_ct if k])
+        if min_distinct_angles is not None and distinct_angles < min_distinct_angles:
+            print(f"Coverage: distinct angles {distinct_angles} < min_distinct_angles {min_distinct_angles}", file=sys.stderr)
+            if not advisory_only:
+                return 1
+        for (alloc, spec) in specs:
+            aid = getattr(spec, "angle_id", "") or ""
+            if not aid:
+                continue
+            share = angle_ct[aid] / n_specs if n_specs else 0
+            if max_share_angle is not None and share > max_share_angle:
+                if not getattr(spec, "advisory_status", None):
+                    setattr(spec, "advisory_status", "warn")
+                print(f"Coverage: angle {aid} share {share:.0%} > {max_share_angle:.0%}", file=sys.stderr)
+
+    # Diversity guard: max share per topic/persona/teacher when using locale-group or custom brand matrix
     if (args.locale_group or brand_matrix_path) and specs:
         guard_path = REPO_ROOT / "config" / "catalog_planning" / "diversity_guards.yaml"
         if guard_path.exists():
             guard_cfg = _load_yaml(guard_path)
             max_topic = guard_cfg.get("max_share_per_topic")
             max_persona = guard_cfg.get("max_share_per_persona")
+            max_teacher = guard_cfg.get("max_share_per_teacher")
+            max_worldview = guard_cfg.get("max_share_per_worldview")
             fail_on = guard_cfg.get("fail_on_violation", True)
             n = len(specs)
-            if n and (max_topic is not None or max_persona is not None):
+            if n and (max_topic is not None or max_persona is not None or max_teacher is not None or max_worldview is not None):
                 from collections import Counter
                 topic_ct = Counter(spec.topic_id for _, spec in specs)
                 persona_ct = Counter(spec.persona_id for _, spec in specs)
+                teacher_ct = Counter(spec.teacher_id for _, spec in specs if getattr(spec, "teacher_id", None))
+                worldview_ct = Counter(
+                    (getattr(alloc, "worldview_id", None) or getattr(spec, "worldview_id", None) or "")
+                    for alloc, spec in specs
+                )
+                worldview_ct = {k: c for k, c in worldview_ct.items() if k}
                 violations = []
                 for tid, c in topic_ct.items():
                     if max_topic is not None and c / n > max_topic:
@@ -341,6 +601,12 @@ def main() -> int:
                 for pid, c in persona_ct.items():
                     if max_persona is not None and c / n > max_persona:
                         violations.append(f"persona {pid}: {c}/{n} ({100*c/n:.0f}%) > {100*max_persona:.0f}%")
+                for teacher_id, c in teacher_ct.items():
+                    if max_teacher is not None and c / n > max_teacher:
+                        violations.append(f"teacher {teacher_id}: {c}/{n} ({100*c/n:.0f}%) > {100*max_teacher:.0f}%")
+                for wid, c in worldview_ct.items():
+                    if max_worldview is not None and c / n > max_worldview:
+                        violations.append(f"worldview {wid}: {c}/{n} ({100*c/n:.0f}%) > {100*max_worldview:.0f}%")
                 if violations:
                     for v in violations:
                         print(v, file=sys.stderr)

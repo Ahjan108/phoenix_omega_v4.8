@@ -25,6 +25,14 @@ def _load_template(template_dir: Path, template_file: str) -> dict[str, Any]:
         return yaml.safe_load(f) or {}
 
 
+def _teacher_stub_placeholder() -> str:
+    """Neutral stub when no teacher atom exists. Writer Spec §6: no generic validation of the news."""
+    return (
+        "<p>[Teacher perspective for this topic will be added when topic- and tradition-aligned content is available. "
+        "See PEARL_NEWS_WRITER_SPEC §6.]</p>"
+    )
+
+
 def _is_uslf_group_article(item: dict[str, Any], config_root: Path) -> bool:
     """True if this article should use group/USLF voice (~5%); else single-teacher focus. Deterministic from item id."""
     ratio = 0.05
@@ -62,11 +70,17 @@ def _resolve_slot(
             p = atoms_root / "youth_impact" / f"{topic}{ext}"
             if p.exists():
                 return p.read_text(encoding="utf-8").strip()
-        label = sdg_labels.get(primary_sdg, "sustainable development")
+        # Optional: research excerpt from KB (see PEARL_NEWS_RESEARCH_TO_ARTICLES.md)
+        excerpt = (item.get("_research_excerpt") or "").strip()
+        if excerpt:
+            if not excerpt.startswith("<"):
+                # Allow multiple paragraphs (KB format_excerpt uses \n\n)
+                excerpt = "\n\n".join(f"<p>{p.strip()}</p>" for p in excerpt.split("\n\n") if p.strip())
+            return excerpt
+        # Neutral stub when no atom and no research: Writer Spec §7 forbids generic placeholders.
         return (
-            f"<p>Young people are increasingly affected by global events in this area. Gen Z and Gen Alpha seek clarity and constructive responses aligned with sustainable development and well-being (SDG {primary_sdg}: {label}).</p>\n\n"
-            f"<p>Research and reporting show that youth engagement—whether through education, advocacy, or community action—helps shape outcomes. Framing stories through a youth lens supports relevance and accountability.</p>\n\n"
-            f"<p>Pearl News highlights how global challenges intersect with the lives of young people and the frameworks that support their resilience and participation.</p>"
+            f"<p>[Youth impact for this topic will be filled with specific data, geography, or behavior "
+            f"when topic-specific research or atoms are available. See PEARL_NEWS_WRITER_SPEC §7.]</p>"
         )
 
     if source == "teacher_quotes_practices":
@@ -91,19 +105,12 @@ def _resolve_slot(
                 # Single-teacher: use one teacher's content. Group (5%): use group placeholder.
                 if not use_group:
                     return candidates[0]
-                return "<p>Leaders from the United Spiritual Leaders Forum emphasize reflection and resilience in the face of uncertainty, in line with ethical frameworks that support youth well-being and global goals.</p>"
+                return _teacher_stub_placeholder()
 
-        # No atoms: placeholders. 95% single-teacher (one teacher's insight + youth), 5% group USLF
+        # No atoms: stubs only. Writer Spec §6 forbids generic teacher validation.
         if use_group:
-            return (
-                "<p>Leaders from the United Spiritual Leaders Forum emphasize reflection and resilience in the face of uncertainty, in line with ethical frameworks that support youth well-being and global goals.</p>\n\n"
-                "<p>Dialogue across traditions helps communities respond to crisis with clarity and compassion.</p>"
-            )
-        return (
-            "<p>A teacher from the United Spiritual Leaders Forum offers perspective on this topic and its relevance to youth: reflection and resilience in the face of uncertainty, in line with ethical frameworks that support youth well-being and global goals.</p>\n\n"
-            "<p>How spiritual and ethical traditions speak to young people in times of change—and how youth can draw on these insights for clarity and action—remains a focus of our coverage.</p>\n\n"
-            "<p>We aim to present one voice at a time, so readers can engage with a clear perspective before exploring further.</p>"
-        )
+            return _teacher_stub_placeholder()
+        return _teacher_stub_placeholder()
 
     if source in ("sdg_ref", "sdg_framework", "sdg_un_tie", "sdg_alignment", "sdg_policy_tie", "sdg_reference"):
         label = sdg_labels.get(primary_sdg) or "Sustainable Development"
@@ -115,9 +122,10 @@ def _resolve_slot(
 
     if source == "generate" or source == "fixed":
         if "forward_look" in slot_name or "solutions" in slot_name or "next_steps" in slot_name:
+            # Writer Spec §9: forward look must name a specific institution/deadline, not generic hope.
             return (
-                "<p>Constructive next steps and dialogue continue to shape how communities and youth engage with these challenges.</p>\n\n"
-                "<p>Ongoing coverage will track developments and the role of multilateral dialogue, local initiatives, and youth-led responses.</p>"
+                "<p>[Forward look: to be completed with a specific initiative, deadline, or decision point when available. "
+                "See PEARL_NEWS_WRITER_SPEC §9.]</p>"
             )
         if "headline" in slot_name:
             return (item.get("title") or item.get("raw_title") or "News update").strip()

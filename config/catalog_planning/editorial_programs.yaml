@@ -1,0 +1,113 @@
+# Editorial programs: Brand → Program → Series → Book.
+# Authority: docs/CATALOG_ARCHITECTURE_AT_SCALE.md. Reduces spam-pattern risk by making
+# platforms see many independent publishing programs, not one content network.
+#
+# Phase 1: 10 programs across top 2 brands (5 each).
+# Uniqueness: strict (brand_id, worldview_id) per program for catalog differentiation.
+# CI check: scripts/ci/check_editorial_programs_uniqueness.py --strict | (default: triple)
+# Each program has: theme, worldview_id, teachers, metadata_style_family, narrator_pool_id, cover_style.
+
+schema_version: 1
+
+programs:
+  # --- stillness_press (5 programs) ---
+  stillness_default:
+    brand_id: stillness_press
+    theme: "Dharma & nervous system"
+    worldview_id: buddhist
+    teachers: [ahjan, ajahn_x]
+    max_books_per_week: 5
+    metadata_style_family: zen
+    narrator_pool_id: calm_zen
+    cover_style: zen_brush
+
+  stillness_somatic:
+    brand_id: stillness_press
+    theme: "Body-based regulation"
+    worldview_id: somatic
+    teachers: [ahjan, ajahn_x]
+    max_books_per_week: 5
+    metadata_style_family: body_centered
+    narrator_pool_id: calm_somatic
+    cover_style: minimal_flow
+
+  stillness_stoic:
+    brand_id: stillness_press
+    theme: "Acceptance and equanimity"
+    worldview_id: stoic
+    teachers: [ahjan]
+    max_books_per_week: 5
+    metadata_style_family: philosophy
+    narrator_pool_id: measured
+    cover_style: classical
+
+  stillness_trauma_informed:
+    brand_id: stillness_press
+    theme: "Trauma-informed recovery"
+    worldview_id: trauma_informed
+    teachers: [ahjan, ajahn_x]
+    max_books_per_week: 5
+    metadata_style_family: therapeutic
+    narrator_pool_id: warm_slow
+    cover_style: soft_landscape
+
+  stillness_ancient:
+    brand_id: stillness_press
+    theme: "Ancient wisdom, tradition"
+    worldview_id: ancient_philosophy
+    teachers: [ajahn_x]
+    max_books_per_week: 5
+    metadata_style_family: tradition
+    narrator_pool_id: narrative_wise
+    cover_style: traditional_ink
+
+  # --- cognitive_clarity (5 programs) ---
+  cognitive_default:
+    brand_id: cognitive_clarity
+    theme: "Neuroscience self-help"
+    worldview_id: neuroscience
+    teachers: [ahjan]
+    max_books_per_week: 5
+    metadata_style_family: psychology
+    narrator_pool_id: energetic
+    cover_style: modern_science
+
+  cognitive_behavioral:
+    brand_id: cognitive_clarity
+    theme: "CBT and evidence-based"
+    worldview_id: behavioral_science
+    teachers: [ahjan]
+    max_books_per_week: 5
+    metadata_style_family: evidence_based
+    narrator_pool_id: clear_direct
+    cover_style: data_visual
+
+  cognitive_leadership:
+    brand_id: cognitive_clarity
+    theme: "Performance under pressure"
+    worldview_id: leadership
+    teachers: [ahjan]
+    max_books_per_week: 5
+    metadata_style_family: executive
+    narrator_pool_id: confident
+    cover_style: corporate_clean
+
+  cognitive_mindfulness:
+    brand_id: cognitive_clarity
+    theme: "Science-backed mindfulness"
+    worldview_id: contemplative_neuroscience
+    teachers: [ahjan]
+    max_books_per_week: 5
+    metadata_style_family: science_meditation
+    narrator_pool_id: calm_focus
+    cover_style: modern_calm
+
+  cognitive_attention:
+    brand_id: cognitive_clarity
+    theme: "Focus and attention"
+    worldview_id: attention_science
+    teachers: [ahjan]
+    max_books_per_week: 5
+    metadata_style_family: productivity
+    narrator_pool_id: brisk_clear
+    cover_style: minimal_tech

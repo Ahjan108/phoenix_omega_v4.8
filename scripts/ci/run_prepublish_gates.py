@@ -64,6 +64,11 @@ def main() -> int:
     ap.add_argument("--warn-ngram-jaccard", type=float, default=0.25)
     ap.add_argument("--report", default="", help="Optional JSON report path")
     ap.add_argument("--dry-run-index-update", action="store_true", help="Do not append to similarity index")
+    ap.add_argument(
+        "--advisory-out-dir",
+        default="",
+        help="When set, similarity check writes AdvisoryIssue JSON here (per plan) when advisory policy is used",
+    )
     args = ap.parse_args()
 
     plans_dir = Path(args.plans_dir)
@@ -106,12 +111,30 @@ def main() -> int:
             "--review",
             str(args.review_threshold),
         ]
+        advisory_out_dir = Path(args.advisory_out_dir) if args.advisory_out_dir else None
+        if advisory_out_dir is not None:
+            advisory_out_dir.mkdir(parents=True, exist_ok=True)
+            sim_cmd += ["--advisory-out", str(advisory_out_dir / f"{plan.stem}_similarity_advisory.json")]
         r = _run(sim_cmd)
         out = (r.stdout or "").strip()
         step["platform_similarity"] = {"rc": r.returncode, "stdout": out, "stderr": r.stderr.strip()}
         if r.returncode != 0:
             failures.append({"gate": "check_platform_similarity", "plan": str(plan), "detail": r.stderr.strip() or out})
-        elif "PLATFORM SIMILARITY CHECK: WARN" in out:
+        else:
+            if advisory_out_dir is not None:
+                adv_path = advisory_out_dir / f"{plan.stem}_similarity_advisory.json"
+                if adv_path.exists():
+                    try:
+                        step["advisory_issue"] = json.loads(adv_path.read_text(encoding="utf-8"))
+                    except (json.JSONDecodeError, OSError):
+                        pass
+            elif "ADVISORY_ISSUE_JSON:" in out:
+                try:
+                    raw = out.split("ADVISORY_ISSUE_JSON:", 1)[1].strip()
+                    step["advisory_issue"] = json.loads(raw)
+                except (IndexError, json.JSONDecodeError):
+                    pass
+        if "PLATFORM SIMILARITY CHECK: WARN" in out and r.returncode == 0:
             w = {"gate": "check_platform_similarity", "plan": str(plan), "detail": out}
             if args.fail_on_similarity_warn:
                 failures.append(w)

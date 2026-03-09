@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Burnout-reset funnel: 6-section landing page, form capture, Proof-Loop email sequence (E1–E5), GHL push.
+Multi-hub funnel: 6-section landing page, form capture, Proof-Loop email sequence (E1–E5), GHL push.
+Supports all 12 topic hubs (burnout, anxiety, overthinking, etc.) via dynamic routing.
 Persistence: SQLite (leads + APScheduler jobstore). No JSONL. email_mode: "ghl" (GHL sends) or "smtp" (app sends via Brevo).
 """
 from __future__ import annotations
@@ -84,6 +85,36 @@ def get_book_map() -> dict:
 def get_funnel_sections(hub: str = "burnout_reset") -> dict:
     sections = load_yaml(CONFIG_FREEBIES / "funnel_sections.yaml")
     return sections.get(hub, sections.get("burnout_reset", {}))
+
+
+def get_proof_loop() -> dict:
+    """Load all hub configs from funnel_proof_loop.yaml."""
+    return load_yaml(CONFIG_FREEBIES / "funnel_proof_loop.yaml")
+
+
+def resolve_hub(slug: str) -> tuple[str, dict] | tuple[None, None]:
+    """Resolve a URL slug (e.g. 'burnout-reset') to (hub_key, hub_config).
+    Returns (None, None) if not found."""
+    proof_loop = get_proof_loop()
+    # Direct match: slug matches hub key with hyphens→underscores
+    hub_key = slug.replace("-", "_")
+    if hub_key in proof_loop:
+        return hub_key, proof_loop[hub_key]
+    # Fallback: try adding _reset
+    hub_key_with_reset = hub_key if hub_key.endswith("_reset") else f"{hub_key}_reset"
+    if hub_key_with_reset in proof_loop:
+        return hub_key_with_reset, proof_loop[hub_key_with_reset]
+    return None, None
+
+
+# Build valid hub slugs for routing
+def _get_all_hub_slugs() -> list[str]:
+    """Return all valid URL slugs for landing pages."""
+    proof_loop = get_proof_loop()
+    slugs = []
+    for hub_key in proof_loop:
+        slugs.append(hub_key.replace("_", "-"))
+    return slugs
 
 
 def get_story(topic: str, story_id: str) -> str:
@@ -191,31 +222,58 @@ def run_scheduled_email(lead_id: str, email_number: int, unsubscribe_token: str)
     if not second_display:
         second_display = lead["second_exercise"].replace("_", " ").title()
 
+    # Resolve hub config for this lead's topic
+    proof_loop = get_proof_loop()
+    hub_key = lead.get("hub", "burnout_reset")
+    hub_config = proof_loop.get(hub_key, {})
+    topic = hub_config.get("topic", lead.get("topic", "burnout"))
+    story_id = hub_config.get("story_id", f"{topic}_nurse_story")
+    book_slug = hub_config.get("book_slug", "burnout-reset")
+
     if email_number == 2:
         send_e2(lead, second_display, second_tool_link, unsub_url, base_url)
     elif email_number == 3:
-        story_body = get_story(lead.get("topic", "burnout"), "burnout_nurse_story")
+        story_body = get_story(topic, story_id)
         send_e3(lead, story_body, unsub_url, base_url)
     elif email_number == 4:
-        send_e4(lead, book_info.get("book_title", "Burnout Reset"), book_info.get("book_url", base_url + "/books/burnout-reset"), unsub_url, base_url)
+        send_e4(lead, book_info.get("book_title", book_slug.replace("-", " ").title()), book_info.get("book_url", base_url + f"/books/{book_slug}"), unsub_url, base_url)
     elif email_number == 5:
         send_e5(lead, book_info.get("more_books", []), unsub_url, base_url)
 
 
 @app.route("/")
-@app.route("/burnout-reset")
-def landing():
+def landing_default():
+    return hub_landing("burnout_reset")
+
+
+@app.route("/<hub_slug>")
+def landing(hub_slug: str):
+    hub_key, hub_config = resolve_hub(hub_slug)
+    if hub_key is None:
+        # Not a valid hub slug — could be another route; 404
+        return f"Hub not found: {hub_slug}", 404
+    return hub_landing(hub_key)
+
+
+def hub_landing(hub_key: str):
+    """Render the landing page for any topic hub."""
     exercises = get_exercises()
-    sections = get_funnel_sections("burnout_reset")
+    sections = get_funnel_sections(hub_key)
+    proof_loop = get_proof_loop()
+    hub_config = proof_loop.get(hub_key, {})
     exercise_name = request.args.get("exercise", "").strip() or None
     ga4_id = os.environ.get("GA4_MEASUREMENT_ID", FUNNEL_CFG.get("ga4_measurement_id", ""))
     base_url = _base_url()
     personas = ["unknown", "professional", "healthcare", "first_responder", "entrepreneur", "corporate_manager", "working_parent", "other"]
+    # Use dynamic template: hub_landing.html (generic) or fall back to burnout_reset.html
+    template = "hub_landing.html" if (APP_DIR / "templates" / "hub_landing.html").exists() else "burnout_reset.html"
     return render_template(
-        "burnout_reset.html",
+        template,
         exercises=exercises,
         sections=sections,
-        pre_selected_exercise=exercise_name,
+        hub_key=hub_key,
+        hub_config=hub_config,
+        pre_selected_exercise=exercise_name or hub_config.get("first_exercise"),
         ga4_measurement_id=ga4_id,
         base_url=base_url,
         personas=personas,
@@ -234,41 +292,50 @@ def _valid_email(email: str) -> bool:
 
 @app.route("/submit", methods=["POST"])
 def submit():
-    # Honeypot: reject if filled (use less common name than "company")
+    # Hub context: which hub did this form come from?
+    hub_key = (request.form.get("hub") or "burnout_reset").strip()
+    hub_slug = hub_key.replace("_", "-")
+    proof_loop = get_proof_loop()
+    hub_config = proof_loop.get(hub_key, proof_loop.get("burnout_reset", {}))
+    topic = hub_config.get("topic", "burnout")
+
+    # Honeypot: reject if filled
     if request.form.get("website_url"):
-        return redirect("/burnout-reset")
+        return redirect(f"/{hub_slug}")
     name = (request.form.get("name") or "").strip()
     email = (request.form.get("email") or "").strip()
     exercise_name = (request.form.get("exercise_name") or "").strip()
     persona = (request.form.get("persona") or "").strip() or "unknown"
     if not email or not exercise_name:
-        return redirect("/burnout-reset?error=missing")
+        return redirect(f"/{hub_slug}?error=missing")
     if not _valid_email(email):
-        return redirect("/burnout-reset?error=invalid")
+        return redirect(f"/{hub_slug}?error=invalid")
     exercises = get_exercises()
     ex_map = {e.get("id", ""): e for e in exercises}
     if exercise_name not in ex_map:
-        return redirect("/burnout-reset?error=invalid")
+        return redirect(f"/{hub_slug}?error=invalid")
     pairs = get_exercise_pairs()
     second = (pairs.get(exercise_name) or pairs.get("default") or {}).get("second", "box_breathing")
     book_map = get_book_map()
-    book_info = book_map.get(exercise_name) or book_map.get("burnout", {})
-    book_title = book_info.get("book_title", "Burnout Reset")
-    book_url = book_info.get("book_url", _base_url() + "/books/burnout-reset")
+    book_slug = hub_config.get("book_slug", "burnout-reset")
+    book_info = book_map.get(exercise_name) or book_map.get(topic, {})
+    book_title = book_info.get("book_title", book_slug.replace("-", " ").title())
+    book_url = book_info.get("book_url", _base_url() + f"/books/{book_slug}")
     more_books = book_info.get("more_books", [])
     tool_link = f"{_base_url()}{exercise_id_to_tool_path(exercise_name)}"
     second_tool_link = f"{_base_url()}{exercise_id_to_tool_path(second)}?utm_content=email2_practice"
     second_display = ex_map.get(second, {})
     second_display = f"{second_display.get('h1_line1', '')} {second_display.get('h1_line2', '')}".strip() or second.replace("_", " ").title()
-    story_body = get_story("burnout", "burnout_nurse_story")
+    story_id = hub_config.get("story_id", f"{topic}_nurse_story")
+    story_body = get_story(topic, story_id)
 
     unsubscribe_token = str(uuid.uuid4())
     lead_id = insert_lead(
         email=email,
         exercise_name=exercise_name,
         second_exercise=second,
-        hub="burnout_reset",
-        topic="burnout",
+        hub=hub_key,
+        topic=topic,
         name=name,
         persona=persona,
         unsubscribe_token=unsubscribe_token,
@@ -276,17 +343,15 @@ def submit():
     )
     lead = get_lead(lead_id, DATABASE_PATH)
     if not lead:
-        return redirect("/burnout-reset?error=save")
+        return redirect(f"/{hub_slug}?error=save")
 
     email_mode = FUNNEL_CFG.get("email_mode", "ghl")
     send_e5_cfg = FUNNEL_CFG.get("send_email_5", False)
 
     if email_mode == "smtp" and not is_unsubscribed(email, DATABASE_PATH):
-        # E1 immediate
         unsub_url = _unsubscribe_url(unsubscribe_token)
         if send_e1(lead, tool_link, unsub_url, _base_url()):
             mark_e1_sent(lead_id, DATABASE_PATH)
-        # Schedule E2–E5 (E5 only if send_email_5)
         sch = get_scheduler()
         if sch:
             d2 = FUNNEL_CFG.get("email_2_delay_hours", 24)
@@ -300,8 +365,8 @@ def submit():
             if send_e5_cfg:
                 sch.add_job(run_scheduled_email, "date", run_date=now + datetime.timedelta(hours=d2 + d3 + d4 + d5), id=f"{lead_id}:e5", args=[lead_id, 5, unsubscribe_token], replace_existing=True)
 
-    # GHL push (both modes); record for retry if failed
-    ghl_lead = {"email": email, "name": name, "exercise_name": exercise_name, "topic": "burnout", "source_page": "burnout_reset", "persona": persona}
+    # GHL push (both modes)
+    ghl_lead = {"email": email, "name": name, "exercise_name": exercise_name, "topic": topic, "source_page": hub_key, "persona": persona}
     ghl_ok = _push_ghl(ghl_lead)
     update_ghl_pushed(lead_id, ghl_ok, DATABASE_PATH)
 
@@ -316,11 +381,21 @@ def submit():
 
 
 def _push_ghl(lead: dict) -> bool:
-    """Push lead to GHL. Returns True on success, False otherwise (caller can use for retry flag)."""
+    """Push lead to GHL with custom field UUIDs and tags. Returns True on success."""
     api_key = os.environ.get("GHL_API_KEY", FUNNEL_CFG.get("ghl_api_key"))
     location_id = os.environ.get("GHL_LOCATION_ID", FUNNEL_CFG.get("ghl_location_id"))
     if not api_key or not location_id:
         return False
+
+    # Custom field UUIDs — MUST be real GHL UUIDs, not string names.
+    cf_topic = os.environ.get("GHL_CUSTOM_FIELD_TOPIC", FUNNEL_CFG.get("ghl_custom_field_topic", ""))
+    cf_exercise = os.environ.get("GHL_CUSTOM_FIELD_EXERCISE", FUNNEL_CFG.get("ghl_custom_field_exercise", ""))
+    cf_persona = os.environ.get("GHL_CUSTOM_FIELD_PERSONA", FUNNEL_CFG.get("ghl_custom_field_persona", ""))
+
+    if not cf_topic or not cf_exercise:
+        app.logger.warning("GHL push skipped: custom field UUIDs not configured (ghl_custom_field_topic / ghl_custom_field_exercise)")
+        return False
+
     try:
         import requests
         url = os.environ.get("GHL_CONTACTS_URL", FUNNEL_CFG.get("ghl_contacts_url", "https://services.leadconnectorhq.com/contacts/"))
@@ -332,18 +407,35 @@ def _push_ghl(lead: dict) -> bool:
         name = lead.get("name", "")
         first = name.split()[0] if name else ""
         last = " ".join(name.split()[1:]) if name and len(name.split()) > 1 else ""
+
+        # Build custom fields with real UUIDs
+        custom_fields = [
+            {"id": cf_topic, "value": lead.get("topic", "burnout")},
+            {"id": cf_exercise, "value": lead.get("exercise_name", "")},
+        ]
+        if cf_persona:
+            custom_fields.append({"id": cf_persona, "value": lead.get("persona", "unknown")})
+
+        # Build tags dynamically: funnel_{hub}, topic_{topic}, exercise_{exercise}, persona_{persona}
+        hub = lead.get("source_page", "burnout_reset")
+        topic = lead.get("topic", "burnout")
+        exercise = lead.get("exercise_name", "")
+        persona = lead.get("persona", "")
+        tags = [f"funnel_{hub}", f"topic_{topic}"]
+        if exercise:
+            tags.append(f"exercise_{exercise}")
+        if persona and persona != "unknown":
+            tags.append(f"persona_{persona}")
+
         payload = {
             "locationId": location_id,
             "email": lead.get("email"),
             "firstName": first,
             "lastName": last,
             "phone": "",
-            "source": lead.get("source_page", "burnout_reset"),
-            "customFields": [
-                {"id": "topic", "value": lead.get("topic", "burnout")},
-                {"id": "exercise", "value": lead.get("exercise_name", "")},
-                {"id": "persona", "value": lead.get("persona", "unknown")},
-            ],
+            "source": hub,
+            "tags": tags,
+            "customFields": custom_fields,
         }
         r = requests.post(url, json=payload, headers=headers, timeout=10)
         if r.status_code in (200, 201):

@@ -1,0 +1,19 @@
+platforms:
+  tiktok:
+    scene_directives:
+      - "First scene must have immediate concrete context (where, when, what is happening)."
+      - "Prioritize emotional clarity and body-state cues over abstract symbolism."
+      - "Use direct, legible actions that can be shown in 1-2 shots."
+      - "Avoid vague color fields or non-representational imagery."
+  youtube:
+    scene_directives:
+      - "Maintain narrative continuity between scenes to support watch-time."
+      - "Use environment anchors that reinforce story progression."
+      - "Balance emotional and explanatory visuals; avoid visual drift."
+      - "Avoid abstract-only frames that do not depict script meaning."
+  instagram_reels:
+    scene_directives:
+      - "Use clear lifestyle context and mood-consistent actions."
+      - "Keep visual composition simple and readable on mobile."
+      - "Ensure each frame maps to a specific line in the script."
+      - "Avoid non-literal placeholders or gradient-only imagery."

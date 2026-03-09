@@ -1,0 +1,35 @@
+{
+  "pipeline_version": "video-pipeline-v1",
+  "video_id": "video-depression-genz-nyc-90s",
+  "plan_id": "depression-genz-nyc-90s",
+  "config_hash": "ea7a5429c17150af",
+  "title": "When anxiety shows up",
+  "description": "A short on noticing anxiety without fighting it.",
+  "tags": [
+    "anxiety",
+    "mindfulness",
+    "therapeutic"
+  ],
+  "video_provenance_path": "artifacts/video/provenance/video-depression-genz-nyc-90s.json",
+  "batch_id": "batch-2026-03-04-001",
+  "format": "landscape_16_9",
+  "topic": "depression",
+  "persona": "gen_z",
+  "channel_id": "",
+  "platform": "",
+  "hook_type": "light_reveal",
+  "environment": "forest_path",
+  "motion_type": "slow_zoom",
+  "music_mood": "calm",
+  "caption_pattern": "question_hook",
+  "style_version": "v1",
+  "primary_asset_ids": [
+    "depression_HOOK_VISUAL_1",
+    "depression_ENVIRONMENT_ATMOSPHERE_1",
+    "depression_SYMBOLIC_METAPHOR_1",
+    "depression_CHARACTER_EMOTION_1",
+    "depression_ENVIRONMENT_ATMOSPHERE_2",
+    "depression_CHARACTER_EMOTION_2",
+    "depression_SYMBOLIC_METAPHOR_2"
+  ]
+}

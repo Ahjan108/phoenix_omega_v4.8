@@ -1,5 +1,8 @@
 # Caption layout and strategy. CaptionAdapter consumes this per format/locale.
 
+# Accessibility: caption text vs background must meet min contrast ratio (WCAG 2.1). Renderer uses this.
+min_contrast_ratio: 4.5
+
 default:
   max_chars_per_line: 42
   max_lines: 2

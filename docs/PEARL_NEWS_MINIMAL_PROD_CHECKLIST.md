@@ -54,6 +54,8 @@ These 6 must be confirmed **on `main`** with evidence links before declaring Pea
 | 5 | **WordPress draft-post flow verified with real secrets** | Post URL or draft ID: _______________ |
 | 6 | **Checklist doc completed with evidence links** | All above cells filled; Evidence Lock (below) signed |
 
+**Writer Spec compliance:** Before publishing any article, confirm it passes all 6 quality gates (including `writer_spec_forbidden_phrases`). See [PEARL_NEWS_GO_NO_GO_CHECKLIST.md](PEARL_NEWS_GO_NO_GO_CHECKLIST.md) item 9 and [PEARL_NEWS_ARTICLE_QUALITY_PLAN.md](PEARL_NEWS_ARTICLE_QUALITY_PLAN.md).
+
 ---
 
 ## Pre-Merge Verification

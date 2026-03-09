@@ -1,0 +1,12 @@
+# Queue orchestration — Pearl Prime always-on jobs.
+# Authority: docs/PEARL_PRIME_ALWAYS_ON_POLICY.md
+# Redis URL: set REDIS_URL env (e.g. redis://localhost:6379/0). Do not commit secrets.
+
+queue_name: pearl-jobs
+processing_key: pearl-processing
+# Stale threshold: jobs in processing longer than this (seconds) get requeued.
+stale_seconds: 3600
+# Worker: claim timeout (seconds) — job marked in processing until now + this.
+claim_timeout_seconds: 3600
+# Job definitions path (relative to repo root)
+jobs_spec: scripts/queue_orchestrator/jobs.yaml

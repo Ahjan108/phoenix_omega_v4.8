@@ -38,6 +38,8 @@ Config: `config/release_velocity/velocity_ramp.yaml`.
 
 Do not exceed these when building or executing the weekly schedule. Stored in `config/release_velocity/safe_velocity.yaml`.
 
+**Heuristics, not policy:** These caps are **internal guardrails** for schedule generation. They are not confirmed platform thresholds or guaranteed policy limits. Any "safe" weekly/monthly/yearly numbers (in this repo or cited elsewhere) are **operational heuristics** only. See [docs/CATALOG_ARCHITECTURE_AT_SCALE.md](./CATALOG_ARCHITECTURE_AT_SCALE.md) §9 (volume and catalog legitimacy).
+
 | Platform | New imprint/account | Established |
 |----------|----------------------|-------------|
 | **Google Play Books** | 10–20/wk, 40–60/mo | 25–50/wk, 100–200/mo |
@@ -45,6 +47,8 @@ Do not exceed these when building or executing the weekly schedule. Stored in `c
 | **Ximalaya** (China) | 5–10/wk per verified account, 20–40/mo | Same; scaling needs verified entity, clean copyright, platform relationship |
 
 Dumping 300 in one day or 200 audiobooks in one week = anomaly risk. Stagger uploads to stay within these ranges.
+
+**Weekly pattern for 500–1,000 books/year (heuristic):** Many publishers releasing ~500–1,000 books/year use **8–20 books per week**, spread across multiple days, with **series clusters** (e.g. 5–8 series continuations, 2–4 new series starters) and **standalone discovery titles** (2–4). Rotate across imprints/brands. Treat as **operational guidance**, not platform guarantee. See [docs/CATALOG_ARCHITECTURE_AT_SCALE.md](./CATALOG_ARCHITECTURE_AT_SCALE.md) §12 (Angle Matrix) and §9 (operating playbook).
 
 **Per-lane cap resolution:** Schedules are modeled as **two independent lanes** so EN is not throttled by Chinese/Ximalaya limits. Use `--lane` so caps apply only to that lane's platforms. See **Two independent lanes** below.
 
@@ -72,6 +76,8 @@ Output JSON includes `lane`, `zh_sublocale` (if set), and `platforms` so the sch
 ## Week-by-week schedule (what to upload when)
 
 **Script:** `scripts/release/generate_weekly_schedule.py`
+
+**Release topology (brand_days + same_day_cross_brand_max):** The script loads `config/release_velocity/release_scheduler.yaml` and enforces **reassign-first, fail-hard-second**. Each brand's books are assigned to weekdays only from that brand's `brand_days` list; no weekday may have more than `same_day_cross_brand_max` distinct brands. When a day would exceed the cap, overflow brands are moved to their next allowed day. The script fails with exit 1 only when no feasible assignment exists after reassignment (e.g. feasibility precheck: `7 * same_day_cross_brand_max >= brands_in_week` fails, or reassignment cannot converge). Schedule output includes a `day_assignments` map per week: `{ "mon": { "brand_id": [path, ...] }, ... }`.
 
 **Input:** A wave file (one plan path per line) or a candidates directory of plan JSONs. Optional `--start-date` (YYYY-MM-DD); default is next Monday. Optional **`--lane en` | `--lane zh24`** for per-lane cap resolution; optional **`--zh-sublocale zh_cn` | `zh_tw_hk_sg`** when `--lane zh24`.
 
@@ -115,6 +121,29 @@ python scripts/release/generate_weekly_schedule.py --lane zh24 --zh-sublocale zh
 
 ---
 
+## Scale: rollout by cohorts and per-author cap
+
+**Do not assume safe by default at high throughput.** See **specs/TEACHER_PORTFOLIO_PLANNING_SPEC.md §13** for the full stance on cross-account risk.
+
+### Rollout by cohorts
+
+- **Start with 1–3 brands** at target velocity (e.g. up to platform cap per account). Run the weekly schedule and uploads for that cohort only.
+- **Monitor** rejection rates, Partner Center / dashboard alerts, and any quality or policy flags for at least 2–4 weeks.
+- **Scale** to more brands only when signals are clean. Add brands in small cohorts (e.g. 2–3 at a time) and re-check signals after each expansion.
+- Do not ramp all 24 brands to 25/week in parallel until cohort runs have shown stable, flag-free results.
+
+### Same-day multi-account release bursts
+
+- **Guard:** Avoid the platform seeing “many accounts release on the same day.” When building or executing the weekly schedule, **stagger release days by brand/cohort** (e.g. Mon: cohort A brands, Tue: cohort B, Wed: cohort C) so no single day has a large fraction of all brands releasing. This is one of the four network-level caps in **docs/CATALOG_ARCHITECTURE_AT_SCALE.md** (§5). Config: `config/release_velocity/release_scheduler.yaml` — `brand_days` (weekdays per brand), `same_day_cross_brand_max` (e.g. 3). Implement in process (runbook) and optionally in `generate_weekly_schedule.py`. Tie topology to editorial logic (programs/series), not pure randomness.
+
+### Per-author / per-teacher cap (internal guard)
+
+- **Operational guideline:** ≤ **50 titles per author/teacher per 90 days** per storefront account (from `docs/audiobook_ops_manual.md`). Same author name on > 50 titles in < 90 days is a stated spam signal.
+- **At 100 books/month per brand:** To stay under 50/author/90 days you need at least **~6 authors/teachers** per brand (each ~17 books/month). With 2 authors, 50 each/month = 150 per 90 days each → above guideline; increase author/teacher count as volume rises.
+- **Catalog-wide teacher share:** `config/catalog_planning/diversity_guards.yaml` → `max_share_per_teacher` (e.g. 8%) caps the fraction of any wave/allocation from a single teacher. Enforced in `generate_full_catalog` when using locale-group or brand-matrix.
+
+---
+
 ## Summary
 
 | What | Where |
@@ -124,3 +153,11 @@ python scripts/release/generate_weekly_schedule.py --lane zh24 --zh-sublocale zh
 | Ramp phases (90 d, 30% to 6 mo, 60 d toward target; capped by platform) | config/release_velocity/velocity_ramp.yaml |
 | Generate week-by-week schedule | scripts/release/generate_weekly_schedule.py (`--lane en \| zh24`, `--zh-sublocale`) |
 | Spec (velocity + schedule authority) | specs/TEACHER_PORTFOLIO_PLANNING_SPEC.md §3, §7, §10 |
+| Scale stance (cross-account risk, rollout by cohorts) | specs/TEACHER_PORTFOLIO_PLANNING_SPEC.md §13; this doc § Scale |
+| Per-author 90-day cap (≤50 titles/author/90 d) | docs/audiobook_ops_manual.md; this doc § Scale |
+| Catalog-wide teacher-share cap | config/catalog_planning/diversity_guards.yaml → max_share_per_teacher |
+| Same-day multi-account burst guard | This doc § Scale; config/release_velocity/release_scheduler.yaml (same_day_cross_brand_max) |
+| Release wave scheduler (topology, brand_days, variability) | config/release_velocity/release_scheduler.yaml; docs/CATALOG_ARCHITECTURE_AT_SCALE.md §5b |
+| Catalog architecture at scale (program, worldview, tiers, four caps) | docs/CATALOG_ARCHITECTURE_AT_SCALE.md |
+| Volume/catalog legitimacy (heuristics only; low risk when diverse) | docs/CATALOG_ARCHITECTURE_AT_SCALE.md §9 |
+| Series seeding and read-through (launch 2–3 books per series; cap new series starts per brand) | config/release_velocity/series_launch_policy.yaml; docs/CATALOG_ARCHITECTURE_AT_SCALE.md §13 |

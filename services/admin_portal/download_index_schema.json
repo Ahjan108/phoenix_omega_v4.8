@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phoenix/schemas/release/download_index_v1.schema.json",
+  "title": "Download index (packet metadata for portal)",
+  "description": "Written by pipeline/sync; read by admin portal. week + packets[].",
+  "type": "object",
+  "required": ["schema_version", "week", "packets"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "week": { "type": "string", "description": "YYYY-WW" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "packets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["brand_id", "r2_key", "release_day", "bytes", "sha256"],
+        "properties": {
+          "brand_id": { "type": "string" },
+          "r2_key": { "type": "string" },
+          "release_day": { "type": "string" },
+          "bytes": { "type": "integer" },
+          "sha256": { "type": "string" },
+          "status": { "type": "string", "enum": ["ready", "missing", "archived"] }
+        }
+      }
+    }
+  }
+}

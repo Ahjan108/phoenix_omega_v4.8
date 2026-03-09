@@ -1,0 +1,104 @@
+{
+  "plan_id": "overthinking-genz-nyc-90s",
+  "topic": "overthinking",
+  "segments": [
+    {
+      "segment_id": "seg-1",
+      "slot_id": "slot-hook",
+      "text_preview": "It's 11:47 PM in your Queens apartment. Your body is tired, but your mind won't clock out. You replay one text and one a",
+      "scene_description": "it's 1147 pm in your queens apartment, shown as a grounded everyday scene with no visible faces",
+      "mood": "hopeful",
+      "avoid": [
+        "faces",
+        "neon colors",
+        "busy backgrounds"
+      ],
+      "source": "fallback",
+      "error": "HTTPConnectionPool(host='127.0.0.1', port=1234): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=1234): Failed to establish a new connection: [Errno 1] Operation not permitted\"))"
+    },
+    {
+      "segment_id": "seg-2",
+      "slot_id": "slot-body-1",
+      "text_preview": "Overthinking feels productive, but it's mostly threat-scanning. In New York, everything moves fast, so your nervous syst",
+      "scene_description": "overthinking feels productive, but it's mostly threat-scanning, shown as a grounded everyday scene with no visible faces",
+      "mood": "subdued",
+      "avoid": [
+        "faces",
+        "neon colors",
+        "busy backgrounds"
+      ],
+      "source": "fallback",
+      "error": "HTTPConnectionPool(host='127.0.0.1', port=1234): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=1234): Failed to establish a new connection: [Errno 1] Operation not permitted\"))"
+    },
+    {
+      "segment_id": "seg-3",
+      "slot_id": "slot-body-2",
+      "text_preview": "You call it preparation. But your shoulders rise, your jaw tightens, your breathing gets shallow, and you time-travel in",
+      "scene_description": "you call it preparation, shown as a grounded everyday scene with no visible faces",
+      "mood": "subdued",
+      "avoid": [
+        "faces",
+        "neon colors",
+        "busy backgrounds"
+      ],
+      "source": "fallback",
+      "error": "HTTPConnectionPool(host='127.0.0.1', port=1234): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=1234): Failed to establish a new connection: [Errno 1] Operation not permitted\"))"
+    },
+    {
+      "segment_id": "seg-4",
+      "slot_id": "slot-body-3",
+      "text_preview": "Try this reset now: feet on the floor, name five things you can see, loosen your hands, and exhale longer than you inhal",
+      "scene_description": "try this reset now feet on the floor, name five things you can see, loosen your hands, and exhale longer than you inhale, shown as a grounded everyday scene with no visible faces",
+      "mood": "subdued",
+      "avoid": [
+        "faces",
+        "neon colors",
+        "busy backgrounds"
+      ],
+      "source": "fallback",
+      "error": "HTTPConnectionPool(host='127.0.0.1', port=1234): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=1234): Failed to establish a new connection: [Errno 1] Operation not permitted\"))"
+    },
+    {
+      "segment_id": "seg-5",
+      "slot_id": "slot-body-4",
+      "text_preview": "Then give your mind one container: write your top three worries and one next action for each. Not tonight. Tomorrow. You",
+      "scene_description": "then give your mind one container write your top three worries and one next action for each, shown as a grounded everyday scene with no visible faces",
+      "mood": "subdued",
+      "avoid": [
+        "faces",
+        "neon colors",
+        "busy backgrounds"
+      ],
+      "source": "fallback",
+      "error": "HTTPConnectionPool(host='127.0.0.1', port=1234): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=1234): Failed to establish a new connection: [Errno 1] Operation not permitted\"))"
+    },
+    {
+      "segment_id": "seg-6",
+      "slot_id": "slot-body-5",
+      "text_preview": "You are not broken because you think deeply. You're overloaded. Gen Z carries pressure from work, money, and nonstop fee",
+      "scene_description": "you are not broken because you think deeply, shown as a grounded everyday scene with no visible faces",
+      "mood": "subdued",
+      "avoid": [
+        "faces",
+        "neon colors",
+        "busy backgrounds"
+      ],
+      "source": "fallback",
+      "error": "HTTPConnectionPool(host='127.0.0.1', port=1234): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=1234): Failed to establish a new connection: [Errno 1] Operation not permitted\"))"
+    },
+    {
+      "segment_id": "seg-7",
+      "slot_id": "slot-close",
+      "text_preview": "Tonight, use one sentence: I can handle tomorrow tomorrow. Say it once. Breathe out. You don't need perfect certainty to",
+      "scene_description": "tonight, use one sentence i can handle tomorrow tomorrow, shown as a grounded everyday scene with no visible faces",
+      "mood": "subdued",
+      "avoid": [
+        "faces",
+        "neon colors",
+        "busy backgrounds"
+      ],
+      "source": "fallback",
+      "error": "HTTPConnectionPool(host='127.0.0.1', port=1234): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=1234): Failed to establish a new connection: [Errno 1] Operation not permitted\"))"
+    }
+  ]
+}

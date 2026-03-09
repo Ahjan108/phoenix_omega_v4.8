@@ -1,0 +1,37 @@
+# Segment-to-visual-intent mapping so each segment gets a distinct visual type tied to the story.
+# "Similar" is not OK — visuals must be specific to what the script is saying; no fallback to
+# one generic intent (e.g. CHARACTER_EMOTION) for every body segment.
+#
+# Hook is always HOOK_VISUAL. Body/close segments are assigned by slot_id so we rotate
+# ENVIRONMENT_ATMOSPHERE (place, actions), SYMBOLIC_METAPHOR (inner voice, metaphor, reset),
+# CHARACTER_EMOTION (agency, self). Max 3 consecutive same intent is enforced by QC.
+
+# For long_form / 90s: map slot_id -> visual_intent (narrative-aligned).
+# slot-hook -> HOOK_VISUAL (shot planner handles this).
+# Body/close slots get distinct intents so the story is told in the visual.
+long_form:
+  by_slot_id:
+    slot-hook: HOOK_VISUAL
+    slot-body-1: ENVIRONMENT_ATMOSPHERE   # e.g. apartment, scrolling, canceled plans
+    slot-body-2: SYMBOLIC_METAPHOR        # e.g. brain/voice of depression
+    slot-body-3: CHARACTER_EMOTION       # e.g. one small move, agency
+    slot-body-4: ENVIRONMENT_ATMOSPHERE  # e.g. window, water, shower
+    slot-body-5: CHARACTER_EMOTION      # e.g. carrying heavy, self-compassion
+    slot-close: SYMBOLIC_METAPHOR         # e.g. reset, 60 seconds
+  # Fallback when slot_id not in map: rotate by segment index (body_1 -> ENV, body_2 -> SYMBOL, ...)
+  default_rotation:
+    - ENVIRONMENT_ATMOSPHERE
+    - SYMBOLIC_METAPHOR
+    - CHARACTER_EMOTION
+
+# Therapeutic short (fewer segments): same idea, map slot -> intent.
+therapeutic:
+  by_slot_id:
+    slot-hook: HOOK_VISUAL
+    slot-body-1: ENVIRONMENT_ATMOSPHERE
+    slot-body-2: SYMBOLIC_METAPHOR
+    slot-close: CHARACTER_EMOTION
+  default_rotation:
+    - ENVIRONMENT_ATMOSPHERE
+    - SYMBOLIC_METAPHOR
+    - CHARACTER_EMOTION

@@ -1,0 +1,36 @@
+# Release wave scheduler: distributed release topology.
+# Authority: docs/CATALOG_ARCHITECTURE_AT_SCALE.md, docs/RELEASE_VELOCITY_AND_SCHEDULE.md.
+# Goal: irregular growth (waves, stagger by brand/program), not machine-like constant bursts.
+# Tie to editorial logic (programs, series, seasonality); avoid pure randomness.
+
+schema_version: 1
+
+# Weekly target and variability band (guardrails, not pure random).
+# effective_weekly = weekly_target * (1 ± variance); clamp to platform caps elsewhere.
+weekly_target: 20
+variance: 0.4   # ±40% e.g. 12–28; use when building schedule to mimic human unpredictability
+
+# Wave size bands (books per wave). Prefer small/medium waves; large rare.
+wave_sizes:
+  small: [2, 3]    # very common
+  medium: [4, 6]   # common
+  large: [7, 10]   # occasional
+  # 15+ rare; do not default to large waves
+
+# Per-brand release days (desynchronize cross-brand). Prevents "24 brands publish same day."
+# Keys: brand_id. Values: list of weekday slugs (mon, tue, wed, thu, fri, sat, sun).
+# When generate_weekly_schedule (or downstream) applies this, it assigns each brand to its days only.
+brand_days:
+  stillness_press: [mon, wed]
+  cognitive_clarity: [tue]
+  # Add other brands; stagger so same day has few brands.
+
+# Same-day cross-brand sync blocker. Max number of brands that may release on the same weekday
+# in a given week. Exceeding this = schedule invalid (fail or reassign).
+# Example: 3 → no more than 3 brands release on Monday (and same for other days).
+same_day_cross_brand_max: 3
+
+# Optional: per-program release days (finer than brand). If set, program_id wins over brand_id for day assignment.
+# program_days:
+#   mindfulness_classics: [mon]
+#   emotional_healing: [wed]

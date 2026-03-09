@@ -1,0 +1,172 @@
+# Platform-specific SEO and metadata policies for video distribution.
+# Authority: docs/VIDEO_PIPELINE_SPEC.md §11 (Distribution), §15 (Anti-spam).
+# Used by: write_metadata.py (--platform flag) and distribution_writer.py.
+#
+# Each platform has distinct rules for title, description, tags/hashtags.
+# Violating length limits causes truncation at platform level = lost SEO value.
+
+platforms:
+
+  youtube:
+    title:
+      max_chars: 100          # YouTube shows ~70 in search; hard cap 100
+      recommended_chars: 60
+      rules:
+        - "Front-load primary keyword in first 40 characters"
+        - "Include emotional trigger word (stop, why, secret, truth)"
+        - "Use pipe | or dash — to separate topic from hook"
+        - "Never start with channel name (waste of prime real estate)"
+        - "Capitalize first letter of each word (Title Case)"
+        - "Include number when listing (e.g. '3 Ways to...')"
+    description:
+      max_chars: 5000
+      recommended_first_line_chars: 150  # shown above 'Show more' fold
+      structure:
+        - "Line 1: Repeat hook + primary keyword (shown in search)"
+        - "Lines 2–3: What viewer will learn/feel; emotional outcome"
+        - "Lines 4–8: Timestamps (chapters) if > 3 minutes"
+        - "Lines 9–12: Related videos / playlist links"
+        - "Last 3 lines: CTA (subscribe, comment), social links"
+      rules:
+        - "First 150 chars are critical — shown in search and above fold"
+        - "Include primary keyword in first sentence"
+        - "Add 2–3 natural keyword variations (not keyword stuffing)"
+        - "Use line breaks for readability"
+        - "Include at least one CTA"
+    tags:
+      max_count: 15            # YouTube allows 500 chars total
+      max_total_chars: 500
+      rules:
+        - "First tag = exact primary keyword"
+        - "Tags 2–5: long-tail variations (e.g. 'how to stop overthinking at night')"
+        - "Tags 6–10: related topics"
+        - "Tags 11–15: broad category tags"
+        - "No single-word generic tags (e.g. 'anxiety' alone is too broad)"
+    hashtags:
+      max_count: 3             # YouTube shows max 3 above title
+      placement: above_title   # Shown between channel name and title
+      rules:
+        - "Max 3 hashtags (YouTube only shows first 3)"
+        - "First hashtag = primary topic (#Anxiety, #Burnout)"
+        - "Second hashtag = content type (#SelfHelp, #MentalHealth)"
+        - "Third hashtag = audience (#GenZ, #Healing)"
+    thumbnail:
+      recommended_size: "1280x720"
+      min_width: 640
+      aspect_ratio: "16:9"
+      max_file_size_mb: 2
+      format: "jpg"
+
+  tiktok:
+    title:
+      max_chars: 0             # TikTok has no separate title field
+      rules:
+        - "Title is the first line of description/caption"
+    description:
+      max_chars: 4000          # TikTok expanded limit (was 300)
+      recommended_chars: 150   # Most engagement in short captions
+      structure:
+        - "Line 1: Hook question or statement (this IS the 'title')"
+        - "Line 2: One-line emotional payoff"
+        - "Line 3–4: Optional context"
+        - "Last line: Hashtags (see below)"
+      rules:
+        - "Front-load the hook — first 3 words determine scroll-stop"
+        - "Use conversational, direct tone (talk TO the viewer)"
+        - "Emoji sparingly — max 2–3 per caption"
+        - "Short sentences. Line breaks. Punchlines."
+        - "Ask a question to drive comments"
+    hashtags:
+      max_count: 5             # More = spam signal on TikTok
+      placement: end_of_caption
+      rules:
+        - "3–5 hashtags total (more looks spammy)"
+        - "Mix niche + broad: 2 niche (#AnxietyRelief, #QuietYourMind) + 1 broad (#MentalHealth) + 1 trending"
+        - "Do NOT use #fyp or #foryoupage (no longer helps; looks amateur)"
+        - "Check trending hashtags weekly and rotate"
+    thumbnail:
+      recommended_size: "1080x1920"
+      aspect_ratio: "9:16"
+      max_file_size_mb: 1
+      format: "jpg"
+      rules:
+        - "TikTok auto-selects cover frame; custom cover upload available"
+        - "Use generated thumbnail as cover image"
+
+  instagram_reels:
+    title:
+      max_chars: 0             # Reels have no separate title
+      rules:
+        - "Title is the first line of caption"
+    description:
+      max_chars: 2200
+      recommended_chars: 125   # Shown above 'more' fold
+      structure:
+        - "Line 1: Emotional hook (this is what shows in feed)"
+        - "Line 2: One-line value prop"
+        - "Lines 3–5: Brief context or story"
+        - "Line 6: CTA (Save this, Share with someone who needs it)"
+        - "Last 2 lines: Hashtags"
+      rules:
+        - "First 125 characters shown in feed — make them count"
+        - "Use 'Save this' CTA (saves boost Reels algorithm heavily)"
+        - "Avoid links in caption (IG doesn't make them clickable)"
+        - "Line breaks create readability and slow scroll"
+    hashtags:
+      max_count: 5             # IG recommends 3–5 for Reels (not 30)
+      placement: end_of_caption
+      rules:
+        - "3–5 hashtags (IG's own recommendation for Reels)"
+        - "Do NOT use 30 hashtags — IG suppresses reach for hashtag stuffing on Reels"
+        - "Mix: 2 niche + 2 medium + 1 broad"
+        - "Niche: specific to content (#StopOverthinkingNow, #BurnoutRecovery)"
+        - "Medium: community tags (#MentalHealthMatters, #SelfHealingJourney)"
+        - "Broad: discovery (#Wellness, #SelfCare)"
+    thumbnail:
+      recommended_size: "1080x1920"
+      aspect_ratio: "9:16"
+      format: "jpg"
+      rules:
+        - "Cover image affects Explore page placement"
+        - "Use generated thumbnail as cover"
+
+  youtube_shorts:
+    title:
+      max_chars: 100
+      recommended_chars: 40   # Shorts titles are shown in smaller UI
+      rules:
+        - "Shorter than regular YouTube — 40 chars target"
+        - "One clear idea per title"
+        - "Include #Shorts if not auto-detected"
+    description:
+      max_chars: 5000
+      recommended_chars: 100
+      structure:
+        - "Line 1: Hook restated"
+        - "Line 2: CTA or related long-form link"
+        - "Line 3: Hashtags"
+      rules:
+        - "Keep short — Shorts viewers rarely read description"
+        - "Link to full-length video if this is a clip"
+    hashtags:
+      max_count: 3
+      placement: description
+      rules:
+        - "#Shorts (required if not auto-detected)"
+        - "1–2 topic hashtags"
+    thumbnail:
+      recommended_size: "1080x1920"
+      aspect_ratio: "9:16"
+      format: "jpg"
+
+# ── CROSS-PLATFORM ANTI-SPAM RULES ───────────────────────────────────────────
+# These apply in addition to per-platform rules above.
+
+anti_spam_metadata_rules:
+  - "No two channels may use the same description template on the same platform"
+  - "Hashtag sets must differ between channels covering the same topic"
+  - "Title templates are enforced per channel_registry.yaml (6 distinct templates, max 4 channels each)"
+  - "Description tone/voice must match channel_writing_styles.yaml"
+  - "Never include channel network identifiers (e.g. 'Phoenix Network', 'Pearl Prime') in public metadata"
+  - "Rotate trending hashtags weekly; stale hashtags are a spam signal"
+  - "Do not cross-link between channels in the same network in public metadata"

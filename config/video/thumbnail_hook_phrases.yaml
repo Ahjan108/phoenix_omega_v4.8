@@ -1,0 +1,20 @@
+# Topic -> 2-4 word hook phrase for self-help thumbnail cards.
+# Used by generate_thumbnail.py; fallback to title truncation when topic missing.
+# Band (palette) comes from brand_style_tokens topic_to_band; hook band used for thumbnail_bg/title_color.
+
+topic_to_hook_phrase:
+  anxiety: "Calm in 60s"
+  depression: "Your Brain Is Lying"
+  burnout: "Reset Your Energy"
+  grief: "Gentle Through Grief"
+  anger: "Channel the Fire"
+  self_worth: "Walk Different"
+  self_love: "Start With You"
+  purpose: "Find Your Why"
+  boundaries: "Say It Clearly"
+  jealousy: "From Compare to Calm"
+  default: "Feel Better Now"
+
+# Optional symbol id per topic (future: small asset set brain, spiral, breath, etc.)
+topic_to_symbol: {}
+# default_symbol: null

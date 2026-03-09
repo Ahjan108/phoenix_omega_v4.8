@@ -50,8 +50,8 @@ struct DocsConfigView: View {
         }
         .background(PhoenixColors.phoenixBackground)
         .onAppear { loadReports() }
-        .onChange(of: state.repoPath) { _, _ in loadReports() }
-        .onChange(of: state.refreshTrigger) { _, _ in loadReports() }
+        .onChange(of: state.repoPath) { _ in loadReports() }
+        .onChange(of: state.refreshTrigger) { _ in loadReports() }
     }
 
     private var governanceAndContentCard: some View {

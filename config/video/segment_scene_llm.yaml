@@ -1,0 +1,32 @@
+# LLM config for segment → image-prompt metadata (Enlightened Intelligence style).
+# The LLM reads each script segment, understands what is being said, and outputs
+# structured metadata (scene_description, mood, avoid) to prompt the image — so
+# visuals are specific to the script, not generic "hands" or symbols.
+#
+# Use an LLM backend that can follow instructions and return JSON (e.g. EI V2,
+# Qwen, or any OpenAI-compatible chat API).
+
+# OpenAI-compatible chat endpoint (optional; if unset, script uses env OPENAI_BASE_URL / OPENAI_API_KEY).
+# base_url: "https://api.openai.com/v1"
+# base_url: "http://127.0.0.1:1234/v1"   # local Qwen / Ollama
+# model: "gpt-4o-mini"
+# model: "qwen2.5:latest"
+
+# Prompt hints (included in system/user prompt).
+system_hint: |
+  You are an expert at turning script copy into visual briefs for soft, contemplative illustrations.
+  Your job is to understand what the script segment is saying and identify the concrete visual
+  that should be drawn — specific to the story, not generic. No abstract symbols or "hands in
+  a pose" unless the script explicitly calls for them. Output only valid JSON.
+
+output_schema_hint: |
+  Return a single JSON object with:
+  - scene_description: one short sentence for the image (subject, setting, mood; suitable for a soft gouache illustration; no faces).
+  - mood: one word (e.g. subdued, hopeful, heavy, gentle).
+  - avoid: list of 0–4 things to avoid in the image (e.g. "literal text", "faces", "bright colors").
+
+# Max tokens for the LLM response (JSON only).
+max_tokens: 400
+
+# Timeout per segment (seconds).
+timeout_seconds: 30

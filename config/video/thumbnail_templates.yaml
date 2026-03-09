@@ -1,0 +1,34 @@
+# Thumbnail generator: formats, validation, typography.
+# Hook phrases: config/video/thumbnail_hook_phrases.yaml (topic_to_hook_phrase).
+# Palette: config/video/channel_thumbnail_styles.yaml (per-channel) or brand_style_tokens bands.hook.
+# Dimensions here align with platform_seo_policies.yaml (YouTube 1280×720, Shorts/Reels/TikTok 1080×1920).
+
+formats:
+  landscape_16_9:
+    width: 1280
+    height: 720
+    thumb_filename: "thumb.jpg"
+  portrait_9_16:
+    width: 1080
+    height: 1920
+    thumb_filename: "thumb.jpg"
+  square_1_1:
+    width: 1080
+    height: 1080
+    thumb_filename: "thumb.jpg"
+
+validation:
+  min_contrast_ratio: 3.0
+  min_words: 2
+  max_words: 6
+  resolution_tolerance_px: 2
+
+typography:
+  font_size_ratio: 0.08
+  line_spacing: 1.2
+  text_position_y: 0.45
+  font_families:
+    - "Bebas Neue"
+    - "Montserrat Bold"
+    - "DejaVu Sans Bold"
+    - "DejaVu Sans"

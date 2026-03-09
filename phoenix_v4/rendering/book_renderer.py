@@ -637,6 +637,8 @@ def render_book(
     atoms_root: Optional[Path] = None,
     bindings_path: Optional[Path] = None,
     teacher_banks_root: Optional[Path] = None,
+    rewrite_overrides: Optional[dict[str, str]] = None,
+    rewrite_audit_path: Optional[Path] = None,
     allow_placeholders: bool = False,
     on_missing: str = "fail",
     title_page: bool = True,
@@ -677,6 +679,8 @@ def render_book(
         atoms_root=atoms_root,
         bindings_path=bindings_path,
         teacher_banks_root=teacher_banks_root,
+        rewrite_overrides=rewrite_overrides,
+        rewrite_audit_path=rewrite_audit_path,
     )
 
     # Normalize edge cases: fail on placeholders or missing when not allowed

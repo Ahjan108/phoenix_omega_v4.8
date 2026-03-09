@@ -1,0 +1,18 @@
+# Video channel → editorial program mapping.
+# Future workstream: align video channel identity with book editorial program so
+# promoted books match the channel's visual/writing identity.
+# Authority: docs/EXECUTION_CHECKLIST_EI_V2_ALLOCATION.md (future workstream).
+#
+# When a video channel promotes a book, use editorial_program_id for metadata/cover
+# consistency. Keys: video channel_id (e.g. ch_001). Values: editorial_program_id
+# from config/catalog_planning/editorial_programs.yaml.
+
+schema_version: 1
+
+# channel_id -> editorial_program_id. Add entries as channels and programs are defined.
+mapping: {}
+# Example (uncomment and extend when wiring):
+# mapping:
+#   ch_001: stillness_default
+#   ch_002: cognitive_default
+#   ch_003: stillness_somatic

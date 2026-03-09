@@ -1,0 +1,28 @@
+# Series seeding and read-through acceleration.
+# Authority: docs/CATALOG_ARCHITECTURE_AT_SCALE.md §13.
+# Treat as likely engagement pattern, not guaranteed algorithm behavior.
+# Strategy: launch series in small clusters (2–3 books) to encourage read-through; cap new series starts per brand.
+
+schema_version: 1
+
+# Default new series launch: 2–3 books close together (not isolated Book 1s).
+# Planner/scheduler should prefer releasing Book 1+2+3 of a new series within 1–2 weeks.
+new_series_launch_cluster_min: 2
+new_series_launch_cluster_max: 3
+# Optional: max weeks between first and last book in a new-series launch cluster.
+new_series_launch_window_weeks: 2
+
+# Cap simultaneous new series starts per brand so catalog doesn't look synthetic.
+# Per week (or per wave), limit how many distinct series can have "Book 1" (or Book 1+2) as new starts.
+max_new_series_starts_per_brand_per_week: 3
+
+# Weekly mix (heuristic): continuations + few new clusters + standalones.
+# Example: 5–6 series continuations, 2–3 new series cluster books, 2–3 standalone.
+# Used for advisory/planning; actual mix from planner and wave content.
+weekly_mix_continuations_target: [5, 8]
+weekly_mix_new_cluster_books_target: [2, 4]
+weekly_mix_standalone_target: [2, 4]
+
+# Advisory: use dashboards to confirm read-through is actually improving before boosting volume.
+# Trust Signal Score / read-through metrics should inform wave-size multiplier when enabled.
+confirm_read_through_before_volume_boost: true

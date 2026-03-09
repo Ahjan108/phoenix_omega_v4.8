@@ -1,5 +1,11 @@
 # Motion distribution and limits. Therapeutic content targets 70–80% static shots.
 
+# QC gate: if static_ratio of clips is below this, QC fails for therapeutic/long_form (run_qc reads this).
+min_static_ratio: 0.70
+# Visual rhythm: max consecutive clips with the same visual_intent. No override — similar visuals
+# are not OK; each segment’s visual must be specific to the story (use segment-specific intents).
+max_consecutive_same_visual_intent: 3
+
 motion_distribution:
   static: 0.75
   slow_zoom: 0.15

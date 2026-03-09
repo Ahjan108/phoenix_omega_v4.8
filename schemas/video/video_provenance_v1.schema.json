@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phoenix/schemas/video/video_provenance_v1.schema.json",
+  "title": "Video provenance v1",
+  "description": "Audit trail for how a video was made: script/timeline refs, QC summary, telemetry, primary_asset_ids.",
+  "type": "object",
+  "required": ["video_id", "plan_id", "content_type", "duration_s", "render_manifest_id", "script_segments_id", "qc_summary"],
+  "additionalProperties": true,
+  "properties": {
+    "video_id": { "type": "string" },
+    "plan_id": { "type": "string" },
+    "content_type": { "type": "string" },
+    "config_hash": { "type": "string" },
+    "duration_s": { "type": "number", "minimum": 0 },
+    "render_manifest_id": { "type": "string", "description": "Plan ID or path to render manifest" },
+    "script_segments_id": { "type": "string", "description": "Plan ID or path to script segments" },
+    "qc_summary": {
+      "type": "object",
+      "properties": {
+        "passed": { "type": "boolean" },
+        "checks": { "type": "array", "items": { "type": "string" } },
+        "errors": { "type": "array", "items": { "type": "string" } },
+        "stillness_ratio": { "type": "number", "description": "Fraction of clips with motion=static" }
+      }
+    },
+    "format_adaptations": { "type": "array", "items": { "type": "string" } },
+    "created_at": { "type": "string", "format": "date-time" },
+    "hook_type": { "type": "string" },
+    "environment": { "type": "string" },
+    "motion_type": { "type": "string" },
+    "music_mood": { "type": "string" },
+    "caption_pattern": { "type": "string" },
+    "style_version": { "type": "string" },
+    "primary_asset_ids": { "type": "array", "items": { "type": "string" } },
+    "assets_used": {
+      "type": "array",
+      "description": "Per-asset prompt_version or bank_asset_ref (optional)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "asset_id": { "type": "string" },
+          "prompt_version": { "type": "string" },
+          "bank_asset_ref": { "type": "string" }
+        }
+      }
+    }
+  }
+}

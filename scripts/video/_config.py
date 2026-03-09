@@ -9,6 +9,9 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 
+# Pipeline version: written into artifacts so code changes are visible when config is unchanged.
+PIPELINE_VERSION = "video-pipeline-v1"
+
 
 def get_ffmpeg_bin() -> str:
     """Path to ffmpeg executable. Uses FFMPEG env, then which('ffmpeg'), then common Homebrew paths."""

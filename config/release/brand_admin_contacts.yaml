@@ -1,0 +1,15 @@
+# Brand admin contacts for packet notification.
+# Do not commit real emails or webhook URLs; use env or secrets.
+# Env override: SLACK_WEBHOOK_<BRAND_ID> (e.g. SLACK_WEBHOOK_STILLNESS_PRESS)
+# SMTP: SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, NOTIFY_FROM_EMAIL
+
+schema_version: 1
+
+brands:
+  stillness_press:
+    email: ""   # or set NOTIFY_STILLNESS_PRESS_EMAIL in env
+    slack_webhook: ""
+  cognitive_clarity:
+    email: ""
+    slack_webhook: ""
+  # Add other brand_id entries as needed.

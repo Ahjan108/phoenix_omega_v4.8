@@ -1,0 +1,186 @@
+{
+  "plan_id": "overthinking-genz-nyc-15seg",
+  "content_type": "long_form",
+  "segments": [
+    {
+      "segment_id": "seg-1",
+      "text": "Midnight in Queens. You're in bed, eyes open, replaying one awkward moment from today.",
+      "start_time_s": 0.0,
+      "end_time_s": 6.0,
+      "slot_id": "slot-01",
+      "primary_atom_id": "atom-001",
+      "metadata": {
+        "arc_role": "hook",
+        "emotional_band": "calm"
+      }
+    },
+    {
+      "segment_id": "seg-2",
+      "text": "Your brain says it is preparing you. Your body says it's still under threat.",
+      "start_time_s": 6.0,
+      "end_time_s": 12.0,
+      "slot_id": "slot-02",
+      "primary_atom_id": "atom-002",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    },
+    {
+      "segment_id": "seg-3",
+      "text": "Your jaw is tight. Your chest is shallow. Your shoulders are up by your ears.",
+      "start_time_s": 12.0,
+      "end_time_s": 18.43,
+      "slot_id": "slot-03",
+      "primary_atom_id": "atom-003",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    },
+    {
+      "segment_id": "seg-4",
+      "text": "You scroll for relief and find more noise. The loop gets louder.",
+      "start_time_s": 18.43,
+      "end_time_s": 23.57,
+      "slot_id": "slot-04",
+      "primary_atom_id": "atom-004",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    },
+    {
+      "segment_id": "seg-5",
+      "text": "Pause. Put both feet on the floor. Feel the contact points.",
+      "start_time_s": 23.57,
+      "end_time_s": 28.29,
+      "slot_id": "slot-05",
+      "primary_atom_id": "atom-005",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    },
+    {
+      "segment_id": "seg-6",
+      "text": "Name five things you can see in the room right now.",
+      "start_time_s": 28.29,
+      "end_time_s": 33.0,
+      "slot_id": "slot-06",
+      "primary_atom_id": "atom-006",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    },
+    {
+      "segment_id": "seg-7",
+      "text": "Exhale longer than you inhale, three times in a row.",
+      "start_time_s": 33.0,
+      "end_time_s": 37.29,
+      "slot_id": "slot-07",
+      "primary_atom_id": "atom-007",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    },
+    {
+      "segment_id": "seg-8",
+      "text": "Open notes and write your top worry as one sentence.",
+      "start_time_s": 37.29,
+      "end_time_s": 41.57,
+      "slot_id": "slot-08",
+      "primary_atom_id": "atom-008",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    },
+    {
+      "segment_id": "seg-9",
+      "text": "Write one action for tomorrow morning, not tonight.",
+      "start_time_s": 41.57,
+      "end_time_s": 45.0,
+      "slot_id": "slot-09",
+      "primary_atom_id": "atom-009",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    },
+    {
+      "segment_id": "seg-10",
+      "text": "Write the second worry and one action. Keep it small and real.",
+      "start_time_s": 45.0,
+      "end_time_s": 50.14,
+      "slot_id": "slot-10",
+      "primary_atom_id": "atom-010",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    },
+    {
+      "segment_id": "seg-11",
+      "text": "Write the third worry and one action. Then close the app.",
+      "start_time_s": 50.14,
+      "end_time_s": 54.86,
+      "slot_id": "slot-11",
+      "primary_atom_id": "atom-011",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    },
+    {
+      "segment_id": "seg-12",
+      "text": "Your mind does not need certainty. It needs a trusted next step.",
+      "start_time_s": 54.86,
+      "end_time_s": 60.0,
+      "slot_id": "slot-12",
+      "primary_atom_id": "atom-012",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    },
+    {
+      "segment_id": "seg-13",
+      "text": "You are not failing. You're overloaded in a city that never pauses.",
+      "start_time_s": 60.0,
+      "end_time_s": 65.14,
+      "slot_id": "slot-13",
+      "primary_atom_id": "atom-013",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    },
+    {
+      "segment_id": "seg-14",
+      "text": "Say this once: I can handle tomorrow, tomorrow.",
+      "start_time_s": 65.14,
+      "end_time_s": 68.57,
+      "slot_id": "slot-14",
+      "primary_atom_id": "atom-014",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    },
+    {
+      "segment_id": "seg-15",
+      "text": "One breath out. One release. Rest is now allowed.",
+      "start_time_s": 68.57,
+      "end_time_s": 72.43,
+      "slot_id": "slot-15",
+      "primary_atom_id": "atom-015",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    }
+  ]
+}

@@ -18,7 +18,8 @@
 8. **QC / Safety Gates**
 9. **Provenance Writer** — audit trail
 10. **Metadata Writer** — distribution manifest
-11. **Distribution Writer** — pack and upload (e.g. R2)
+11. **Thumbnail Generator** — template card (hook text + brand palette); overwrites frame-extracted thumb when successful
+12. **Distribution Writer** — pack and upload (e.g. R2)
 
 ---
 
@@ -32,7 +33,7 @@
 | Image bank asset | `schemas/video/image_bank_asset_v1.schema.json` — asset_id, layer_type, tags, composition_compat (per aspect), caption_safe_zone, safety_score, style_version, generation_batch |
 | Timeline | fps, resolution, aspect_ratio, audio_tracks[], thumbnail_frame_ref, clips[] |
 | Video provenance | video_id, plan_id, content_type, duration_s, render_manifest_id, script_segments_id, qc_summary, format_adaptations |
-| Distribution manifest | title, description, tags, video_provenance_path, batch_id; telemetry: hook_type, environment, motion_type, music_mood, caption_pattern, style_version, primary_asset_ids |
+| Distribution manifest | title, description, tags, video_provenance_path, batch_id, format, topic, persona; telemetry: hook_type, environment, motion_type, music_mood, caption_pattern, style_version, primary_asset_ids |
 
 **Provenance policy:** Every rendered video records render_manifest_id and script_segments_id; QC summary and per-asset prompt reference are stored.
 
@@ -43,7 +44,7 @@
 | Config | Path | Purpose |
 |--------|------|---------|
 | Pacing | `config/video/pacing_by_content_type.yaml` | min/max duration per content_type; hook_timing |
-| Captions | `config/video/caption_policies.yaml` | max_chars_per_line, max_lines, strategy, hook_caption_max_words |
+| Captions | `config/video/caption_policies.yaml` | max_chars_per_line, max_lines, strategy, hook_caption_max_words; **min_contrast_ratio** (≥ 4.5 for accessibility) |
 | Degraded render | `config/video/degraded_render_policy.yaml` | allow_degraded, max count/ratio, placement constraints |
 | Visual intent defaults | `config/video/visual_intent_defaults.yaml` | framing, face_visibility, camera_angle, motion per visual_intent |
 | Emotion overrides | `config/video/emotion_to_camera_overrides.yaml` | emotional_band / arc_role → camera overrides |
@@ -57,6 +58,12 @@
 | Asset fallback priority | `config/video/asset_selection_priority.yaml` | deterministic fallback order; composition_compat_threshold; step 5 = degraded_render_fallback |
 | Color grade presets | `config/video/color_grade_presets.yaml` | per-video eq presets (neutral, warm, cool, sunset, soft); one grade per video |
 | Render params | `config/video/render_params.yaml` | crop_margin_pct (e.g. 6) — guardrail so seed-derived crop offsets don't clip subject |
+| Thumbnail templates | `config/video/thumbnail_templates.yaml` | formats (resolution, thumb_filename), validation, typography; dimensions align with platform_seo_policies per platform |
+| Thumbnail hook phrases | `config/video/thumbnail_hook_phrases.yaml` | topic_to_hook_phrase (2–4 word hook per topic) |
+| Channel thumbnail styles | `config/video/channel_thumbnail_styles.yaml` | Per-channel thumbnail palette (bg, text, accent) for anti-spam visual diversity |
+| Channel writing styles | `config/video/channel_writing_styles.yaml` | Per-channel voice, tone, CTA, emoji use, sentence style, hashtag pool |
+| Platform SEO policies | `config/video/platform_seo_policies.yaml` | Per-platform title/description/hashtag rules (YouTube, TikTok, IG, YT Shorts) |
+| Channel thumbnail styles | `config/video/channel_thumbnail_styles.yaml` | per-channel palette (bg_hex, text_hex, accent_hex) for anti-spam; fallback palette from brand_style_tokens bands.hook |
 
 ---
 
@@ -132,12 +139,77 @@
 
 ---
 
-## 10. Distribution handoff
+## 10. Thumbnail Generator
 
-- **Target:** Cloudflare R2 (or equivalent); batch packs for shorts; manifests; ack-before-wipe.
-- **Artifacts:** distribution_manifest (title, description, tags, video_provenance_path, batch_id); daily_batch index; batch_acknowledged for partner confirmation.
+Single implementation: one script, one set of configs (templates, hook phrases, channel styles, brand default). No duplicate thumbnail generators in the pipeline.
+
+**Script:** `scripts/video/generate_thumbnail.py`
+**Config:** `config/video/thumbnail_templates.yaml` (formats, validation, typography), `config/video/thumbnail_hook_phrases.yaml` (topic_to_hook_phrase), `config/video/channel_thumbnail_styles.yaml` (per-channel palette when channel_id present; §15 anti-spam), `config/video/brand_style_tokens.yaml` (default palette from `bands.hook.spec`).
+
+**Purpose:** Produce a designed template card (bold hook text + brand palette) for each video, replacing the renderer's FFmpeg frame-extract with a more scroll-stopping thumbnail.
+
+**Inputs:** `distribution_manifest.json` (title, format, topic), optional topic/persona from metadata args.
+**Output:** One thumbnail per plan in `artifacts/video/<plan_id>/`: either format-specific (`thumb_16x9.jpg` for long, `thumb_9x16.jpg` for shorts) or a single `thumb.jpg` at the correct aspect (1280×720 long, 1080×1920 shorts). Thumb is optional at handoff; Distribution Writer uses whatever thumb file exists.
+
+**Deterministic fallback rule (precedence):**
+1. **Generated thumb** (template card from this stage) — preferred when run and passes validation.
+2. **Frame-extracted thumb** (renderer's FFmpeg grab at `thumbnail_frame_ref`) — used when generator is not run or fails validation.
+3. **No thumb** — Distribution Writer proceeds without thumbnail; partner handles missing thumb.
+
+Fallback is logged in `artifacts/video/<plan_id>/thumb_provenance.json` with `source` (`generated` | `frame_extracted` | `none`) and `reason` if fallback occurred.
+
+**Thumbnail validation (quality gate):**
+Before accepting a generated thumbnail, `_validate_thumbnail()` checks:
+- Resolution matches target format (1280×720 or 1080×1920 ±1px)
+- Text contrast: luminance ratio between text color and background ≥ 3.0
+- Hook text length: 2–6 words (target 2–4; hard cap 6)
+
+If validation fails, auto-fallback to frame-extracted thumb and record failure reason in `thumb_provenance.json`.
+
+**Design formula (self-help):**
+- 2–4 word hook text derived from topic → hook phrase map (config) or truncated title
+- Per-channel palette from `channel_thumbnail_styles.yaml` (unique bg + text + accent per channel for anti-spam); falls back to `brand_style_tokens.yaml → bands.hook.spec` when no channel_id
+- Bold sans-serif text (Bebas Neue / Montserrat Bold or system fallback)
+- Optional symbol from topic → symbol map (brain, spiral, breath icon)
+- No faces; type-only or type + icon
+
+**Metadata extension:** `write_metadata.py` accepts `--topic` and `--persona` args. These propagate into `distribution_manifest.json` and are consumed by the thumbnail generator for hook phrase selection and template variant.
+
+---
+
+## 11. Distribution handoff
+
+- **Target:** Cloudflare R2 bucket (`pearl-video-handoff` or per-environment name).
+- **Script:** `scripts/video/distribution_writer.py` (Stage 10).
+- **Config:** `config/video/distribution_r2.yaml` (non-secret fields); secrets via env (`R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_ACCOUNT_ID`, `R2_BUCKET_NAME`).
+
+**Flow:**
+1. Distribution Writer scans `artifacts/video/<plan_id>/` for completed renders (video.mp4 + distribution_manifest.json).
+2. Classifies each as long-form or shorts by format field.
+3. Stages locally to `staging/<date>/{long|shorts}/<video_id>/`.
+4. Uploads to R2 at `<date>/{long|shorts}/<video_id>/{video.mp4, thumb.jpg, distribution_manifest.json}` with per-file retry (3 attempts, exponential backoff). Thumb selection is format-aware: Distribution Writer picks `thumb_16x9.jpg` for long-form, `thumb_9x16.jpg` for shorts, falling back to legacy `thumb.jpg` if format-specific files don't exist. Uploaded as `thumb.jpg` in R2 (canonical name at handoff).
+5. Tracks progress in `staging/<date>/upload_progress.json` (resume-safe on restart).
+6. Writes `daily_batch.json` (locally and to R2 at `<date>/daily_batch.json`) ONLY after all uploads succeed. Schema: `schemas/video/daily_batch_v1.schema.json`.
+
+**Partner handoff contract:**
+- Partner reads ONLY `<date>/daily_batch.json` from R2 — no bucket scan/list.
+- Partner follows `r2_prefix` and `distribution_manifest_key` paths for each video.
+- After ingest to Metricool, partner writes `<date>/batch_acknowledged.json` to R2 (schema: `schemas/video/batch_acknowledged_v1.schema.json`).
+- `batch_acknowledged.json` MUST include `failed_count` (0 = all succeeded) and optionally `failed_ids`.
+
+**Wipe gate:** `scripts/video/wipe_staging_after_ack.py` deletes `staging/<date>/` (and optionally R2 prefix) ONLY when `batch_acknowledged.json` exists AND `failed_count == 0`. Hard rule: no ack → no wipe. See storage layout doc for directory structure.
 
 **Telemetry fields (A/B and performance):** The distribution manifest and the provenance record both include the same visual/audio telemetry so you can correlate platform metrics with pipeline decisions: **hook_type**, **environment**, **motion_type**, **music_mood**, **caption_pattern**, **style_version**. Also include **primary_asset_ids** (or primary_environment_asset_ids) per video for cross-video dedup and usage analysis. Duplication in both artifacts is intentional: distribution for partner and performance joins; provenance for debugging and replay.
+
+**R2 credentials setup:**
+1. Create a Cloudflare R2 bucket (e.g. `pearl-video-handoff`).
+2. Create an R2 API token with Object Read & Write on that bucket.
+3. Set env vars: `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_BUCKET_NAME`.
+4. Non-secret fields (account_id, bucket_name, endpoint) can also go in `config/video/distribution_r2.yaml`.
+
+**R2 upload throughput:** For large daily batches, use **multipart upload** and **parallelism** (e.g. 16–32 concurrent uploads, chunk size 16 MB). Target: daily batch upload completes in **2–3 hours** max. Config or env may specify `parallel_uploads`, `chunk_size_mb`, `target_upload_window_hours`. See `scripts/video/distribution_writer.py` and `config/video/distribution_r2.yaml` for overrides.
+
+**Partner runbook:** [docs/PARTNER_VIDEO_PICKUP_RUNBOOK.md](./PARTNER_VIDEO_PICKUP_RUNBOOK.md) — 1-page runbook for partner: download daily_batch, pull from R2, upload to Metricool, write batch_acknowledged; error/retry/contact.
 
 ---
 
@@ -151,14 +223,27 @@ Motion, caption placement, and pacing already come from the pipeline (timeline, 
 
 **Encoding:** Use `-preset veryfast -crf 23` as the default. Do not use `-preset ultrafast` for production therapeutic content — text and caption edges show compression artifacts. Benchmark before lowering quality for throughput.
 
+**Thumbnail:** The renderer produces `thumb.jpg` (frame extraction at `thumbnail_frame_ref`). The optional Thumbnail Generator stage (after Metadata Writer) may produce format-specific template cards (`thumb_16x9.jpg` / `thumb_9x16.jpg`); Distribution Writer uses generated thumb when present, else frame-extract, else no thumb. See §10.
+
 See `docs/VIDEO_PIPELINE_FFMPEG_REFERENCE.md` for zoompan, eq, and drawtext/drawbox filter reference.
 
 ---
 
 ## 12. QC gates
 
-- Pre-render: ShotPlan and Timeline validation.
+- Pre-render: ShotPlan and Timeline validation (including **Visual Stillness Ratio** for therapeutic/long_form: fraction of clips with motion=static must be ≥ `config/video/motion_policy.yaml` → `min_static_ratio`, default 0.70).
 - Post-render: duration, resolution, caption presence; safety checks as defined by governance.
+
+### 12.1 Rendered spot-check (safety)
+
+Sample **1–2% of daily rendered videos** (e.g. by final frame or key frames) and run the same safety classifier used at image-bank ingest (NSFW, violence, symbol detection) on the **composite** (image + caption). Catches unintended meaning from image+caption combination. This runs in **post-render QC** or a dedicated spot-check job; failures are logged and escalated. Implement when safety tooling is wired; spec defines the requirement and where it runs.
+
+---
+
+## 12.2 Accessibility
+
+- **Caption contrast:** Caption text vs background must meet **contrast ratio ≥ 4.5** (WCAG 2.1). Config: `config/video/caption_policies.yaml` → `min_contrast_ratio: 4.5`. Renderer applies semi-transparent caption bar and/or text outline/shadow to satisfy this.
+- **Caption safe zone:** Lower 30% of frame reserved for captions; composition prompts and assets support caption_safe_zone.
 
 ---
 
@@ -172,7 +257,8 @@ See `docs/VIDEO_PIPELINE_FFMPEG_REFERENCE.md` for zoompan, eq, and drawtext/draw
 
 - **Scale target:** Thousands of therapeutic videos daily (e.g. 100 long-form, 5,000 shorts).
 - **Video uniqueness:** **Sequence signature (lock):** `sequence_signature = hash( variant_id + ordered_concat( [ shot.visual_intent, shot.environment, shot.motion_type, shot.hook_type ] for each shot ) )`. Include variant_id so male_realistic and female_illustration of the same script do not collide. Use for duplicate detection and replay. **Cross-video dedup** + bank variety. **Cross-video dedup constraint:** Within a daily batch, no two videos scheduled in the same publishing window (e.g. same 2-hour slot on a given platform) may share more than one primary environment asset. The daily_batch index (or distribution manifests) should include primary asset_ids per video so the partner or scheduler can enforce this before publish. Rule and window: `config/video/cross_video_dedup.yaml`. This prevents “same forest path three times in a row” in a viewer’s feed.
-- **A/B testing:** Outbound telemetry (hook_type, environment, motion_type, music_mood, caption_pattern, style_version in manifest and provenance) + inbound performance feedback schema (video_performance_v1).
+- **Style version at batch boundary:** Style version is **fixed for the entire daily batch**. Do not switch style_version mid-day: the next full daily batch uses the new version so the partner never receives a batch mixing v1 and v2 assets. Pipeline default is set per batch, not per video.
+- **A/B testing:** Outbound telemetry (hook_type, environment, motion_type, music_mood, caption_pattern, style_version in manifest and provenance) + **inbound performance feedback**. Schema: `schemas/video/video_performance_v1.schema.json` (video_id, platform, impressions, views, watch_time_median_s, completion_rate, engagement_rate, date_range, etc.). **Ingestion:** A separate process (e.g. analytics job or Metricool export) pulls from platform APIs (YouTube, TikTok, etc.) on a schedule, normalizes to video_performance_v1, and writes to the analytics store or artifact location. Document owner and frequency in runbook; spec defines the schema and that the return path exists so outbound telemetry can be joined to performance.
 - **Persistent storage:** Image Bank and artifacts separate from ephemeral R2 handoff.
 - **Image bank size (per channel/brand):** Pre-rendered single-image bank only (no compositing). Launch target **~400 images per brand** (360–405); **hook bank 35–40** (hooks are highest-frequency). Breakdown: 15 topics × ~24–27 images per topic. Run the coverage study (sample scripts → shot planner → unique combinations) for exact breakdown. Generation priority: environments first, then symbolic visuals, then character scenes. Grow when preflight or reuse cap surfaces gaps.
 - **24-channel total image target:** 24 brands × ~400 images = **~9,600 images total** (range: 8,640–9,720). See §17 for multi-channel architecture and spam avoidance rules.
@@ -188,9 +274,12 @@ The pipeline supports **24 channels (brands)**, each with its own isolated image
 | Layer | Per-channel isolation | Why it matters |
 |---|---|---|
 | **Image bank** | Separate bank per channel; visually distinct styles | Breaks visual fingerprint linking channels as a farm |
+| **Thumbnails** | Unique palette (bg + text + accent) per channel (config: `channel_thumbnail_styles.yaml`) | Thumbnail is the most visible fingerprint in feeds and search |
 | **Assembly method** | Different pacing (image interval 3–5s varies by brand), transition style, motion type, aspect ratio composition | Different sequence signatures even for same topic |
 | **TTS voice** | Different voice ID per channel (config: `config/video/channel_registry.yaml → tts_voice_id`) | Audio fingerprint must differ between channels |
+| **Writing voice** | 24 distinct copywriting styles (tone, CTA, sentence style, emoji use) (config: `channel_writing_styles.yaml`) | Description text pattern matching is a primary spam signal |
 | **Metadata templates** | Different title formats, description structures, tag sets per channel | Metadata fingerprint must differ |
+| **Platform SEO** | Per-platform rules (title length, hashtag count, description structure) (config: `platform_seo_policies.yaml`) | Each platform has unique algorithm; one-size-fits-all metadata underperforms |
 | **Upload timing** | Staggered — no two channels upload in the same 2-hour window on the same platform | Upload pattern must look independent |
 | **Background music** | Different music mood assignment per channel (config: `config/video/music_policy.yaml → channel_overrides`) | Same mood but different track pool per channel |
 
@@ -261,7 +350,27 @@ These rules are non-negotiable and must be enforced by the pipeline. Violations 
 
 6. **Upload rate cap.** Max 3 uploads per channel per day at launch. Scale after 90 days of clean channel health. Config: `config/video/channel_registry.yaml → daily_upload_cap`.
 
-### 15.6 channel_registry.yaml structure
+7. **Thumbnail visual fingerprint diversity.** Each channel MUST use a unique thumbnail palette (bg, text, accent color triple). No two channels share the same palette. Config: `config/video/channel_thumbnail_styles.yaml`. The thumbnail generator (`generate_thumbnail.py`) resolves `--channel-id` → per-channel palette, overriding the shared hook band. This prevents platform detection of identical thumbnail visual patterns across channels.
+
+8. **Writing voice diversity.** Each channel has a unique copywriting voice (tone, sentence style, emoji usage, CTA style, signature phrase). Config: `config/video/channel_writing_styles.yaml`. The metadata writer (`write_metadata.py`) loads the channel style via `--channel-id` and includes it in the distribution manifest's `platform_seo` section. Metricool or the publishing layer uses this to generate platform-native descriptions. No two channels may produce descriptions that follow the same structural pattern.
+
+9. **Platform-specific SEO compliance.** Each platform has distinct metadata rules (title length, description structure, hashtag count/placement). Config: `config/video/platform_seo_policies.yaml`. The metadata writer loads platform policy via `--platform` flag and validates title/description lengths, selects hashtags from the channel's pool respecting platform max count, and flags violations. Supported platforms: `youtube`, `tiktok`, `instagram_reels`, `youtube_shorts`.
+
+### 15.6 Anti-spam fingerprint isolation summary
+
+| Fingerprint layer | Isolation mechanism | Config |
+|---|---|---|
+| Visual (video) | Isolated image bank per channel; distinct style families | `channel_registry.yaml → image_bank_path, style_id` |
+| Visual (thumbnail) | Unique palette per channel (bg + text + accent) | `channel_thumbnail_styles.yaml` |
+| Audio (TTS) | Unique voice ID per channel | `channel_registry.yaml → tts_voice_id` |
+| Audio (music) | Different mood/track pool per channel | `music_policy.yaml → channel_overrides` |
+| Metadata (title) | 6 distinct title templates, max 4 channels each | `channel_registry.yaml → title_template_id` |
+| Metadata (description) | 24 unique writing voices (tone, CTA, emoji, sentence style) | `channel_writing_styles.yaml` |
+| Metadata (hashtags) | Per-channel hashtag pool, platform count limits | `channel_writing_styles.yaml → hashtag_pool`, `platform_seo_policies.yaml` |
+| Timing (upload) | Staggered upload windows (unique hour per channel) | `channel_registry.yaml → upload_window_offset_hours` |
+| Sequence (dedup) | Cross-video primary asset cap within publishing window | `cross_video_dedup.yaml` |
+
+### 15.7 channel_registry.yaml structure
 
 New config file: `config/video/channel_registry.yaml`. Each channel entry:
 

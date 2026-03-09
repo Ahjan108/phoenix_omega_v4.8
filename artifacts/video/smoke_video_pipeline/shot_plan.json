@@ -1,0 +1,31 @@
+{
+  "plan_id": "plan-therapeutic-001",
+  "content_type": "therapeutic",
+  "config_hash": "5e6249e79bcee602",
+  "shots": [
+    {
+      "shot_id": "shot-1",
+      "segment_id": "seg-1",
+      "visual_intent": "HOOK_VISUAL",
+      "aspect_ratio": "16:9",
+      "duration_s": 4.71,
+      "thumbnail_candidate": true,
+      "prompt_bundle": {
+        "style": "warm_illustration",
+        "motion": "slow_zoom"
+      }
+    },
+    {
+      "shot_id": "shot-2",
+      "segment_id": "seg-2",
+      "visual_intent": "ENVIRONMENT_ATMOSPHERE",
+      "aspect_ratio": "16:9",
+      "duration_s": 2.15,
+      "thumbnail_candidate": false,
+      "prompt_bundle": {
+        "style": "warm_illustration",
+        "motion": "static"
+      }
+    }
+  ]
+}

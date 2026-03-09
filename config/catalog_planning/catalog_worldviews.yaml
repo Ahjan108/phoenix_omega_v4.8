@@ -1,0 +1,49 @@
+# Worldview segmentation: intellectual lens per program/book.
+# Authority: docs/CATALOG_ARCHITECTURE_AT_SCALE.md (scale differentiation before volume).
+# Same topic across different worldviews = different catalog ecosystems; reduces "algorithmic shape" risk.
+# Use for: title/description grammar family, category/keyword distribution, diversity caps.
+
+schema_version: 1
+
+# Registry of worldview IDs (for planning and diversity). Programs reference these via worldview_id.
+worldviews:
+  neuroscience:
+    description: "Brain-based, research-oriented"
+    category_anchor: "Psychology"
+    title_grammar_family: psychology
+  somatic:
+    description: "Body-based, nervous system regulation"
+    category_anchor: "Health & Wellness"
+    title_grammar_family: somatic
+  buddhist:
+    description: "Non-attachment, contemplative"
+    category_anchor: "Religion / Buddhism"
+    title_grammar_family: zen
+  stoic:
+    description: "Stoic philosophy, acceptance"
+    category_anchor: "Philosophy"
+    title_grammar_family: philosophy
+  leadership:
+    description: "Performance under pressure, executive"
+    category_anchor: "Business"
+    title_grammar_family: leadership
+  trauma_informed:
+    description: "Trauma-informed, recovery"
+    category_anchor: "Health & Wellness"
+    title_grammar_family: therapeutic
+  behavioral_science:
+    description: "Behavioral science, habits"
+    category_anchor: "Psychology"
+    title_grammar_family: psychology
+  ancient_philosophy:
+    description: "Ancient wisdom, tradition"
+    category_anchor: "Philosophy"
+    title_grammar_family: zen
+  contemplative_neuroscience:
+    description: "Science-backed mindfulness, contemplative + brain-based"
+    category_anchor: "Psychology"
+    title_grammar_family: psychology
+  attention_science:
+    description: "Focus, attention, and productivity (behavioral/cognitive)"
+    category_anchor: "Psychology"
+    title_grammar_family: psychology

@@ -1,0 +1,38 @@
+# Job type definitions for queue master. Queue master publishes micro-batch jobs from these.
+# Each job payload: { id, type, shard, priority, created_ts, params, retry_count? }
+
+job_types:
+  marketing-ingest:
+    script: scripts/marketing/ingest_web_research.py
+    args_template: ["--all", "--verbose"]
+    shards: []  # single job per tick; no shard split
+    priority: 1
+    needs_lm: false
+
+  recommender-score:
+    script: python -m phoenix_recommender
+    args_template: ["--top", "50", "--dry-run"]
+    shards: []
+    priority: 2
+    needs_lm: false
+
+  catalog-build-shard:
+    script: scripts/ci/run_canary_100_books.py
+    args_template: ["--cap", "1", "--lane", "en"]
+    shards: ["en", "zh24"]
+    priority: 2
+    needs_lm: true
+
+  ei-v2-learn:
+    script: scripts/ci/run_ei_v2_catalog_calibration.py
+    args_template: ["--learn"]
+    shards: []
+    priority: 3
+    needs_lm: false
+
+  video-distribution:
+    script: scripts/video/distribution_writer.py
+    args_template: ["--date"]
+    shards: []  # date passed at publish time
+    priority: 2
+    needs_lm: false

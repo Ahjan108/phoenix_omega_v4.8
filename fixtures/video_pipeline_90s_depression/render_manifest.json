@@ -1,0 +1,54 @@
+{
+  "plan_id": "depression-genz-nyc-90s",
+  "segments": [
+    {
+      "segment_id": "seg-1",
+      "text": "You're in your Brooklyn apartment. It's 3 PM. You've been in bed since noon. The weight isn't just in your body—it's in the air. You keep telling yourself you'll get up. You don't.",
+      "slot_id": "slot-hook",
+      "primary_atom_id": "atom-hook-001",
+      "atom_refs": [{ "atom_id": "atom-hook-001", "weight": 1.0, "role": "primary" }]
+    },
+    {
+      "segment_id": "seg-2",
+      "text": "Depression doesn't always look like crying. Sometimes it looks like scrolling. Sometimes it looks like canceling plans again. Your friends in the city are at brunch. You said you'd come. You didn't.",
+      "slot_id": "slot-body-1",
+      "primary_atom_id": "atom-body-001",
+      "atom_refs": [{ "atom_id": "atom-body-001", "weight": 1.0, "role": "primary" }]
+    },
+    {
+      "segment_id": "seg-3",
+      "text": "Your brain might tell you you're broken. That you should be doing more. That everyone else has it figured out. That you're wasting your twenties. That's the voice of depression, not the truth.",
+      "slot_id": "slot-body-2",
+      "primary_atom_id": "atom-body-002",
+      "atom_refs": [{ "atom_id": "atom-body-002", "weight": 1.0, "role": "primary" }]
+    },
+    {
+      "segment_id": "seg-4",
+      "text": "Here's what actually helps: one small move. Not fixing everything. Not getting productive. Just one thing that feels slightly less impossible. One action. That's the whole goal for today.",
+      "slot_id": "slot-body-3",
+      "primary_atom_id": "atom-body-003",
+      "atom_refs": [{ "atom_id": "atom-body-003", "weight": 1.0, "role": "primary" }]
+    },
+    {
+      "segment_id": "seg-5",
+      "text": "Maybe it's opening the window. Maybe it's one sip of water. Maybe it's texting one person who gets it. Maybe it's standing in the shower for two minutes. Small doesn't mean meaningless.",
+      "slot_id": "slot-body-4",
+      "primary_atom_id": "atom-body-004",
+      "atom_refs": [{ "atom_id": "atom-body-004", "weight": 1.0, "role": "primary" }]
+    },
+    {
+      "segment_id": "seg-6",
+      "text": "You're not lazy. You're not failing. You're carrying something heavy in a city that never stops moving. NYC doesn't give you a break. So you have to give yourself one. One small move.",
+      "slot_id": "slot-body-5",
+      "primary_atom_id": "atom-body-005",
+      "atom_refs": [{ "atom_id": "atom-body-005", "weight": 1.0, "role": "primary" }]
+    },
+    {
+      "segment_id": "seg-7",
+      "text": "One small move. That's the reset. Not the whole day. Just the next 60 seconds. You've got this. One thing. Then you can rest again.",
+      "slot_id": "slot-close",
+      "primary_atom_id": "atom-close-001",
+      "atom_refs": [{ "atom_id": "atom-close-001", "weight": 1.0, "role": "primary" }]
+    }
+  ]
+}

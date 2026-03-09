@@ -91,7 +91,7 @@ The funnel must **demonstrate the mechanism twice** before the offer.
 ## Analytics
 
 - **lead_submit** — GA4 event on form submit.
-- **second_tool_click** — UTM on Email 2 second-tool link (`utm_content=email2_practice`).
+- **second_tool_click** — UTM on Email 2 second-tool link (`utm_content=email2_practice`). GA4 auto-parses UTM parameters; no custom event code needed. Filter by `utm_content = email2_practice` in GA4 reports.
 - **book_intent** — GA4 event on book page (e.g. `/books/{slug}`). Use for conversion tuning after 200+ sends.
 
 ---

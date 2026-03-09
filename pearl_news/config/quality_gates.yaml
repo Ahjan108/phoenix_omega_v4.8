@@ -8,8 +8,8 @@ gates:
     description: "All factual claims in news_summary and youth_impact traceable to cited sources."
     fail_condition: "Missing or unverifiable source for a factual claim."
   youth_impact_specificity:
-    description: "Youth impact section is specific (age group, region, or data point), not generic."
-    fail_condition: "Vague or unspecific youth impact (e.g. 'young people feel' with no data or detail)."
+    description: "Youth impact has at least one anchor (number/source, named place, age band/cohort, or concrete behavior) per Writer Spec §7; no forbidden generic phrases (§11)."
+    fail_condition: "Vague or unspecific youth impact, or presence of forbidden phrase (e.g. 'young people are increasingly affected', stub placeholder)."
   sdg_un_accuracy:
     description: "SDG numbers and UN entity names match authoritative list; no false partnership/endorsement."
     fail_condition: "Wrong SDG/UN ref or blocklist phrase present (see legal_boundary.yaml)."
@@ -19,5 +19,11 @@ gates:
   un_endorsement_detector:
     description: "No implied UN affiliation or endorsement (blocklist + heuristic)."
     fail_condition: "Blocklist hit or endorsement-like phrase."
+  writer_spec_forbidden_phrases:
+    description: "No Writer Spec §11 forbidden phrases anywhere in article (e.g. 'Now more than ever', 'In a world where')."
+    fail_condition: "Any phrase from writer_spec_forbidden_phrases blocklist present in title or body."
 
 policy: "fail_hard"  # Any gate FAIL = do not publish.
+
+# Future (Writer Spec §5, §10): per-template slot checks (e.g. youth feature narrative opening)
+# documented in PEARL_NEWS_WRITER_SPEC.md §10.

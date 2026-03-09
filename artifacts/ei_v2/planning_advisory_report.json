@@ -1,0 +1,59 @@
+{
+  "plan_id": "full_catalog",
+  "candidates": [
+    {
+      "brand_id": "cognitive_clarity",
+      "teacher_id": "ahjan",
+      "topic_id": "anxiety",
+      "persona_id": "millennial_women_professionals",
+      "program_id": "cognitive_default",
+      "worldview_id": "neuroscience",
+      "position_in_wave": 1,
+      "series_id": "",
+      "concept_id": ""
+    },
+    {
+      "brand_id": "cognitive_clarity",
+      "teacher_id": "ahjan",
+      "topic_id": "boundaries",
+      "persona_id": "tech_finance_burnout",
+      "program_id": "cognitive_default",
+      "worldview_id": "neuroscience",
+      "position_in_wave": 2,
+      "series_id": "",
+      "concept_id": ""
+    }
+  ],
+  "tuple_scores": [
+    {
+      "candidate_index": 0,
+      "quality_confidence": 0.5,
+      "duplication_risk": 0.0,
+      "metadata_risk": 0.0,
+      "expected_engagement": 0.5,
+      "composite": 0.5,
+      "dimensions": {}
+    },
+    {
+      "candidate_index": 1,
+      "quality_confidence": 0.5,
+      "duplication_risk": 0.0,
+      "metadata_risk": 0.0,
+      "expected_engagement": 0.5,
+      "composite": 0.5,
+      "dimensions": {}
+    }
+  ],
+  "boost_cut_recommendations": [],
+  "series_recommendations": [],
+  "warnings": [],
+  "ranked_candidate_indices": [
+    0,
+    1
+  ],
+  "metadata": {
+    "ei_planning_advisory_enabled": true,
+    "historical_outcomes_used": false,
+    "content_signals_used": false
+  }
+}

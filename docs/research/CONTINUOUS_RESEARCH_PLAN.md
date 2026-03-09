@@ -55,3 +55,13 @@ Real youth conversation lives on TikTok, Reddit, YouTube, Discord, Instagram—n
 - **Option C:** Self-hosted GitHub runner with Ollama runs `run_research.py` on schedule and commits artifacts.
 
 All options keep inference local (Qwen3 only); no Gemini.
+
+---
+
+## 6. Research → articles (Pearl News)
+
+To get research into article drafts: run research (above), then build the KB, then run the article pipeline. The article pipeline uses the KB for youth impact (assembler and expansion). Full path:
+
+**Research run → build_research_kb.py → artifacts/research/kb/ → get_research_excerpt(topic, language) → assembler youth_impact slot and expansion prompt.**
+
+See **[PEARL_NEWS_RESEARCH_TO_ARTICLES.md](../PEARL_NEWS_RESEARCH_TO_ARTICLES.md)** for step-by-step and retrieval details.

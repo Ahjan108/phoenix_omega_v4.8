@@ -1,0 +1,45 @@
+# 6-dimension topic expansion: concept_id for 10k+ scale.
+# Authority: docs/CATALOG_ARCHITECTURE_AT_SCALE.md §15, §16.
+# Moves from topic→book to multi-dimensional concept design (topic × mechanism × situation × audience × level × format).
+# Solves duplication and topic exhaustion; series build from concept progression, not keyword variants.
+
+schema_version: 1
+
+# concept_id = composite of dimensions. Required in planning when enabled.
+# Default derivation: topic_id + angle_id (mechanism/situation) + persona_id (audience) + depth_level + optional format_class.
+# Full expansion dimensions (for registry and future use):
+dimensions:
+  topic:        topic_id
+  mechanism:    angle_id   # or dedicated mechanism_id (e.g. biology, cognitive, habits)
+  situation:    angle_id   # or dedicated situation_id (e.g. work, relationships, school) — angle often encodes both
+  audience:     persona_id
+  depth_level:  depth_level  # intro | practical | advanced
+  format:       optional    # guide | workbook | reflection | science — can be Stage 2 or optional in Stage 1
+
+# Immutable keys (Catalog Planning Matrix §16a). Used for MASTER_CATALOG and duplication checks.
+# concept_key = topic|mechanism|situation|audience|depth|format (format optional at Stage 1).
+# series_key  = imprint|universe|family|series → in Phoenix: brand_id|domain_id|domain_id|series_id (family=domain_id).
+key_formulas:
+  concept_key: "topic_id|angle_id|persona_id|depth_level|format"   # format empty string if not set
+  series_key:  "brand_id|domain_id|domain_id|series_id"              # universe/family from domain_id
+
+# Uniqueness: block same concept_id within recent window unless same series (intentional progression).
+# This is the "active pipeline" enforcement: no new concept unless concept key unique in current run.
+block_same_concept_id_within_books: 32
+allow_sequenced_reuse: true   # same concept_id OK when same series_id (e.g. Book 2, 3 of same series)
+fail_on_concept_id_reuse: false
+
+# Similarity check at planning time (Topic Expansion control 2). Block or flag near-duplicate concepts before writing.
+similarity_check_enabled: false
+similarity_block_threshold: 0.92   # 0–1; above = block (if fail_on_similarity) or set advisory_status
+fail_on_similarity: false          # if true, drop or fail wave when any spec exceeds threshold
+
+# Coverage targets (Topic Expansion control 3). Balance across mechanism/situation/audience; warn or cap overuse.
+coverage_targets:
+  max_share_per_angle: null       # e.g. 0.15 = at most 15% of wave from one angle_id
+  max_share_per_topic: null       # already in diversity_guards; here for consistency
+  min_distinct_angles: null       # e.g. 5 = wave should use at least 5 distinct angles
+  advisory_only: true             # if true, only emit advisory_status; do not drop specs
+
+# Series build from concept progression (Book 1, 2, 3 of same concept/series), not keyword variants.
+# Enforced by: concept_id uniqueness + series continuity (complete_series_clusters, series_mix_targets).

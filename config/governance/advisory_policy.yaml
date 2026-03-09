@@ -1,0 +1,54 @@
+# Advisory policy: no hard gates except legal/compliance.
+# Authority: docs/CATALOG_GROWTH_AND_ADVISORY_POLICY.md, docs/CATALOG_ARCHITECTURE_AT_SCALE.md §10.
+# When true, similarity and diversity checks emit AdvisoryIssue instead of blocking export.
+#
+# Top internal QA policy (CATALOG_ARCHITECTURE_AT_SCALE §10):
+#   No near-duplicate content/metadata across catalog.
+# Near-duplicate patterns are the single biggest suppression risk; use angle-based differentiation + series progression.
+
+schema_version: 1
+
+# Only legal/compliance may block export. All other signals are advisory.
+block_only_legal_compliance: true
+
+# Signals that must NOT hard-block release (advisory / UI issue only).
+no_hard_gates:
+  - rejection_flag_rate
+  - completion_read_through
+  - refund_takedown_rate
+  - metadata_similarity
+  - anti_homogeneity_score
+  - trust_signal_score
+
+# Metadata similarity: emit advisory issue (warn/critical) with reason + nearest_neighbors; ship allowed.
+# When true, check_platform_similarity (and similar) should emit AdvisoryIssue and exit 0 instead of exit 2.
+metadata_similarity_behavior: emit_advisory
+block_on_similarity: false
+
+# Trust Signal Score: optional multiplier for wave size. Strong score -> increase; weak -> baseline (no auto-throttle).
+trust_signal:
+  enabled: false   # set true when planner/scheduler consumes score
+  weight_engagement: 0.4
+  weight_low_friction: 0.35
+  weight_positive_feedback: 0.25
+  multiplier_strong: [1.0, 1.25]   # wave size multiplier when score strong
+  multiplier_weak: [0.9, 1.0]       # keep baseline; do not go below 0.9 unless operator chooses
+
+# Series mix (Teacher Mode): 65-75% in series; ideal 70%. Of series: 40% micro (3-4), 40% mid (5-7), 20% flagship (8-12).
+# Aligns with config/catalog_planning/series_mix_targets.yaml (Google Play / Findaway industry-informed guideline).
+series_mix:
+  series_share_pct_min: 65
+  series_share_pct_max: 75
+  ideal_midpoint_pct: 70
+  series_length_distribution:
+    micro:    # 3-4 books
+      length: [3, 4]
+      pct_of_series: 40
+    mid:      # 5-7 books
+      length: [5, 7]
+      pct_of_series: 40
+    flagship: # 8-12 books
+      length: [8, 12]
+      pct_of_series: 20
+  avoid_series_lengths: [1, 2]
+  complete_series_clusters: true

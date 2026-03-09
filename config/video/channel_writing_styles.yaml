@@ -1,0 +1,256 @@
+# Per-channel writing style for anti-spam metadata diversity.
+# Authority: docs/VIDEO_PIPELINE_SPEC.md §15 (anti-spam).
+# Used by: write_metadata.py (--channel-id → tone, description template, hashtag pool).
+#
+# Rule: No two channels may produce identical description structures.
+# Each channel has a distinct voice, description template, CTA style, and hashtag pool.
+# Platform-specific SEO rules from platform_seo_policies.yaml layer on top of these.
+
+# ── STYLE FAMILIES (grouped by visual family) ────────────────────────────────
+
+# CALM & HEALING (1–6): gentle, warm, inviting voices
+# BOLD & DYNAMIC (7–12): direct, energetic, empowering voices
+# ABSTRACT & SYMBOLIC (13–18): contemplative, poetic, thoughtful voices
+# HYBRID & EXPERIMENTAL (19–24): unconventional, playful, unexpected voices
+
+styles:
+
+  ch_001:
+    voice: "gentle_guide"
+    tone: "Warm, maternal, reassuring. Speaks like a wise older sister."
+    description_opener: "question"      # Opens with reflective question
+    sentence_style: "long_flowing"      # Longer, flowing sentences
+    emoji_use: "minimal"                # 0–1 emoji
+    cta_style: "soft_invitation"        # "Come sit with this for a moment"
+    signature_phrase: "breathe through it"
+    hashtag_pool: ["#GentleHealing", "#InnerPeace", "#QuietStrength", "#SoftLanding", "#AnxietyRelief"]
+
+  ch_002:
+    voice: "analytical_friend"
+    tone: "Precise, calm, evidence-informed. Like a thoughtful colleague."
+    description_opener: "fact"          # Opens with a fact or insight
+    sentence_style: "short_clear"       # Short, declarative
+    emoji_use: "none"                   # Zero emoji — clean professional
+    cta_style: "logical_next_step"      # "Your next step is clear."
+    signature_phrase: "clarity cuts through"
+    hashtag_pool: ["#ClearThinking", "#MentalClarity", "#BoundaryWork", "#ProfessionalWellness", "#FocusedMind"]
+
+  ch_003:
+    voice: "cheerful_friend"
+    tone: "Upbeat, supportive, slightly playful. Like a best friend texting."
+    description_opener: "relatable_hook" # "okay but why does nobody talk about..."
+    sentence_style: "conversational"     # Fragment OK, casual punctuation
+    emoji_use: "moderate"               # 2–3 emoji
+    cta_style: "excited_share"          # "send this to someone who gets it!!"
+    signature_phrase: "you're not weird for feeling this"
+    hashtag_pool: ["#RealTalk", "#ItsOkay", "#YoureNotAlone", "#GenZWellness", "#SelfWorthVibes"]
+
+  ch_004:
+    voice: "compassionate_healer"
+    tone: "Slow, deliberate, deeply empathetic. Like a therapist's gentle observation."
+    description_opener: "acknowledgment" # "If you're carrying this weight..."
+    sentence_style: "poetic_short"       # Short, almost poetic phrasing
+    emoji_use: "minimal"
+    cta_style: "permission_giving"       # "You're allowed to rest."
+    signature_phrase: "you've been carrying this long enough"
+    hashtag_pool: ["#CaregiverSupport", "#CompassionFatigue", "#HealingJourney", "#RestIsHealing", "#NurseWellness"]
+
+  ch_005:
+    voice: "hype_friend"
+    tone: "Affirming, celebratory, energetic. Like a friend cheering you on."
+    description_opener: "affirmation"    # "reminder: you are literally amazing"
+    sentence_style: "punchy"             # Short bursts, exclamations
+    emoji_use: "heavy"                   # 3–4 emoji
+    cta_style: "share_the_love"          # "drop a heart if you needed this!"
+    signature_phrase: "you already have everything you need"
+    hashtag_pool: ["#SelfLoveClub", "#YouAreEnough", "#GoodVibesOnly", "#KawaiiHealing", "#DailyAffirmation"]
+
+  ch_006:
+    voice: "late_night_host"
+    tone: "Mellow, reflective, slightly wry. Like a podcast at 2am."
+    description_opener: "observation"    # "it's 2am and you're still scrolling because..."
+    sentence_style: "stream_of_thought"  # Run-on comfortable, lowercase vibes
+    emoji_use: "none"
+    cta_style: "quiet_suggestion"        # "maybe save this for tomorrow morning."
+    signature_phrase: "the quiet part out loud"
+    hashtag_pool: ["#LateNightThoughts", "#LoFiHealing", "#QuietMoments", "#BurnoutRecovery", "#SleepBetter"]
+
+  ch_007:
+    voice: "battle_mentor"
+    tone: "Intense, motivational, warrior-like. Like an anime training arc speech."
+    description_opener: "challenge"      # "You've been running from this fight."
+    sentence_style: "short_punchy"       # Staccato. Powerful. Direct.
+    emoji_use: "minimal"
+    cta_style: "call_to_action"          # "Stand up. Watch this. Now."
+    signature_phrase: "the only way out is through"
+    hashtag_pool: ["#MentalStrength", "#WarriorMindset", "#FaceYourFears", "#LevelUp", "#InnerBattle"]
+
+  ch_008:
+    voice: "tech_philosopher"
+    tone: "Futuristic, detached-wise, slightly cyberpunk. Like a character from a sci-fi novel."
+    description_opener: "system_metaphor" # "Your brain is running a broken algorithm."
+    sentence_style: "precise_technical"   # Clean, almost code-like clarity
+    emoji_use: "none"
+    cta_style: "debug_prompt"            # "Time to debug your assumptions."
+    signature_phrase: "rewrite the code"
+    hashtag_pool: ["#MindHack", "#SystemReboot", "#FutureProofMind", "#TechWellness", "#NeuroHack"]
+
+  ch_009:
+    voice: "noir_narrator"
+    tone: "Gravelly, atmospheric, cinematic. Like a voice-over in a film noir."
+    description_opener: "scene_setting"   # "The rain kept falling. So did the thoughts."
+    sentence_style: "literary"            # Longer, image-rich sentences
+    emoji_use: "none"
+    cta_style: "existential_invitation"  # "Some stories need a witness."
+    signature_phrase: "the truth lives in the shadows"
+    hashtag_pool: ["#DarkHealing", "#ShadowWork", "#DeepFeels", "#NoirVibes", "#ProcessingGrief"]
+
+  ch_010:
+    voice: "hype_announcer"
+    tone: "Bold, graphic, punchy. Like a comic book narrator."
+    description_opener: "exclamation"     # "BOOM. That feeling when you finally get it."
+    sentence_style: "graphic_burst"       # SHORT. BOLD. CAPS sparingly.
+    emoji_use: "moderate"
+    cta_style: "comic_cta"              # "SMASH that like. You earned it."
+    signature_phrase: "your superpower was there all along"
+    hashtag_pool: ["#PopArtVibes", "#BoldMoves", "#MainCharacterEnergy", "#ConfidenceBoost", "#PowerUp"]
+
+  ch_011:
+    voice: "field_buddy"
+    tone: "Grounded, straight-talking, respectful. Like a trusted coworker."
+    description_opener: "honest_start"    # "Look. Nobody taught us how to handle this."
+    sentence_style: "plainspoken"         # No fluff, no jargon
+    emoji_use: "none"
+    cta_style: "peer_nudge"             # "Pass this along if it helps."
+    signature_phrase: "no sugarcoating"
+    hashtag_pool: ["#RealTalk", "#NoBS", "#FirstResponderMentalHealth", "#GroundedStrength", "#ToughConversations"]
+
+  ch_012:
+    voice: "nostalgic_friend"
+    tone: "Warm, throwback, slightly humorous. Like remembering Saturday morning cartoons."
+    description_opener: "memory_trigger"  # "Remember when things were simpler?"
+    sentence_style: "casual_warm"         # Relaxed, friendly, nostalgic
+    emoji_use: "moderate"
+    cta_style: "throwback_share"         # "Tag someone who remembers this feeling."
+    signature_phrase: "rewind to remember who you are"
+    hashtag_pool: ["#ThrowbackHealing", "#90sVibes", "#NostalgiaTherapy", "#RetroWellness", "#RememberWhen"]
+
+  ch_013:
+    voice: "minimalist_sage"
+    tone: "Sparse, precise, almost mathematical. Every word earns its place."
+    description_opener: "single_line"     # "Clarity."
+    sentence_style: "minimal"             # 3–5 word sentences max
+    emoji_use: "none"
+    cta_style: "zen_close"              # "Simplify."
+    signature_phrase: "less noise"
+    hashtag_pool: ["#Clarity", "#Minimalism", "#MentalOrder", "#SimplifyYourMind", "#GeometricThinking"]
+
+  ch_014:
+    voice: "zen_teacher"
+    tone: "Spacious, unhurried, quietly wise. Like a mindfulness teacher."
+    description_opener: "breath_cue"     # "Pause here."
+    sentence_style: "spacious"            # Lots of whitespace, deliberate
+    emoji_use: "none"
+    cta_style: "meditation_close"        # "Carry this stillness with you."
+    signature_phrase: "the space between thoughts"
+    hashtag_pool: ["#Mindfulness", "#InkWash", "#BreathWork", "#StillnessHeals", "#ZenMoment"]
+
+  ch_015:
+    voice: "sacred_guide"
+    tone: "Reverent, luminous, gently spiritual. Like light through stained glass."
+    description_opener: "invocation"      # "There is a light that never goes out."
+    sentence_style: "lyrical"             # Musical, flowing, slightly elevated
+    emoji_use: "minimal"
+    cta_style: "blessing"               # "May this find you when you need it."
+    signature_phrase: "light finds every crack"
+    hashtag_pool: ["#SacredHealing", "#LightWork", "#SpiritualWellness", "#InnerLight", "#StainedGlassSoul"]
+
+  ch_016:
+    voice: "glitch_poet"
+    tone: "Disrupted, digital, pattern-breaking. Like a corrupted file that still makes sense."
+    description_opener: "glitch_hook"     # "err0r: your brain lied to you again."
+    sentence_style: "fragmented"          # Broken syntax, intentional disruption
+    emoji_use: "none"
+    cta_style: "system_override"         # "override complete. share the patch."
+    signature_phrase: "break the loop"
+    hashtag_pool: ["#GlitchArt", "#BreakThePattern", "#DigitalDetox", "#ErrorRecovery", "#MindGlitch"]
+
+  ch_017:
+    voice: "patient_observer"
+    tone: "Detail-oriented, warm, methodical. Like a scientist who cares."
+    description_opener: "detail_focus"    # "Look closer. The pattern reveals itself."
+    sentence_style: "measured"            # Even-paced, observational
+    emoji_use: "none"
+    cta_style: "gentle_study"           # "Look again. What do you notice?"
+    signature_phrase: "the small dots form the whole picture"
+    hashtag_pool: ["#SlowHealing", "#PatientProgress", "#DetailsMatter", "#PointByPoint", "#CaregiverStrength"]
+
+  ch_018:
+    voice: "collage_narrator"
+    tone: "Layered, eclectic, cut-and-paste energy. Multiple perspectives in one."
+    description_opener: "fragment_collage" # "Tired. Proud. Overwhelmed. All at once."
+    sentence_style: "list_fragments"       # List-like, no connecting words
+    emoji_use: "minimal"
+    cta_style: "piece_together"          # "Your story has a lot of pieces. All of them matter."
+    signature_phrase: "every piece tells the story"
+    hashtag_pool: ["#MixedMedia", "#RealParenting", "#LifeCollage", "#AllTheFeels", "#PiecesOfMe"]
+
+  ch_019:
+    voice: "inventor_guide"
+    tone: "Mechanical, inventive, forward-looking. Like a steampunk inventor's journal."
+    description_opener: "blueprint"       # "Blueprint for a better mind:"
+    sentence_style: "structured"          # Numbered, engineered feel
+    emoji_use: "none"
+    cta_style: "build_prompt"           # "Build something better. Start here."
+    signature_phrase: "engineer your recovery"
+    hashtag_pool: ["#MindEngineering", "#BuildBetter", "#SteampunkSoul", "#FutureReady", "#InnovateYourMind"]
+
+  ch_020:
+    voice: "romantic_muse"
+    tone: "Flowing, beautiful, deeply feminine. Like a love letter to yourself."
+    description_opener: "beauty_reveal"   # "There is something beautiful about choosing yourself."
+    sentence_style: "flowing_ornate"      # Longer, decorative, sensory
+    emoji_use: "minimal"
+    cta_style: "self_devotion"           # "Save this as a reminder of your own beauty."
+    signature_phrase: "bloom where you planted yourself"
+    hashtag_pool: ["#SelfLoveJourney", "#InnerBeauty", "#FeminineEnergy", "#BloomInward", "#ArtNouveauSoul"]
+
+  ch_021:
+    voice: "cozy_whisper"
+    tone: "Soft, dreamy, ASMR-adjacent. Like a gentle whisper before sleep."
+    description_opener: "soft_opening"    # "hey. just checking in on you."
+    sentence_style: "lowercase_soft"      # All lowercase, gentle punctuation
+    emoji_use: "moderate"
+    cta_style: "pillow_talk"            # "save this for when you need a soft landing."
+    signature_phrase: "it's okay to be soft"
+    hashtag_pool: ["#SoftVibes", "#CozyHealing", "#GentleReminder", "#KawaiiWellness", "#SafeSpace"]
+
+  ch_022:
+    voice: "shadow_walker"
+    tone: "Low, honest, unflinching. Comfortable in darkness."
+    description_opener: "darkness_honest"  # "Some healing happens in the dark."
+    sentence_style: "spare"               # Very short, lots of silence
+    emoji_use: "none"
+    cta_style: "solidarity"             # "You're not alone in the dark."
+    signature_phrase: "the dark has its own wisdom"
+    hashtag_pool: ["#ShadowWork", "#DarkHealing", "#HonestPain", "#DepressionRecovery", "#MoodyHealing"]
+
+  ch_023:
+    voice: "class_clown"
+    tone: "Funny, self-deprecating, surprisingly wise. Humor as healing."
+    description_opener: "joke_hook"       # "my therapist is gonna love hearing about this one"
+    sentence_style: "comedic"             # Setup-punchline rhythm
+    emoji_use: "heavy"
+    cta_style: "laugh_share"            # "if you laughed, you needed this. share it."
+    signature_phrase: "laughing so we don't cry (but also crying)"
+    hashtag_pool: ["#TherapyHumor", "#LaughItOut", "#FunnyHealing", "#ParentLife", "#MentalHealthMemes"]
+
+  ch_024:
+    voice: "dream_architect"
+    tone: "Surreal, philosophical, perception-shifting. Like waking from a meaningful dream."
+    description_opener: "dream_question"  # "What if the thing you're afraid of isn't real?"
+    sentence_style: "paradox"             # Contradictions, questions, reversals
+    emoji_use: "none"
+    cta_style: "perception_shift"        # "Save this. Look at it again tomorrow. It'll mean something different."
+    signature_phrase: "nothing is what it seems"
+    hashtag_pool: ["#SurrealHealing", "#DreamWork", "#PerceptionShift", "#PhilosophyOfMind", "#SubconsciousHealing"]

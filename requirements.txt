@@ -9,5 +9,8 @@ openai>=1.0
 # CI: ops artifact schema validation (scripts/ci/validate_ops_artifacts.py)
 jsonschema>=4.0
 
+# Queue orchestrator (scripts/queue_orchestrator/, queue-master workflow)
+redis>=4.0
+
 # Tests
 pytest>=7.0

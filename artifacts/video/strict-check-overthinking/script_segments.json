@@ -1,0 +1,90 @@
+{
+  "plan_id": "overthinking-genz-nyc-90s",
+  "content_type": "long_form",
+  "segments": [
+    {
+      "segment_id": "seg-1",
+      "text": "It's 11:47 PM in your Queens apartment. Your body is tired, but your mind won't clock out. You replay one text and one awkward pause like your brain is hunting danger before tomorrow starts.",
+      "start_time_s": 0.0,
+      "end_time_s": 14.57,
+      "slot_id": "slot-hook",
+      "primary_atom_id": "atom-hook-001",
+      "metadata": {
+        "arc_role": "hook",
+        "emotional_band": "calm"
+      }
+    },
+    {
+      "segment_id": "seg-2",
+      "text": "Overthinking feels productive, but it's mostly threat-scanning. In New York, everything moves fast, so your nervous system treats every silence and delay like an emergency.",
+      "start_time_s": 14.57,
+      "end_time_s": 25.29,
+      "slot_id": "slot-body-1",
+      "primary_atom_id": "atom-body-001",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    },
+    {
+      "segment_id": "seg-3",
+      "text": "You call it preparation. But your shoulders rise, your jaw tightens, your breathing gets shallow, and you time-travel into worst-case futures that haven't happened.",
+      "start_time_s": 25.29,
+      "end_time_s": 35.57,
+      "slot_id": "slot-body-2",
+      "primary_atom_id": "atom-body-002",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    },
+    {
+      "segment_id": "seg-4",
+      "text": "Try this reset now: feet on the floor, name five things you can see, loosen your hands, and exhale longer than you inhale. This tells your body you're here, not in imagined disaster.",
+      "start_time_s": 35.57,
+      "end_time_s": 49.71,
+      "slot_id": "slot-body-3",
+      "primary_atom_id": "atom-body-003",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    },
+    {
+      "segment_id": "seg-5",
+      "text": "Then give your mind one container: write your top three worries and one next action for each. Not tonight. Tomorrow. Your brain can stop looping when it sees a plan.",
+      "start_time_s": 49.71,
+      "end_time_s": 62.57,
+      "slot_id": "slot-body-4",
+      "primary_atom_id": "atom-body-004",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    },
+    {
+      "segment_id": "seg-6",
+      "text": "You are not broken because you think deeply. You're overloaded. Gen Z carries pressure from work, money, and nonstop feeds. The goal isn't to never think, it's to stop spiraling.",
+      "start_time_s": 62.57,
+      "end_time_s": 75.43,
+      "slot_id": "slot-body-5",
+      "primary_atom_id": "atom-body-005",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    },
+    {
+      "segment_id": "seg-7",
+      "text": "Tonight, use one sentence: I can handle tomorrow tomorrow. Say it once. Breathe out. You don't need perfect certainty to rest, only one small moment of safety.",
+      "start_time_s": 75.43,
+      "end_time_s": 87.0,
+      "slot_id": "slot-close",
+      "primary_atom_id": "atom-close-001",
+      "metadata": {
+        "arc_role": "build",
+        "emotional_band": "subdued"
+      }
+    }
+  ]
+}

@@ -150,8 +150,8 @@
 
 | Sub-item | Status | Sign-off |
 |----------|--------|----------|
-| LM Studio running at `http://127.0.0.1:1234` (no API key needed) | ✅ | Dashscope dropped |
-| Draft + judge both use LM Studio local endpoint | ✅ | Dashscope dropped |
+| LM Studio running at `http://127.0.0.1:1234` (bearer: `lm-studio`) | ✅ | Local only |
+| Draft + judge both use LM Studio local endpoint | ✅ | Local only |
 | LM Studio model loaded and responding | ☐ | verify before each run |
 | LM Studio model ID documented in comparator_config.yaml | ☐ | update when model changes |
 

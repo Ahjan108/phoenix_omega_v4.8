@@ -1,0 +1,20 @@
+# Catalog breadth: core / adjacent / niche tier targets.
+# Authority: docs/CATALOG_ARCHITECTURE_AT_SCALE.md. Natural catalogs mix high-demand, related, and exploratory.
+# Enforce at brand + program + quarterly; track drift and rebalance monthly.
+
+schema_version: 1
+
+# Target share of allocation (percent, must sum to 100). Planning and audits use these.
+# core = main audience demand; adjacent = related expansions; niche = exploratory/specialized.
+tier_targets:
+  core_pct: 70      # ~70% core topics
+  adjacent_pct: 20  # ~20% adjacent
+  niche_pct: 10     # ~10% niche/experimental
+
+# Optional: map topic_id or domain_id to tier for enforcement. If absent, use domain_definitions priority
+# or a separate topic_tier mapping. Values: core | adjacent | niche.
+# topic_tier:
+#   anxiety: core
+#   burnout: core
+#   contemplative_silence: niche
+#   ritual_tradition: niche

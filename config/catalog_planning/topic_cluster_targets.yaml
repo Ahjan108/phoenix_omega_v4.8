@@ -1,0 +1,21 @@
+# Topic authority cluster targets: books per topic/program (§22).
+# Authority: docs/CATALOG_ARCHITECTURE_AT_SCALE.md §22.
+# Define cluster targets per topic or program; expand based on evidence (cross-title lift, read-through), not thresholds alone.
+# All numeric targets are planning heuristics—not guaranteed platform behavior.
+
+schema_version: 1
+
+# Optional: target book count per topic_id. When a topic reaches target_min–target_max, it forms a "cluster"
+# for internal cross-linking and recommendation planning. Expand only when your data shows cross-title lift.
+# topics:
+#   anxiety:       { target_min: 12, target_max: 20 }
+#   burnout:      { target_min: 10, target_max: 16 }
+#   focus:       { target_min: 10, target_max: 14 }
+
+# Optional: target per program_id (editorial program). Use when clustering by program rather than raw topic.
+# programs: {}
+
+# Default band when no specific topic/program is set (heuristic only).
+defaults:
+  target_min: 10
+  target_max: 18

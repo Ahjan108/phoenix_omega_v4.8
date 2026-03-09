@@ -2,8 +2,11 @@
 """
 Platform similarity gate (extended CTSS).
 
-FAIL if worst similarity >= --block.
+FAIL if worst similarity >= --block (unless advisory policy has block_on_similarity: false).
 WARN if worst similarity >= --review.
+
+When config/governance/advisory_policy.yaml has block_on_similarity: false, a block-level
+similarity emits an AdvisoryIssue (severity critical) and exits 0; see docs/CATALOG_GROWTH_AND_ADVISORY_POLICY.md.
 
 Design constraints:
 - Structural only (no NLP, no embeddings, no prose similarity).
@@ -19,7 +22,12 @@ import json
 import os
 from collections import Counter
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+DEFAULT_ADVISORY_POLICY = REPO_ROOT / "config" / "governance" / "advisory_policy.yaml"
 
 
 # ----------------------------
@@ -251,6 +259,7 @@ class FingerprintRow:
     book_id: str
     teacher_id: str
     arc_id: str
+    topic_id: str = ""  # for topic+angle family tracking (Angle Matrix §12)
     band_seq: List[str]
     slot_sig: str
     exercise_chapters: List[int]
@@ -312,6 +321,7 @@ def row_from_plan(
     bid = plan_id(plan, plan_path)
     tid = teacher_id(plan, teacher_override)
     aid = arc_id(plan)
+    topic_id_val = str(plan.get("topic_id") or "")
     bands, band_src = band_seq_from_plan(plan)
     plan["_band_source_used"] = band_src
 
@@ -344,6 +354,7 @@ def row_from_plan(
         book_id=bid,
         teacher_id=tid,
         arc_id=aid,
+        topic_id=topic_id_val,
         band_seq=bands,
         slot_sig=slot_sig,
         exercise_chapters=ex_ch,
@@ -391,11 +402,12 @@ def _parse_exercise_chapters(raw: Any) -> List[int]:
 
 
 def old_row_to_fingerprint(old: Dict[str, Any]) -> FingerprintRow:
-    """Build FingerprintRow from index row (supports legacy band_seq string and optional freebie/compression/angle_id)."""
+    """Build FingerprintRow from index row (supports legacy band_seq string and optional freebie/compression/angle_id/topic_id)."""
     return FingerprintRow(
         book_id=str(old.get("book_id", "")),
         teacher_id=str(old.get("teacher_id", "")),
         arc_id=str(old.get("arc_id", "")),
+        topic_id=str(old.get("topic_id", "")),
         band_seq=_parse_band_seq(old.get("band_seq")),
         slot_sig=str(old.get("slot_sig", "")),
         exercise_chapters=_parse_exercise_chapters(old.get("exercise_chapters")),
@@ -443,6 +455,17 @@ def normalize_vectors(
     return a2, b2
 
 
+def _load_advisory_policy(path: Path) -> Dict[str, Any]:
+    if not path.is_file():
+        return {}
+    try:
+        import yaml
+        with open(path, "r", encoding="utf-8") as f:
+            return yaml.safe_load(f) or {}
+    except Exception:
+        return {}
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--plan", required=True, help="New compiled plan JSON")
@@ -454,6 +477,18 @@ def main() -> int:
         "--cross-teacher-only",
         action="store_true",
         help="Only compare against different teachers",
+    )
+    ap.add_argument(
+        "--advisory-policy",
+        type=Path,
+        default=DEFAULT_ADVISORY_POLICY,
+        help="Advisory policy YAML; if block_on_similarity false, emit AdvisoryIssue and exit 0",
+    )
+    ap.add_argument(
+        "--advisory-out",
+        type=Path,
+        default=None,
+        help="Write AdvisoryIssue JSON here when similarity would block but policy is advisory",
     )
     args = ap.parse_args()
 
@@ -482,6 +517,32 @@ def main() -> int:
             worst_row = old
 
     if worst >= args.block:
+        policy = _load_advisory_policy(args.advisory_policy)
+        if not policy.get("block_on_similarity", True):
+            plan_id = plan.get("book_id") or plan.get("identity", {}).get("book_id") or args.plan.stem
+            issue = {
+                "schema_version": "1.0",
+                "issue_id": f"similarity_{plan_id}_{sha256_str(str(worst) + (worst_row.get('book_id') or ''))[:12]}",
+                "severity": "critical",
+                "reason": f"Metadata similarity above block threshold (CTSS={worst:.3f}); manual decision recommended.",
+                "source": "metadata_similarity",
+                "plan_id": plan_id,
+                "nearest_neighbors": [
+                    {"book_id": worst_row.get("book_id", ""), "similarity_score": round(worst, 4)}
+                ]
+                if worst_row
+                else [],
+                "created_at": datetime.now(timezone.utc).isoformat(),
+            }
+            if args.advisory_out is not None:
+                args.advisory_out.parent.mkdir(parents=True, exist_ok=True)
+                with open(args.advisory_out, "w", encoding="utf-8") as f:
+                    json.dump(issue, f, indent=2)
+            else:
+                print("PLATFORM SIMILARITY CHECK: ADVISORY (would block)")
+                print(f" - Worst CTSS={worst:.3f} vs {worst_row.get('book_id') if worst_row else 'UNKNOWN'}")
+                print("ADVISORY_ISSUE_JSON:" + json.dumps(issue))
+            return 0
         print("PLATFORM SIMILARITY CHECK: FAIL")
         print(f" - Worst CTSS={worst:.3f} vs {worst_row.get('book_id') if worst_row else 'UNKNOWN'}")
         return 2

@@ -1,0 +1,83 @@
+{
+  "pipeline_version": "video-pipeline-v1",
+  "plan_id": "strict-gate-relaxed2",
+  "stages": [
+    {
+      "name": "prepare_script_segments",
+      "start_time": 0.079262416,
+      "end_time": 0.1528145,
+      "duration_ms": 74,
+      "success": true
+    },
+    {
+      "name": "segment_scene_extraction",
+      "start_time": 0.1529345,
+      "end_time": 0.41660325,
+      "duration_ms": 264,
+      "success": true
+    },
+    {
+      "name": "segment_image_build",
+      "start_time": 0.416765166,
+      "end_time": 0.495755666,
+      "duration_ms": 79,
+      "success": true
+    },
+    {
+      "name": "shot_planner",
+      "start_time": 0.49638175,
+      "end_time": 0.646208791,
+      "duration_ms": 150,
+      "success": true
+    },
+    {
+      "name": "asset_resolver",
+      "start_time": 0.64625275,
+      "end_time": 0.782861041,
+      "duration_ms": 137,
+      "success": true
+    },
+    {
+      "name": "timeline_builder",
+      "start_time": 0.782888208,
+      "end_time": 0.913901,
+      "duration_ms": 131,
+      "success": true
+    },
+    {
+      "name": "caption_adapter",
+      "start_time": 0.913937375,
+      "end_time": 1.07717775,
+      "duration_ms": 163,
+      "success": true
+    },
+    {
+      "name": "qc",
+      "start_time": 1.077221291,
+      "end_time": 1.218140958,
+      "duration_ms": 141,
+      "success": true
+    },
+    {
+      "name": "render",
+      "start_time": 1.218422416,
+      "end_time": 5.019756291,
+      "duration_ms": 3801,
+      "success": true
+    },
+    {
+      "name": "provenance",
+      "start_time": 5.022216291,
+      "end_time": 5.1452295,
+      "duration_ms": 123,
+      "success": true
+    },
+    {
+      "name": "metadata",
+      "start_time": 5.145402041,
+      "end_time": 5.290739041,
+      "duration_ms": 145,
+      "success": true
+    }
+  ]
+}

@@ -37,6 +37,10 @@ REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 CONFIG_RAMP = REPO_ROOT / "config" / "release_velocity" / "velocity_ramp.yaml"
 CONFIG_SAFE_VELOCITY = REPO_ROOT / "config" / "release_velocity" / "safe_velocity.yaml"
 CONFIG_LANES = REPO_ROOT / "config" / "release_velocity" / "lanes.yaml"
+CONFIG_SCHEDULER = REPO_ROOT / "config" / "release_velocity" / "release_scheduler.yaml"
+
+# Weekday slug order for round-robin and reassignment
+_WEEKDAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
 
 
 def _load_yaml(p: Path) -> dict:
@@ -408,6 +412,106 @@ def _assign_books_to_week(
     })
 
 
+def _assign_week_to_days(
+    assignments: dict[str, list[str]],
+    brand_days: dict[str, list[str]],
+    same_day_cross_brand_max: int,
+) -> dict[str, dict[str, list[str]]]:
+    """
+    Assign each brand's books to weekdays so that:
+    - Each brand only uses its allowed brand_days.
+    - Each weekday has at most same_day_cross_brand_max distinct brands.
+    Reassign-first: when a day would exceed the cap, move overflow to next allowed day.
+    Returns day_assignments: { day: { brand: [path, ...] } }.
+    Raises ValueError when no feasible assignment exists after reassignment.
+    """
+    if not assignments or same_day_cross_brand_max <= 0:
+        return {}
+    n_brands = len(assignments)
+    day_capacity = 7 * same_day_cross_brand_max
+    if n_brands > day_capacity:
+        raise ValueError(
+            f"Feasibility: {n_brands} brands in week but day_capacity = 7 * same_day_cross_brand_max = {day_capacity}. "
+            "Need more allowed days per brand or higher same_day_cross_brand_max."
+        )
+    # Default for brand with no brand_days: all weekdays (avoid blocking)
+    allowed: dict[str, list[str]] = {}
+    for b in assignments:
+        allowed[b] = list(brand_days.get(b) or _WEEKDAYS)
+        if not allowed[b]:
+            allowed[b] = _WEEKDAYS.copy()
+
+    # Initial assignment: round-robin each brand's books across its allowed days
+    day_assignments: dict[str, dict[str, list[str]]] = {d: {} for d in _WEEKDAYS}
+    for brand, paths in assignments.items():
+        days_b = allowed[brand]
+        for i, path in enumerate(paths):
+            d = days_b[i % len(days_b)]
+            day_assignments[d].setdefault(brand, []).append(path)
+
+    # Reassignment: any day with > same_day_cross_brand_max brands, move a brand off to its next allowed day
+    max_iter = 1000
+    for _ in range(max_iter):
+        overloaded = [d for d in _WEEKDAYS if len(day_assignments[d]) > same_day_cross_brand_max]
+        if not overloaded:
+            break
+        day = overloaded[0]
+        brands_on_day = list(day_assignments[day].keys())
+        moved = False
+        for brand in brands_on_day:
+            other_days = [d2 for d2 in allowed[brand] if d2 != day]
+            for d2 in other_days:
+                if len(day_assignments[d2]) < same_day_cross_brand_max or brand in day_assignments[d2]:
+                    paths = day_assignments[day].pop(brand)
+                    if not paths:
+                        continue
+                    day_assignments[d2].setdefault(brand, []).extend(paths)
+                    moved = True
+                    break
+            if moved:
+                break
+        if not moved:
+            raise ValueError(
+                f"Reassignment impossible: day {day} has {len(day_assignments[day])} brands "
+                f"(max {same_day_cross_brand_max}). No brand on that day can move to another allowed day."
+            )
+    else:
+        raise ValueError("Reassignment did not converge (max iterations).")
+
+    return {d: {b: p for b, p in day_assignments[d].items() if p} for d in _WEEKDAYS if day_assignments[d]}
+
+
+def _apply_scheduler_topology(
+    schedule: list[dict],
+    scheduler_config: dict,
+) -> None:
+    """
+    For each week in schedule, compute day_assignments from release_scheduler.yaml
+    (brand_days, same_day_cross_brand_max). Reassign-first, fail-hard when impossible.
+    Mutates each schedule row with a "day_assignments" key.
+    """
+    brand_days = scheduler_config.get("brand_days") or {}
+    same_day_cross_brand_max = int(scheduler_config.get("same_day_cross_brand_max") or 0)
+    if same_day_cross_brand_max <= 0:
+        return
+    for row in schedule:
+        assignments = row.get("assignments") or {}
+        if not assignments:
+            row["day_assignments"] = {}
+            continue
+        n_brands = len(assignments)
+        if n_brands > 7 * same_day_cross_brand_max:
+            raise ValueError(
+                f"Week {row.get('week')}: feasibility precheck failed: {n_brands} brands "
+                f"> 7 * same_day_cross_brand_max ({7 * same_day_cross_brand_max})."
+            )
+        row["day_assignments"] = _assign_week_to_days(
+            assignments,
+            brand_days,
+            same_day_cross_brand_max,
+        )
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(
         description="Generate week-by-week release schedule from wave or candidates. "
@@ -478,6 +582,15 @@ def main() -> int:
     by_brand = _gather_by_brand(plan_paths, args.brand_from_plan)
     schedule = generate_schedule(by_brand, ramp_config, start_date, effective_platform_cap=effective_cap)
 
+    # Release topology: brand_days + same_day_cross_brand_max (reassign-first, fail-hard when impossible)
+    scheduler_config = _load_yaml(CONFIG_SCHEDULER)
+    if scheduler_config and scheduler_config.get("same_day_cross_brand_max"):
+        try:
+            _apply_scheduler_topology(schedule, scheduler_config)
+        except ValueError as e:
+            print(f"ERROR: Release scheduler enforcement failed: {e}", file=sys.stderr)
+            return 1
+
     # Fail hard if any brand/platform/week exceeds that platform's cap
     violations = _validate_schedule_against_platforms(schedule, caps_list)
     if violations:
@@ -537,6 +650,14 @@ def main() -> int:
             "schedule": schedule,
             "platform_validation": platform_rows,
         }
+        if args.candidates_dir:
+            payload["schedule_source"] = "candidates_dir"
+            payload["candidates_dir"] = str(args.candidates_dir)
+        elif args.wave:
+            payload["schedule_source"] = "wave"
+            payload["wave"] = str(args.wave)
+        else:
+            payload["schedule_source"] = None
         out.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
     lane_info = f" (lane={args.lane}" + (f", zh_sublocale={args.zh_sublocale}" if args.zh_sublocale else "") + ")" if args.lane else " (global)"

@@ -928,6 +928,16 @@ This section introduces governance for pen-name authors, brand-bound narrators, 
 
 If any rule in this section conflicts with §1–22 of this spec, §1–22 governs.
 
+## 23.1a Author Registry Resolution Rule (Option B)
+
+The author registry is for **pre-intro and asset resolution only**. It does not govern atom selection.
+
+- **Atoms remain persona/topic keyed.** There is no `author_id` on atoms; there is no author-scoped atom pool.
+- When `--author` is set, use the registry only to resolve: bio, why_this_book, authority_position, audiobook_pre_intro, and author-level metadata. **Atom selection is unchanged:** persona_id + topic_id (and teacher when set).
+- Authors that share the same persona×topic (e.g. luna_hart and kai_nakamura on gen_z_professional × burnout) **share the same story pool**. Voice separation between such authors is **intro/outro and author assets only**.
+- Teacher resolution is separate: `config/brand_teacher_assignments` and teacher resolvers; the author registry is author-only.
+- **Pipeline:** When the caller passes `--author <author_id>`, validate against the registry and set brand_id, persona_ids, topic_ids from the registry. Resolve author assets from `assets/authors/<author_id>/` or the registry's `assets_path`. **Do not filter or key atom pools by author_id;** use existing persona/topic pools only.
+
 ## 23.2 Author Registry Requirement (Pen-Name Authors Only)
 
 All non-teacher pen-name authors must be registered in:

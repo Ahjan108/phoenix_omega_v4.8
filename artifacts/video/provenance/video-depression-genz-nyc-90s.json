@@ -1,0 +1,37 @@
+{
+  "pipeline_version": "video-pipeline-v1",
+  "video_id": "video-depression-genz-nyc-90s",
+  "plan_id": "depression-genz-nyc-90s",
+  "content_type": "therapeutic",
+  "config_hash": "ea7a5429c17150af",
+  "duration_s": 93.0,
+  "render_manifest_id": "depression-genz-nyc-90s",
+  "script_segments_id": "depression-genz-nyc-90s",
+  "qc_summary": {
+    "passed": true,
+    "checks": [
+      "duration",
+      "resolution",
+      "captions"
+    ]
+  },
+  "format_adaptations": [
+    "16:9"
+  ],
+  "created_at": "2026-03-09T00:55:51Z",
+  "hook_type": "light_reveal",
+  "environment": "forest_path",
+  "motion_type": "slow_zoom",
+  "music_mood": "calm",
+  "caption_pattern": "question_hook",
+  "style_version": "v1",
+  "primary_asset_ids": [
+    "depression_HOOK_VISUAL_1",
+    "depression_ENVIRONMENT_ATMOSPHERE_1",
+    "depression_SYMBOLIC_METAPHOR_1",
+    "depression_CHARACTER_EMOTION_1",
+    "depression_ENVIRONMENT_ATMOSPHERE_2",
+    "depression_CHARACTER_EMOTION_2",
+    "depression_SYMBOLIC_METAPHOR_2"
+  ]
+}

@@ -15,6 +15,17 @@ ghl_api_key: ""  # GHL API Key 2.0
 ghl_location_id: ""  # GHL Location ID
 ghl_contacts_url: "https://services.leadconnectorhq.com/contacts/"
 
+# GHL custom field UUIDs — get from GHL Settings → Custom Fields → click field → copy UUID.
+# These MUST be real UUIDs, not human-readable names. Using strings like "topic" will silently fail.
+ghl_custom_field_topic: ""      # UUID for the "topic" custom field
+ghl_custom_field_exercise: ""   # UUID for the "exercise" custom field
+ghl_custom_field_persona: ""    # UUID for the "persona" custom field
+
+# GHL tags — the app sends these automatically on contact create.
+# The admin must create these exact tags in GHL (Settings → Tags) before go-live.
+# Tags are built dynamically from: funnel_{hub}, topic_{topic}, exercise_{exercise}, persona_{persona}.
+# No GHL-side automation needed for tagging — the app handles it.
+
 # Brevo SMTP (required when email_mode: smtp)
 smtp_host: "smtp-relay.brevo.com"
 smtp_port: 587

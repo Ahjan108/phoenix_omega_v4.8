@@ -28,7 +28,7 @@ struct LiveLogView: View {
                         .textSelection(.enabled)
                         .id("bottom")
                 }
-                .onChange(of: logText) { _, _ in
+                .onChange(of: logText) { _ in
                     withAnimation { proxy.scrollTo("bottom", anchor: .bottom) }
                 }
             }

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phoenix/schemas/advisory_issue_v1.schema.json",
+  "title": "Advisory Issue",
+  "description": "UI advisory issue: info/warn/critical. Books ship by default; only legal/compliance blocks. Manual pause available in UI.",
+  "type": "object",
+  "required": ["schema_version", "issue_id", "severity", "reason", "source"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "issue_id": { "type": "string", "description": "Unique id for this issue (e.g. UUID or source:plan_id:hash)" },
+    "severity": {
+      "type": "string",
+      "enum": ["info", "warn", "critical"],
+      "description": "info=watch, warn=review soon, critical=manual decision required"
+    },
+    "reason": { "type": "string", "description": "Human-readable reason" },
+    "source": {
+      "type": "string",
+      "description": "Origin: metadata_similarity, wave_diversity, anti_homogeneity, engagement, etc."
+    },
+    "plan_id": { "type": "string", "description": "Affected plan/book id if applicable" },
+    "wave_id": { "type": "string", "description": "Affected wave if applicable" },
+    "nearest_neighbors": {
+      "type": "array",
+      "description": "For similarity: list of { book_id, similarity_score }",
+      "items": {
+        "type": "object",
+        "properties": {
+          "book_id": { "type": "string" },
+          "similarity_score": { "type": "number" }
+        }
+      }
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "details": { "type": "object", "description": "Optional extra context" }
+  },
+  "additionalProperties": true
+}

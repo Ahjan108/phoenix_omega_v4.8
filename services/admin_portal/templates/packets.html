@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Packet downloads</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 900px; margin: 1rem auto; padding: 0 1rem; }
+    h1 { font-size: 1.25rem; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 0.5rem; border-bottom: 1px solid #eee; }
+    th { font-weight: 600; }
+    .btn { padding: 0.35rem 0.75rem; background: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .week-select { margin-bottom: 1rem; }
+    .week-select label { margin-right: 0.5rem; }
+    .error { color: #c00; }
+    .meta { font-size: 0.85rem; color: #666; }
+  </style>
+</head>
+<body>
+  <h1>Packet downloads</h1>
+  <p class="meta" id="user-info">Loading…</p>
+  <div class="week-select">
+    <label for="week">Week:</label>
+    <input type="text" id="week" placeholder="e.g. 2026-W11" />
+    <button type="button" class="btn" id="load">Load</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Brand</th>
+        <th>Release day</th>
+        <th>Size</th>
+        <th>SHA256</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <p id="error" class="error"></p>
+  <script>
+    const API = ''; // same origin
+    function err(msg) {
+      const el = document.getElementById('error');
+      el.textContent = msg;
+    }
+    function clearErr() {
+      document.getElementById('error').textContent = '';
+    }
+    async function me() {
+      const r = await fetch(API + '/api/me', { credentials: 'include' });
+      if (!r.ok) {
+        document.getElementById('user-info').textContent = 'Not authenticated. Use Cloudflare Access to log in.';
+        return null;
+      }
+      const d = await r.json();
+      document.getElementById('user-info').textContent = d.email + (d.brand_ids?.length ? ' · Brands: ' + d.brand_ids.join(', ') : '');
+      return d;
+    }
+    function formatBytes(n) {
+      if (n == null) return '—';
+      if (n < 1024) return n + ' B';
+      if (n < 1024*1024) return (n/1024).toFixed(1) + ' KB';
+      return (n/(1024*1024)).toFixed(2) + ' MB';
+    }
+    function shortSha(s) {
+      if (!s) return '—';
+      return s.length > 12 ? s.slice(0, 12) + '…' : s;
+    }
+    async function loadPackets() {
+      clearErr();
+      let week = document.getElementById('week').value.trim();
+      if (!week) {
+        const y = new Date().getFullYear();
+        const w = getWeek(new Date());
+        week = y + '-W' + String(w).padStart(2, '0');
+        document.getElementById('week').value = week;
+      }
+      const r = await fetch(API + '/api/packets?week=' + encodeURIComponent(week), { credentials: 'include' });
+      if (!r.ok) {
+        const t = await r.text();
+        err(t || r.statusText);
+        document.getElementById('tbody').innerHTML = '';
+        return;
+      }
+      const d = await r.json();
+      const tbody = document.getElementById('tbody');
+      if (!d.packets || d.packets.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6">No packets for this week.</td></tr>';
+        return;
+      }
+      tbody.innerHTML = d.packets.map(p => `
+        <tr>
+          <td>${p.brand_id}</td>
+          <td>${p.release_day || '—'}</td>
+          <td>${formatBytes(p.bytes)}</td>
+          <td><code>${shortSha(p.sha256)}</code></td>
+          <td>${p.status || 'ready'}</td>
+          <td>
+            <button type="button" class="btn get-link" data-week="${p.week_key}" data-brand="${p.brand_id}">Get download link</button>
+          </td>
+        </tr>
+      `).join('');
+      tbody.querySelectorAll('.get-link').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          btn.disabled = true;
+          clearErr();
+          try {
+            const r = await fetch(API + '/api/packets/' + encodeURIComponent(btn.dataset.week) + '/' + encodeURIComponent(btn.dataset.brand) + '/signed-url', {
+              method: 'POST',
+              credentials: 'include',
+            });
+            if (!r.ok) {
+              const j = await r.json().catch(() => ({}));
+              err(j.detail || r.statusText);
+              return;
+            }
+            const { url, expires_at } = await r.json();
+            window.location.href = url;
+          } catch (e) {
+            err(e.message || 'Request failed');
+          } finally {
+            btn.disabled = false;
+          }
+        });
+      });
+    }
+    function getWeek(d) {
+      d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+      d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+      const y = d.getUTCFullYear();
+      const start = new Date(Date.UTC(y, 0, 1));
+      return Math.ceil((((d - start) / 86400000) + 1) / 7);
+    }
+    (async () => {
+      await me();
+      await loadPackets();
+    })();
+    document.getElementById('load').addEventListener('click', loadPackets);
+  </script>
+</body>
+</html>

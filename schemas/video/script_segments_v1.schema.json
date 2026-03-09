@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phoenix/schemas/video/script_segments_v1.schema.json",
+  "title": "Script segments v1",
+  "description": "Timed script segments with metadata. Input to Shot Planner. Filled from render manifest + plan.",
+  "type": "object",
+  "required": ["plan_id", "segments"],
+  "additionalProperties": true,
+  "properties": {
+    "plan_id": { "type": "string", "description": "Content plan identifier" },
+    "content_type": { "type": "string" },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["segment_id", "text", "slot_id", "primary_atom_id"],
+        "additionalProperties": true,
+        "properties": {
+          "segment_id": { "type": "string" },
+          "text": { "type": "string" },
+          "start_time_s": { "type": "number", "minimum": 0 },
+          "end_time_s": { "type": "number", "minimum": 0 },
+          "slot_id": { "type": "string" },
+          "primary_atom_id": { "type": "string" },
+          "metadata": {
+            "type": "object",
+            "description": "arc_role, emotional_band, topic, persona, etc.",
+            "additionalProperties": true
+          }
+        }
+      }
+    }
+  }
+}

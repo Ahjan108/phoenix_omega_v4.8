@@ -62,6 +62,7 @@ class TestPipelineE2E:
         assert "qc_passed" in articles[0]
         assert "fact_check_completeness" in articles[0]["qc_results"]
         assert "un_endorsement_detector" in articles[0]["qc_results"]
+        assert "writer_spec_forbidden_phrases" in articles[0]["qc_results"]
 
     def test_qc_checklist_filters_to_passed(self):
         """QC checklist with filter_to_passed returns only passed items."""

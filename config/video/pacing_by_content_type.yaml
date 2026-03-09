@@ -6,6 +6,10 @@ content_types:
     min_duration_s: 3
     max_duration_s: 12
     hook_timing: "0-3s"
+  long_form:
+    min_duration_s: 30
+    max_duration_s: 120
+    hook_timing: "0-5s"
   short_mythbust:
     min_duration_s: 2
     max_duration_s: 8

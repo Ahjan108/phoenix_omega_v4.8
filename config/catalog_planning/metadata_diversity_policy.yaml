@@ -1,0 +1,41 @@
+# Metadata diversity: internal architecture standard and QA checklist.
+# Authority: docs/CATALOG_ARCHITECTURE_AT_SCALE.md §14, §17.
+# Metadata pattern uniformity is a major hidden risk for high-volume catalogs; diversity matters as much as content diversity.
+# All numeric targets below are internal heuristics for QA and planning—not platform rules or external policy claims.
+#
+# Constrained rotation: do NOT use pure random() for template selection. Use rule-based selection by
+# concept (topic/angle/persona) + style quotas (e.g. no style >20% in a wave) + anti-reuse windows
+# (same title structure not repeated within last N books). Otherwise the catalog still shows detectable patterns.
+
+schema_version: 1
+
+# ─── Risk: metadata uniformity ───────────────────────────────────────────────
+# If title/description/subtitle/category/keyword/series patterns are too uniform across
+# hundreds of books, the catalog fingerprint can look machine-generated even when content is legitimate.
+# Use this config as internal standard + QA checklist; do not cite as platform policy.
+
+# Variation targets (heuristics for QA and naming/metadata pipelines).
+# Rotate across multiple structural patterns so the catalog is linguistically diverse.
+variation_targets:
+  title_structures:     # e.g. action, concept, journey, scientific, question titles
+    min_distinct: 5
+    target_range: [6, 12]   # internal QA band
+  description_frameworks:  # e.g. story hook, scientific hook, practical hook
+    min_distinct: 6
+    target_range: [8, 15]
+  subtitle_styles:
+    min_distinct: 4
+    target_range: [5, 10]
+
+# Title format families (examples for rotation; naming engine / metadata should key off program, worldview, angle).
+# Action: "Rewire Your Stress Response"; Concept: "The Calm Nervous System";
+# Journey: "Finding Peace After Burnout"; Scientific: "The Biology of Anxiety";
+# Question: "Why Does the Mind Overthink?"
+# Avoid single pattern (e.g. "Verb + Topic + Today") across the catalog.
+
+# Description frameworks: vary paragraph structure and hook type (story vs scientific vs practical).
+# Avoid identical template (e.g. intro + promise + bullets + CTA) across hundreds of books.
+
+# Architecture alignment: multi-imprint (brands) + topic universes + series families + series + books;
+# topic × angle for book design. See §11 Series Tree, §12 Angle Matrix. This produces
+# editorial identity per imprint and prevents catalog looking like one content factory.

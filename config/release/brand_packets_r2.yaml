@@ -1,0 +1,6 @@
+# R2 config for brand packet zips (non-secret only).
+# Secrets: R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET_NAME (env only).
+
+schema_version: 1
+prefix: weekly
+# bucket_name: ""  # optional; default from env R2_BUCKET_NAME or video distribution_r2

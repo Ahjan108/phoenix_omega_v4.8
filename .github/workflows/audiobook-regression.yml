@@ -1,0 +1,183 @@
+# Audiobook Pipeline — CI regression and schema gates.
+# Runs: dry-run setup check + schema validation (no LM Studio needed in CI).
+# Full regression (requires LM Studio) runs on manual dispatch only.
+# Authority: docs/GO_LIVE_FINAL_CHECKLIST.md Item 7, docs/AUDIOBOOK_PIPELINE_SPEC.md
+
+name: Audiobook regression
+
+on:
+  push:
+    paths:
+      - 'scripts/audiobook_script/**'
+      - 'config/audiobook_script/**'
+      - 'schemas/comparator_result_v2.schema.json'
+      - 'prompts/audiobook/**'
+  pull_request:
+    paths:
+      - 'scripts/audiobook_script/**'
+      - 'config/audiobook_script/**'
+      - 'schemas/comparator_result_v2.schema.json'
+      - 'prompts/audiobook/**'
+  workflow_dispatch:
+    inputs:
+      full_regression:
+        description: 'Run full golden regression (requires self-hosted + LM Studio)'
+        required: false
+        default: 'false'
+
+jobs:
+  # ── Job 1: Schema + config validation (ubuntu-latest, no LM Studio) ─────────
+  schema-and-config:
+    name: Schema & config validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pyyaml jsonschema pytest
+
+      - name: Validate comparator_config.yaml
+        run: |
+          python3 - <<'PY'
+          import yaml, sys
+          from pathlib import Path
+          cfg = yaml.safe_load(Path("config/audiobook_script/comparator_config.yaml").read_text())
+          lc = cfg["loop_control"]
+          pc = cfg["parallel"]
+          errors = []
+          if not (1 <= lc["max_loops"] <= 5):
+              errors.append(f"max_loops={lc['max_loops']} out of range [1,5]")
+          if pc["max_parallel_sections"] > 6:
+              errors.append(f"max_parallel_sections={pc['max_parallel_sections']} > 6")
+          if pc["max_parallel_books"] > 2:
+              errors.append(f"max_parallel_books={pc['max_parallel_books']} > 2")
+          if lc["hard_fail_routes_to"] != "manual_review":
+              errors.append("hard_fail_routes_to must be manual_review")
+          if errors:
+              print("FAIL:", errors); sys.exit(1)
+          print("✅ comparator_config.yaml: all safety caps valid")
+          PY
+
+      - name: Validate comparison_checklist_v2.yaml
+        run: |
+          python3 - <<'PY'
+          import yaml, sys
+          from pathlib import Path
+          cl = yaml.safe_load(Path("config/audiobook_script/comparison_checklist_v2.yaml").read_text())
+          ver = cl.get("checklist_version","")
+          if not ver.startswith("2."):
+              print(f"FAIL: checklist_version={ver!r}; expected 2.x"); sys.exit(1)
+          gates = cl.get("gates", [])
+          hard_ids = [g["gate_id"] for g in gates if g.get("type") == "HARD"]
+          required_hard = {"semantic_fidelity","claim_integrity","psychological_safety","tts_readability_cadence","compliance_disclaimer_preservation"}
+          missing = required_hard - set(hard_ids)
+          if missing:
+              print(f"FAIL: missing HARD gates: {missing}"); sys.exit(1)
+          print(f"✅ comparison_checklist_v2.yaml: version {ver}, {len(hard_ids)} hard gates, {len(gates)-len(hard_ids)} scored gates")
+          PY
+
+      - name: Validate comparator_result_v2.schema.json
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          from pathlib import Path
+          s = json.loads(Path("schemas/comparator_result_v2.schema.json").read_text())
+          if s.get("version") not in ("2.0", "2.0.0"):
+              print(f"FAIL: schema version={s.get('version')}; expected 2.0"); sys.exit(1)
+          print(f"✅ comparator_result_v2.schema.json: version {s['version']}")
+          PY
+
+      - name: Validate static_polish_rubric.yaml
+        run: |
+          python3 - <<'PY'
+          import yaml, sys
+          from pathlib import Path
+          r = yaml.safe_load(Path("config/audiobook_script/static_polish_rubric.yaml").read_text())
+          rules = r.get("rules", [])
+          if len(rules) == 0:
+              print("FAIL: no rubric rules found"); sys.exit(1)
+          print(f"✅ static_polish_rubric.yaml: {len(rules)} rules")
+          PY
+
+      - name: Validate prompt files present
+        run: |
+          python3 - <<'PY'
+          import sys
+          from pathlib import Path
+          required = [
+            "prompts/audiobook/draft_pearl_prime_v2.txt",
+            "prompts/audiobook/draft_pearl_news_v2.txt",
+            "prompts/audiobook/draft_phoenix_v4_v2.txt",
+            "prompts/audiobook/draft_teacher_mode_v2.txt",
+            "prompts/audiobook/judge_audiobook_v2.txt",
+          ]
+          missing = [f for f in required if not Path(f).exists()]
+          if missing:
+              print("FAIL: missing prompt files:", missing); sys.exit(1)
+          print(f"✅ All {len(required)} prompt files present")
+          PY
+
+      - name: Validate golden regression set
+        run: |
+          python3 - <<'PY'
+          import sys
+          from pathlib import Path
+          base = Path("config/audiobook_script/golden_regression_set")
+          required_locales = ["zh-TW", "zh-HK", "zh-SG", "zh-CN"]
+          found = list(base.glob("*.yaml")) if base.exists() else []
+          if not found:
+              print("FAIL: no golden samples in", base); sys.exit(1)
+          print(f"✅ golden_regression_set: {len(found)} sample(s)")
+          for f in found:
+              print(f"   - {f.name}")
+          PY
+
+      - name: "Dry-run: run_comparator_loop importable"
+        run: |
+          PYTHONPATH=. python3 -c "import scripts.audiobook_script.run_comparator_loop as m; print('✅ run_comparator_loop importable')" 2>/dev/null || \
+          PYTHONPATH=. python3 -c "
+          from pathlib import Path
+          import importlib.util, sys
+          spec = importlib.util.spec_from_file_location('rcl', 'scripts/audiobook_script/run_comparator_loop.py')
+          m = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(m)
+          print('✅ run_comparator_loop importable')
+          "
+
+      - name: "Dry-run: run_regression.py --dry-run"
+        run: |
+          PYTHONPATH=. python3 scripts/audiobook_script/run_regression.py --dry-run
+          echo "✅ regression dry-run: setup OK"
+
+  # ── Job 2: Full golden regression (self-hosted + LM Studio, manual only) ────
+  golden-regression:
+    name: Golden regression (LM Studio)
+    runs-on: self-hosted
+    timeout-minutes: 60
+    needs: schema-and-config
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.full_regression == 'true'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check LM Studio reachable
+        run: |
+          curl --fail --silent http://127.0.0.1:1234/v1/models | python3 -c "import sys,json; d=json.load(sys.stdin); print('✅ LM Studio up, models:', [m['id'] for m in d.get('data',[])])"
+
+      - name: Install dependencies
+        run: python3 -m pip install pyyaml requests openai pytest
+
+      - name: Run golden regression (all 4 locales)
+        run: |
+          PYTHONPATH=. python3 scripts/audiobook_script/run_regression.py --verbose
+
+      - name: Upload regression report
+        uses: actions/upload-artifact@v4
+        with:
+          name: audiobook_regression_report
+          path: artifacts/audiobook/regression_report.json
+          retention-days: 30
+        if: always()

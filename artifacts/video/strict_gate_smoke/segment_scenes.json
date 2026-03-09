@@ -1,0 +1,24 @@
+{
+  "plan_id": "plan-therapeutic-001",
+  "topic": "anxiety",
+  "segments": [
+    {
+      "segment_id": "seg-1",
+      "slot_id": "slot-intro",
+      "text_preview": "When anxiety shows up, it's your brain trying to protect you.",
+      "scene_description": "",
+      "mood": "",
+      "avoid": [],
+      "error": "HTTPConnectionPool(host='127.0.0.1', port=1234): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=1234): Failed to establish a new connection: [Errno 1] Operation not permitted\"))"
+    },
+    {
+      "segment_id": "seg-2",
+      "slot_id": "slot-body-1",
+      "text_preview": "Notice it without fighting it.",
+      "scene_description": "",
+      "mood": "",
+      "avoid": [],
+      "error": "HTTPConnectionPool(host='127.0.0.1', port=1234): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=1234): Failed to establish a new connection: [Errno 1] Operation not permitted\"))"
+    }
+  ]
+}

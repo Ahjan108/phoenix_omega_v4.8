@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phoenix/schemas/release/brand_packet_manifest_v1.schema.json",
+  "title": "Brand packet manifest (JSON artifacts only)",
+  "description": "Schema for weekly brand packet JSON artifacts only. CSV contract: see upload_manifest_csv_v1.schema.json.",
+  "schema_version": "1.0",
+
+  "advisory_report": {
+    "description": "advisory_report.json: list of non-blocking advisory issues for this brand's packet.",
+    "type": "object",
+    "required": ["schema_version", "issues"],
+    "properties": {
+      "schema_version": { "type": "string", "const": "1.0" },
+      "week": { "type": "string", "description": "YYYY-WW" },
+      "brand_id": { "type": "string" },
+      "issues": {
+        "type": "array",
+        "items": { "$ref": "https://phoenix/schemas/advisory_issue_v1.schema.json" }
+      }
+    },
+    "additionalProperties": true
+  }
+}

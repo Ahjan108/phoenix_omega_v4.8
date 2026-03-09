@@ -1,10 +1,348 @@
 [
   {
+    "visual_intent": "HOOK_VISUAL",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_HOOK_VISUAL_1"
+  },
+  {
+    "visual_intent": "HOOK_VISUAL",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_HOOK_VISUAL_2"
+  },
+  {
+    "visual_intent": "HOOK_VISUAL",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_HOOK_VISUAL_3"
+  },
+  {
+    "visual_intent": "HOOK_VISUAL",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_HOOK_VISUAL_4"
+  },
+  {
+    "visual_intent": "HOOK_VISUAL",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_HOOK_VISUAL_5"
+  },
+  {
+    "visual_intent": "HOOK_VISUAL",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_HOOK_VISUAL_6"
+  },
+  {
     "visual_intent": "CHARACTER_EMOTION",
     "composition_compat": {
       "16:9": 1.0,
       "9:16": 1.0
     },
-    "asset_id": "master_prompt_test_anxiety"
+    "asset_id": "depression_CHARACTER_EMOTION_1"
+  },
+  {
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_CHARACTER_EMOTION_2"
+  },
+  {
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_CHARACTER_EMOTION_3"
+  },
+  {
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_CHARACTER_EMOTION_4"
+  },
+  {
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_CHARACTER_EMOTION_5"
+  },
+  {
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_CHARACTER_EMOTION_6"
+  },
+  {
+    "visual_intent": "SYMBOLIC_METAPHOR",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_SYMBOLIC_METAPHOR_1"
+  },
+  {
+    "visual_intent": "SYMBOLIC_METAPHOR",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_SYMBOLIC_METAPHOR_2"
+  },
+  {
+    "visual_intent": "SYMBOLIC_METAPHOR",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_SYMBOLIC_METAPHOR_3"
+  },
+  {
+    "visual_intent": "SYMBOLIC_METAPHOR",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_SYMBOLIC_METAPHOR_4"
+  },
+  {
+    "visual_intent": "SYMBOLIC_METAPHOR",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_SYMBOLIC_METAPHOR_5"
+  },
+  {
+    "visual_intent": "SYMBOLIC_METAPHOR",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_SYMBOLIC_METAPHOR_6"
+  },
+  {
+    "visual_intent": "ENVIRONMENT_ATMOSPHERE",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_ENVIRONMENT_ATMOSPHERE_1"
+  },
+  {
+    "visual_intent": "ENVIRONMENT_ATMOSPHERE",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_ENVIRONMENT_ATMOSPHERE_2"
+  },
+  {
+    "visual_intent": "ENVIRONMENT_ATMOSPHERE",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_ENVIRONMENT_ATMOSPHERE_3"
+  },
+  {
+    "visual_intent": "ENVIRONMENT_ATMOSPHERE",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_ENVIRONMENT_ATMOSPHERE_4"
+  },
+  {
+    "visual_intent": "ENVIRONMENT_ATMOSPHERE",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_ENVIRONMENT_ATMOSPHERE_5"
+  },
+  {
+    "visual_intent": "ENVIRONMENT_ATMOSPHERE",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0
+    },
+    "asset_id": "depression_ENVIRONMENT_ATMOSPHERE_6"
+  },
+  {
+    "asset_id": "depression-genz-nyc-90s_seg_1",
+    "topic": "depression",
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0,
+      "1:1": 1.0
+    },
+    "path": "/Users/ahjan/phoenix_omega/image_bank/depression-genz-nyc-90s_seg_1.png"
+  },
+  {
+    "asset_id": "depression-genz-nyc-90s_seg_2",
+    "topic": "depression",
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0,
+      "1:1": 1.0
+    },
+    "path": "/Users/ahjan/phoenix_omega/image_bank/depression-genz-nyc-90s_seg_2.png"
+  },
+  {
+    "asset_id": "depression-genz-nyc-90s_seg_3",
+    "topic": "depression",
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0,
+      "1:1": 1.0
+    },
+    "path": "/Users/ahjan/phoenix_omega/image_bank/depression-genz-nyc-90s_seg_3.png"
+  },
+  {
+    "asset_id": "depression-genz-nyc-90s_seg_4",
+    "topic": "depression",
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0,
+      "1:1": 1.0
+    },
+    "path": "/Users/ahjan/phoenix_omega/image_bank/depression-genz-nyc-90s_seg_4.png"
+  },
+  {
+    "asset_id": "depression-genz-nyc-90s_seg_5",
+    "topic": "depression",
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0,
+      "1:1": 1.0
+    },
+    "path": "/Users/ahjan/phoenix_omega/image_bank/depression-genz-nyc-90s_seg_5.png"
+  },
+  {
+    "asset_id": "depression-genz-nyc-90s_seg_6",
+    "topic": "depression",
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0,
+      "1:1": 1.0
+    },
+    "path": "/Users/ahjan/phoenix_omega/image_bank/depression-genz-nyc-90s_seg_6.png"
+  },
+  {
+    "asset_id": "depression-genz-nyc-90s_seg_7",
+    "topic": "depression",
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0,
+      "1:1": 1.0
+    },
+    "path": "/Users/ahjan/phoenix_omega/image_bank/depression-genz-nyc-90s_seg_7.png"
+  },
+  {
+    "asset_id": "overthinking-genz-nyc-90s_seg_1",
+    "topic": "overthinking",
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0,
+      "1:1": 1.0
+    },
+    "path": "/Users/ahjan/phoenix_omega/image_bank/overthinking-genz-nyc-90s_seg_1.png"
+  },
+  {
+    "asset_id": "overthinking-genz-nyc-90s_seg_2",
+    "topic": "overthinking",
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0,
+      "1:1": 1.0
+    },
+    "path": "/Users/ahjan/phoenix_omega/image_bank/overthinking-genz-nyc-90s_seg_2.png"
+  },
+  {
+    "asset_id": "overthinking-genz-nyc-90s_seg_3",
+    "topic": "overthinking",
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0,
+      "1:1": 1.0
+    },
+    "path": "/Users/ahjan/phoenix_omega/image_bank/overthinking-genz-nyc-90s_seg_3.png"
+  },
+  {
+    "asset_id": "overthinking-genz-nyc-90s_seg_4",
+    "topic": "overthinking",
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0,
+      "1:1": 1.0
+    },
+    "path": "/Users/ahjan/phoenix_omega/image_bank/overthinking-genz-nyc-90s_seg_4.png"
+  },
+  {
+    "asset_id": "overthinking-genz-nyc-90s_seg_5",
+    "topic": "overthinking",
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0,
+      "1:1": 1.0
+    },
+    "path": "/Users/ahjan/phoenix_omega/image_bank/overthinking-genz-nyc-90s_seg_5.png"
+  },
+  {
+    "asset_id": "overthinking-genz-nyc-90s_seg_6",
+    "topic": "overthinking",
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0,
+      "1:1": 1.0
+    },
+    "path": "/Users/ahjan/phoenix_omega/image_bank/overthinking-genz-nyc-90s_seg_6.png"
+  },
+  {
+    "asset_id": "overthinking-genz-nyc-90s_seg_7",
+    "topic": "overthinking",
+    "visual_intent": "CHARACTER_EMOTION",
+    "composition_compat": {
+      "16:9": 1.0,
+      "9:16": 1.0,
+      "1:1": 1.0
+    },
+    "path": "/Users/ahjan/phoenix_omega/image_bank/overthinking-genz-nyc-90s_seg_7.png"
   }
 ]

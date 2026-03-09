@@ -1,0 +1,77 @@
+{
+  "plan_id": "overthinking-genz-nyc-90s",
+  "config_hash": "5e6249e79bcee602",
+  "fps": 24,
+  "resolution": {
+    "width": 1920,
+    "height": 1080
+  },
+  "aspect_ratio": "16:9",
+  "duration_s": 87.0,
+  "thumbnail_frame_ref": {
+    "shot_id": "shot-1",
+    "frame_offset": 0
+  },
+  "audio_tracks": [],
+  "clips": [
+    {
+      "shot_id": "shot-1",
+      "asset_id": "overthinking-genz-nyc-90s_seg_1",
+      "start_time_s": 0.0,
+      "end_time_s": 14.57,
+      "caption_ref": "seg-1",
+      "motion": "slow_zoom"
+    },
+    {
+      "shot_id": "shot-2",
+      "asset_id": "overthinking-genz-nyc-90s_seg_2",
+      "start_time_s": 14.57,
+      "end_time_s": 25.29,
+      "caption_ref": "seg-2",
+      "motion": "static"
+    },
+    {
+      "shot_id": "shot-3",
+      "asset_id": "overthinking-genz-nyc-90s_seg_3",
+      "start_time_s": 25.29,
+      "end_time_s": 35.57,
+      "caption_ref": "seg-3",
+      "motion": "static"
+    },
+    {
+      "shot_id": "shot-4",
+      "asset_id": "overthinking-genz-nyc-90s_seg_4",
+      "start_time_s": 35.57,
+      "end_time_s": 49.71,
+      "caption_ref": "seg-4",
+      "motion": "static"
+    },
+    {
+      "shot_id": "shot-5",
+      "asset_id": "overthinking-genz-nyc-90s_seg_5",
+      "start_time_s": 49.71,
+      "end_time_s": 62.57,
+      "caption_ref": "seg-5",
+      "motion": "static"
+    },
+    {
+      "shot_id": "shot-6",
+      "asset_id": "overthinking-genz-nyc-90s_seg_6",
+      "start_time_s": 62.57,
+      "end_time_s": 75.43,
+      "caption_ref": "seg-6",
+      "motion": "static"
+    },
+    {
+      "shot_id": "shot-7",
+      "asset_id": "overthinking-genz-nyc-90s_seg_7",
+      "start_time_s": 75.43,
+      "end_time_s": 87.0,
+      "caption_ref": "seg-7",
+      "motion": "static"
+    }
+  ],
+  "pipeline_version": "video-pipeline-v1",
+  "input_shot_plan_path": "artifacts/video/overthinking-genz-nyc-90s/shot_plan.json",
+  "input_resolved_assets_path": "artifacts/video/overthinking-genz-nyc-90s/resolved_assets.json"
+}

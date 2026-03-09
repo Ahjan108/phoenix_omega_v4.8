@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "batch_acknowledged_v1",
+  "description": "Written by the Metricool partner after ingesting the daily batch. Wipe script will not delete staging until this file exists with failed_count == 0.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "batch_date",
+    "acknowledged_at",
+    "failed_count"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "batch_date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Must match the batch_date in daily_batch.json."
+    },
+    "acknowledged_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when partner completed ingest."
+    },
+    "failed_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of videos that failed partner ingest. 0 = all succeeded."
+    },
+    "failed_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "video_ids that failed ingest. Empty or omitted when failed_count == 0."
+    }
+  }
+}

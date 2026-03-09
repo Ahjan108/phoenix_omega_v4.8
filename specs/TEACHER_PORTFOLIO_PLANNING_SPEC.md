@@ -147,3 +147,37 @@ If too many books share same arc, same chapter count, same band pattern → flag
 - Does not score prose or sentiment
 
 Only **planning-layer** constraints to keep catalog diversity and platform safety.
+
+---
+
+## 13. Scale and Cross-Account Risk Stance
+
+**Do not assume "safe by default" at high throughput.** Multi-brand, multi-teacher scale can work only with **strict pacing, diversity, and monitoring**.
+
+### What platforms mainly enforce
+
+- **Duplication** — identical or confusingly similar metadata, low-effort/templated content.
+- **Manipulative behavior** — bots, fake reviews, policy gaming.
+- **Per-account quality** — metadata uniqueness, description/title variation, category spread.
+
+Diversity controls (brand matrix, teacher_constraints, topic/persona saturation, diversity_guards) **help** and align with these signals.
+
+### What remains risky at scale
+
+- **Volume pattern** — e.g. 24 brands × 25 books/week is an extreme aggregate pattern even if each account stays within per-account caps.
+- **Same N teachers everywhere** — a small, fixed set of teachers across all brands is a strong **catalog fingerprint**; platforms may or may not correlate accounts, but the pattern is identifiable.
+- **Internal per-author guard** — `docs/audiobook_ops_manual.md` states: *"Same author name on > 50 titles released in < 90 days"* is a spam signal. At high volume per teacher this is exceeded unless author/teacher count is increased.
+
+### Stance
+
+- Treat **cross-account risk as non-zero**, not minimal. Do not claim "minimal spam risk" at 24×25/week with the same 12 teachers across all brands.
+- **Keep** per-account hard caps (safe_velocity, matrix defaults) and add a **catalog-wide teacher-share cap** (e.g. in `diversity_guards.yaml`: `max_share_per_teacher`).
+- **Increase** author/teacher diversity as volume rises (e.g. more teachers per brand or more brands per teacher so no single teacher dominates allocation).
+- **Roll out by cohorts** — start with 1–3 brands at target velocity; watch rejection rates, Partner Center/dashboard alerts, and quality signals; then scale only when signals are clean.
+
+### Implementation
+
+- **Catalog-wide teacher cap:** `config/catalog_planning/diversity_guards.yaml` → `max_share_per_teacher` (e.g. 0.08 = 8% max of allocation from any one teacher). Enforced in `scripts/generate_full_catalog.py` when diversity guards run (locale-group or brand-matrix flow).
+- **Per-author 90-day guard:** Operational guideline remains ≤ 50 titles per author/teacher per 90 days per account unless explicitly relaxed with monitoring. Scale author/teacher count so this is not exceeded at target monthly volume.
+- **Rollout:** Document in `docs/RELEASE_VELOCITY_AND_SCHEDULE.md` — cohort-based rollout (1–3 brands first), monitor, then scale.
+- **Network-level caps and audits:** See **docs/CATALOG_ARCHITECTURE_AT_SCALE.md**. Four strongest actionable items: (1) Cross-network teacher share — implemented via max_share_per_teacher; (2) Title/description template similarity — audit/cap required; (3) Keyword overlap per brand cluster — audit/cap required; (4) Same-day multi-account release bursts — stagger by brand/cohort in schedule and process. Treat that doc as operational checklist and risk heuristic, not confirmed platform policy.

@@ -1,0 +1,37 @@
+{
+  "plan_id": "plan-therapeutic-001",
+  "config_hash": "5e6249e79bcee602",
+  "fps": 24,
+  "resolution": {
+    "width": 1920,
+    "height": 1080
+  },
+  "aspect_ratio": "16:9",
+  "duration_s": 6.86,
+  "thumbnail_frame_ref": {
+    "shot_id": "shot-1",
+    "frame_offset": 0
+  },
+  "audio_tracks": [],
+  "clips": [
+    {
+      "shot_id": "shot-1",
+      "asset_id": "placeholder_hook_visual_001",
+      "start_time_s": 0.0,
+      "end_time_s": 4.71,
+      "caption_ref": "seg-1",
+      "motion": "slow_zoom"
+    },
+    {
+      "shot_id": "shot-2",
+      "asset_id": "placeholder_environment_atmosphere_001",
+      "start_time_s": 4.71,
+      "end_time_s": 6.86,
+      "caption_ref": "seg-2",
+      "motion": "static"
+    }
+  ],
+  "pipeline_version": "video-pipeline-v1",
+  "input_shot_plan_path": "artifacts/video/strict_gate_relaxed/shot_plan.json",
+  "input_resolved_assets_path": "artifacts/video/strict_gate_relaxed/resolved_assets.json"
+}

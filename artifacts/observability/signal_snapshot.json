@@ -1,0 +1,77 @@
+{
+  "timestamp": "20260309T002442Z",
+  "signals": [
+    {
+      "signal_id": "gate_production_readiness",
+      "category": "core",
+      "timestamp": "20260309T002442Z",
+      "status": "pass",
+      "exit_code": 0,
+      "stdout_tail": "  17. jsonschema required (ops validation non-optional)\n      jsonschema installed\n  \u2713 PASS  17b. Ops/waves schema validation (when dirs exist)\n      All ops artifacts passed schema validation (7 file(s) checked).\n  \u2713 PASS  18. Author cover art (launchable authors: registry + PNG + style/palette)\n      PASS: all launchable authors have cover art registry entry, PNG, style_hint, palette_tokens.\n\nAll automatable gates passed. Run simulation (--phase2 --phase3) and manual checks for full sign-off.\n",
+      "stderr_tail": null
+    },
+    {
+      "signal_id": "systems_test",
+      "category": "core",
+      "timestamp": "20260309T002442Z",
+      "status": "fail",
+      "message": "Timeout after 300s"
+    },
+    {
+      "signal_id": "atoms_coverage",
+      "category": "coverage",
+      "timestamp": "20260309T002442Z",
+      "status": "pass",
+      "exit_code": 0,
+      "stdout_tail": "s: anyio-4.12.1\ncollecting ... collected 4 items\n\ntests/test_atoms_coverage_100_percent.py::test_100_percent_atoms_for_all_books PASSED [ 25%]\ntests/test_atoms_coverage_100_percent.py::test_100_percent_non_story_atoms_for_all_books PASSED [ 50%]\ntests/test_atoms_coverage_100_percent.py::test_non_story_coverage_summary PASSED [ 75%]\ntests/test_atoms_coverage_100_percent.py::test_atoms_coverage_summary PASSED [100%]\n\n============================== 4 passed in 1.11s ===============================\n",
+      "stderr_tail": null
+    },
+    {
+      "signal_id": "ci_core_tests",
+      "category": "core",
+      "timestamp": "20260309T002442Z",
+      "status": "passive",
+      "message": "Workflow core-tests.yml \u2014 check GitHub Actions"
+    },
+    {
+      "signal_id": "ci_teacher_gates",
+      "category": "teacher_mode",
+      "timestamp": "20260309T002442Z",
+      "status": "passive",
+      "message": "Workflow teacher-gates.yml \u2014 check GitHub Actions"
+    },
+    {
+      "signal_id": "ci_brand_guards",
+      "category": "brand",
+      "timestamp": "20260309T002442Z",
+      "status": "passive",
+      "message": "Workflow brand-guards.yml \u2014 check GitHub Actions"
+    },
+    {
+      "signal_id": "ci_pearl_news_gates",
+      "category": "pearl_news",
+      "timestamp": "20260309T002442Z",
+      "status": "passive",
+      "message": "Workflow pearl_news_gates.yml \u2014 check GitHub Actions"
+    },
+    {
+      "signal_id": "ci_docs",
+      "category": "docs",
+      "timestamp": "20260309T002442Z",
+      "status": "passive",
+      "message": "Workflow docs-ci.yml \u2014 check GitHub Actions"
+    },
+    {
+      "signal_id": "simulation_10k",
+      "category": "simulation",
+      "timestamp": "20260309T002442Z",
+      "status": "fail",
+      "exit_code": 1,
+      "stdout_tail": "ce): passed=751  failed=90  skipped=159\n\n--- By format ---\n  deep_book_4h: pass=168 fail=0  [OK]\n  extended_book_2h: pass=0 fail=81  [FAIL]\n  micro_book_15: pass=3 fail=0  [OK]\n  short_book_30: pass=333 fail=0  [OK]\n  standard_book: pass=337 fail=78  [FAIL]\n\n--- By tier ---\n  Tier A: pass=505 fail=0  [OK]\n  Tier B: pass=333 fail=159  [FAIL]\n  Tier C: pass=3 fail=0  [OK]\n\n--- Error reasons (count) ---\n  159: insufficient pool for plan\n\nWrote artifacts/observability/sim_1000_20260309T002442Z.json\n",
+      "stderr_tail": null
+    }
+  ],
+  "passed": 2,
+  "failed": 2,
+  "skipped": 5
+}

@@ -1,0 +1,426 @@
+{
+  "lane": null,
+  "zh_sublocale": null,
+  "platforms": [
+    "google_play_books",
+    "findaway_voices",
+    "ximalaya"
+  ],
+  "effective_platform_cap": 10,
+  "schedule": [
+    {
+      "week": 1,
+      "week_start": "2026-03-09",
+      "assignments": {
+        "default": [
+          "artifacts/angle_fix_test.plan.json"
+        ]
+      },
+      "phase": "phase1",
+      "day_assignments": {
+        "mon": {
+          "default": [
+            "artifacts/angle_fix_test.plan.json"
+          ]
+        }
+      }
+    },
+    {
+      "week": 2,
+      "week_start": "2026-03-16",
+      "assignments": {},
+      "phase": "phase1",
+      "day_assignments": {}
+    },
+    {
+      "week": 3,
+      "week_start": "2026-03-23",
+      "assignments": {},
+      "phase": "phase1",
+      "day_assignments": {}
+    },
+    {
+      "week": 4,
+      "week_start": "2026-03-30",
+      "assignments": {},
+      "phase": "phase1",
+      "day_assignments": {}
+    },
+    {
+      "week": 5,
+      "week_start": "2026-04-06",
+      "assignments": {},
+      "phase": "phase1",
+      "day_assignments": {}
+    },
+    {
+      "week": 6,
+      "week_start": "2026-04-13",
+      "assignments": {},
+      "phase": "phase1",
+      "day_assignments": {}
+    },
+    {
+      "week": 7,
+      "week_start": "2026-04-20",
+      "assignments": {},
+      "phase": "phase1",
+      "day_assignments": {}
+    },
+    {
+      "week": 8,
+      "week_start": "2026-04-27",
+      "assignments": {},
+      "phase": "phase1",
+      "day_assignments": {}
+    },
+    {
+      "week": 9,
+      "week_start": "2026-05-04",
+      "assignments": {},
+      "phase": "phase1",
+      "day_assignments": {}
+    },
+    {
+      "week": 10,
+      "week_start": "2026-05-11",
+      "assignments": {},
+      "phase": "phase1",
+      "day_assignments": {}
+    },
+    {
+      "week": 11,
+      "week_start": "2026-05-18",
+      "assignments": {},
+      "phase": "phase1",
+      "day_assignments": {}
+    },
+    {
+      "week": 12,
+      "week_start": "2026-05-25",
+      "assignments": {},
+      "phase": "phase1",
+      "day_assignments": {}
+    },
+    {
+      "week": 13,
+      "week_start": "2026-06-01",
+      "assignments": {},
+      "phase": "phase1",
+      "day_assignments": {}
+    },
+    {
+      "week": 14,
+      "week_start": "2026-06-08",
+      "assignments": {},
+      "phase": "phase2",
+      "day_assignments": {}
+    },
+    {
+      "week": 15,
+      "week_start": "2026-06-15",
+      "assignments": {},
+      "phase": "phase2",
+      "day_assignments": {}
+    },
+    {
+      "week": 16,
+      "week_start": "2026-06-22",
+      "assignments": {},
+      "phase": "phase2",
+      "day_assignments": {}
+    },
+    {
+      "week": 17,
+      "week_start": "2026-06-29",
+      "assignments": {},
+      "phase": "phase2",
+      "day_assignments": {}
+    },
+    {
+      "week": 18,
+      "week_start": "2026-07-06",
+      "assignments": {},
+      "phase": "phase2",
+      "day_assignments": {}
+    },
+    {
+      "week": 19,
+      "week_start": "2026-07-13",
+      "assignments": {},
+      "phase": "phase2",
+      "day_assignments": {}
+    },
+    {
+      "week": 20,
+      "week_start": "2026-07-20",
+      "assignments": {},
+      "phase": "phase2",
+      "day_assignments": {}
+    },
+    {
+      "week": 21,
+      "week_start": "2026-07-27",
+      "assignments": {},
+      "phase": "phase2",
+      "day_assignments": {}
+    },
+    {
+      "week": 22,
+      "week_start": "2026-08-03",
+      "assignments": {},
+      "phase": "phase2",
+      "day_assignments": {}
+    },
+    {
+      "week": 23,
+      "week_start": "2026-08-10",
+      "assignments": {},
+      "phase": "phase2",
+      "day_assignments": {}
+    },
+    {
+      "week": 24,
+      "week_start": "2026-08-17",
+      "assignments": {},
+      "phase": "phase2",
+      "day_assignments": {}
+    },
+    {
+      "week": 25,
+      "week_start": "2026-08-24",
+      "assignments": {},
+      "phase": "phase2",
+      "day_assignments": {}
+    },
+    {
+      "week": 26,
+      "week_start": "2026-08-31",
+      "assignments": {},
+      "phase": "phase2",
+      "day_assignments": {}
+    },
+    {
+      "week": 27,
+      "week_start": "2026-09-07",
+      "assignments": {
+        "default": [
+          "artifacts/arc_first_test.plan.json",
+          "artifacts/book_001.plan.json",
+          "artifacts/book_002.plan.json",
+          "artifacts/book_003.plan.json",
+          "artifacts/content_coverage_report.json",
+          "artifacts/english_catalog_titles_1008.json",
+          "artifacts/gen_alpha_anxiety_6hr_budget.json",
+          "artifacts/gen_alpha_anxiety_6hr_plan.json",
+          "artifacts/gen_alpha_anxiety_6hr_plan_v2.json",
+          "artifacts/gen_z_burnout_30.plan.json"
+        ]
+      },
+      "phase": "phase3",
+      "day_assignments": {
+        "mon": {
+          "default": [
+            "artifacts/arc_first_test.plan.json",
+            "artifacts/gen_alpha_anxiety_6hr_plan.json"
+          ]
+        },
+        "tue": {
+          "default": [
+            "artifacts/book_001.plan.json",
+            "artifacts/gen_alpha_anxiety_6hr_plan_v2.json"
+          ]
+        },
+        "wed": {
+          "default": [
+            "artifacts/book_002.plan.json",
+            "artifacts/gen_z_burnout_30.plan.json"
+          ]
+        },
+        "thu": {
+          "default": [
+            "artifacts/book_003.plan.json"
+          ]
+        },
+        "fri": {
+          "default": [
+            "artifacts/content_coverage_report.json"
+          ]
+        },
+        "sat": {
+          "default": [
+            "artifacts/english_catalog_titles_1008.json"
+          ]
+        },
+        "sun": {
+          "default": [
+            "artifacts/gen_alpha_anxiety_6hr_budget.json"
+          ]
+        }
+      }
+    },
+    {
+      "week": 28,
+      "week_start": "2026-09-14",
+      "assignments": {
+        "default": [
+          "artifacts/out.plan.json",
+          "artifacts/simulation_10k.json",
+          "artifacts/simulation_1k.json",
+          "artifacts/simulation_1k_phase2.json",
+          "artifacts/simulation_1k_phase3.json",
+          "artifacts/teacher_coverage_report.json",
+          "artifacts/test.plan.json"
+        ]
+      },
+      "phase": "phase3",
+      "day_assignments": {
+        "mon": {
+          "default": [
+            "artifacts/out.plan.json"
+          ]
+        },
+        "tue": {
+          "default": [
+            "artifacts/simulation_10k.json"
+          ]
+        },
+        "wed": {
+          "default": [
+            "artifacts/simulation_1k.json"
+          ]
+        },
+        "thu": {
+          "default": [
+            "artifacts/simulation_1k_phase2.json"
+          ]
+        },
+        "fri": {
+          "default": [
+            "artifacts/simulation_1k_phase3.json"
+          ]
+        },
+        "sat": {
+          "default": [
+            "artifacts/teacher_coverage_report.json"
+          ]
+        },
+        "sun": {
+          "default": [
+            "artifacts/test.plan.json"
+          ]
+        }
+      }
+    }
+  ],
+  "platform_validation": [
+    {
+      "week": 1,
+      "week_start": "2026-03-09",
+      "phase": "phase1",
+      "brand_id": "default",
+      "platform": "google_play_books",
+      "trust_tier": "new_imprint",
+      "cap_min": 10,
+      "cap_max": 20,
+      "scheduled_count": 1,
+      "blocked_excess": 0
+    },
+    {
+      "week": 1,
+      "week_start": "2026-03-09",
+      "phase": "phase1",
+      "brand_id": "default",
+      "platform": "findaway_voices",
+      "trust_tier": "new_imprint",
+      "cap_min": 5,
+      "cap_max": 15,
+      "scheduled_count": 1,
+      "blocked_excess": 0
+    },
+    {
+      "week": 1,
+      "week_start": "2026-03-09",
+      "phase": "phase1",
+      "brand_id": "default",
+      "platform": "ximalaya",
+      "trust_tier": "new_imprint",
+      "cap_min": 5,
+      "cap_max": 10,
+      "scheduled_count": 1,
+      "blocked_excess": 0
+    },
+    {
+      "week": 27,
+      "week_start": "2026-09-07",
+      "phase": "phase3",
+      "brand_id": "default",
+      "platform": "google_play_books",
+      "trust_tier": "new_imprint",
+      "cap_min": 10,
+      "cap_max": 20,
+      "scheduled_count": 10,
+      "blocked_excess": 0
+    },
+    {
+      "week": 27,
+      "week_start": "2026-09-07",
+      "phase": "phase3",
+      "brand_id": "default",
+      "platform": "findaway_voices",
+      "trust_tier": "new_imprint",
+      "cap_min": 5,
+      "cap_max": 15,
+      "scheduled_count": 10,
+      "blocked_excess": 0
+    },
+    {
+      "week": 27,
+      "week_start": "2026-09-07",
+      "phase": "phase3",
+      "brand_id": "default",
+      "platform": "ximalaya",
+      "trust_tier": "new_imprint",
+      "cap_min": 5,
+      "cap_max": 10,
+      "scheduled_count": 10,
+      "blocked_excess": 0
+    },
+    {
+      "week": 28,
+      "week_start": "2026-09-14",
+      "phase": "phase3",
+      "brand_id": "default",
+      "platform": "google_play_books",
+      "trust_tier": "new_imprint",
+      "cap_min": 10,
+      "cap_max": 20,
+      "scheduled_count": 7,
+      "blocked_excess": 0
+    },
+    {
+      "week": 28,
+      "week_start": "2026-09-14",
+      "phase": "phase3",
+      "brand_id": "default",
+      "platform": "findaway_voices",
+      "trust_tier": "new_imprint",
+      "cap_min": 5,
+      "cap_max": 15,
+      "scheduled_count": 7,
+      "blocked_excess": 0
+    },
+    {
+      "week": 28,
+      "week_start": "2026-09-14",
+      "phase": "phase3",
+      "brand_id": "default",
+      "platform": "ximalaya",
+      "trust_tier": "new_imprint",
+      "cap_min": 5,
+      "cap_max": 10,
+      "scheduled_count": 7,
+      "blocked_excess": 0
+    }
+  ]
+}

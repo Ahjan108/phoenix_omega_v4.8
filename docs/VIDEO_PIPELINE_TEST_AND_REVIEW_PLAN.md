@@ -1,6 +1,6 @@
 # Video pipeline: test, review, and fix plan
 
-**Purpose:** Regression (golden fixture), real-content integration (15+ segments), and teacher-mode alignment. When 100%, run manual review and then implement renderer.
+**Purpose:** Regression (golden fixture), real-content integration (15+ segments), and teacher-mode alignment. Renderer already exists; this plan is now for strict-quality verification.
 
 ---
 
@@ -73,7 +73,14 @@
 
 ---
 
-## 5. After 100%: next steps
+## 5. Strict-mode requirements
+
+- LLM scene extraction must succeed for every segment (no fallback scenes).
+- FLUX image generation must succeed for every segment (no local fallback image generation).
+- Placeholder assets are disallowed in publish path.
+- Render must include an audio stream.
+
+## 6. After 100%: next steps
 
 - **Implement renderer** (FFmpeg) against the same real plan; output to `staging/<date>/<video_id>/`.
 - **Throughput check:** Render 10 shorts, measure average render time; measure upload time if applicable (see VIDEO_PIPELINE_SPEC / architecture notes).

@@ -124,6 +124,16 @@ def main() -> int:
         action="store_true",
         help="Run EI V2 AI techniques in parallel with V1 and produce comparison report (artifacts/ei_v2/)",
     )
+    ap.add_argument(
+        "--ei-hybrid-shadow",
+        action="store_true",
+        help="Run hybrid V1+V2 selector per slot, log feedback; never override selection (final always V1)",
+    )
+    ap.add_argument(
+        "--ei-hybrid",
+        action="store_true",
+        help="Run hybrid V1+V2 selector per slot; apply V2 override when margin exceeded (requires validated uplift)",
+    )
     ap.add_argument("--atoms-root", default=None, help="Atoms root (e.g. atoms/zh-TW). Default: repo atoms/")
     ap.add_argument(
         "--atoms-model",
@@ -787,6 +797,29 @@ def main() -> int:
         out["author_id"] = book_spec_for_compiler["author_id"]
     if book_spec_for_compiler.get("narrator_id"):
         out["narrator_id"] = book_spec_for_compiler["narrator_id"]
+    if book_spec_for_compiler.get("program_id"):
+        out["program_id"] = book_spec_for_compiler["program_id"]
+    if book_spec_for_compiler.get("worldview_id"):
+        out["worldview_id"] = book_spec_for_compiler["worldview_id"]
+    if book_spec_for_compiler.get("concept_id"):
+        out["concept_id"] = book_spec_for_compiler["concept_id"]
+        # MASTER_CATALOG concept_key = concept_id|format when format known (§16a)
+        fmt_id = format_plan_dict.get("format_structural_id") or format_plan_dict.get("format_id") or ""
+        out["concept_key"] = f"{book_spec_for_compiler['concept_id']}|{fmt_id}" if fmt_id else book_spec_for_compiler["concept_id"]
+    if book_spec_for_compiler.get("depth_level"):
+        out["depth_level"] = book_spec_for_compiler["depth_level"]
+    if book_spec_for_compiler.get("series_key"):
+        out["series_key"] = book_spec_for_compiler["series_key"]
+    if "similarity_score" in book_spec_for_compiler and book_spec_for_compiler["similarity_score"] is not None:
+        out["similarity_score"] = book_spec_for_compiler["similarity_score"]
+    if book_spec_for_compiler.get("metadata_style_id"):
+        out["metadata_style_id"] = book_spec_for_compiler["metadata_style_id"]
+    if book_spec_for_compiler.get("release_wave_id"):
+        out["release_wave_id"] = book_spec_for_compiler["release_wave_id"]
+    if book_spec_for_compiler.get("advisory_status"):
+        out["advisory_status"] = book_spec_for_compiler["advisory_status"]
+    if book_spec_for_compiler.get("human_decision"):
+        out["human_decision"] = book_spec_for_compiler["human_decision"]
     if author_assets is not None:
         out["author_assets"] = {k: v for k, v in author_assets.items() if k != "errors"}
     # Author cover art base (docs/authoring/AUTHOR_COVER_ART_SYSTEM.md): for export/storefront; fallback to default when no author/teacher
@@ -972,11 +1005,30 @@ def main() -> int:
             from phoenix_v4.rendering import render_book
             render_dir = Path(args.render_dir) if args.render_dir else (REPO_ROOT / "artifacts" / "rendered" / (out.get("plan_id") or out.get("plan_hash", "book")))
             formats_list = [f.strip().lower() for f in (args.render_formats or "txt").split(",") if f.strip()]
+            rewrite_overrides = {}
+            rewrite_audit_path = None
+            try:
+                ml_cfg = (yaml.safe_load((REPO_ROOT / "config" / "ml_editorial" / "ml_editorial_config.yaml").read_text()) or {}) if (REPO_ROOT / "config" / "ml_editorial" / "ml_editorial_config.yaml").exists() else {}
+                if ml_cfg.get("ml_actions_enabled"):
+                    from phoenix_v4.rendering.rewrite_overlay import build_rewrite_overlay
+                    out_dir = Path(ml_cfg.get("paths") or {}).get("output_dir", "artifacts/ml_editorial")
+                    recs_path = REPO_ROOT / out_dir / "rewrite_recs.jsonl"
+                    book_id = out.get("plan_id") or out.get("plan_hash") or "book"
+                    rewrite_recs_cfg = ml_cfg.get("rewrite_recs") or {}
+                    disable_for_books = rewrite_recs_cfg.get("disable_overlay_for_book_ids") or []
+                    rewrite_overrides = build_rewrite_overlay(out, recs_path, book_id, True, disable_overlay_for_book_ids=disable_for_books)
+                    audit_path = (ml_cfg.get("automation") or {}).get("audit_log_path")
+                    if audit_path:
+                        rewrite_audit_path = REPO_ROOT / audit_path
+            except Exception:
+                pass
             try:
                 written = render_book(
                     out,
                     render_dir,
                     formats=formats_list,
+                    rewrite_overrides=rewrite_overrides if rewrite_overrides else None,
+                    rewrite_audit_path=rewrite_audit_path,
                     allow_placeholders=False,
                     on_missing="fail",
                     title_page=True,
@@ -1090,6 +1142,65 @@ def main() -> int:
                 )
             except Exception as exc:
                 print(f"EI V2 comparison failed (non-blocking): {exc}", file=sys.stderr)
+
+        # EI V2 hybrid selector (shadow or full): run hybrid_select per slot, log feedback
+        if getattr(args, "ei_hybrid_shadow", False) or getattr(args, "ei_hybrid", False):
+            try:
+                from phoenix_v4.quality.ei_v2.hybrid_selector import hybrid_select
+                from phoenix_v4.quality.ei_v2.config import load_ei_v2_config
+                from phoenix_v4.rendering.prose_resolver import resolve_prose_for_plan
+
+                v2_cfg = load_ei_v2_config()
+                prose_result = resolve_prose_for_plan(out, atoms_root=atoms_root)
+                prose_map = prose_result.prose_map
+                book_thesis = f"{canonical_topic} for {canonical_persona}"
+                chapter_thesis_map = out.get("chapter_thesis") or {}
+                chapter_slot_seq = out.get("chapter_slot_sequence", [])
+                atom_ids_list = out.get("atom_ids", [])
+                program_id = out.get("program_id") or ""
+                worldview_id = out.get("worldview_id") or ""
+
+                hybrid_decisions = []
+                atom_idx = 0
+                for ch_idx, slots in enumerate(chapter_slot_seq):
+                    chapter_prose_parts = []
+                    for si, slot_type in enumerate(slots):
+                        if atom_idx >= len(atom_ids_list):
+                            break
+                        aid = atom_ids_list[atom_idx]
+                        prose = prose_map.get(aid, "")
+                        chapter_prose_parts.append(prose)
+                        thesis_ch = chapter_thesis_map.get(ch_idx + 1) if isinstance(chapter_thesis_map, dict) else None
+                        thesis = (thesis_ch or "").strip() or book_thesis
+                        decision = hybrid_select(
+                            slot=slot_type,
+                            chapter_index=ch_idx,
+                            slot_index=si,
+                            candidates_raw=[{"id": aid, "atom_id": aid, "text": prose}],
+                            persona_id=canonical_persona,
+                            topic_id=canonical_topic,
+                            thesis=thesis,
+                            v2_cfg=v2_cfg,
+                            selector_key=f"ei:{slot_type}:ch{ch_idx}:{canonical_persona}:{canonical_topic}",
+                            program_id=program_id or None,
+                            worldview_id=worldview_id or None,
+                            shadow_mode=bool(getattr(args, "ei_hybrid_shadow", False)),
+                            chapter_text="\n\n".join(chapter_prose_parts),
+                        )
+                        hybrid_decisions.append(decision.to_dict())
+                        atom_idx += 1
+
+                ei_v2_dir = REPO_ROOT / "artifacts" / "ei_v2"
+                ei_v2_dir.mkdir(parents=True, exist_ok=True)
+                (ei_v2_dir / "hybrid_decisions.json").write_text(
+                    json.dumps({"plan_hash": out.get("plan_hash", ""), "decisions": hybrid_decisions}, indent=2),
+                    encoding="utf-8",
+                )
+                overrides = sum(1 for d in hybrid_decisions if d.get("override_applied"))
+                print(f"EI V2 hybrid: {len(hybrid_decisions)} slots, {overrides} overrides (shadow={getattr(args, 'ei_hybrid_shadow', True)})")
+            except Exception as exc:
+                print(f"EI V2 hybrid failed (non-blocking): {exc}", file=sys.stderr)
+
     else:
         print(json.dumps(out, indent=2))
     return 0

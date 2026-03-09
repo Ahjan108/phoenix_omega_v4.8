@@ -1,6 +1,7 @@
-# Diversity guards: max share of wave from a single topic or persona.
+# Diversity guards: max share of wave from a single topic, persona, or teacher.
 # Prevents concentration when using high per-wave caps (e.g. 42/42/42).
-# Check runs after allocation in generate_full_catalog when --locale-group or --brand-matrix is used.
+# Authority: specs/TEACHER_PORTFOLIO_PLANNING_SPEC.md §13. Check runs after allocation
+# in generate_full_catalog when --locale-group or --brand-matrix is used.
 
 schema_version: 1
 
@@ -8,6 +9,17 @@ schema_version: 1
 max_share_per_topic: 0.30
 # Max fraction of allocation from a single persona_id (0.0-1.0).
 max_share_per_persona: 0.30
+# Max fraction of allocation from a single teacher_id (0.0-1.0). E.g. 0.08 = 8%.
+# Catalog-wide teacher-share cap to limit "same N teachers everywhere" fingerprint at scale.
+max_share_per_teacher: 0.08
+# Max fraction of allocation from a single worldview_id (0.0-1.0). E.g. 0.25 = 25%.
+# Enforces "topic overlap, worldview separation"; reduces algorithmic catalog shape.
+max_share_per_worldview: 0.25
 
-# If true, fail when any topic/persona exceeds the share. If false, only warn.
+# Per-author 90-day cap: max titles per (teacher_id, brand_id) in rolling 90-day window per storefront.
+# Ops rule: same author >50 titles in <90 days triggers platform risk. Enforcement at allocation time
+# blocks wave when this wave would exceed cap; full 90-day state requires schedule/counts integration.
+max_titles_per_teacher_per_90_days: 50
+
+# If true, fail when any topic/persona/teacher/worldview exceeds the share. If false, only warn.
 fail_on_violation: true

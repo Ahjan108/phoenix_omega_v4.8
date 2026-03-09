@@ -1,0 +1,47 @@
+# FFmpeg render parameters — zoompan per motion type, drawtext, xfade.
+# run_render.py may load this for overrides; defaults are encoded in code today.
+
+# Zoompan expressions per motion type (z, and optionally x/y for pan).
+# Values are FFmpeg zoompan sub-expressions; run_render uses _motion_expr() if this is not loaded.
+zoompan_per_motion:
+  static:
+    z: "z='1'"
+    x: null
+    y: null
+  slow_zoom:
+    z: "z='if(eq(on,0),1.0,min(zoom+0.00023,1.08))'"
+    x: null
+    y: null
+  slow_zoom_in:
+    z: "z='if(eq(on,0),1.0,min(zoom+0.00023,1.08))'"
+    x: null
+    y: null
+  slow_zoom_out:
+    z: "z='if(eq(on,0),1.0,max(zoom-0.00023,0.92))'"
+    x: null
+    y: null
+  slow_pan:
+    z: "z='1'"
+    x: "x='iw/2-(iw/zoom/2)+sin(on/50)*10'"
+    y: "y='ih/2-(ih/zoom/2)'"
+
+# Drawtext: caption overlay (font, size, position). Safe zone from caption_policies.
+drawtext:
+  fontfile: null   # null = default font
+  fontsize: 64
+  fontcolor: "white"
+  # Position: relative to safe zone (e.g. bottom third); run_render uses (w-text_w)/2, y=h*0.78
+  x: "(w-text_w)/2"
+  y: "h*0.78-h*0.02"
+  shadowcolor: "black"
+  shadowx: 2
+  shadowy: 2
+  line_spacing: 8
+
+# Crossfade between clips (seconds). 0 = hard cut.
+xfade_duration_s: 0.0
+
+# Optional: audio ducking (music down when voiceover present). Not implemented in run_render yet.
+# audio_ducking:
+#   music_db: -12
+#   voiceover_db: 0

@@ -189,6 +189,7 @@ async def _call_qwen_draft(section_text: str, locale: str, system_prompt: str, c
             max_tokens=max_tokens,
             seed=seed,
             timeout=timeout,
+            extra_body={"enable_thinking": False},
         )
         return response.choices[0].message.content or ""
     except Exception as e:
@@ -231,6 +232,7 @@ async def _call_qwen_judge(english_source: str, draft: str, locale: str,
             max_tokens=max_tokens,
             seed=seed,
             timeout=timeout,
+            extra_body={"enable_thinking": False},
         )
         raw = response.choices[0].message.content or ""
         # Strip markdown code fences if present

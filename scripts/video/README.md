@@ -16,7 +16,7 @@ Sequential stages per [docs/VIDEO_PIPELINE_SPEC.md](../../docs/VIDEO_PIPELINE_SP
 6. **run_qc.py** — Validates shot_plan, resolved_assets, timeline (no consecutive same asset; duration/resolution).
 7. **write_provenance.py** — Writes video_provenance.json (telemetry: hook_type, environment, etc.).
 8. **write_metadata.py** — Writes distribution_manifest.json with telemetry and primary_asset_ids.
-9. **run_render.py** — Timeline (plan_id, clips with asset_id, start_time_s, end_time_s, caption_ref) → video + thumb. Reads color presets from `config/video/color_grade_presets.yaml`, crop margin from `config/video/render_params.yaml`. Optional --shot-plan for motion per clip, --captions for caption text. Renders per-clip then concat (hard cuts); extracts thumbnail from thumbnail_frame_ref. **Audio:** timeline.audio_tracks (narration + music with duck_under) mixing is a follow-up; Phase 1 is video-only (silent).
+9. **run_render.py** — Timeline (plan_id, clips with asset_id, start_time_s, end_time_s, caption_ref) → video + thumb. Reads color presets from `config/video/color_grade_presets.yaml`, crop margin from `config/video/render_params.yaml`. Optional --shot-plan for motion per clip, --captions for caption text. Renders per-clip then concat (hard cuts); extracts thumbnail from thumbnail_frame_ref. Captions use FFmpeg drawtext when available, otherwise Pillow caption-burn fallback. Renderer now mixes background audio by default (music track if provided, otherwise generated ambient bed); use `--no-music` for silent output.
 
 ## Run full pipeline
 
@@ -25,6 +25,67 @@ python3 scripts/video/run_pipeline.py --plan-id plan-therapeutic-001
 ```
 
 Use `--force` to overwrite existing artifacts. Outputs under `artifacts/video/<plan_id>/` and `artifacts/video/provenance/` (persistent; never in wipe path).
+
+By default, pipeline publish gates are strict and fail-hard:
+- segment-scene/image generation must produce usable `segment_asset_index.json`,
+- captions are required,
+- placeholder assets are not allowed (`max placeholder ratio = 0.0`),
+- rendered `video.mp4` must contain an audio stream.
+- scene extraction uses LLM context + metadata and fails if any segment scene is missing.
+- FLUX image generation fails if any segment image fails.
+
+## Full test: 90s script (Gen Z, NYC, depression)
+
+End-to-end test from a 90-second depression script with Gen Z / NYC angle. Uses fixture `fixtures/video_pipeline_90s_depression/render_manifest.json` (~217 words ≈ 93 s at 140 WPM).
+
+**One command (from repo root):**
+
+```bash
+./scripts/video/run_full_test_90s_depression.sh
+```
+
+**Or run the pipeline explicitly:**
+
+```bash
+python3 scripts/video/run_pipeline.py \
+  --plan-id depression-genz-nyc-90s \
+  --fixtures-dir fixtures/video_pipeline_90s_depression \
+  --out-dir artifacts/video/depression-genz-nyc-90s \
+  --content-type long_form \
+  --topic depression \
+  --persona gen_z \
+  --force
+```
+
+**QA: where to find the video**
+
+The file to open is always **`artifacts/video/<plan_id>/video.mp4`**.
+Render requires real assets; placeholder mode is not used in strict pipeline runs.
+
+Open (macOS): `open artifacts/video/depression-genz-nyc-90s/video.mp4`  
+Open (Linux): `xdg-open artifacts/video/depression-genz-nyc-90s/video.mp4` or VLC.
+
+**Get the real video**
+
+1. **Credentials:** Set Cloudflare Workers AI credentials so FLUX can run. See [docs/VIDEO_CLOUDFLARE_FLUX_CREDENTIALS.md](../../docs/VIDEO_CLOUDFLARE_FLUX_CREDENTIALS.md) (env or `cloudflare_workers_ai.txt` at repo root).
+2. **Build image bank** for the topic your script uses (e.g. depression for the 90s test). Wait for it to finish — images must exist before the render step.
+   ```bash
+   python3 scripts/video/run_flux_bank_build.py --topics depression --bank-dir image_bank
+   ```
+3. **Run the pipeline with the bank** so the resolver uses real assets and the renderer composites them. If `image_bank/index.json` exists, you can omit `--bank`.
+   ```bash
+   python3 scripts/video/run_pipeline.py \
+     --plan-id depression-genz-nyc-90s \
+     --fixtures-dir fixtures/video_pipeline_90s_depression \
+     --out-dir artifacts/video/depression-genz-nyc-90s \
+     --content-type long_form --topic depression --persona gen_z \
+     --run-render --assets-dir image_bank --force
+   ```
+   Then open `artifacts/video/depression-genz-nyc-90s/video.mp4` — you’ll see FLUX-generated images and captions, not the black placeholder.
+
+   **One script (after credentials are set):** `./scripts/video/run_90s_with_real_video.sh` builds the depression bank and runs the 90s pipeline with it.
+
+Other artifacts in the plan dir: `script_segments.json`, `shot_plan.json`, `timeline.json`, `captions.json`, `thumb.jpg`, `distribution_manifest.json`, `thumb_provenance.json`, `qc_summary.json` (and when enabled: `segment_scenes.json`, `segment_images/`, `segment_asset_index.json`).
 
 ## Run single stage
 

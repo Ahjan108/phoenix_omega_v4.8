@@ -1,0 +1,39 @@
+# Catalog growth curve: advisory targets by phase.
+# Authority: docs/CATALOG_GROWTH_AND_ADVISORY_POLICY.md.
+# Used for planning and UI only; no automatic gate that blocks release.
+
+schema_version: 1
+
+# Phases (year 1 = establish credibility, etc.). titles_min/max = annual; per_month = approximate.
+phases:
+  year_1:
+    label: "Establish credibility"
+    titles_min: 20
+    titles_max: 60
+    per_month_min: 2
+    per_month_max: 5
+    goals: "establish brand identity, gather reviews"
+  year_2:
+    label: "Moderate expansion"
+    titles_min: 80
+    titles_max: 150
+    per_month_min: 7
+    per_month_max: 12
+    goals: "grow audience, diversify topics, introduce series"
+  year_3:
+    label: "Full publishing program"
+    titles_min: 200
+    titles_max: 400
+    per_month_min: 15
+    per_month_max: 35
+    goals: "multiple editorial programs, stable catalog"
+  year_4_plus:
+    label: "Large-scale catalog"
+    titles_min: 500
+    titles_max: null   # no upper bound
+    per_month_min: 40
+    per_month_max: null
+    goals: "sustained expansion, many programs"
+
+# Optional: monthly growth rate cap (advisory). Typical 25-35% keeps expansion predictable.
+monthly_growth_rate_cap_pct: 35

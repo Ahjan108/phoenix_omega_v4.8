@@ -55,7 +55,7 @@ struct ObservabilityView: View {
         .padding()
         .background(PhoenixColors.phoenixBackground)
         .onAppear { refresh() }
-        .onChange(of: state.refreshTrigger) { _, _ in refresh() }
+        .onChange(of: state.refreshTrigger) { _ in refresh() }
     }
 
     private var identifiableEvidence: [IdentifiableEvidenceRow] {

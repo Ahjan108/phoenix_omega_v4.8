@@ -34,7 +34,7 @@
 
 Produce publication-ready localized audiobook scripts from Pearl Prime book content.
 The pipeline is **fully automated** — no Claude API calls at runtime, no human in the
-repair loop. Qwen (Dashscope) handles both drafting and judging. The only human
+repair loop. Qwen (local LM Studio) handles both drafting and judging. The only human
 touchpoint is the **manual review queue** surfaced in PhoenixControl when automated
 repair exhausts its loop budget without achieving a passing score.
 
@@ -78,7 +78,7 @@ Pearl Prime Book Content (localized)
 ```
 
 **External dependencies at runtime:**
-- Dashscope API (Qwen) — draft model + judge model (may be same model, different system prompts)
+- LM Studio API (Qwen3-14B local) — draft model + judge model (same model, different system prompts) at `http://127.0.0.1:1234/v1`
 - No Claude API calls at runtime
 
 ---
@@ -280,7 +280,7 @@ max_parallel_books × max_parallel_sections × 2 (draft + judge)
 = 2 × 6 × 2 = 24 simultaneous calls (at defaults)
 ```
 
-This is the figure to check against Dashscope rate limits before go-live.
+This is the figure to check against LM Studio parallel slot limits before go-live (recommended: parallel=2; see [LM_STUDIO_CONFIG.md](./LM_STUDIO_CONFIG.md)).
 
 ### Loop sequentiality
 
@@ -414,7 +414,7 @@ for the sign-off gate version of this list.
 | # | Item | Owner | Status |
 |---|------|-------|--------|
 | 1 | LM Studio API wired (`_call_qwen_draft()` + `_call_qwen_judge()`) | Engineering | ✅ DONE — `http://127.0.0.1:1234/v1` |
-| 2 | Dashscope API — **DROPPED** | — | ✅ Replaced by LM Studio |
+| 2 | LM Studio local API | Engineering | ✅ DONE — all calls use `http://127.0.0.1:1234/v1` with `enable_thinking: false` |
 | 3 | Draft prompts (4 content types) | Content team | ✅ DONE — `prompts/audiobook/draft_*_v2.txt` |
 | 4 | Judge prompt | Content team | ✅ DONE — `prompts/audiobook/judge_audiobook_v2.txt` |
 | 5 | Golden regression set (zh-TW, HK, SG, CN) | Locale owners | ✅ DONE — 4 samples written |

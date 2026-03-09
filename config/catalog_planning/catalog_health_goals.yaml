@@ -1,0 +1,45 @@
+# Catalog health goals: five ratios for 10k–20k scale.
+# Authority: docs/CATALOG_ARCHITECTURE_AT_SCALE.md §19.
+# Used by audits, dashboards, and advisory alerts; human override (human_decision) always available.
+# All values are internal heuristics—not platform policy.
+
+schema_version: 1
+
+# 1. Series depth ratio
+# Stores reward reader progression; many unfinished series = low quality.
+series_depth:
+  avg_books_per_series_min: 4
+  avg_books_per_series_max: 6
+  pct_series_with_at_least_3_books: 80   # e.g. 80% of series have ≥3 books
+
+# 2. Topic spread ratio
+# One topic dominating = keyword farming.
+topic_spread:
+  max_share_per_topic: 0.15               # largest topic <15% of catalog
+  max_share_top_5_topics: 0.50            # top 5 topics <50% combined
+
+# 3. Release velocity ratio
+# Prevents sudden spikes that look automated.
+release_velocity:
+  weekly_releases_min: 8
+  weekly_releases_max: 20
+  max_single_day_share_of_weekly: 0.30    # single-day uploads ≤30% of weekly output
+
+# 4. Author spread ratio
+# One author with 1,000 books looks artificial.
+author_spread:
+  min_authors_in_catalog: 10
+  books_per_author_typical_min: 10
+  books_per_author_typical_max: 80
+
+# 5. Metadata diversity ratio
+# Prevents uniform title/description patterns.
+metadata_diversity:
+  min_title_structures: 6
+  min_description_frameworks: 8
+  max_description_frameworks: 15
+  min_subtitle_formats: 5
+  max_subtitle_formats: 10
+
+# Advisory only: violations set advisory_status; human_decision (approve/hold/override) gates release.
+advisory_only: true

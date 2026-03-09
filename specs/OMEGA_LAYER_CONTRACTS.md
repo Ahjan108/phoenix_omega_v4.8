@@ -25,7 +25,17 @@ Produced by the catalog planner. Consumed by the format selector.
 | `teacher_id` | string | Teacher slug. |
 | `teacher_mode` | boolean | When true, Stage 3 uses SOURCE_OF_TRUTH/teacher_banks/\<teacher_id\>/approved_atoms/ for pools (Teacher Mode V4). |
 | `brand_id` | string | Brand slug. |
-| `angle_id` | string | Angle slug within series/domain. |
+| `program_id` | string \| null | Optional. Editorial program (Brand → Program → Series → Book). Resolved from config/catalog_planning/editorial_programs.yaml by portfolio planner; downstream may use for metadata_style_family, narrator_pool_id, cover_style. Authority: docs/CATALOG_ARCHITECTURE_AT_SCALE.md. |
+| `worldview_id` | string \| null | Optional. Intellectual lens (e.g. neuroscience, buddhist, somatic). Resolved from program's worldview_id; used for diversity caps, title/description grammar, category/keyword distribution. Scale differentiation before volume. |
+| `angle_id` | string | **Required.** Angle slug within series/domain (Topic × Angle × Series; Angle Matrix §12). Stage 1 must set non-empty; derived from topic+persona+series when not supplied. |
+| `concept_id` | string \| null | Optional. Topic Expansion (§15): composite of topic+angle+persona+depth_level for 10k+ scale. Required when concept_expansion_policy enabled. Planner computes from dimensions. |
+| `depth_level` | string \| null | Optional. intro \| practical \| advanced for concept expansion. |
+| `series_key` | string \| null | Optional. Catalog Planning Matrix (§16a): imprint\|universe\|family\|series for MASTER_CATALOG; planner computes from brand_id, domain_id, series_id. |
+| `similarity_score` | number \| null | Optional. MASTER_CATALOG quality: set by similarity check at planning time; high = near-duplicate risk. |
+| `metadata_style_id` | string \| null | Optional. MASTER_CATALOG: links to METADATA_LIBRARY for title/description rotation. |
+| `release_wave_id` | string \| null | Optional. MASTER_CATALOG: which wave/week this book is scheduled for. |
+| `advisory_status` | string \| null | Optional. MASTER_CATALOG: info \| warn \| critical (e.g. overlap risk, coverage imbalance). |
+| `human_decision` | string \| null | Optional. MASTER_CATALOG: approve \| hold \| override (production gate; override = human approved despite advisory). |
 | `domain_id` | string | Domain slug (e.g. anxiety_cluster). |
 | `seed` | string | Determinism seed (e.g. sha256). |
 | `author_id` | string \| null | Optional. Pen-name author slug; when set, `author_positioning_profile` is required and resolved from author_registry. |

@@ -142,6 +142,35 @@ def test_render_book_enforce_chapter_flow_raises(tmp_path: Path) -> None:
         )
 
 
+def test_rewrite_overlay_does_not_mutate_source_atom_files(tmp_path: Path) -> None:
+    """Overlay-only safety: resolve with rewrite_overrides must not modify any source atom file."""
+    persona, topic, slot = "test_persona", "test_topic", "REFLECTION"
+    atoms_root = tmp_path / "atoms"
+    canonical = atoms_root / persona / topic / slot / "CANONICAL.txt"
+    canonical.parent.mkdir(parents=True, exist_ok=True)
+    original_content = "Original prose from atom file.\n"
+    canonical.write_text(
+        "## REFLECTION v01\n---\n---\n" + original_content + "\n---\n",
+        encoding="utf-8",
+    )
+    atom_id = f"{persona}_{topic}_{slot}_v01"
+    plan = {
+        "topic_id": topic,
+        "persona_id": persona,
+        "atom_ids": [atom_id],
+        "chapter_slot_sequence": [["REFLECTION"]],
+    }
+    mtime_before = canonical.stat().st_mtime_ns
+    content_before = canonical.read_text()
+    overlay_text = "Overridden by rewrite overlay; source must stay unchanged."
+    result = resolve_prose_for_plan(plan, atoms_root=atoms_root, rewrite_overrides={atom_id: overlay_text})
+    mtime_after = canonical.stat().st_mtime_ns
+    content_after = canonical.read_text()
+    assert result.prose_map.get(atom_id) == overlay_text
+    assert content_after == content_before, "Source atom file content must be unchanged after overlay"
+    assert mtime_after == mtime_before, "Source atom file mtime must be unchanged after overlay"
+
+
 def test_parse_block_file_with_metadata_then_prose(tmp_path: Path) -> None:
     canonical = tmp_path / "CANONICAL.txt"
     canonical.write_text(

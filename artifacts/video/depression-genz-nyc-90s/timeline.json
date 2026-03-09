@@ -1,0 +1,77 @@
+{
+  "plan_id": "depression-genz-nyc-90s",
+  "config_hash": "ea7a5429c17150af",
+  "fps": 24,
+  "resolution": {
+    "width": 1920,
+    "height": 1080
+  },
+  "aspect_ratio": "16:9",
+  "duration_s": 93.0,
+  "thumbnail_frame_ref": {
+    "shot_id": "shot-1",
+    "frame_offset": 0
+  },
+  "audio_tracks": [],
+  "clips": [
+    {
+      "shot_id": "shot-1",
+      "asset_id": "depression_HOOK_VISUAL_1",
+      "start_time_s": 0.0,
+      "end_time_s": 14.14,
+      "caption_ref": "seg-1",
+      "motion": "slow_zoom"
+    },
+    {
+      "shot_id": "shot-2",
+      "asset_id": "depression_ENVIRONMENT_ATMOSPHERE_1",
+      "start_time_s": 14.14,
+      "end_time_s": 27.86,
+      "caption_ref": "seg-2",
+      "motion": "static"
+    },
+    {
+      "shot_id": "shot-3",
+      "asset_id": "depression_SYMBOLIC_METAPHOR_1",
+      "start_time_s": 27.86,
+      "end_time_s": 42.0,
+      "caption_ref": "seg-3",
+      "motion": "static"
+    },
+    {
+      "shot_id": "shot-4",
+      "asset_id": "depression_CHARACTER_EMOTION_1",
+      "start_time_s": 42.0,
+      "end_time_s": 54.43,
+      "caption_ref": "seg-4",
+      "motion": "static"
+    },
+    {
+      "shot_id": "shot-5",
+      "asset_id": "depression_ENVIRONMENT_ATMOSPHERE_2",
+      "start_time_s": 54.43,
+      "end_time_s": 68.14,
+      "caption_ref": "seg-5",
+      "motion": "static"
+    },
+    {
+      "shot_id": "shot-6",
+      "asset_id": "depression_CHARACTER_EMOTION_2",
+      "start_time_s": 68.14,
+      "end_time_s": 82.29,
+      "caption_ref": "seg-6",
+      "motion": "static"
+    },
+    {
+      "shot_id": "shot-7",
+      "asset_id": "depression_SYMBOLIC_METAPHOR_2",
+      "start_time_s": 82.29,
+      "end_time_s": 93.0,
+      "caption_ref": "seg-7",
+      "motion": "static"
+    }
+  ],
+  "pipeline_version": "video-pipeline-v1",
+  "input_shot_plan_path": "/Users/ahjan/phoenix_omega/artifacts/video/depression-genz-nyc-90s/shot_plan.json",
+  "input_resolved_assets_path": "/Users/ahjan/phoenix_omega/artifacts/video/depression-genz-nyc-90s/resolved_assets.json"
+}

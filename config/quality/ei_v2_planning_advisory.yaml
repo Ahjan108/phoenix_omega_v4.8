@@ -1,0 +1,64 @@
+# EI v2 In Planning: advisory layer config.
+# Authority: specs/EI_V2_IN_PLANNING_SPEC.md.
+# Planner = source of truth; EI = advisory only. Human approves; auto-apply gated by trust.
+
+schema_version: 1
+
+# Master kill switch: when false, EI planning advisory is advisory-only and no auto-apply.
+enabled: true
+
+# Auto-apply: never override policy. When true, only apply pre-approved recommendation classes
+# after trust thresholds are met. One toggle to return to advisory-only instantly.
+auto_apply_enabled: false
+
+# Recommendation classes that may be auto-applied when trust criteria are met (Phase 3).
+# Safe: ranking order changes, series continuation priority within same cap envelope.
+auto_apply_allowed_classes:
+  - ranking_order_change
+  - series_continuation_priority
+
+# Max percent of week plan that may be touched by auto-apply (0.0-1.0).
+auto_apply_max_plan_fraction: 0.15
+
+# Trust thresholds (must all be met for auto-apply to be eligible).
+trust_thresholds:
+  min_observation_weeks: 4
+  max_flag_rejection_rate: 0.05
+  min_quality_lift_vs_baseline: 0.0
+  min_recommendation_acceptance_rate: 0.70
+
+# Rollback: disable auto-apply immediately when any of these degrade.
+rollback_triggers:
+  constraint_violation_any: true
+  feasibility_failure_rate_above: 0.02
+  human_override_rate_above: 0.40
+
+# Tuple scoring weights (for composite); used when historical/signals are present.
+scoring_weights:
+  quality_confidence: 0.35
+  duplication_risk: -0.25
+  metadata_risk: -0.20
+  expected_engagement: 0.20
+
+# Stub-to-real handoff: required fields for content_quality_signals (see spec §12).
+# When signals are missing or partial, behavior is defined by missing_signal_policy.
+required_signal_fields: []
+missing_signal_policy: degrade_only  # degrade_only | warn | skip_scoring
+
+# Cold-start fallback: when no outcome for full 7-tuple, try (program, teacher) -> program -> brand -> global prior.
+# Priors used when no data at any level; behavior is testable.
+cold_start_fallback:
+  enabled: true
+  global_prior:
+    quality_confidence: 0.5
+    duplication_risk: 0.0
+    metadata_risk: 0.0
+    expected_engagement: 0.5
+
+# Adapter paths (file-based). Empty or missing = skip load; advisory still runs with stub/partial data.
+historical_outcomes_path: ""   # e.g. artifacts/ei_v2/historical_outcomes.jsonl
+content_quality_signals_path: ""  # e.g. artifacts/ei_v2/content_quality_signals.jsonl
+
+# Output paths (artifacts).
+report_path: artifacts/ei_v2/planning_advisory_report.json
+audit_log_path: artifacts/ei_v2/planning_advisory_audit.jsonl

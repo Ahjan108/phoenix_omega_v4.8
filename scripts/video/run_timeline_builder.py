@@ -15,7 +15,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
-from scripts.video._config import load_yaml, config_snapshot_hash, write_atomically, should_skip_output, REPO_ROOT
+from scripts.video._config import load_yaml, config_snapshot_hash, write_atomically, should_skip_output, REPO_ROOT, PIPELINE_VERSION
 
 
 def _aspect_to_preset_key(aspect: str) -> str:
@@ -91,6 +91,9 @@ def main() -> int:
         print(f"Skip (output exists, use --force to overwrite): {out_path}")
         return 0
     timeline = build_timeline(shot_plan, resolved, args.aspect)
+    timeline["pipeline_version"] = PIPELINE_VERSION
+    timeline["input_shot_plan_path"] = str(plan_path)
+    timeline["input_resolved_assets_path"] = str(res_path)
     write_atomically(out_path, timeline)
     print(f"Wrote timeline {args.aspect} to {out_path}")
     return 0

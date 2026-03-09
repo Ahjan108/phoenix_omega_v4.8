@@ -6,6 +6,7 @@ Normalized: placeholder/silence ids are not resolved; missing atoms yield empty 
 """
 from __future__ import annotations
 
+import json
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -227,10 +228,15 @@ def resolve_prose_for_plan(
     bindings_path: Optional[Path] = None,
     teacher_banks_root: Optional[Path] = None,
     compression_atoms_root: Optional[Path] = None,
+    rewrite_overrides: Optional[dict[str, str]] = None,
+    rewrite_audit_path: Optional[Path] = None,
 ) -> RenderResult:
     """
     Resolve every real atom_id in plan to prose. Uses plan context (persona, topic, engines, teacher).
     Placeholder/silence ids are not in prose_map; missing real ids are listed in missing_ids.
+    When rewrite_overrides is provided (atom_id -> replacement text), overrides are applied in-memory
+    only; source atom files are never mutated (overlay-only safety boundary).
+    When rewrite_audit_path is set, one jsonl record per overwritten atom (book_id, atom_id, original_text, replacement_text, ts) is appended for rollback.
     """
     atoms_root = atoms_root or ATOMS_ROOT
     bindings_path = bindings_path or (CONFIG_ROOT / "topic_engine_bindings.yaml")
@@ -292,6 +298,28 @@ def resolve_prose_for_plan(
                     if thesis:
                         prose_map[aid] = thesis
                 except (ValueError, IndexError):
+                    pass
+
+    if rewrite_overrides:
+        from datetime import datetime, timezone
+        for aid, replacement in rewrite_overrides.items():
+            if not aid or replacement is None:
+                continue
+            original = prose_map.get(aid, "")
+            prose_map[aid] = str(replacement).strip()
+            if rewrite_audit_path:
+                try:
+                    book_id = (plan.get("plan_id") or plan.get("plan_hash") or "").strip()
+                    line = json.dumps({
+                        "book_id": book_id,
+                        "atom_id": aid,
+                        "original_text": original,
+                        "replacement_text": prose_map[aid],
+                        "ts": datetime.now(tz=timezone.utc).isoformat().replace("+00:00", "Z"),
+                    }, ensure_ascii=False) + "\n"
+                    with open(rewrite_audit_path, "a", encoding="utf-8") as f:
+                        f.write(line)
+                except OSError:
                     pass
 
     atom_ids = plan.get("atom_ids") or []

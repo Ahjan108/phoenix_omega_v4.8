@@ -1,0 +1,91 @@
+{
+  "plan_id": "overthinking-genz-nyc-90s",
+  "content_type": "long_form",
+  "config_hash": "5e6249e79bcee602",
+  "shots": [
+    {
+      "shot_id": "shot-1",
+      "segment_id": "seg-1",
+      "visual_intent": "HOOK_VISUAL",
+      "aspect_ratio": "16:9",
+      "duration_s": 14.57,
+      "thumbnail_candidate": true,
+      "prompt_bundle": {
+        "style": "warm_illustration",
+        "motion": "slow_zoom"
+      }
+    },
+    {
+      "shot_id": "shot-2",
+      "segment_id": "seg-2",
+      "visual_intent": "ENVIRONMENT_ATMOSPHERE",
+      "aspect_ratio": "16:9",
+      "duration_s": 10.72,
+      "thumbnail_candidate": false,
+      "prompt_bundle": {
+        "style": "warm_illustration",
+        "motion": "static"
+      }
+    },
+    {
+      "shot_id": "shot-3",
+      "segment_id": "seg-3",
+      "visual_intent": "SYMBOLIC_METAPHOR",
+      "aspect_ratio": "16:9",
+      "duration_s": 10.28,
+      "thumbnail_candidate": false,
+      "prompt_bundle": {
+        "style": "warm_illustration",
+        "motion": "static"
+      }
+    },
+    {
+      "shot_id": "shot-4",
+      "segment_id": "seg-4",
+      "visual_intent": "CHARACTER_EMOTION",
+      "aspect_ratio": "16:9",
+      "duration_s": 14.14,
+      "thumbnail_candidate": false,
+      "prompt_bundle": {
+        "style": "warm_illustration",
+        "motion": "static"
+      }
+    },
+    {
+      "shot_id": "shot-5",
+      "segment_id": "seg-5",
+      "visual_intent": "ENVIRONMENT_ATMOSPHERE",
+      "aspect_ratio": "16:9",
+      "duration_s": 12.86,
+      "thumbnail_candidate": false,
+      "prompt_bundle": {
+        "style": "warm_illustration",
+        "motion": "static"
+      }
+    },
+    {
+      "shot_id": "shot-6",
+      "segment_id": "seg-6",
+      "visual_intent": "CHARACTER_EMOTION",
+      "aspect_ratio": "16:9",
+      "duration_s": 12.86,
+      "thumbnail_candidate": false,
+      "prompt_bundle": {
+        "style": "warm_illustration",
+        "motion": "static"
+      }
+    },
+    {
+      "shot_id": "shot-7",
+      "segment_id": "seg-7",
+      "visual_intent": "SYMBOLIC_METAPHOR",
+      "aspect_ratio": "16:9",
+      "duration_s": 11.57,
+      "thumbnail_candidate": false,
+      "prompt_bundle": {
+        "style": "warm_illustration",
+        "motion": "static"
+      }
+    }
+  ]
+}

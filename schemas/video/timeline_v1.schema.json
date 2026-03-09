@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phoenix/schemas/video/timeline_v1.schema.json",
+  "title": "Timeline v1",
+  "description": "Single source of truth for render: clips, audio_tracks, resolution, thumbnail_frame_ref. One per aspect ratio.",
+  "type": "object",
+  "required": ["plan_id", "fps", "resolution", "duration_s", "clips"],
+  "additionalProperties": true,
+  "properties": {
+    "plan_id": { "type": "string" },
+    "config_hash": { "type": "string" },
+    "fps": { "type": "integer", "minimum": 1 },
+    "resolution": {
+      "type": "object",
+      "required": ["width", "height"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 100 },
+        "height": { "type": "integer", "minimum": 100 }
+      }
+    },
+    "aspect_ratio": { "type": "string", "enum": ["16:9", "9:16", "1:1"] },
+    "duration_s": { "type": "number", "minimum": 0 },
+    "thumbnail_frame_ref": {
+      "type": "object",
+      "properties": {
+        "shot_id": { "type": "string" },
+        "frame_offset": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "audio_tracks": { "type": "array" },
+    "clips": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["shot_id", "asset_id", "start_time_s", "end_time_s", "motion"],
+        "additionalProperties": true,
+        "properties": {
+          "shot_id": { "type": "string" },
+          "asset_id": { "type": "string" },
+          "start_time_s": { "type": "number" },
+          "end_time_s": { "type": "number" },
+          "caption_ref": { "type": "string" },
+          "motion": { "type": "string" }
+        }
+      }
+    }
+  }
+}

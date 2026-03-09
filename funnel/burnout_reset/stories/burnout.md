@@ -1,6 +1,10 @@
 # Burnout — transformation story (Email 3)
 
-**Constraint list for authors:** Specific profession, specific moment (time/place), specific physical detail in practice moment, specific measurable change in after. No fill-in template; write against these constraints. 120–150 words. Nihala approves before use.
+**Pearl Prime compliance:** story_origin: composite | story_type: character_study | emotional_intensity_band: 3 (strain)
+**Story rules:** misfire_tax: yes (drops medication tray) | silence_beat: yes (stands still, 30 seconds)
+**Rubric:** specificity (nurses' station, 3am, tray) | cost (near-miss incident) | conflict (keep going vs body shutting down) | pivot (the lever is not willpower) | echo (heart rate drops — body found something mind could not)
+
+**Constraint list for authors:** Specific profession, specific moment (time/place), specific physical detail in practice moment, specific measurable change in after. Write against these constraints. Nihala approves before use.
 
 *Stories represent composite experiences from readers and practitioners.*
 
@@ -8,28 +12,12 @@
 
 ## burnout_nurse_story
 
-**Before:** She had been running on three years of night shifts, the kind where your body stops asking for sleep and just runs on cortisol until the crash.
+**emotional_intensity_band:** 3
+**story_origin:** composite
+**story_type:** character_study
 
-**Practice:** She tried the cyclic sigh at the nurses’ station between rounds — two inhales through the nose, one long exhale through the mouth. The first time she felt her shoulders drop she didn’t trust it.
+**Before:** Priya runs on three years of night shifts. Her body stops asking for sleep. At 3am on a Tuesday she drops a medication tray. The pills scatter across the floor of Bay 4. Her hands shake. She picks them up one by one. Nobody sees. She files the near-miss report herself.
 
-**After:** Within a week she was using it before handoff. Her resting heart rate dropped eight points. She didn’t quit; she didn’t have to. She’d found a lever.
+**Practice:** Between rounds she tries the cyclic sigh at the nurses' station. Two inhales through the nose, one long exhale through the mouth. Her shoulders drop. She stands still for thirty seconds. She does not trust it. But her hands stop shaking.
 
----
-
-## burnout_teacher_story
-
-**Before:** He had been covering two classrooms since October, grading until midnight, waking at five. By February he stopped reading student names on papers before marking them.
-
-**Practice:** His counselor suggested box breathing at his desk before first period: four counts in, four hold, four out, four hold. He did it with the door closed, lights still off, coat still on.
-
-**After:** He started reading names again. Not because the workload changed. Because something in him stopped bracing. He added five minutes of silence before unlocking the door each morning and kept it there for the rest of the year.
-
----
-
-## burnout_founder_story
-
-**Before:** She had been sleeping four hours a night for six months, calling it discipline. Her hands shook during a pitch deck review. She told herself it was coffee.
-
-**Practice:** A colleague showed her physiological sighing: two quick inhales stacked through the nose, then one long exhale through the mouth. She tried it in the car before a board meeting, engine off, alone.
-
-**After:** The shaking stopped within three days of using it twice daily. She still works long hours. But she stops the car now before walking into rooms. The board has not noticed. She has.
+**After:** Within a week she uses it before handoff. Her resting heart rate drops eight points. She does not quit. She does not have to. The lever is not willpower. It is the exhale.

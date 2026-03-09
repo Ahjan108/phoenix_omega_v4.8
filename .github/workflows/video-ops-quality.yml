@@ -1,0 +1,46 @@
+name: Video ops quality
+
+on:
+  schedule:
+    - cron: '30 7 * * 2'
+  workflow_dispatch:
+
+jobs:
+  video-ops-quality:
+    runs-on: self-hosted
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Rendered spot-check (1.5%)
+        run: |
+          PYTHONPATH=. python3 scripts/video/run_rendered_spot_check.py --sample-pct 1.5
+
+      - name: Ingest performance feedback (if present)
+        run: |
+          if [ -d "artifacts/video/performance_feedback/incoming" ]; then
+            PYTHONPATH=. python3 scripts/video/ingest_video_performance.py \
+              --input-dir artifacts/video/performance_feedback/incoming \
+              --output artifacts/video/performance_feedback/ingested.jsonl
+          else
+            echo "No incoming performance feedback directory; skipping ingest."
+          fi
+
+      - name: Upload video ops artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: video-ops-quality-${{ github.run_id }}
+          path: |
+            artifacts/video/spot_check/
+            artifacts/video/performance_feedback/
+          if-no-files-found: ignore

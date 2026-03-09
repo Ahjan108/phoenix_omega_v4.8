@@ -13,7 +13,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(REPO_ROOT))
-from scripts.video._config import write_atomically, should_skip_output
+from scripts.video._config import write_atomically, should_skip_output, PIPELINE_VERSION
 
 
 def main() -> int:
@@ -58,6 +58,7 @@ def main() -> int:
         return 0
 
     doc = {
+        "pipeline_version": PIPELINE_VERSION,
         "video_id": args.video_id,
         "plan_id": args.plan_id,
         "content_type": args.content_type,

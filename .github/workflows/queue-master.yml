@@ -1,0 +1,41 @@
+# Publish Pearl jobs to Redis (queue master). Workers pull and run; this only enqueues.
+# Authority: docs/PEARL_PRIME_ALWAYS_ON_POLICY.md, docs/GITHUB_OPERATIONS_FRAMEWORK.md
+name: Queue master (publish Pearl jobs)
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'   # Every 5 minutes
+  workflow_dispatch:
+    inputs:
+      types:
+        description: 'Comma-separated job types (blank = all)'
+        required: false
+        default: ''
+        type: string
+      dry_run:
+        description: 'Dry run (no LPUSH)'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      REDIS_URL: ${{ secrets.REDIS_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: pip install pyyaml redis
+      - name: Publish jobs
+        run: |
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            python scripts/queue_orchestrator/queue_master.py --dry-run
+          else
+            python scripts/queue_orchestrator/queue_master.py --types "${{ github.event.inputs.types }}"
+          fi
+        continue-on-error: true

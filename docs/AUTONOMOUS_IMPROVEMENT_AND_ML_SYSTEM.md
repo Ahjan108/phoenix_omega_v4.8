@@ -20,6 +20,13 @@
 
 ---
 
+## 1.1 Closed-loop planning and rewriting
+
+- **Closed-loop planning:** Outcome ingestion (`phoenix_v4/planning/outcome_ingestion.py`) and content quality signals (`phoenix_v4/planning/content_quality_signals.py`) feed EI planning; `scripts/generate_full_catalog.py` runs advisory and reorders allocations by EI rank (trust-gated when `auto_apply_enabled`). Baseline snapshot written to `artifacts/ei_v2/planning_baseline_snapshot.json` for `quality_lift_vs_baseline`. Spec: [specs/EI_V2_IN_PLANNING_SPEC.md](../specs/EI_V2_IN_PLANNING_SPEC.md).
+- **Closed-loop rewriting:** When `ml_actions_enabled` (config/ml_editorial/ml_editorial_config.yaml), rewrite recs can be applied as an in-memory prose overlay at render time (`phoenix_v4/rendering/rewrite_overlay.py`, `resolve_prose_for_plan(..., rewrite_overrides=...)`). Overlay only — source atom files are never mutated. Conflict policy: highest confidence, then newest timestamp. Wired in `scripts/run_pipeline.py` Stage 6 when `--render_book`.
+
+---
+
 ## 2. Config
 
 | Config | Purpose |
@@ -27,7 +34,8 @@
 | [config/observability_production_signals.yaml](../config/observability_production_signals.yaml) | Signal registry for collect_signals (gate_production_readiness, systems_test, atoms_coverage, etc.) |
 | [config/observability_kpi_targets.yaml](../config/observability_kpi_targets.yaml) | KPI targets and trigger_job (e.g. systems_test_pass_rate → weekly_pipeline) |
 | [config/governance/required_checks.yaml](../config/governance/required_checks.yaml) | Required status checks for branch protection (used by verify_github_governance) |
-| [config/ml_editorial/ml_editorial_config.yaml](../config/ml_editorial/ml_editorial_config.yaml) | ML editorial paths, thresholds, allowlist, marketing_sources, audit_log_path |
+| [config/ml_editorial/ml_editorial_config.yaml](../config/ml_editorial/ml_editorial_config.yaml) | ML editorial paths, thresholds, allowlist, marketing_sources, audit_log_path; `ml_actions_enabled` gates rewrite overlay at render |
+| [config/quality/ei_v2_planning_advisory.yaml](../config/quality/ei_v2_planning_advisory.yaml) | EI planning: trust thresholds, auto_apply, scoring weights, `historical_outcomes_path`, `content_quality_signals_path` |
 | [config/ml_editorial/kpi_targets.yaml](../config/ml_editorial/kpi_targets.yaml) | ML editorial KPI targets and calibration max drift |
 | [config/ml_loop/promotion_policy.yaml](../config/ml_loop/promotion_policy.yaml) | autonomy_enabled, allowlist_paths, confidence floors, queue paths, fast/slow gates, agent_open_fix_pr_script |
 | [config/ml_loop/kpi_targets.yaml](../config/ml_loop/kpi_targets.yaml) | Autonomous loop KPIs (weak_section_rate, variant_win_rate, etc.); weekly_report_path, baseline_path |

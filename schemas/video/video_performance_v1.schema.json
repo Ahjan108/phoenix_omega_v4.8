@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phoenix/schemas/video/video_performance_v1.schema.json",
+  "title": "Video performance v1",
+  "description": "Inbound performance feedback for A/B and learning: platform metrics per video. Filled by ingestion from Metricool/YouTube/TikTok/etc.",
+  "type": "object",
+  "required": ["video_id", "platform", "date_range_start", "date_range_end"],
+  "additionalProperties": true,
+  "properties": {
+    "video_id": { "type": "string", "description": "Video identifier from distribution manifest" },
+    "platform": { "type": "string", "description": "e.g. youtube, tiktok, instagram_reels, youtube_shorts" },
+    "date_range_start": { "type": "string", "format": "date", "description": "Start of reporting window (YYYY-MM-DD)" },
+    "date_range_end": { "type": "string", "format": "date", "description": "End of reporting window (YYYY-MM-DD)" },
+    "impressions": { "type": "integer", "minimum": 0 },
+    "views": { "type": "integer", "minimum": 0 },
+    "watch_time_median_s": { "type": "number", "minimum": 0 },
+    "completion_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+    "drop_off_timestamps_s": {
+      "type": "array",
+      "items": { "type": "number", "minimum": 0 },
+      "description": "Optional: seconds into video where drop-off peaks"
+    },
+    "engagement_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+    "ingested_at": { "type": "string", "format": "date-time", "description": "When this record was written" }
+  }
+}

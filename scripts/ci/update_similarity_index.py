@@ -60,6 +60,7 @@ def append_to_index(plan: dict, index_path: str, plan_path: str = "", teacher_ov
     compression_len_vec = list(plan.get("compression_len_vec") or [])
     role_seq = str(plan.get("emotional_role_sig") or "")
     angle_id_val = str(plan.get("angle_id") or "")
+    topic_id_val = str(plan.get("topic_id") or "")
     # Structural Variation V4
     book_structure_id = str(plan.get("book_structure_id") or "")
     journey_shape_id = str(plan.get("journey_shape_id") or "")
@@ -90,6 +91,7 @@ def append_to_index(plan: dict, index_path: str, plan_path: str = "", teacher_ov
             "compression_len_vec": compression_len_vec,
             "role_seq": role_seq,
             "angle_id": angle_id_val,
+            "topic_id": topic_id_val,
             "book_structure_id": book_structure_id,
             "journey_shape_id": journey_shape_id,
             "motif_id": motif_id,
@@ -117,6 +119,7 @@ def append_to_index(plan: dict, index_path: str, plan_path: str = "", teacher_ov
             "compression_len_vec": list(getattr(fp, "compression_len_vec", None) or []),
             "role_seq": getattr(fp, "role_seq", "") or "",
             "angle_id": getattr(fp, "angle_id", "") or "",
+            "topic_id": getattr(fp, "topic_id", "") or "",
             "book_structure_id": getattr(fp, "book_structure_id", "") or "",
             "journey_shape_id": getattr(fp, "journey_shape_id", "") or "",
             "motif_id": getattr(fp, "motif_id", "") or "",

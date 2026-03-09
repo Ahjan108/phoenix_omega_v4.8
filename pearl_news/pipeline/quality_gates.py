@@ -1,9 +1,11 @@
 """
 Pearl News — fail-hard quality gates (production non-negotiable §4).
 All gates must PASS for an article to be publishable.
+Writer Spec §7, §10: youth_impact_specificity requires at least one anchor (number, place, age band, behavior).
 """
 from __future__ import annotations
 
+import re
 import logging
 from datetime import datetime, timezone
 from pathlib import Path
@@ -22,7 +24,36 @@ GATE_IDS = [
     "sdg_un_accuracy",
     "promotional_tone_detector",
     "un_endorsement_detector",
+    "writer_spec_forbidden_phrases",
 ]
+
+# Writer Spec §11: phrases forbidden anywhere in the article (sixth gate).
+WRITER_SPEC_FORBIDDEN_PHRASES = [
+    "now more than ever",
+    "in these uncertain times",
+    "in a world where",
+    "young people are increasingly affected",
+    "youth around the world are",
+    "the next generation faces unprecedented",
+]
+
+# Writer Spec §11: generic youth phrases that always fail; gate fails if present without specificity.
+YOUTH_FORBIDDEN_GENERIC_PHRASES = [
+    "young people are increasingly affected",
+    "youth around the world are",
+    "the next generation faces unprecedented",
+    "young people around the world",
+    "young people increasingly",
+    "young people feel",
+    "youth around the world feel",
+    "will be filled with specific data",  # assembler stub = not yet specific
+]
+
+# At least one anchor required: number (%), place (in X), age band, or concrete behavior (Writer Spec §7).
+YOUTH_ANCHOR_NUMBER_PATTERN = re.compile(r"\d+%|\d+\s*percent|survey|report\s+found|study\s+showed|data\s+show|\d{4}\s+(survey|report|study)")
+YOUTH_ANCHOR_PLACE_PATTERN = re.compile(r"\bin\s+(?:the\s+)?[A-Za-z][A-Za-z\s]{2,}(?:,\s*[A-Za-z][A-Za-z\s]{2,})?\b|unicef|unesco|who\b|pew\s|cabinet\s+office|ministry\s+of\s+")
+YOUTH_ANCHOR_AGE_COHORT = re.compile(r"gen\s*z|gen\s*alpha|adolescents?\s+(?:ages?)?\s*\d|ages?\s+\d{2}\s*[-–]\s*\d{2}|under\s+\d{2}|18[-–]29|12[-–]17")
+YOUTH_ANCHOR_BEHAVIOR = re.compile(r"attend|enrolled|cited|reported|dropped|surveyed|participat|graduat|employment|unemployment")
 
 
 def _load_legal_boundary(config_root: Path) -> list[str]:
@@ -32,6 +63,27 @@ def _load_legal_boundary(config_root: Path) -> list[str]:
     with open(path, "r", encoding="utf-8") as f:
         data = yaml.safe_load(f) or {}
     return data.get("blocklist_phrases") or []
+
+
+def _youth_impact_specificity_pass(text: str) -> bool:
+    """Writer Spec §7, §10: PASS only when youth content has at least one anchor and no forbidden generic phrase."""
+    lower = text.lower()
+    # Must have some youth relevance.
+    youth_relevant = any(k in lower for k in ["young people", "gen z", "gen alpha", "youth", "adolescent"])
+    if not youth_relevant:
+        return False
+    # Forbidden generic phrases (Writer Spec §11) → FAIL.
+    for phrase in YOUTH_FORBIDDEN_GENERIC_PHRASES:
+        if phrase in lower:
+            return False
+    # At least one anchor: number, place, age band, or behavior.
+    has_anchor = (
+        YOUTH_ANCHOR_NUMBER_PATTERN.search(lower) is not None
+        or YOUTH_ANCHOR_PLACE_PATTERN.search(lower) is not None
+        or YOUTH_ANCHOR_AGE_COHORT.search(lower) is not None
+        or YOUTH_ANCHOR_BEHAVIOR.search(lower) is not None
+    )
+    return has_anchor
 
 
 def _run_gates_on_article(
@@ -49,9 +101,8 @@ def _run_gates_on_article(
     has_source = bool(item.get("url")) and ("source:" in content or "http" in content or "un.org" in content)
     results["fact_check_completeness"] = "PASS" if has_source else "FAIL"
 
-    # 2) youth_impact_specificity: youth impact section present and not empty
-    youth_ok = "young people" in text or "gen z" in text or "gen alpha" in text or "youth" in text or "sdg" in text
-    results["youth_impact_specificity"] = "PASS" if youth_ok else "FAIL"
+    # 2) youth_impact_specificity: Writer Spec §7 — at least one anchor (number, place, age band, behavior); no forbidden generic phrase
+    results["youth_impact_specificity"] = "PASS" if _youth_impact_specificity_pass(text) else "FAIL"
 
     # 3) sdg_un_accuracy: no blocklist phrase (except when negated, e.g. "not affiliated")
     def _blocklist_hit(t: str, phrases: list[str]) -> bool:
@@ -74,6 +125,10 @@ def _run_gates_on_article(
 
     # 5) un_endorsement_detector: blocklist again (same negated allowance)
     results["un_endorsement_detector"] = "FAIL" if blocklist_fail else "PASS"
+
+    # 6) writer_spec_forbidden_phrases: Writer Spec §11 — no forbidden phrase anywhere in article
+    forbidden_hit = any(phrase in text for phrase in WRITER_SPEC_FORBIDDEN_PHRASES)
+    results["writer_spec_forbidden_phrases"] = "FAIL" if forbidden_hit else "PASS"
 
     return results
 

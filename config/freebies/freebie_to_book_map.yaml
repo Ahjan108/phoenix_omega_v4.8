@@ -6,7 +6,7 @@ slugs:
   burnout-reset:
     book_url: "https://phoenixprotocolbooks.com/books/burnout-reset"
     book_title: "Burnout Reset"
-    redirect_url: ""  # optional: final Amazon/store URL
+    redirect_url: ""
   anxiety-reset:
     book_url: "https://phoenixprotocolbooks.com/books/anxiety-reset"
     book_title: "Anxiety Reset"
@@ -24,33 +24,150 @@ slugs:
     book_title: "Calm Under Pressure"
     redirect_url: ""
 
+# ── Exercise-level mappings ──
+
 cyclic_sighing:
   slug: burnout-reset
   book_title: "Burnout Reset"
   book_url: "https://phoenixprotocolbooks.com/books/burnout-reset"
-  more_books:
-    - title: "Nervous System Repair"
-      url: "https://phoenixprotocolbooks.com/books/nervous-system-repair"
-    - title: "Rest Without Guilt"
-      url: "https://phoenixprotocolbooks.com/books/rest-without-guilt"
+  more_books: []
 
-box_breathing:
+478_breathing:
+  slug: calm-under-pressure
+  book_title: "Calm Under Pressure"
+  book_url: "https://phoenixprotocolbooks.com/books/calm-under-pressure"
+  more_books: []
+
+extended_exhale:
+  slug: rest-without-guilt
+  book_title: "Rest Without Guilt"
+  book_url: "https://phoenixprotocolbooks.com/books/rest-without-guilt"
+  more_books: []
+
+loving_kindness_breathing:
+  slug: rest-without-guilt
+  book_title: "Rest Without Guilt"
+  book_url: "https://phoenixprotocolbooks.com/books/rest-without-guilt"
+  more_books: []
+
+bee_breath:
   slug: anxiety-reset
   book_title: "Anxiety Reset"
   book_url: "https://phoenixprotocolbooks.com/books/anxiety-reset"
-  more_books:
-    - title: "Calm Under Pressure"
-      url: "https://phoenixprotocolbooks.com/books/calm-under-pressure"
+  more_books: []
 
-# Topic-level fallback when exercise not in map
+triangle_breathing:
+  slug: anxiety-reset
+  book_title: "Anxiety Reset"
+  book_url: "https://phoenixprotocolbooks.com/books/anxiety-reset"
+  more_books: []
+
+sigh_of_relief:
+  slug: calm-under-pressure
+  book_title: "Calm Under Pressure"
+  book_url: "https://phoenixprotocolbooks.com/books/calm-under-pressure"
+  more_books: []
+
+coherence_5bpm:
+  slug: rest-without-guilt
+  book_title: "Rest Without Guilt"
+  book_url: "https://phoenixprotocolbooks.com/books/rest-without-guilt"
+  more_books: []
+
+breath_walking:
+  slug: nervous-system-repair
+  book_title: "Nervous System Repair"
+  book_url: "https://phoenixprotocolbooks.com/books/nervous-system-repair"
+  more_books: []
+
+tonglen:
+  slug: nervous-system-repair
+  book_title: "Nervous System Repair"
+  book_url: "https://phoenixprotocolbooks.com/books/nervous-system-repair"
+  more_books: []
+
+five_senses_grounding:
+  slug: burnout-reset
+  book_title: "Burnout Reset"
+  book_url: "https://phoenixprotocolbooks.com/books/burnout-reset"
+  more_books: []
+
+body_scan:
+  slug: nervous-system-repair
+  book_title: "Nervous System Repair"
+  book_url: "https://phoenixprotocolbooks.com/books/nervous-system-repair"
+  more_books: []
+
+# ── Topic-level fallback when exercise not in map ──
+
 burnout:
   slug: burnout-reset
   book_title: "Burnout Reset"
   book_url: "https://phoenixprotocolbooks.com/books/burnout-reset"
   more_books: []
 
-anxiety:
+overthinking:
+  slug: calm-under-pressure
+  book_title: "Calm Under Pressure"
+  book_url: "https://phoenixprotocolbooks.com/books/calm-under-pressure"
+  more_books: []
+
+boundaries:
+  slug: rest-without-guilt
+  book_title: "Rest Without Guilt"
+  book_url: "https://phoenixprotocolbooks.com/books/rest-without-guilt"
+  more_books: []
+
+self_worth:
+  slug: rest-without-guilt
+  book_title: "Rest Without Guilt"
+  book_url: "https://phoenixprotocolbooks.com/books/rest-without-guilt"
+  more_books: []
+
+social_anxiety:
   slug: anxiety-reset
   book_title: "Anxiety Reset"
   book_url: "https://phoenixprotocolbooks.com/books/anxiety-reset"
+  more_books: []
+
+financial_anxiety:
+  slug: anxiety-reset
+  book_title: "Anxiety Reset"
+  book_url: "https://phoenixprotocolbooks.com/books/anxiety-reset"
+  more_books: []
+
+imposter_syndrome:
+  slug: calm-under-pressure
+  book_title: "Calm Under Pressure"
+  book_url: "https://phoenixprotocolbooks.com/books/calm-under-pressure"
+  more_books: []
+
+sleep_anxiety:
+  slug: rest-without-guilt
+  book_title: "Rest Without Guilt"
+  book_url: "https://phoenixprotocolbooks.com/books/rest-without-guilt"
+  more_books: []
+
+depression:
+  slug: nervous-system-repair
+  book_title: "Nervous System Repair"
+  book_url: "https://phoenixprotocolbooks.com/books/nervous-system-repair"
+  more_books: []
+
+grief:
+  slug: nervous-system-repair
+  book_title: "Nervous System Repair"
+  book_url: "https://phoenixprotocolbooks.com/books/nervous-system-repair"
+  more_books: []
+
+compassion_fatigue:
+  slug: burnout-reset
+  book_title: "Burnout Reset"
+  book_url: "https://phoenixprotocolbooks.com/books/burnout-reset"
+  more_books: []
+
+somatic_healing:
+  slug: nervous-system-repair
+  book_title: "Nervous System Repair"
+  book_url: "https://phoenixprotocolbooks.com/books/nervous-system-repair"
   more_books: []

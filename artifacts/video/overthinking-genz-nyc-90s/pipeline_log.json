@@ -1,0 +1,90 @@
+{
+  "pipeline_version": "video-pipeline-v1",
+  "plan_id": "overthinking-genz-nyc-90s",
+  "stages": [
+    {
+      "name": "prepare_script_segments",
+      "start_time": 0.066177375,
+      "end_time": 0.137062875,
+      "duration_ms": 71,
+      "success": true
+    },
+    {
+      "name": "segment_scene_extraction",
+      "start_time": 0.137161875,
+      "end_time": 0.658613833,
+      "duration_ms": 521,
+      "success": true
+    },
+    {
+      "name": "segment_image_build",
+      "start_time": 0.658894958,
+      "end_time": 1.656270333,
+      "duration_ms": 997,
+      "success": true
+    },
+    {
+      "name": "shot_planner",
+      "start_time": 1.657308416,
+      "end_time": 1.800913875,
+      "duration_ms": 144,
+      "success": true
+    },
+    {
+      "name": "asset_resolver",
+      "start_time": 1.800974625,
+      "end_time": 1.995318208,
+      "duration_ms": 194,
+      "success": true
+    },
+    {
+      "name": "timeline_builder",
+      "start_time": 1.995375083,
+      "end_time": 2.1996595,
+      "duration_ms": 204,
+      "success": true
+    },
+    {
+      "name": "caption_adapter",
+      "start_time": 2.199702708,
+      "end_time": 2.344540208,
+      "duration_ms": 145,
+      "success": true
+    },
+    {
+      "name": "qc",
+      "start_time": 2.344572625,
+      "end_time": 2.520311291,
+      "duration_ms": 176,
+      "success": true
+    },
+    {
+      "name": "render",
+      "start_time": 2.520648375,
+      "end_time": 24.916365083,
+      "duration_ms": 22396,
+      "success": true
+    },
+    {
+      "name": "provenance",
+      "start_time": 25.765918583,
+      "end_time": 25.996868583,
+      "duration_ms": 231,
+      "success": true
+    },
+    {
+      "name": "metadata",
+      "start_time": 25.997329166,
+      "end_time": 26.181803541,
+      "duration_ms": 184,
+      "success": true
+    },
+    {
+      "name": "thumbnail",
+      "start_time": 26.182434041,
+      "end_time": 26.770965208,
+      "duration_ms": 589,
+      "success": true
+    }
+  ]
+}
