@@ -1,11 +1,12 @@
-# Optional: Hero, problem, solution, CTA for 6-section landing page. Can pull from config/marketing later.
+# Landing page sections per hub: hero, authority, problem, solution, CTA.
 # Phase 1: static copy; Phase 2: consumer_language / invisible_script by topic.
+# Authority narrative (Section 2): Nihala's paragraph only; copywriter one light edit.
+# See specs/FUNNEL_AND_BOOK_COPY_WRITER_SPEC.md §1 for format and validity rules.
 
 burnout_reset:
   hero_headline: "Reset your nervous system in 60 seconds"
   hero_subhead: "One breath. No sign-up walls. Use it when you need it."
-  # Authority narrative (Section 2): Nihala's paragraph only; copywriter one light edit. Replace the line below with her final copy.
-  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE (3–5 sentences, her voice; see specs/FUNNEL_AND_BOOK_COPY_WRITER_SPEC.md §1)
+  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE (3–5 sentences, her voice)
   problem: "Burnout doesn't fix itself with more rest. Your body is stuck in go-mode — and the same breath pattern that got you here can get you out."
   solution: "A single, research-backed reset. No app, no account. Just the practice."
   cta: "Yes — I'm ready to start"
@@ -13,8 +14,95 @@ burnout_reset:
 anxiety_reset:
   hero_headline: "When your mind won't stop"
   hero_subhead: "A 2-minute practice that actually shifts your state."
-  # authority_narrative: same as burnout — Nihala's paragraph; paste when ready.
-  authority_narrative: ""
+  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
   problem: "Anxiety lives in the body before it hits the mind. Telling yourself to relax rarely works."
   solution: "This practice works with your nervous system — not against it."
+  cta: "Get the free practice"
+
+boundaries_reset:
+  hero_headline: "When you know the boundary but can't say it"
+  hero_subhead: "A breathing practice that lets your body lead — so the words can follow."
+  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  problem: "You've read every article. You know what you should say. But when the moment arrives, something in your body overrides what your mind decided. That isn't weakness — it's a nervous system pattern."
+  solution: "One practice to regulate before you respond. The boundary starts with your breath, not your words."
+  cta: "Get the free practice"
+
+compassion_fatigue_reset:
+  hero_headline: "You can't pour from an empty nervous system"
+  hero_subhead: "A grounding practice for the ones who hold everyone else together."
+  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  problem: "You spend your days absorbing other people's pain. You're not burned out from working too hard — you're burned out from feeling too much without a reset."
+  solution: "A sensory grounding practice that brings you back to your own body. No app. No waiting list. Just the practice."
+  cta: "Get the free practice"
+
+depression_reset:
+  hero_headline: "When everything feels flat"
+  hero_subhead: "A walking practice that reconnects breath and movement — gently."
+  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  problem: "Depression isn't always sadness. Sometimes it's the absence of feeling anything at all. Your nervous system downregulated to protect you — and forgot to come back."
+  solution: "A breath-and-movement practice that doesn't ask you to feel better. It asks your body to move — and lets feeling follow."
+  cta: "Get the free practice"
+
+financial_anxiety_reset:
+  hero_headline: "When money stress lives in your chest"
+  hero_subhead: "A breathing practice that calms the panic before you open the app."
+  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  problem: "Financial anxiety isn't a budgeting problem. It's a nervous system problem that shows up every time you check your balance, open a bill, or hear the word 'retirement.'"
+  solution: "A simple breathing pattern that interrupts the spiral — so you can think clearly about money instead of reacting to it."
+  cta: "Get the free practice"
+
+grief_reset:
+  hero_headline: "When grief shows up in your body"
+  hero_subhead: "A practice for the weight that words can't reach."
+  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  problem: "Grief doesn't follow stages. It shows up as tightness in the chest, shallow breathing, a heaviness that doesn't lift. Your body is carrying what your mind has already processed."
+  solution: "A compassion-based breathing practice that meets the grief where it lives — in the body — without asking you to move past it."
+  cta: "Get the free practice"
+
+imposter_syndrome_reset:
+  hero_headline: "When your own success feels like a mistake"
+  hero_subhead: "A reset for the moment before you convince yourself you don't belong."
+  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  problem: "Imposter syndrome doesn't care about your résumé. It activates in the body — racing heart, tight throat, shallow breath — right when you need to show up most."
+  solution: "A quick nervous system reset that breaks the freeze response — so you can walk into the room as yourself."
+  cta: "Get the free practice"
+
+overthinking_reset:
+  hero_headline: "When your mind won't let go"
+  hero_subhead: "A breathing practice that interrupts the loop — in under three minutes."
+  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  problem: "Overthinking isn't a thinking problem. It's a nervous system stuck in scan mode — looking for threats that aren't there. More analysis won't fix it. Your body has to shift first."
+  solution: "A timed breathing practice that down-regulates the scan response. No journaling. No reframing. Just breath and a timer."
+  cta: "Get the free practice"
+
+self_worth_reset:
+  hero_headline: "When you don't feel like enough"
+  hero_subhead: "A practice that meets the ache before the story kicks in."
+  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  problem: "Low self-worth isn't a belief you can think your way out of. It lives deeper — in how you hold your breath when someone compliments you, in the flinch before you share your work."
+  solution: "A loving-kindness breathing practice that bypasses the inner critic and speaks directly to the nervous system."
+  cta: "Get the free practice"
+
+sleep_anxiety_reset:
+  hero_headline: "When you can't stop thinking at bedtime"
+  hero_subhead: "A breathing practice that tells your nervous system it's safe to rest."
+  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  problem: "Sleep anxiety isn't about sleep. It's about a nervous system that won't downshift — replaying the day, rehearsing tomorrow, scanning for threats in the dark."
+  solution: "A coherence breathing practice timed to your body's natural rest rhythm. No screens. No supplements. Just breath."
+  cta: "Get the free practice"
+
+social_anxiety_reset:
+  hero_headline: "When being around people drains everything"
+  hero_subhead: "A practice you can use before, during, or after — without anyone noticing."
+  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  problem: "Social anxiety isn't shyness. It's a nervous system on high alert in the presence of other people — scanning faces, anticipating rejection, bracing for judgment."
+  solution: "A humming breath practice that activates the vagus nerve and calms the social threat response. Quiet enough to use anywhere."
+  cta: "Get the free practice"
+
+somatic_healing_reset:
+  hero_headline: "When your body remembers what your mind moved past"
+  hero_subhead: "A practice for the tension that doesn't have a name."
+  authority_narrative: ""   # PASTE NIHALA'S PARAGRAPH HERE
+  problem: "You've done the therapy. You understand the story. But your body still holds it — in your shoulders, your jaw, the catch in your breath that shows up without warning."
+  solution: "A body scan breathing practice that meets the stored tension region by region. Not to fix it. To let your nervous system know it's been heard."
   cta: "Get the free practice"

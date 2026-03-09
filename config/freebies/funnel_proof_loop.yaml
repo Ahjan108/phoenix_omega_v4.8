@@ -1,15 +1,98 @@
 # Per-topic/hub Proof Loop config. Same structure across hubs; content from here + story bank.
 # Second exercise comes from config/freebies/exercise_pairs.yaml (keyed by first_exercise).
 # Authority: freebie funnel plan (Problem-Solution Funnel at scale).
+#
+# Brand boundary rules (see config/freebies/author_funnel_bridge.yaml):
+#   - Only 3 hubs have registered authors: burnout_reset, social_anxiety_reset, overthinking_reset
+#   - All other hubs use brand-level signoff ("— Phoenix Protocol")
+#   - Authors never cross brands (config/author_registry.yaml)
 
 burnout_reset:
   topic: burnout
-  first_exercise: cyclic_sighing  # or list of options for multi-exercise hubs
-  story_id: burnout_nurse_story   # loads from funnel/burnout_reset/stories/burnout.md or story file
+  first_exercise: cyclic_sighing
+  story_id: burnout_nurse_story
   book_slug: burnout-reset
+  author_id: luna_hart
 
 anxiety_reset:
   topic: anxiety
   first_exercise: box_breathing
   story_id: anxiety_panic_story
   book_slug: anxiety-reset
+
+boundaries_reset:
+  topic: boundaries
+  first_exercise: extended_exhale
+  story_id: boundaries_therapist_story
+  book_slug: rest-without-guilt
+  # author_id: none (no registered author for this topic)
+
+compassion_fatigue_reset:
+  topic: compassion_fatigue
+  first_exercise: 5_senses_grounding
+  story_id: compassion_fatigue_social_worker_story
+  book_slug: burnout-reset
+  # author_id: none (no registered author for this topic)
+
+depression_reset:
+  topic: depression
+  first_exercise: breath_walking
+  story_id: depression_journalist_story
+  book_slug: nervous-system-repair
+  # author_id: none (no registered author for this topic)
+
+financial_anxiety_reset:
+  topic: financial_anxiety
+  first_exercise: triangle_breathing
+  story_id: financial_anxiety_accountant_story
+  book_slug: anxiety-reset
+  # author_id: none (no registered author for this topic)
+
+grief_reset:
+  topic: grief
+  first_exercise: tonglen
+  story_id: grief_veterinarian_story
+  book_slug: nervous-system-repair
+  # author_id: none (no registered author for this topic)
+
+imposter_syndrome_reset:
+  topic: imposter_syndrome
+  first_exercise: sigh_of_relief
+  story_id: imposter_syndrome_director_story
+  book_slug: calm-under-pressure
+  # author_id: none (no registered author for this topic)
+
+overthinking_reset:
+  topic: overthinking
+  first_exercise: 4_7_8_breathing
+  story_id: overthinking_lawyer_story
+  book_slug: calm-under-pressure
+  author_id: diane_reyes
+
+self_worth_reset:
+  topic: self_worth
+  first_exercise: loving_kindness_breathing
+  story_id: self_worth_artist_story
+  book_slug: rest-without-guilt
+  # author_id: none (no registered author for this topic)
+
+sleep_anxiety_reset:
+  topic: sleep_anxiety
+  first_exercise: coherence_breathing
+  story_id: sleep_anxiety_parent_story
+  book_slug: rest-without-guilt
+  # author_id: none (no registered author for this topic)
+
+social_anxiety_reset:
+  topic: social_anxiety
+  first_exercise: bee_breath
+  story_id: social_anxiety_developer_story
+  book_slug: anxiety-reset
+  author_id: marcus_cole
+
+somatic_healing_reset:
+  topic: somatic_healing
+  first_exercise: body_scan_with_breath
+  story_id: somatic_healing_athlete_story
+  book_slug: nervous-system-repair
+  # author_id: none (no registered author for this topic)

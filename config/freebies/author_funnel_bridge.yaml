@@ -1,0 +1,37 @@
+# Author ↔ Funnel Bridge Configuration
+# Maps ONLY author-bound hubs to their pen-name author.
+# Hubs without a registered author use brand-level signoff (no author_id).
+# Authors never cross brands (author_registry.yaml).
+#
+# Author registry entries (from config/author_registry.yaml):
+#   luna_hart      → phoenix_somatic     → topic: burnout
+#   kai_nakamura   → phoenix_focus        → topic: burnout
+#   marcus_cole    → phoenix_executive    → topic: social_anxiety
+#   diane_reyes    → phoenix_healthcare   → topic: overthinking
+
+hub_author_assignments:
+  burnout_reset:
+    author_id: luna_hart
+    positioning_profile: somatic_companion
+    authority_type: lived_experience
+
+  social_anxiety_reset:
+    author_id: marcus_cole
+    positioning_profile: research_guide
+    authority_type: research_synthesizer
+
+  overthinking_reset:
+    author_id: diane_reyes
+    positioning_profile: elder_stabilizer
+    authority_type: seasoned_practitioner
+
+# Hubs without registered authors (brand-level signoff only):
+#   boundaries_reset: no author — use '— Phoenix Protocol'
+#   self_worth_reset: no author — use '— Phoenix Protocol'
+#   financial_anxiety_reset: no author — use '— Phoenix Protocol'
+#   imposter_syndrome_reset: no author — use '— Phoenix Protocol'
+#   sleep_anxiety_reset: no author — use '— Phoenix Protocol'
+#   depression_reset: no author — use '— Phoenix Protocol'
+#   grief_reset: no author — use '— Phoenix Protocol'
+#   compassion_fatigue_reset: no author — use '— Phoenix Protocol'
+#   somatic_healing_reset: no author — use '— Phoenix Protocol'
