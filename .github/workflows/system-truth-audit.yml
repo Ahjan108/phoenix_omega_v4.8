@@ -1,0 +1,102 @@
+# Continuous Truth Audit Governance Loop
+# Regenerates and validates 4 audit artifacts; enforces canonical ownership;
+# syncs Section G to GitHub issues; produces Qwen-Agent delta addendum.
+# Rollout: Week 1 workflow_dispatch + warn_only ownership; Week 2 enable schedule + fail on ownership;
+# Week 3 enforce issue-sync as required. Use vars AUDIT_OWNERSHIP_WARN_ONLY, AUDIT_ISSUE_SYNC_WARN_ONLY.
+name: System truth audit
+
+on:
+  schedule:
+    # Weekly UTC (e.g. Monday 00:00)
+    - cron: "0 0 * * 1"
+  workflow_dispatch: {}
+  push:
+    branches: [main, master]
+    paths:
+      - "scripts/audit/**"
+      - "config/audit/**"
+      - ".github/workflows/system-truth-audit.yml"
+
+jobs:
+  truth-audit:
+    name: Truth audit
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+
+    steps:
+      - name: Checkout phoenix_omega
+        uses: actions/checkout@v4
+        with:
+          path: phoenix_omega
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install PyYAML for audit config
+        run: |
+          pip install pyyaml
+        working-directory: phoenix_omega
+
+      - name: Run truth audit
+        run: |
+          python scripts/audit/run_truth_audit.py
+        working-directory: phoenix_omega
+
+      - name: Validate required artifacts
+        run: |
+          python scripts/audit/validate_truth_artifacts.py
+        working-directory: phoenix_omega
+
+      - name: Validate artifact freshness (SHA vs main)
+        run: |
+          python scripts/audit/validate_truth_artifacts.py --check-sha
+        working-directory: phoenix_omega
+
+      - name: Clone Qwen-Agent (for drift and delta)
+        uses: actions/checkout@v4
+        with:
+          repository: Ahjan108/Qwen-Agent
+          ref: main
+          path: Qwen-Agent
+          token: ${{ secrets.GH_PAT || github.token }}
+
+      - name: Enforce canonical ownership
+        run: |
+          python scripts/audit/enforce_canonical_ownership.py
+        working-directory: phoenix_omega
+        continue-on-error: ${{ vars.AUDIT_OWNERSHIP_WARN_ONLY == 'true' }}
+
+      - name: Sync Section G to issues
+        run: |
+          python scripts/audit/sync_section_g_issues.py
+        working-directory: phoenix_omega
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        continue-on-error: ${{ vars.AUDIT_ISSUE_SYNC_WARN_ONLY == 'true' }}
+
+      - name: Build Qwen-Agent delta addendum
+        run: |
+          python scripts/audit/build_qwen_delta_addendum.py
+        working-directory: phoenix_omega
+
+      - name: Upload audit artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-artifacts
+          path: |
+            artifacts/audit/SYSTEM_TRUTH_REPORT.md
+            artifacts/audit/DRIFT_MATRIX.csv
+            artifacts/audit/MISSING_REFERENCED_FILES.md
+            artifacts/audit/IMPLEMENTATION_STATUS_LEDGER.csv
+            artifacts/audit/ownership_violations.json
+            artifacts/audit/remediation_issue_map.json
+            artifacts/audit/QWEN_DELTA_ADDENDUM.md
+            artifacts/audit/qwen_delta.json
+          retention-days: 90

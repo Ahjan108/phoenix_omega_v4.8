@@ -1,0 +1,207 @@
+# Machine-readable source for Section G (What remains for 100%).
+# Used by scripts/audit/sync_section_g_issues.py to create/update/close GitHub issues.
+# Schema: id, title, description, owner (GitHub handle), due_date (YYYY-MM-DD),
+#         priority, status, evidence_refs (file paths).
+# Every Section G item must have id, owner, due_date, priority, status, evidence_refs.
+
+remediation_items:
+  - id: rem-001
+    title: Add EI registry config
+    description: |
+      Add config/source_of_truth/enlightened_intelligence_registry.yaml if EI V1/V2
+      code paths expect it. See DOCS_INDEX and MISSING_REFERENCED_FILES.md.
+    owner: ""
+    due_date: ""
+    priority: P2
+    status: open
+    evidence_refs:
+      - config/source_of_truth/enlightened_intelligence_registry.yaml
+      - docs/DOCS_INDEX.md
+
+  - id: rem-002
+    title: Add docs/norcal_dharma.yaml
+    description: |
+      Church #1 canonical record (Cooperative Church Compliance YAML Schema).
+      Reference docs/DOCS_INDEX.md church & payout section.
+    owner: ""
+    due_date: ""
+    priority: P2
+    status: open
+    evidence_refs:
+      - docs/norcal_dharma.yaml
+
+  - id: rem-003
+    title: Add missing locale/translation docs
+    description: |
+      Add or remove from index: LOCALE_PROSE_AND_PROMPTING.md, MULTILINGUAL_ARCHITECTURE.md,
+      KOREA_MARKET_AND_PROSE.md, JAPANESE_MARKET_SELFHELP_GUIDE.md.
+    owner: ""
+    due_date: ""
+    priority: P2
+    status: open
+    evidence_refs:
+      - docs/LOCALE_PROSE_AND_PROMPTING.md
+      - docs/MULTILINGUAL_ARCHITECTURE.md
+
+  - id: rem-004
+    title: Implement translation scripts (replace stubs)
+    description: |
+      Implement translate_atoms_all_locales_cloud, validate_translations,
+      merge_translation_shards, check_golden_translation, native_prompts_eval_learn.
+      Currently stubs per DOCS_INDEX.
+    owner: ""
+    due_date: ""
+    priority: P1
+    status: open
+    evidence_refs:
+      - scripts/translate_atoms_all_locales_cloud.py
+      - scripts/validate_translations.py
+      - scripts/merge_translation_shards.py
+      - scripts/check_golden_translation.py
+      - scripts/native_prompts_eval_learn.py
+
+  - id: rem-005
+    title: Complete audiobook GO_LIVE_FINAL_CHECKLIST
+    description: |
+      Complete 12 blocking items in docs/GO_LIVE_FINAL_CHECKLIST.md; evidence
+      manual review queue and operator runbook.
+    owner: ""
+    due_date: ""
+    priority: P1
+    status: open
+    evidence_refs:
+      - docs/GO_LIVE_FINAL_CHECKLIST.md
+      - scripts/audiobook_script/run_comparator_loop.py
+
+  - id: rem-006
+    title: Production 100% four requirements (RIGOROUS_SYSTEM_TEST)
+    description: |
+      (1) Real pipeline canary runs on worst/best combos; (2) CI gate on analyzer regression thresholds;
+      (3) Evidence on main (green workflows + artifact links); (4) Release-path smoke + rollback proof.
+      See docs/RIGOROUS_SYSTEM_TEST.md.
+    owner: ""
+    due_date: ""
+    priority: P0
+    status: open
+    evidence_refs:
+      - docs/RIGOROUS_SYSTEM_TEST.md
+      - scripts/ci/run_simulation_100k.py
+      - scripts/ci/analyze_pearl_prime_sim.py
+
+  - id: rem-007
+    title: Complete PhoenixControl runbook and GO_NO_GO
+    description: |
+      Complete CONTROL_PLANE_RUNBOOK and GO_NO_GO with evidence per tab;
+      verify wiring for each tab.
+    owner: ""
+    due_date: ""
+    priority: P2
+    status: open
+    evidence_refs:
+      - docs/CONTROL_PLANE_RUNBOOK.md
+      - docs/CONTROL_PLANE_GO_NO_GO.md
+
+  - id: rem-008
+    title: Add specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md
+    description: |
+      Phoenix Churches Payout spec referenced in DOCS_INDEX; add or point to payouts config.
+    owner: ""
+    due_date: ""
+    priority: P2
+    status: open
+    evidence_refs:
+      - specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md
+      - config/payouts/
+
+  - id: rem-009
+    title: EI V2 promotion gates and rollout proof
+    description: |
+      EI V2 promotion currently BLOCKED (0/5 consecutive). Complete promotion criteria;
+      add docs/EI_V2_ROLLOUT_PROOF_CHECKLIST.md and docs/ei_v2_branch_protection_evidence.png.
+      Per PRODUCTION_100_PLAN: 3 consecutive green promotion-gate runs, no safety regression.
+    owner: ""
+    due_date: ""
+    priority: P0
+    status: open
+    evidence_refs:
+      - config/quality/ei_v2_promotion_criteria.yaml
+      - scripts/ci/check_ei_v2_promotion_gate.py
+      - docs/EI_V2_ROLLOUT_PROOF_CHECKLIST.md
+
+  - id: rem-010
+    title: Branch protection documented and enforced
+    description: |
+      Document branch protection; verify real GitHub enforcement; path-dependent workflows.
+      Per PRODUCTION_100_PLAN blocker #4 and BRANCH_PROTECTION_REQUIREMENTS.
+    owner: ""
+    due_date: ""
+    priority: P0
+    status: open
+    evidence_refs:
+      - docs/BRANCH_PROTECTION_REQUIREMENTS.md
+      - .github/branch_protection_rules
+
+  - id: rem-011
+    title: Release governance and CHANGELOG
+    description: |
+      Release governance: CHANGELOG and release checklists present and current.
+      Per PRODUCTION_100_PLAN blocker #2.
+    owner: ""
+    due_date: ""
+    priority: P1
+    status: open
+    evidence_refs:
+      - docs/RELEASE_PRODUCTION_READINESS_CHECKLIST.md
+      - docs/RELEASE_POLICY.md
+      - CHANGELOG.md
+
+  - id: rem-012
+    title: One executed DR drill with evidence
+    description: |
+      One executed disaster-recovery drill with evidence required for 100% production.
+      See docs/DISASTER_RECOVERY_DRILL_CHECKLIST.md.
+    owner: ""
+    due_date: ""
+    priority: P1
+    status: open
+    evidence_refs:
+      - docs/DISASTER_RECOVERY_DRILL_CHECKLIST.md
+
+  - id: rem-013
+    title: Consolidate title engine to single source
+    description: |
+      Title/invisible script: phoenix_title_engine v1/v3/v4; deprecate to single source per
+      TITLE_ENGINE_MARKETING_CONFIG_SPEC and DOCS_INDEX compliance filter.
+    owner: ""
+    due_date: ""
+    priority: P2
+    status: open
+    evidence_refs:
+      - specs/TITLE_ENGINE_MARKETING_CONFIG_SPEC.md
+      - config/marketing/
+
+  - id: rem-014
+    title: Control plane committed, tested, signed, GO/NO-GO evidence
+    description: |
+      Control plane app committed, tested, signed/notarized, GO/NO-GO evidence per
+      CONTROL_PLANE_GO_NO_GO. Per PRODUCTION_100_PLAN blocker #6.
+    owner: ""
+    due_date: ""
+    priority: P1
+    status: open
+    evidence_refs:
+      - docs/CONTROL_PLANE_GO_NO_GO.md
+      - PhoenixControl/
+
+  - id: rem-015
+    title: New workflows (locale-gate, translation matrix) tracked and required
+    description: |
+      Ensure locale-gate, translate-atoms-qwen-matrix and related workflows are
+      tracked and required where applicable. Per PRODUCTION_100_PLAN blocker #5.
+    owner: ""
+    due_date: ""
+    priority: P2
+    status: open
+    evidence_refs:
+      - .github/workflows/locale-gate.yml
+      - .github/workflows/translate-atoms-qwen-matrix.yml

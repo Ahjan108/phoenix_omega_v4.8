@@ -1,0 +1,20 @@
+# Canonical ownership enforcement policy.
+# Used by scripts/audit/enforce_canonical_ownership.py.
+# Rows in DRIFT_MATRIX.csv where canonical_repo=phoenix_omega and duplicate_type
+# matches a forbidden_type will fail CI if the non-canonical (shadow) path exists
+# in the scope we are checking (e.g. Qwen-Agent when running in phoenix_omega CI).
+
+# Duplicate types that trigger enforcement when shadow path is present.
+# Matches DRIFT_MATRIX duplicate_type (normalized: spaces -> underscores, lowercase).
+forbidden_types:
+  - stale_shadow_copy
+  - stale shadow copy
+  - semantic_duplicate
+
+# Optional: list specific path_qwen patterns that are always forbidden if present.
+# If empty, all rows in DRIFT_MATRIX with canonical_repo=phoenix_omega and
+# duplicate_type in forbidden_types are checked.
+forbidden_shadow_paths: []
+
+# When true, script only warns and exits 0. Week 2: hard-fail on violations.
+warn_only: false

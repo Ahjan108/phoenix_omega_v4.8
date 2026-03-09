@@ -29,6 +29,28 @@
 | **Freebie funnel & launch** | [Freebie funnel, Proof Loop & launch (document all)](#freebie-funnel-proof-loop--launch-document-all) — landing, form, Proof-Loop emails, GHL push, writer spec, GO_NO_GO, three things from Nihala. |
 | **UI / operator coverage (full)** | No single spec covers all UI. For 100% coverage of everything that needs UI to manage, use the **full doc bundle**: [Control plane & operator UI — full doc bundle](#control-plane--operator-ui--full-doc-bundle) below. |
 | **Do GitHub operations (both repos)** | [GitHub Operations Framework](#github-operations-framework) — repo map, workflow matrix, canonical ownership, system functions (PR flow, merge to main, Qwen-Agent push, runner start/clean, recovery). |
+| **Truth Audit Governance Loop** | [Truth Audit Governance Loop](#truth-audit-governance-loop) — Weekly CI regenerates/validates audit artifacts; Section G → issues; canonical ownership enforcement; Qwen-Agent delta addendum. Workflow, scripts, configs. |
+
+---
+
+## Truth Audit Governance Loop
+
+**Purpose:** Automate weekly truth-audit governance on `main` so audit artifacts stay current, drift is enforced, remediation is tracked as dated/owned issues, and Qwen-Agent gets a delta-only addendum.
+
+| Item | Location |
+|------|----------|
+| **Workflow** | [.github/workflows/system-truth-audit.yml](../.github/workflows/system-truth-audit.yml) — Weekly schedule + workflow_dispatch + push on audit paths; runs audit, validation, ownership enforcement, Section G → issues sync, Qwen delta addendum; uploads artifacts. |
+| **Run audit** | [scripts/audit/run_truth_audit.py](../scripts/audit/run_truth_audit.py) — Regenerates SYSTEM_TRUTH_REPORT.md, DRIFT_MATRIX.csv, MISSING_REFERENCED_FILES.md, IMPLEMENTATION_STATUS_LEDGER.csv. |
+| **Validate artifacts** | [scripts/audit/validate_truth_artifacts.py](../scripts/audit/validate_truth_artifacts.py) — Ensures four required artifacts exist and parse; optional SHA freshness check vs `main`. |
+| **Enforce ownership** | [scripts/audit/enforce_canonical_ownership.py](../scripts/audit/enforce_canonical_ownership.py) — Reads DRIFT_MATRIX + ownership_policy; fails CI when forbidden shadow paths exist; writes ownership_violations.json. |
+| **Sync Section G to issues** | [scripts/audit/sync_section_g_issues.py](../scripts/audit/sync_section_g_issues.py) — remediation_registry.yaml → GitHub issues (create/update/close); writes remediation_issue_map.json. |
+| **Qwen delta addendum** | [scripts/audit/build_qwen_delta_addendum.py](../scripts/audit/build_qwen_delta_addendum.py) — Compares Qwen-Agent snapshot to baseline; writes QWEN_DELTA_ADDENDUM.md, qwen_delta.json. |
+| **Ownership policy** | [config/audit/ownership_policy.yaml](../config/audit/ownership_policy.yaml) — Forbidden duplicate types; warn_only (Week 1) vs hard-fail (Week 2). |
+| **Remediation registry** | [config/audit/remediation_registry.yaml](../config/audit/remediation_registry.yaml) — Machine-readable Section G: id, title, owner, due_date, priority, status, evidence_refs. |
+| **Audit artifacts** | [artifacts/audit/](../artifacts/audit/) — SYSTEM_TRUTH_REPORT.md, DRIFT_MATRIX.csv, MISSING_REFERENCED_FILES.md, IMPLEMENTATION_STATUS_LEDGER.csv, ownership_violations.json, remediation_issue_map.json, QWEN_DELTA_ADDENDUM.md, qwen_delta.json, baselines/qwen/. |
+| **Issue template** | [.github/ISSUE_TEMPLATE/audit-gap.yml](../.github/ISSUE_TEMPLATE/audit-gap.yml) — Audit-gap issue form (description, priority, due date, owner). |
+
+**Rollout:** Week 1 workflow_dispatch + warn_only; Week 2 hard-fail on ownership; Week 3 enforce issue-sync as required. Secrets: GITHUB_TOKEN (issues); optional GH_PAT for Qwen-Agent clone.
 
 ---
 

@@ -1,0 +1,47 @@
+name: Audit gap
+description: Remediation item from truth-audit Section G (config/audit/remediation_registry.yaml)
+title: "[Audit] "
+labels: ["audit-gap", "truth-audit"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is created/updated by the system-truth-audit workflow from **config/audit/remediation_registry.yaml**.
+        Do not remove the **ID:** line below when editing.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What remains to be done (from remediation_registry)
+      placeholder: |
+        **ID:** rem-XXX
+
+        Description of the gap...
+
+        **Evidence refs:** path/to/file
+        **Priority:** P0|P1|P2
+        **Owner:** @handle
+        **Due date:** YYYY-MM-DD
+    validations:
+      required: true
+  - type: input
+    id: priority
+    attributes:
+      label: Priority
+      placeholder: P0 | P1 | P2
+    validations:
+      required: false
+  - type: input
+    id: due_date
+    attributes:
+      label: Due date
+      placeholder: YYYY-MM-DD
+    validations:
+      required: false
+  - type: input
+    id: owner
+    attributes:
+      label: Owner (GitHub handle)
+      placeholder: @username
+    validations:
+      required: false

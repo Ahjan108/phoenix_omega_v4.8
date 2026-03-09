@@ -1,0 +1,9 @@
+path_omega,path_qwen,duplicate_type,canonical_repo,notes
+scripts/audiobook_script/run_comparator_loop.py,Qwen-Agent/scripts/audiobook_script/run_comparator_loop.py,near duplicate,phoenix_omega,Same script; phoenix_omega canonical
+scripts/audiobook_script/run_regression.py,Qwen-Agent/scripts/audiobook_script/run_regression.py,near duplicate,phoenix_omega,Regression runner
+pearl_news/,Qwen-Agent/pearl_news/,stale shadow copy,phoenix_omega,Pearl News workflows in phoenix_omega; Qwen-Agent backup only
+.github/workflows/pearl_news_scheduled.yml,Qwen-Agent/.github/workflows/pearl_news_scheduled.yml,stale shadow copy,phoenix_omega,Production cron in phoenix_omega
+.github/workflows/pearl_news_manual_expand.yml,Qwen-Agent/.github/workflows/pearl_news_manual_expand.yml,stale shadow copy,phoenix_omega,Production in phoenix_omega
+.github/workflows/audiobook_manual.yml,Qwen-Agent/.github/workflows/audiobook_manual.yml,near duplicate,phoenix_omega,Manual dispatch
+scripts/localization/run_locale_batches.py,Qwen-Agent/scripts/localization/run_locale_batches.py,near duplicate,phoenix_omega,Locale batches
+config/audiobook_script/comparator_config.yaml,Qwen-Agent/config/audiobook_script/comparator_config.yaml,near duplicate,phoenix_omega,Config
