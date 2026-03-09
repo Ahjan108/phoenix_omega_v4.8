@@ -43,11 +43,20 @@
 
 ---
 
+## 4 hard actions before merging PR A
+
+1. **Legacy broken workflow removed** — `.github/workflows/audiobook-regression.yml` (dash) deleted. Canonical is `audiobook_regression.yml` (underscore). No duplicate scheduled jobs; only underscore workflow files are active.
+2. **Secrets in phoenix_omega** — Before enabling schedules, add in repo Settings → Secrets: `WORDPRESS_SITE_URL`, `WORDPRESS_USERNAME`, `WORDPRESS_APP_PASSWORD`, `QWEN_BASE_URL`, `QWEN_API_KEY`, `QWEN_MODEL`.
+3. **Branch protection** — Required checks on `main` must include consolidated gates (Core tests, Release gates, EI V2 gates, Change impact).
+4. **PR B patch set** — Exact file-by-file schedule removals for Qwen-Agent are in [PR_B_QWEN_AGENT_DISABLE_CRON_PATCH.md](PR_B_QWEN_AGENT_DISABLE_CRON_PATCH.md). Apply in Qwen-Agent repo on branch `codex/disable-prod-schedules` after PR A is merged.
+
+---
+
 ## Next steps
 
 1. **Open PR** from `codex/runtime-consolidation` to `main` in phoenix_omega (Ahjan108/phoenix_omega_v4.8).  
-2. **After merge:** Configure secrets in phoenix_omega for Pearl News/localization/audiobook (WORDPRESS_*, QWEN_*) if not already present; ensure self-hosted runner is available for workflows that need it.  
-3. **PR B (Qwen-Agent):** On branch `codex/disable-prod-schedules`, remove `schedule:` from pearl_news_scheduled, audiobook_scheduled, locale_max_agents, runner_artifacts_cleanup; keep `workflow_dispatch` only. Merge so Qwen-Agent no longer runs production cron.
+2. **Before/after merge:** Add secrets (see above); ensure self-hosted runner is available for workflows that need it.  
+3. **PR B (Qwen-Agent):** Follow [PR_B_QWEN_AGENT_DISABLE_CRON_PATCH.md](PR_B_QWEN_AGENT_DISABLE_CRON_PATCH.md) — remove `schedule:` from pearl_news_scheduled, audiobook_scheduled, runner_artifacts_cleanup only (locale_max_agents has no schedule). Merge so Qwen-Agent no longer runs production cron.
 
 ---
 
@@ -55,4 +64,5 @@
 
 - [docs/RUNTIME_CONSOLIDATION_MIGRATION_MANIFEST.md](RUNTIME_CONSOLIDATION_MIGRATION_MANIFEST.md) — allowlist and guardrails  
 - [docs/OWNERSHIP_MATRIX.md](OWNERSHIP_MATRIX.md) — path/capability ownership  
-- [docs/GITHUB_OPERATIONS_FRAMEWORK.md](GITHUB_OPERATIONS_FRAMEWORK.md) — workflow matrix and canonical ownership
+- [docs/GITHUB_OPERATIONS_FRAMEWORK.md](GITHUB_OPERATIONS_FRAMEWORK.md) — workflow matrix and canonical ownership  
+- [docs/PR_B_QWEN_AGENT_DISABLE_CRON_PATCH.md](PR_B_QWEN_AGENT_DISABLE_CRON_PATCH.md) — exact PR B patch (remove schedule in Qwen-Agent)
