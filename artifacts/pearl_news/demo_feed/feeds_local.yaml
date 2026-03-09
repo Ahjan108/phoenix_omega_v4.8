@@ -1,0 +1,5 @@
+feeds:
+  - id: demo_local_feed
+    url: artifacts/pearl_news/demo_feed/sample_feed.xml
+    type: rss
+    description: Local demo feed

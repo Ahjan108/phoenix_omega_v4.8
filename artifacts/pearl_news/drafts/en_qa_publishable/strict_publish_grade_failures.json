@@ -1,0 +1,22 @@
+{
+  "language": "en",
+  "strict_publish_grade": true,
+  "repair_rounds_used": 2,
+  "failed_count": 1,
+  "failed_items": [
+    {
+      "id": "532816315edcf9c4",
+      "title": "Ajahn Ahjan on Climate: What It Means for Youth and SDG 13",
+      "expansion_failed": true,
+      "expansion_error": "Connection error.",
+      "validation_failed_gates": [
+        "teacher_three_points",
+        "no_banned_phrases"
+      ],
+      "qc_failed_gates": [
+        "youth_impact_specificity"
+      ],
+      "llm_connectivity_blocked": true
+    }
+  ]
+}

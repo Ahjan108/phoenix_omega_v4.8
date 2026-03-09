@@ -1,0 +1,58 @@
+[
+  {
+    "article_id": "532816315edcf9c4",
+    "language": "en",
+    "feed_item": {
+      "id": "532816315edcf9c4",
+      "url": "https://example.org/news/youth-climate-program",
+      "title": "City schools launch youth climate resilience program",
+      "published": "2026-03-09T09:00:00+00:00"
+    },
+    "template_id": "hard_news_spiritual_response",
+    "atom_ids_used": {
+      "news_event": [
+        "532816315edcf9c4"
+      ],
+      "youth_impact": [],
+      "teacher_quotes_practices": [
+        "ahjan"
+      ],
+      "sdg_refs": [
+        "13"
+      ]
+    },
+    "teacher_used": {
+      "teacher_id": "ahjan",
+      "display_name": "Ajahn Ahjan",
+      "tradition": "Theravada Buddhist"
+    },
+    "expansion": {
+      "ran": true,
+      "failed": false,
+      "retries": 0
+    },
+    "validation": {
+      "passed": null,
+      "failed_gates": [],
+      "gate_count": null,
+      "passed_count": null
+    },
+    "model_used": "lm_studio/qwen",
+    "prompt_version": "expansion_system_v2",
+    "qc_results": {
+      "timestamp": "2026-03-09T18:17:06.563399+00:00",
+      "fact_check_completeness": "PASS",
+      "youth_impact_specificity": "PASS",
+      "sdg_un_accuracy": "PASS",
+      "promotional_tone_detector": "PASS",
+      "un_endorsement_detector": "PASS"
+    },
+    "signatures": {
+      "headline_sig": "648f9d7d6c39b67c",
+      "lede_sig": "f0fe99672cdc32ec",
+      "teacher_sig": "ahjan",
+      "sdg_sig": "13"
+    },
+    "built_at": "2026-03-09T18:17:06.566056+00:00"
+  }
+]
