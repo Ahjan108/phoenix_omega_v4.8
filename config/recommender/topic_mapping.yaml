@@ -1,0 +1,30 @@
+# Mapping from canonical topics to pearl_news teacher atom topics
+# For v1, only topics with teacher atoms are available for recommendations
+version: "1.0"
+mappings:
+  # Mental health topics map to mental_health atom topic
+  anxiety: mental_health
+  boundaries: mental_health
+  burnout: mental_health
+  compassion_fatigue: mental_health
+  courage: mental_health
+  depression: mental_health
+  financial_anxiety: mental_health
+  financial_stress: economy_work
+  grief: mental_health
+  imposter_syndrome: mental_health
+  overthinking: mental_health
+  self_worth: mental_health
+  sleep_anxiety: mental_health
+  social_anxiety: mental_health
+  somatic_healing: mental_health
+
+# Available pearl_news atom topics (sourced from teacher_quotes_practices/ files)
+available_atom_topics:
+  - climate
+  - economy_work
+  - education
+  - inequality
+  - mental_health
+  - partnerships
+  - peace_conflict

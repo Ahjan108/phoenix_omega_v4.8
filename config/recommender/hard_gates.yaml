@@ -1,0 +1,16 @@
+version: "1.0"
+gates:
+  - id: teacher_topic_coverage
+    description: "Teacher must have atoms for this topic"
+    fatal: true
+  - id: brand_format_support
+    description: "Brand must support the requested format"
+    fatal: true
+  - id: doctrine_fit_minimum
+    description: "Minimum doctrine alignment score"
+    fatal: true
+    threshold: 0.60
+  - id: duplicate_catalog_check
+    description: "Must not duplicate an existing catalog entry"
+    fatal: true
+    similarity_threshold: 0.90

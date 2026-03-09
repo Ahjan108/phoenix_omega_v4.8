@@ -1,0 +1,97 @@
+schema_version: "1.0"
+
+description: |
+  Unified signal schema for research, sales, content outcomes, and retention.
+  Single canonical format for all signal types across the marketing platform.
+  Used by ingest pipelines, analysis tools, and promotion gates.
+
+signal_types:
+  - web_research
+  - competitor_trend
+  - sales_conversion
+  - retention_signal
+  - content_outcome
+
+required_fields:
+  - name: source
+    type: string
+    description: Origin of the signal (e.g., feed URL, API, manual entry)
+
+  - name: timestamp_utc
+    type: string
+    format: ISO 8601
+    description: When the signal was generated (UTC)
+
+  - name: persona_id
+    type: string
+    description: Must match canonical_personas.yaml
+
+  - name: topic_id
+    type: string
+    description: Must match canonical_topics.yaml
+
+  - name: signal_type
+    type: enum
+    values: [web_research, competitor_trend, sales_conversion, retention_signal, content_outcome]
+    description: Classification of signal
+
+  - name: confidence
+    type: float
+    min: 0.0
+    max: 1.0
+    description: Confidence score for this signal
+
+  - name: freshness_ts
+    type: string
+    format: ISO 8601
+    description: Freshness timestamp for validation window checks
+
+  - name: provenance
+    type: object
+    properties:
+      run_id:
+        type: string
+        description: ID of the ingest run that produced this signal
+      feed_url:
+        type: string
+        format: uri-reference
+        description: URL source for web-based signals
+      model:
+        type: string
+        description: Model name used for analysis (e.g., qwen3-14b)
+    required: [run_id]
+
+  - name: payload
+    type: object
+    description: |
+      Flexible object whose structure varies by signal_type.
+      web_research: {title, url, summary, extracted_topics}
+      competitor_trend: {competitor_name, trend_topic, intensity_score, direction}
+      sales_conversion: {deal_id, pipeline_stage, amount_usd, conversion_probability}
+      retention_signal: {customer_segment, churn_risk_score, engagement_days}
+      content_outcome: {content_id, view_count, engagement_rate, publish_timestamp}
+
+canonical_id_validation:
+  reject_unknown: true
+  canonical_personas_path: config/catalog_planning/canonical_personas.yaml
+  canonical_topics_path: config/catalog_planning/canonical_topics.yaml
+
+freshness_windows:
+  research_max_age_days: 30
+  sales_max_age_days: 7
+  content_outcome_max_age_days: 90
+
+per_topic_overrides:
+  description: |
+    Optional per-topic customization for freshness windows.
+    If a topic_id matches an entry below, use its custom max_age_days instead of the global default.
+    Format: topic_id: max_age_days
+  examples:
+    # urgent_news_topic: 1
+    # seasonal_trends_topic: 14
+
+artifact_store:
+  base_path: artifacts/marketing/signals
+  format: jsonl
+  file_pattern: "{signal_type}_{date}.jsonl"
+  description: Signals are persisted as line-delimited JSON by type and date.

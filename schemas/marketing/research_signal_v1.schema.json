@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://phoenix_omega.local/schemas/marketing/research_signal_v1.schema.json",
+  "title": "Research Signal Schema v1",
+  "description": "Unified signal schema for research, sales, content outcomes, and retention signals. Validates all signal types across the marketing platform.",
+  "type": "object",
+  "required": [
+    "source",
+    "timestamp_utc",
+    "persona_id",
+    "topic_id",
+    "signal_type",
+    "confidence",
+    "freshness_ts",
+    "provenance",
+    "payload"
+  ],
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "Origin of the signal (e.g., feed URL, API, manual entry)",
+      "minLength": 1
+    },
+    "timestamp_utc": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the signal was generated (ISO 8601 UTC)"
+    },
+    "persona_id": {
+      "type": "string",
+      "description": "Persona identifier; must match canonical_personas.yaml",
+      "minLength": 1
+    },
+    "topic_id": {
+      "type": "string",
+      "description": "Topic identifier; must match canonical_topics.yaml",
+      "minLength": 1
+    },
+    "signal_type": {
+      "type": "string",
+      "enum": [
+        "web_research",
+        "competitor_trend",
+        "sales_conversion",
+        "retention_signal",
+        "content_outcome"
+      ],
+      "description": "Classification of the signal"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Confidence score for this signal (0.0 to 1.0)"
+    },
+    "freshness_ts": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Freshness timestamp for validation window checks (ISO 8601 UTC)"
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["run_id"],
+      "properties": {
+        "run_id": {
+          "type": "string",
+          "description": "ID of the ingest run that produced this signal",
+          "minLength": 1
+        },
+        "feed_url": {
+          "type": "string",
+          "format": "uri-reference",
+          "description": "URL source for web-based signals"
+        },
+        "model": {
+          "type": "string",
+          "description": "Model name used for analysis (e.g., qwen3-14b)",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "payload": {
+      "type": "object",
+      "description": "Flexible object whose structure varies by signal_type. Allows additional properties based on signal type.",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

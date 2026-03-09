@@ -1,0 +1,15 @@
+version: "1.0"
+per_cycle:
+  max_per_brand: 5
+  max_per_topic: 8
+  max_per_teacher: 6
+explore_ratio: 0.20
+language_floors:
+  en: 0.30
+  zh-CN: 0.15
+  ja-JP: 0.10
+  ko-KR: 0.10
+diversity:
+  min_unique_personas: 5
+  min_unique_topics: 8
+  min_unique_teachers: 4

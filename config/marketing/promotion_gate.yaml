@@ -1,0 +1,73 @@
+schema_version: "1.0"
+
+description: |
+  Numeric guardrails and binary pass/fail thresholds for promotion decisions.
+  Sole apply path — promotion_gate.py reads these thresholds.
+  All thresholds must pass before a proposal can be promoted to production.
+
+thresholds:
+  min_confidence: 0.70
+  description_min_confidence: |
+    Proposal must have confidence >= this threshold.
+    Rejects low-confidence signals before promotion.
+
+  max_regression_delta: 0.02
+  description_max_regression_delta: |
+    EI V2 calibration must not drop more than 2% (0.02).
+    Prevents promoting changes that degrade model calibration.
+
+  min_calibration_improvement: 0.005
+  description_min_calibration_improvement: |
+    Must improve calibration by at least 0.5% (0.005) or hold flat.
+    Ensures no net harm to model accuracy.
+
+  max_safety_incidents: 0
+  description_max_safety_incidents: |
+    Zero tolerance for safety regressions.
+    Any safety incident blocks promotion.
+
+  min_sample_size: 10
+  description_min_sample_size: |
+    Need at least 10 observations before promoting.
+    Statistical significance gate.
+
+shadow_mode:
+  enabled: true
+  description: |
+    Enable shadow mode to log promotion decisions without applying them.
+    Useful for tuning thresholds and validating gate logic.
+  log_path: "artifacts/marketing/shadow_decisions.jsonl"
+
+rollback:
+  enabled: true
+  description: |
+    Enable automatic rollback capability.
+    Stores rollback tokens and tracks max age.
+  rollback_token_path: "artifacts/marketing/rollback_tokens/"
+  max_rollback_age_days: 30
+
+diff_report:
+  required: true
+  description: |
+    Generate detailed diff reports for all promotion proposals.
+    Required before any changes can be applied.
+  output_path: "artifacts/marketing/diff_reports/"
+
+apply_allowlist:
+  description: |
+    Paths that promotion_gate.py is allowed to auto-modify.
+    Any modification outside these paths is rejected.
+  paths:
+    - "config/marketing/"
+    - "prompts/marketing/"
+    - "pearl_news/prompts/"
+
+apply_blocklist:
+  description: |
+    Paths that can NEVER be auto-modified, even if in allowlist.
+    Critical system paths for safety and integrity.
+  paths:
+    - "config/quality/"
+    - "schemas/"
+    - "scripts/"
+    - ".github/"

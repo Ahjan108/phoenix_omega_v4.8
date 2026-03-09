@@ -1,0 +1,40 @@
+name: EI V2 Learning
+
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ei-v2-learning
+  cancel-in-progress: false
+
+jobs:
+  ei-v2-learning:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install -r requirements-test.txt --break-system-packages || pip install -r requirements-test.txt
+
+      - name: Run EI V2 catalog calibration + learn
+        run: python scripts/ci/run_ei_v2_catalog_calibration.py --learn
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ei-v2-learning-${{ github.run_id }}
+          path: |
+            artifacts/ei_v2/learned_params.json
+            artifacts/ei_v2/learner_feedback.jsonl
+            artifacts/ei_v2/catalog_calibration.json

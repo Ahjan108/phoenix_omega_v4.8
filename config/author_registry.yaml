@@ -1,51 +1,469 @@
 # Author registry — pen-name content identities (distinct from teacher_id).
-# Authority: PLANNING_STATUS.md, deli/ author assets; Writer Spec §24 (Author Positioning Profile).
-# Pipeline uses this to resolve author-bound books separately from teacher-bound books. No collision with brand_teacher_assignments.
-# When run_pipeline receives --author (or author is inferred from brand/persona/topic), resolver looks up here for author_id → brand, persona_ids, topic_ids.
+# Authority: PLANNING_STATUS.md, docs/AUTHOR_EXPANSION_SPEC.md; Writer Spec §24 (Author Positioning Profile).
+# 1 male + 1 female author per brand; 24 brands = 48 authors.
 # positioning_profile: mandatory per author; must exist in config/authoring/author_positioning_profiles.yaml.
+# gender: required (male | female) for 1M+1F per brand.
+# assets_path: canonical path is assets/authors/{author_id}/
 
 authors:
-  luna_hart:
-    pen_name: "Luna Hart"
-    brand_id: phoenix_somatic
-    persona_ids: [gen_z_professional]
-    topic_ids: [burnout]
+  # ─── BRAND 01: stabilizer | burned_out_professional ──────────────────────
+  claire_mosswood:
+    pen_name: "Claire Mosswood"
+    gender: female
+    brand_id: stabilizer
+    persona_ids: [millennial_women_professionals, working_parents, gen_x_sandwich]
+    topic_ids: [burnout, overwhelm, false_alarm]
     positioning_profile: somatic_companion
-    assets_path: deli/mnt/user-data/outputs/luna_hart
+    assets_path: assets/authors/claire_mosswood
 
-  kai_nakamura:
-    pen_name: "Kai Nakamura"
-    brand_id: phoenix_focus
-    persona_ids: [gen_z_professional]
-    topic_ids: [burnout]
+  james_ellery:
+    pen_name: "James Ellery"
+    gender: male
+    brand_id: stabilizer
+    persona_ids: [tech_finance_burnout, corporate_managers, gen_x_sandwich]
+    topic_ids: [burnout, overwhelm, spiral]
     positioning_profile: research_guide
-    assets_path: deli/kai_nakamura_all_assets.yaml
+    assets_path: assets/authors/james_ellery
 
-  marcus_cole:
-    pen_name: "Marcus Cole"
-    brand_id: phoenix_executive
-    persona_ids: [nyc_executive]
-    topic_ids: [social_anxiety]
+  # ─── BRAND 02: optimizer | high_efficiency_achiever ──────────────────────
+  nina_park:
+    pen_name: "Nina Park"
+    gender: female
+    brand_id: optimizer
+    persona_ids: [tech_finance_burnout, entrepreneurs, gen_z_professionals]
+    topic_ids: [burnout, comparison, watcher]
     positioning_profile: research_guide
-    assets_path: deli
+    assets_path: assets/authors/nina_park
 
-  diane_reyes:
-    pen_name: "Diane Reyes"
-    brand_id: phoenix_healthcare
-    persona_ids: [healthcare_rn]
-    topic_ids: [overthinking]
+  derek_strand:
+    pen_name: "Derek Strand"
+    gender: male
+    brand_id: optimizer
+    persona_ids: [tech_finance_burnout, entrepreneurs, corporate_managers]
+    topic_ids: [burnout, overwhelm, spiral]
+    positioning_profile: research_guide
+    assets_path: assets/authors/derek_strand
+
+  # ─── BRAND 03: night_reset | insomniac_creative ───────────────────────────
+  sable_winters:
+    pen_name: "Sable Winters"
+    gender: female
+    brand_id: night_reset
+    persona_ids: [millennial_women_professionals, gen_z_professionals, entrepreneurs]
+    topic_ids: [false_alarm, spiral, overwhelm]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/sable_winters
+
+  thomas_grey:
+    pen_name: "Thomas Grey"
+    gender: male
+    brand_id: night_reset
+    persona_ids: [tech_finance_burnout, gen_z_professionals, entrepreneurs]
+    topic_ids: [false_alarm, spiral, grief]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/thomas_grey
+
+  # ─── BRAND 04: career_lift | mid_career_stalled ──────────────────────────
+  diana_holloway:
+    pen_name: "Diana Holloway"
+    gender: female
+    brand_id: career_lift
+    persona_ids: [gen_x_sandwich, corporate_managers, working_parents]
+    topic_ids: [shame, comparison, watcher]
+    positioning_profile: research_guide
+    assets_path: assets/authors/diana_holloway
+
+  marcus_finch:
+    pen_name: "Marcus Finch"
+    gender: male
+    brand_id: career_lift
+    persona_ids: [gen_x_sandwich, corporate_managers, entrepreneurs]
+    topic_ids: [shame, spiral, comparison]
     positioning_profile: elder_stabilizer
-    assets_path: deli/mnt/user-data/outputs/diane_reyes
+    assets_path: assets/authors/marcus_finch
+
+  # ─── BRAND 05: adhd_forge | neurodivergent_young_adult ───────────────────
+  zoe_adler:
+    pen_name: "Zoe Adler"
+    gender: female
+    brand_id: adhd_forge
+    persona_ids: [gen_z_professionals, gen_alpha_students, millennial_women_professionals]
+    topic_ids: [shame, overwhelm, false_alarm]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/zoe_adler
+
+  ryan_calloway:
+    pen_name: "Ryan Calloway"
+    gender: male
+    brand_id: adhd_forge
+    persona_ids: [gen_z_professionals, gen_alpha_students, tech_finance_burnout]
+    topic_ids: [shame, spiral, overwhelm]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/ryan_calloway
+
+  # ─── BRAND 06: longevity_lab | longevity_seeker ──────────────────────────
+  helen_cross:
+    pen_name: "Helen Cross"
+    gender: female
+    brand_id: longevity_lab
+    persona_ids: [gen_x_sandwich, millennial_women_professionals, working_parents]
+    topic_ids: [burnout, false_alarm, watcher]
+    positioning_profile: research_guide
+    assets_path: assets/authors/dr_helen_cross
+
+  paul_okafor:
+    pen_name: "Paul Okafor"
+    gender: male
+    brand_id: longevity_lab
+    persona_ids: [gen_x_sandwich, corporate_managers, tech_finance_burnout]
+    topic_ids: [burnout, overwhelm, comparison]
+    positioning_profile: research_guide
+    assets_path: assets/authors/paul_okafor
+
+  # ─── BRAND 07: creative_unfold | artistic_student ────────────────────────
+  mara_wells:
+    pen_name: "Mara Wells"
+    gender: female
+    brand_id: creative_unfold
+    persona_ids: [gen_alpha_students, gen_z_professionals, millennial_women_professionals]
+    topic_ids: [shame, comparison, watcher]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/mara_wells
+
+  eli_stone:
+    pen_name: "Eli Stone"
+    gender: male
+    brand_id: creative_unfold
+    persona_ids: [gen_alpha_students, gen_z_professionals, entrepreneurs]
+    topic_ids: [shame, comparison, grief]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/eli_stone
+
+  # ─── BRAND 08: resilient_parent | overwhelmed_parent ─────────────────────
+  kate_morley:
+    pen_name: "Kate Morley"
+    gender: female
+    brand_id: resilient_parent
+    persona_ids: [working_parents, gen_x_sandwich, millennial_women_professionals]
+    topic_ids: [overwhelm, burnout, false_alarm]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/kate_morley
+
+  david_quinn:
+    pen_name: "David Quinn"
+    gender: male
+    brand_id: resilient_parent
+    persona_ids: [working_parents, gen_x_sandwich, corporate_managers]
+    topic_ids: [overwhelm, burnout, grief]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/david_quinn
+
+  # ─── BRAND 09: executive_calm | corporate_leader ─────────────────────────
+  sarah_vance:
+    pen_name: "Sarah Vance"
+    gender: female
+    brand_id: executive_calm
+    persona_ids: [corporate_managers, gen_x_sandwich, tech_finance_burnout]
+    topic_ids: [false_alarm, overwhelm, shame]
+    positioning_profile: elder_stabilizer
+    assets_path: assets/authors/sarah_vance
+
+  richard_cole:
+    pen_name: "Richard Cole"
+    gender: male
+    brand_id: executive_calm
+    persona_ids: [corporate_managers, gen_x_sandwich, tech_finance_burnout]
+    topic_ids: [false_alarm, overwhelm, watcher]
+    positioning_profile: elder_stabilizer
+    assets_path: assets/authors/richard_cole
+
+  # ─── BRAND 10: trauma_path | trauma_recovery_adult ───────────────────────
+  nadia_sinclair:
+    pen_name: "Nadia Sinclair"
+    gender: female
+    brand_id: trauma_path
+    persona_ids: [millennial_women_professionals, gen_x_sandwich, healthcare_rns]
+    topic_ids: [false_alarm, overwhelm, grief]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/nadia_sinclair
+
+  ben_okafor:
+    pen_name: "Ben Okafor"
+    gender: male
+    brand_id: trauma_path
+    persona_ids: [first_responders, gen_x_sandwich, working_parents]
+    topic_ids: [false_alarm, shame, grief]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/ben_okafor
+
+  # ─── BRAND 11: spiritual_ground | spiritually_curious_professional ────────
+  priya_das:
+    pen_name: "Priya Das"
+    gender: female
+    brand_id: spiritual_ground
+    persona_ids: [millennial_women_professionals, gen_x_sandwich, entrepreneurs]
+    topic_ids: [watcher, overwhelm, grief]
+    positioning_profile: elder_stabilizer
+    assets_path: assets/authors/priya_das
+
+  abel_morgan:
+    pen_name: "Abel Morgan"
+    gender: male
+    brand_id: spiritual_ground
+    persona_ids: [tech_finance_burnout, gen_x_sandwich, corporate_managers]
+    topic_ids: [watcher, comparison, spiral]
+    positioning_profile: elder_stabilizer
+    assets_path: assets/authors/abel_morgan
+
+  # ─── BRAND 12: focus_sprint | startup_founder ────────────────────────────
+  alex_hunter:
+    pen_name: "Alex Hunter"
+    gender: female
+    brand_id: focus_sprint
+    persona_ids: [entrepreneurs, tech_finance_burnout, gen_z_professionals]
+    topic_ids: [burnout, overwhelm, spiral]
+    positioning_profile: research_guide
+    assets_path: assets/authors/alex_hunter
+
+  cole_march:
+    pen_name: "Cole March"
+    gender: male
+    brand_id: focus_sprint
+    persona_ids: [entrepreneurs, tech_finance_burnout, gen_z_professionals]
+    topic_ids: [burnout, overwhelm, false_alarm]
+    positioning_profile: research_guide
+    assets_path: assets/authors/cole_march
+
+  # ─── BRAND 13: hormone_reset | women_35_plus ─────────────────────────────
+  laura_banks:
+    pen_name: "Laura Banks"
+    gender: female
+    brand_id: hormone_reset
+    persona_ids: [millennial_women_professionals, gen_x_sandwich, working_parents]
+    topic_ids: [overwhelm, false_alarm, burnout]
+    positioning_profile: research_guide
+    assets_path: assets/authors/laura_banks
+
+  james_wu:
+    pen_name: "James Wu"
+    gender: male
+    brand_id: hormone_reset
+    persona_ids: [millennial_women_professionals, gen_x_sandwich, working_parents]
+    topic_ids: [overwhelm, burnout, watcher]
+    positioning_profile: research_guide
+    assets_path: assets/authors/dr_james_wu
+
+  # ─── BRAND 14: stoic_edge | young_male_growth ────────────────────────────
+  victoria_nash:
+    pen_name: "Victoria Nash"
+    gender: female
+    brand_id: stoic_edge
+    persona_ids: [gen_z_professionals, gen_alpha_students, tech_finance_burnout]
+    topic_ids: [shame, comparison, overwhelm]
+    positioning_profile: elder_stabilizer
+    assets_path: assets/authors/victoria_nash
+
+  aaron_cross:
+    pen_name: "Aaron Cross"
+    gender: male
+    brand_id: stoic_edge
+    persona_ids: [gen_z_professionals, gen_alpha_students, first_responders]
+    topic_ids: [shame, comparison, watcher]
+    positioning_profile: elder_stabilizer
+    assets_path: assets/authors/aaron_cross
+
+  # ─── BRAND 15: calm_student | gen_z_student ──────────────────────────────
+  maya_chen:
+    pen_name: "Maya Chen"
+    gender: female
+    brand_id: calm_student
+    persona_ids: [gen_alpha_students, gen_z_professionals]
+    topic_ids: [false_alarm, overwhelm, spiral]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/maya_chen
+
+  finn_davidson:
+    pen_name: "Finn Davidson"
+    gender: male
+    brand_id: calm_student
+    persona_ids: [gen_alpha_students, gen_z_professionals]
+    topic_ids: [false_alarm, overwhelm, shame]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/finn_davidson
+
+  # ─── BRAND 16: healing_ground | chronic_stress_worker ────────────────────
+  anna_reed:
+    pen_name: "Anna Reed"
+    gender: female
+    brand_id: healing_ground
+    persona_ids: [healthcare_rns, corporate_managers, first_responders]
+    topic_ids: [burnout, overwhelm, false_alarm]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/anna_reed
+
+  tom_ashford:
+    pen_name: "Tom Ashford"
+    gender: male
+    brand_id: healing_ground
+    persona_ids: [healthcare_rns, corporate_managers, first_responders]
+    topic_ids: [burnout, overwhelm, spiral]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/tom_ashford
+
+  # ─── BRAND 17: bio_flow | biohacker ──────────────────────────────────────
+  jen_nova:
+    pen_name: "Jen Nova"
+    gender: female
+    brand_id: bio_flow
+    persona_ids: [tech_finance_burnout, entrepreneurs, gen_z_professionals]
+    topic_ids: [burnout, overwhelm, watcher]
+    positioning_profile: research_guide
+    assets_path: assets/authors/jen_nova
+
+  kai_burns:
+    pen_name: "Kai Burns"
+    gender: male
+    brand_id: bio_flow
+    persona_ids: [tech_finance_burnout, entrepreneurs, corporate_managers]
+    topic_ids: [burnout, false_alarm, comparison]
+    positioning_profile: research_guide
+    assets_path: assets/authors/kai_burns
+
+  # ─── BRAND 18: confidence_core | socially_anxious_adult ──────────────────
+  olivia_grant:
+    pen_name: "Olivia Grant"
+    gender: female
+    brand_id: confidence_core
+    persona_ids: [gen_z_professionals, millennial_women_professionals, gen_alpha_students]
+    topic_ids: [false_alarm, shame, comparison]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/olivia_grant
+
+  sam_fletcher:
+    pen_name: "Sam Fletcher"
+    gender: male
+    brand_id: confidence_core
+    persona_ids: [gen_z_professionals, tech_finance_burnout, gen_alpha_students]
+    topic_ids: [false_alarm, shame, watcher]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/sam_fletcher
+
+  # ─── BRAND 19: relationship_clarity | couples_repair ─────────────────────
+  caroline_west:
+    pen_name: "Caroline West"
+    gender: female
+    brand_id: relationship_clarity
+    persona_ids: [working_parents, gen_x_sandwich, millennial_women_professionals]
+    topic_ids: [spiral, grief, false_alarm]
+    positioning_profile: elder_stabilizer
+    assets_path: assets/authors/caroline_west
+
+  jerome_hayes:
+    pen_name: "Jerome Hayes"
+    gender: male
+    brand_id: relationship_clarity
+    persona_ids: [working_parents, gen_x_sandwich, corporate_managers]
+    topic_ids: [spiral, grief, shame]
+    positioning_profile: elder_stabilizer
+    assets_path: assets/authors/jerome_hayes
+
+  # ─── BRAND 20: morning_momentum | early_riser_professional ───────────────
+  isabel_dawn:
+    pen_name: "Isabel Dawn"
+    gender: female
+    brand_id: morning_momentum
+    persona_ids: [millennial_women_professionals, entrepreneurs, gen_z_professionals]
+    topic_ids: [burnout, overwhelm, false_alarm]
+    positioning_profile: research_guide
+    assets_path: assets/authors/isabel_dawn
+
+  chris_ford:
+    pen_name: "Chris Ford"
+    gender: male
+    brand_id: morning_momentum
+    persona_ids: [tech_finance_burnout, corporate_managers, entrepreneurs]
+    topic_ids: [burnout, overwhelm, spiral]
+    positioning_profile: research_guide
+    assets_path: assets/authors/chris_ford
+
+  # ─── BRAND 21: minimal_mind | digital_overwhelm_adult ────────────────────
+  grace_bell:
+    pen_name: "Grace Bell"
+    gender: female
+    brand_id: minimal_mind
+    persona_ids: [millennial_women_professionals, gen_z_professionals, working_parents]
+    topic_ids: [overwhelm, spiral, watcher]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/grace_bell
+
+  peter_lowe:
+    pen_name: "Peter Lowe"
+    gender: male
+    brand_id: minimal_mind
+    persona_ids: [tech_finance_burnout, gen_x_sandwich, corporate_managers]
+    topic_ids: [overwhelm, spiral, false_alarm]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/peter_lowe
+
+  # ─── BRAND 22: high_performer | competitive_sales ────────────────────────
+  tara_stone:
+    pen_name: "Tara Stone"
+    gender: female
+    brand_id: high_performer
+    persona_ids: [tech_finance_burnout, corporate_managers, entrepreneurs]
+    topic_ids: [false_alarm, comparison, shame]
+    positioning_profile: elder_stabilizer
+    assets_path: assets/authors/tara_stone
+
+  joe_harmon:
+    pen_name: "Joe Harmon"
+    gender: male
+    brand_id: high_performer
+    persona_ids: [tech_finance_burnout, corporate_managers, entrepreneurs]
+    topic_ids: [false_alarm, comparison, overwhelm]
+    positioning_profile: elder_stabilizer
+    assets_path: assets/authors/joe_harmon
+
+  # ─── BRAND 23: gentle_growth | therapy_newcomer ──────────────────────────
+  ellie_marsh:
+    pen_name: "Ellie Marsh"
+    gender: female
+    brand_id: gentle_growth
+    persona_ids: [gen_z_professionals, millennial_women_professionals, gen_alpha_students]
+    topic_ids: [shame, watcher, grief]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/ellie_marsh
+
+  ben_taylor:
+    pen_name: "Ben Taylor"
+    gender: male
+    brand_id: gentle_growth
+    persona_ids: [gen_z_professionals, gen_alpha_students, tech_finance_burnout]
+    topic_ids: [shame, watcher, comparison]
+    positioning_profile: somatic_companion
+    assets_path: assets/authors/ben_taylor
+
+  # ─── BRAND 24: legacy_builder | 45_plus_reinventor ───────────────────────
+  margaret_cross:
+    pen_name: "Margaret Cross"
+    gender: female
+    brand_id: legacy_builder
+    persona_ids: [gen_x_sandwich, corporate_managers, working_parents]
+    topic_ids: [grief, comparison, watcher]
+    positioning_profile: elder_stabilizer
+    assets_path: assets/authors/margaret_cross
+
+  william_ash:
+    pen_name: "William Ash"
+    gender: male
+    brand_id: legacy_builder
+    persona_ids: [gen_x_sandwich, corporate_managers, entrepreneurs]
+    topic_ids: [grief, comparison, spiral]
+    positioning_profile: elder_stabilizer
+    assets_path: assets/authors/william_ash
 
 # Resolution rule (Option B): Author registry is for pre-intro/asset resolution only.
 # Atoms remain persona/topic keyed. No author_id on atoms; no author-scoped atom pool.
 # When --author is set: use this registry only to resolve bio, why_this_book, authority_position,
-# audiobook_pre_intro (and author-level metadata). Atom selection is unchanged: persona_id + topic_id
-# (and teacher when set). Authors sharing the same persona/topic (e.g. luna_hart and kai_nakamura
-# on gen_z_professional × burnout) share the same story pool; voice separation is intro/outro and
-# author assets only. brand_teacher_assignments stays for teacher resolution; this file is author-only.
-#
-# Pipeline use (when implemented):
-# - If caller passes --author <author_id>, validate against this registry and set brand_id, persona_ids, topic_ids from here.
-# - Resolve author assets (bio, why_this_book, audiobook_pre_intro, authority_position) from assets/authors/<author_id>/ or deli/ paths.
-# - Do not filter or key atom pools by author_id; use existing persona/topic pools only.
+# audiobook_pre_intro (and author-level metadata). Atom selection is unchanged: persona_id + topic_id.
+# Pipeline use: validate against this registry; resolve author assets from assets/authors/{author_id}/.

@@ -1,0 +1,46 @@
+schema_version: "1.0"
+
+description: |
+  Budget and rate caps for all signal ingestion pipelines.
+  Enforces hard limits on API calls, feeds, records, and LLM usage.
+  Global emergency_stop switch halts all ingestion.
+
+web_research:
+  description: |
+    Limits for web research feed ingestion.
+    Prevents API exhaustion and feed explosion.
+  max_feeds_per_hour: 50
+  max_signals_per_feed: 20
+  max_total_signals_per_hour: 500
+  max_api_calls_per_hour: 100
+  timeout_seconds: 30
+
+sales_signals:
+  description: |
+    Limits for sales conversion and pipeline signals.
+    Ingests from CRM and sales systems; stale after threshold.
+  max_records_per_ingest: 10000
+  max_ingests_per_day: 24
+  stale_after_days: 7
+
+content_outcomes:
+  description: |
+    Limits for content performance signals.
+    From analytics backends; lower ingest frequency.
+  max_records_per_ingest: 5000
+  max_ingests_per_day: 4
+
+llm_calls:
+  description: |
+    Limits for LLM-based analysis and signal generation.
+    Used for summarization, topic extraction, confidence scoring.
+  max_per_hour: 200
+  max_tokens_per_call: 1500
+  model: "qwen3-14b"
+
+global:
+  description: |
+    Platform-wide emergency controls and logging.
+    Set emergency_stop to true to halt all ingestion immediately.
+  emergency_stop: false
+  log_path: "artifacts/marketing/ingest_log.jsonl"
