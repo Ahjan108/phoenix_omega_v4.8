@@ -27,6 +27,9 @@ final class ScriptRunner: ObservableObject {
         "scripts/ci/check_system_governance_status.py",
         "scripts/book_script_content_validation.py",
         "scripts/systems_test/run_systems_test.py",
+        "scripts/ml_loop/run_continuous_loop.py",
+        "scripts/ml_loop/run_daily_promotion.py",
+        "scripts/ml_loop/run_weekly_market_recalibration.py",
         "pearl_news/pipeline/run_article_pipeline.py",
     ]
 

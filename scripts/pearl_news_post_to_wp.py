@@ -2,8 +2,11 @@
 """
 Post a Pearl News article to WordPress (BlogSite) via REST API.
 
-Requires env vars: WORDPRESS_SITE_URL, WORDPRESS_USERNAME, WORDPRESS_APP_PASSWORD.
-Do not commit the app password. Generate it in WP Admin > Users > Your Profile > Application Passwords.
+Credentials:
+- Preferred: env vars WORDPRESS_SITE_URL, WORDPRESS_USERNAME, WORDPRESS_APP_PASSWORD
+- Local fallback: WORDPRESS_CREDENTIALS_FILE or repo-root wordpress_credentials.rtf
+
+Do not commit app passwords. Generate them in WP Admin > Users > Your Profile > Application Passwords.
 
 Usage:
   # From article JSON (e.g. pipeline draft output)

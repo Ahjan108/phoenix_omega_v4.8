@@ -2,9 +2,9 @@
 
 Articles can be posted to the Pearl News WordPress site (BlogSite theme) via the **WordPress REST API** using Basic Auth with an Application Password.
 
-## Credentials (environment variables only)
+## Credentials (env first, local file fallback)
 
-Set these in your environment or in a local `.env` file (do **not** commit `.env` or the app password):
+Preferred: set these in your environment (or local `.env`, never committed):
 
 | Variable | Description |
 |----------|-------------|
@@ -12,7 +12,16 @@ Set these in your environment or in a local `.env` file (do **not** commit `.env
 | `WORDPRESS_USERNAME` | WordPress username for the application (e.g. `admin` for pearlnewsuna.org). |
 | `WORDPRESS_APP_PASSWORD` | Application password from **WP Admin → Users → Your Profile → Application Passwords**. For this repo, the GitHub app password is in **docs/wordpress_github_info.rtf** (last row). Spaces are stripped automatically. |
 
-**Security:** Never commit the app password. The repo already ignores `.env` and `.env.local`. See [docs/pearl_news_wordpress_env.example](../docs/pearl_news_wordpress_env.example) for placeholder variable names.
+Local fallback for dev machines:
+- `WORDPRESS_CREDENTIALS_FILE=/absolute/path/to/wordpress_credentials.rtf`, or
+- repo-root `wordpress_credentials.rtf` (auto-detected if env vars are missing).
+
+Expected entries in that file:
+- `WORDPRESS_SITE_URL=...`
+- `WORDPRESS_USERNAME=...`
+- `WORDPRESS_APP_PASSWORD=...`
+
+**Security:** Never commit the app password. Keep `wordpress_credentials.rtf` local-only.
 
 ## Posting a story
 

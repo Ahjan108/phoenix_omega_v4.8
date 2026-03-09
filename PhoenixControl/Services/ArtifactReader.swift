@@ -72,6 +72,81 @@ final class ArtifactReader {
         return FreebiesIndexInfo(path: pathStr, rowCount: count, lastModified: mtime, exists: true)
     }
 
+    // MARK: - Pearl News Board
+    struct PearlNewsBoardInfo {
+        let checklistPath: String
+        let checklistExists: Bool
+        let evidencePath: String
+        let evidenceExists: Bool
+        let draftsDirExists: Bool
+    }
+    func loadPearlNewsBoardInfo(repoPath: String) -> PearlNewsBoardInfo {
+        let base = repoURL(repoPath: repoPath)
+        let checklist = base.appendingPathComponent("docs/PEARL_NEWS_GO_NO_GO_CHECKLIST.md")
+        let evidence = base.appendingPathComponent("artifacts/pearl_news/evaluation/networked_run_evidence.json")
+        let drafts = base.appendingPathComponent("artifacts/pearl_news/drafts")
+        return PearlNewsBoardInfo(
+            checklistPath: "docs/PEARL_NEWS_GO_NO_GO_CHECKLIST.md",
+            checklistExists: fileManager.fileExists(atPath: checklist.path),
+            evidencePath: "artifacts/pearl_news/evaluation/networked_run_evidence.json",
+            evidenceExists: fileManager.fileExists(atPath: evidence.path),
+            draftsDirExists: fileManager.fileExists(atPath: drafts.path)
+        )
+    }
+
+    // MARK: - Autonomous loop (operations board, promotion queue, weekly report)
+    struct OperationsBoardRow: Codable {
+        let timestamp: String?
+        let signal_id: String?
+        let status: String?
+        let suggested_fix: String?
+        let pr_url: String?
+        let merged: Bool?
+        let impact: String?
+    }
+    func loadOperationsBoard(repoPath: String, limit: Int = 100) -> [OperationsBoardRow] {
+        let path = repoURL(repoPath: repoPath).appendingPathComponent("artifacts/observability/operations_board.jsonl")
+        return loadGenericJSONL(path: path, limit: limit)
+    }
+
+    struct PromotionQueueRow: Codable {
+        let ts: String?
+        let book_id: String?
+        let source: String?
+        let decision: String?
+        let confidence: Double?
+    }
+    func loadPromotionQueue(repoPath: String, limit: Int = 50) -> [PromotionQueueRow] {
+        let path = repoURL(repoPath: repoPath).appendingPathComponent("artifacts/ml_loop/promotion_queue.jsonl")
+        return loadGenericJSONL(path: path, limit: limit)
+    }
+
+    func loadWeeklyReport(repoPath: String) -> [String: Any]? {
+        let path = repoURL(repoPath: repoPath).appendingPathComponent("artifacts/ml_loop/weekly_report.json")
+        guard let data = try? Data(contentsOf: path) else { return nil }
+        return try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+    }
+
+    /// Last run time for a script/artifact path (mtime of file or dir).
+    func lastRunTime(repoPath: String, relativePath: String) -> Date? {
+        let url = repoURL(repoPath: repoPath).appendingPathComponent(relativePath)
+        guard let attrs = try? fileManager.attributesOfItem(atPath: url.path) else { return nil }
+        return attrs[.modificationDate] as? Date
+    }
+
+    private func loadGenericJSONL<T: Decodable>(path: URL, limit: Int) -> [T] {
+        guard let content = try? String(contentsOf: path, encoding: .utf8) else { return [] }
+        let lines = content.split(separator: "\n", omittingEmptySubsequences: true)
+        let decoder = JSONDecoder()
+        var rows: [T] = []
+        for line in lines.suffix(limit) {
+            guard let data = String(line).data(using: .utf8),
+                  let row = try? decoder.decode(T.self, from: data) else { continue }
+            rows.append(row)
+        }
+        return rows
+    }
+
     private func loadJSONL(path: URL, limit: Int) -> [EvidenceLogRow] {
         guard let content = try? String(contentsOf: path, encoding: .utf8) else { return [] }
         let lines = content.split(separator: "\n", omittingEmptySubsequences: true)

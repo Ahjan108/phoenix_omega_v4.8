@@ -287,7 +287,7 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 |------|----------|
 | **Run article pipeline** | [pearl_news/pipeline/run_article_pipeline.py](../pearl_news/pipeline/run_article_pipeline.py) — `python -m pearl_news.pipeline.run_article_pipeline --feeds pearl_news/config/feeds.yaml --out-dir artifacts/pearl_news/drafts`; `--limit`, `--per-feed-limit`, `--no-filter-qc`, `--expand` (LLM expansion per Writer spec) |
 | **Networked run + evidence** | [scripts/pearl_news_networked_run_and_evidence.sh](../scripts/pearl_news_networked_run_and_evidence.sh) — Live feed run; writes `artifacts/pearl_news/evaluation/networked_run_evidence.json` |
-| **Post to WordPress** | [scripts/pearl_news_post_to_wp.py](../scripts/pearl_news_post_to_wp.py) — `--article <path>`, `--status draft|publish`, `--dry-run` |
+| **Post to WordPress** | [scripts/pearl_news_post_to_wp.py](../scripts/pearl_news_post_to_wp.py) — `--article <path>`, `--status draft|publish`, `--dry-run`; credentials from env or local `wordpress_credentials.rtf` / `WORDPRESS_CREDENTIALS_FILE` |
 | **Do-it script** | [scripts/pearl_news_do_it.sh](../scripts/pearl_news_do_it.sh) — Convenience runner; optional `--post` |
 
 ### Pipeline modules
@@ -301,7 +301,7 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 | **LLM expansion** | [pearl_news/pipeline/llm_expand.py](../pearl_news/pipeline/llm_expand.py) — Optional expansion step: loads expansion_system.txt + llm_expansion.yaml; OpenAI-compatible API (Qwen/LM Studio); env override QWEN_BASE_URL, QWEN_API_KEY, QWEN_MODEL; used when `--expand` passed |
 | **Quality gates** | [pearl_news/pipeline/quality_gates.py](../pearl_news/pipeline/quality_gates.py) — 5 fail-hard gates: fact_check, youth_specificity, sdg_accuracy, promotional, un_endorsement |
 | **QC checklist** | [pearl_news/pipeline/qc_checklist.py](../pearl_news/pipeline/qc_checklist.py) — Runs gates; optionally filter to passed-only |
-| **WordPress client** | [pearl_news/publish/wordpress_client.py](../pearl_news/publish/wordpress_client.py) — REST API client; env-based credentials; optional author (alternate); no per-article disclaimer |
+| **WordPress client** | [pearl_news/publish/wordpress_client.py](../pearl_news/publish/wordpress_client.py) — REST API client; env-first credentials with local `wordpress_credentials.rtf` fallback; optional author (alternate); no per-article disclaimer |
 
 ### Config
 

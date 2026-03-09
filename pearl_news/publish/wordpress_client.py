@@ -12,6 +12,8 @@ from __future__ import annotations
 
 import base64
 import os
+import re
+import subprocess
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
@@ -25,6 +27,51 @@ except ImportError:
 class WordPressPublishError(Exception):
     """Raised when WordPress API request fails."""
     pass
+
+
+def _extract_credential_value(raw_text: str, key: str) -> str:
+    """
+    Extract KEY=value from plain text or RTF-like text.
+    """
+    # Match until line break, \par, RTF control boundary, or brace.
+    pattern = rf"{re.escape(key)}\s*=\s*([^\r\n\\{{}}]+)"
+    m = re.search(pattern, raw_text, flags=re.IGNORECASE)
+    if not m:
+        return ""
+    return m.group(1).strip().strip('"').strip("'")
+
+
+def _load_credentials_from_file() -> tuple[str, str, str]:
+    """
+    Optional local fallback for developer machines:
+      - WORDPRESS_CREDENTIALS_FILE env var (preferred)
+      - ./wordpress_credentials.rtf in repo root
+    """
+    repo_root = Path(__file__).resolve().parents[2]
+    configured = os.environ.get("WORDPRESS_CREDENTIALS_FILE", "").strip()
+    candidates = [Path(configured)] if configured else [repo_root / "wordpress_credentials.rtf"]
+
+    for path in candidates:
+        if not path or not path.exists():
+            continue
+        raw = ""
+        if path.suffix.lower() == ".rtf":
+            try:
+                raw = subprocess.check_output(
+                    ["textutil", "-convert", "txt", "-stdout", str(path)],
+                    text=True,
+                    stderr=subprocess.DEVNULL,
+                )
+            except Exception:
+                raw = path.read_text(encoding="utf-8", errors="ignore")
+        else:
+            raw = path.read_text(encoding="utf-8", errors="ignore")
+        site_url = _extract_credential_value(raw, "WORDPRESS_SITE_URL")
+        username = _extract_credential_value(raw, "WORDPRESS_USERNAME")
+        app_password = _extract_credential_value(raw, "WORDPRESS_APP_PASSWORD").replace(" ", "")
+        if site_url and username and app_password:
+            return site_url, username, app_password
+    return "", "", ""
 
 
 def _normalize_site_url(raw: str) -> str:
@@ -53,12 +100,21 @@ def _normalize_site_url(raw: str) -> str:
 
 def _get_credentials() -> tuple[str, str, str]:
     site_url = _normalize_site_url(os.environ.get("WORDPRESS_SITE_URL", ""))
-    username = os.environ.get("WORDPRESS_USERNAME", "")
+    username = os.environ.get("WORDPRESS_USERNAME", "").strip()
     app_password = os.environ.get("WORDPRESS_APP_PASSWORD", "").replace(" ", "").strip()
+
+    # Local dev fallback: credentials file (never commit secrets).
+    if not (site_url and username and app_password):
+        file_site, file_user, file_password = _load_credentials_from_file()
+        site_url = site_url or _normalize_site_url(file_site)
+        username = username or file_user
+        app_password = app_password or file_password
+
     if not site_url or not username or not app_password:
         raise WordPressPublishError(
-            "Set WORDPRESS_SITE_URL, WORDPRESS_USERNAME, and WORDPRESS_APP_PASSWORD in the environment. "
-            "Do not commit the app password to the repo."
+            "Set WORDPRESS_SITE_URL, WORDPRESS_USERNAME, and WORDPRESS_APP_PASSWORD in the environment, "
+            "or provide local WORDPRESS_CREDENTIALS_FILE / wordpress_credentials.rtf. "
+            "Do not commit secrets to the repo."
         )
     return site_url, username, app_password
 

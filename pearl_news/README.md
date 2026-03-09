@@ -45,9 +45,14 @@ scripts/pearl_news_do_it.sh --post
 To push stories to the Pearl News WordPress site (BlogSite theme), set env vars and use the posting script:
 
 ```bash
+# Preferred: env vars
 export WORDPRESS_SITE_URL="https://pearlnewsuna.org"
 export WORDPRESS_USERNAME="Pearl_Prime"   # or your WP username
 export WORDPRESS_APP_PASSWORD="xxxx xxxx xxxx xxxx xxxx xxxx"  # from WP Profile → Application Passwords
+
+# Local fallback (if env vars are not set):
+# - WORDPRESS_CREDENTIALS_FILE=/abs/path/wordpress_credentials.rtf
+# - or repo-root wordpress_credentials.rtf with KEY=value lines
 
 python scripts/pearl_news_post_to_wp.py --article artifacts/pearl_news/drafts/article.json --status draft
 ```
