@@ -28,4 +28,4 @@ See our [Corrections policy](CORRECTIONS_POLICY.md). Errors are corrected prompt
 
 ---
 
-*Align with pearl_news/config/editorial_firewall.yaml and quality_gates.yaml.*
+*Align with pearl_news/config/editorial_firewall.yaml and pearl_news/pipeline/quality_gates.py.*

@@ -1,0 +1,52 @@
+# pearl_news/config/selfhelp_topic_bridge.yaml
+# Maps Pearl News topics (from UN RSS) to self-help topic_ids
+# (from config/marketing/consumer_language_by_topic.yaml)
+# Used by: audience_scorer.py, participation_generator.py
+# EI V2 uses these mappings to inject consumer language and invisible scripts
+# into article generation inputs.
+
+version: "1.0"
+
+bridges:
+
+  climate:
+    primary: anxiety
+    secondary: [grief, overwhelm]
+    invisible_script_key: "gen_z_professionals|anxiety"
+    rationale: "Climate news triggers anxiety spirals, ecological grief, and overwhelm from scale of problem vs. individual capacity"
+
+  mental_health:
+    primary: anxiety
+    secondary: [depression, burnout, sleep_anxiety, somatic_healing]
+    invisible_script_key: "gen_z_professionals|anxiety"
+    rationale: "Mental health stories land directly on the reader's own experience — they're reading about themselves"
+
+  inequality:
+    primary: financial_stress
+    secondary: [imposter_syndrome, self_worth, social_anxiety]
+    invisible_script_key: "gen_z_professionals|financial_stress"
+    rationale: "Inequality news activates financial anxiety, class shame, and questions of whether personal merit is real"
+
+  education:
+    primary: overwhelm
+    secondary: [burnout, boundaries, imposter_syndrome]
+    invisible_script_key: "gen_z_professionals|burnout"
+    rationale: "Education stories hit students who are already overloaded — the system failing is personal, not abstract"
+
+  peace_conflict:
+    primary: grief
+    secondary: [somatic_healing, compassion_fatigue, anxiety]
+    invisible_script_key: "gen_z_professionals|compassion_fatigue"
+    rationale: "Conflict news triggers helpless grief, secondary trauma from images, and compassion fatigue from sustained exposure"
+
+  economy_work:
+    primary: financial_stress
+    secondary: [burnout, imposter_syndrome, boundaries]
+    invisible_script_key: "gen_z_professionals|financial_stress"
+    rationale: "Economic news activates survival anxiety — rent, debt, gig instability, the gap between education and opportunity"
+
+  partnerships:
+    primary: boundaries
+    secondary: [self_worth, social_anxiety]
+    invisible_script_key: "gen_z_professionals|boundaries"
+    rationale: "Institutional partnership stories activate questions about who speaks for whom and whether participation is real"

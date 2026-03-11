@@ -1,6 +1,6 @@
-# Pearl News — LLM expansion to target word count (e.g. ~1000 words).
+# Pearl News — LLM expansion to target word count (500-600 words).
 # Uses OpenAI-compatible API: local Qwen (LM Studio / Ollama) or your GitHub/self-hosted Qwen endpoint.
-# Aligns with llm_safety.yaml: expansion is an allowed use without full-article evaluation.
+# Expansion: allowed LLM use for converting bullet drafts to prose.
 # Run pipeline with: --expand
 
 schema_version: 1
@@ -24,8 +24,9 @@ api_key: "lm-studio"
 # this value — not just the default 5s httpx socket timeout.
 timeout: 360
 
-# Target word count for expanded body (overrides site.yaml target_word_count when set)
-target_word_count: 1000
+# Target word count for expanded body (500-600 band; default midpoint 550).
+# Overridden by this config when present.
+target_word_count: 550
 
 # Max tokens per call; 1200 lowers generation load vs 2048 for stability
 max_tokens: 1200
@@ -36,3 +37,8 @@ temperature: 0.5
 # Qwen3 enables <think> blocks by default; for article writing we don't need it.
 # Set to false only if you want reasoning traces (not recommended for production).
 disable_thinking: true
+
+# Fast-fail health check before a full article run. If a trivial READY probe takes
+# longer than this, the pipeline marks expansion as blocked instead of spending
+# minutes on slot generation.
+preflight_max_seconds: 45

@@ -2,7 +2,7 @@
 
 **Last updated:** 2026-03-05
 **Authority:** This file governs all Pearl News article writing, expansion prompts, and atom authoring.
-**Related:** `pearl_news/prompts/expansion_system.txt`, `pearl_news/config/quality_gates.yaml`, `pearl_news/config/editorial_firewall.yaml`, `docs/research/continue_gen_research3.md`
+**Related:** `pearl_news/prompts/expansion_system.txt`, `pearl_news/pipeline/quality_gates.py`, `pearl_news/config/editorial_firewall.yaml`, `docs/research/continue_gen_research3.md`, [PEARL_NEWS_GENERATIONAL_WRITER_SPEC.md](./PEARL_NEWS_GENERATIONAL_WRITER_SPEC.md), [PEARL_NEWS_GENERATIONAL_INTELLIGENCE_TECH_SPEC.md](./PEARL_NEWS_GENERATIONAL_INTELLIGENCE_TECH_SPEC.md)
 
 ---
 
@@ -304,7 +304,7 @@ It names something specific that is coming — a decision, a report, a summit, a
 
 ## 10. Quality Gates (Writing Layer)
 
-These are the five hard-fail gates from `pearl_news/config/quality_gates.yaml`. This section explains what they mean for writing, not just what triggers them.
+These are the five hard-fail gates enforced in `pearl_news/pipeline/quality_gates.py`. This section explains what they mean for writing, not just what triggers them.
 
 | Gate | Writing implication |
 |---|---|

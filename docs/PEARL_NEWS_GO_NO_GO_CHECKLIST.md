@@ -21,10 +21,10 @@ The 7 steps here are **operational hardening** and should be evidenced as you co
 |---|------|------------|----------------|
 | 1 | **Prove live pipeline run on `main`** | ☑ | Done. Evidence: `artifacts/pearl_news/evaluation/networked_run_evidence.json` |
 | 2 | **Prove CI gate on `main`** | ☑ | Done. Evidence: Actions run URL in Evidence section |
-| 3 | **Prove scheduled runtime** | ☐ | Trigger Qwen-Agent Pearl News scheduled workflow manually once. Confirm artifact upload and no runtime errors. |
+| 3 | **Prove scheduled runtime** | ☐ | Trigger phoenix_omega Pearl News scheduled workflow (or manual dispatch) once. Confirm artifact upload and no runtime errors. |
 | 4 | **Prove WordPress draft-post path** | ☐ | Run `scripts/pearl_news_do_it.sh --post` with real secrets. Verify draft appears correctly in WP. |
 | 5 | **Finalize GO/NO-GO signoff** | ☑ | Done. CI URL + networked run evidence + signed by/date present below |
-| 6 | **Lock branch protection** | ☐ | In Qwen-Agent, require Pearl News workflow checks on `main` (and `docs-ci` if used). |
+| 6 | **Lock branch protection** | ☐ | In phoenix_omega, require Pearl News workflow checks on `main` (and `docs-ci` if used). See [BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md). |
 | 7 | **Verify rollback once** | ☐ | Disable scheduler + rotate WP app password + confirm no-post mode works. Record rollback proof in checklist/runbook. |
 
 **Runtime status:** **Production 100% achieved for this checklist's authoritative GO criteria.**  
@@ -40,7 +40,7 @@ Hardening status: 3/7 evidenced (steps 3,4,6,7 pending).
 | 2 | `template_selector.py` | ✅ Implemented | Used in pipeline; sets template_id per item from index + rules. |
 | 3 | `article_assembler.py` | ✅ Implemented | Used in pipeline; fills template slots (news + teacher + youth + SDG refs); source at end; no per-article disclaimer. |
 | 4 | `quality_gates.py` | ✅ Implemented | Used in pipeline; 5 gates (fact_check, youth_specificity, sdg_accuracy, promotional, un_endorsement); fail-hard. |
-| 5 | `qc_checklist.py` | ✅ Implemented | Used in pipeline; runs gates and optionally filters to passed-only. |
+| 5 | `quality_gates.py` output filtering | ✅ Implemented | Used in pipeline; QC-pass filtering is now done inline from `qc_passed` without a separate wrapper. |
 
 ---
 
@@ -57,7 +57,7 @@ Hardening status: 3/7 evidenced (steps 3,4,6,7 pending).
 
 | # | Requirement | Status | How to verify |
 |---|--------------|--------|----------------|
-| 6 | CI passes for Pearl News pipeline | ✅ Done | Qwen-Agent Pearl News workflows green on `main` (run evidence in table below). |
+| 6 | CI passes for Pearl News pipeline | ✅ Done | phoenix_omega Pearl News workflows green on `main` (run evidence in table below). Qwen-Agent is backup only. |
 
 ---
 
@@ -65,7 +65,7 @@ Hardening status: 3/7 evidenced (steps 3,4,6,7 pending).
 
 | # | Requirement | Status | How to verify |
 |---|--------------|--------|----------------|
-| 7 | Full flow from feeds to drafts | ✅ Done | Run pipeline with network (live UN feeds). Local: `pip install feedparser pyyaml` then `./scripts/pearl_news_networked_run_and_evidence.sh --limit 5` or `python -m pearl_news.pipeline.run_article_pipeline --feeds pearl_news/config/feeds.yaml --out-dir artifacts/pearl_news/drafts --limit 5`. Or trigger Pearl News workflow in Qwen-Agent (workflow_dispatch) and use uploaded artifact as evidence. |
+| 7 | Full flow from feeds to drafts | ✅ Done | Run pipeline with network (live UN feeds). Local: `pip install feedparser pyyaml` then `./scripts/pearl_news_networked_run_and_evidence.sh --limit 5` or `python -m pearl_news.pipeline.run_article_pipeline --feeds pearl_news/config/feeds.yaml --out-dir artifacts/pearl_news/drafts --limit 5`. Or trigger Pearl News workflow in phoenix_omega (or Qwen-Agent backup via workflow_dispatch) and use uploaded artifact as evidence. |
 
 ---
 
@@ -74,7 +74,7 @@ Hardening status: 3/7 evidenced (steps 3,4,6,7 pending).
 - [x] 1. topic_sdg_classifier implemented and used in pipeline
 - [x] 2. template_selector implemented and used
 - [x] 3. article_assembler implemented and used (teacher + youth + SDG injected)
-- [x] 4. quality_gates and qc_checklist implemented and enforced as blocking (filter_to_passed=True by default)
+- [x] 4. quality_gates implemented and enforced as blocking (`qc_passed` filtering by default)
 - [x] 5. Final article outputs written (article_<id>.json + build_manifests.json)
 - [x] 6. **CI green on main** for Pearl News tests/workflows
 - [x] 7. **One real networked run** proving full flow from feeds → final article drafts
@@ -90,9 +90,9 @@ When the three production gates are done, paste links here and sign.
 
 | Evidence | Link or value |
 |----------|----------------|
-| **CI run (green, Qwen-Agent)** | `https://github.com/Ahjan108/Qwen-Agent/actions/runs/22752532019` (Pearl News manual expand #5, main) |
-| **Manual expand runtime proof (Qwen-Agent)** | Artifact `pearl_news_drafts` (2.95 KB), digest `sha256:e86ac57d02a268b6e09d8602123786808311264f6625b54cfbe09b7cee7c7e0d` |
-| **Scheduled runtime proof (Qwen-Agent)** | `https://github.com/Ahjan108/Qwen-Agent/actions/runs/22752359652` (Pearl News scheduled #9, main). Artifact `pearl_news_drafts` (6.91 KB), digest `sha256:d01916f2700b6d7966b2529e20af127a574089e1f071e341caeff648b9c47be7` |
+| **CI run (green, phoenix_omega or backup)** | phoenix_omega Actions or Qwen-Agent backup: e.g. `https://github.com/Ahjan108/phoenix_omega/actions` (Pearl News workflows) or Qwen-Agent run URL |
+| **Manual expand runtime proof** | Artifact `pearl_news_drafts` (from phoenix_omega or Qwen-Agent backup run) |
+| **Scheduled runtime proof** | phoenix_omega Pearl News scheduled run URL and artifact; or Qwen-Agent backup run if used |
 | **Networked run** | **Done.** Path: `artifacts/pearl_news/evaluation/networked_run_evidence.json`. Run: 2026-03-03; 5 items → 5 articles (ingest from live UN feeds → drafts). |
 | **Signed by** | Ahjan108 — 2026-03-06 |
 
@@ -113,6 +113,6 @@ python -m pearl_news.pipeline.run_article_pipeline --feeds pearl_news/config/fee
 ls artifacts/pearl_news/drafts/article_*.json
 # Expect: at least one article_<id>.json
 
-# CI (local): run the same Pearl News gate test set used by Qwen-Agent workflows
+# CI (local): run the same Pearl News gate test set used by phoenix_omega (and backup Qwen-Agent) workflows
 PYTHONPATH=. python -m pytest tests/test_pearl_news_quality_gates_minimal.py tests/test_pearl_news_pipeline_e2e.py -v
 ```

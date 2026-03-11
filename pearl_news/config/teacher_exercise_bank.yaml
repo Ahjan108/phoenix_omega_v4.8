@@ -1,0 +1,2372 @@
+# Pearl News — Canonical Teacher Exercise Bank v3
+# ~150 exercises with diverse exercise_type per teacher.
+# Resolver: 4-tier fallback + policy_rank (type preference) + hash tie-break.
+# "Description, not guided practice" — steps are components, not scripted instructions.
+#
+# exercise_type: somatic | cognitive | reflective | civic | social | study | planning
+# age_fit: gen_z | gen_alpha | both
+# intent: regulate | understand | decide | act | recover_focus
+# article_types: [all] or specific template list
+
+version: 3
+
+exercises:
+
+  # ══════════════════════════════════════════════════════════
+  # TOPIC DEFAULTS — tier 4 (no teacher_id)
+  # 3 per topic × 7 topics = 21 exercises, diverse types
+  # ══════════════════════════════════════════════════════════
+
+  # --- climate ---
+  - exercise_id: td_climate_regulate_4min
+    topic: climate
+    sdg: "13"
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Climate Grounding Reset"
+    exercise_description: "A short regulation exercise that helps readers settle climate anxiety by identifying one concrete stressor and choosing one local action within 24 hours."
+    duration_minutes: 4
+    delivery_format: audio
+    safety_note: "Pause if dizzy or distressed. Return to normal breathing."
+    steps:
+      - "Identify one climate stressor you feel in your body right now."
+      - "A brief breath-regulation interval to settle attention."
+      - "Write one local action you can complete in 24 hours."
+
+  - exercise_id: td_climate_civic_5min
+    topic: climate
+    sdg: "13"
+    exercise_type: civic
+    age_fit: gen_z
+    intent: act
+    locale: all
+    approved: true
+    name: "Climate Civic Action Mapper"
+    exercise_description: "A civic exercise that maps one local climate adaptation opportunity and produces one actionable contact or registration step within 72 hours."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Keep scope realistic and local."
+    steps:
+      - "Name one local climate initiative or meeting happening this month."
+      - "Identify one person or institution to contact."
+      - "Draft one message or register for one event."
+
+  - exercise_id: td_climate_cognitive_5min
+    topic: climate
+    sdg: "13"
+    exercise_type: cognitive
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Climate Systems Clarity Check"
+    exercise_description: "A cognitive exercise that separates climate facts from assumptions, helping readers identify one concrete data point and one traceable cause-effect chain."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If eco-anxiety spikes, pause and return to breath."
+    steps:
+      - "Name one climate claim from the article and check if you can trace it to a data source."
+      - "Separate one fact from one assumption you hold about this topic."
+      - "Write one question you still need answered."
+
+  # --- peace_conflict ---
+  - exercise_id: td_peace_social_5min
+    topic: peace_conflict
+    sdg: "16"
+    exercise_type: social
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Conflict De-escalation Dialogue Prep"
+    exercise_description: "A social exercise that prepares readers for constructive dialogue by identifying one reactive pattern and choosing one question to replace a reactive statement."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Do not engage in active confrontation. Use moderated settings."
+    steps:
+      - "Name one reactive claim you tend to make about this conflict."
+      - "Replace it with one genuine question."
+      - "Choose one relationship-preserving action for today."
+
+  - exercise_id: td_peace_regulate_5min
+    topic: peace_conflict
+    sdg: "16"
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Conflict Nervous System Reset"
+    exercise_description: "A regulation exercise that settles the nervous system after conflict exposure, helping readers separate facts from assumptions before taking action."
+    duration_minutes: 5
+    delivery_format: audio
+    safety_note: "Step away from live conflict feeds if overwhelmed."
+    steps:
+      - "A brief breath-regulation interval to settle attention."
+      - "Separate known facts from assumptions."
+      - "Choose one non-reactive action for today."
+
+  - exercise_id: td_peace_civic_5min
+    topic: peace_conflict
+    sdg: "16"
+    exercise_type: civic
+    age_fit: gen_z
+    intent: act
+    locale: all
+    approved: true
+    name: "Peace Civic Response Planner"
+    exercise_description: "A civic exercise that converts conflict news into one concrete de-escalation action within the reader's network or community."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Avoid unsafe confrontation. Work within moderated channels."
+    steps:
+      - "Name one stakeholder or institution connected to this conflict."
+      - "Draft one short de-escalating message or inquiry."
+      - "Choose a channel and send or schedule it within 48 hours."
+
+  # --- education ---
+  - exercise_id: td_education_cognitive_6min
+    topic: education
+    sdg: "4"
+    exercise_type: cognitive
+    age_fit: both
+    intent: recover_focus
+    locale: all
+    approved: true
+    name: "Focus Recovery Cognitive Reset"
+    exercise_description: "A cognitive exercise that restores learning focus by identifying one blocker, one task, and one immediate first action."
+    duration_minutes: 6
+    delivery_format: short_video
+    safety_note: "If panic rises, stop and return to natural breathing."
+    steps:
+      - "Name one task and one blocker."
+      - "A brief attention-settling interval."
+      - "Take the first small action now."
+
+  - exercise_id: td_education_planning_5min
+    topic: education
+    sdg: "4"
+    exercise_type: planning
+    age_fit: gen_z
+    intent: decide
+    locale: all
+    approved: true
+    name: "Learning Plan Builder"
+    exercise_description: "A planning exercise that converts education-related news into one concrete learning goal and one 20-minute study block."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If academic stress is acute, seek advisor support."
+    steps:
+      - "Name one skill or subject this article connects to."
+      - "Write one barrier and one resource."
+      - "Schedule one 20-minute study block today."
+
+  - exercise_id: td_education_reflective_5min
+    topic: education
+    sdg: "4"
+    exercise_type: reflective
+    age_fit: gen_alpha
+    intent: understand
+    locale: all
+    approved: true
+    name: "Learning Curiosity Reflection"
+    exercise_description: "A reflective exercise that reconnects readers with their natural curiosity by identifying one question that genuinely interests them."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Frustration is normal. Sit with it rather than forcing answers."
+    steps:
+      - "Name one thing you were curious about before school stress took over."
+      - "Read one paragraph about it with full attention."
+      - "Write one question that emerged."
+
+  # --- inequality ---
+  - exercise_id: td_inequality_civic_5min
+    topic: inequality
+    sdg: "10"
+    exercise_type: civic
+    age_fit: gen_z
+    intent: act
+    locale: all
+    approved: true
+    name: "Inequality Civic Action Step"
+    exercise_description: "A civic exercise that documents one local inequality pattern and produces one concrete request to a relevant institution."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Use factual language. Avoid unsafe confrontation."
+    steps:
+      - "Document one observed inequality pattern in your environment."
+      - "Name who is affected and where."
+      - "Send one concrete request to a relevant institution."
+
+  - exercise_id: td_inequality_reflective_5min
+    topic: inequality
+    sdg: "10"
+    exercise_type: reflective
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Dignity and Clarity Reflection"
+    exercise_description: "A reflective exercise that helps readers identify one inequality they witnessed and choose one proportional next action."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If this triggers intense distress, do this with a trusted person."
+    steps:
+      - "Name one inequality pattern you observed this week."
+      - "Write one way it showed up in your immediate environment."
+      - "Choose one proximate action within 72 hours."
+
+  - exercise_id: td_inequality_social_5min
+    topic: inequality
+    sdg: "10"
+    exercise_type: social
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Solidarity Conversation Starter"
+    exercise_description: "A social exercise that prepares one conversation about inequality with a peer, using factual language and a specific ask."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Choose a safe setting for this conversation."
+    steps:
+      - "Name one inequality issue you want to discuss."
+      - "Write one factual sentence and one question for a peer."
+      - "Choose when and where to have this conversation."
+
+  # --- mental_health ---
+  - exercise_id: td_mental_regulate_3min
+    topic: mental_health
+    sdg: "3"
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Overload Reset"
+    exercise_description: "A short regulation exercise that settles overwhelm by using breath pacing and identifying one next action and one support contact."
+    duration_minutes: 3
+    delivery_format: audio
+    safety_note: "Not a substitute for professional care. Use crisis support if needed."
+    steps:
+      - "A brief breath-regulation interval to settle the nervous system."
+      - "Name one next action."
+      - "Name one support contact."
+
+  - exercise_id: td_mental_reflective_5min
+    topic: mental_health
+    sdg: "3"
+    exercise_type: reflective
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Wellbeing Check-In Reflection"
+    exercise_description: "A reflective exercise that reviews recent experiences to identify one source of consolation and one need for tomorrow."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If crisis symptoms emerge, seek professional support immediately."
+    steps:
+      - "Name one moment of consolation from the last 24 hours."
+      - "Name one moment of desolation."
+      - "Write one thing you need for tomorrow."
+
+  - exercise_id: td_mental_cognitive_5min
+    topic: mental_health
+    sdg: "3"
+    exercise_type: cognitive
+    age_fit: gen_z
+    intent: recover_focus
+    locale: all
+    approved: true
+    name: "Mental Clarity Cognitive Reset"
+    exercise_description: "A cognitive exercise that clears mental fog by identifying one automatic thought pattern and testing it against one concrete piece of evidence."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Not a substitute for therapy. Use as a brief clarity tool only."
+    steps:
+      - "Name one automatic thought you keep having about this issue."
+      - "Write one piece of evidence that supports it and one that contradicts it."
+      - "Choose one revised thought and one action."
+
+  # --- partnerships ---
+  - exercise_id: td_partnerships_civic_7min
+    topic: partnerships
+    sdg: "17"
+    exercise_type: civic
+    age_fit: gen_z
+    intent: act
+    locale: all
+    approved: true
+    name: "Local Lever Mapping"
+    exercise_description: "A civic exercise that connects global partnership goals to one local institution and produces one actionable request."
+    duration_minutes: 7
+    delivery_format: text_reflection
+    safety_note: "Keep scope realistic. Select one local lever only."
+    steps:
+      - "Name the global issue and one local impact."
+      - "List one institution and one contact point."
+      - "Draft one message or request and send it."
+
+  - exercise_id: td_partnerships_social_5min
+    topic: partnerships
+    sdg: "17"
+    exercise_type: social
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Partnership Stakeholder Map"
+    exercise_description: "A social exercise that identifies one stakeholder the reader can connect with and one shared interest to build partnership."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Keep scope local and realistic."
+    steps:
+      - "Name one local stakeholder connected to this global goal."
+      - "Identify one shared interest."
+      - "Choose one outreach action within 72 hours."
+
+  - exercise_id: td_partnerships_planning_5min
+    topic: partnerships
+    sdg: "17"
+    exercise_type: planning
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Partnership Action Planner"
+    exercise_description: "A planning exercise that converts partnership news into one concrete 3-step plan connecting a global goal to a local action."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Keep scope realistic and traceable."
+    steps:
+      - "Name the global goal and one local connection."
+      - "Write three steps: research, contact, follow up."
+      - "Schedule the first step for this week."
+
+  # --- economy_work ---
+  - exercise_id: td_economy_planning_5min
+    topic: economy_work
+    sdg: "8"
+    exercise_type: planning
+    age_fit: gen_z
+    intent: decide
+    locale: all
+    approved: true
+    name: "Work Boundary Planner"
+    exercise_description: "A planning exercise that identifies one workplace stressor and produces one written boundary or request."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If workplace safety is at risk, prioritize formal reporting."
+    steps:
+      - "Identify the work stress trigger."
+      - "Write one boundary statement."
+      - "Choose one next step for implementation."
+
+  - exercise_id: td_economy_regulate_5min
+    topic: economy_work
+    sdg: "8"
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Work Stress Reframe"
+    exercise_description: "A regulation exercise that settles work-related anxiety and produces one practical boundary or next step."
+    duration_minutes: 5
+    delivery_format: audio
+    safety_note: "Prioritize immediate safety in workplace risk situations."
+    steps:
+      - "Name the stress trigger."
+      - "A brief breath-regulation interval."
+      - "Write one boundary and one practical next step."
+
+  - exercise_id: td_economy_cognitive_5min
+    topic: economy_work
+    sdg: "8"
+    exercise_type: cognitive
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Work Pattern Clarity Check"
+    exercise_description: "A cognitive exercise that identifies one repeating work stress pattern and tests one assumption about it."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If workplace conditions are unsafe, use formal channels."
+    steps:
+      - "Name one repeating work stress pattern."
+      - "Write one assumption you make about it and test with one fact."
+      - "Choose one concrete adjustment."
+
+  # ══════════════════════════════════════════════════════════
+  # TEACHER-SPECIFIC EXERCISES — tier 1 (teacher_id + topic)
+  # ~10-12 per teacher across their topics, diverse types
+  # ══════════════════════════════════════════════════════════
+
+  # ─── AHJAN (Theravada Buddhist) ──────────────────────────
+  # Topics: climate, mental_health, education, peace_conflict, partnerships, inequality
+
+  - exercise_id: ahjan_climate_regulate_4min
+    teacher_id: ahjan
+    topic: climate
+    sdg: "13"
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Interdependence Breath Anchor"
+    exercise_description: "A regulation exercise rooted in Theravada interdependence teaching that connects daily choices to climate impact and selects one harm-reducing action."
+    duration_minutes: 4
+    delivery_format: audio
+    safety_note: "If anxiety increases, shorten the cycle and return to natural breathing."
+    steps:
+      - "Name one link between your daily choices and climate impact."
+      - "A brief breath-regulation interval to settle attention."
+      - "Choose one action that reduces harm this week."
+
+  - exercise_id: ahjan_climate_cognitive_5min
+    teacher_id: ahjan
+    topic: climate
+    sdg: "13"
+    exercise_type: cognitive
+    age_fit: gen_z
+    intent: understand
+    locale: all
+    approved: true
+    name: "Ahjan's Dependent Origination Climate Check"
+    exercise_description: "A cognitive exercise using dependent origination to trace one climate effect back through its causes, building systems understanding."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Keep analysis factual. Avoid catastrophizing."
+    steps:
+      - "Name one climate effect mentioned in the article."
+      - "Trace it back through three causes (what caused what)."
+      - "Name one cause you can influence and one action."
+
+  - exercise_id: ahjan_mental_regulate_4min
+    teacher_id: ahjan
+    topic: mental_health
+    sdg: "3"
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Ahjan's Attention Reset"
+    exercise_description: "A regulation exercise using Theravada sensory awareness to settle overwhelm by grounding in present-moment sounds, sights, and textures."
+    duration_minutes: 4
+    delivery_format: audio
+    safety_note: "Not a substitute for professional care. Stop if distress increases."
+    steps:
+      - "Name three sounds you hear right now."
+      - "A brief breath-regulation interval."
+      - "Name one object, one color, one texture."
+
+  - exercise_id: ahjan_mental_reflective_5min
+    teacher_id: ahjan
+    topic: mental_health
+    sdg: "3"
+    exercise_type: reflective
+    age_fit: gen_z
+    intent: understand
+    locale: all
+    approved: true
+    name: "Ahjan's Impermanence Reflection"
+    exercise_description: "A reflective exercise using impermanence teaching to examine one source of mental suffering and identify what has already changed."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If this triggers crisis thoughts, seek professional support."
+    steps:
+      - "Name one mental health stressor from the article."
+      - "Write one way this situation has already changed over time."
+      - "Choose one action that works with change, not against it."
+
+  - exercise_id: ahjan_education_study_5min
+    teacher_id: ahjan
+    topic: education
+    sdg: "4"
+    exercise_type: study
+    age_fit: gen_alpha
+    intent: recover_focus
+    locale: all
+    approved: true
+    name: "Ahjan's Mindful Study Block"
+    exercise_description: "A study exercise using mindfulness to recover focus by selecting one task, removing one distraction, and working in a single-pointed 10-minute block."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If academic pressure is extreme, seek counselor support."
+    steps:
+      - "Choose one study task and remove one distraction."
+      - "Work for 10 minutes on that task only."
+      - "Write one thing you learned."
+
+  - exercise_id: ahjan_peace_social_5min
+    teacher_id: ahjan
+    topic: peace_conflict
+    sdg: "16"
+    exercise_type: social
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Ahjan's Right Speech Conflict Check"
+    exercise_description: "A social exercise using Right Speech principles to replace one reactive statement with one question that preserves relationship."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Do not use in active confrontation. Practice in safety first."
+    steps:
+      - "Name one reactive statement you want to make about this conflict."
+      - "Test it: is it true, kind, helpful, and timely?"
+      - "Replace with one question and choose one dialogue action."
+
+  - exercise_id: ahjan_inequality_reflective_5min
+    teacher_id: ahjan
+    topic: inequality
+    sdg: "10"
+    exercise_type: reflective
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Ahjan's Compassion Clarity Reflection"
+    exercise_description: "A reflective exercise using compassion teaching to examine one inequality pattern and identify one action rooted in care rather than reaction."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If this triggers strong grief, pause and seek community support."
+    steps:
+      - "Name one inequality pattern from the article."
+      - "Reflect: who suffers and what does care look like here?"
+      - "Choose one compassion-rooted action for this week."
+
+  - exercise_id: ahjan_partnerships_planning_5min
+    teacher_id: ahjan
+    topic: partnerships
+    sdg: "17"
+    exercise_type: planning
+    age_fit: gen_z
+    intent: act
+    locale: all
+    approved: true
+    name: "Ahjan's Sangha Partnership Planner"
+    exercise_description: "A planning exercise using sangha (community) principles to identify one local partnership opportunity and plan one outreach step."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Keep scope realistic and local."
+    steps:
+      - "Name one community or organization aligned with this global goal."
+      - "Identify one shared value."
+      - "Plan one outreach action for this week."
+
+  # ─── MIKI (Shinto) ──────────────────────────────────────
+  # Topics: climate, mental_health, education, partnerships
+
+  - exercise_id: miki_climate_regulate_6min
+    teacher_id: miki
+    topic: climate
+    sdg: "13"
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Satoyama Attention Walk"
+    exercise_description: "A regulation exercise using Shinto nature awareness to ground climate concern by noticing one human-nature interface and choosing one weekly maintenance action."
+    duration_minutes: 6
+    delivery_format: short_video
+    safety_note: "Stay in safe public areas and remain aware of surroundings."
+    steps:
+      - "Walk slowly for 6 minutes with full sensory attention."
+      - "Notice one place where human systems and nature meet."
+      - "Record one maintenance action you can repeat weekly."
+
+  - exercise_id: miki_climate_civic_5min
+    teacher_id: miki
+    topic: climate
+    sdg: "13"
+    exercise_type: civic
+    age_fit: gen_z
+    intent: act
+    locale: all
+    approved: true
+    name: "Miki's Local Nature Stewardship Step"
+    exercise_description: "A civic exercise using Shinto stewardship teaching to identify one local environmental concern and take one concrete maintenance or restoration action."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Keep actions safe and within your capacity."
+    steps:
+      - "Name one local environmental concern you can see from where you are."
+      - "Identify one person or group already working on it."
+      - "Choose one maintenance or restoration action for this week."
+
+  - exercise_id: miki_mental_reflective_5min
+    teacher_id: miki
+    topic: mental_health
+    sdg: "3"
+    exercise_type: reflective
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Miki's Seasonal Clarity Check"
+    exercise_description: "A reflective exercise using Shinto seasonal awareness to align daily rhythms with natural cycles, reducing stress from misalignment."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If emotional distress intensifies, pause and seek support."
+    steps:
+      - "Name the current season and one change you notice in your environment."
+      - "A short reflection moment to notice your natural rhythm."
+      - "Write one adjustment to your routine that honors this season."
+
+  - exercise_id: miki_mental_cognitive_5min
+    teacher_id: miki
+    topic: mental_health
+    sdg: "3"
+    exercise_type: cognitive
+    age_fit: gen_z
+    intent: recover_focus
+    locale: all
+    approved: true
+    name: "Miki's Impurity Clearing Check"
+    exercise_description: "A cognitive exercise using Shinto purification concepts to name one mental distortion, identify its source, and choose one clarifying action."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Not a substitute for professional care."
+    steps:
+      - "Name one distorted thought pattern from this week."
+      - "Identify one external source that feeds it."
+      - "Choose one clarifying action: reduce exposure or seek one truth."
+
+  - exercise_id: miki_education_study_5min
+    teacher_id: miki
+    topic: education
+    sdg: "4"
+    exercise_type: study
+    age_fit: gen_alpha
+    intent: recover_focus
+    locale: all
+    approved: true
+    name: "Miki's Nature Attention Study Reset"
+    exercise_description: "A study exercise using Shinto nature awareness to recover focus by spending 2 minutes observing nature before returning to study with one clear task."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Stay safe if going outdoors. Indoor plants count."
+    steps:
+      - "Spend 2 minutes looking at something natural (plant, sky, water)."
+      - "Return to your study space and name one task."
+      - "Work on that task for 10 minutes."
+
+  - exercise_id: miki_partnerships_social_5min
+    teacher_id: miki
+    topic: partnerships
+    sdg: "17"
+    exercise_type: social
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Miki's Shared Sacred Space Dialogue"
+    exercise_description: "A social exercise using Shinto community principles to identify one shared concern with a partner organization and prepare one respectful inquiry."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Approach with respect and humility."
+    steps:
+      - "Name one organization that shares a value with your community."
+      - "Write one respectful question about collaboration."
+      - "Choose one communication channel and one timeline."
+
+  # ─── MA'AT (Ancient Egyptian / Ma'at principle) ──────────
+  # Topics: inequality, peace_conflict, climate, partnerships, economy_work
+
+  - exercise_id: maat_inequality_reflective_5min
+    teacher_id: maat
+    topic: inequality
+    sdg: "10"
+    exercise_type: reflective
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Ma'at Truth Log"
+    exercise_description: "A reflective exercise using Ma'at truth principles to document one observed imbalance with evidence and choose one proportional response."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Keep notes factual. Avoid personal exposure that could create harm."
+    steps:
+      - "Document one observed imbalance."
+      - "Name who is affected and what evidence exists."
+      - "Take one truthful, proportional next action."
+
+  - exercise_id: maat_inequality_civic_5min
+    teacher_id: maat
+    topic: inequality
+    sdg: "10"
+    exercise_type: civic
+    age_fit: gen_z
+    intent: act
+    locale: all
+    approved: true
+    name: "Ma'at Civic Balance Request"
+    exercise_description: "A civic exercise using Ma'at justice principles to draft one concrete request to an institution that can address a documented imbalance."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Use factual, proportional language. Avoid escalation."
+    steps:
+      - "Name one institution responsible for this inequality."
+      - "Draft one specific, factual request."
+      - "Send it within 72 hours."
+
+  - exercise_id: maat_peace_regulate_4min
+    teacher_id: maat
+    topic: peace_conflict
+    sdg: "16"
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Ma'at Justice Breath"
+    exercise_description: "A regulation exercise using Ma'at balance principles to settle emotional reactivity before making conflict decisions."
+    duration_minutes: 4
+    delivery_format: audio
+    safety_note: "Do not engage in confrontation. Use this for internal clarity only."
+    steps:
+      - "Name the conflict situation and your emotional state."
+      - "A brief breath-regulation interval."
+      - "Write one action aligned with fairness, not reaction."
+
+  - exercise_id: maat_peace_cognitive_5min
+    teacher_id: maat
+    topic: peace_conflict
+    sdg: "16"
+    exercise_type: cognitive
+    age_fit: gen_z
+    intent: understand
+    locale: all
+    approved: true
+    name: "Ma'at Evidence Weighing"
+    exercise_description: "A cognitive exercise using Ma'at scales-of-truth metaphor to weigh evidence on both sides of a conflict before taking a position."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Remain neutral during this exercise. Avoid premature conclusions."
+    steps:
+      - "List one claim from each side of this conflict."
+      - "For each, write one piece of supporting evidence."
+      - "Name what remains uncertain and one way to learn more."
+
+  - exercise_id: maat_economy_planning_5min
+    teacher_id: maat
+    topic: economy_work
+    sdg: "8"
+    exercise_type: planning
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Ma'at Work Balance Assessment"
+    exercise_description: "A planning exercise using Ma'at balance principles to identify one work imbalance and plan one proportional boundary action."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If workplace conditions are unsafe, prioritize formal reporting."
+    steps:
+      - "Name one imbalance between effort and reward in your work."
+      - "Write what fair exchange would look like."
+      - "Choose one proportional boundary action for this week."
+
+  - exercise_id: maat_climate_civic_5min
+    teacher_id: maat
+    topic: climate
+    sdg: "13"
+    exercise_type: civic
+    age_fit: gen_z
+    intent: act
+    locale: all
+    approved: true
+    name: "Ma'at Environmental Truth Report"
+    exercise_description: "A civic exercise using Ma'at truth-telling principles to document one local environmental imbalance and report it to a relevant authority."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Use factual language only. Avoid confrontation."
+    steps:
+      - "Document one local environmental concern with evidence."
+      - "Identify one authority or organization responsible."
+      - "Draft one factual report or inquiry."
+
+  - exercise_id: maat_partnerships_social_5min
+    teacher_id: maat
+    topic: partnerships
+    sdg: "17"
+    exercise_type: social
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Ma'at Partnership Fairness Check"
+    exercise_description: "A social exercise that uses Ma'at balance principles to evaluate whether a partnership is equitable and identify one adjustment."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Keep analysis proportional and constructive."
+    steps:
+      - "Name one partnership or collaboration you are part of."
+      - "Assess: is contribution balanced? Who benefits more?"
+      - "Choose one fairness adjustment to propose."
+
+  # ─── RA (African spiritual) ─────────────────────────────
+  # Topics: peace_conflict, inequality, mental_health, partnerships
+
+  - exercise_id: ra_peace_social_5min
+    teacher_id: ra
+    topic: peace_conflict
+    sdg: "16"
+    exercise_type: social
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Ubuntu Dialogue Reset"
+    exercise_description: "A social exercise using Ubuntu principles to identify one unmet need in a conflict and choose one relationship-preserving question."
+    duration_minutes: 5
+    delivery_format: audio
+    safety_note: "Do not engage in unsafe confrontation; use moderated settings."
+    steps:
+      - "Name the conflict and one unmet need."
+      - "State one question instead of a reactive claim."
+      - "Choose one relationship-preserving action."
+
+  - exercise_id: ra_peace_civic_5min
+    teacher_id: ra
+    topic: peace_conflict
+    sdg: "16"
+    exercise_type: civic
+    age_fit: gen_z
+    intent: act
+    locale: all
+    approved: true
+    name: "Ra's Community Peace Action"
+    exercise_description: "A civic exercise using African communal justice to identify one community institution that can mediate and draft one request for dialogue."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Work through moderated channels only."
+    steps:
+      - "Name one community institution connected to this conflict."
+      - "Draft one request for moderated dialogue."
+      - "Send or schedule within 48 hours."
+
+  - exercise_id: ra_inequality_reflective_5min
+    teacher_id: ra
+    topic: inequality
+    sdg: "10"
+    exercise_type: reflective
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Ra's Dignity Circle Reflection"
+    exercise_description: "A reflective exercise using dignity and ubuntu to name one person or group whose dignity was diminished and envision one fairness action."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If reflecting on personal oppression, do this with a trusted person."
+    steps:
+      - "Name one person or group whose dignity was diminished."
+      - "Write one sentence about what fairness would look like."
+      - "Choose one action you can take in 48 hours."
+
+  - exercise_id: ra_inequality_social_5min
+    teacher_id: ra
+    topic: inequality
+    sdg: "10"
+    exercise_type: social
+    age_fit: gen_z
+    intent: act
+    locale: all
+    approved: true
+    name: "Ra's Community Accountability Circle"
+    exercise_description: "A social exercise using Ubuntu accountability to prepare one conversation about inequality with a community member, using shared values language."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Choose a safe setting. Avoid confrontation."
+    steps:
+      - "Name one community member who shares your concern."
+      - "Write one shared value and one specific request."
+      - "Choose when to have this conversation."
+
+  - exercise_id: ra_mental_regulate_5min
+    teacher_id: ra
+    topic: mental_health
+    sdg: "3"
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Ra's Community Wellbeing Check"
+    exercise_description: "A regulation exercise using Ubuntu communal care to settle personal overwhelm by identifying one person in your circle who may be struggling and choosing one supportive action."
+    duration_minutes: 5
+    delivery_format: audio
+    safety_note: "Not a substitute for professional care."
+    steps:
+      - "Name one person in your circle who may be struggling."
+      - "A brief breath-regulation interval."
+      - "Choose one supportive action you can take today."
+
+  - exercise_id: ra_mental_social_5min
+    teacher_id: ra
+    topic: mental_health
+    sdg: "3"
+    exercise_type: social
+    age_fit: gen_z
+    intent: decide
+    locale: all
+    approved: true
+    name: "Ra's Peer Support Planner"
+    exercise_description: "A social exercise using Ubuntu mutual support to identify one peer check-in and schedule it within 48 hours."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Professional support comes first for crisis situations."
+    steps:
+      - "Name one friend or peer you haven't checked in with recently."
+      - "Write one short, genuine message."
+      - "Send it or schedule a call within 48 hours."
+
+  - exercise_id: ra_partnerships_civic_5min
+    teacher_id: ra
+    topic: partnerships
+    sdg: "17"
+    exercise_type: civic
+    age_fit: both
+    intent: act
+    locale: all
+    approved: true
+    name: "Ra's Ubuntu Partnership Bridge"
+    exercise_description: "A civic exercise using Ubuntu shared-humanity principles to identify one partnership opportunity across a cultural or institutional divide."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Approach with respect and genuine curiosity."
+    steps:
+      - "Name one institution or group different from your own that works on this issue."
+      - "Identify one shared value."
+      - "Draft one bridge-building inquiry."
+
+  # ─── MASTER FEUNG (Taoist) ──────────────────────────────
+  # Topics: climate, economy_work, partnerships, education, inequality
+
+  - exercise_id: feung_economy_regulate_5min
+    teacher_id: master_feung
+    topic: economy_work
+    sdg: "8"
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Master Feung's Flow State Reset"
+    exercise_description: "A regulation exercise using Taoist wu wei to release work tension through brief movement and long-exhale breathing, then select one focused task."
+    duration_minutes: 5
+    delivery_format: audio
+    safety_note: "If workplace safety risk exists, prioritize immediate safety first."
+    steps:
+      - "Shake your hands loosely for 30 seconds to release tension."
+      - "A Taoist long-exhale breath interval."
+      - "Name one task. Do only that task for the next 10 minutes."
+
+  - exercise_id: feung_economy_planning_5min
+    teacher_id: master_feung
+    topic: economy_work
+    sdg: "8"
+    exercise_type: planning
+    age_fit: gen_z
+    intent: decide
+    locale: all
+    approved: true
+    name: "Master Feung's Path of Least Resistance Planner"
+    exercise_description: "A planning exercise using Taoist flow principles to identify the path of least resistance through one work challenge."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If workplace conditions are unsafe, use formal channels."
+    steps:
+      - "Name one work challenge and three possible approaches."
+      - "Identify which approach has the least friction."
+      - "Choose it and schedule the first step."
+
+  - exercise_id: feung_climate_cognitive_6min
+    teacher_id: master_feung
+    topic: climate
+    sdg: "13"
+    exercise_type: cognitive
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Master Feung's Water Adaptation"
+    exercise_description: "A cognitive exercise using Taoist water metaphor to understand climate adaptation by observing one local water source and identifying one community concern."
+    duration_minutes: 6
+    delivery_format: text_reflection
+    safety_note: "Keep scope to personal environment."
+    steps:
+      - "Observe one water source near you."
+      - "Write one way you can reduce water waste this week."
+      - "Name one community water concern and one person to discuss it with."
+
+  - exercise_id: feung_climate_planning_5min
+    teacher_id: master_feung
+    topic: climate
+    sdg: "13"
+    exercise_type: planning
+    age_fit: gen_z
+    intent: act
+    locale: all
+    approved: true
+    name: "Master Feung's Natural Cycle Planner"
+    exercise_description: "A planning exercise using Taoist cycle awareness to align one personal habit with one natural cycle relevant to climate."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Keep plans realistic and seasonal."
+    steps:
+      - "Name one seasonal or natural cycle relevant to your area."
+      - "Identify one personal habit that conflicts with it."
+      - "Plan one adjustment and a timeline."
+
+  - exercise_id: feung_partnerships_planning_5min
+    teacher_id: master_feung
+    topic: partnerships
+    sdg: "17"
+    exercise_type: planning
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Master Feung's Partnership Flow"
+    exercise_description: "A planning exercise using Taoist flow principles to identify the smallest intervention point in a global-local partnership."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Keep scope realistic."
+    steps:
+      - "Name one global system and one local effect."
+      - "Identify the smallest point where you can intervene."
+      - "Draft one message to one institution or contact."
+
+  - exercise_id: feung_education_cognitive_5min
+    teacher_id: master_feung
+    topic: education
+    sdg: "4"
+    exercise_type: cognitive
+    age_fit: gen_alpha
+    intent: understand
+    locale: all
+    approved: true
+    name: "Master Feung's Unlearning Practice"
+    exercise_description: "A cognitive exercise using Taoist emptiness to release one fixed belief about learning and discover one fresh approach."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If academic stress is acute, seek support."
+    steps:
+      - "Name one fixed belief you hold about your learning ability."
+      - "Set it aside for 5 minutes."
+      - "Write one new approach that appears when the belief is gone."
+
+  - exercise_id: feung_inequality_reflective_5min
+    teacher_id: master_feung
+    topic: inequality
+    sdg: "10"
+    exercise_type: reflective
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Master Feung's Harmony Reflection"
+    exercise_description: "A reflective exercise using Taoist harmony principles to examine one inequality as a system imbalance and identify one restorative action."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Keep analysis proportional. Avoid confrontation."
+    steps:
+      - "Name one inequality as a system out of balance."
+      - "Identify what would restore flow."
+      - "Choose one small restorative action."
+
+  # ─── SAI MAA (Vedic Hindu) ─────────────────────────────
+  # Topics: mental_health, climate, education, peace_conflict, partnerships
+
+  - exercise_id: sai_maa_mental_regulate_4min
+    teacher_id: sai_ma
+    topic: mental_health
+    sdg: "3"
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Sai Maa's Prana Reset"
+    exercise_description: "A regulation exercise using Vedic prana awareness to settle overwhelm through intentional breath and one clear intention."
+    duration_minutes: 4
+    delivery_format: audio
+    safety_note: "Not a substitute for professional care. Stop if lightheaded."
+    steps:
+      - "Sit upright with eyes closed."
+      - "A Vedic breath-regulation interval."
+      - "Name one intention for the next hour."
+
+  - exercise_id: sai_maa_mental_reflective_5min
+    teacher_id: sai_ma
+    topic: mental_health
+    sdg: "3"
+    exercise_type: reflective
+    age_fit: gen_z
+    intent: understand
+    locale: all
+    approved: true
+    name: "Sai Maa's Dharma Clarity Reflection"
+    exercise_description: "A reflective exercise using dharma (sacred duty) to identify one area where the reader's actions align with their values and one where they don't."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If values conflict causes distress, seek supportive conversation."
+    steps:
+      - "Name one area where your actions align with your values."
+      - "Name one area where they don't."
+      - "Choose one small alignment step for this week."
+
+  - exercise_id: sai_maa_education_study_5min
+    teacher_id: sai_ma
+    topic: education
+    sdg: "4"
+    exercise_type: study
+    age_fit: gen_alpha
+    intent: recover_focus
+    locale: all
+    approved: true
+    name: "Sai Maa's Devotion to Learning"
+    exercise_description: "A study exercise using Vedic devotion to learning to identify one subject, one barrier, and one focused study block."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If academic stress is acute, seek advisor support."
+    steps:
+      - "Name one subject or skill you want to deepen."
+      - "Write one barrier and one resource."
+      - "Choose one 20-minute study block today."
+
+  - exercise_id: sai_maa_climate_reflective_5min
+    teacher_id: sai_ma
+    topic: climate
+    sdg: "13"
+    exercise_type: reflective
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Sai Maa's Earth Reverence Reflection"
+    exercise_description: "A reflective exercise using Vedic earth reverence to examine one personal habit's environmental impact and choose one change."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Stay grounded. If eco-anxiety spikes, return to breath."
+    steps:
+      - "Name one daily habit and its environmental footprint."
+      - "Reflect on what reverence for the earth would change."
+      - "Choose one habit adjustment."
+
+  - exercise_id: sai_maa_peace_regulate_5min
+    teacher_id: sai_ma
+    topic: peace_conflict
+    sdg: "16"
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Sai Maa's Ahimsa Breath"
+    exercise_description: "A regulation exercise using ahimsa (non-harm) to settle conflict reactivity and choose one response that reduces harm."
+    duration_minutes: 5
+    delivery_format: audio
+    safety_note: "Do not engage in active confrontation."
+    steps:
+      - "Name the conflict and your reactive impulse."
+      - "A breath-regulation interval focused on releasing the impulse."
+      - "Choose one response that reduces harm."
+
+  - exercise_id: sai_maa_partnerships_social_5min
+    teacher_id: sai_ma
+    topic: partnerships
+    sdg: "17"
+    exercise_type: social
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Sai Maa's Sacred Duty Partnership Check"
+    exercise_description: "A social exercise using dharma to evaluate whether a partnership serves shared purpose and identify one way to strengthen it."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Approach with honesty and respect."
+    steps:
+      - "Name one partnership and its shared purpose."
+      - "Assess: does it serve that purpose?"
+      - "Choose one strengthening action."
+
+  # ─── JUNKO (Zen Buddhist) ──────────────────────────────
+  # Topics: mental_health, education, economy_work, climate
+
+  - exercise_id: junko_mental_regulate_5min
+    teacher_id: junko
+    topic: mental_health
+    sdg: "3"
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Junko's Micro-Zazen"
+    exercise_description: "A regulation exercise using Zen breath-counting to settle the mind, restore attention, and identify one thing noticed during stillness."
+    duration_minutes: 5
+    delivery_format: audio
+    safety_note: "If sitting still triggers distress, try walking meditation instead."
+    steps:
+      - "Sit on a firm surface with spine straight."
+      - "A Zen breath-counting interval."
+      - "Name one thing you noticed."
+
+  - exercise_id: junko_mental_cognitive_5min
+    teacher_id: junko
+    topic: mental_health
+    sdg: "3"
+    exercise_type: cognitive
+    age_fit: gen_z
+    intent: recover_focus
+    locale: all
+    approved: true
+    name: "Junko's Direct Inquiry"
+    exercise_description: "A cognitive exercise using Zen direct inquiry to examine one thought causing suffering, test it, and choose one action from clarity."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If this triggers crisis, seek professional support."
+    steps:
+      - "Name one thought causing suffering right now."
+      - "Ask: is this thought a fact or a story?"
+      - "Choose one action based on what is actually happening."
+
+  - exercise_id: junko_education_reflective_5min
+    teacher_id: junko
+    topic: education
+    sdg: "4"
+    exercise_type: reflective
+    age_fit: gen_alpha
+    intent: understand
+    locale: all
+    approved: true
+    name: "Junko's Curiosity Recovery"
+    exercise_description: "A reflective exercise using beginner's mind to reconnect with natural curiosity by reading one paragraph with full attention and writing one question."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Frustration is normal. Sit with it."
+    steps:
+      - "Name one thing you were curious about before stress took over."
+      - "Read one paragraph about it with full attention."
+      - "Write one question that emerged."
+
+  - exercise_id: junko_education_cognitive_5min
+    teacher_id: junko
+    topic: education
+    sdg: "4"
+    exercise_type: cognitive
+    age_fit: gen_z
+    intent: recover_focus
+    locale: all
+    approved: true
+    name: "Junko's Koan Focus"
+    exercise_description: "A cognitive exercise using koan practice to sit with one learning challenge as a question without forcing answers, allowing insight to emerge."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Frustration is part of the process. Sit with it."
+    steps:
+      - "Write the learning challenge as a single question."
+      - "Sit with the question for 3 minutes without answering."
+      - "Write the first response that comes. Act on it."
+
+  - exercise_id: junko_economy_planning_5min
+    teacher_id: junko
+    topic: economy_work
+    sdg: "8"
+    exercise_type: planning
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Junko's Beginner's Mind at Work"
+    exercise_description: "A planning exercise using beginner's mind to approach one avoided work task fresh, notice three new things, and take the smallest first step."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If workplace stress involves safety, use formal channels."
+    steps:
+      - "Name one work task you have been avoiding."
+      - "Approach it as if doing it for the first time. Notice three things."
+      - "Do the smallest possible first step now."
+
+  - exercise_id: junko_climate_reflective_5min
+    teacher_id: junko
+    topic: climate
+    sdg: "13"
+    exercise_type: reflective
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Junko's Impermanence Climate Reflection"
+    exercise_description: "A reflective exercise using Zen impermanence to observe one climate change in your environment and choose one response that accepts change rather than resisting it."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If eco-grief intensifies, seek support."
+    steps:
+      - "Name one change in your local environment over the past year."
+      - "Reflect: what does accepting this change (not ignoring it) look like?"
+      - "Choose one adaptive action."
+
+  # ─── MASTER WU (Chan Buddhist) ─────────────────────────
+  # Topics: mental_health, peace_conflict, education, economy_work, climate
+
+  - exercise_id: wu_peace_regulate_4min
+    teacher_id: master_wu
+    topic: peace_conflict
+    sdg: "16"
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Master Wu's Still Water Practice"
+    exercise_description: "A regulation exercise using Chan water metaphor to let reactive thoughts settle like sediment and choose one clear response."
+    duration_minutes: 4
+    delivery_format: audio
+    safety_note: "Step away from the situation before practicing."
+    steps:
+      - "Visualize a still pond. A breath-regulation interval."
+      - "Name one reactive thought and let it settle."
+      - "Choose one response that preserves clarity."
+
+  - exercise_id: wu_peace_cognitive_5min
+    teacher_id: master_wu
+    topic: peace_conflict
+    sdg: "16"
+    exercise_type: cognitive
+    age_fit: gen_z
+    intent: understand
+    locale: all
+    approved: true
+    name: "Master Wu's Mirror Mind Conflict Analysis"
+    exercise_description: "A cognitive exercise using Chan mirror-mind to reflect both sides of a conflict without distortion, then identify what remains unclear."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Stay neutral during analysis. Avoid premature conclusions."
+    steps:
+      - "Name the conflict and write one perspective from each side."
+      - "For each perspective, name one valid point."
+      - "Name what remains unclear and one way to learn more."
+
+  - exercise_id: wu_mental_regulate_5min
+    teacher_id: master_wu
+    topic: mental_health
+    sdg: "3"
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Master Wu's Mountain Clarity"
+    exercise_description: "A regulation exercise using Chan mountain metaphor to restore stability by observing thoughts like clouds passing over a mountain."
+    duration_minutes: 5
+    delivery_format: audio
+    safety_note: "Not a substitute for professional care."
+    steps:
+      - "Sit upright like a mountain. Close your eyes."
+      - "Observe thoughts like clouds for 3 minutes."
+      - "Name one clear intention and one next step."
+
+  - exercise_id: wu_mental_reflective_5min
+    teacher_id: master_wu
+    topic: mental_health
+    sdg: "3"
+    exercise_type: reflective
+    age_fit: gen_z
+    intent: understand
+    locale: all
+    approved: true
+    name: "Master Wu's Origin of Suffering Reflection"
+    exercise_description: "A reflective exercise using Chan inquiry to trace one source of suffering to its origin and identify one place where the chain can be interrupted."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If this deepens distress, stop and seek support."
+    steps:
+      - "Name one source of suffering from this article."
+      - "Trace it back: what feeds it?"
+      - "Identify one place where the chain can be interrupted."
+
+  - exercise_id: wu_education_cognitive_5min
+    teacher_id: master_wu
+    topic: education
+    sdg: "4"
+    exercise_type: cognitive
+    age_fit: gen_alpha
+    intent: recover_focus
+    locale: all
+    approved: true
+    name: "Master Wu's Empty Cup"
+    exercise_description: "A cognitive exercise using Chan beginner's mind to release one assumption about learning ability and discover one fresh insight."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If academic pressure is extreme, seek counselor support."
+    steps:
+      - "Name one assumption about your learning ability."
+      - "Set it aside for 5 minutes and approach the material fresh."
+      - "Write one new insight."
+
+  - exercise_id: wu_economy_regulate_5min
+    teacher_id: master_wu
+    topic: economy_work
+    sdg: "8"
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Master Wu's Flowing Water Work Reset"
+    exercise_description: "A regulation exercise using Chan water metaphor to release work rigidity by finding the path of least resistance."
+    duration_minutes: 5
+    delivery_format: audio
+    safety_note: "If workplace conditions are unsafe, use formal channels."
+    steps:
+      - "Name one point of rigidity in your work."
+      - "A breath-regulation interval."
+      - "Find the path of least resistance and take one step."
+
+  - exercise_id: wu_climate_cognitive_5min
+    teacher_id: master_wu
+    topic: climate
+    sdg: "13"
+    exercise_type: cognitive
+    age_fit: gen_z
+    intent: understand
+    locale: all
+    approved: true
+    name: "Master Wu's Interconnection Map"
+    exercise_description: "A cognitive exercise using Chan interconnection to map one climate effect through three connected systems, building understanding."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Keep analysis factual. Avoid catastrophizing."
+    steps:
+      - "Name one climate effect from the article."
+      - "Map it through three connected systems (e.g., weather → food → community)."
+      - "Name one system where you can take action."
+
+  # ─── PAMELA FELLOWS (Christian contemplative) ───────────
+  # Topics: inequality, mental_health, peace_conflict, partnerships, education
+
+  - exercise_id: pamela_inequality_reflective_5min
+    teacher_id: pamela_fellows
+    topic: inequality
+    sdg: "10"
+    exercise_type: reflective
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Pamela's Lectio Pause for Justice"
+    exercise_description: "A reflective exercise using lectio divina to read one news paragraph slowly, identify one word that stands out, and choose one action honoring human dignity."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If content triggers deep grief, stop and seek community support."
+    steps:
+      - "Read one paragraph about this issue slowly, twice."
+      - "Name one word or phrase that stands out. Sit with it for 1 minute."
+      - "Write one action that honors human dignity."
+
+  - exercise_id: pamela_inequality_civic_5min
+    teacher_id: pamela_fellows
+    topic: inequality
+    sdg: "10"
+    exercise_type: civic
+    age_fit: gen_z
+    intent: act
+    locale: all
+    approved: true
+    name: "Pamela's Prophetic Voice Action"
+    exercise_description: "A civic exercise using prophetic tradition to draft one truthful statement about inequality and direct it to one institution."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Use measured, truthful language."
+    steps:
+      - "Name one truth about this inequality that needs to be spoken."
+      - "Draft one statement to a relevant institution."
+      - "Send it within 72 hours."
+
+  - exercise_id: pamela_peace_social_4min
+    teacher_id: pamela_fellows
+    topic: peace_conflict
+    sdg: "16"
+    exercise_type: social
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Pamela's Contemplative Peace Dialogue"
+    exercise_description: "A social exercise using contemplative peacemaking to prepare one conversation that prioritizes understanding over winning."
+    duration_minutes: 4
+    delivery_format: text_reflection
+    safety_note: "Do not engage in active confrontation."
+    steps:
+      - "Name one person you disagree with about this conflict."
+      - "Write one question that prioritizes understanding over winning."
+      - "Choose when to ask it."
+
+  - exercise_id: pamela_mental_reflective_5min
+    teacher_id: pamela_fellows
+    topic: mental_health
+    sdg: "3"
+    exercise_type: reflective
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Pamela's Daily Examen for Wellbeing"
+    exercise_description: "A reflective exercise using the Ignatian examen to review one day, name one consolation and one desolation, and identify one need."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Not a substitute for professional care."
+    steps:
+      - "Review the last 24 hours. Name one moment of consolation."
+      - "Name one moment of desolation."
+      - "Write one thing you need for tomorrow."
+
+  - exercise_id: pamela_mental_cognitive_5min
+    teacher_id: pamela_fellows
+    topic: mental_health
+    sdg: "3"
+    exercise_type: cognitive
+    age_fit: gen_z
+    intent: recover_focus
+    locale: all
+    approved: true
+    name: "Pamela's Discernment Clarity"
+    exercise_description: "A cognitive exercise using contemplative discernment to separate one genuine concern from one anxious projection and choose accordingly."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If anxiety is severe, seek professional support first."
+    steps:
+      - "Name one concern about this mental health issue."
+      - "Ask: is this based on evidence or projection?"
+      - "Choose one action based on the evidence."
+
+  - exercise_id: pamela_partnerships_planning_5min
+    teacher_id: pamela_fellows
+    topic: partnerships
+    sdg: "17"
+    exercise_type: planning
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Pamela's Common Good Partnership Plan"
+    exercise_description: "A planning exercise using common-good theology to identify one partnership that serves the common good and plan one strengthening step."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Keep plans realistic and achievable."
+    steps:
+      - "Name one partnership that serves the common good."
+      - "Identify one way it could be strengthened."
+      - "Plan one action for this week."
+
+  - exercise_id: pamela_education_reflective_5min
+    teacher_id: pamela_fellows
+    topic: education
+    sdg: "4"
+    exercise_type: reflective
+    age_fit: gen_alpha
+    intent: understand
+    locale: all
+    approved: true
+    name: "Pamela's Learning Vocation Reflection"
+    exercise_description: "A reflective exercise using vocation theology to connect learning to purpose by identifying one subject that serves others."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If academic stress is acute, seek advisor support."
+    steps:
+      - "Name one thing you are learning that could help others."
+      - "Write one way it connects to a need in your community."
+      - "Choose one study action that honors this connection."
+
+  # ─── JOSHIN (Rinzai Zen) ──────────────────────────────
+  # Topics: mental_health, education, climate, economy_work
+
+  - exercise_id: joshin_mental_regulate_4min
+    teacher_id: joshin
+    topic: mental_health
+    sdg: "3"
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Joshin's Body Scan Breath"
+    exercise_description: "A regulation exercise using Rinzai body awareness to scan tension, breathe into it, and release one tension with one action."
+    duration_minutes: 4
+    delivery_format: audio
+    safety_note: "If body scanning triggers anxiety, open eyes and ground with 5 senses."
+    steps:
+      - "Scan from head to feet, noting tension."
+      - "A breath-awareness interval targeting one tense area."
+      - "Name one tension you can release with one action today."
+
+  - exercise_id: joshin_mental_cognitive_5min
+    teacher_id: joshin
+    topic: mental_health
+    sdg: "3"
+    exercise_type: cognitive
+    age_fit: gen_z
+    intent: recover_focus
+    locale: all
+    approved: true
+    name: "Joshin's What Is This? Inquiry"
+    exercise_description: "A cognitive exercise using Rinzai hwadu (what is this?) to cut through mental noise by asking one direct question about the nature of the distress."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If distress deepens, stop and seek professional support."
+    steps:
+      - "Name the mental health stressor."
+      - "Ask: 'What is this, really?' Write the first honest answer."
+      - "Choose one action based on the honest answer."
+
+  - exercise_id: joshin_education_cognitive_5min
+    teacher_id: joshin
+    topic: education
+    sdg: "4"
+    exercise_type: cognitive
+    age_fit: gen_z
+    intent: recover_focus
+    locale: all
+    approved: true
+    name: "Joshin's Koan Focus"
+    exercise_description: "A cognitive exercise using koan practice to reframe one learning challenge as a question and allow insight to emerge through sitting with it."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Frustration is part of the process."
+    steps:
+      - "Write the learning challenge as a single question."
+      - "Sit with it for 3 minutes without forcing an answer."
+      - "Write the first response that comes. Act on it."
+
+  - exercise_id: joshin_education_study_5min
+    teacher_id: joshin
+    topic: education
+    sdg: "4"
+    exercise_type: study
+    age_fit: gen_alpha
+    intent: recover_focus
+    locale: all
+    approved: true
+    name: "Joshin's Single-Point Study"
+    exercise_description: "A study exercise using Rinzai single-pointed concentration to select one page and read it with absolute focus, then write one insight."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If focus remains scattered, try shorter intervals."
+    steps:
+      - "Select one page of material."
+      - "Read it with absolute focus for 4 minutes."
+      - "Close the page and write one insight from memory."
+
+  - exercise_id: joshin_economy_planning_4min
+    teacher_id: joshin
+    topic: economy_work
+    sdg: "8"
+    exercise_type: planning
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Joshin's Work Breath Reset"
+    exercise_description: "A planning exercise using Rinzai directness to cut through work avoidance by naming one task and committing to only that task next."
+    duration_minutes: 4
+    delivery_format: text_reflection
+    safety_note: "If workplace stress involves safety, use formal channels."
+    steps:
+      - "Name one work task you are avoiding."
+      - "Clear everything else from your attention."
+      - "Do only that task for the next 10 minutes."
+
+  - exercise_id: joshin_climate_reflective_5min
+    teacher_id: joshin
+    topic: climate
+    sdg: "13"
+    exercise_type: reflective
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Joshin's Direct Seeing Climate Reflection"
+    exercise_description: "A reflective exercise using Rinzai direct seeing to observe one climate change effect without adding narrative or opinion, then choosing one action from clarity."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If eco-anxiety spikes, return to breath."
+    steps:
+      - "Name one climate effect you can observe directly."
+      - "Describe it without opinion or narrative. Just what you see."
+      - "Choose one action from that clarity."
+
+  # ══════════════════════════════════════════════════════════
+  # ADDITIONAL TEACHER+TOPIC — 3rd+ exercise per primary topic
+  # Fills type gaps so hash tie-break creates variety
+  # ══════════════════════════════════════════════════════════
+
+  # --- Ahjan: climate (add social, planning) ---
+  - exercise_id: ahjan_climate_social_5min
+    teacher_id: ahjan
+    topic: climate
+    sdg: "13"
+    exercise_type: social
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Ahjan's Sangha Climate Conversation"
+    exercise_description: "A social exercise using Theravada sangha to prepare one climate conversation with a peer, grounded in interdependence."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Choose a safe, respectful setting."
+    steps:
+      - "Name one climate concern you want to discuss with someone."
+      - "Write one question grounded in interdependence, not blame."
+      - "Choose one person and one time to have this conversation."
+
+  - exercise_id: ahjan_climate_planning_5min
+    teacher_id: ahjan
+    topic: climate
+    sdg: "13"
+    exercise_type: planning
+    age_fit: gen_z
+    intent: act
+    locale: all
+    approved: true
+    name: "Ahjan's Right Action Climate Planner"
+    exercise_description: "A planning exercise using Right Action to identify one climate habit to change and schedule it within 7 days."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Keep plans realistic and achievable."
+    steps:
+      - "Name one daily habit that harms the environment."
+      - "Identify one replacement habit."
+      - "Schedule the switch for a specific day this week."
+
+  # --- Miki: climate (add reflective, planning) ---
+  - exercise_id: miki_climate_reflective_5min
+    teacher_id: miki
+    topic: climate
+    sdg: "13"
+    exercise_type: reflective
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Miki's Seasonal Harmony Climate Reflection"
+    exercise_description: "A reflective exercise using Shinto seasonal awareness to notice one climate shift in your environment and identify one adaptive response."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If eco-grief intensifies, seek support."
+    steps:
+      - "Name one seasonal change that feels different from past years."
+      - "Reflect on what this means for your local environment."
+      - "Choose one adaptive response."
+
+  - exercise_id: miki_climate_planning_5min
+    teacher_id: miki
+    topic: climate
+    sdg: "13"
+    exercise_type: planning
+    age_fit: gen_z
+    intent: act
+    locale: all
+    approved: true
+    name: "Miki's Sacred Space Maintenance Plan"
+    exercise_description: "A planning exercise using Shinto sacred space principles to identify one local green space and plan one maintenance action."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Stay safe in outdoor environments."
+    steps:
+      - "Identify one local green space or natural area you use."
+      - "Name one maintenance or restoration need."
+      - "Schedule one action and invite one person to join."
+
+  # --- Ma'at: inequality (add variants for diversity) ---
+  - exercise_id: maat_inequality_reflective2_5min
+    teacher_id: maat
+    topic: inequality
+    sdg: "10"
+    exercise_type: reflective
+    age_fit: gen_z
+    intent: understand
+    locale: all
+    approved: true
+    name: "Ma'at Scales of Evidence"
+    exercise_description: "A reflective exercise using Ma'at scales metaphor to weigh evidence on both sides of an inequality claim and find what remains uncertain."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Stay factual. Avoid premature conclusions."
+    steps:
+      - "Name one inequality claim from the article."
+      - "Write one piece of evidence for and one against."
+      - "Name what you still need to learn and one way to learn it."
+
+  - exercise_id: maat_inequality_civic2_5min
+    teacher_id: maat
+    topic: inequality
+    sdg: "10"
+    exercise_type: civic
+    age_fit: both
+    intent: act
+    locale: all
+    approved: true
+    name: "Ma'at Public Record Action"
+    exercise_description: "A civic exercise using Ma'at record-keeping tradition to document one inequality for public record and submit it to a relevant oversight body."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Use factual, proportional language."
+    steps:
+      - "Write one factual paragraph documenting the inequality."
+      - "Identify one oversight body, news outlet, or public forum."
+      - "Submit within 72 hours."
+
+  - exercise_id: maat_inequality_social_5min
+    teacher_id: maat
+    topic: inequality
+    sdg: "10"
+    exercise_type: social
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Ma'at Collective Truth-Telling"
+    exercise_description: "A social exercise using Ma'at collective truth to prepare one conversation about inequality grounded in shared evidence."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Choose a safe setting. Avoid confrontation."
+    steps:
+      - "Name one inequality issue you want to discuss."
+      - "Write one evidence-based statement and one question."
+      - "Choose one person and one time for this conversation."
+
+  - exercise_id: maat_inequality_planning_5min
+    teacher_id: maat
+    topic: inequality
+    sdg: "10"
+    exercise_type: planning
+    age_fit: gen_z
+    intent: act
+    locale: all
+    approved: true
+    name: "Ma'at Balance Restoration Plan"
+    exercise_description: "A planning exercise using Ma'at balance restoration to design one 3-step response to a documented inequality."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Keep plans proportional and factual."
+    steps:
+      - "Name the documented inequality and one affected group."
+      - "Write three steps: research, contact, follow up."
+      - "Schedule step one for this week."
+
+  # --- Ra: peace_conflict (add regulate, reflective) ---
+  - exercise_id: ra_peace_regulate_5min
+    teacher_id: ra
+    topic: peace_conflict
+    sdg: "16"
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Ra's Ubuntu Grounding"
+    exercise_description: "A regulation exercise using Ubuntu communal grounding to settle conflict reactivity before choosing a community-preserving response."
+    duration_minutes: 5
+    delivery_format: audio
+    safety_note: "Do not engage in active confrontation."
+    steps:
+      - "Name the conflict and one strong emotion you feel."
+      - "A grounding interval: feel your connection to community."
+      - "Choose one action that preserves community, not just your position."
+
+  - exercise_id: ra_peace_reflective_5min
+    teacher_id: ra
+    topic: peace_conflict
+    sdg: "16"
+    exercise_type: reflective
+    age_fit: gen_z
+    intent: understand
+    locale: all
+    approved: true
+    name: "Ra's Ancestor Wisdom Conflict Reflection"
+    exercise_description: "A reflective exercise using ancestral wisdom tradition to ask what previous generations would advise about this conflict."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If reflecting on intergenerational trauma, do this with support."
+    steps:
+      - "Name the conflict situation."
+      - "Ask: what would the elders in my community advise?"
+      - "Choose one wisdom-aligned action."
+
+  # --- Master Feung: economy_work (add cognitive, social) ---
+  - exercise_id: feung_economy_cognitive_5min
+    teacher_id: master_feung
+    topic: economy_work
+    sdg: "8"
+    exercise_type: cognitive
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Master Feung's Wu Wei Work Analysis"
+    exercise_description: "A cognitive exercise using Taoist wu wei to identify where you're forcing outcomes at work and find one area where effortless action is possible."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If workplace conditions are unsafe, use formal channels."
+    steps:
+      - "Name one area at work where you are forcing outcomes."
+      - "Ask: what would happen if I stopped forcing?"
+      - "Identify one place where effortless action is possible."
+
+  - exercise_id: feung_economy_social_5min
+    teacher_id: master_feung
+    topic: economy_work
+    sdg: "8"
+    exercise_type: social
+    age_fit: gen_z
+    intent: decide
+    locale: all
+    approved: true
+    name: "Master Feung's Workplace Harmony Check"
+    exercise_description: "A social exercise using Taoist harmony to identify one workplace relationship that needs attention and choose one balancing action."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If conflict involves power imbalance, seek support."
+    steps:
+      - "Name one workplace relationship that feels out of balance."
+      - "Identify what would restore harmony."
+      - "Choose one small balancing action."
+
+  # --- Sai Maa: mental_health (add cognitive, social) ---
+  - exercise_id: sai_maa_mental_cognitive_5min
+    teacher_id: sai_ma
+    topic: mental_health
+    sdg: "3"
+    exercise_type: cognitive
+    age_fit: gen_z
+    intent: recover_focus
+    locale: all
+    approved: true
+    name: "Sai Maa's Maya Clarity Check"
+    exercise_description: "A cognitive exercise using Vedic maya (illusion) concept to identify one mental distortion, test it against reality, and choose one clear action."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Not a substitute for professional care."
+    steps:
+      - "Name one recurring anxious thought."
+      - "Ask: is this reality or illusion? Write one piece of evidence."
+      - "Choose one action based on what is actually real."
+
+  - exercise_id: sai_maa_mental_social_5min
+    teacher_id: sai_ma
+    topic: mental_health
+    sdg: "3"
+    exercise_type: social
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Sai Maa's Satsang Peer Check-In"
+    exercise_description: "A social exercise using satsang (gathering in truth) to prepare one mental health check-in with a peer, grounded in honesty."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Professional support comes first for crisis situations."
+    steps:
+      - "Name one person you trust to be honest with."
+      - "Write one truthful sentence about how you are doing."
+      - "Schedule one check-in conversation."
+
+  # --- Junko: mental_health (add reflective, social) ---
+  - exercise_id: junko_mental_reflective_5min
+    teacher_id: junko
+    topic: mental_health
+    sdg: "3"
+    exercise_type: reflective
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Junko's Zen Mirror Reflection"
+    exercise_description: "A reflective exercise using Zen mirror-mind to observe one source of suffering clearly without adding story, and identify what action emerges."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If distress deepens, seek professional support."
+    steps:
+      - "Name one source of suffering from this article."
+      - "Observe it without adding narrative. What do you actually see?"
+      - "Write one action that emerges from seeing clearly."
+
+  - exercise_id: junko_mental_social_5min
+    teacher_id: junko
+    topic: mental_health
+    sdg: "3"
+    exercise_type: social
+    age_fit: gen_z
+    intent: decide
+    locale: all
+    approved: true
+    name: "Junko's Dharma Friend Check-In"
+    exercise_description: "A social exercise using Zen dharma friendship to prepare one honest conversation about mental wellbeing with a trusted peer."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Professional support first for crisis."
+    steps:
+      - "Name one dharma friend (someone who tells you the truth)."
+      - "Write one honest question about your wellbeing."
+      - "Schedule the conversation."
+
+  # --- Master Wu: peace_conflict (add social, reflective) ---
+  - exercise_id: wu_peace_social_5min
+    teacher_id: master_wu
+    topic: peace_conflict
+    sdg: "16"
+    exercise_type: social
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Master Wu's Tea Ceremony Dialogue"
+    exercise_description: "A social exercise using Chan tea ceremony tradition to prepare one slow, respectful conflict conversation."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Do not engage in active confrontation."
+    steps:
+      - "Name one person on the other side of this conflict."
+      - "Write one respectful question you could ask over tea."
+      - "Choose a time and setting for one calm exchange."
+
+  - exercise_id: wu_peace_reflective_5min
+    teacher_id: master_wu
+    topic: peace_conflict
+    sdg: "16"
+    exercise_type: reflective
+    age_fit: gen_z
+    intent: understand
+    locale: all
+    approved: true
+    name: "Master Wu's River of Conflict Reflection"
+    exercise_description: "A reflective exercise using Chan river metaphor to trace one conflict to its upstream causes and identify where the current can be redirected."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Stay analytical. Avoid emotional flooding."
+    steps:
+      - "Name the conflict and trace it upstream: what caused it?"
+      - "Identify one point where the current could be redirected."
+      - "Choose one redirecting action."
+
+  # --- Pamela Fellows: inequality (add social, cognitive) ---
+  - exercise_id: pamela_inequality_social_5min
+    teacher_id: pamela_fellows
+    topic: inequality
+    sdg: "10"
+    exercise_type: social
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Pamela's Solidarity Circle"
+    exercise_description: "A social exercise using contemplative solidarity to identify one person affected by inequality and prepare one conversation of support."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Choose a safe setting. Listen more than speak."
+    steps:
+      - "Name one person or group affected by this inequality."
+      - "Write one question that centers their experience."
+      - "Choose when to listen."
+
+  - exercise_id: pamela_inequality_cognitive_5min
+    teacher_id: pamela_fellows
+    topic: inequality
+    sdg: "10"
+    exercise_type: cognitive
+    age_fit: gen_z
+    intent: understand
+    locale: all
+    approved: true
+    name: "Pamela's Discernment of Structures"
+    exercise_description: "A cognitive exercise using contemplative discernment to identify one structural cause of inequality hidden behind individual blame narratives."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Keep analysis constructive."
+    steps:
+      - "Name one inequality often blamed on individuals."
+      - "Identify one structural or systemic cause behind it."
+      - "Choose one action that addresses the structure."
+
+  # --- Joshin: education (add reflective variants + planning) ---
+  - exercise_id: joshin_education_cognitive2_5min
+    teacher_id: joshin
+    topic: education
+    sdg: "4"
+    exercise_type: cognitive
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Joshin's What Don't I Know? Inquiry"
+    exercise_description: "A cognitive exercise using Rinzai inquiry to identify one gap in understanding and design one experiment to fill it."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Not knowing is productive. Stay with it."
+    steps:
+      - "After reading this article, name one thing you genuinely don't understand."
+      - "Write one small experiment that could help you understand."
+      - "Do the experiment within 24 hours."
+
+  - exercise_id: joshin_education_reflective_5min
+    teacher_id: joshin
+    topic: education
+    sdg: "4"
+    exercise_type: reflective
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Joshin's Direct Seeing Learning Reflection"
+    exercise_description: "A reflective exercise using Rinzai direct seeing to strip away assumptions about learning and find one genuine insight."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Frustration is part of the process."
+    steps:
+      - "Name one thing you think you know about this topic."
+      - "Set the knowledge aside. Read one paragraph as if you know nothing."
+      - "Write one genuine surprise or insight."
+
+  - exercise_id: joshin_education_planning_5min
+    teacher_id: joshin
+    topic: education
+    sdg: "4"
+    exercise_type: planning
+    age_fit: gen_z
+    intent: decide
+    locale: all
+    approved: true
+    name: "Joshin's One-Task Study Plan"
+    exercise_description: "A planning exercise using Rinzai single-pointed focus to select one study task, remove all distractions, and execute for 15 minutes."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If academic pressure is extreme, seek support."
+    steps:
+      - "Name one study task that matters most right now."
+      - "Remove all distractions from your workspace."
+      - "Work on that one task for 15 minutes, then stop."
+
+  # ══════════════════════════════════════════════════════════
+  # TEACHER-ONLY FALLBACKS — tier 3 (teacher_id only, no topic/sdg)
+  # 1-2 per teacher, diverse types
+  # ══════════════════════════════════════════════════════════
+
+  - exercise_id: ahjan_fallback_regulate_4min
+    teacher_id: ahjan
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Ajahn Breath Anchor"
+    exercise_description: "A general regulation exercise using Theravada mindfulness to identify one reactive pattern and choose one low-harm response."
+    duration_minutes: 4
+    delivery_format: audio
+    safety_note: "If anxiety rises, return to normal breath."
+    steps:
+      - "Name one craving or aversion driving reactivity."
+      - "A breath-regulation interval."
+      - "Choose one low-harm action for today."
+
+  - exercise_id: ahjan_fallback_reflective_5min
+    teacher_id: ahjan
+    exercise_type: reflective
+    age_fit: gen_z
+    intent: understand
+    locale: all
+    approved: true
+    name: "Ahjan's Equanimity Reflection"
+    exercise_description: "A reflective exercise using equanimity to observe one strong reaction without acting on it and identify what wisdom emerges."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If distress intensifies, seek support."
+    steps:
+      - "Name one strong reaction you had to this article."
+      - "Observe it without acting for 2 minutes."
+      - "Write what wisdom emerges."
+
+  - exercise_id: maat_fallback_reflective_5min
+    teacher_id: maat
+    exercise_type: reflective
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Ma'at Truth Log"
+    exercise_description: "A general reflective exercise using Ma'at truth principles to document one imbalance and choose one proportional response."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Keep the log factual and proportionate."
+    steps:
+      - "Record one imbalance you observed."
+      - "Name evidence and affected group."
+      - "Choose one truthful next action."
+
+  - exercise_id: miki_fallback_regulate_6min
+    teacher_id: miki
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Miki Attention Walk"
+    exercise_description: "A general regulation exercise using Shinto nature awareness for any topic, grounding through slow walking and environmental observation."
+    duration_minutes: 6
+    delivery_format: short_video
+    safety_note: "Stay in safe, public environments."
+    steps:
+      - "Walk slowly for 6 minutes with full sensory attention."
+      - "Notice one human-nature interface."
+      - "Record one maintenance action."
+
+  - exercise_id: feung_fallback_regulate_5min
+    teacher_id: master_feung
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Master Feung Structure Reset"
+    exercise_description: "A general regulation exercise using Taoist structure principles to identify one disorder pattern and set one correction."
+    duration_minutes: 5
+    delivery_format: audio
+    safety_note: "Avoid forceful breath if lightheaded."
+    steps:
+      - "Name one disorder pattern in your day."
+      - "A Taoist breath-regulation interval."
+      - "Set one structural correction for 24 hours."
+
+  - exercise_id: feung_fallback_planning_5min
+    teacher_id: master_feung
+    exercise_type: planning
+    age_fit: gen_z
+    intent: decide
+    locale: all
+    approved: true
+    name: "Master Feung's Flow Planner"
+    exercise_description: "A general planning exercise using Taoist flow to find the path of least resistance through one challenge."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "Keep scope realistic."
+    steps:
+      - "Name one challenge and three approaches."
+      - "Identify which has least friction."
+      - "Choose it and take the first step."
+
+  - exercise_id: pamela_fallback_reflective_5min
+    teacher_id: pamela_fellows
+    exercise_type: reflective
+    age_fit: both
+    intent: understand
+    locale: all
+    approved: true
+    name: "Pamela's Lectio Pause"
+    exercise_description: "A general reflective exercise using lectio divina to read one passage slowly, find one word that resonates, and choose one action from it."
+    duration_minutes: 5
+    delivery_format: text_reflection
+    safety_note: "If content triggers grief, pause."
+    steps:
+      - "Read one paragraph from this article slowly, twice."
+      - "Name one word that stands out."
+      - "Write one action it calls you to."
+
+  - exercise_id: junko_fallback_regulate_4min
+    teacher_id: junko
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Junko Attention Reset"
+    exercise_description: "A general regulation exercise using Zen breath-counting to restore attention after information overload."
+    duration_minutes: 4
+    delivery_format: audio
+    safety_note: "Pause if breath work causes discomfort."
+    steps:
+      - "Name one attention fracture from the last 24 hours."
+      - "A Zen breath-counting interval."
+      - "Return to one single-task block."
+
+  - exercise_id: wu_fallback_regulate_5min
+    teacher_id: master_wu
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Master Wu Spine Reset"
+    exercise_description: "A general regulation exercise using Chan posture awareness to restore energy by releasing spine tension."
+    duration_minutes: 5
+    delivery_format: short_video
+    safety_note: "Keep movement small; stop if pain appears."
+    steps:
+      - "Sit upright and relax shoulders."
+      - "A posture-awareness interval with slow breaths."
+      - "Name one energy leak and one corrective action."
+
+  - exercise_id: sai_maa_fallback_regulate_5min
+    teacher_id: sai_ma
+    exercise_type: regulate
+    age_fit: both
+    intent: regulate
+    locale: all
+    approved: true
+    name: "Sai Maa Grounding Sequence"
+    exercise_description: "A general regulation exercise using Vedic prana awareness to settle emotional overload and choose one stabilizing action."
+    duration_minutes: 5
+    delivery_format: audio
+    safety_note: "If distress intensifies, stop and seek support."
+    steps:
+      - "Name one emotional overload cue."
+      - "A Vedic breath-regulation interval."
+      - "Write one immediate stabilizing action."
+
+  - exercise_id: ra_fallback_social_5min
+    teacher_id: ra
+    exercise_type: social
+    age_fit: both
+    intent: decide
+    locale: all
+    approved: true
+    name: "Ra Ubuntu Reset"
+    exercise_description: "A general social exercise using Ubuntu principles to identify one relational need and choose one relationship-preserving action."
+    duration_minutes: 5
+    delivery_format: audio
+    safety_note: "Use moderated spaces for conflict dialogue."
+    steps:
+      - "Name one unmet relational need."
+      - "Identify one shared interest."
+      - "Choose one relationship-preserving action."
+
+  - exercise_id: joshin_fallback_cognitive_4min
+    teacher_id: joshin
+    exercise_type: cognitive
+    age_fit: gen_z
+    intent: recover_focus
+    locale: all
+    approved: true
+    name: "Joshin Breath Count Reset"
+    exercise_description: "A general cognitive exercise using Rinzai concentration to cut through mental noise and name one clear next action."
+    duration_minutes: 4
+    delivery_format: audio
+    safety_note: "If sitting still triggers distress, try walking."
+    steps:
+      - "Sit on a firm surface with spine straight."
+      - "A Rinzai breath-count concentration interval."
+      - "Name one thing you noticed and one next action."

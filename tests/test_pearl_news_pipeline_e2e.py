@@ -9,7 +9,6 @@ from pearl_news.pipeline.topic_sdg_classifier import classify_sdgs
 from pearl_news.pipeline.template_selector import select_templates
 from pearl_news.pipeline.article_assembler import assemble_articles
 from pearl_news.pipeline.quality_gates import run_quality_gates
-from pearl_news.pipeline.qc_checklist import run_qc_checklist
 
 
 def _make_fake_items(count: int = 3) -> list[dict]:
@@ -62,15 +61,16 @@ class TestPipelineE2E:
         assert "qc_passed" in articles[0]
         assert "fact_check_completeness" in articles[0]["qc_results"]
         assert "un_endorsement_detector" in articles[0]["qc_results"]
+        assert "writer_spec_forbidden_phrases" in articles[0]["qc_results"]
 
-    def test_qc_checklist_filters_to_passed(self):
-        """QC checklist with filter_to_passed returns only passed items."""
+    def test_quality_gate_filtering_can_be_done_inline(self):
+        """Pipeline can filter QC-passed items without a separate qc_checklist wrapper."""
         items = _make_fake_items(2)
         items = classify_sdgs(items)
         items = select_templates(items)
         articles = assemble_articles(items)
         articles = run_quality_gates(articles)
-        passed = run_qc_checklist(articles, filter_to_passed=True)
-        all_items = run_qc_checklist(articles, filter_to_passed=False)
+        passed = [article for article in articles if article.get("qc_passed")]
+        all_items = articles
         assert len(all_items) == 2
         assert len(passed) <= 2

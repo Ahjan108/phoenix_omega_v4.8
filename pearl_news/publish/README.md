@@ -2,9 +2,9 @@
 
 Articles can be posted to the Pearl News WordPress site (BlogSite theme) via the **WordPress REST API** using Basic Auth with an Application Password.
 
-## Credentials (environment variables only)
+## Credentials (env first, local file fallback)
 
-Set these in your environment or in a local `.env` file (do **not** commit `.env` or the app password):
+Preferred: set these in your environment (or local `.env`, never committed):
 
 | Variable | Description |
 |----------|-------------|
@@ -12,7 +12,16 @@ Set these in your environment or in a local `.env` file (do **not** commit `.env
 | `WORDPRESS_USERNAME` | WordPress username for the application (e.g. `admin` for pearlnewsuna.org). |
 | `WORDPRESS_APP_PASSWORD` | Application password from **WP Admin → Users → Your Profile → Application Passwords**. For this repo, the GitHub app password is in **docs/wordpress_github_info.rtf** (last row). Spaces are stripped automatically. |
 
-**Security:** Never commit the app password. The repo already ignores `.env` and `.env.local`. See [docs/pearl_news_wordpress_env.example](../docs/pearl_news_wordpress_env.example) for placeholder variable names.
+Local fallback for dev machines:
+- `WORDPRESS_CREDENTIALS_FILE=/absolute/path/to/wordpress_credentials.rtf`, or
+- repo-root `wordpress_credentials.rtf` (auto-detected if env vars are missing).
+
+Expected entries in that file:
+- `WORDPRESS_SITE_URL=...`
+- `WORDPRESS_USERNAME=...`
+- `WORDPRESS_APP_PASSWORD=...`
+
+**Security:** Never commit the app password. Keep `wordpress_credentials.rtf` local-only.
 
 ## Posting a story
 
@@ -42,14 +51,14 @@ When using `--article path/to/file.json`, the file may contain:
 - **title** or **headline** — post title (required)
 - **content**, **body**, or **text** — post body, HTML or plain (required)
 - **slug** — optional URL slug
-- **author** — WordPress user ID for byline (teacher-assigned; pipeline alternates via `config/wordpress_authors.yaml`)
+- **author** — WordPress user ID for byline. Current pipeline uses a fixed default author unless overridden at publish time.
 - **categories** or **category_ids** — list of WordPress category IDs
 - **tags** or **tag_ids** — list of WordPress tag IDs
 - **featured_image** — object for main/WordPress featured image with attribution: `{ "url": "https://...", "credit": "UN News", "source_url": "https://...", "caption": "optional" }`. Uploaded to Media and set as post thumbnail.
 - **featured_image_url** — image URL only (no attribution). Used if `featured_image` is not set.
-- **featured_image_path** — path relative to repo root (e.g. `pearl_news/del_intake_pics/global_update.png`). Used when no feed image; pipeline sets one per article type from `config/site.yaml` → `placeholder_featured_image_by_template`.
+- **featured_image_path** — path relative to repo root (e.g. `pearl_news/del_intake_pics/global_update.png`). Used when a local fallback image is attached in the article payload.
 
-When the RSS article has no image, the pipeline uses one placeholder image per article type from **pearl_news/del_intake_pics/** (see `pearl_news/config/site.yaml`). When the feed has an image, the first entry from the item’s `images` array is used with attribution.
+When the RSS article has no image, the pipeline may attach a local fallback image from **pearl_news/del_intake_pics/** or use the feed image if present. Placeholder assignment is now controlled in pipeline code rather than `site.yaml`.
 
 The legal disclaimer is on the site About page; it is not appended to each article.
 
