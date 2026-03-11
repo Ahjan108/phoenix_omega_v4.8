@@ -23,4 +23,15 @@
 
 ---
 
+## Monthly stable baseline
+
+1. Once per month (recommended: first Monday), after required checks are green on `main`, create a baseline tag:
+   - `stable-YYYY-MM` (or `baseline-YYYY-MM`).
+2. Push the tag to origin and record the tagged SHA in release evidence.
+3. Verify rollback references are current using [ROLLBACK_RUNBOOKS_INDEX.md](./ROLLBACK_RUNBOOKS_INDEX.md).
+
+Optional artifact for audit traceability: `artifacts/audit/baseline_YYYYMM.json` with `sha`, `tag`, `timestamp_utc`.
+
+---
+
 Without this policy, releases can drift (direct pushes to `main`, untagged “release” commits). The freeze makes the release path explicit and auditable.

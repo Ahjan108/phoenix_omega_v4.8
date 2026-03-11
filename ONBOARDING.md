@@ -5,7 +5,7 @@
 **Authority anchors (read in this order):**
 
 1. [SYSTEM_OWNER_VISION.md](SYSTEM_OWNER_VISION.md) — North star: what the system owner wants (technical, therapeutic, experience, business)
-2. [docs/DOCS_INDEX.md](docs/DOCS_INDEX.md) — Canonical doc index; use the **task table** and "(document all)" sections. **For GitHub (PRs, merges, two repos, runners):** DOCS_INDEX → [GitHub Operations Framework](docs/DOCS_INDEX.md#github-operations-framework) → [docs/GITHUB_OPERATIONS_FRAMEWORK.md](docs/GITHUB_OPERATIONS_FRAMEWORK.md).
+2. [docs/DOCS_INDEX.md](docs/DOCS_INDEX.md) — Canonical doc index; use the **task table** and "(document all)" sections. **Core pipeline and function index:** [docs/DATA_DICTIONARY.md](docs/DATA_DICTIONARY.md). **For GitHub (PRs, merges, two repos, runners):** DOCS_INDEX → [GitHub Operations Framework](docs/DOCS_INDEX.md#github-operations-framework) → [docs/GITHUB_OPERATIONS_FRAMEWORK.md](docs/GITHUB_OPERATIONS_FRAMEWORK.md).
 3. [specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md](specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md)
 4. [specs/PHOENIX_V4_5_WRITER_SPEC.md](specs/PHOENIX_V4_5_WRITER_SPEC.md)
 

@@ -1,0 +1,127 @@
+name: Marketing briefs and proposals (daily)
+
+on:
+  schedule:
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Execution mode'
+        required: true
+        default: 'briefs'
+        type: choice
+        options:
+          - briefs
+          - full
+
+concurrency:
+  group: marketing-briefs-proposals
+  cancel-in-progress: true
+
+jobs:
+  marketing-briefs-and-proposals:
+    runs-on: self-hosted
+    timeout-minutes: 45
+    environment: marketing
+
+    env:
+      QWEN_BASE_URL: http://127.0.0.1:1234/v1
+      QWEN_API_KEY: lm-studio
+      QWEN_MODEL: qwen3-14b
+      MODE: ${{ github.event.inputs.mode || 'briefs' }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements-test.txt --break-system-packages || pip install -r requirements-test.txt
+
+      - name: Preflight runner + LM health
+        run: |
+          set -euo pipefail
+          echo "mode=$MODE"
+          echo "== LM Studio model check =="
+          curl -fsS "$QWEN_BASE_URL/models" >/tmp/models.json
+          cat /tmp/models.json | head -c 300; echo
+          echo "== LM Studio warmup =="
+          curl -fsS --max-time 45 "$QWEN_BASE_URL/chat/completions" \
+            -H 'Content-Type: application/json' \
+            -H "Authorization: Bearer $QWEN_API_KEY" \
+            -d "{\"model\":\"$QWEN_MODEL\",\"messages\":[{\"role\":\"user\",\"content\":\"ok\"}],\"max_tokens\":64,\"temperature\":0.0,\"enable_thinking\":false}" >/tmp/warmup.json
+          python3 - <<'PY'
+          import json
+          data = json.load(open("/tmp/warmup.json"))
+          if "error" in data:
+            raise SystemExit(f"Warmup failed: {data['error']}")
+          print("warmup_ok=true")
+          PY
+          echo "== Memory check =="
+          FREE_PAGES=$(vm_stat | awk '/Pages free/ {gsub("\\.","",$3); print $3}')
+          INACTIVE_PAGES=$(vm_stat | awk '/Pages inactive/ {gsub("\\.","",$3); print $3}')
+          FREE_BYTES=$(( (FREE_PAGES + INACTIVE_PAGES) * 4096 ))
+          python3 - <<'PY'
+          import os
+          free_gb = int(os.environ["FREE_BYTES"]) / (1024**3)
+          print(f"free_mem_gb={free_gb:.2f}")
+          if free_gb < 2.0:
+            raise SystemExit("Insufficient free memory (<2.0 GB).")
+          PY
+
+      - name: Check emergency stop
+        run: |
+          python -c "import yaml; c=yaml.safe_load(open('config/marketing/ingest_limits.yaml')); exit(1 if c.get('global',{}).get('emergency_stop') else 0)" && echo "Emergency stop is NOT active" || (echo "Emergency stop is active"; exit 1)
+
+      - name: Run briefs/proposals with LM lock (retry-once)
+        run: |
+          python3 - <<'PY'
+          import importlib.util
+          import subprocess
+          import sys
+          import time
+          from pathlib import Path
+
+          def load_lock_module():
+              p = Path("scripts/lm_studio_lock.py")
+              if not p.exists():
+                  raise SystemExit("LM lock module missing: scripts/lm_studio_lock.py")
+              spec = importlib.util.spec_from_file_location("lm_studio_lock_mod", p)
+              mod = importlib.util.module_from_spec(spec)
+              spec.loader.exec_module(mod)  # type: ignore[arg-type]
+              return mod
+
+          mode = "${{ github.event.inputs.mode || 'briefs' }}"
+          commands = ["python3 scripts/marketing/build_persona_topic_briefs.py --pilot"]
+          if mode == "full":
+              commands.append("python3 scripts/marketing/propose_prompt_patches.py")
+
+          lock_mod = load_lock_module()
+          with lock_mod.lm_studio_lock("marketing-briefs", shards=12, timeout_sec=120):
+              for cmd in commands:
+                  ok = False
+                  for attempt in (1, 2):
+                      print(f"cmd={cmd} attempt={attempt}")
+                      rc = subprocess.call(cmd, shell=True)
+                      if rc == 0:
+                          ok = True
+                          break
+                      if attempt == 2:
+                          raise SystemExit(f"Command failed after retry: {cmd}")
+                      time.sleep(10)
+                  if not ok:
+                      raise SystemExit(f"Unexpected failure: {cmd}")
+          PY
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: marketing-briefs-${{ github.run_id }}
+          path: artifacts/marketing/
+          retention-days: 30

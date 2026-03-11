@@ -1,0 +1,29 @@
+# PR-safe gate: runs on every pull_request to main. Required for branch protection.
+# Full daily audit is drift-audit.yml (schedule + dispatch).
+name: Drift gate
+
+on:
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  drift-gate:
+    name: drift-gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Validate allowlist (single source, fail if violated)
+        run: PYTHONPATH=. python3 scripts/audit/validate_allowlist_usage.py
+
+      - name: Run drift audit
+        run: python3 scripts/ci/drift_audit.py

@@ -1,0 +1,34 @@
+# Authoritative allowlist for Qwen-Agent → phoenix_omega migration.
+# No path outside this list may be copied. See docs/QWEN_SAFE_CONSOLIDATION_SPEC.md §3.
+
+workflows:
+  - .github/workflows/audiobook_manual.yml
+  - .github/workflows/audiobook_regression.yml
+  - .github/workflows/audiobook_scheduled.yml
+  - .github/workflows/locale_max_agents.yml
+  - .github/workflows/pearl_news_scheduled.yml
+  - .github/workflows/pearl_news_manual_expand.yml
+  - .github/workflows/runner_artifacts_cleanup.yml
+
+scripts:
+  - scripts/lm_studio_lock.py
+  - scripts/localization/run_locale_batches.py
+  - scripts/localization/translate_atoms_all_locales.py
+  - scripts/localization/validate_translations.py
+  - scripts/pearl_news_article_judge.py
+  - scripts/runner/runner_cleanup.sh
+  - scripts/runner/heavy_window_guard.py
+  - scripts/runner/runner_watchdog.sh
+  - scripts/runner/install_watchdog_launchd.sh
+
+config:
+  - config/content_type_registry.yaml
+  - config/runner/heavy_windows.yaml
+
+docs:
+  - docs/RUNTIME_CONSOLIDATION_MIGRATION_MANIFEST.md
+  - docs/OWNERSHIP_MATRIX.md
+  - docs/LOCALIZATION_100_PERCENT_RUNBOOK.md
+
+pearl_news_assets:
+  - prompts/article_judge/judge_pearl_news_v1.txt

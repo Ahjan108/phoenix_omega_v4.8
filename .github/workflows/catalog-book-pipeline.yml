@@ -1,0 +1,183 @@
+name: Catalog book pipeline (weekly)
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+    inputs:
+      books_cap:
+        description: 'Max books to build this run'
+        required: false
+        default: '10'
+        type: number
+      lane:
+        description: 'Language/market lane'
+        required: false
+        default: 'en'
+        type: choice
+        options:
+          - en
+          - zh24
+          - all
+      run_ei_learn:
+        description: 'Run EI V2 learning after pipeline'
+        required: false
+        default: true
+        type: boolean
+
+concurrency:
+  group: catalog-book-pipeline
+  cancel-in-progress: false
+
+env:
+  QWEN_BASE_URL: http://127.0.0.1:1234/v1
+  QWEN_API_KEY: lm-studio
+  QWEN_MODEL: qwen3-14b
+
+jobs:
+  build:
+    name: Build
+    runs-on: self-hosted
+    timeout-minutes: 120
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Preflight runner + LM health
+        run: |
+          set -euo pipefail
+          echo "== LM Studio model check =="
+          curl -fsS "$QWEN_BASE_URL/models" >/tmp/models.json
+          cat /tmp/models.json | head -c 300; echo
+          echo "== LM Studio warmup =="
+          curl -fsS --max-time 45 "$QWEN_BASE_URL/chat/completions" \
+            -H 'Content-Type: application/json' \
+            -H "Authorization: Bearer $QWEN_API_KEY" \
+            -d "{\"model\":\"$QWEN_MODEL\",\"messages\":[{\"role\":\"user\",\"content\":\"ok\"}],\"max_tokens\":64,\"temperature\":0.0,\"enable_thinking\":false}" >/tmp/warmup.json
+          python3 - <<'PY'
+          import json
+          data = json.load(open("/tmp/warmup.json"))
+          if "error" in data:
+            raise SystemExit(f"Warmup failed: {data['error']}")
+          print("warmup_ok=true")
+          PY
+          echo "== Memory check =="
+          FREE_PAGES=$(vm_stat | awk '/Pages free/ {gsub("\\.","",$3); print $3}')
+          INACTIVE_PAGES=$(vm_stat | awk '/Pages inactive/ {gsub("\\.","",$3); print $3}')
+          FREE_BYTES=$(( (FREE_PAGES + INACTIVE_PAGES) * 4096 ))
+          python3 - <<'PY'
+          import os
+          free_gb = int(os.environ["FREE_BYTES"]) / (1024**3)
+          print(f"free_mem_gb={free_gb:.2f}")
+          if free_gb < 2.0:
+            raise SystemExit("Insufficient free memory (<2.0 GB).")
+          PY
+          echo "== Disk check =="
+          FREE_KB=$(df -k . | awk 'NR==2{print $4}')
+          python3 - <<'PY'
+          import os
+          free_gb = int(os.environ["FREE_KB"]) / (1024**2)
+          print(f"free_disk_gb={free_gb:.2f}")
+          if free_gb < 15.0:
+            raise SystemExit("Insufficient free disk (<15 GB).")
+          PY
+
+      - name: Generate schedule + run pipeline with LM lock (retry-once)
+        run: |
+          python3 - <<'PY'
+          import importlib.util
+          import subprocess
+          import time
+          from pathlib import Path
+
+          def load_lock_module():
+              p = Path("scripts/lm_studio_lock.py")
+              if not p.exists():
+                  raise SystemExit("LM lock module missing: scripts/lm_studio_lock.py")
+              spec = importlib.util.spec_from_file_location("lm_studio_lock_mod", p)
+              mod = importlib.util.module_from_spec(spec)
+              spec.loader.exec_module(mod)  # type: ignore[arg-type]
+              return mod
+
+          lane = "${{ inputs.lane || 'en' }}"
+          cap = "${{ inputs.books_cap || 10 }}"
+          commands = [
+              f"python3 scripts/release/generate_weekly_schedule.py --lane {lane} --out artifacts/release_schedule.json",
+              f"python3 scripts/ci/run_canary_100_books.py --cap {cap}",
+          ]
+          lock_mod = load_lock_module()
+          with lock_mod.lm_studio_lock("catalog-book-pipeline", shards=120, timeout_sec=180):
+              for cmd in commands:
+                  ok = False
+                  for attempt in (1, 2):
+                      print(f"cmd={cmd} attempt={attempt}")
+                      rc = subprocess.call(cmd, shell=True)
+                      if rc == 0:
+                          ok = True
+                          break
+                      if attempt == 2:
+                          raise SystemExit(f"Command failed after retry: {cmd}")
+                      time.sleep(15)
+                  if not ok:
+                      raise SystemExit(f"Unexpected failure: {cmd}")
+          PY
+
+      - name: Upload pipeline artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: catalog-pipeline-${{ github.run_id }}
+          path: artifacts/
+
+  ei-learn:
+    name: EI Learn
+    runs-on: self-hosted
+    timeout-minutes: 120
+    needs: [build]
+    if: ${{ inputs.run_ei_learn != 'false' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Download pipeline artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: catalog-pipeline-${{ github.run_id }}
+          path: artifacts/
+
+      - name: Run EI V2 catalog calibration and learn (retry-once)
+        run: |
+          for attempt in 1 2; do
+            echo "ei-learn attempt=$attempt"
+            python3 scripts/ci/run_ei_v2_catalog_calibration.py --learn && exit 0
+            if [ "$attempt" -eq 2 ]; then
+              echo "EI learn failed after retry"
+              exit 1
+            fi
+            sleep 15
+          done
+
+      - name: Upload EI artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ei-learn-${{ github.run_id }}
+          path: artifacts/

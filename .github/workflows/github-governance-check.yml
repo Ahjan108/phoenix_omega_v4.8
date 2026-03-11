@@ -22,6 +22,9 @@ jobs:
       - name: Run governance verifier (local mode)
         run: PYTHONPATH=. python scripts/ci/verify_github_governance.py --mode local
 
+      - name: Validate required checks match workflow job names
+        run: PYTHONPATH=. python scripts/ci/validate_required_checks_match.py
+
       - name: Run governance verifier (api mode, optional)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

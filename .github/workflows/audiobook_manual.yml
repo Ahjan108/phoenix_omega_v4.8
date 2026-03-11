@@ -1,0 +1,101 @@
+name: Audiobook manual run (Qwen-only)
+concurrency:
+  group: audiobook-manual
+  cancel-in-progress: true
+
+on:
+  workflow_dispatch:
+    inputs:
+      locale:
+        description: Locale
+        required: true
+        default: zh-TW
+        type: choice
+        options: [zh-TW, zh-HK, zh-SG, zh-CN]
+      content_type:
+        description: Content type
+        required: true
+        default: pearl_prime
+        type: choice
+        options: [pearl_prime, pearl_news, phoenix_v4, teacher_mode]
+      section_id:
+        description: Section id
+        required: true
+        default: manual_001
+        type: string
+      source_text:
+        description: English source text (single-line or short block)
+        required: true
+        type: string
+
+jobs:
+  manual:
+    runs-on: self-hosted
+    timeout-minutes: 60
+    env:
+      PYTHONUNBUFFERED: '1'
+      QWEN_BASE_URL: http://127.0.0.1:1234/v1
+      QWEN_API_KEY: lm-studio
+      QWEN_MODEL: qwen3-14b
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install pyyaml jsonschema openai requests
+
+      - name: Preflight runner + LM health
+        run: |
+          set -euo pipefail
+          echo "== LM Studio model check =="
+          curl -fsS "$QWEN_BASE_URL/models" >/tmp/models.json
+          cat /tmp/models.json | head -c 400; echo
+          echo "== LM Studio warmup call =="
+          curl -fsS --max-time 45 "$QWEN_BASE_URL/chat/completions" \
+            -H 'Content-Type: application/json' \
+            -H "Authorization: Bearer $QWEN_API_KEY" \
+            -d "{\"model\":\"$QWEN_MODEL\",\"messages\":[{\"role\":\"user\",\"content\":\"ok\"}],\"max_tokens\":64,\"temperature\":0.0,\"enable_thinking\":false}" >/tmp/warmup.json
+          python3 - <<'PY'
+          import json
+          data = json.load(open("/tmp/warmup.json"))
+          if "error" in data:
+            raise SystemExit(f"Warmup failed: {data['error']}")
+          print("warmup_ok=true")
+          PY
+
+      - name: Prepare source file
+        run: |
+          mkdir -p artifacts/audiobook/source/manual
+          cat > artifacts/audiobook/source/manual/source.txt <<'SRC'
+          ${{ inputs.source_text }}
+          SRC
+
+      - name: Run comparator loop
+        run: |
+          BATCH_ID="manual_$(date -u +%Y%m%dT%H%M%SZ)"
+          for attempt in 1 2; do
+            echo "attempt=${attempt}"
+            python3 scripts/audiobook_script/run_comparator_loop.py \
+              --section-id "${{ inputs.section_id }}" \
+              --locale "${{ inputs.locale }}" \
+              --english-source artifacts/audiobook/source/manual/source.txt \
+              --book-id "manual" \
+              --batch-id "$BATCH_ID" \
+              --content-type "${{ inputs.content_type }}" && exit 0
+            if [ "$attempt" -eq 2 ]; then
+              echo "comparator loop failed after retry"
+              exit 1
+            fi
+            sleep 15
+          done
+
+      - name: Upload audiobook artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: audiobook_artifacts_manual
+          path: artifacts/audiobook/
+          retention-days: 14

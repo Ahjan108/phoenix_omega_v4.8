@@ -2,11 +2,19 @@
 
 **Purpose:** Canonical index for documentation authority and navigation.  
 **Missing-file policy:** Only existing files are linked; planned or missing files are listed as backlog items (plain text or `path` with ⚠️ *file not present*).  
-**Last updated:** 2026-03-06
+**Last updated:** 2026-03-10
 
 **For developers: start here.** This index is your map. Use the **task table** below for "where to go" by task. **GitHub (PRs, merges, two repos, runners):** go to [GitHub Operations Framework](#github-operations-framework) and [docs/GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md) — repo map, workflow matrix, canonical ownership, PR flow, merge to main, Qwen-Agent push/runner, recovery. **Tests / CI:** [Test suite (document all)](#test-suite-document-all). **Domain work:** use the task table and the "(document all)" subsections per domain.
 
-**Recent implementation (d1–d6 + payouts):** Freebies (d1) — `--no-update-freebie-index` in run_pipeline/systems_test. Change observation & impact (d2) — [config/governance/system_registry.yaml](../config/governance/system_registry.yaml), [scripts/observability/detect_changes.py](../scripts/observability/detect_changes.py), [scripts/observability/impact_from_changes.py](../scripts/observability/impact_from_changes.py), [.github/workflows/change-impact.yml](../.github/workflows/change-impact.yml). EI V2 (d3) — [phoenix_v4/quality/ei_v2/learner.py](../phoenix_v4/quality/ei_v2/learner.py), [phoenix_v4/quality/ei_v2/dimension_gates.py](../phoenix_v4/quality/ei_v2/dimension_gates.py), [phoenix_v4/quality/ei_v2/hybrid_selector.py](../phoenix_v4/quality/ei_v2/hybrid_selector.py), [scripts/ci/run_ei_v2_catalog_calibration.py](../scripts/ci/run_ei_v2_catalog_calibration.py), [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py). Translation (d4) — [config/localization/quality_contracts/](../config/localization/quality_contracts/) (README, glossary, release_thresholds, golden_translation_regression), script stubs: [translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py), [validate_translations.py](../scripts/validate_translations.py), [merge_translation_shards.py](../scripts/merge_translation_shards.py), [check_golden_translation.py](../scripts/check_golden_translation.py), [native_prompts_eval_learn.py](../scripts/native_prompts_eval_learn.py), [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml), [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml). Simulation/quality (d5) — [scripts/ci/run_simulation_100k.py](../scripts/ci/run_simulation_100k.py), [config/source_of_truth/chapter_order_modes.yaml](../config/source_of_truth/chapter_order_modes.yaml), [scripts/ci/tier0_trend.py](../scripts/ci/tier0_trend.py), [config/quality/canary_config.yaml](../config/quality/canary_config.yaml). Payouts — [config/payouts/](../config/payouts/) (churches, payees, credentials.example, fill_template.csv). Video (d6) — no code changes (run_render duration already correct). **Cohesive bestseller tester:** robust, intelligent testing for 10k Pearl Prime + 10k teacher-mode + EI v2 — [llm_cohesive_bestseller_tester.py](../scripts/ci/llm_cohesive_bestseller_tester.py), [llm_bestseller_error_report.py](../scripts/ci/llm_bestseller_error_report.py); health score, severity, dimension analysis, baseline, LLM; see [Rigorous system test & simulation (document all)](#rigorous-system-test--simulation-document-all) and [scripts/ci/README.md](../scripts/ci/README.md) § AI/LLM cohesive bestseller tester. **Pearl Prime structural upgrade (2026-03-06):** Seven-change book quality overhaul — four new chapter slots (PIVOT, TAKEAWAY, THREAD, PERMISSION) added to [specs/PHOENIX_V4_5_WRITER_SPEC.md](../specs/PHOENIX_V4_5_WRITER_SPEC.md) §4.3a/4.7/4.7a/4.8; 20-chapter arc second half redesigned with 11 new deepening intents replacing the repeated first-half cycle; chapter thesis field added to arc schema; 12 bestseller narrative structures documented and mapped to slot assignments in [docs/BESTSELLER_STRUCTURES.md](./BESTSELLER_STRUCTURES.md); canonical thesis sentences for all 20 intents × 7 engines in [docs/CHAPTER_THESIS_BANK.md](./CHAPTER_THESIS_BANK.md). **Pearl News writer spec (2026-03-06):** Full writing craft layer for article authoring — [docs/PEARL_NEWS_WRITER_SPEC.md](./PEARL_NEWS_WRITER_SPEC.md); expansion prompt upgraded in [pearl_news/prompts/expansion_system.txt](../pearl_news/prompts/expansion_system.txt). **Qwen-Only Audiobook Pipeline (2026-03-06):** Fully-automated Qwen comparator loop producing localized audiobook scripts; no Claude at runtime; no human in repair loop; 5 hard + 4 scored gates; asyncio parallel (24 concurrent API calls); manual review queue in PhoenixControl — [docs/AUDIOBOOK_PIPELINE_SPEC.md](./AUDIOBOOK_PIPELINE_SPEC.md), [docs/GO_LIVE_FINAL_CHECKLIST.md](./GO_LIVE_FINAL_CHECKLIST.md), [scripts/audiobook_script/run_comparator_loop.py](../scripts/audiobook_script/run_comparator_loop.py). All listed assets are in the [Document all — complete inventory](#document-all--complete-inventory) with ✓ where present.
+**Architect handoff (Pearl News commentary quality):** [docs/ARTHER_SYSTEM_ARCHITECT_HANDOFF.md](./ARTHER_SYSTEM_ARCHITECT_HANDOFF.md) — product-first architecture advice for fixing concept-driven commentary generation, routing, structured inputs, and validation.
+**Old-chat requirements gap analysis:** [docs/OLD_CHAT_REQUIREMENTS_GAP_ANALYSIS.md](./OLD_CHAT_REQUIREMENTS_GAP_ANALYSIS.md) — mined requirements from old chats tied back to current authority docs; focuses on generational research, youth-signal sourcing, practice safety, narrative-function enforcement, operator truthfulness, and secret governance.
+**Pearl News generational intelligence tech spec:** [docs/PEARL_NEWS_GENERATIONAL_INTELLIGENCE_TECH_SPEC.md](./PEARL_NEWS_GENERATIONAL_INTELLIGENCE_TECH_SPEC.md) — technical contract for three-layer generational research, youth-signal provenance, story briefs, planner handoff, and validation.
+**Pearl News generational writer spec:** [docs/PEARL_NEWS_GENERATIONAL_WRITER_SPEC.md](./PEARL_NEWS_GENERATIONAL_WRITER_SPEC.md) — writer addendum for turning generational intelligence into grounded Pearl News articles without generic youth language or unsupported interpretation.
+**Teacher banks source inventory:** [docs/TEACHER_BANKS_SOURCE_INVENTORY.md](./TEACHER_BANKS_SOURCE_INVENTORY.md) — teacher-by-teacher inventory of preserved raw source docs vs doctrine/runtime-only banks, plus cleanup status.
+**Teacher banks normalization + restore checklist:** [docs/TEACHER_BANKS_NORMALIZATION_AND_RESTORE_CHECKLIST.md](./TEACHER_BANKS_NORMALIZATION_AND_RESTORE_CHECKLIST.md) — normalization audit for raw trees, candidate-vs-approved overlap findings, and per-teacher restoration checklist.
+**Teacher Pearl Prime readiness scorecard:** [docs/TEACHER_PEARL_PRIME_READINESS_SCORECARD.md](./TEACHER_PEARL_PRIME_READINESS_SCORECARD.md) — teacher-by-teacher scorecard for registry, config, doctrine, approved atoms, source preservation, readiness gate, and current Pearl Prime status.
+
+**Recent implementation (d1–d6 + payouts):** Freebies (d1) — `--no-update-freebie-index` in run_pipeline/systems_test. Change observation & impact (d2) — [config/governance/system_registry.yaml](../config/governance/system_registry.yaml), [scripts/observability/detect_changes.py](../scripts/observability/detect_changes.py), [scripts/observability/impact_from_changes.py](../scripts/observability/impact_from_changes.py), [.github/workflows/change-impact.yml](../.github/workflows/change-impact.yml). EI V2 (d3) — [phoenix_v4/quality/ei_v2/learner.py](../phoenix_v4/quality/ei_v2/learner.py), [phoenix_v4/quality/ei_v2/dimension_gates.py](../phoenix_v4/quality/ei_v2/dimension_gates.py), [phoenix_v4/quality/ei_v2/hybrid_selector.py](../phoenix_v4/quality/ei_v2/hybrid_selector.py), [scripts/ci/run_ei_v2_catalog_calibration.py](../scripts/ci/run_ei_v2_catalog_calibration.py), [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py). Translation (d4) — [config/localization/quality_contracts/](../config/localization/quality_contracts/) (README, glossary, release_thresholds, golden_translation_regression), script stubs: [translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py), [validate_translations.py](../scripts/validate_translations.py), [merge_translation_shards.py](../scripts/merge_translation_shards.py), [check_golden_translation.py](../scripts/check_golden_translation.py), [native_prompts_eval_learn.py](../scripts/native_prompts_eval_learn.py), [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml), [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml). Simulation/quality (d5) — [scripts/ci/run_simulation_100k.py](../scripts/ci/run_simulation_100k.py), [config/source_of_truth/chapter_order_modes.yaml](../config/source_of_truth/chapter_order_modes.yaml), [scripts/ci/tier0_trend.py](../scripts/ci/tier0_trend.py), [config/quality/canary_config.yaml](../config/quality/canary_config.yaml). Payouts — [config/payouts/](../config/payouts/) (churches, payees, credentials.example, fill_template.csv). Video (d6) — no code changes (run_render duration already correct). **Cohesive bestseller tester:** robust, intelligent testing for 10k Pearl Prime + 10k teacher-mode + EI v2 — [llm_cohesive_bestseller_tester.py](../scripts/ci/llm_cohesive_bestseller_tester.py), [llm_bestseller_error_report.py](../scripts/ci/llm_bestseller_error_report.py); health score, severity, dimension analysis, baseline, LLM; see [Rigorous system test & simulation (document all)](#rigorous-system-test--simulation-document-all) and [scripts/ci/README.md](../scripts/ci/README.md) § AI/LLM cohesive bestseller tester. **Pearl Prime structural upgrade (2026-03-06):** Seven-change book quality overhaul — four new chapter slots (PIVOT, TAKEAWAY, THREAD, PERMISSION) added to [specs/PHOENIX_V4_5_WRITER_SPEC.md](../specs/PHOENIX_V4_5_WRITER_SPEC.md) §4.3a/4.7/4.7a/4.8; 20-chapter arc second half redesigned with 11 new deepening intents replacing the repeated first-half cycle; chapter thesis field added to arc schema; 12 bestseller narrative structures documented and mapped to slot assignments in [docs/BESTSELLER_STRUCTURES.md](./BESTSELLER_STRUCTURES.md); canonical thesis sentences for all 20 intents × 7 engines in [docs/CHAPTER_THESIS_BANK.md](./CHAPTER_THESIS_BANK.md). **Complete (2026-03-09):** All **455** master arcs have `chapter_thesis` (one sentence per chapter); [phoenix_v4/planning/arc_loader.py](../phoenix_v4/planning/arc_loader.py) and [config/source_of_truth/master_arcs/](../config/source_of_truth/master_arcs/) load clean; TAKEAWAY resolves at runtime from arc thesis via [phoenix_v4/planning/assembly_compiler.py](../phoenix_v4/planning/assembly_compiler.py) and [phoenix_v4/rendering/prose_resolver.py](../phoenix_v4/rendering/prose_resolver.py); PERMISSION gated to **4 high-cost chapters per book** via arc `high_cost_chapters` and assembly_compiler strip of PERMISSION outside those chapters; THREAD, PIVOT, Bestseller structure assignment (max 3 in a row) already wired. **Pearl News writer spec (2026-03-06):** Full writing craft layer for article authoring — [docs/PEARL_NEWS_WRITER_SPEC.md](./PEARL_NEWS_WRITER_SPEC.md); expansion prompt upgraded in [pearl_news/prompts/expansion_system.txt](../pearl_news/prompts/expansion_system.txt). **Qwen-Only Audiobook Pipeline (2026-03-06):** Fully-automated Qwen comparator loop producing localized audiobook scripts; no Claude at runtime; no human in repair loop; 5 hard + 4 scored gates; asyncio parallel (24 concurrent API calls); manual review queue in PhoenixControl — [docs/AUDIOBOOK_PIPELINE_SPEC.md](./AUDIOBOOK_PIPELINE_SPEC.md), [docs/GO_LIVE_FINAL_CHECKLIST.md](./GO_LIVE_FINAL_CHECKLIST.md), [scripts/audiobook_script/run_comparator_loop.py](../scripts/audiobook_script/run_comparator_loop.py). **Session work (2026-03-09):** (1) **Video pipeline — ElevenLabs TTS** — Narration stage after caption_adapter: [scripts/video/run_tts_narration.py](../scripts/video/run_tts_narration.py) (script_segments → ElevenLabs API → narration.mp3); key from env, **11.txt** at repo root, or [old_chat_specs/11.rtf](../old_chat_specs/11.rtf) via [scripts/video/_elevenlabs_key.py](../scripts/video/_elevenlabs_key.py); [scripts/video/convert_11_rtf_to_txt.py](../scripts/video/convert_11_rtf_to_txt.py) converts 11.rtf → 11.txt; timeline audio_tracks + renderer narration+music duck; [config/tts/engines.yaml](../config/tts/engines.yaml) video_narration mapping. (2) **Docs review & plan cleanup** — Confirmed drift prevention (LOCAL_GIT_DRIFT_PREVENTION_SOP, GITHUB_OPERATIONS_FRAMEWORK), Church & payout narrative (PHOENIX_CHURCHES_PAYOUT_SPEC in repo), Pearl News phrasing normalized to “phoenix_omega production / Qwen-Agent backup” in [PEARL_NEWS_MINIMAL_PROD_CHECKLIST.md](./PEARL_NEWS_MINIMAL_PROD_CHECKLIST.md), [PEARL_NEWS_GO_NO_GO_CHECKLIST.md](./PEARL_NEWS_GO_NO_GO_CHECKLIST.md), [PEARL_NEWS_HARDENING_100_PERCENT.md](./PEARL_NEWS_HARDENING_100_PERCENT.md); [PEARL_PRIME_ALWAYS_ON_POLICY.md](./PEARL_PRIME_ALWAYS_ON_POLICY.md) LM lock link fixed to canonical [scripts/lm_studio_lock.py](../scripts/lm_studio_lock.py). (2) **Author cover art (Gate 18)** — Generator made registry-driven ([scripts/generate_author_cover_art_bases.py](../scripts/generate_author_cover_art_bases.py) reads [config/authoring/author_cover_art_registry.yaml](../config/authoring/author_cover_art_registry.yaml)); 48 pen-name authors added to registry; 63 PNGs in `assets/authors/cover_art/`; [docs/authoring/AUTHOR_COVER_ART_SYSTEM.md](./authoring/AUTHOR_COVER_ART_SYSTEM.md) updated with “how to fix gate 18.” (3) **Pearl News quality gates test** — [tests/test_pearl_news_quality_gates_minimal.py](../tests/test_pearl_news_quality_gates_minimal.py) `test_clean_content_passes` updated with `_news_actions` (action-payload gates 7–11). (4) **Video pipeline spec and config lock (100%)** — [docs/VIDEO_PIPELINE_SPEC.md](./VIDEO_PIPELINE_SPEC.md) completed per plan: pipeline stage order **CaptionAdapter before Timeline Builder** (§1); render manifest **invariant** `primary_atom_id` ∈ `atom_refs[]` in §2; **CALM_TRANSITION** added to visual intent taxonomy, Shot Planner rules, and [config/video/visual_intent_defaults.yaml](../config/video/visual_intent_defaults.yaml); QC §12 rhythm (max 3 consecutive CHARACTER_EMOTION, CALM_TRANSITION every Y heavy shots), face visibility, 9:16 compat; [config/video/degraded_render_policy.yaml](../config/video/degraded_render_policy.yaml) placement constraints (no_consecutive_degraded, no_degraded_in_last_two_shots). (5) **Video pipeline operational layers (100%)** — [docs/VIDEO_PIPELINE_SPEC.md](./VIDEO_PIPELINE_SPEC.md) gap closure: **music bank** (§8.5) layout (mood folders, ~80 tracks), arc/segment-driven selection (not topic-only), rotation/variation (pitch/speed or more tracks); **image bank safety gate** (§8.4) before admission (NSFW, violence, symbol detection), same classifier for rendered spot-check; **generation outage** (§8.3) retry queue during bank build, production render independent of live generation; **localization** (§13) variant_id (en, ja), [config/video/caption_policies.yaml](../config/video/caption_policies.yaml) by_language (line_break_rules, vertical_text_allowed for 9:16); **Metadata Writer contract** (§10) persona, topic, **location** inputs for title/description; **partner runbook** owner (pipeline owner or ops) in spec and [docs/PARTNER_VIDEO_PICKUP_RUNBOOK.md](./PARTNER_VIDEO_PICKUP_RUNBOOK.md). **Queue orchestration (always-on):** [docs/PEARL_PRIME_ALWAYS_ON_POLICY.md](./PEARL_PRIME_ALWAYS_ON_POLICY.md), [config/queue.yaml](../config/queue.yaml), [scripts/queue_orchestrator/jobs.yaml](../scripts/queue_orchestrator/jobs.yaml), [scripts/queue_orchestrator/worker.py](../scripts/queue_orchestrator/worker.py). All listed assets are in the [Document all — complete inventory](#document-all--complete-inventory) with ✓ where present.
 
 ---
 
@@ -17,6 +25,7 @@
 | **Document all (single source)** | This file: [Document all — complete inventory](#document-all--complete-inventory) lists every doc/spec/config/script; domain "(document all)" subsections list every asset per domain. |
 | **Document all (autonomous & ML)** | [docs/AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md](./AUTONOMOUS_IMPROVEMENT_AND_ML_SYSTEM.md) — Full inventory: observability, change observation & impact, operations board, agent PRs, auto-merge, weekly pipeline, KPI triggers, ML editorial, ML autonomous loop (24/7 + daily + weekly). See also [Change observation and impact (document all)](#change-observation-and-impact-document-all). |
 | **Find a doc** | Browse sections below, or search [Document all — complete inventory](#document-all--complete-inventory). |
+| **Core pipeline + function index** | [docs/DATA_DICTIONARY.md](./DATA_DICTIONARY.md) — Pipeline entry points and function index (phoenix_v4, scripts, pearl_news, pearl_prime, tools, services). File list: [REPO_FILES.md](../REPO_FILES.md). |
 | **Add a doc** | Follow [Document all — usage](#document-all--usage): place in correct section, add to inventory, reference canonical anchors if authority doc. |
 | **Check domain coverage** | Use "(document all)" subsections (e.g. [V4 features, scale & knobs](#v4-features-scale--knobs-document-all), [Marketing & deep research](#marketing--deep-research-document-all), [Freebie funnel, Proof Loop & launch](#freebie-funnel-proof-loop--launch-document-all), [Teacher Mode](#teacher-mode--production-readiness-document-all)) — each lists every asset for that domain. |
 | **Change observation / impact / synergy** | [Change observation and impact (document all)](#change-observation-and-impact-document-all) — System registry, add/change/drop detection, impact analysis, LLM synergy recommendations, running best; spec and asset list. |
@@ -28,7 +37,45 @@
 | **Go/no-go decision** | [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md) §6 Hard NOs. |
 | **Freebie funnel & launch** | [Freebie funnel, Proof Loop & launch (document all)](#freebie-funnel-proof-loop--launch-document-all) — landing, form, Proof-Loop emails, GHL push, writer spec, GO_NO_GO, three things from Nihala. |
 | **UI / operator coverage (full)** | No single spec covers all UI. For 100% coverage of everything that needs UI to manage, use the **full doc bundle**: [Control plane & operator UI — full doc bundle](#control-plane--operator-ui--full-doc-bundle) below. |
-| **Do GitHub operations (both repos)** | [GitHub Operations Framework](#github-operations-framework) — repo map, workflow matrix, canonical ownership, system functions (PR flow, merge to main, Qwen-Agent push, runner start/clean, recovery). |
+| **All interaction requirements docs** | [docs/INTERACTION_REQUIREMENTS_INDEX.md](./INTERACTION_REQUIREMENTS_INDEX.md) — Single index of every doc that defines human interactions, touchpoints, operator/UI requirements, and explicit requirements (branch, release, quality, governance). |
+| **Human in the loop (all HITL system docs)** | [Human in the loop (document all)](#human-in-the-loop-document-all) — Every doc where a human must act: [HUMAN_INTERACTIONS_REFERENCE.md](./HUMAN_INTERACTIONS_REFERENCE.md), [HUMAN_TOUCHPOINTS_VISUAL.md](./HUMAN_TOUCHPOINTS_VISUAL.md), control plane, audiobook manual review, payouts (human-in-the-loop execution), approvals, checklists, GHL. |
+| **Do GitHub operations (both repos)** | [GitHub Operations Framework](#github-operations-framework) — repo map, workflow matrix, canonical ownership, system functions (PR flow, merge to main, Qwen-Agent push, runner start/clean, recovery). **Production = phoenix_omega only; Qwen-Agent = backup, manual dispatch only.** |
+| **Prevent branch/local/GitHub drift** | [docs/LOCAL_GIT_DRIFT_PREVENTION_SOP.md](./LOCAL_GIT_DRIFT_PREVENTION_SOP.md) — daily no-drift branch workflow (`origin/main` branching, diverged-main recovery, no direct main commits, gitlink checks). |
+| **Queue orchestration (always-on)** | [docs/PEARL_PRIME_ALWAYS_ON_POLICY.md](./PEARL_PRIME_ALWAYS_ON_POLICY.md) — policy; [config/queue.yaml](../config/queue.yaml), [scripts/queue_orchestrator/jobs.yaml](../scripts/queue_orchestrator/jobs.yaml), [scripts/queue_orchestrator/worker.py](../scripts/queue_orchestrator/worker.py), [scripts/queue_orchestrator/queue_master.py](../scripts/queue_orchestrator/queue_master.py), [scripts/queue_orchestrator/requeue_stale.py](../scripts/queue_orchestrator/requeue_stale.py). Redis-backed job queue; worker BRPOP + LM lock; queue_master and requeue_stale in repo. |
+| **Truth Audit Governance Loop** | [Truth Audit Governance Loop](#truth-audit-governance-loop) — Weekly CI regenerates/validates audit artifacts; Section G → issues; canonical ownership enforcement; Qwen-Agent delta addendum. Workflow, scripts, configs. |
+| **Safe Qwen-Agent consolidation** | [docs/QWEN_SAFE_CONSOLIDATION_SPEC.md](./QWEN_SAFE_CONSOLIDATION_SPEC.md) — Promote runtime assets to phoenix_omega, freeze Qwen-Agent as backup-only, parity gates, archive (no delete). Allowlist: config/audit/qwen_migration_allowlist.yaml. Handoff addendum: exemption rules (owner, removal date, no new exemptions without justification). |
+| **Monthly stable baselines** | [docs/RELEASE_POLICY.md](./RELEASE_POLICY.md) § Monthly stable baseline — tag `stable-YYYY-MM` from main monthly; keep rollback runbooks current. |
+| **Rollback runbooks index** | [docs/ROLLBACK_RUNBOOKS_INDEX.md](./ROLLBACK_RUNBOOKS_INDEX.md) — Canonical rollback/DR runbook list and keep-current policy. |
+| **Old-chat vs V4 gaps (what to implement next)** | [docs/AUDIT_OLD_CHAT_SPECS_VS_V4.md](./AUDIT_OLD_CHAT_SPECS_VS_V4.md) — §4–§5 summary and order; §6 remediation priority lanes (do next: rem-018, rem-019; then cert + phase-gating; backlog: translation, norcal_dharma, payout). |
+
+---
+
+## Truth Audit Governance Loop
+
+**Purpose:** Automate weekly truth-audit governance on `main` so audit artifacts stay current, drift is enforced, remediation is tracked as dated/owned issues, and Qwen-Agent gets a delta-only addendum.
+
+| Item | Location |
+|------|----------|
+| **Workflow** | [.github/workflows/system-truth-audit.yml](../.github/workflows/system-truth-audit.yml) — Weekly schedule + workflow_dispatch + push on audit paths; runs audit, validation, ownership enforcement, Section G → issues sync, Qwen delta addendum; uploads artifacts. |
+| **PR-safe required gate** | [.github/workflows/truth-audit-gate.yml](../.github/workflows/truth-audit-gate.yml) — Runs on every PR to main; required check name: `truth-audit-gate`. |
+| **Run audit** | [scripts/audit/run_truth_audit.py](../scripts/audit/run_truth_audit.py) — Regenerates SYSTEM_TRUTH_REPORT.md, DRIFT_MATRIX.csv, MISSING_REFERENCED_FILES.md, IMPLEMENTATION_STATUS_LEDGER.csv. |
+| **Validate artifacts** | [scripts/audit/validate_truth_artifacts.py](../scripts/audit/validate_truth_artifacts.py) — Ensures four required artifacts exist and parse; optional SHA freshness check vs `main`. |
+| **Enforce ownership** | [scripts/audit/enforce_canonical_ownership.py](../scripts/audit/enforce_canonical_ownership.py) — Reads DRIFT_MATRIX + ownership_policy; fails CI when forbidden shadow paths exist; writes ownership_violations.json. |
+| **Sync Section G to issues** | [scripts/audit/sync_section_g_issues.py](../scripts/audit/sync_section_g_issues.py) — remediation_registry.yaml → GitHub issues (create/update/close); writes remediation_issue_map.json. |
+| **Qwen delta addendum** | [scripts/audit/build_qwen_delta_addendum.py](../scripts/audit/build_qwen_delta_addendum.py) — Compares Qwen-Agent snapshot to baseline; writes QWEN_DELTA_ADDENDUM.md, qwen_delta.json. |
+| **Drift gates** | [.github/workflows/drift-gate.yml](../.github/workflows/drift-gate.yml) (required PR gate, check name `drift-gate`) and [.github/workflows/drift-audit.yml](../.github/workflows/drift-audit.yml) (daily schedule + push/PR to main; runs allowlist validation then [scripts/ci/drift_audit.py](../scripts/ci/drift_audit.py)). |
+| **Allowlist usage validation** | [scripts/audit/validate_allowlist_usage.py](../scripts/audit/validate_allowlist_usage.py) — Ensures drift audit uses `config/audit/qwen_migration_allowlist.yaml` as single source. |
+| **Required check name validation** | [scripts/ci/validate_required_checks_match.py](../scripts/ci/validate_required_checks_match.py) — Fails CI if required check names do not match workflow/job names. |
+| **Remote-only commit review** | [.github/workflows/remote-commit-review.yml](../.github/workflows/remote-commit-review.yml) + [scripts/audit/remote_commit_review.py](../scripts/audit/remote_commit_review.py) — Weekly report; triage within 24h. |
+| **Ownership policy** | [config/audit/ownership_policy.yaml](../config/audit/ownership_policy.yaml) — Forbidden duplicate types; exempt_shadow_paths (explicit exemptions until shadows removed); hard-fail on violations. |
+| **Remediation registry** | [config/audit/remediation_registry.yaml](../config/audit/remediation_registry.yaml) — Machine-readable Section G: id, title, owner, due_date, priority, status, evidence_refs. |
+| **Qwen migration allowlist** | [config/audit/qwen_migration_allowlist.yaml](../config/audit/qwen_migration_allowlist.yaml) — Single authoritative allowlist for Qwen-Agent → phoenix_omega; no path outside may be copied. [scripts/ci/drift_audit.py](../scripts/ci/drift_audit.py) is **allowlist-driven** (required paths from this file). CI fails if allowlist is violated or missing ([scripts/audit/validate_allowlist_usage.py](../scripts/audit/validate_allowlist_usage.py)). See [QWEN_SAFE_CONSOLIDATION_SPEC.md](./QWEN_SAFE_CONSOLIDATION_SPEC.md) §3. |
+| **Audit artifacts** | [artifacts/audit/](../artifacts/audit/) — SYSTEM_TRUTH_REPORT.md, DRIFT_MATRIX.csv, MISSING_REFERENCED_FILES.md, IMPLEMENTATION_STATUS_LEDGER.csv, ownership_violations.json, remediation_issue_map.json, QWEN_DELTA_ADDENDUM.md, qwen_delta.json, baselines/qwen/. |
+| **Issue template** | [.github/ISSUE_TEMPLATE/audit-gap.yml](../.github/ISSUE_TEMPLATE/audit-gap.yml) — Audit-gap issue form (description, priority, due date, owner). |
+
+**Required for main:** Six required status checks (exact names): **Core tests**, **Release gates**, **EI V2 gates**, **Change impact**, **truth-audit-gate**, **drift-gate**. The PR-safe **truth-audit-gate** and **drift-gate** run on every PR to main; the weekly **system-truth-audit** and daily **drift-audit** run full audits separately (schedule + path-triggered).
+
+**Rollout:** Week 1 workflow_dispatch + warn_only; Week 2 hard-fail on ownership; Week 3 enforce issue-sync as required. Secrets: GITHUB_TOKEN (issues); optional GH_PAT for Qwen-Agent clone.
 
 ---
 
@@ -48,6 +95,47 @@
 **Master spec rule:** [EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md](./EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md) is the **master spec**. When you run (implement) the master spec, **all specs in this bundle must be 100% coded** — no partial implementation. Every requirement in each doc must be implemented before the master spec is considered done.
 
 **Summary:** If dev uses only one doc (e.g. a short “Phoenix Omega — Native macOS Control Plane App” blurb), UI coverage is **not** 100%. If dev uses the **full doc bundle** above from DOCS_INDEX, they are **covered to move forward** for all system areas that need UI to manage.
+
+---
+
+## Human in the loop (document all)
+
+**Purpose:** Every place a **human must act** for the system to work — operator actions, approvals, sign-offs, review queues, and setup only a human can complete. Single index for all human-in-the-loop (HITL) system docs.
+
+**Start here:** [docs/HUMAN_INTERACTIONS_REFERENCE.md](./HUMAN_INTERACTIONS_REFERENCE.md) (what you must do by area) and [docs/INTERACTION_REQUIREMENTS_INDEX.md](./INTERACTION_REQUIREMENTS_INDEX.md) (full list of interaction/requirements docs).
+
+**My Actions dashboard:** Run `streamlit run dashboard.py` (or launch Executive Dashboard from Phoenix Control) → **My Actions** tab. One place to see every required action and mark status (todo / in progress / done). State: artifacts/hitl_dashboard_state.json (created at runtime); source of truth: [config/hitl_actions.yaml](../config/hitl_actions.yaml). Tab implementation: [scripts/dashboard/hitl_tab.py](../scripts/dashboard/hitl_tab.py).
+
+**Home / Operations Board:** First tab **Home** aggregates Do Now, Do Today, Blocked, At Risk, Healthy from governance report, HITL state, audiobook manual review queue, [config/gates.yaml](../config/gates.yaml), and risk heuristics. Implementation: [scripts/dashboard/operations_board_tab.py](../scripts/dashboard/operations_board_tab.py). **Gates** tab reads [config/gates.yaml](../config/gates.yaml) for approval gates (audiobook go-live, Pearl News release, payout 2-person).
+
+| Doc | HITL role |
+|-----|-----------|
+| [HUMAN_INTERACTIONS_REFERENCE.md](./HUMAN_INTERACTIONS_REFERENCE.md) | **Canonical HITL reference** — UI actions, church/banking, checklists, GHL handoff, approvals, quality sign-offs; quick reference table. |
+| [HUMAN_TOUCHPOINTS_VISUAL.md](./HUMAN_TOUCHPOINTS_VISUAL.md) | Required human touchpoints system-wide: Mermaid diagram + one-page table (control plane, audiobook, video, payout, GHL, release, content quality). |
+| [INTERACTION_REQUIREMENTS_INDEX.md](./INTERACTION_REQUIREMENTS_INDEX.md) | Full index of every doc that defines interaction requirements and explicit requirements (branch, release, quality, governance). |
+| [EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md](./EXECUTIVE_DASHBOARD_AND_PHOENIXCONTROL_SPEC.md) | Operator-completeness, approval blockers, blocker-to-action mapping; release blocked until human sign-off. |
+| [CONTROL_PLANE_SPEC_PATCH_V1.1.md](./CONTROL_PLANE_SPEC_PATCH_V1.1.md) | Approvals state, Missing/Blocked queue (human runs fix command and verifies). |
+| [CONTROL_PLANE_RUNBOOK.md](./CONTROL_PLANE_RUNBOOK.md) | Evidence procedure per tab; human runs each tab and captures evidence. |
+| [CONTROL_PLANE_GO_NO_GO.md](./CONTROL_PLANE_GO_NO_GO.md) | Human pass/fail checklist per tab before production-ready. |
+| [PHOENIX_OMEGA_ERROR_STATE_UX_SPEC.md](./PHOENIX_OMEGA_ERROR_STATE_UX_SPEC.md) | Recovery actions and startup health check (human follows copy and actions). |
+| [ML_AUTONOMOUS_LOOP_SPEC.md](./ML_AUTONOMOUS_LOOP_SPEC.md) | §11 UI/dashboard requirements; human monitors loop health, agent queue, operations board. |
+| [AUDIOBOOK_PIPELINE_SPEC.md](./AUDIOBOOK_PIPELINE_SPEC.md) | **Sole HITL touchpoint:** manual review queue in PhoenixControl when auto-repair exhausts budget; go-live checklist sign-off. |
+| [GO_LIVE_FINAL_CHECKLIST.md](./GO_LIVE_FINAL_CHECKLIST.md) | 10-item human sign-off before first audiobook production run. |
+| [PEARL_NEWS_GO_NO_GO_CHECKLIST.md](./PEARL_NEWS_GO_NO_GO_CHECKLIST.md) | Human sign-off with evidence (networked run, CI green, checklist). |
+| [CREATIVE_QUALITY_VALIDATION_CHECKLIST.md](./CREATIVE_QUALITY_VALIDATION_CHECKLIST.md) | Human creative quality after each compile (arc, story, exercise, voice, ending). |
+| [FIRST_10_BOOKS_EVALUATION_PROTOCOL.md](./FIRST_10_BOOKS_EVALUATION_PROTOCOL.md) | Human: blind listen, 5-axis score, pattern analysis for first 10 books. |
+| [CHURCH_PAYOUT_AND_BANK_GOVERNANCE.md](./CHURCH_PAYOUT_AND_BANK_GOVERNANCE.md) | Church agreements and bank control; human completes agreements and config. |
+| [config/payouts/CHECKLIST.md](../config/payouts/CHECKLIST.md) | Human: Plaid credentials, 24 bank links via Plaid Link, last4, payees; 2-person approval for method/first payout. See [specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md](../specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md) (human-in-the-loop execution). |
+| [PAYOUT_PARTNER_METHODS.md](./PAYOUT_PARTNER_METHODS.md) | 2-person approval for payout method changes and first payout to new payee. |
+| [funnel/burnout_reset/GHL_HANDBOFF.md](../funnel/burnout_reset/GHL_HANDBOFF.md) | Human gives GHL admin: API key, Location ID, custom field UUIDs. |
+| [PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md](./PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md) | Escalate when no auto-fix (human must create config, fix code, author content); elevation output and retest. |
+| [scripts/ci/PREPUBLISH_CHECKLIST.md](../scripts/ci/PREPUBLISH_CHECKLIST.md) | Human runs prepublish gates; publish only when exit 0. |
+| [GITHUB_NO_FAILURE_FRAMEWORK.md](./GITHUB_NO_FAILURE_FRAMEWORK.md) | No production sign-off without run URLs + artifacts + digest (human retains evidence). |
+| [NEW_LANGUAGE_LOCATION_ONBOARDING.md](./NEW_LANGUAGE_LOCATION_ONBOARDING.md) | Human sign-off and marketing + ops approval for new locale. |
+| [VIDEO_PIPELINE_SPEC.md](./VIDEO_PIPELINE_SPEC.md) | Human: run pipeline, provide manifest/credentials; review caption truncation when QC flags >50%. |
+| [audiobook_operator_runbook.md](./audiobook_operator_runbook.md) | Operator runbook for audiobook pipeline (manual review, LM Studio, source content). |
+
+**Pipelines with no HITL in nominal path:** Audiobook comparator loop is fully automated; the only HITL is the **manual review queue** when repair budget is exhausted, plus go-live sign-off. Payout execution is explicitly **human-in-the-loop** per church/payout spec.
 
 ---
 
@@ -107,17 +195,19 @@ Native Swift/SwiftUI macOS app implementing the plan "Phoenix Omega — Native m
 
 ## Video pipeline
 
-Metadata-driven visual storytelling engine: script segments → Shot Planner → Asset Resolver → Timeline Builder → CaptionAdapter → Renderer → QC → Provenance → Distribution.
+Metadata-driven visual storytelling engine: script segments → Shot Planner → Asset Resolver → CaptionAdapter → Timeline Builder → **TTS narration (ElevenLabs)** → Renderer (narration + music duck) → QC → Provenance → Distribution. Canonical spec: render manifest invariant (primary_atom_id ∈ atom_refs), CALM_TRANSITION in visual_intent, CaptionAdapter before Timeline Builder.
 
 | Item | Location |
 |------|----------|
-| **Video pipeline spec (canonical)** | [docs/VIDEO_PIPELINE_SPEC.md](./VIDEO_PIPELINE_SPEC.md) — Stage order, contracts, config refs, motion/style, handoff |
-| **Render manifest schema** | [schemas/video/render_manifest_v1.schema.json](../schemas/video/render_manifest_v1.schema.json) — Segments → atoms (plan_id, segments[], primary_atom_id, atom_refs) |
+| **Video pipeline spec (canonical)** | [docs/VIDEO_PIPELINE_SPEC.md](./VIDEO_PIPELINE_SPEC.md) — Stage order (CaptionAdapter before Timeline Builder), contracts, **invariant** primary_atom_id ∈ atom_refs, config refs, motion/style, handoff, CALM_TRANSITION; **operational layers:** music bank (§8.5), image bank safety gate (§8.4), generation retry/bank-only (§8.3), localization variant_id + caption_policies by_language (§13), Metadata Writer location contract (§10), partner runbook owner |
+| **Render manifest schema** | [schemas/video/render_manifest_v1.schema.json](../schemas/video/render_manifest_v1.schema.json) — plan_id, segments[] (segment_id, text, slot_id, **primary_atom_id**, atom_refs); invariant: primary_atom_id must appear in atom_refs |
 | **Image bank asset schema** | [schemas/video/image_bank_asset_v1.schema.json](../schemas/video/image_bank_asset_v1.schema.json) — asset_id, composition_compat (per aspect), caption_safe_zone, safety_score, style_version |
-| **Video config** | [config/video/](../config/video/) — pacing_by_content_type, caption_policies, degraded_render_policy, visual_intent_defaults, emotion_to_camera_overrides, motion_policy, hook_selection_rules, music_policy, brand_style_tokens, aspect_ratio_presets, visual_metaphor_library, cross_video_dedup, asset_selection_priority, color_grade_presets, render_params (crop_margin_pct) |
+| **Video config** | [config/video/](../config/video/) — pacing_by_content_type, **caption_policies** (by_language: en/ja, line_break_rules, vertical_text_allowed), degraded_render_policy (placement: no consecutive, no first/last two), visual_intent_defaults (**CALM_TRANSITION**), emotion_to_camera_overrides, motion_policy, hook_selection_rules, **music_policy** (arc-driven, segment override), brand_style_tokens, aspect_ratio_presets, visual_metaphor_library, cross_video_dedup, asset_selection_priority, color_grade_presets, render_params (crop_margin_pct) |
+| **TTS engines (incl. video narration)** | [config/tts/engines.yaml](../config/tts/engines.yaml) — ElevenLabs + OpenAI; `video_narration` mapped to elevenlabs; default_voice_id for API; freebie vs video context |
 | **Golden fixtures** | [fixtures/video_pipeline/](../fixtures/video_pipeline/) — render_manifest, script_segments, shot_plan, timeline, distribution_manifest, video_provenance |
-| **Pipeline scripts** | [scripts/video/](../scripts/video/) — prepare_script_segments, run_shot_planner, run_asset_resolver, run_timeline_builder, run_caption_adapter, run_qc, write_provenance, write_metadata, run_render (end_time_s = end timestamp, duration_s = end_s − start_s), run_pipeline (orchestrator), [run_flux_generate.py](../scripts/video/run_flux_generate.py) (FLUX image bank generation) |
-| **Storage layout (persistent vs ephemeral)** | [docs/VIDEO_PIPELINE_STORAGE_LAYOUT.md](./VIDEO_PIPELINE_STORAGE_LAYOUT.md) — artifacts/video/ (persistent); staging/&lt;date&gt;/ (ephemeral, wipe after ack) |
+| **Pipeline scripts** | [scripts/video/](../scripts/video/) — prepare_script_segments, run_shot_planner, run_asset_resolver, run_timeline_builder, run_caption_adapter, **run_tts_narration** (ElevenLabs TTS → narration.mp3), run_qc, write_provenance, write_metadata, run_render (end_time_s = end timestamp, duration_s = end_s − start_s; mixes narration + music when timeline has audio_tracks), run_pipeline (orchestrator), [run_flux_generate.py](../scripts/video/run_flux_generate.py) (FLUX image bank generation) |
+| **ElevenLabs API key (video TTS)** | Env `ELEVENLABS_API_KEY`, or **11.txt** at repo root (e.g. `ELEVENLABS_API_KEY=sk_...`), or **11.rtf** at repo root or [old_chat_specs/11.rtf](../old_chat_specs/11.rtf) (key extracted on read). Loader: [scripts/video/_elevenlabs_key.py](../scripts/video/_elevenlabs_key.py). Convert RTF→txt: [scripts/video/convert_11_rtf_to_txt.py](../scripts/video/convert_11_rtf_to_txt.py). **11.txt** is gitignored. |
+| **Storage layout (persistent vs ephemeral)** | [docs/VIDEO_PIPELINE_STORAGE_LAYOUT.md](./VIDEO_PIPELINE_STORAGE_LAYOUT.md) — artifacts/video/ (persistent); staging/&lt;date&gt;/ (ephemeral, wipe after ack); optional artifacts/video/tts_cache/ for TTS cache |
 | **Test and review plan** | [docs/VIDEO_PIPELINE_TEST_AND_REVIEW_PLAN.md](./VIDEO_PIPELINE_TEST_AND_REVIEW_PLAN.md) — regression (fixture), real 15+ segment run, teacher mode alignment, fix plan |
 | **Post–first-video backlog** | [docs/VIDEO_PIPELINE_POST_FIRST_VIDEO_BACKLOG.md](./VIDEO_PIPELINE_POST_FIRST_VIDEO_BACKLOG.md) — pipeline_version, input refs, placeholder naming, timing log, QC expansion, FFmpeg params |
 | **Visual brief (image bank)** | [docs/VIDEO_PIPELINE_VISUAL_BRIEF.md](./VIDEO_PIPELINE_VISUAL_BRIEF.md) — hook types, composition targets, emotion–visual alignment; reference for prompt/composition only |
@@ -221,7 +311,7 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 ### Operational gates (production 100%)
 
 1. Merge to `main`
-2. Qwen-Agent Pearl News workflow suite green on `main`
+2. phoenix_omega Pearl News workflows green on `main`
 3. Networked pipeline smoke run on `main` passes
 4. Scheduled workflow run on GitHub passes
 5. WordPress draft-post flow verified with real secrets
@@ -234,11 +324,12 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 | **Architecture spec** | [docs/PEARL_NEWS_ARCHITECTURE_SPEC.md](./PEARL_NEWS_ARCHITECTURE_SPEC.md) — Pipeline, atoms, templates, config, governance |
 | **Article metadata schema (doc)** | [docs/PEARL_NEWS_ARTICLE_METADATA_SCHEMA.md](./PEARL_NEWS_ARTICLE_METADATA_SCHEMA.md) — Frozen metadata contract for `article_metadata.jsonl`; required keys, governance use |
 | **GitHub scheduling** | [docs/PEARL_NEWS_GITHUB_SCHEDULING.md](./PEARL_NEWS_GITHUB_SCHEDULING.md) — Scheduled pipeline runs, WordPress posting, GitHub Actions, secrets |
-| **Option B runbook (Qwen/Qwen-Agent)** | [docs/PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md) — Copy Pearl News into Ahjan108/Qwen-Agent or Qwen; exact cp commands; self-hosted + LM Studio; §7 LM Studio reliability (schedule = no expand, manual = expand); 6 secrets; verify |
+| **Option B runbook (Qwen/Qwen-Agent)** | [docs/PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md) — Backup/dispatch runbook for Qwen/Qwen-Agent (non-production); self-hosted + LM Studio; workflow_dispatch only; 6 secrets; verify |
 | **Minimal prod checklist** | [docs/PEARL_NEWS_MINIMAL_PROD_CHECKLIST.md](./PEARL_NEWS_MINIMAL_PROD_CHECKLIST.md) — Code/tests must-pass + 6 operational gates; pre-merge verification, rollback procedure |
 | **GO/NO-GO checklist** | [docs/PEARL_NEWS_GO_NO_GO_CHECKLIST.md](./PEARL_NEWS_GO_NO_GO_CHECKLIST.md) — Production 100% gates: networked run, CI green, signed checklist with evidence |
 | **Hardening 100%** | [docs/PEARL_NEWS_HARDENING_100_PERCENT.md](./PEARL_NEWS_HARDENING_100_PERCENT.md) — URL normalization, one-command runner, CI preflight, evidence bundle |
 | **Writer spec** | [docs/PEARL_NEWS_WRITER_SPEC.md](./PEARL_NEWS_WRITER_SPEC.md) — Voice, 4-layer blend, per-template writing guide, lede patterns, youth specificity standard, teacher integration rules, SDG integration, quality gates writing layer; authority for expansion prompt craft rules |
+| **Gen Z slot prompts source** | [docs/pearl_news_genz_prompts.md](./pearl_news_genz_prompts.md) — Canonical pointer to `pearl_news_genz_prompts_v2.md` and runtime slot prompt directory |
 | **Expansion prompt** | [pearl_news/prompts/expansion_system.txt](../pearl_news/prompts/expansion_system.txt) — System prompt for LLM expansion (~1000 words); implements Writer spec craft rules (lede, youth impact, teacher layer, forward look, SDG, what we never write); used with `--expand` |
 | **Prompts README** | [pearl_news/prompts/README.md](../pearl_news/prompts/README.md) — Documents expansion_system.txt and link to Writer spec |
 | **Pearl News README** | [pearl_news/README.md](../pearl_news/README.md) — Quick start, structure, one-command run |
@@ -252,9 +343,9 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 
 | Item | Location |
 |------|----------|
-| **Run article pipeline** | [pearl_news/pipeline/run_article_pipeline.py](../pearl_news/pipeline/run_article_pipeline.py) — `python -m pearl_news.pipeline.run_article_pipeline --feeds pearl_news/config/feeds.yaml --out-dir artifacts/pearl_news/drafts`; `--limit`, `--per-feed-limit`, `--no-filter-qc`, `--expand` (LLM expansion per Writer spec) |
+| **Run article pipeline** | [pearl_news/pipeline/run_article_pipeline.py](../pearl_news/pipeline/run_article_pipeline.py) — `python -m pearl_news.pipeline.run_article_pipeline --feeds pearl_news/config/feeds.yaml --out-dir artifacts/pearl_news/drafts`; supports `--limit`, `--per-feed-limit`, `--no-filter-qc`, `--expand`, `--validate`, `--select-image`, `--strict-publish-grade` (strict requires expand+validate) |
 | **Networked run + evidence** | [scripts/pearl_news_networked_run_and_evidence.sh](../scripts/pearl_news_networked_run_and_evidence.sh) — Live feed run; writes `artifacts/pearl_news/evaluation/networked_run_evidence.json` |
-| **Post to WordPress** | [scripts/pearl_news_post_to_wp.py](../scripts/pearl_news_post_to_wp.py) — `--article <path>`, `--status draft|publish`, `--dry-run` |
+| **Post to WordPress** | [scripts/pearl_news_post_to_wp.py](../scripts/pearl_news_post_to_wp.py) — `--article <path>`, `--status draft|publish`, `--dry-run`; credentials from env or local `wordpress_credentials.rtf` / `WORDPRESS_CREDENTIALS_FILE` |
 | **Do-it script** | [scripts/pearl_news_do_it.sh](../scripts/pearl_news_do_it.sh) — Convenience runner; optional `--post` |
 
 ### Pipeline modules
@@ -264,11 +355,19 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 | **Feed ingest** | [pearl_news/pipeline/feed_ingest.py](../pearl_news/pipeline/feed_ingest.py) — Ingest RSS/Atom from feeds.yaml |
 | **Topic/SDG classifier** | [pearl_news/pipeline/topic_sdg_classifier.py](../pearl_news/pipeline/topic_sdg_classifier.py) — topic, primary_sdg, sdg_labels, un_body from sdg_news_topic_mapping.yaml |
 | **Template selector** | [pearl_news/pipeline/template_selector.py](../pearl_news/pipeline/template_selector.py) — template_id per item from article_templates_index |
-| **Article assembler** | [pearl_news/pipeline/article_assembler.py](../pearl_news/pipeline/article_assembler.py) — Fills template slots (news + teacher + youth + SDG); source at end; no per-article disclaimer |
-| **LLM expansion** | [pearl_news/pipeline/llm_expand.py](../pearl_news/pipeline/llm_expand.py) — Optional expansion step: loads expansion_system.txt + llm_expansion.yaml; OpenAI-compatible API (Qwen/LM Studio); env override QWEN_BASE_URL, QWEN_API_KEY, QWEN_MODEL; used when `--expand` passed |
-| **Quality gates** | [pearl_news/pipeline/quality_gates.py](../pearl_news/pipeline/quality_gates.py) — 5 fail-hard gates: fact_check, youth_specificity, sdg_accuracy, promotional, un_endorsement |
+| **Article assembler** | [pearl_news/pipeline/article_assembler.py](../pearl_news/pipeline/article_assembler.py) — Fills template slots (news + teacher + youth + SDG), renders clean teacher perspective from atoms, non-RSS contextual H1, source at end; no per-article disclaimer |
+| **News action resolver** | [pearl_news/pipeline/news_action_resolver.py](../pearl_news/pipeline/news_action_resolver.py) — Resolves teacher-bound exercise + CTA + freebies from config; injects action block into article output |
+| **LLM expansion** | [pearl_news/pipeline/llm_expand.py](../pearl_news/pipeline/llm_expand.py) — Optional expansion step: loads expansion_system.txt + llm_expansion.yaml; OpenAI-compatible API (Qwen/LM Studio); env override QWEN_BASE_URL, QWEN_API_KEY, QWEN_MODEL; used when `--expand` passed; prompt enforces 6-section Gen Z + teacher translation formula |
+| **Quality gates** | [pearl_news/pipeline/quality_gates.py](../pearl_news/pipeline/quality_gates.py) — Fail-hard gates for writing quality, SDG/UN compliance, and action payload completeness |
+| **Publish-grade validator** | [pearl_news/pipeline/article_validator.py](../pearl_news/pipeline/article_validator.py) — strict structural checks for headline format, Gen Z crisis anchor, named teacher + direct quote + three points, concrete practice constraints, SDG specificity, source line |
 | **QC checklist** | [pearl_news/pipeline/qc_checklist.py](../pearl_news/pipeline/qc_checklist.py) — Runs gates; optionally filter to passed-only |
-| **WordPress client** | [pearl_news/publish/wordpress_client.py](../pearl_news/publish/wordpress_client.py) — REST API client; env-based credentials; optional author (alternate); no per-article disclaimer |
+| **WordPress client** | [pearl_news/publish/wordpress_client.py](../pearl_news/publish/wordpress_client.py) — REST API client; env-first credentials with local `wordpress_credentials.rtf` fallback; optional author (alternate); no per-article disclaimer |
+| **Teacher exercise bank** | [pearl_news/config/teacher_exercise_bank.yaml](../pearl_news/config/teacher_exercise_bank.yaml) — Canonical deterministic bank with tags (`teacher_id`, `topic`, `sdg`, `duration_minutes`, `delivery_format`, `safety_note`, `locale`) |
+| **Exercise bank CI check** | [scripts/ci/check_pearl_news_exercise_bank.py](../scripts/ci/check_pearl_news_exercise_bank.py) — Fails if active teacher/topic pairs are uncovered or exercise entries violate contract (duration, steps, safety) |
+| **News freebie mapping** | [config/freebies/news_freebie_mapping.yaml](../config/freebies/news_freebie_mapping.yaml) — SDG/topic mode mapping to freebies + CTA templates + micro-actions |
+| **News exercise selection policy** | [config/freebies/news_exercise_selection_policy.yaml](../config/freebies/news_exercise_selection_policy.yaml) — Template/topic/age-fit exercise-type preference policy; avoids somatic-only mix and enforces descriptive (non-guided) action style |
+| **Exercise mix audit policy** | [config/freebies/news_exercise_mix_audit.yaml](../config/freebies/news_exercise_mix_audit.yaml) — Weekly somatic-ratio and single-type-dominance thresholds (overall/per-template/per-topic) with minimum sample sizes |
+| **Exercise mix audit script** | [scripts/audit/report_pearl_news_exercise_mix.py](../scripts/audit/report_pearl_news_exercise_mix.py) — Builds JSON + Markdown distribution report from drafts and fails on threshold breaches |
 
 ### Config
 
@@ -322,7 +421,7 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 
 ### CI / workflows
 
-**Pearl News workflows are not in this repo.** They live in **Ahjan108/Qwen-Agent**: `pearl_news_scheduled.yml` (schedule + dispatch, no expand by default) and `pearl_news_manual_expand.yml` (dispatch, with LLM expand). Setup and self-hosted runner: [PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md). Full workflow matrix and secrets: [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md).
+**Pearl News workflows now live in this repo (phoenix_omega)** after runtime consolidation: `pearl_news_scheduled.yml` (schedule + dispatch, publish-grade: `--expand --validate --select-image --strict-publish-grade`) and `pearl_news_manual_expand.yml` (dispatch). Qwen-Agent retains copies for backup/manual dispatch only (no production cron). Setup, self-hosted runner, and secrets: [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md). Migration manifest: [RUNTIME_CONSOLIDATION_MIGRATION_MANIFEST.md](./RUNTIME_CONSOLIDATION_MIGRATION_MANIFEST.md). Ownership: [OWNERSHIP_MATRIX.md](./OWNERSHIP_MATRIX.md).
 
 ---
 
@@ -343,8 +442,13 @@ Single entry point for GitHub operations across **Ahjan108/phoenix_omega_v4.8** 
 | Item | Location |
 |------|----------|
 | **Framework doc** | [docs/GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md) — Repo identity, workflow matrix (phoenix_omega_v4.8 + Qwen-Agent), canonical ownership, secrets and runners, branch protection, system functions (procedures and commands), before-you-push checklists, recovery pointers. |
-| **Branch protection** | [docs/BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md) — Required checks for main (Core tests, Release gates, EI V2 gates, Change impact). |
-| **Pearl News in Qwen-Agent** | Pearl News workflows live only in **Ahjan108/Qwen-Agent** (scheduled + manual expand). phoenix_omega has no Pearl News workflow files. Setup and runner: [PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md). Workflow matrix and secrets: [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md). |
+| **Local/GitHub drift SOP** | [docs/LOCAL_GIT_DRIFT_PREVENTION_SOP.md](./LOCAL_GIT_DRIFT_PREVENTION_SOP.md) — Daily no-drift workflow for local branches vs GitHub (`origin/main` branching, diverged-main recovery, no-force rules, gitlink checks). |
+| **Branch protection** | [docs/BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md) — Required checks for main (exact names: **Core tests**, **Release gates**, **EI V2 gates**, **Change impact**, **truth-audit-gate**, **drift-gate**); require PR, no force-push. Config: [config/governance/required_checks.yaml](../config/governance/required_checks.yaml). |
+| **Pearl News (consolidated)** | Pearl News workflows now live in **phoenix_omega** (scheduled + manual expand). Qwen-Agent retains copies for backup only (no production cron after PR B). Setup and runner: [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md). |
+| **Runtime consolidation** | [RUNTIME_CONSOLIDATION_MIGRATION_MANIFEST.md](./RUNTIME_CONSOLIDATION_MIGRATION_MANIFEST.md) — Migration allowlist and manifest. [OWNERSHIP_MATRIX.md](./OWNERSHIP_MATRIX.md) — Path ownership. [drift-audit.yml](../.github/workflows/drift-audit.yml) — Daily schedule + push/PR to main; allowlist validation + drift audit (allowlist-driven). |
+| **Sync from canonical** | [docs/CANONICAL_EDIT_RULE.md](./CANONICAL_EDIT_RULE.md) — Shared runtime files may only be edited in phoenix_omega; edits in Qwen-Agent do not count as source of truth. |
+| **Remote commit review** | [.github/workflows/remote-commit-review.yml](../.github/workflows/remote-commit-review.yml) — Weekly report of commits on main not from a PR; triage within 24h. |
+| **Localization runbook** | [LOCALIZATION_100_PERCENT_RUNBOOK.md](./LOCALIZATION_100_PERCENT_RUNBOOK.md) — Localization pipeline operations. |
 
 ---
 
@@ -539,19 +643,20 @@ Church brands (e.g. NorCal Dharma) are identity/distribution only: no teacher, n
 - [docs/WRITER_SPEC_EXTRACT_FOR_ATOMS.md](./WRITER_SPEC_EXTRACT_FOR_ATOMS.md) — Writer spec extract: §4.3 STORY, §6 Four Story Rules, TTS prose/T01–T07, five STORY role types, atom fields (use when full Writer Spec won’t load)
 - [docs/FIRST_10_BOOKS_EVALUATION_PROTOCOL.md](./FIRST_10_BOOKS_EVALUATION_PROTOCOL.md) — First 10 books evaluation protocol
 
-### Pearl Prime structural upgrade (2026-03-06)
+### Pearl Prime structural upgrade (2026-03-06, complete 2026-03-09)
 
 Seven-change book quality overhaul addressing root causes: arc second-half repetition (A), chapters lacking a stated point (B), and arc-level emotional momentum (C).
 
 | Change | What | Where |
 |--------|------|-------|
 | **Four new slots** | PIVOT (§4.3a), TAKEAWAY (§4.7), THREAD (§4.7a), PERMISSION (§4.8) | [specs/PHOENIX_V4_5_WRITER_SPEC.md](../specs/PHOENIX_V4_5_WRITER_SPEC.md) v2 |
-| **Chapter thesis field** | One claim per chapter in arc YAML; TAKEAWAY derives from it | Arc schema + [docs/CHAPTER_THESIS_BANK.md](./CHAPTER_THESIS_BANK.md) |
-| **Arc second-half redesign** | 11 new deepening intents for ch 10–20 (replace repeated cycle) | [docs/CHAPTER_THESIS_BANK.md](./CHAPTER_THESIS_BANK.md) §Part II |
-| **Bestseller structure assignment** | 12 structures → beat orders → slot mappings; max 3 in a row | [docs/BESTSELLER_STRUCTURES.md](./BESTSELLER_STRUCTURES.md) |
+| **Chapter thesis field** | One claim per chapter in arc YAML; TAKEAWAY derives from it at runtime | Arc schema; **455 arcs** have `chapter_thesis` (keys 1..chapter_count); [phoenix_v4/planning/arc_loader.py](../phoenix_v4/planning/arc_loader.py); [docs/CHAPTER_THESIS_BANK.md](./CHAPTER_THESIS_BANK.md) |
+| **Arc second-half redesign** | 9 deepening intents for ch 10–18 (e.g. recognize_complicity, cost_of_knowing, strategy_without_armor … reframe_without_resolution); ch 19–20 lived_integration, threshold_forward | Master arc YAMLs `chapter_intent`; no repeated first-half cycle |
+| **Bestseller structure assignment** | 12 structures → beat orders → slot mappings; max 3 in a row | [phoenix_v4/planning/chapter_planner.py](../phoenix_v4/planning/chapter_planner.py) `assign_bestseller_structures()`; [docs/BESTSELLER_STRUCTURES.md](./BESTSELLER_STRUCTURES.md) |
+| **PERMISSION gating** | Only in high-cost chapters (3–4 per book) | Arc field `high_cost_chapters` (1-indexed list); [phoenix_v4/planning/assembly_compiler.py](../phoenix_v4/planning/assembly_compiler.py) strips PERMISSION from other chapters |
 
-**Dev wires:** `allowed_slots`, `slot_templates`, `arc_loader.py`, `chapter_flow_gate.py`, chapter planner structure-assignment step.
-**Writing content:** fully documented in `CHAPTER_THESIS_BANK.md` and `BESTSELLER_STRUCTURES.md`; new slot spec in Writer Spec §4.3a/4.7/4.7a/4.8.
+**Dev wires:** `allowed_slots` ([phoenix_v4/planning/format_selector.py](../phoenix_v4/planning/format_selector.py)), `slot_templates` ([pearl_prime/config/v4_freeze_modular_formats.yaml](../pearl_prime/config/v4_freeze_modular_formats.yaml)), [phoenix_v4/planning/arc_loader.py](../phoenix_v4/planning/arc_loader.py), [phoenix_v4/planning/assembly_compiler.py](../phoenix_v4/planning/assembly_compiler.py) (TAKEAWAY from thesis, PERMISSION gating), [phoenix_v4/rendering/prose_resolver.py](../phoenix_v4/rendering/prose_resolver.py) (TAKEAWAY resolution), chapter planner structure-assignment step.
+**Completion:** All 455 arcs load clean; every chapter has a thesis; TAKEAWAY resolves at runtime; PERMISSION only in arcs' `high_cost_chapters`. Writing content: `CHAPTER_THESIS_BANK.md`, `BESTSELLER_STRUCTURES.md`; slot spec in Writer Spec §4.3a/4.7/4.7a/4.8.
 
 ### Qwen-Only Audiobook Pipeline (document all)
 
@@ -594,7 +699,7 @@ Author signature cover art base backgrounds for the first 10 authors of every ca
 | **Doc** | [docs/authoring/AUTHOR_COVER_ART_SYSTEM.md](./authoring/AUTHOR_COVER_ART_SYSTEM.md) — Registry, assets, generation, runtime, CI |
 | **Registry** | [config/authoring/author_cover_art_registry.yaml](../config/authoring/author_cover_art_registry.yaml) — author_id → cover_art_base, style_hint, palette_tokens |
 | **Resolver** | [phoenix_v4/planning/author_cover_art_resolver.py](../phoenix_v4/planning/author_cover_art_resolver.py) — `resolve_author_cover_art(author_id_or_teacher_id)`; fallback default |
-| **Generator** | [scripts/generate_author_cover_art_bases.py](../scripts/generate_author_cover_art_bases.py) — Pure Python PNG gradients → `assets/authors/cover_art/{author_id}_base.png` |
+| **Generator** | [scripts/generate_author_cover_art_bases.py](../scripts/generate_author_cover_art_bases.py) — **Registry-driven:** reads [config/authoring/author_cover_art_registry.yaml](../config/authoring/author_cover_art_registry.yaml), resolves palette_tokens to hex, writes one gradient PNG per author to `assets/authors/cover_art/{author_id}_base.png`. Run after adding new authors to satisfy Gate 18. |
 | **Workers AI / FLUX (T2I reference)** | docs/flux_shnell_research.rtf (optional local reference; if file missing in a fork, treat as backlog item) — Cloudflare Workers AI FLUX API; use when adding T2I-generated cover art or video image bank |
 | **Pipeline output** | [scripts/run_pipeline.py](../scripts/run_pipeline.py) — Plan JSON: `cover_art_base`, `cover_art_style_hint`, `cover_art_palette_tokens`, `cover_variant_id` |
 | **CI gate** | [scripts/ci/check_author_cover_art.py](../scripts/ci/check_author_cover_art.py) — Launchable authors: registry + PNG + style/palette; exit 0/1 |
@@ -632,7 +737,7 @@ EI V1 is 100% at **test slice** when the 4 targeted unit tests pass. It is **100
 | Item | Location |
 |------|----------|
 | **Production checklist** | [docs/ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md](./ENLIGHTENED_INTELLIGENCE_PROD_CHECKLIST.md) — Test slice (4 tests) + 6 operational gates; pre-merge verification, rollback procedure |
-| **EI registry** | `config/source_of_truth/enlightened_intelligence_registry.yaml` ⚠️ *file not present* — EI registry: slots, llm_judge, embeddings, teacher_integrity |
+| **EI registry** | [config/source_of_truth/enlightened_intelligence_registry.yaml](../config/source_of_truth/enlightened_intelligence_registry.yaml) — EI registry stub: slots, llm_judge, embeddings, teacher_integrity (expand as needed) |
 
 ### EI / Release docs
 
@@ -675,7 +780,7 @@ EI V1 is 100% at **test slice** when the 4 targeted unit tests pass. It is **100
 | Item | Location |
 |------|----------|
 | **EI V2 config** | [config/quality/ei_v2_config.yaml](../config/quality/ei_v2_config.yaml) — V2 modules, modes, thresholds, composite weights. **Marketing:** `marketing_sources` (enabled, source_path, use_marketing_lexicons, use_marketing_safety_bans); `safety_classifier.marketing_compliance_weight` (default 0.2). One toggle disables all marketing integration |
-| **EI registry** | `config/source_of_truth/enlightened_intelligence_registry.yaml` ⚠️ *file not present* |
+| **EI registry** | [config/source_of_truth/enlightened_intelligence_registry.yaml](../config/source_of_truth/enlightened_intelligence_registry.yaml) — Stub; expand for slots, llm_judge, embeddings, teacher_integrity |
 
 ### Tests
 
@@ -950,7 +1055,7 @@ Pre-authored chapter-level emotional arcs that drive the Arc-First pipeline. `ch
 | Item | Location |
 |------|----------|
 | **Arc README** | [config/source_of_truth/master_arcs/README.md](../config/source_of_truth/master_arcs/README.md) |
-| **Arc files** | `config/source_of_truth/master_arcs/{persona}__{topic}__{engine}__{format}.yaml` — 24-chapter arcs; BAND values 2–4 only; max 3 consecutive same BAND; emotional_role_sequence constraints |
+| **Arc files** | `config/source_of_truth/master_arcs/{persona}__{topic}__{engine}__{format}.yaml` — **455 arcs**; `chapter_count` (e.g. 20 for F006); `chapter_thesis` (one sentence per chapter); `chapter_intent` (first-half + 9 deepening second-half intents); `high_cost_chapters` (3–4 per book for PERMISSION slot); BAND 2–4 only; max 3 consecutive same BAND; emotional_role_sequence constraints |
 | **gen_alpha × anxiety × spiral × F013** | `config/source_of_truth/master_arcs/gen_alpha_students__anxiety__spiral__F013.yaml` — 24-chapter Before/During/After arc; `arc_id: gen_alpha_students_anxiety_spiral_F013_6h` |
 
 ### Arc validation rules
@@ -1088,7 +1193,8 @@ Single index: every test file, how to run, markers, CI workflows, and test infra
 |----------|---------|----------------|
 | **Core tests** | [.github/workflows/core-tests.yml](../.github/workflows/core-tests.yml) | Push/PR to main/master. Pytest `-m "not slow"` (-x), then validate_marketing_config, then run_production_readiness_gates. **Required for branch protection.** |
 | **Teacher gates** | [.github/workflows/teacher-gates.yml](../.github/workflows/teacher-gates.yml) | Teacher-related path changes. run_teacher_production_gates.py, pytest teacher_arc_test, pytest test_teacher_mode_e2e_smoke. **Required for branch protection.** |
-| **Pearl News** | Ahjan108/Qwen-Agent only | Pearl News tests and pipelines run in Qwen-Agent (pearl_news_scheduled, pearl_news_manual_expand). See [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md). |
+| **Pearl News** | [.github/workflows/pearl_news_scheduled.yml](../.github/workflows/pearl_news_scheduled.yml), [.github/workflows/pearl_news_manual_expand.yml](../.github/workflows/pearl_news_manual_expand.yml) | Production runs in phoenix_omega; Qwen-Agent is backup/manual dispatch only. See [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md). |
+| **Pearl News exercise mix audit** | [.github/workflows/pearl-news-exercise-mix-audit.yml](../.github/workflows/pearl-news-exercise-mix-audit.yml) | Weekly + dispatch audit of exercise-type distribution; uploads `artifacts/audit/pearl_news_exercise_mix_report.{json,md}` and hard-fails on somatic or single-type-dominance threshold breaches. |
 | **Brand guards** | [.github/workflows/brand-guards.yml](../.github/workflows/brand-guards.yml) | Brand registry, locale, brand_teacher_*. check_norcal_dharma_brand_guards, check_church_yaml_no_sensitive_tokens, pytest test_norcal_dharma_brand_smoke. |
 | **EI V2 gates** | [.github/workflows/ei-v2-gates.yml](../.github/workflows/ei-v2-gates.yml) | EI code + weekly. pytest test_ei_v2.py ([test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py)), then rigorous eval, calibration, promotion gate. |
 | **Release gates** | [.github/workflows/release-gates.yml](../.github/workflows/release-gates.yml) | Release path. Production gates + rigorous test + canary + rollback smoke (includes slow tests / systems test). |
@@ -1235,7 +1341,7 @@ Single index: every test file, how to run, markers, CI workflows, and test infra
 | **Practice validation** | [config/practice/validation.yaml](../config/practice/validation.yaml) |
 | **Angle registry** | [config/angles/angle_registry.yaml](../config/angles/angle_registry.yaml) |
 | **Validation (assets)** | [config/validation.yaml](../config/validation.yaml) — duration, file_size (MP3) |
-| **TTS engines** | [config/tts/engines.yaml](../config/tts/engines.yaml) |
+| **TTS engines** | [config/tts/engines.yaml](../config/tts/engines.yaml) — freebie + **video_narration** (ElevenLabs); default_voice_id for API |
 | **Asset lifecycle** | [config/asset_lifecycle.yaml](../config/asset_lifecycle.yaml) — regenerate_when, auto_prune |
 | **Canonical topics/personas** | [config/catalog_planning/canonical_topics.yaml](../config/catalog_planning/canonical_topics.yaml), [config/catalog_planning/canonical_personas.yaml](../config/catalog_planning/canonical_personas.yaml) |
 
@@ -1324,11 +1430,11 @@ Landing page (6 sections), form capture, 4–5 email Proof-Loop sequence (Brevo 
 
 ## Phoenix Churches Payout System (document all)
 
-Biweekly payouts for 24 churches; Plaid sync, Bluevine, 90/10 split, human-in-the-loop execution. **Config stubs present** (churches.yaml, payees.yaml, credentials.yaml.example, fill_template.csv); populate per CHECKLIST.md. ⚠️ Spec (PHOENIX_CHURCHES_PAYOUT_SPEC.md) and payout package (cli, plaid_sync, etc.) not yet in repo.
+Biweekly payouts for 24 churches; Plaid sync, Bluevine, 90/10 split, human-in-the-loop execution. **Spec in repo:** [specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md](../specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md). **Config stubs present** (churches.yaml, payees.yaml, credentials.yaml.example, fill_template.csv); populate per CHECKLIST.md. Payout package (cli, plaid_sync, etc.) not yet in repo.
 
 ### Spec & checklist
 
-- `specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md` ⚠️ *file not present* — Tech spec: architecture, data model, workflow, compensating controls
+- [specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md](../specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md) — Tech spec: architecture, data model, workflow, compensating controls
 - [config/payouts/CHECKLIST.md](../config/payouts/CHECKLIST.md) — What you must give: Plaid credentials, 24 bank connections, Bluevine last4, payee info
 
 ### Config
@@ -1352,7 +1458,7 @@ All payout package files (`payouts/cli.py`, `payouts/setup.py`, `payouts/plaid_s
 
 ## Translation, validation & multilingual
 
-Translation and validation pipeline: parallel sharded translation (atoms + exercises) to **all system languages** (see [Translate / prompt via Qwen GitHub pipeline CLI](#translate--prompt-via-qwen-github-pipeline-cli-all-system-languages)), deterministic validation (schema, locale script, coverage, meta/leakage, repetition), merge + global QA, golden regression. **Status:** Core docs/planning exist. Translation execution scripts and CI workflows exist as **stubs** (translate_atoms_all_locales_cloud, validate_translations, merge_translation_shards, check_golden_translation, native_prompts_eval_learn; translate-atoms-qwen-matrix.yml, locale-gate.yml). Quality contracts present under config/localization/quality_contracts/ (README, glossary, release_thresholds, golden_translation_regression — stubs). Locale stub trees and scripts/scaffold_locale_atom_stubs.py not yet in repo (see ⚠️ inventory where applicable).
+Translation and validation pipeline: parallel sharded translation (atoms + exercises) to **all system languages** (see [Translate / prompt via Qwen GitHub pipeline CLI](#translate--prompt-via-qwen-github-pipeline-cli-all-system-languages)), deterministic validation (schema, locale script, coverage, meta/leakage, repetition), merge + global QA, golden regression. **Status:** Core docs/planning exist. Translation execution scripts and CI workflows exist as **stubs** (translate_atoms_all_locales_cloud, validate_translations, merge_translation_shards, check_golden_translation, native_prompts_eval_learn; translate-atoms-qwen-matrix.yml, locale-gate.yml). Quality contracts present under config/localization/quality_contracts/ (README, glossary, release_thresholds, golden_translation_regression — stubs). Locale stub trees can be created via [scripts/scaffold_locale_atom_stubs.py](../scripts/scaffold_locale_atom_stubs.py) (see ⚠️ inventory where applicable).
 
 ### Translate / prompt via Qwen GitHub pipeline CLI (all system languages)
 
@@ -1372,7 +1478,7 @@ Translation and validation pipeline: parallel sharded translation (atoms + exerc
 
 **Remaining: translation infrastructure + execution pending:**
 
-1. **Locale atom stubs** — `atoms/<locale>/` stub trees are not yet present. Planned generator: `scripts/scaffold_locale_atom_stubs.py` ⚠️ *file not present*.
+1. **Locale atom stubs** — `atoms/<locale>/` stub trees can be created via [scripts/scaffold_locale_atom_stubs.py](../scripts/scaffold_locale_atom_stubs.py). Run script to populate per locale.
 2. **Translation execution** — [scripts/translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py) (stub; implement for parallel sharded translation via API).
 3. **CI workflows** — [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml), [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml) (stub workflows; implement when translation pipeline is ready).
 
@@ -1385,8 +1491,8 @@ Translation and validation pipeline: parallel sharded translation (atoms + exerc
 | **All-locale catalog marketing plan** | [docs/LOCALE_CATALOG_MARKETING_PLAN.md](./LOCALE_CATALOG_MARKETING_PLAN.md) — Per-locale positioning, go-live checklists, readiness tracker for all 13 locales (incl. it-IT EU catalogue) |
 | **zh-CN distribution plan** | [docs/ZH_CN_DISTRIBUTION_PLAN.md](./ZH_CN_DISTRIBUTION_PLAN.md) — Local platform pipeline (Ximalaya, NetEase, WeChat Read, Dedao); Phase 5 prerequisite checklist |
 | **Locale strategy (rollout phases)** | [del_location_plan/locale_strategy.md](../del_location_plan/locale_strategy.md) — One brand = one locale; Phase 1–5 rollout; distribution routing; CI gate #49 |
-| **Locale prose & prompting** | `docs/LOCALE_PROSE_AND_PROMPTING.md` ⚠️ *file not present* |
-| **Multilingual architecture** | `docs/MULTILINGUAL_ARCHITECTURE.md` ⚠️ *file not present* |
+| **Locale prose & prompting** | `docs/LOCALE_PROSE_AND_PROMPTING.md` ⚠️ *file not present* (content covered by [LOCALE_PERSONAS.md](./LOCALE_PERSONAS.md) and [locale_strategy.md](../del_location_plan/locale_strategy.md)) |
+| **Multilingual architecture** | `docs/MULTILINGUAL_ARCHITECTURE.md` ⚠️ *file not present* (content covered by LOCALE_PERSONAS + locale_strategy) |
 | **Korean market & prose** | `docs/KOREA_MARKET_AND_PROSE.md` ⚠️ *file not present* |
 | **Japanese market self-help** | `docs/JAPANESE_MARKET_SELFHELP_GUIDE.md` ⚠️ *file not present* |
 
@@ -1395,7 +1501,7 @@ Translation and validation pipeline: parallel sharded translation (atoms + exerc
 | Item | Location |
 |------|----------|
 | **Translate atoms/exercises (cloud)** | [scripts/translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py) — Stub; implement for parallel sharded translation to all locales via API |
-| **Scaffold locale atom stubs** | `scripts/scaffold_locale_atom_stubs.py` ⚠️ *file not present* — Create TRANSLATION PENDING stub files for all atom types in a locale directory |
+| **Scaffold locale atom stubs** | [scripts/scaffold_locale_atom_stubs.py](../scripts/scaffold_locale_atom_stubs.py) — Create TRANSLATION PENDING stub trees per locale from content_roots_by_locale.yaml |
 | **Validate translations** | [scripts/validate_translations.py](../scripts/validate_translations.py) — Stub; implement for structure, glossary, golden regression |
 | **Merge translation shards** | [scripts/merge_translation_shards.py](../scripts/merge_translation_shards.py) — Stub; implement to merge shard outputs into locale atom tree |
 | **Golden translation regression** | [scripts/check_golden_translation.py](../scripts/check_golden_translation.py) — Stub; implement for regression against config/localization/quality_contracts/golden_translation_regression.yaml |
@@ -1426,9 +1532,9 @@ Translation and validation pipeline: parallel sharded translation (atoms + exerc
 
 ## Locale atom stubs & translation status
 
-**Status:** Locale atom stubs and translation execution are not yet present in this repo.
+**Status:** Scaffold script present; run [scripts/scaffold_locale_atom_stubs.py](../scripts/scaffold_locale_atom_stubs.py) to create stub trees. Translation execution scripts are stubs.
 
-Planned: atoms for non-en-US locales (`atoms/zh-CN/`, `atoms/zh-TW/`, `atoms/zh-HK/`, `atoms/zh-SG/`, `atoms/yue/`, `atoms/ja-JP/`, `atoms/ko-KR/`, `atoms/it-IT/`, etc.) will be created as TRANSLATION PENDING stub trees via `scripts/scaffold_locale_atom_stubs.py` ⚠️ *file not present*.
+Atoms for non-en-US locales (`atoms/zh-CN/`, `atoms/zh-TW/`, etc.) can be created as TRANSLATION PENDING stub trees via [scripts/scaffold_locale_atom_stubs.py](../scripts/scaffold_locale_atom_stubs.py).
 
 ### Coverage by locale
 
@@ -1445,7 +1551,7 @@ Planned: atoms for non-en-US locales (`atoms/zh-CN/`, `atoms/zh-TW/`, `atoms/zh-
 
 ### Related scripts
 
-- `scripts/scaffold_locale_atom_stubs.py` ⚠️ *file not present* — Create stub trees per locale
+- [scripts/scaffold_locale_atom_stubs.py](../scripts/scaffold_locale_atom_stubs.py) | Translation | ✓ — Create TRANSLATION PENDING stub trees per locale from content_roots_by_locale.yaml
 - [scripts/translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py) — Stub; implement for parallel sharded API calls
 - [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml) — Stub workflow; implement to orchestrate translation (weekly/manual)
 - [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml) — Stub workflow; implement to validate translations per locale
@@ -1581,6 +1687,7 @@ Config files in `config/source_of_truth/` that control prose style, chapter comp
 
 - [docs/SCHEMA_CHANGELOG.md](./SCHEMA_CHANGELOG.md) — Schema changelog
 - [docs/AUDIT_OLD_CHAT_SPECS_VS_V4.md](./AUDIT_OLD_CHAT_SPECS_VS_V4.md) — Audit old chat specs vs V4
+- [docs/VERIFICATION_INDEX.md](./VERIFICATION_INDEX.md) — Verification index (video done + optional domain verifications)
 
 ---
 
@@ -1614,7 +1721,7 @@ All docs that declare authority must reference the three canonical anchors: `SYS
 
 | Section | Anchor | Purpose |
 |---------|--------|---------|
-| [Video pipeline](#video-pipeline) | § Video pipeline | Spec, schemas, config, fixtures, pipeline scripts (incl. run_flux_generate), storage, FLUX/Shnell, color master, image master prompt |
+| [Video pipeline](#video-pipeline) | § Video pipeline | Spec, schemas, config, fixtures, pipeline scripts (incl. run_tts_narration, run_flux_generate), TTS/ElevenLabs key (11.txt/11.rtf), storage, FLUX/Shnell, color master, image master prompt |
 | [Rigorous system test & simulation](#rigorous-system-test--simulation-document-all) | § Rigorous system test | Simulation, 10k/100k, analyzer, variation report, config, artifacts, CI |
 | [Pearl News](#pearl-news-document-all) | § Pearl News | Pipeline, docs, scripts, config, tests, artifacts, workflows |
 | [Marketing & deep research](#marketing--deep-research-document-all) | § Marketing | Deep research prompts, invisible script, marketing brief; **generational research** (prompts, scripts, config, artifacts, research_feeds_ingest) |
@@ -1652,6 +1759,7 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [DISASTER_RECOVERY_DRILL_CHECKLIST.md](./DISASTER_RECOVERY_DRILL_CHECKLIST.md) | Core system docs | ✓ |
 | [VIDEO_PIPELINE_SPEC.md](./VIDEO_PIPELINE_SPEC.md) | Video pipeline | ✓ |
 | [VIDEO_CLOUDFLARE_FLUX_CREDENTIALS.md](./VIDEO_CLOUDFLARE_FLUX_CREDENTIALS.md) | Video pipeline (FLUX) | ✓ |
+| [PARTNER_VIDEO_PICKUP_RUNBOOK.md](./PARTNER_VIDEO_PICKUP_RUNBOOK.md) | Video pipeline (partner handoff) | ✓ — Owner: pipeline owner or ops; download daily_batch, pull from R2, upload to Metricool, write batch_acknowledged |
 | [research/MARKETING_DEEP_RESEARCH_PROMPTS.md](./research/MARKETING_DEEP_RESEARCH_PROMPTS.md) | Marketing & deep research | ✓ |
 | [PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md](./PRODUCTION_OBSERVABILITY_LEARNING_SPEC.md) | Core system docs | ✓ |
 | [CHANGE_OBSERVATION_AND_IMPACT_SPEC.md](./CHANGE_OBSERVATION_AND_IMPACT_SPEC.md) | Change observation and impact (document all) | ✓ |
@@ -1666,6 +1774,7 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [PEARL_NEWS_MINIMAL_PROD_CHECKLIST.md](./PEARL_NEWS_MINIMAL_PROD_CHECKLIST.md) | Pearl News | ✓ |
 | [PEARL_NEWS_GO_NO_GO_CHECKLIST.md](./PEARL_NEWS_GO_NO_GO_CHECKLIST.md) | Pearl News | ✓ |
 | [PEARL_NEWS_HARDENING_100_PERCENT.md](./PEARL_NEWS_HARDENING_100_PERCENT.md) | Pearl News | ✓ |
+| [PEARL_PRIME_ALWAYS_ON_POLICY.md](./PEARL_PRIME_ALWAYS_ON_POLICY.md) | Queue orchestration (always-on) | ✓ |
 | [PEARL_NEWS_WRITER_SPEC.md](./PEARL_NEWS_WRITER_SPEC.md) | Pearl News | ✓ |
 | [PHOENIX_24_BRAND_GOVERNANCE_ARCHITECTURE.md](./PHOENIX_24_BRAND_GOVERNANCE_ARCHITECTURE.md) | Governance | ✓ |
 | [PHOENIX_24_BRAND_MINIMUM_GOVERNANCE_CORE.md](./PHOENIX_24_BRAND_MINIMUM_GOVERNANCE_CORE.md) | Governance | ✓ |
@@ -1731,6 +1840,7 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [adr/README.md](./adr/README.md) | ADRs | ✓ |
 | [SCHEMA_CHANGELOG.md](./SCHEMA_CHANGELOG.md) | Schema & audit | ✓ |
 | [AUDIT_OLD_CHAT_SPECS_VS_V4.md](./AUDIT_OLD_CHAT_SPECS_VS_V4.md) | Schema & audit | ✓ |
+| [VERIFICATION_INDEX.md](./VERIFICATION_INDEX.md) | Schema & audit | ✓ — Video verification done; optional verifications (author/brand, teacher, thumbnail, macOS) indexed |
 | [LOCALE_PERSONAS.md](./LOCALE_PERSONAS.md) | Locale personas | ✓ — 40 persona definitions across non-en-US locales (zh-TW, zh-HK, zh-CN, zh-SG, ja-JP, ko-KR, es-US, es-ES, fr-FR, de-DE, it-IT, hu-HU) |
 | [LOCALE_CATALOG_MARKETING_PLAN.md](./LOCALE_CATALOG_MARKETING_PLAN.md) | All-locale marketing plan | ✓ — Per-locale positioning, go-live checklists, readiness tracker for all 13 locales (incl. it-IT EU catalogue) |
 | [TRANSLATE_QWEN_PIPELINE_CLI.md](./TRANSLATE_QWEN_PIPELINE_CLI.md) | Translate/prompt via Qwen pipeline CLI | ✓ — All system languages; Qwen GitHub pipeline CLI; EU catalogue (it-IT) |
@@ -1739,8 +1849,8 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [audiobook_operator_runbook.md](./audiobook_operator_runbook.md) | Audiobook operator runbook | ✓ — Per-gate triage; queue management; re-run; escalation path |
 | [NEW_LANGUAGE_LOCATION_ONBOARDING.md](./NEW_LANGUAGE_LOCATION_ONBOARDING.md) | Marketing & deep research / Locale onboarding | ✓ — Process and deep research prompts for new language/location/topic/persona; market-driven; personas, topics, authors, platforms, metadata, stories, writing spec, book titles |
 | [ZH_CN_DISTRIBUTION_PLAN.md](./ZH_CN_DISTRIBUTION_PLAN.md) | zh-CN distribution | ✓ — Local platform pipeline (Ximalaya, NetEase, WeChat Read, Dedao); Phase 5 prerequisite checklist |
-| `LOCALE_PROSE_AND_PROMPTING.md` | Translation | ⚠️ missing |
-| `MULTILINGUAL_ARCHITECTURE.md` | Translation | ⚠️ missing |
+| `LOCALE_PROSE_AND_PROMPTING.md` | Translation | ⚠️ missing (covered by LOCALE_PERSONAS.md + locale_strategy.md) |
+| `MULTILINGUAL_ARCHITECTURE.md` | Translation | ⚠️ missing (covered by LOCALE_PERSONAS.md + locale_strategy.md) |
 | `KOREA_MARKET_AND_PROSE.md` | Translation | ⚠️ missing (covered in LOCALE_PERSONAS.md + locale_strategy.md) |
 | `JAPANESE_MARKET_SELFHELP_GUIDE.md` | Translation | ⚠️ missing (covered in LOCALE_PERSONAS.md + locale_strategy.md) |
 
@@ -1765,7 +1875,7 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md](../specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md) | Canonical authority | ✓ |
 | [specs/PHOENIX_V4_5_WRITER_SPEC.md](../specs/PHOENIX_V4_5_WRITER_SPEC.md) | Canonical authority | ✓ |
 | [specs/README.md](../specs/README.md) | Core system docs | ✓ |
-| `specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md` | Phoenix Churches Payout | ⚠️ missing |
+| [specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md](../specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md) | Phoenix Churches Payout | ✓ |
 | [specs/V4_5_PRODUCTION_READINESS_CHECKLIST.md](../specs/V4_5_PRODUCTION_READINESS_CHECKLIST.md) | Simulation | ✓ |
 | [specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md) | Marketing & deep research | ✓ |
 
@@ -1853,7 +1963,7 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 
 | Config | Section | Status |
 |--------|---------|--------|
-| `config/source_of_truth/enlightened_intelligence_registry.yaml` | Enlightened Intelligence (V1/V2) | ⚠️ missing |
+| [config/source_of_truth/enlightened_intelligence_registry.yaml](../config/source_of_truth/enlightened_intelligence_registry.yaml) | Enlightened Intelligence (V1/V2) | ✓ — Stub; expand for slots, llm_judge, embeddings, teacher_integrity |
 | [config/quality/ei_v2_config.yaml](../config/quality/ei_v2_config.yaml) | Enlightened Intelligence V2 | ✓ — Enable/disable V2 modules, modes, thresholds, composite weights |
 | [config/quality/ei_v2_promotion_criteria.yaml](../config/quality/ei_v2_promotion_criteria.yaml) | Enlightened Intelligence V2 promotion | ✓ — Five gates (quality, performance, safety, dimension gates, hybrid override), consecutive passes, auto_promote |
 | [config/quality/tier0_book_output_contract.yaml](../config/quality/tier0_book_output_contract.yaml) | Manuscript quality | ✓ |
@@ -1883,7 +1993,7 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml) | Translation | ✓ — Stub: placeholder for translation matrix; weekly/manual |
 | [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml) | Translation | ✓ — Stub: placeholder for locale gate on config/localization and atoms |
 | [.github/workflows/core-tests.yml](../.github/workflows/core-tests.yml) | Core CI | ✓ |
-| Pearl News workflows | Ahjan108/Qwen-Agent | ✓ — pearl_news_scheduled.yml, pearl_news_manual_expand.yml; self-hosted runner, 6 secrets. See [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md), [PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md). |
+| Pearl News workflows | phoenix_omega (.github/workflows) | ✓ — [pearl_news_scheduled.yml](../.github/workflows/pearl_news_scheduled.yml), [pearl_news_manual_expand.yml](../.github/workflows/pearl_news_manual_expand.yml); self-hosted runner, required secrets in phoenix_omega. Qwen-Agent remains backup/manual dispatch only. See [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md), [PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md). |
 | [pearl_news/config/llm_expansion.yaml](../pearl_news/config/llm_expansion.yaml) | Pearl News | ✓ — Expansion API config; timeout, max_tokens, target_word_count |
 | [pearl_news/config/site.yaml](../pearl_news/config/site.yaml) | Pearl News | ✓ — target_word_count, placeholder images by template |
 | [pearl_news/config/wordpress_authors.yaml](../pearl_news/config/wordpress_authors.yaml) | Pearl News | ✓ — author_ids for round-robin |
@@ -1977,3 +2087,6 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [scripts/merge_translation_shards.py](../scripts/merge_translation_shards.py) | Translation | ✓ — Stub: implement to merge shard outputs into locale atom tree |
 | [scripts/check_golden_translation.py](../scripts/check_golden_translation.py) | Translation | ✓ — Stub: implement for golden_translation_regression.yaml check |
 | [scripts/native_prompts_eval_learn.py](../scripts/native_prompts_eval_learn.py) | Translation | ✓ — Stub: implement for native-speaker eval prompts and learn |
+| [scripts/video/run_tts_narration.py](../scripts/video/run_tts_narration.py) | Video pipeline | ✓ — script_segments → ElevenLabs TTS → narration.mp3; optional artifacts/video/tts_cache |
+| [scripts/video/_elevenlabs_key.py](../scripts/video/_elevenlabs_key.py) | Video pipeline | ✓ — loads ELEVENLABS_API_KEY from env, 11.txt, or 11.rtf (repo root / old_chat_specs) |
+| [scripts/video/convert_11_rtf_to_txt.py](../scripts/video/convert_11_rtf_to_txt.py) | Video pipeline | ✓ — converts 11.rtf → 11.txt at repo root (ELEVENLABS_API_KEY=...) |
