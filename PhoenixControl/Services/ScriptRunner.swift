@@ -14,6 +14,7 @@ final class ScriptRunner: ObservableObject {
     /// Allowed script paths relative to repo root (allowlist for safety).
     static let allowedScripts: Set<String> = [
         "scripts/run_pipeline.py",
+        "scripts/list_pipeline_options.py",
         "scripts/render_plan_to_txt.py",
         "scripts/run_production_readiness_gates.py",
         "scripts/observability/collect_signals.py",
@@ -24,11 +25,19 @@ final class ScriptRunner: ObservableObject {
         "scripts/ci/run_canary_100_books.py",
         "scripts/ci/run_teacher_production_gates.py",
         "scripts/ci/check_docs_governance.py",
+        "scripts/ci/check_system_governance_status.py",
+        "scripts/ci/content_coverage_report.py",
+        "scripts/book_script_content_validation.py",
+        "scripts/ml_loop/run_continuous_loop.py",
+        "scripts/ml_loop/run_daily_promotion.py",
+        "scripts/ml_loop/run_weekly_market_recalibration.py",
         "scripts/systems_test/run_systems_test.py",
+        "scripts/audiobook_script/run_comparator_loop.py",
         "pearl_news/pipeline/run_article_pipeline.py",
     ]
 
-    /// Allowed executable for running Python scripts.
+    /// Use /usr/bin/env so python3 is resolved from PATH (avoids "file python3 doesn't exist" when given as path).
+    static var envPath: String { "/usr/bin/env" }
     static var pythonPath: String { "python3" }
 
     enum RunError: Error {
@@ -60,8 +69,8 @@ final class ScriptRunner: ObservableObject {
         let executable: String
         let processArgs: [String]
         if scriptPath == Self.pytestScriptPath {
-            executable = Self.pythonPath
-            processArgs = ["-m", "pytest"] + arguments
+            executable = Self.envPath
+            processArgs = [Self.pythonPath, "-m", "pytest"] + arguments
         } else {
             let scriptURL = repoURL.appendingPathComponent(scriptPath)
             let relative = (scriptPath as NSString).standardizingPath
@@ -71,8 +80,8 @@ final class ScriptRunner: ObservableObject {
             guard FileManager.default.fileExists(atPath: scriptURL.path) else {
                 throw RunError.scriptNotFound(scriptURL.path)
             }
-            executable = Self.pythonPath
-            processArgs = [scriptURL.path] + arguments
+            executable = Self.envPath
+            processArgs = [Self.pythonPath, scriptURL.path] + arguments
         }
 
         return try await withCheckedThrowingContinuation { continuation in
@@ -117,7 +126,7 @@ final class ScriptRunner: ObservableObject {
                 }
 
                 if let timeout = timeoutSeconds, timeout > 0 {
-                    DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(Double(timeout))) {
+                    DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(Int(timeout))) {
                         if process.isRunning {
                             process.terminate()
                             continuation.resume(throwing: RunError.timeout)

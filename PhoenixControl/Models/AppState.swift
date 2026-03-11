@@ -21,4 +21,6 @@ final class AppState: ObservableObject {
     @Published var workflowRuns: [GitHubService.WorkflowRun] = []
     @Published var productionAlertIssues: [GitHubService.Issue] = []
     @Published var githubStatusMessage: String? // rate-limit, offline, or nil
+    /// Set to true from menu command to request Executive Dashboard launch.
+    @Published var requestLaunchExecutiveDashboard: Bool = false
 }
