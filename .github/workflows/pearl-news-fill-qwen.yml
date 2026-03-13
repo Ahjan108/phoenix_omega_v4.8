@@ -1,0 +1,206 @@
+# Pearl News Stage 2: Fill (Qwen)
+# Downloads pending slot contracts and fills them using Qwen provider.
+# Outputs completed slot files as artifacts for downstream assembly.
+#
+# Slot-file architecture: Qwen reads pending contracts, writes completed contracts.
+# Provider cannot overwrite deterministic teacher-meaning slots.
+# See docs/PEARL_NEWS_SLOT_FILE_ARCHITECTURE.md for full pipeline documentation.
+
+name: Pearl News Fill (Qwen)
+
+concurrency:
+  group: pearl-news-qwen-fill
+  cancel-in-progress: false
+
+on:
+  workflow_dispatch:
+    inputs:
+      slots_artifact:
+        description: 'Name of slots artifact from plan stage (or leave empty to use latest)'
+        required: false
+        default: ''
+        type: string
+      slots_run_id:
+        description: 'Run ID from plan stage (for artifact download)'
+        required: false
+        default: ''
+        type: string
+  workflow_call:
+    inputs:
+      slots_artifact:
+        description: 'Name of slots artifact from plan stage'
+        required: false
+        type: string
+        default: ''
+      slots_run_id:
+        description: 'Run ID from plan stage'
+        required: false
+        type: string
+        default: ''
+    outputs:
+      filled_artifact:
+        description: 'Name of the uploaded filled slots artifact'
+        value: ${{ jobs.fill.outputs.filled_artifact }}
+
+jobs:
+  fill:
+    runs-on: self-hosted
+    timeout-minutes: 60
+    outputs:
+      filled_artifact: ${{ steps.upload.outputs.artifact-name }}
+    env:
+      QWEN_BASE_URL: ${{ secrets.QWEN_BASE_URL }}
+      QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
+      QWEN_MODEL: ${{ secrets.QWEN_MODEL }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Determine artifact to download
+        id: artifact
+        run: |
+          ARTIFACT_NAME="${{ inputs.slots_artifact }}"
+          if [ -z "$ARTIFACT_NAME" ]; then
+            # Default pattern from plan stage
+            RUN_ID="${{ inputs.slots_run_id || github.run_id }}"
+            ARTIFACT_NAME="pearl-news-slots-pending-${RUN_ID}"
+          fi
+          echo "name=$ARTIFACT_NAME" >> "$GITHUB_OUTPUT"
+          echo "Using artifact: $ARTIFACT_NAME"
+
+      - name: Download pending slots artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ steps.artifact.outputs.name }}
+          path: artifacts/pearl_news/slot_batch
+        continue-on-error: true
+
+      - name: Check for pending slots
+        id: check
+        run: |
+          PENDING_DIR="artifacts/pearl_news/slot_batch/slots/pending"
+          if [ ! -d "$PENDING_DIR" ]; then
+            echo "No pending slots directory found at $PENDING_DIR"
+            echo "has_pending=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          PENDING_COUNT=$(find "$PENDING_DIR" -name "*.yaml" -o -name "*.json" | wc -l | tr -d ' ')
+          echo "Found $PENDING_COUNT pending slot files"
+          echo "has_pending=true" >> "$GITHUB_OUTPUT"
+          echo "pending_count=$PENDING_COUNT" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Python
+        if: steps.check.outputs.has_pending == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        if: steps.check.outputs.has_pending == 'true'
+        run: |
+          python -m pip install --upgrade pip
+          pip install feedparser pyyaml requests openai
+
+      - name: Preflight Qwen health check
+        if: steps.check.outputs.has_pending == 'true'
+        run: |
+          set -euo pipefail
+          echo "=== Qwen model check ==="
+          curl -fsS "$QWEN_BASE_URL/models" | head -c 400; echo
+          
+          echo "=== Qwen warmup call ==="
+          curl -fsS --max-time 45 "$QWEN_BASE_URL/chat/completions" \
+            -H 'Content-Type: application/json' \
+            -H "Authorization: Bearer $QWEN_API_KEY" \
+            -d "{\"model\":\"$QWEN_MODEL\",\"messages\":[{\"role\":\"user\",\"content\":\"ok\"}],\"max_tokens\":64,\"temperature\":0.0,\"enable_thinking\":false}" > /tmp/warmup.json
+          
+          python3 - <<'PY'
+          import json
+          data = json.load(open("/tmp/warmup.json"))
+          if "error" in data:
+              raise SystemExit(f"Warmup failed: {data['error']}")
+          print("warmup_ok=true")
+          PY
+
+      - name: Fill slots with Qwen provider
+        if: steps.check.outputs.has_pending == 'true'
+        run: |
+          set -euo pipefail
+          SLOTS_DIR="artifacts/pearl_news/slot_batch/slots"
+          
+          mkdir -p "$SLOTS_DIR/completed"
+          
+          echo "=== Processing pending slot contracts ==="
+          PYTHONPATH=. python3 -m pearl_news.pipeline.slot_provider_qwen \
+            --slots-dir "$SLOTS_DIR" \
+            --config-root pearl_news/config
+
+      - name: Validate completed slots
+        if: steps.check.outputs.has_pending == 'true'
+        run: |
+          PYTHONPATH=. python3 - <<'PY'
+          import json
+          from pathlib import Path
+          
+          try:
+              import yaml
+          except ImportError:
+              yaml = None
+          
+          from pearl_news.pipeline.news_cycle_slot_contract import validate_completed_contract
+          
+          completed_dir = Path("artifacts/pearl_news/slot_batch/slots/completed")
+          errors = []
+          
+          for path in sorted(completed_dir.glob("*.yaml")) + sorted(completed_dir.glob("*.json")):
+              if path.suffix == ".json":
+                  contract = json.loads(path.read_text(encoding="utf-8"))
+              elif yaml is not None:
+                  contract = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+              else:
+                  continue
+              
+              validation_errors = validate_completed_contract(contract)
+              if validation_errors:
+                  errors.append(f"{path.name}: {', '.join(validation_errors)}")
+                  print(f"INVALID: {path.name} - {validation_errors}")
+              else:
+                  print(f"VALID: {path.name}")
+          
+          if errors:
+              print(f"\n{len(errors)} contracts failed validation")
+              raise SystemExit(1)
+          print("\nAll contracts validated successfully")
+          PY
+
+      - name: Upload filled slots artifact
+        id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: pearl-news-slots-filled-${{ github.run_id }}
+          path: |
+            artifacts/pearl_news/slot_batch/
+          retention-days: 7
+          if-no-files-found: warn
+
+      - name: Summary
+        run: |
+          echo "## Pearl News Fill (Qwen) Stage Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.check.outputs.has_pending }}" = "true" ]; then
+            echo "Filled ${{ steps.check.outputs.pending_count }} slot contracts with Qwen" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "No pending slot contracts to fill" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Next Steps" >> $GITHUB_STEP_SUMMARY
+          echo "Run \`pearl-news-assemble.yml\` to assemble articles from filled slots" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Artifact" >> $GITHUB_STEP_SUMMARY
+          echo "- Name: \`pearl-news-slots-filled-${{ github.run_id }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Provenance" >> $GITHUB_STEP_SUMMARY
+          echo "- Provider: Qwen" >> $GITHUB_STEP_SUMMARY
+          echo "- Model: \`$QWEN_MODEL\`" >> $GITHUB_STEP_SUMMARY

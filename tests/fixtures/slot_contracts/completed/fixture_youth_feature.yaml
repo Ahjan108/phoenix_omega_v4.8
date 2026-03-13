@@ -1,0 +1,52 @@
+version: 2
+article_id: fixture_youth_feature
+status: completed
+template_id: youth_feature
+topic: education
+teacher_id: joshin
+teacher_name: Joshin
+source_url: https://example.org/pearl-news-fixtures/education-attention-strain
+source_title: UNESCO warns digital strain is reducing attention and classroom confidence
+source_published_at: "2026-03-12T12:00:00+00:00"
+deterministic_context:
+  pack_path: pearl_news/teacher_topic_packs/teachers/joshin/education.yaml
+  beat_map_id: youth_feature_v1
+  ordered_sections:
+    - slot: headline_layer_1
+      source: prompted
+      content: ""
+    - slot: hook_personal
+      source: deterministic
+      content: Maya tracks her own attention because she wants to understand what digital strain is doing to her body and study rhythm.
+    - slot: hook_big_picture
+      source: deterministic
+      content: "Her story reflects a broader youth pattern: attention is being fragmented by environments built for interruption."
+    - slot: news_peg
+      source: prompted
+      content: ""
+    - slot: body_data
+      source: prompted
+      content: ""
+required_slots:
+  headline_layer_1: >-
+    Digital Strain and the Search for Focus: A Student Perspective
+  news_peg: >-
+    New UNESCO-linked reporting indicates that constant digital interruption and 
+    post-pandemic learning gaps are measurably reducing concentration, confidence, 
+    and classroom belonging for students globally.
+  body_data: >-
+    The research draws on surveys of 15,000 students across 23 countries, finding 
+    that 72% report difficulty maintaining focus for more than 15 minutes, while 
+    64% describe feeling "less confident" in classroom participation compared to 
+    pre-pandemic levels. Notably, students with access to structured attention 
+    practices showed 34% better outcomes on both metrics.
+optional_slots: {}
+writer_notes:
+  constraints:
+    - Use source facts already attached to this contract.
+    - Do not rewrite deterministic teacher-voice slots.
+    - Only fill the listed required slots.
+provenance:
+  filled_by: fixture_generator
+  filled_at: "2026-03-12T14:00:00+00:00"
+  provider: file

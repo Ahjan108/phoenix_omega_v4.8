@@ -1,0 +1,74 @@
+name: Pearl News Full QA
+
+on:
+  workflow_dispatch:
+    inputs:
+      teacher:
+        description: 'Single teacher ID (leave empty for all active teachers)'
+        required: false
+        default: ''
+        type: string
+      teacher_set:
+        description: 'Comma-separated teacher IDs or "all"'
+        required: false
+        default: 'all'
+        type: string
+      plan_out_dir:
+        description: 'Plan stage output directory'
+        required: false
+        default: 'artifacts/pearl_news/slot_batch'
+        type: string
+      assemble_out_dir:
+        description: 'Assemble stage output directory'
+        required: false
+        default: 'artifacts/pearl_news/assembled'
+        type: string
+      publish_mode:
+        description: 'WordPress posting mode'
+        required: false
+        default: 'all_drafts'
+        type: choice
+        options:
+          - all_drafts
+          - publish_first
+          - all_publish
+          - dry_run
+      limit:
+        description: 'Max articles to post (0 = no limit)'
+        required: false
+        default: '0'
+        type: string
+
+jobs:
+  plan:
+    uses: ./.github/workflows/pearl-news-plan.yml
+    with:
+      teacher: ${{ inputs.teacher }}
+      teacher_set: ${{ inputs.teacher_set }}
+      out_dir: ${{ inputs.plan_out_dir }}
+
+  fill:
+    needs: plan
+    uses: ./.github/workflows/pearl-news-fill-qwen.yml
+    secrets: inherit
+    with:
+      slots_artifact: ${{ needs.plan.outputs.slots_artifact }}
+      slots_run_id: ${{ github.run_id }}
+
+  assemble:
+    needs: fill
+    uses: ./.github/workflows/pearl-news-assemble.yml
+    with:
+      slots_artifact: ${{ needs.fill.outputs.filled_artifact }}
+      slots_run_id: ${{ github.run_id }}
+      out_dir: ${{ inputs.assemble_out_dir }}
+
+  post:
+    needs: assemble
+    uses: ./.github/workflows/pearl-news-post.yml
+    secrets: inherit
+    with:
+      articles_artifact: ${{ needs.assemble.outputs.articles_artifact }}
+      articles_run_id: ${{ github.run_id }}
+      publish_mode: ${{ inputs.publish_mode }}
+      limit: ${{ inputs.limit }}

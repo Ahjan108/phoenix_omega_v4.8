@@ -1,0 +1,222 @@
+# Pearl News Stage 3: Assemble
+# Downloads filled slot contracts and assembles final articles.
+# Outputs article JSON and HTML as artifacts for downstream posting.
+#
+# Slot-file architecture: assembler reads files, not model output directly.
+# Deterministic slots always win; provider slots fill only allowed gaps.
+# See docs/PEARL_NEWS_SLOT_FILE_ARCHITECTURE.md for full pipeline documentation.
+
+name: Pearl News Assemble
+
+on:
+  workflow_dispatch:
+    inputs:
+      slots_artifact:
+        description: 'Name of filled slots artifact (or leave empty to use latest)'
+        required: false
+        default: ''
+        type: string
+      slots_run_id:
+        description: 'Run ID from fill stage (for artifact download)'
+        required: false
+        default: ''
+        type: string
+      out_dir:
+        description: 'Output directory for assembled articles'
+        required: false
+        default: 'artifacts/pearl_news/assembled'
+        type: string
+  workflow_call:
+    inputs:
+      slots_artifact:
+        description: 'Name of filled slots artifact'
+        required: false
+        type: string
+        default: ''
+      slots_run_id:
+        description: 'Run ID from fill stage'
+        required: false
+        type: string
+        default: ''
+      out_dir:
+        description: 'Output directory'
+        required: false
+        type: string
+        default: 'artifacts/pearl_news/assembled'
+    outputs:
+      articles_artifact:
+        description: 'Name of the uploaded articles artifact'
+        value: ${{ jobs.assemble.outputs.articles_artifact }}
+      article_count:
+        description: 'Number of articles assembled'
+        value: ${{ jobs.assemble.outputs.article_count }}
+
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      articles_artifact: ${{ steps.upload.outputs.artifact-name }}
+      article_count: ${{ steps.assemble.outputs.article_count }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Determine artifact to download
+        id: artifact
+        run: |
+          ARTIFACT_NAME="${{ inputs.slots_artifact }}"
+          if [ -z "$ARTIFACT_NAME" ]; then
+            RUN_ID="${{ inputs.slots_run_id || github.run_id }}"
+            ARTIFACT_NAME="pearl-news-slots-filled-${RUN_ID}"
+          fi
+          echo "name=$ARTIFACT_NAME" >> "$GITHUB_OUTPUT"
+          echo "Using artifact: $ARTIFACT_NAME"
+
+      - name: Download filled slots artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ steps.artifact.outputs.name }}
+          path: artifacts/pearl_news/slot_batch
+
+      - name: Check for completed slots
+        id: check
+        run: |
+          COMPLETED_DIR="artifacts/pearl_news/slot_batch/slots/completed"
+          if [ ! -d "$COMPLETED_DIR" ]; then
+            echo "No completed slots directory found"
+            echo "has_completed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          COMPLETED_COUNT=$(find "$COMPLETED_DIR" -name "*.yaml" -o -name "*.json" | wc -l | tr -d ' ')
+          echo "Found $COMPLETED_COUNT completed slot files"
+          echo "has_completed=true" >> "$GITHUB_OUTPUT"
+          echo "completed_count=$COMPLETED_COUNT" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Python
+        if: steps.check.outputs.has_completed == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        if: steps.check.outputs.has_completed == 'true'
+        run: |
+          python -m pip install --upgrade pip
+          pip install feedparser pyyaml requests
+
+      - name: Assemble articles from slot files
+        id: assemble
+        if: steps.check.outputs.has_completed == 'true'
+        run: |
+          set -euo pipefail
+          OUT_DIR="${{ inputs.out_dir || 'artifacts/pearl_news/assembled' }}"
+          SLOTS_DIR="artifacts/pearl_news/slot_batch/slots"
+          
+          mkdir -p "$OUT_DIR/articles" "$OUT_DIR/html" "$OUT_DIR/_meta"
+          
+          # Run the batch assembler with file mode
+          PYTHONPATH=. python scripts/run_pearl_news_teacher_batch.py \
+            --out-dir "$OUT_DIR" \
+            --slot-source file \
+            --slots-dir "$SLOTS_DIR"
+          
+          # Count assembled articles
+          ARTICLE_COUNT=$(find "$OUT_DIR/articles" -name "*.json" | wc -l | tr -d ' ')
+          echo "article_count=$ARTICLE_COUNT" >> "$GITHUB_OUTPUT"
+          
+          echo "=== Assembled $ARTICLE_COUNT articles ==="
+          ls -la "$OUT_DIR/articles/" || true
+
+      - name: Validate assembled articles
+        if: steps.check.outputs.has_completed == 'true'
+        run: |
+          OUT_DIR="${{ inputs.out_dir || 'artifacts/pearl_news/assembled' }}"
+          
+          PYTHONPATH=. python3 - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+          
+          out_dir = Path("${{ inputs.out_dir || 'artifacts/pearl_news/assembled' }}")
+          articles_dir = out_dir / "articles"
+          
+          if not articles_dir.exists():
+              print("No articles directory found")
+              sys.exit(0)
+          
+          errors = []
+          for path in sorted(articles_dir.glob("*.json")):
+              try:
+                  article = json.loads(path.read_text(encoding="utf-8"))
+                  
+                  # Validate required fields
+                  required = ["title", "content", "template_id", "topic"]
+                  missing = [f for f in required if not article.get(f)]
+                  if missing:
+                      errors.append(f"{path.name}: missing {missing}")
+                      continue
+                  
+                  # Validate build_meta records slot source
+                  build_meta = article.get("build_meta", {})
+                  if not build_meta.get("slot_source"):
+                      errors.append(f"{path.name}: missing slot_source in build_meta")
+                      continue
+                  
+                  # Validate v52_slots present
+                  if not article.get("v52_slots") and not article.get("slots"):
+                      errors.append(f"{path.name}: missing v52_slots/slots")
+                      continue
+                  
+                  print(f"VALID: {path.name} (slot_source={build_meta.get('slot_source')})")
+              except Exception as e:
+                  errors.append(f"{path.name}: {e}")
+          
+          if errors:
+              print(f"\n{len(errors)} articles failed validation:")
+              for e in errors:
+                  print(f"  - {e}")
+              sys.exit(1)
+          
+          print("\nAll articles validated successfully")
+          PY
+
+      - name: Upload articles artifact
+        id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: pearl-news-articles-${{ github.run_id }}
+          path: |
+            ${{ inputs.out_dir || 'artifacts/pearl_news/assembled' }}/
+          retention-days: 7
+          if-no-files-found: warn
+
+      - name: Summary
+        run: |
+          OUT_DIR="${{ inputs.out_dir || 'artifacts/pearl_news/assembled' }}"
+          echo "## Pearl News Assemble Stage Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.check.outputs.has_completed }}" = "true" ]; then
+            echo "Assembled ${{ steps.assemble.outputs.article_count }} articles from filled slot contracts" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "No completed slot contracts to assemble" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Next Steps" >> $GITHUB_STEP_SUMMARY
+          echo "Run \`pearl-news-post.yml\` to publish articles to WordPress" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Artifact" >> $GITHUB_STEP_SUMMARY
+          echo "- Name: \`pearl-news-articles-${{ github.run_id }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Build Meta" >> $GITHUB_STEP_SUMMARY
+          echo "- Slot source: \`file\`" >> $GITHUB_STEP_SUMMARY
+          echo "- Assembler path: \`pearl_news/pipeline/assemble_v52.py\`" >> $GITHUB_STEP_SUMMARY
+          if [ -f "$OUT_DIR/_meta/teacher_batch_manifest.json" ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Manifest Preview" >> $GITHUB_STEP_SUMMARY
+            echo '```json' >> $GITHUB_STEP_SUMMARY
+            head -80 "$OUT_DIR/_meta/teacher_batch_manifest.json" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          fi

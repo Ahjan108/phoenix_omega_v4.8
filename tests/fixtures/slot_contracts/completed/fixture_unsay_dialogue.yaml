@@ -1,0 +1,53 @@
+version: 2
+article_id: fixture_unsay_dialogue
+status: completed
+template_id: unsay_dialogue
+topic: mental_health
+teacher_id: master_sha_sai_ma
+teacher_name: Master Sha and Sai Ma
+source_url: https://example.org/pearl-news-fixtures/mental-health-disconnection
+source_title: WHO says young adults are reporting higher levels of exhaustion
+source_published_at: "2026-03-12T12:00:00+00:00"
+deterministic_context:
+  pack_path: pearl_news/teacher_topic_packs/pairs/unsay_dialogue/master_sha__sai_ma__mental_health.yaml
+  beat_map_id: null
+  ordered_sections:
+    - slot: headline_layer_1
+      source: prompted
+      content: ""
+    - slot: event_summary
+      source: prompted
+      content: ""
+    - slot: news_peg
+      source: prompted
+      content: ""
+    - slot: body_data
+      source: prompted
+      content: ""
+required_slots:
+  headline_layer_1: >-
+    Two Teachers on Exhaustion: Where Practices Meet and Diverge
+  event_summary: >-
+    In a recorded dialogue, two teachers from different traditions address the 
+    WHO's latest findings on youth exhaustion. While their approaches differ, 
+    both emphasize that meaningful recovery requires more than rest—it demands 
+    attention to how young people relate to their own nervous systems.
+  news_peg: >-
+    A World Health Organization brief links rising exhaustion, doomscrolling, and 
+    social disconnection to reduced resilience and daily functioning among young 
+    adults globally.
+  body_data: >-
+    The WHO data shows that 58% of young adults surveyed report feeling exhausted 
+    "most days," with 43% describing a sense of disconnection from their communities. 
+    Researchers note that these patterns correlate strongly with increased screen 
+    time and reduced participation in embodied activities.
+optional_slots: {}
+writer_notes:
+  constraints:
+    - Use source facts already attached to this contract.
+    - Do not rewrite deterministic teacher-voice slots.
+    - Only fill the listed required slots.
+provenance:
+  filled_by: fixture_generator
+  filled_at: "2026-03-12T14:00:00+00:00"
+  provider: file
