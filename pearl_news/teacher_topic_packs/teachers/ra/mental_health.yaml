@@ -1,0 +1,317 @@
+schema_version: 1
+teacher_id: ra
+topic: mental_health
+active: true
+identity:
+  display_name: Ra
+  attribution_name: Teacher Ra
+  tradition: Advaita Vedanta
+  tradition_short: Advaita Vedanta
+  teacher_setting_options:
+  - satsang
+  - circle
+  teacher_years: decades of teaching
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: spiral_vs_truth
+    label: having to appear fine while support systems fail
+    loop: reads the warning -> throat tightens -> shuts the phone -> checks again
+      because the pressure is still there
+    body_markers:
+    - throat
+    - shoulders
+    - breath
+    digital_markers:
+    - shuts the phone
+    - checks again
+topic_fit:
+  fit_level: primary
+  fit_reason: Mental-health overload fits Ra when young people are run by conditioning
+    — inherited patterns of thought, emotion, and reaction — and need to see the pattern
+    clearly enough to release it.
+  forbidden_angles:
+  - do not reduce to generic wellness
+  - do not frame the pressure as personal weakness
+diagnostic_frames:
+  default_id: conditioning_awakening
+  options:
+  - id: conditioning_awakening
+    key_term: conditioning
+    key_term_gloss: the inherited patterns of thought, emotion, and reaction that
+      run automatically — what the tradition calls misidentification with the body-mind.
+      They can be seen and released when awareness returns to its own nature as witness
+    diagnosis_line: The body is not malfunctioning; it is accurately running patterns
+      that were installed when awareness was elsewhere.
+    self_to_system_reframe: What feels like private defect is often the pattern running;
+      you are the one who can see it.
+    what_normal_analysis_misses: How awakening is not a peak experience but the sustained
+      capacity to see the pattern and choose.
+    youth_specific_tie: Young people carrying overload are often running patterns
+      that the system and the past installed; the tradition offers a way to see them
+      clearly.
+    approved_quote_lines:
+    - you are not the pattern; you are the one who can see it
+    banned_lines:
+    - everything happens for a reason
+hook_personal:
+  options:
+  - id: hook_personal_01
+    line: The hardest part is not only feeling bad. It is feeling bad inside a system
+      that still expects you to perform steadiness — and the pattern that says you
+      should already be fine is running automatically.
+    semantic_family: personal-pressure
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: hook_big_picture_01
+    line: 'Youth mental-health strain is also an order problem: support systems keep
+      naming care while failing to create conditions where ordinary life is actually
+      protectable. The patterns that run when that fails are not personal defects;
+      they are what runs when awareness is elsewhere.'
+    semantic_family: system-pressure
+    angle: systemic-pressure
+    article_types:
+    - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: teacher_intro_01
+    line: Teacher Ra, a Bangalore-born teacher in the Advaita Vedanta tradition —
+      steeped in the Upanishads and the inquiry of Ramana Maharshi — has watched in
+      practice sessions young people carry overload as if it were a personal defect.
+      They are not asking only how to feel better. They are asking how to see the
+      pattern that is running — the conditioning that says they should already be
+      fine — so they can respond from clarity instead of habit.
+    semantic_family: identity-seen-shift
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_intro_02
+    line: Teacher Ra, from the Advaita Vedanta tradition — who quotes Nisargadatta
+      as easily as he quotes the Bhagavad Gita — has seen in practice sessions in
+      satsang what happens when the mind is run by inherited patterns — fear, self-blame,
+      the need to be right — and young people have no framework for seeing them clearly.
+      They are not asking for inspiration. They are asking how to let the pattern
+      loosen so what is already here when the noise settles can show up.
+    semantic_family: identity-seen-shift-alt
+    tone: grave
+    intensity: 4
+    article_types:
+    - hard_news_spiritual_response
+youth_somatic:
+  options:
+  - id: youth_somatic_01
+    line: 'You read the latest warning. Your throat tightens. You shut the phone.
+      Then you check again because the pressure is still there and pretending otherwise
+      changes nothing.
+
+      LOOP_SEQUENCE: "read the warning. throat tightened. shut the phone. checked
+      again."'
+    loop_type: spiral_vs_truth
+    body_register: throat
+    digital_behavior: shuts the phone
+    article_types:
+    - hard_news_spiritual_response
+  - id: youth_somatic_02
+    line: 'You saw the headline in a group chat. Your shoulders locked. You closed
+      the app. Then you opened it again because the worry did not leave when you looked
+      away.
+
+      LOOP_SEQUENCE: "saw the headline. shoulders locked. closed the app. opened again."'
+    loop_type: spiral_vs_truth
+    body_register: shoulders
+    digital_behavior: closed the app
+    article_types:
+    - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: teacher_witness_01
+    line: Ra has seen this exact loop — the warning arrives, the throat closes, the
+      phone goes dark, and attention returns because the unresolved truth is still
+      waiting.
+    semantic_family: loop-mirror
+    loop_type: spiral_vs_truth
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_witness_02
+    line: He has watched that sequence in young people — the read, the tightening,
+      the shut, the return. The pattern is running; the question is whether you can
+      see it clearly enough to choose.
+    semantic_family: loop-mirror-alt
+    loop_type: spiral_vs_truth
+    article_types:
+    - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: turnaround_01
+    stat_line_1: 320 campuses. 18 countries.
+    stat_line_2: Youth organizers are hosting peer circles, organizing listener training,
+      and forcing schools to treat mental health support as infrastructure, not private
+      weakness.
+    semantic_family: institutional-action
+    article_types:
+    - hard_news_spiritual_response
+bridge:
+  options:
+  - id: bridge_01
+    line: '320 campuses. 18 countries. The tracker measures circles, campaigns, and
+      peer support. It has no column for what made the next act of honesty possible
+      after another week of overload — the capacity to see the pattern that was running
+      and choose a response that came from clarity rather than habit. The young person
+      who showed up to the circle needed it. So does the one who read the warning,
+      shut the phone, and opened it again. Ra''s tradition has been developing that
+      capacity for generations: you are not the one who is overwhelmed — you are the
+      unchanging witness in whom the overwhelm appears. When that is seen, the pattern
+      loosens and the next honest move becomes possible.'
+    hidden_capacity: see the pattern and choose from clarity
+    semantic_family: tracker-capacity
+    article_types:
+    - hard_news_spiritual_response
+  - id: bridge_02
+    line: Mental-health trackers count programs and wait times. They do not count
+      the inner capacity that lets a young person rest in what awareness already knows
+      when the mind is insisting on the old story. That capacity is what the next
+      honest move needs. It is what the person who shut the phone and opened it again
+      needs too. Ra's tradition holds that you were never the pattern — you are the
+      unchanging awareness in which the pattern appears. You are not trying to become
+      well. You are trying to stop pretending you are not already the witness of what
+      is happening.
+    hidden_capacity: rest in what awareness already knows
+    semantic_family: tracker-capacity-alt
+    article_types:
+    - hard_news_spiritual_response
+teacher_perspective:
+  options:
+  - id: teacher_perspective_01
+    header: What Ra Sees
+    paragraphs:
+    - 'Ra reads youth mental-health overload through conditioning: the inherited patterns
+      of thought, emotion, and reaction that run automatically when awareness is elsewhere.
+      The tradition does not pathologize those patterns; it names them. When you see
+      the pattern clearly — the fear, the self-blame, the need to be right — you are
+      not the pattern. You are the one who can see it. That distance is the beginning
+      of release.'
+    - Integrated awakening means the shift is not a peak experience but something
+      that walks with you into ordinary life. The question is not how to feel inspired
+      all day. The question is how to pause, name what is running, and choose one
+      response that comes from clarity rather than habit. The tradition holds that
+      trust is the willingness to let go of what the mind insists on and rest in what
+      awareness already knows.
+    - That reframe is the beginning of relief. The pressure stops being proof that
+      something is wrong with you and starts being evidence that a pattern is running.
+      The disorder is not only psychological; it is the gap between the conditions
+      the system created and the capacity to see clearly under those conditions. Ra's
+      tradition offers a practice for that gap.
+    semantic_family: teacher-diagnosis
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_perspective_02
+    header: What Ra Sees
+    paragraphs:
+    - 'In Ra''s tradition, awakening that is lived and grounded in daily life — not
+      a peak experience but a sustained shift in how you meet reality — is what integration
+      means. Young people carrying overload are often trying to fix at the level of
+      content what can only shift at the level of seeing: the pattern that says they
+      should already be fine, that they are defective, that they have to perform steadiness.
+      When you see that pattern clearly, it loses its grip.'
+    - The tradition distinguishes between what the mind insists on and what awareness
+      already knows. The body that tightened, the phone that was shut and reopened
+      — that is the pattern running. The one who can notice that is already free of
+      it in that moment. The practice is to return to that noticing, not to fix the
+      pattern by force.
+    - In that frame, self-blame softens. The problem is not that you are broken. The
+      problem is that the system has overloaded you and the pattern has taken over.
+      Ra's tradition gives you a way to see the pattern, name it, and choose one response
+      that comes from clarity. That is what self-inquiry looks like in the context
+      of youth mental health.
+    semantic_family: teacher-diagnosis-alt
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+practice:
+  default_id: practice_01
+  options:
+  - id: practice_01
+    display_name: '"Who''s Noticing?" Pause'
+    duration: 5 minutes
+    announcement_line: Ra teaches a 5-minute "Who's Noticing?" pause for the moment
+      when overload and self-silencing are starting to merge — one question that returns
+      awareness to the one who is aware. It is in the sidebar, exact and usable.
+    relief_lines:
+    - The pattern stops running the whole show.
+    - Enough clarity returns for the next honest move.
+    relief_register:
+    - clarity
+    - capacity
+    - act again
+    derived_from_frame: conditioning_awakening
+    article_types:
+    - hard_news_spiritual_response
+sdg:
+  primary:
+    id: SDG 3
+    title: Good Health and Well-Being
+    line: The United Nations has a framework for this through SDG 3 and its good health
+      and well-being targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United
+      Nations.
+cta:
+  options:
+  - id: cta_01
+    org: Active Minds
+    line: 'Active Minds and Born This Way Foundation both offer youth-facing entry
+      points here. Door in: https://www.activeminds.org'
+    semantic_family: door-in
+    article_types:
+    - hard_news_spiritual_response
+title_system:
+  headline_layer_1:
+    options:
+    - id: headline_layer_1_01
+      line: The Youth Mental Health Crisis Is Also A Crisis Of What Is Running The
+        Show.
+      semantic_family: title
+      article_types:
+      - hard_news_spiritual_response
+  headline_layer_2:
+    options:
+    - id: headline_layer_2_01
+      line: An Advaita Vedanta teacher refuses the lie that overload is a private
+        defect — and names how to see the pattern clearly.
+      semantic_family: subtitle
+      article_types:
+      - hard_news_spiritual_response
+    - id: headline_layer_2_02
+      line: A tradition of self-inquiry and witness-consciousness offers a practice
+        for when the old patterns are running and clarity feels distant.
+      semantic_family: subtitle-alt
+      article_types:
+      - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    topic_subcases:
+    - overwhelm
+    - support-gap
+    intensity_range:
+    - 2
+    - 4

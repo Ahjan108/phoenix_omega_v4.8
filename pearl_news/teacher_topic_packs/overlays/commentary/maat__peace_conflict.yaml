@@ -1,0 +1,114 @@
+# Commentary overlay fixture: Maat + peace_conflict (Dev 9)
+# Gold instance: Full diagnostic frame for peace/conflict commentary.
+# Merged with teachers/maat/peace_conflict.yaml when template_id == "commentary".
+# Not live until hard news deterministic path is proven.
+
+schema_version: 1
+teacher_id: maat
+topic: peace_conflict
+
+thesis:
+  default_id: thesis_truth_pressure_01
+  options:
+    - id: thesis_truth_pressure_01
+      line: "The real injury is not only the violence itself. It is being asked to name violence accurately — to see it clearly and call it by its true name — while institutions respond with minimization, delay, or flatly refusing to act. Young people are not traumatized by their own perception. They are injured by a system that requires them to hold truth that the system refuses to hold itself."
+      metadata:
+        semantic_family: "maat_truth_institutional_injury"
+        tone: grave
+        intensity: 4
+        article_types: ["commentary"]
+        reframe_type: "self_to_system"
+
+    - id: thesis_truth_pressure_02
+      line: "Moral injury arrives when a young person knows something is wrong — knows it in their bones, in what their conscience perceives — and institutions insist on a different version. The injury is not in the knowing. It is in the pressure to doubt what you know, to soften what you see, to trade your accurate perception for institutional comfort. That trade is what breaks people."
+      metadata:
+        semantic_family: "maat_moral_injury_doubt"
+        tone: plain
+        intensity: 3
+        article_types: ["commentary"]
+        reframe_type: "self_to_system"
+
+teaching_interpretation:
+  default_id: teaching_maat_truth_first_01
+  options:
+    - id: teaching_maat_truth_first_01
+      header: "What Ma'at Names"
+      paragraphs:
+        - "Ma'at teaches the qalb (spiritual heart) as the first principle. Not truth as rhetoric or political positioning, but truth as the alignment between what is actually happening and what is being named. The moment institutions begin softening that alignment — calling a crime a 'situation,' describing displacement as 'relocation,' framing institutional failure as 'complexity' — the qalb becomes clouded by ghaflah (heedlessness), and the injury deepens."
+        - "Young people carry this pressure daily. They see what is happening. Their qalb (heart) names it. And then institutions ask them to accept a gentler version so that institutions can feel less responsible. That asking is a form of violence: it asks young people to fracture their own perception to protect the people who caused the harm."
+        - "Ma'at would name this directly: if you feel like you are breaking because what you see does not match what people in power are willing to say out loud, the break is not yours to own. The real disorder is the institutional refusal to be truthful. Your job is not to make their lies feel comfortable. Your job is to protect your own qalb's capacity to see clearly."
+      metadata:
+        semantic_family: "maat_truth_protection"
+        tone: grave
+        intensity: 4
+        article_types: ["commentary"]
+        reframe_type: "self_to_system"
+
+    - id: teaching_maat_truth_first_02
+      header: "What Ma'at Sees"
+      paragraphs:
+        - "In teaching circles, Ma'at watches young people navigate the gap between what their qalb (heart) knows to be true and what institutions claim to believe. That gap is not a failure of understanding. It is accurate perception of institutional dishonesty."
+        - "From there, right relationship becomes practical. The question is not 'how do I make peace with what happened.' It is 'how do I protect my qalb's (heart's) ability to name reality without apologizing for the clarity.' This is not bitterness or refusal to heal. It is the precision of someone who knows the difference between real reconciliation and being asked to forget what you know through dhikr (remembrance of truth)."
+        - "Ma'at's South Indian Sufi tradition teaches that truth-telling is not optional when harm has occurred. Young peacebuilders who document what actually happened, who practice the Mirror Polish (clearing ghaflah), who name displacement as displacement and harm as harm, are not being divisive. They are being truthful. The healing that follows dishonesty is never real."
+      metadata:
+        semantic_family: "maat_truthful_peacebuilding"
+        tone: plain
+        intensity: 3
+        article_types: ["commentary"]
+        reframe_type: "self_to_system"
+
+civic_recommendation:
+  default_id: civic_peace_truth_documentation_01
+  options:
+    - id: civic_peace_truth_documentation_01
+      line: "Document what actually happened: join or start youth documentation projects in your region that record harm, displacement, and institutional response with precision and without softening. The 143 youth coalitions in 28 countries that support displaced peers are doing the work institutions refuse to do — they are creating the truthful record. Being part of that work is not only civic action. It is healing action: you are protecting the truth that institutions want to erase."
+      metadata:
+        semantic_family: "maat_civic_documentation_truth"
+        tone: grave
+        intensity: 4
+        article_types: ["commentary"]
+
+    - id: civic_peace_truth_documentation_02
+      line: "Build trust networks that name harm without permission: create spaces with other young people where what actually happened can be named and witnessed without waiting for institutional acknowledgment or forgiveness. The steady work of youth peacebuilding is not asking permission to see clearly. It is building the collective witness that makes truthful healing possible, whether or not institutions cooperate."
+      metadata:
+        semantic_family: "maat_civic_trust_witnessing"
+        tone: plain
+        intensity: 3
+        article_types: ["commentary"]
+
+teacher_intro:
+  options:
+    - id: commentary_intro_maat_01
+      line: "Ma'at, a South Indian Sufi tradition teacher, reads peace and conflict through the lens of qalb (the spiritual heart) and institutional honesty. She has watched the injury that arrives not from the violence itself, but from being asked to soften what your heart knows is true. Her teaching offers clarity here: if you feel like you are breaking because institutions refuse to name what happened accurately, the break belongs to their dishonesty, not your qalb's perception."
+      metadata:
+        semantic_family: "maat_commentary_intro_truth"
+        tone: grave
+        intensity: 4
+        article_types: ["commentary"]
+
+bridge:
+  options:
+    - id: commentary_bridge_maat_truth_01
+      line: "What conflict trackers measure — displaced people, institutional responses, peace agreements signed — records only the surface. They do not count the inner capacity that lets a young person stay truthful about what happened without being consumed by institutional refusal to acknowledge it. Ma'at's South Indian Sufi teaching has been protecting that capacity through dhikr (remembrance), Mirror Polish (clearing ghaflah), and qalb (heart) practices for centuries. Truth-telling is not a personal burden. It is the foundation of real reconciliation."
+      metadata:
+        hidden_capacity: "stay truthful about harm without losing capacity to build peace"
+        semantic_family: "maat_commentary_bridge_truth"
+        tone: grave
+        intensity: 4
+        article_types: ["commentary"]
+
+headline_layer_2:
+  options:
+    - id: commentary_headline_maat_truth_01
+      line: "Why moral injury is not a personal defect — it is the pressure to lie about what you know, and institutional dishonesty is the disorder."
+      metadata:
+        semantic_family: "maat_commentary_headline_truth"
+        tone: grave
+        article_types: ["commentary"]
+
+    - id: commentary_headline_maat_truth_02
+      line: "A South Indian Sufi teacher reads conflict through qalb (spiritual heart) and institutional honesty, not personal healing."
+      metadata:
+        semantic_family: "maat_commentary_headline_honesty"
+        tone: plain
+        article_types: ["commentary"]

@@ -1,0 +1,206 @@
+schema_version: 1
+pair_type: unsay
+teacher_a_id: master_feung
+teacher_b_id: omote
+topic: peace_conflict
+active: true
+
+# UNSAY-specific: why this pair works for UNSAY (stricter than interfaith)
+pair_rationale:
+  structural_overlap: "Both diagnose a moment where conflict news converts awareness into a state where the person cannot distinguish the storm from their own identity — but Master Fan frames it as speed and pressure colonizing the self from inside, and Omote frames it as the collective oni (affliction) requiring purification. Both teachers see a hidden capacity: the ability to face what has accumulated without being consumed, to let the body find its own response rather than be run by the fear or the pattern."
+  distinct_angles:
+    - "Master Fan sees overload as speed and fragmentation that make the mind take over; the body has its own steadiness and truth if it can lead. Naturalness returns when the spiral stops owning identity."
+    - "Omote sees conflict fear as both personal and collective; the oni grows when grief, shame, and responsibility are not faced honestly. Purification and service dissolve the boundary between self-interest and collective care."
+  convergence_type: "Both teachers diagnose the same moment (alert-landing, body-contracting, phone-returning) not as personal failure but as accurate response to real condition — speed colonizing identity or collective affliction that needs to be faced. Both point toward a practice that restores the capacity to stay functional and honest without being consumed."
+  shared_practice_justification: "Embodied presence with honesty is native to both traditions. Master Fan originates it through breath, movement, and letting the body lead. Omote originates it through purification and facing what has accumulated with sincere witness (Yamato-gokoro). A practice that integrates both — breath, body movement, honest facing, and service — authentically satisfies both teachers without distorting either."
+
+# Hook + youth experience (shared across both teachers)
+hook_personal:
+  options:
+    - id: hook_personal_01
+      line: "One notification arrives and the spiral starts. Your mind races or your chest tightens. The hardest moment is when the loop — read-race-close-return — stops feeling like something happening to you and starts feeling like who you are."
+      semantic_family: "identity-colonization"
+      tone: plain
+      intensity: 3
+    - id: hook_personal_02
+      line: "You can feel public violence and collective failure arriving through the phone and becoming your private panic. The body knows it before language does. The question is whether you can stay present with the truth without the truth becoming your whole identity."
+      semantic_family: "public-private-collapse"
+      tone: grave
+      intensity: 4
+
+youth_somatic:
+  options:
+    - id: youth_somatic_01
+      line: "You read the conflict alert. Your mind races. You put the phone down because the alert and the spiral are too much at once. Then you pick it up again because the danger is still there and the loop is already running.\nLOOP_SEQUENCE: \"read the alert. mind raced. put the phone down. picked it up again.\""
+      loop_type: "conflict-identity-spiral"
+      body_register: "mind racing"
+      digital_behavior: "close-return"
+    - id: youth_somatic_02
+      line: "You saw the update in a group chat. Your chest and jaw locked. You closed the app. Then you opened it again because the collective weight is still there and you cannot separate it from yourself anymore.\nLOOP_SEQUENCE: \"saw the update. chest and jaw locked. closed the app. opened it again.\""
+      loop_type: "conflict-identity-spiral"
+      body_register: "chest and jaw"
+      digital_behavior: "close-return"
+
+# Teacher A slots (Master Fan)
+teacher_a_intro:
+  options:
+    - id: master_feung_intro_01
+      line: "Master Fan, a Taoist teacher of cultivation through art and movement, has watched young people confuse the storm with who they are because speed and fragmentation give the mind no space to separate the two. They are not asking whether conflict is real. They are asking how to find the part of themselves that was never the racing thought — the body that can still breathe, still move, still draw one honest line."
+      semantic_family: "identity-seen-shift"
+      tone: plain
+      intensity: 3
+    - id: master_feung_intro_02
+      line: "Master Fan teaches from the Taoist tradition of naturalness and embodied practice. Master Fan has seen in the studio what happens when conflict news arrives faster than the nervous system can process — the mind takes over, the spiral owns the room, and the body's own steadiness is buried under reactive speed. Students are not asking how to calm down. They are asking how to let the body lead again."
+      semantic_family: "identity-seen-shift-alt"
+      tone: grave
+      intensity: 4
+
+teacher_a_perspective:
+  options:
+    - id: a_perspective_01
+      header: "What Master Fan Sees"
+      paragraphs:
+        - "Master Fan begins with naturalness — the state that remains when striving and speed fall away. The mind that races in response to conflict news is not broken. It is overloaded by speed and fragmentation that no nervous system should have to normalize. The tradition does not ask you to suppress the spiral. It asks you to release ten per cent of the tension in the shoulders, jaw, and hands. Let the breath speak. The body tells the truth about what it is carrying."
+        - "The shift that matters: young people are confusing the storm with who they are because the system keeps moving too fast to separate them. The spiraling mind is not identity; it is overload in a body that has other wisdom. Heart response is faster and more honest than analysis. When you can feel your feet and breathe, you are not identified with the spiral anymore."
+        - "Cultivation through Tai Chi, Guqin, and movement teaches that the body has its own steadiness. The problem is not that young people are too sensitive. The problem is that the speeds and pressures being asked of them exceed what one nervous system can hold. Naturalness returns in increments — one breath, one line drawn — and with it, the capacity to stay present without being run by the storm."
+      semantic_family: "naturalness-and-body"
+      reframe_type: "self_to_system"
+    - id: a_perspective_02
+      header: "What Master Fan Sees"
+      paragraphs:
+        - "In Taoist cultivation, the body is not the problem when it tightens or races in response to conflict news. The body is accurate. The problem is that speed and fragmentation have colonized how the mind responds — and young people have lost contact with the part of themselves that was never the storm."
+        - "The mountain does not try to be stable. The water does not try to flow. When you can feel the earth beneath your feet, when your breath can slow, when your hand can draw one honest line, you are no longer identified with the spiral. The spiral is still there; it is no longer who you are."
+        - "Master Fan's teaching is that young people do not need to fix the spiral by force. They need to let the body lead — heart response before analysis, breath before thought — so that the mind can stop treating panic as identity. That is what cultivation means: returning to naturalness so the person can respond from steadiness rather than from fear."
+      semantic_family: "naturalness-and-body-alt"
+      reframe_type: "self_to_system"
+
+# Teacher B slots (Omote) — MUST respond to the news, NOT to Master Fan
+teacher_b_intro:
+  options:
+    - id: omote_intro_01
+      line: "Omote, a teacher of the Japanese sacred way-of-life and purification, has seen young people carry conflict pressure as both fear and responsibility — and has watched the collective oni (affliction) grow when grief, shame, and the weight of what has been witnessed are never honestly faced. Students are not asking whether the world is dangerous. They are asking how to hold what they see with the full weight of moral feeling without being consumed by it."
+      semantic_family: "identity-seen-shift"
+      tone: plain
+      intensity: 3
+    - id: omote_intro_02
+      line: "Omote teaches from the Japanese tradition. She has seen that conflict fear is not only personal — it is collective. The oni grows when a community fails to face its grief, shame, and responsibility honestly. Young people who witness violence and injustice are called not to numb themselves but to hold what they see with sincere heart. The question is how to do that without being consumed."
+      semantic_family: "identity-seen-shift-alt"
+      tone: grave
+      intensity: 4
+
+teacher_b_perspective:
+  options:
+    - id: b_perspective_01
+      header: "What Omote Sees"
+      paragraphs:
+        - "Omote would not tell young people to calm down as if fear were the mistake. The oni is not only personal affliction; it is collective. When a community or nation fails to face its grief, its shame, or its responsibility honestly, the oni grows at the collective level and expresses itself as aggression, scapegoating, and ultimately violence. Young people who witness conflict are not only dealing with their own fear; they are carrying the collective weight of what has not been faced."
+        - "From there, the tradition turns to Yamato-gokoro — sincere heart-mind that does not look away from what is painful. In the context of armed conflict, this means staying present with what you see, with the full weight of moral feeling, without numbing or performing outrage. The capacity to bear witness honestly is what allows transformation. The person who read the alert and could not stop checking again was trying to do exactly this — stay present with what is real."
+        - "The tradition's core teaching is that helping others saves ourselves. This means the boundary between self-interest and collective care must dissolve. Conflict persists when each party believes that survival requires the diminishment of the other. The oni itself is that belief. Genuine security comes from purification — honestly facing what has accumulated — and from service that restores the one serving."
+      semantic_family: "collective-oni-and-service"
+      reframe_type: "self_to_system"
+    - id: b_perspective_02
+      header: "What Omote Sees"
+      paragraphs:
+        - "In Omote's tradition, conflict pressure is both personal and collective. The oni that grows when grief and shame are not faced expresses as violence when it is not purified. Young people carrying witness to violence are not only experiencing personal fear; they are carrying un-faced collective affliction that no individual should have to hold alone."
+        - "Purification here is not magical erasure. It is the honest discipline of restoring clarity through water, wind, ritual, breath, and service. When young people are given a practice that faces the collective oni with honesty rather than denial or performance, the capacity to remain functional enough to protect others, tell the truth, or act again becomes available."
+        - "In that frame, self-blame softens. The problem is not that young people are too sensitive to conflict. The problem is that the collective has been carrying un-faced affliction without a practice of purification and service. Omote's tradition offers that practice — and the teaching that genuine security comes not from defeating the other but from service that dissolves the boundary between self-interest and collective wellbeing."
+      semantic_family: "collective-oni-and-service-alt"
+      reframe_type: "self_to_system"
+
+# Convergence — CENTER of the article
+convergence_bridge:
+  options:
+    - id: convergence_01
+      line: "Both teachers are naming the same moment: the point where conflict news arrives and the person can no longer distinguish the storm from their own identity. But they see it differently. Master Fan names it as speed and fragmentation colonizing the self from inside — the mind taking over because the body has lost contact with its own steadiness. Omote names it as the collective oni (affliction) that grows when grief and responsibility are not faced honestly. Yet both point to the same hidden capacity: the ability to face what has arrived without being consumed by it, to let the body or sincere heart-mind respond rather than be run by the reactive pattern or the un-faced weight."
+      structural_overlap: "Both diagnose the moment of spiral not as personal failure but as accurate response to real condition (speed colonizing identity or collective affliction waiting to be faced). Both see that the capacity to stay present with what is true is intact; it is covered by reactivity or dissociation. Both offer a practice that restores that capacity — breathing, moving, facing with honesty — so the person can stay functional enough to respond."
+    - id: convergence_02
+      line: "Master Fan and Omote are diagnosing the same somatic loop from different angles: the body knows it before the mind can understand it. For Master Fan, the body's racing or tightening is accurate response to speed that exceeds what the nervous system can hold. For Omote, the body's contraction is accurate response to collective affliction that requires honest facing. Both teachers see the problem as systemic, not personal — and both see that the solution is a practice that helps young people stay present and grounded enough to respond rather than be consumed."
+      structural_overlap: "The shared diagnosis: the mind racing, the chest tightening, the phone closing and opening again — all of it is accurate response to real condition, not personal defect. The shared capacity: staying present with what has arrived and with what needs to be faced without being consumed by it."
+
+shared_agreement:
+  options:
+    - id: agreement_01
+      line: "Both Master Fan and Omote agree: the conflict is real, the body's response is accurate, but the capacity to stay present and honest without being consumed is still available. They differ in what they name as the source — speed colonizing the self or collective oni requiring purification — but they converge on what matters: young people need a practice that keeps them present with difficult truth long enough to respond without the spiral or the weight owning them. The practice they both endorse is embodied presence with honest facing: breath, body awareness, movement, and the sincere witness that can hold what is true."
+      shared_practice_name: "Embodied Presence and Honest Facing"
+    - id: agreement_02
+      line: "Master Fan and Omote name the same breakthrough: what feels like the self being consumed is actually the body doing exactly what it was designed to do — register speed and pressure or carry collective weight. But both teachers point toward one shared capacity that young people need right now: the ability to pause, find the ground or the heart, and stay present — to breath, body, and the honest response that can choose. That is what both traditions call embodied presence and sincere witness. It is not about denying danger or performing calm. It is about staying alive to what is true."
+      shared_practice_name: "Embodied Presence and Honest Facing"
+
+practice_announce:
+  options:
+    - id: practice_01
+      display_name: "Embodied Presence and Honest Facing"
+      duration: "5 minutes"
+      announcement_line: "Both Master Fan and Omote teach a 5-minute Embodied Presence and Honest Facing practice for the moment when conflict pressure is starting to own identity or when what has accumulated needs to be faced. It is in the sidebar, timed and exact."
+      relief_lines:
+        - "The storm remains real; it no longer owns the identity."
+        - "Enough steadiness returns for the next honest move."
+      relief_register: ["presence", "honesty", "ground", "capacity", "respond"]
+    - id: practice_02
+      display_name: "Embodied Presence and Honest Facing"
+      duration: "5 minutes"
+      announcement_line: "Both teachers offer a 5-minute Embodied Presence practice for when the spiral is running or the collective weight is too much. Breath, movement, honest facing. It is in the sidebar, short enough to use after the alert, before sleep, or when the mind is racing."
+      relief_lines:
+        - "The body finds its own response; the heart finds its own honesty."
+        - "The burden is faced; it is no longer invisible."
+      relief_register: ["ground", "honesty", "clarity", "capacity"]
+
+practice_why_a:
+  options:
+    - id: practice_why_a_01
+      line: "For Master Fan: embodied presence — breath, movement, feeling the feet and the ground — interrupts the speed that has colonized identity. When the mind is racing because the system is moving too fast, the practice asks: can you feel your feet? Can your breath slow? Can you move one honest line? That is cultivation: returning to naturalness so the body can lead again and the mind can stop treating the spiral as identity."
+    - id: practice_why_a_02
+      line: "In Master Fan's tradition, the body has its own steadiness and wisdom. When you can feel the earth beneath your feet, when your breath can slow, when your heart-response can come before analysis, you are no longer identified with the racing mind. The speed is still there; it is no longer who you are. That is what embodied presence means: the mountain does not try to be stable; it simply is."
+
+practice_why_b:
+  options:
+    - id: practice_why_b_01
+      line: "For Omote: embodied presence with honest facing is the practice of purification — creating the conditions in which what has accumulated can be seen and released. When you feel your feet and your breath, when you are present with the collective weight without denial or performance, you are practicing sincere heart-mind (Yamato-gokoro). Service to others restores the one serving. That is how the boundary between self-interest and collective care dissolves."
+    - id: practice_why_b_02
+      line: "In Omote's tradition, facing what has accumulated with honesty is what allows it to be released. Embodied presence is not avoidance; it is the foundation for sincere witness. When you can feel your body and stay present with what you see — the collective oni, the un-faced grief — you are not separated from the community. You are serving by remaining present and honest. Service and purification are one practice."
+
+# Disagreement boundary (UNSAY-specific)
+disagreement_boundary:
+  options:
+    - id: disagreement_01
+      line: "Master Fan and Omote do not agree on what is ultimately happening: is the conflict pressure primarily a matter of speed and fragmentation that have colonized individual identity, or is it primarily a manifestation of collective affliction that must be faced and purified? This is a real difference. Master Fan points to natural steadiness and the body's own wisdom. Omote points to collective responsibility and service. But both teachers agree on what young people need right now: a practice of embodied presence that keeps them alive and honest enough to act. The deeper question — whether the work is individual cultivation or collective purification — remains for each tradition to answer."
+    - id: disagreement_02
+      line: "The teachers diverge on diagnosis: Master Fan roots the overload in speed colonizing individual identity; Omote roots it in collective oni requiring honest facing and service. They do not resolve this difference in the article. But both hold that the body's response is accurate, and both offer a practice that restores the capacity to stay present and honest with what is true. The disagreement about origin does not prevent convergence about what is needed now — embodied presence that lets the person respond from steadiness or from sincere heart rather than from reactive fear."
+
+# Standard
+headline_layer_2:
+  options:
+    - id: headline_layer_2_01
+      line: "A Taoist teacher and a Japanese tradition teacher name the spiral differently — and converge on staying present without being consumed."
+      semantic_family: "two-teacher-convergence"
+    - id: headline_layer_2_02
+      line: "Master Fan and Omote see different sources of conflict pressure but agree on one practice: embodied presence and honest facing when the storm is running."
+      semantic_family: "two-teacher-practice"
+
+forward_look:
+  options:
+    - id: forward_look_01
+      line: "What this convergence means structurally is clear: young people do not need to choose between diagnosing speed colonizing identity and facing collective affliction. They need a practice that works regardless of which diagnosis fits — a way to stay present and honest with what is true without being consumed. That is what embodied presence and sincere witness offer. Both traditions teach it. SDG 16 (Peace, Justice and Strong Institutions) depends on young people who can hold difficult truth long enough to witness and respond honestly. The practice that keeps them present is not decorative. It is what allows the next act of genuine service."
+      semantic_family: "convergence-structure"
+    - id: forward_look_02
+      line: "The practical truth: young people carrying conflict pressure and collective weight need the same thing right now — the capacity to stay present and grounded, to face what has arrived with honesty, and to respond from steadiness rather than reactivity. That both traditions teach this practice is not a coincidence; it is a recognition of what is structurally needed. SDG 16 and SDG 3 (Good Health and Well-Being) both require young people who can stay functional, truthful, and honest when the weight is real. Embodied presence is not escapism. It is what allows the next response to come from genuine care rather than from panic."
+      semantic_family: "convergence-necessity"
+
+sdg:
+  - id: "SDG 16"
+    title: "Peace, Justice and Strong Institutions"
+    line: "The United Nations has a framework for this through SDG 16 and its peace, justice and strong institutions targets."
+  - id: "SDG 3"
+    title: "Good Health and Well-Being"
+    line: "The same framework includes SDG 3 for good health and well-being, recognizing that peace work requires young people who can stay present and functional when the burden is real."
+
+cta:
+  options:
+    - id: cta_01
+      org: "UNA-USA"
+      line: "UNA-USA and youth peacebuilding networks offer entry points into this work. Door in: https://www.unausa.org"
+      semantic_family: "door-in-peace"
+    - id: cta_02
+      org: "Youth peacebuilding and accountability networks"
+      line: "If peacebuilding and accountability are your focus, UNA-USA and local youth networks offer community and training. If mental health support is your focus, Active Minds and Born This Way Foundation work the same ground."
+      semantic_family: "door-in-combined"

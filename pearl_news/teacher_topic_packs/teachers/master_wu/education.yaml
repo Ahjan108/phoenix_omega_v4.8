@@ -1,0 +1,154 @@
+schema_version: 1
+teacher_id: master_wu
+topic: education
+active: true
+
+identity:
+  display_name: "Master Wu"
+  attribution_name: "Master Wu"
+  tradition: "Land and cultivation teacher"
+  tradition_short: "Land cultivation"
+  teacher_setting_options:
+    - "teaching space"
+    - "practice field"
+  teacher_years: "teaching lineage"
+  affiliation_safe_line: "has attended the United Spiritual Leaders Forum"
+  launch_approved: true
+
+persona:
+  id: gen_z_alpha
+  age_band: "13-29"
+  default_register: "phone-native, high-pressure, institution-skeptical"
+  daily_worlds:
+    - school
+    - street
+    - phone
+    - work
+    - home
+  tie_to_real_world_struggles:
+    - id: fragmentation_loop
+      label: "keeps trying to focus inside a badly designed field"
+      loop: "opens the task -> focus breaks -> switches away -> comes back because the work remains"
+      body_markers: ["scatter", "thin focus", "tired eyes"]
+      digital_markers: ["switch tabs", "refresh", "check again"]
+
+topic_fit:
+  fit_level: primary
+  fit_reason: "This topic maps to fragmented attention, strained effort, and the conflict between what learning needs and what many systems now produce. "
+  forbidden_angles:
+    - "do not blame students for fragmentation"
+    - "do not reduce focus to productivity hacks"
+
+hook_personal:
+  options:
+    - id: hook_personal_01
+      line: "You still want to learn. You also know how quickly the current system turns attention into scatter and effort into exhaustion."
+      semantic_family: "master_wu-education-hook-personal"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response"]
+
+hook_big_picture:
+  options:
+    - id: hook_big_picture_01
+      line: "Education strain is not only about workload. It is about whether schools still create the conditions under which attention and learning can function."
+      semantic_family: "master_wu-education-hook-big"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_intro:
+  options:
+    - id: teacher_intro_01
+      line: "Master Wu, a land and cultivation teacher, has seen in practice sessions what education pressure does to young people. Students are not only asking how to try harder. They are asking how to stay steady inside environments that keep training fragmentation."
+      semantic_family: "master_wu-education-intro"
+      article_types: ["hard_news_spiritual_response"]
+
+youth_somatic:
+  options:
+    - id: youth_somatic_01
+      line: "You open the assignment portal. Focus breaks. You switch away. Then you come back because the work is still there.
+LOOP_SEQUENCE: \"opened the portal. focus broke. switched away. came back.\""
+      loop_type: "fragmentation_loop"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_witness:
+  options:
+    - id: teacher_witness_01
+      line: "Master Wu has seen this exact loop -- the portal opening, the break in focus, the switch away, and the return because the work still remains."
+      semantic_family: "master_wu-education-witness"
+      article_types: ["hard_news_spiritual_response"]
+
+turnaround:
+  options:
+    - id: turnaround_01
+      stat_line_1: "410 workshops. 27 cities."
+      stat_line_2: "Students and educators are organizing workshops, hosting peer tutoring, and campaigning for classroom reforms that protect attention instead of merely demanding it."
+      semantic_family: "master_wu-education-turnaround"
+      article_types: ["hard_news_spiritual_response"]
+
+bridge:
+  options:
+    - id: bridge_01
+      line: "410 workshops. 27 cities. The tracker measures what young people did. It has no column for what made the next step possible after another delayed or broken response -- the capacity to return to the work without turning fragmentation into identity. The person who came back needed it. So does the reader in that loop. Master Wu's teaching has language for protecting that capacity."
+      hidden_capacity: "return to truthful action"
+      semantic_family: "master_wu-education-bridge"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_perspective:
+  options:
+    - id: teacher_perspective_01
+      header: "What Master Wu Sees"
+      paragraphs:
+        - "Master Wu would begin with the field. Attention, regulation, and effort are shaped by conditions as much as by will."
+        - "When the surrounding field is fragmented, unstable, or harsh, the first mistake is to translate that disorder into a judgment on the person."
+        - "What feels like a personal fault — me, broken, wrong — is often accurate response to a system and institutional structure that were badly designed or degraded. Instead of naming myself as the failure, I can see the conditions that produced the pressure."
+      semantic_family: "master_wu-education-perspective"
+      article_types: ["hard_news_spiritual_response"]
+
+practice:
+  default_id: practice_01
+  options:
+    - id: practice_01
+      display_name: "5-minute Return-to-Ground Practice"
+      duration: "5 minutes"
+      announcement_line: "Master Wu teaches a 5-minute Return-to-Ground Practice for moments when education pressure starts converting attention into helplessness. It is in the sidebar, timed and practical."
+      relief_lines:
+        - "The body stops treating every demand as total disorganization."
+        - "Enough regulation returns for the next honest action."
+      relief_register: ["capacity", "clarity", "act again"]
+      article_types: ["hard_news_spiritual_response"]
+
+sdg:
+  primary:
+    id: "SDG 4"
+    title: "Quality Education"
+    line: "The United Nations has a framework for this through SDG 4 and its quality education targets."
+  fallback_un_tie:
+    line: "Pearl News is an independent nonprofit. We are not affiliated with the United Nations."
+
+cta:
+  options:
+    - id: cta_01
+      org: "UNESCO"
+      line: "UNESCO's Global Education Coalition offers a public entry point here. Door in: https://www.unesco.org/en/education/globaleducationcoalition"
+      semantic_family: "master_wu-education-cta"
+      article_types: ["hard_news_spiritual_response"]
+
+title_system:
+  headline_layer_1:
+    options:
+      - id: headline_layer_1_01
+        line: "Students Are Losing Focus Faster Than Systems Can Adapt."
+        semantic_family: "master_wu-education-title1"
+        article_types: ["hard_news_spiritual_response"]
+  headline_layer_2:
+    options:
+      - id: headline_layer_2_01
+        line: "A teacher names the fight to keep learning possible under fragmented conditions."
+        semantic_family: "master_wu-education-title2"
+        article_types: ["hard_news_spiritual_response"]
+
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: "article_id + slot + teacher_id + topic"
+  metadata_filters:
+    article_types: ["hard_news_spiritual_response"]

@@ -1,0 +1,368 @@
+schema_version: 1
+teacher_id: miki
+topic: peace_conflict
+active: true
+identity:
+  display_name: Miki
+  attribution_name: Miki-san
+  tradition: Light language, ascended-master transmission, and crystal-bowl healing
+  tradition_short: light-language healing
+  teacher_setting_options:
+  - sound session
+  - transmission circle
+  teacher_years: decades of practice
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - news feed
+  - phone
+  - group chat
+  - late-night scrolling
+  - global awareness
+  tie_to_real_world_struggles:
+  - id: conflict_freeze_numb_loop
+    label: conflict news fragments sense of safety and belonging
+    loop: reads the conflict update -> body freezes -> doom-scrolls without landing
+      -> goes numb and cycles back
+    body_markers:
+    - chest
+    - throat
+    - heart
+    digital_markers:
+    - reads update
+    - doom-scrolls
+    - goes numb
+    - cycles back
+topic_fit:
+  fit_level: primary
+  fit_reason: Conflict and violence news fit Miki when young people's sense of collective
+    safety and belonging is fractured; the tradition addresses the deepest relational
+    rupture — the breaking of the web between all people — that the body holds before
+    the mind can process.
+  forbidden_angles:
+  - do not reduce to generic hope
+  - do not frame conflict-distress as personal weakness
+hook_personal:
+  options:
+  - id: hook_personal_01
+    line: You read the news and it feels like the web that holds us all together has
+      torn. Then you have to pretend to be okay at school the next morning.
+    semantic_family: safety-rupture
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: hook_big_picture_01
+    line: Conflict news does something to a generation that inherited a fractured
+      world. It is not only information. It is the body's recognition that the web
+      of relationships between people, land, and collective safety has been torn and
+      keeps tearing on a schedule.
+    semantic_family: collective-rupture
+    angle: belonging-loss
+    article_types:
+    - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: identity_observation_shift_01
+    line: Miki-san, a teacher of light-language and sound healing, has watched in
+      practice sessions what conflict news does to young people. They are not asking
+      whether the violence is real. They are asking how to receive the truth about
+      breaking places without the body shutting down from the loss of collective safety.
+    semantic_family: identity_seen_shift
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+  - id: identity_observation_shift_02
+    line: Miki-san, from the light-language and crystal-bowl healing tradition, has
+      seen in practice sessions what happens when a young person reads that another
+      city has been bombed, another settlement has been displaced, another line has
+      broken. It arrives first as a freezing in the chest, then as the loss of the
+      assumption that a common web of safety exists. That break lives in the body
+      as numbness and doom-scroll, long before the mind finds words for collective
+      rupture.
+    semantic_family: identity_seen_shift_alt
+    tone: grave
+    intensity: 4
+    article_types:
+    - hard_news_spiritual_response
+youth_somatic:
+  options:
+  - id: conflict_freeze_01
+    line: 'You read the conflict update in the news feed. Your chest froze. You kept
+      scrolling, not landing, hoping for something that would restore the feeling
+      that we are all connected. Then numbness came and you scrolled more because
+      you could not look away and you could not stay present.
+
+      LOOP_SEQUENCE: "read the update. chest froze. scrolled without landing. went
+      numb. cycled back."'
+    loop_type: conflict_freeze_numb_loop
+    body_register: chest
+    digital_behavior: reads update
+    article_types:
+    - hard_news_spiritual_response
+  - id: conflict_freeze_02
+    line: 'You saw the headline about displacement. Your throat tightened. You scrolled
+      deeper into the story, then past it, then back, caught between needing to know
+      and needing to escape. Then you stopped feeling at all.
+
+      LOOP_SEQUENCE: "saw the headline. throat tightened. scrolled deeper then past
+      it. stopped feeling."'
+    loop_type: conflict_freeze_numb_loop
+    body_register: throat
+    digital_behavior: doom-scrolls
+    article_types:
+    - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: mirrored_loop_01
+    line: Miki has seen this exact loop in young people — the read, the freeze, the
+      endless scroll, the numbing.
+    semantic_family: loop-mirror
+    loop_type: conflict_freeze_numb_loop
+    article_types:
+    - hard_news_spiritual_response
+  - id: mirrored_loop_02
+    line: She has watched that sequence in the bodies of young people carrying global
+      news — the body freezes, the scroll goes deep, feeling disappears, and the loop
+      begins again because the rupture is still true.
+    semantic_family: loop-mirror-alt
+    loop_type: conflict_freeze_numb_loop
+    article_types:
+    - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: youth_action_peace_01
+    stat_line_1: 1,200+ active campaigns. 156 countries.
+    stat_line_2: Young people are organizing and hosting workshops for peace-building
+      initiatives, cross-conflict dialogues, and demand for ceasefire accountability
+      — refusing the isolation that conflict news creates.
+    semantic_family: institutional-action
+    article_types:
+    - hard_news_spiritual_response
+  - id: youth_action_peace_02
+    stat_line_1: 1,200+ active campaigns. 156 countries.
+    stat_line_2: Youth organize, organizing workshopsrs are still building trust across
+      conflict lines, holding their governments accountable for war spending, and
+      rebuilding the web of collective safety that news told them was irreparable.
+    semantic_family: institutional-action-alt
+    article_types:
+    - hard_news_spiritual_response
+bridge:
+  options:
+  - id: tracker_capacity_01
+    line: 'Peace-building trackers count ceasefire negotiations and dialogue initiatives.
+      They have no column for what made the next day of engagement possible after
+      the last bombing — the capacity to stay in contact with collective belonging
+      when the news keeps rupturing it. The young person who organized a cross-conflict
+      conversation needed it. So does the person who read the update, felt their chest
+      freeze, and is still scrolling, still searching for the web. Miki''s tradition
+      has been developing that capacity through sound and presence for generations:
+      the body can remember that connection exists even when it has been broken.'
+    hidden_capacity: stay in contact with collective belonging when rupture keeps
+      arriving
+    semantic_family: tracker-capacity
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+  - id: tracker_capacity_02
+    line: Conflict and peacebuilding databases count casualties, ceasefires, and negotiations.
+      They do not count the inner capacity that lets a young person stay in their
+      own coherence and belief in collective safety when the news has announced their
+      loss. That capacity is what the next bridge-building conversation needs. It
+      is what the person who read the conflict update, felt the world crack, and came
+      back to look for connection needs too. Miki's tradition holds that this capacity
+      is not missing; it is covered by the relational rupture of war and violence.
+      Sound and light language can help uncover the credibility that you belong to
+      something larger than the breaking.
+    hidden_capacity: believe in collective belonging when the web keeps being torn
+    semantic_family: tracker-capacity-alt
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+teacher_perspective:
+  options:
+  - id: relational_rupture_01
+    header: What Miki Sees
+    paragraphs:
+    - In Miki's tradition, conflict and violence are understood as the deepest possible
+      relational rupture — the breaking of the web that connects all people, all places,
+      and all futures. When a young person reads about war, bombing, or displacement,
+      the body registers this not as abstract information but as a tear in the fabric
+      of collective belonging. The freezing in the chest, the numb-scroll, the return
+      to the news seeking proof that the web still holds — these are not signs of
+      weakness. They are accurate readings of relational trauma.
+    - 'The principle of living in right relationship asks: what are we responsible
+      for when we are connected to distant others through the web? For young people
+      who have inherited a fragmented world, reading conflict news means touching
+      that question daily. The body often answers before language can: we are responsible,
+      we are connected, and the breaking matters because the web is real.'
+    - 'The reframe that matters: what feels like a personal fault -- me, broken, wrong
+      in helpless despair -- is sometimes accurate response to a real rupture in the
+      collective field. The body is not malfunctioning. It is registering a break
+      in the assumption that safety and belonging are shared across all people. When
+      young people understand that their numbing is not a personal defect but a reasonable
+      response to the loss of collective coherence, self-blame softens. The problem
+      is not the young person. The problem is that the system and institutional structure
+      of the web has been torn and the body knows it.'
+    semantic_family: relational-rupture
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+  - id: relational_rupture_02
+    header: What Miki Sees
+    paragraphs:
+    - Miki reads conflict news and its impact on youth through the lens of harae —
+      the purification of actions that damage the web of relationships, in this case
+      the web of human belonging and collective safety. War and violence are not only
+      political or strategic events; they are the systematic breaking of the relational
+      field that tells us we are held together.
+    - Young people inheriting a world of ongoing conflict are being asked to hold
+      collective belonging with fewer resources than any previous generation. Every
+      news update reminds them that the web is fragile, that rupture is possible at
+      any moment, that the assumption of safety is not shared globally. That is not
+      a metaphor. It is what the body is responding to when it freezes, when it numbs,
+      when it doom-scrolls without landing.
+    - 'In that frame, self-blame softens. The disorder is not in the young person''s
+      capacity to hope or to care, and I am not wrong for feeling shattered. The disorder
+      is in the world where rupture is real and ongoing. Healing as remembering means:
+      the capacity to recognize and stay in the web of belonging was never destroyed;
+      it is covered by the breaking that is still happening. Sound and presence can
+      help the body remember that coherence and connection are not dead — they are
+      underneath the rupture, waiting to be recognized and rebuilt within a system
+      and institutional structure that was never designed for what it demands.'
+    semantic_family: relational-rupture-alt
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+practice:
+  default_id: sound_receiving_01
+  options:
+  - id: sound_receiving_01
+    display_name: 5-minute Sound and Light Receiving
+    duration: 5 minutes
+    announcement_line: Miki teaches a 5-minute Sound and Light Receiving practice
+      for the moment when conflict news has frozen the chest and the body has lost
+      the thread of collective safety. It is in the sidebar, timed and step by step.
+    relief_lines:
+    - The body stops treating each breaking as proof that connection is impossible.
+    - Enough coherence returns for the next conversation, and the next step toward
+      rebuilding the web.
+    relief_register:
+    - coherence
+    - recognition
+    - credibility
+    derived_from_frame: relational_rupture
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+  - id: sound_receiving_02
+    display_name: 5-minute Sound and Light Receiving
+    duration: 5 minutes
+    announcement_line: Miki teaches a 5-minute practice for when the news cycle has
+      turned numbing into a loop, when you are scrolling deeper but not landing. Sound
+      reaches the part of you that has disconnected from the belief that we are all
+      held in a web. It is in the sidebar, short enough to use after reading, before
+      organizing, or when the news has taken the floor from under you.
+    relief_lines:
+    - The body stops isolating the rupture as proof of its own failure to care.
+    - A steadier sense of belonging and credibility returns, and with it the capacity
+      to act and organize with others.
+    relief_register:
+    - coherence
+    - recognition
+    - credibility
+    derived_from_frame: relational_rupture
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+sdg:
+  primary:
+    id: SDG 16
+    title: Peace, Justice and Strong Institutions
+    line: The United Nations has a framework for this through SDG 16 and its peace-building,
+      conflict prevention, and inclusive justice targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United
+      Nations.
+cta:
+  options:
+  - id: peace_org_01
+    org: Peace Beyond Borders
+    line: 'Peace Beyond Borders and Search for Common Ground offer youth-facing entry
+      points into cross-conflict dialogue and peacebuilding. Door in: https://www.sfcg.org'
+    semantic_family: door-in-peace
+    article_types:
+    - hard_news_spiritual_response
+  - id: ceasefire_01
+    org: Youth for Ceasefire Coalition
+    line: 'If you are looking for your entry point to ceasefire advocacy and demilitarization
+      work, the Youth for Ceasefire Coalition connects Gen Z organizers across conflict
+      lines. Door in: join their network.'
+    semantic_family: door-in-ceasefire
+    article_types:
+    - hard_news_spiritual_response
+title_system:
+  headline_layer_1:
+    options:
+    - id: breaking_web_01
+      line: The News Said the Web is Broken. Your Body Believed It.
+      semantic_family: collective-rupture
+      article_types:
+      - hard_news_spiritual_response
+  headline_layer_2:
+    options:
+    - id: miki_attention_01
+      line: A light-language and sound healer names what conflict news does to the
+        young person's sense of collective safety.
+      semantic_family: teacher-attention
+      article_types:
+      - hard_news_spiritual_response
+    - id: miki_relational_01
+      line: A healing tradition reads conflict as the deepest relational rupture —
+        and offers a practice for staying coherent when the web is breaking.
+      semantic_family: teacher-function
+      article_types:
+      - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+    topic_subcases:
+    - war_escalation
+    - displacement_news
+    - conflict_coverage
+    intensity_range:
+    - 2
+    - 4
+diagnostic_frames:
+  default_id: relational_rupture
+  options:
+  - id: relational_rupture
+    key_term: harae
+    key_term_gloss: purification of actions that damage the web between people, land,
+      and spirit
+    diagnosis_line: The body is not malfunctioning; it is registering a rupture in
+      the web of collective belonging and safety.
+    self_to_system_reframe: What feels like helpless despair is often accurate response
+      to a real breaking in the collective field that the world is still allowing.
+    what_normal_analysis_misses: How the tradition treats conflict as relational rupture
+      at the scale of the collective web, not only as a policy or geopolitical problem.
+    youth_specific_tie: Young people inherit a fractured world and are asked to maintain
+      belief in collective safety and human belonging with fewer resources than any
+      prior generation.
+    approved_quote_lines:
+    - the web between all people is real and when it is torn, the body knows it
+    banned_lines:
+    - just focus on what you can control

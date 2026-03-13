@@ -1,0 +1,58 @@
+# UNSAY pair-pack (Wave 2 Dev 7). Pair: Miki + Ra. Topic: mental_health.
+# Spec: PEARL_NEWS_WAVE2_4_DEV_PARALLEL_SPEC (Dev 7), PEARL_NEWS_UNSAY_DIALOGUE_SPEC.
+
+schema_version: 1
+teacher_a_id: miki
+teacher_b_id: ra
+topic: mental_health
+active: true
+
+teacher_a_diagnosis:
+  options:
+    - id: miki_diag_mh_01
+      line: "Miki-san reads youth overload through relational rupture - the break in the web between people and the living world. The body is not malfunctioning when it tightens; it is accurately registering that rupture. The capacity that remains is to stay receptive to truth without the body shutting down."
+    - id: miki_diag_mh_02
+      line: "In the sound and light tradition, overload is accurate body response to a real break in relationship with what sustains life. What feels like private inadequacy is accurate response to collective rupture. The tradition teaches that the capacity to hold truth was always there; it needs to be uncovered, not built."
+
+teacher_b_diagnosis:
+  options:
+    - id: ra_diag_mh_01
+      line: "Teacher Ra reads the same overload through the Advaita Vedanta lens of misidentification: inherited patterns of thought, emotion, and reaction that run automatically when awareness is identified with the body-mind instead of resting as the witness. The body's tightening is not proof of personal defect; it is proof that a pattern is running. When you see the pattern clearly, you are not the pattern — you are the unchanging awareness in which it appears."
+    - id: ra_diag_mh_02
+      line: "In the Advaita Vedanta tradition, what young people call overload is often the gap between what the system demands and the capacity to see clearly under those demands. The conditioning that runs automatically — the belief that you should already be fine, that the pressure is your failure — is what the tradition calls adhyāsa, superimposition. It needs to be seen. Not fixed. Seen."
+
+convergence_bridge:
+  options:
+    - id: conv_mh_01
+      line: "Both teachers are naming the same moment: the point where information and condition overwhelm the person into shutdown. Miki-san names it as relational rupture - the body accurately sensing a break in the web. Teacher Ra names it as conditioning running on automatic. Yet both point to the same hidden capacity: the ability to stay present with what is true without the body closing down or the pattern taking over completely."
+
+shared_agreement:
+  options:
+    - id: shared_mh_01
+      line: "Both Miki-san and Teacher Ra agree: the overload is real, the shutdown is accurate response, but the capacity to stay receptive and aware is still available. They converge on what matters: young people need a practice that keeps them present with difficult truth long enough to respond. The practice they both endorse is grounded presence: breath, body awareness, and returning to the knowing that is already here when the noise settles."
+
+practice_announce:
+  options:
+    - id: practice_mh_01
+      display_name: "Grounded Presence and Return"
+      duration: "5 minutes"
+      line: "Both Miki and Ra teach a 5-minute Grounded Presence and Return practice for the moment when overload is converting awareness into shutdown. It is in the sidebar, timed and exact."
+
+practice_why_a:
+  options:
+    - id: why_miki_01
+      line: "For Miki-san: sound and light teach the body that presence is possible even when rupture is real. Grounded presence - feeling the feet, the breath, the earth's support - is the traditional practice of return: from isolation back to connection, from shutdown back to receptivity. The ground is always there. This practice uncovers it."
+    - id: why_miki_02
+      line: "In Miki-san's tradition, the body is the path home. When the body tightens because the relational rupture is real, the answer is not to deny the rupture but to remember that the capacity to hold truth and still be alive is a capacity of the body itself. Grounding restores what sound and light transmission open."
+
+practice_why_b:
+  options:
+    - id: why_ra_01
+      line: "For Teacher Ra: grounded presence interrupts the pattern that is running by returning awareness to what is already happening — the breath, the feet, the body in this moment. When the pattern says I must control this or I am broken, the practice asks: who is noticing? Can you feel your feet? Can you notice the one who is aware of the pattern? That noticing — what the Advaita tradition calls sākṣī, the witness — is already freedom."
+    - id: why_ra_02
+      line: "In Teacher Ra's Advaita Vedanta tradition, awakening is not a peak experience but the capacity to return to presence when the pattern has taken over. Grounded presence is the practice of what Ramana Maharshi called self-inquiry made simple. When you feel the ground and the breath, you are no longer identified with the pattern. You are the unchanging witness — and from that seeing, you can choose."
+
+disagreement_boundary:
+  options:
+    - id: boundary_mh_01
+      line: "Miki-san and Teacher Ra do not agree on what is ultimately happening: is the overload a symptom of relational rupture with the living world, or is it conditioning installed by systemic pressure? Miki-san points to healing of relationship with nature and presence. Teacher Ra points to clarity about conditioned patterns. But both agree on what young people need right now: a practice of presence that keeps them alive enough to act. The deeper question remains for each tradition to answer separately."

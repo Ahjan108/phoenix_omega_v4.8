@@ -1,0 +1,217 @@
+schema_version: 1
+teacher_id: master_feung
+topic: education
+active: true
+
+identity:
+  display_name: Master Fan
+  attribution_name: Master Fan Jo
+  tradition: Taoist cultivation through art and embodied practice
+  tradition_short: Taoist cultivation
+  teacher_setting_options:
+    - studio
+    - Zhongnan retreat
+  teacher_years: decades of teaching
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+
+persona:
+  id: gen_z_alpha
+  age_band: "13-29"
+  default_register: "phone-native, high-pressure, institution-skeptical"
+  daily_worlds:
+    - school
+    - phone
+    - group chat
+    - late-night scrolling
+    - part-time work
+  tie_to_real_world_struggles:
+    - id: portal_scatter
+      label: "assignment portal attention scatter"
+      loop: "opens the portal -> focus breaks -> switches tabs -> comes back because the work still has to get done"
+      body_markers: ["eyes", "forehead", "breath", "shoulders"]
+      digital_markers: ["opens the portal", "switches tabs", "comes back"]
+
+topic_fit:
+  fit_level: primary
+  fit_reason: "Education pressure maps to Taoist naturalness and cultivation — the body that scatters under fragmentation can return to one thing through breath, ground, and heart response."
+  forbidden_angles:
+    - "do not reduce this to generic wellness"
+    - "do not frame the pressure as personal weakness"
+
+hook_personal:
+  options:
+    - id: hook_personal_01
+      line: "You still want to learn. You also know how much of your attention the system wastes before the work even begins."
+      semantic_family: "personal-pressure"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response"]
+hook_big_picture:
+  options:
+    - id: hook_big_picture_01
+      line: "Educational stress is not only about workload. It is about what interruption-heavy systems do to attention, confidence, and the ability to stay in contact with learning."
+      semantic_family: "system-pressure"
+      angle: "systemic-pressure"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_intro:
+  options:
+    - id: teacher_intro_01
+      line: "Master Fan Jo, a Taoist teacher of cultivation through art and movement, has seen in practice sessions what education pressure does to students — they arrive already exhausted by the effort required just to stay with the task. Master Fan has watched them ask not whether school matters, but how to stop treating scattered attention as a private failure."
+      semantic_family: "identity-seen-shift"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response"]
+    - id: teacher_intro_02
+      line: "Master Fan Jo, grounded in naturalness and the Guqin, has observed in practice sessions how education pressure shows up as fractured attention and self-blame. Master Fan has watched young people asking not how to study harder, but how to stop the system from turning interruption into identity."
+      semantic_family: "identity-seen-shift-alt"
+      tone: grave
+      intensity: 4
+      article_types: ["hard_news_spiritual_response"]
+
+youth_somatic:
+  options:
+    - id: youth_somatic_01
+      line: "You open the assignment portal. Your focus breaks. You switch tabs. Then you come back because the work still has to get done.\nLOOP_SEQUENCE: opened the portal. focus broke. switched tabs. came back."
+      loop_type: "portal_scatter"
+      body_register: "eyes"
+      digital_behavior: "opens the portal"
+      article_types: ["hard_news_spiritual_response"]
+    - id: youth_somatic_02
+      line: "You sit down to read. Your mind jumps to the group chat. You close it. Then you open the reading again because the deadline does not move.\nLOOP_SEQUENCE: sat down. mind jumped. closed the chat. opened the reading again."
+      loop_type: "portal_scatter"
+      body_register: "forehead"
+      digital_behavior: "switch-return"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_witness:
+  options:
+    - id: teacher_witness_01
+      line: "Master Fan has watched this sequence in students — the task opens, attention fractures, the tab changes, and then effort has to restart inside the same strained system."
+      semantic_family: "loop-mirror"
+      loop_type: "portal_scatter"
+      article_types: ["hard_news_spiritual_response"]
+    - id: teacher_witness_02
+      line: "Master Fan has seen that loop in the studio — the open, the break, the switch, the return. The body and the device keep pulling attention apart before it can land."
+      semantic_family: "loop-mirror-alt"
+      loop_type: "portal_scatter"
+      article_types: ["hard_news_spiritual_response"]
+
+turnaround:
+  options:
+    - id: turnaround_01
+      stat_line_1: "410 workshops. 27 cities."
+      stat_line_2: "Students and youth educators are organizing workshops, hosting peer tutoring, and campaigning for attention-friendly learning spaces."
+      semantic_family: "institutional-action"
+      article_types: ["hard_news_spiritual_response"]
+    - id: turnaround_02
+      stat_line_1: "410 workshops. 27 cities."
+      stat_line_2: "Young people are organizing campaigns, documenting attention failures, and hosting peer tutoring that does not assume infinite focus."
+      semantic_family: "institutional-action-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+bridge:
+  options:
+    - id: bridge_01
+      line: "410 workshops. 27 cities. The tracker measures what students and teachers are already changing. It has no column for what made the next return to the work possible after another day of fragmentation — the capacity to let the body find naturalness long enough for one thing to land without making interruption your identity. The student who opened the portal and came back needed it. Master Fan's tradition has language and practice for that: cultivation through breath, movement, and one honest line."
+      hidden_capacity: "let the body find naturalness for one thing to land"
+      semantic_family: "tracker-capacity"
+      article_types: ["hard_news_spiritual_response"]
+    - id: bridge_02
+      line: "Education trackers count programs and outcomes. They do not count the inner capacity that lets a young person stay with the task when the system keeps scattering attention. That capacity — what remains when the body stops forcing and the heart can respond — is what the next study session needs. It is what the reader who came back to the portal needs too. Master Fan's cultivation practice is designed to protect it."
+      hidden_capacity: "stay with the task when the system scatters"
+      semantic_family: "tracker-capacity-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_perspective:
+  options:
+    - id: teacher_perspective_01
+      header: "What Master Fan Sees"
+      paragraphs:
+        - "Master Fan would begin by separating fragmentation from identity. In Taoist terms, naturalness is what remains when striving falls away. When the learning environment keeps pulling attention apart, the problem is not that the student is broken. The problem is that the conditions are hostile to the very coherence that learning requires."
+        - "Cultivation here is not productivity language. It is the practice of letting the body lead — one breath, one line drawn, one shift of weight — so attention can land on one thing long enough to learn. The mountain does not try to be stable. Let the body find its own return."
+        - "That makes the reframe precise: what feels like a personal fault — me, broken, wrong — is often accurate response to a system and institutional structure that were never designed for sustained attention. The practice is to make this body the site of return, not the site of blame."
+      semantic_family: "teacher-diagnosis"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response"]
+    - id: teacher_perspective_02
+      header: "What Master Fan Sees"
+      paragraphs:
+        - "Master Fan reads education stress through naturalness. The student who cannot focus is not defective. This body, in this moment, can be the place where focus returns. The tradition does not ask you to leave the body to learn. It asks you to release ten per cent of the tension and let the breath and the ground do the rest."
+        - "From there Master Fan turns to cultivation. The question is not how to never get distracted. The question is how to let the body lead when the portal and the chat have pulled attention apart. One line drawn, one shift of weight — that realignment is what makes the next paragraph possible."
+        - "In that frame, self-blame softens. The fault is not yours — not a confused mind, not a broken self. The problem is that institutions and policy systems keep designing for attention that no human nervous system can sustain. Naturalness arrives in increments."
+      semantic_family: "teacher-diagnosis-alt"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response"]
+
+practice:
+  default_id: practice_01
+  options:
+    - id: practice_01
+      display_name: "Mountain Stillness and Brush"
+      duration: "5 minutes"
+      announcement_line: "Master Fan teaches a 5-minute Mountain Stillness and Brush practice for moments when the portal and the tabs have scattered attention. It is in the sidebar, short enough to use before the next study block or after another interruption."
+      relief_lines:
+        - "The pressure stops naming the whole self."
+        - "Enough naturalness returns for the next honest move."
+      relief_register: ["clarity", "capacity", "act again"]
+      derived_from_frame: "primary"
+      article_types: ["hard_news_spiritual_response"]
+    - id: practice_02
+      display_name: "Mountain Stillness and Brush"
+      duration: "5 minutes"
+      announcement_line: "Master Fan teaches a 5-minute Mountain Stillness and Brush for when focus has already broken and the work is still waiting. It is in the sidebar, timed and step by step."
+      relief_lines:
+        - "The body finds its own stillness."
+        - "The next paragraph becomes possible."
+      relief_register: ["clarity", "capacity", "act again"]
+      derived_from_frame: "primary"
+      article_types: ["hard_news_spiritual_response"]
+
+sdg:
+  primary:
+    id: "SDG 4"
+    title: "Quality Education"
+    line: "The United Nations has a framework for this through SDG 4 and its quality education and lifelong learning targets."
+  fallback_un_tie:
+    line: "Pearl News is an independent nonprofit. We are not affiliated with the United Nations."
+
+cta:
+  options:
+    - id: cta_01
+      org: "Student Voice"
+      line: "Student Voice and similar youth-led education networks offer entry points into advocacy and peer support. Door in: https://www.stuvoice.org"
+      semantic_family: "door-in"
+      article_types: ["hard_news_spiritual_response"]
+    - id: cta_02
+      org: "UNA-USA"
+      line: "UNA-USA runs a program at the local-to-global level for education and SDG 4. Door in: join their network."
+      semantic_family: "door-in-una"
+      article_types: ["hard_news_spiritual_response"]
+
+title_system:
+  headline_layer_1:
+    options:
+      - id: headline_layer_1_01
+        line: "Education Stress Is Not Only About Workload."
+        semantic_family: "title"
+        article_types: ["hard_news_spiritual_response"]
+  headline_layer_2:
+    options:
+      - id: headline_layer_2_01
+        line: "A Taoist teacher separates scattered attention from personal failure."
+        semantic_family: "subtitle"
+        article_types: ["hard_news_spiritual_response"]
+      - id: headline_layer_2_02
+        line: "A Taoist teacher names what the body can do when the system keeps pulling attention apart."
+        semantic_family: "subtitle-alt"
+        article_types: ["hard_news_spiritual_response"]
+
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: "article_id + slot + teacher_id + topic"
+  metadata_filters:
+    article_types: ["hard_news_spiritual_response"]
+    topic_subcases: ["attention-fragmentation", "schedule-pressure"]
+    intensity_range: [2, 4]

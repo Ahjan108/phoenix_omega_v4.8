@@ -1,0 +1,83 @@
+# Interfaith dialogue report pair-pack (Wave 2 Dev 6). Order: ahjan (teacher_a), master_wu (teacher_b).
+schema_version: 1
+pair_type: interfaith_dialogue_report
+teacher_a_id: ahjan
+teacher_b_id: master_wu
+topic: climate
+active: true
+
+identity:
+  teacher_a_tradition: "Theravada Buddhist teacher"
+  teacher_b_tradition: "Land and cultivation teacher (Taiwanese geomancy)"
+  shared_diagnosis: "Young people are experiencing accurate perception of institutional delay, not personal weakness."
+
+leaders_present:
+  options:
+    - id: leaders_climate_01
+      line: "Teacher Ahjan (Theravada Buddhism) and Master Wu (land and cultivation tradition) joined a Pearl News dialogue on climate distress and youth capacity."
+      semantic_family: "intro-pair"
+      article_types: ["interfaith_dialogue_report"]
+    - id: leaders_climate_02
+      line: "Two teachers from distinct traditions—Teacher Ahjan, a Buddhist teacher of 25 years, and Master Wu, a cultivation and field teacher—were present for a conversation on what climate pressure does to young people and how both traditions restore functional capacity."
+      semantic_family: "intro-pair-alt"
+      article_types: ["interfaith_dialogue_report"]
+
+themes_discussed:
+  options:
+    - id: themes_climate_01
+      line: "Institutional delay and accurate perception; reframing distress from self-blame to system-response; grounded practice that restores capacity to act without numbing."
+      semantic_family: "themes-reframe-capacity"
+      article_types: ["interfaith_dialogue_report"]
+    - id: themes_climate_02
+      line: "How young people internalize disorder from badly designed conditions; samvega (Ahjan) and field condition (Master Wu) as two names for the same accurate response; practices that honor reality rather than override it."
+      semantic_family: "themes-diagnosis-practice"
+      article_types: ["interfaith_dialogue_report"]
+
+youth_commitments:
+  options:
+    - id: youth_climate_01
+      line: "Both teachers committed to supporting youth-facing materials that name climate distress as accurate response, not personal failure, and to pointing young people toward practices that restore steadiness without asking them to accept institutional delay as normal."
+      semantic_family: "youth-commitment-reframe"
+      article_types: ["interfaith_dialogue_report"]
+    - id: youth_climate_02
+      line: "The dialogue produced a shared commitment: to frame future climate-and-youth content so that the invisible labor of staying functional under delay is named, and so that entry points (grounded response, right effort, field-literacy) are available to young readers without requiring them to choose one tradition."
+      semantic_family: "youth-commitment-content"
+      article_types: ["interfaith_dialogue_report"]
+
+sdg_alignment:
+  options:
+    - id: sdg_climate_01
+      line: "The United Nations framework for this gap is SDG 13 (Climate Action), including climate education and resilience targets. Both traditions support young people to hold that framework without collapsing under the gap between targets and current reality."
+      semantic_family: "sdg13-alignment"
+      article_types: ["interfaith_dialogue_report"]
+    - id: sdg_climate_02
+      line: "SDG 13 and its targets assume actors who can stay functional enough to act. Ahjan and Master Wu both teach the capacity that makes that action possible—not as an add-on, but as the condition without which awareness becomes overwhelm."
+      semantic_family: "sdg13-capacity"
+      article_types: ["interfaith_dialogue_report"]
+
+convergence:
+  options:
+    - id: convergence_climate_01
+      line: "Both Teacher Ahjan and Master Wu share a diagnosis of the same invisible labor: young people are not suffering from personal defect; they are experiencing accurate response to a world where institutions have delayed beyond the point of proportionate action. Teacher Ahjan names this samvega—truthful destabilization. Master Wu names this field condition—a fragmented outer space producing fragmented inner regulation. Both then teach the same shift: stop internalizing the disorder as personal failure, and practice recovering capacity to act within reality as it actually is."
+      structural_overlap: "Both reframe distress from self-blame to system-response; both restore capacity through grounded practice, not denial."
+      semantic_family: "system-response-reframe"
+      article_types: ["interfaith_dialogue_report"]
+    - id: convergence_climate_02
+      line: "The convergence is precise: neither tradition asks young people to try harder or to accept institutional delay as acceptable. Both locate the problem in the conditions—institutional and environmental—and both offer a practice that restores the capacity to see clearly and act again. The doctrines differ in vocabulary (samvega and right effort vs. field and grounding); the structural agreement is that the young person's perception is accurate and the path forward is practice, not self-blame."
+      structural_overlap: "Accurate perception validated; path forward is practice-based capacity, not acceptance of delay."
+      semantic_family: "convergence-precision"
+      article_types: ["interfaith_dialogue_report"]
+
+distinction:
+  options:
+    - id: distinction_climate_01
+      line: "Teacher Ahjan roots the teaching in Buddhist right effort and samvega; Master Wu roots it in field conditions and cultivation. They do not conflate traditions. The convergence is on the named burden (institutional delay, accurate response) and the shared need for a practice that restores capacity—not on metaphysics or path."
+      semantic_family: "distinction-preserved"
+      article_types: ["interfaith_dialogue_report"]
+
+next_steps:
+  options:
+    - id: next_steps_climate_01
+      line: "Pearl News will use this dialogue to shape future interfaith climate content and to ensure youth-facing entry points (YOUNGO, UNA-USA, grounded practice resources) are clearly linked where both traditions align."
+      semantic_family: "next-steps-content"
+      article_types: ["interfaith_dialogue_report"]

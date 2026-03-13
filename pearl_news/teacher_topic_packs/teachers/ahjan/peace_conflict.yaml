@@ -1,0 +1,160 @@
+schema_version: 1
+teacher_id: ahjan
+topic: peace_conflict
+active: true
+identity:
+  display_name: Ajahn Ahjan
+  attribution_name: Teacher Ahjan
+  tradition: Theravada Buddhist teacher
+  tradition_short: Theravada Buddhism
+  teacher_setting_options:
+  - practice room
+  - retreat
+  teacher_years: '25'
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: pressure_loop
+    label: keeps trying to stay in contact with reality without losing function
+    loop: reads the update -> body tightens -> pulls away -> returns because truth remains
+    body_markers:
+    - chest
+    - throat
+    - tighten
+    digital_markers:
+    - close
+    - reopen
+    - scroll
+    - check again
+topic_fit:
+  fit_level: primary
+  fit_reason: 'This topic maps to moral injury, institutional mistrust, and the strain of repeated conflict on young bodies and minds. '
+  forbidden_angles:
+  - do not preach numbness as wisdom
+  - do not confuse silence with peace
+hook_personal:
+  options:
+  - id: hook_personal_01
+    line: You keep reading because not looking feels dishonest. You also know what repeated violence is doing to your body and your trust.
+    semantic_family: ahjan-peace_conflict-hook-personal
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: hook_big_picture_01
+    line: Conflict pressure is no longer only geopolitical. It arrives as moral injury and as the collapse of trust in institutions that keep failing to protect.
+    semantic_family: ahjan-peace_conflict-hook-big
+    article_types:
+    - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: teacher_intro_01
+    line: Teacher Ahjan, a Theravada Buddhist teacher, has watched in practice sessions this pressure land on young people. Students are not asking how to stay inspired anymore. They are asking how to stay functional while the pressure keeps arriving on schedule.
+    semantic_family: ahjan-peace_conflict-intro
+    article_types:
+    - hard_news_spiritual_response
+youth_somatic:
+  options:
+  - id: youth_somatic_01
+    line: 'You read the latest report. Your chest tightens. You look away. Then you come back because conscience is still there. LOOP_SEQUENCE: "read the report. chest tightened. looked away. came back."'
+    loop_type: pressure_loop
+    article_types:
+    - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: teacher_witness_01
+    line: Ajahn Ahjan has seen this exact loop -- the report, the body tightening, the turning away, and the return because conscience is still present.
+    semantic_family: ahjan-peace_conflict-witness
+    article_types:
+    - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: turnaround_01
+    stat_line_1: 143 youth coalitions. 28 countries.
+    stat_line_2: Young peacebuilders are documenting harm, organizing workshops, and hosting harm, supporting displaced peers, and building trust networks even while institutions stall.
+    semantic_family: ahjan-peace_conflict-turnaround
+    article_types:
+    - hard_news_spiritual_response
+bridge:
+  options:
+  - id: bridge_01
+    line: 143 youth coalitions. 28 countries. The tracker measures what young people did. It has no column for what made the next step possible after another delayed or broken response -- the capacity to stay human enough to act again without surrendering to numbness or despair. The person who came back needed it. So does the reader in that loop. Ajahn Ahjan's teaching has language for protecting that capacity.
+    hidden_capacity: return to truthful action
+    semantic_family: ahjan-peace_conflict-bridge
+    article_types:
+    - hard_news_spiritual_response
+teacher_perspective:
+  options:
+  - id: teacher_perspective_01
+    header: What Ajahn Ahjan Sees
+    paragraphs:
+    - Ajahn Ahjan would begin with accurate contact. The body is not malfunctioning when it reacts to real pressure; it is often perceiving a mismatch between official reassurance and lived reality.
+    - He pairs that recognition with right effort. Right effort is not productivity language. It is the discipline of directing energy where truthful contact and usable action are still possible.
+    - 'The reframe matters: what feels like a personal fault — me, broken, wrong — is often accurate response to a system that keeps externalizing delay, strain, and contradiction onto the person.'
+    semantic_family: ahjan-peace_conflict-perspective
+    article_types:
+    - hard_news_spiritual_response
+practice:
+  default_id: practice_01
+  options:
+  - id: practice_01
+    display_name: 5-minute Steadying Practice
+    duration: 5 minutes
+    announcement_line: Ajahn Ahjan teaches a 5-minute Steadying Practice for moments when peace conflict pressure starts converting attention into helplessness. It is in the sidebar, timed and practical.
+    relief_lines:
+    - The mind stops treating the next update as proof that action is pointless.
+    - A steadier internal pace returns, and with it the capacity to act again.
+    relief_register:
+    - capacity
+    - clarity
+    - act again
+    article_types:
+    - hard_news_spiritual_response
+sdg:
+  primary:
+    id: SDG 16
+    title: Peace, Justice and Strong Institutions
+    line: The United Nations has a framework for this through SDG 16 and its peace, justice, and institutional trust targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United Nations.
+cta:
+  options:
+  - id: cta_01
+    org: UN Youth Office
+    line: 'The UN Youth Office and youth peacebuilding networks offer an entry point here. Door in: https://www.un.org/youthenvoy/'
+    semantic_family: ahjan-peace_conflict-cta
+    article_types:
+    - hard_news_spiritual_response
+title_system:
+  headline_layer_1:
+    options:
+    - id: headline_layer_1_01
+      line: Young People Are Carrying Conflict as Moral Injury.
+      semantic_family: ahjan-peace_conflict-title1
+      article_types:
+      - hard_news_spiritual_response
+  headline_layer_2:
+    options:
+    - id: headline_layer_2_01
+      line: A teacher names the fight to stay human under repeated violence and institutional failure.
+      semantic_family: ahjan-peace_conflict-title2
+      article_types:
+      - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response

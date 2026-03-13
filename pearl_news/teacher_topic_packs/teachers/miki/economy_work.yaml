@@ -1,0 +1,354 @@
+schema_version: 1
+teacher_id: miki
+topic: economy_work
+active: true
+identity:
+  display_name: Miki
+  attribution_name: Miki-san
+  tradition: Light language, ascended-master transmission, and crystal-bowl healing
+  tradition_short: light-language healing
+  teacher_setting_options:
+  - sound session
+  - transmission circle
+  teacher_years: decades of practice
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - gig platform app
+  - phone
+  - group chat
+  - shift-checking routine
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: schedule_rupture_loop
+    label: precarious work schedule shatters stability and dignity
+    loop: checks the shift app -> stomach drops -> screenshots before it changes ->
+      waits for the next drop
+    body_markers:
+    - stomach
+    - chest
+    - shoulders
+    digital_markers:
+    - checks the app
+    - screenshots
+    - waits
+topic_fit:
+  fit_level: primary
+  fit_reason: Economic precarity and gig-work instability fit Miki when young people's
+    dignity is fractured by schedule volatility; the tradition addresses relational
+    rupture between effort and recognition that the body registers before the mind
+    can name it.
+  forbidden_angles:
+  - do not reduce to generic resilience
+  - do not frame precarity as personal weakness
+hook_personal:
+  options:
+  - id: hook_personal_01
+    line: Your effort is real. The recognition for it is not. The app changes the
+      shift after you have already planned your week around it.
+    semantic_family: dignity-rupture
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: hook_big_picture_01
+    line: Economic precarity is not only about money. It is about what happens to
+      a young person's sense of dignity and stability when the system that employs
+      them refuses to hold what they have offered.
+    semantic_family: relational-rupture-work
+    angle: dignity-loss
+    article_types:
+    - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: identity_observation_shift_01
+    line: Miki-san, a teacher of light-language and sound healing, has watched in
+      practice sessions what gig-work instability does to young people. They are not
+      asking only for better wages. They are asking how to receive the truth about
+      precarity without the body collapsing into the belief that their effort does
+      not matter.
+    semantic_family: identity_seen_shift
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+  - id: identity_observation_shift_02
+    line: Miki-san, from the light-language and crystal-bowl healing tradition, has
+      seen in practice sessions what happens when a young person's shift disappears
+      from the app mid-week. It is not only logistical chaos. It is a relational rupture
+      — the worker's effort was never held as mattering. That break lives in the body
+      first, as stomach-drop and self-surveillance, long before it reaches the mind
+      as a policy complaint.
+    semantic_family: identity_seen_shift_alt
+    tone: grave
+    intensity: 4
+    article_types:
+    - hard_news_spiritual_response
+youth_somatic:
+  options:
+  - id: schedule_rupture_01
+    line: 'You check the app for your shift. Your stomach drops. You screenshot it
+      fast because it might change before your next check. Then you wait for the next
+      notification because stability is something you have to catch now.
+
+      LOOP_SEQUENCE: "checked the app. stomach dropped. screenshotted fast. waited
+      for the next change."'
+    loop_type: schedule_rupture_loop
+    body_register: stomach
+    digital_behavior: checks the app
+    article_types:
+    - hard_news_spiritual_response
+  - id: schedule_rupture_02
+    line: 'You saw the shift assignment in the work chat. Your chest tightened. You
+      saved a copy immediately because shifts vanish without notice. Then you kept
+      checking because the job that is supposed to hold you will not.
+
+      LOOP_SEQUENCE: "saw the shift. chest tightened. saved a copy. kept checking."'
+    loop_type: schedule_rupture_loop
+    body_register: chest
+    digital_behavior: screenshots
+    article_types:
+    - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: mirrored_loop_01
+    line: Miki has seen this loop in young workers — the app opens, the stomach tightens,
+      the screenshot happens, the waiting begins.
+    semantic_family: loop-mirror
+    loop_type: schedule_rupture_loop
+    article_types:
+    - hard_news_spiritual_response
+  - id: mirrored_loop_02
+    line: She has watched that sequence in the bodies of gig workers — the check,
+      the drop, the save, the vigilance. The body learns to hold what the platform
+      will not.
+    semantic_family: loop-mirror-alt
+    loop_type: schedule_rupture_loop
+    article_types:
+    - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: youth_action_economy_01
+    stat_line_1: 850+ campaigns. 47 cities.
+    stat_line_2: Young workers are organizing across platforms, organizing campaigns
+      and hosting schedule stability, wage transparency, and the restoration of dignity
+      that algorithm-driven precarity took away.
+    semantic_family: institutional-action
+    article_types:
+    - hard_news_spiritual_response
+  - id: youth_action_economy_02
+    stat_line_1: 850+ campaigns. 47 cities.
+    stat_line_2: Gig workers are still filing cases, hosting coworker councils, and
+      setting strike dates even when the platform keeps changing its own terms of
+      employment.
+    semantic_family: institutional-action-alt
+    article_types:
+    - hard_news_spiritual_response
+bridge:
+  options:
+  - id: tracker_capacity_01
+    line: 'Workers'' rights campaigns track demands won and platforms forced to the
+      table. The tracker has no column for what made the next shift screenshot possible
+      after the last cancellation — the capacity to stay in contact with your own
+      dignity when the system keeps rupturing it. The young worker organizing their
+      coworkers needed it. So does the person who checked the app, felt their stomach
+      drop, and is still there the next day. Miki''s tradition has been developing
+      that capacity through sound and presence for generations: the body can remember
+      what the system erases.'
+    hidden_capacity: stay in contact with own dignity when the system keeps rupturing
+      it
+    semantic_family: tracker-capacity
+    article_types:
+    - hard_news_spiritual_response
+  - id: tracker_capacity_02
+    line: Economic justice trackers count demands and policy wins. They do not count
+      the inner capacity that lets a young worker stay in their own value when the
+      platform has already written them out of the schedule. That capacity is what
+      the next coworker conversation needs. It is what the person who screenshotted
+      the shift and waits for the next drop needs too. Miki's tradition holds that
+      this capacity is not missing; it is covered by the relational rupture of precarity.
+      Sound and light language can help uncover it.
+    hidden_capacity: recognize own value when the system refuses to hold it
+    semantic_family: tracker-capacity-alt
+    article_types:
+    - hard_news_spiritual_response
+teacher_perspective:
+  options:
+  - id: relational_rupture_01
+    header: What Miki Sees
+    paragraphs:
+    - In Miki's tradition, economic precarity is not primarily a wage problem; it
+      is a relational rupture. When a young person offers their effort and the system
+      refuses to hold it with consistency or recognition, the web between worker and
+      employer tears. The body registers that rupture first — as stomach-drop, as
+      chest-tighten, as the learned habit of screenshot-and-wait. The mind comes later
+      with policy language.
+    - 'The principle of living in right relationship — maintaining the web between
+      all parties — does not ask for charity or gratitude. It asks for basic mutuality:
+      if you want the work, hold the worker. For gig workers, that web is severed
+      by algorithm; the shift disappears, the algorithm offers no why, and the body
+      learns that its effort does not create obligation in return.'
+    - 'The reframe that matters: what feels like a personal fault -- me, broken, wrong,
+      unstable -- is often accurate response to a system designed not to hold you.
+      The body is not malfunctioning. It is registering a relational break. When young
+      workers understand that their stomach-drop is not a personal defect but a clear
+      reading of the platform''s refusal to reciprocate, self-blame softens. The problem
+      is not the worker. The problem is that the institutional web has been torn and
+      the body knows it.'
+    semantic_family: relational-rupture
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+  - id: relational_rupture_02
+    header: What Miki Sees
+    paragraphs:
+    - Miki reads economic precarity through the lens of harae — purification of actions
+      that damage the web of relationships, in this case between worker and employer.
+      Gig-work instability is not only about scheduling chaos; it is the systematic
+      breaking of the reciprocal web that makes work dignified.
+    - 'Young people are inheriting a labor economy where effort does not generate
+      recognition or stability. The platform promises flexibility but delivers only
+      volatility: the shift you planned your week around vanishes, the algorithm offers
+      no explanation, and you are left to hold the loss alone. That is relational
+      rupture at the scale of daily life.'
+    - 'In that frame, self-blame softens. The disorder is not in the worker''s capacity
+      to plan or persist, and I am not wrong for feeling shaken. It is in the system
+      and institution refusing to hold what the worker has offered. Healing as remembering
+      means: the sense of dignity and stability you seek was not destroyed; it is
+      covered by precarity. Sound and presence can help the body remember that your
+      effort creates value, even when the platform refuses to recognize it.'
+    semantic_family: relational-rupture-alt
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+practice:
+  default_id: sound_receiving_01
+  options:
+  - id: sound_receiving_01
+    display_name: 5-minute Sound and Light Receiving
+    duration: 5 minutes
+    announcement_line: Miki teaches a 5-minute Sound and Light Receiving practice
+      for the moment when the shift app has dropped again and the body is caught between
+      exhaustion and vigilance. It is in the sidebar, timed and step by step.
+    relief_lines:
+    - The body stops carrying the precarity alone.
+    - Enough dignity returns for the next shift, and the next conversation with a
+      coworker.
+    relief_register:
+    - dignity
+    - recognition
+    - stability
+    derived_from_frame: relational_rupture
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+  - id: sound_receiving_02
+    display_name: 5-minute Sound and Light Receiving
+    duration: 5 minutes
+    announcement_line: Miki teaches a 5-minute practice for the moment when schedule
+      volatility has turned into self-surveillance, when you are checking the app
+      more than you want to. Sound reaches what words cannot reach in the body that
+      has learned not to trust. It is in the sidebar, short enough to use between
+      shifts or before the next check.
+    relief_lines:
+    - The body stops hiding the precarity from itself.
+    - A steadier sense of your own worth returns, and with it the capacity to organize
+      with others.
+    relief_register:
+    - dignity
+    - self-surveillance
+    - volatility
+    derived_from_frame: relational_rupture
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+sdg:
+  primary:
+    id: SDG 8
+    title: Decent Work and Economic Growth
+    line: The United Nations has a framework for this through SDG 8 and its decent
+      work, fair wages, and workers' rights targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United
+      Nations.
+cta:
+  options:
+  - id: coworker_organizing_01
+    org: Gig Workers Collective
+    line: 'Gig Workers Collective and Worker Center organizations offer peer-led training
+      in coworker conversations and platform campaigns. Door in: https://gigworkerscollective.org'
+    semantic_family: door-in-work
+    article_types:
+    - hard_news_spiritual_response
+  - id: economic_justice_01
+    org: Young Invincibles
+    line: 'If you want a starting point on economic justice and worker power, Young
+      Invincibles works with Gen Z on wages, precarity, and labor law change. Door
+      in: join their network.'
+    semantic_family: door-in-economic
+    article_types:
+    - hard_news_spiritual_response
+title_system:
+  headline_layer_1:
+    options:
+    - id: precarity_01
+      line: The Shift Disappeared Again. You Screenshotted It.
+      semantic_family: precarity-daily
+      article_types:
+      - hard_news_spiritual_response
+  headline_layer_2:
+    options:
+    - id: miki_attention_01
+      line: A light-language and sound healer names what gig-work instability does
+        to the body before policy language catches up.
+      semantic_family: teacher-attention
+      article_types:
+      - hard_news_spiritual_response
+    - id: miki_relational_01
+      line: A healing tradition reads economic precarity as relational rupture — and
+        offers a practice for holding dignity when the system will not.
+      semantic_family: teacher-function
+      article_types:
+      - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+    topic_subcases:
+    - schedule_volatility
+    - wage_theft
+    - platform_cancellation
+    intensity_range:
+    - 2
+    - 4
+diagnostic_frames:
+  default_id: relational_rupture
+  options:
+  - id: relational_rupture
+    key_term: harae
+    key_term_gloss: purification of actions that damage the web between people, land,
+      and spirit
+    diagnosis_line: The body is not malfunctioning; it is registering a rupture in
+      relationship between effort and recognition.
+    self_to_system_reframe: What feels like personal instability is often accurate
+      response to a system designed not to hold what you have offered.
+    what_normal_analysis_misses: How the tradition treats economic precarity as relational
+      rupture, not only a scheduling or wage problem.
+    youth_specific_tie: Young people in gig work inherit a labor economy where effort
+      does not create recognition or stability — and their bodies register that break
+      in the web.
+    approved_quote_lines:
+    - the web between worker and employer is torn when effort is never held as mattering
+    banned_lines:
+    - you just need to be more flexible

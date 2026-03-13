@@ -1,0 +1,217 @@
+schema_version: 1
+teacher_id: omote
+topic: peace_conflict
+active: true
+
+identity:
+  display_name: Omote Sensei
+  attribution_name: Omote Sensei
+  tradition: Japanese Sacred Way-of-Life and Purification Teaching
+  tradition_short: Japanese sacred way-of-life
+  teacher_setting_options:
+    - "practice space"
+    - "ritual space"
+  teacher_years: "lineage-bearing"
+  affiliation_safe_line: "Japanese traditional wisdom teacher"
+  launch_approved: true
+
+persona:
+  id: gen_z_alpha
+  age_band: "13-29"
+  default_register: "phone-native, high-pressure, institution-skeptical"
+  daily_worlds:
+    - school
+    - phone
+    - group chat
+    - late-night scrolling
+    - part-time work
+  tie_to_real_world_struggles:
+    - id: conflict_oni
+      label: "collective and personal oni when conflict is not faced honestly"
+      loop: "reads the conflict alert -> body tightens -> stops for a second -> checks again because the danger is real"
+      body_markers: ["chest", "jaw", "breath"]
+      digital_markers: ["reads the alert", "freezes", "checks again"]
+
+topic_fit:
+  fit_level: primary
+  fit_reason: "Conflict pressure maps to the oni at collective and personal levels; the tradition's purification and helping-others teaching is core to peace."
+  forbidden_angles:
+    - "do not reduce this to generic wellness"
+    - "do not frame the pressure as personal weakness"
+
+hook_personal:
+  options:
+    - id: hook_personal_01
+      line: "You can feel public violence entering private life through one notification. The body knows it before language does — and the oni grows when what is seen is never honestly faced."
+      semantic_family: "personal-pressure"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response"]
+hook_big_picture:
+  options:
+    - id: hook_big_picture_01
+      line: "Conflict news is not only geopolitical. It becomes a daily fight over whether attention, sleep, and moral seriousness can stay intact — and whether the collective oni of un-faced grief and shame will express as more violence or as purification."
+      semantic_family: "system-pressure"
+      angle: "systemic-pressure"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_intro:
+  options:
+    - id: teacher_intro_01
+      line: "Omote Sensei, a teacher of the Japanese sacred way-of-life and purification, has seen in practice sessions what conflict pressure does to young people. They are not asking whether the world is dangerous. They are asking how to hold what they see with the full weight of moral feeling — Yamato-gokoro — without numbing or performing outrage."
+      semantic_family: "identity-seen-shift"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response"]
+    - id: teacher_intro_02
+      line: "Omote Sensei teaches from the Japanese tradition. He has seen in retreat spaces how students and young people arrive already carrying conflict alerts — and the tradition holds that the oni is not only personal but collective: when a community or nation fails to face its grief, shame, or responsibility honestly, the oni grows and expresses as aggression and violence. Peace work begins with purification."
+      semantic_family: "identity-seen-shift-alt"
+      tone: grave
+      intensity: 4
+      article_types: ["hard_news_spiritual_response"]
+
+youth_somatic:
+  options:
+    - id: youth_somatic_01
+      line: "You read the conflict alert. Your chest tightened. You stopped for a second. Then you check again because the danger is real and not looking changes nothing.\nLOOP_SEQUENCE: \"read the alert. chest tightened. stopped for a second. checked again.\""
+      loop_type: "conflict_oni"
+      body_register: "chest"
+      digital_behavior: "reads the alert"
+      article_types: ["hard_news_spiritual_response"]
+    - id: youth_somatic_02
+      line: "You saw the update in a group chat. Your jaw and breath locked. You put the phone down. Then you picked it up again because reality is still there.\nLOOP_SEQUENCE: \"saw the update. jaw and breath locked. put the phone down. picked it up again.\""
+      loop_type: "conflict_oni"
+      body_register: "jaw"
+      digital_behavior: "checks again"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_witness:
+  options:
+    - id: teacher_witness_01
+      line: "Omote Sensei has seen this exact loop in young people — the alert lands, the body contracts, time stops for a second, and attention returns because reality is still there. The Japanese tradition does not pathologize it; it names it as the weight of witness that Yamato-gokoro requires — holding what is painful without looking away — and offers purification so that the person can act again without being consumed."
+      semantic_family: "loop-mirror"
+      loop_type: "conflict_oni"
+      article_types: ["hard_news_spiritual_response"]
+    - id: teacher_witness_02
+      line: "He has watched that sequence — the notification arrives, the chest or jaw holds, the device goes down, and then the mind goes back. The tradition holds that peace work begins with the purification of collective inner affliction — not by pretending it does not exist, but by creating the conditions in which it can be honestly faced and released."
+      semantic_family: "loop-mirror-alt"
+      loop_type: "conflict_oni"
+      article_types: ["hard_news_spiritual_response"]
+
+turnaround:
+  options:
+    - id: turnaround_01
+      stat_line_1: "676 million women and girls. 50 kilometers from active conflict."
+      stat_line_2: "Young people are documenting harm, organizing coalitions, and hosting workshops for peace and accountability work even when systems fracture."
+      semantic_family: "institutional-action"
+      article_types: ["hard_news_spiritual_response"]
+    - id: turnaround_02
+      stat_line_1: "676 million women and girls. 50 kilometers from active conflict."
+      stat_line_2: "Youth peacebuilders are hosting workshops, organizing coalitions, and documenting cases to treat purification and service as part of the response to conflict."
+      semantic_family: "institutional-action-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+bridge:
+  options:
+    - id: bridge_01
+      line: "676 million women and girls. 50 kilometers from active conflict. The tracker measures exposure, displacement, and broken institutions. It does not count the inner capacity needed to face what has accumulated — grief, rage, helplessness — and release it through honest practice so that the person could remain functional enough to protect others, tell the truth, or act again after the next alert. The person who checked again needed that capacity. Omote Sensei's tradition has practiced purification and the principle that helping others saves ourselves for generations."
+      hidden_capacity: "face and release what has accumulated so the person can act again"
+      semantic_family: "tracker-capacity"
+      article_types: ["hard_news_spiritual_response"]
+    - id: bridge_02
+      line: "The numbers measure harm and response. They do not measure what happens when a young person finally has a practice that faces the collective oni — not by denying it but by creating the ritual and communal conditions in which grief, shame, and responsibility can be honestly faced and released. That capacity is what the next protector or witness needs. Omote Sensei's tradition holds that conflict persists when each party believes its survival requires the diminishment of the other — and that this belief is the oni itself. Genuine security comes from purification and service."
+      hidden_capacity: "purify collective affliction and serve so security can be redefined"
+      semantic_family: "tracker-capacity-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_perspective:
+  options:
+    - id: teacher_perspective_01
+      header: "What Omote Sensei Sees"
+      paragraphs:
+        - "Omote Sensei would not tell young people to calm down as if fear were the mistake. The oni is not only a personal affliction; it is a collective one. When a community or a nation fails to face its grief, its shame, or its responsibility honestly, the oni grows at the collective level and expresses itself as aggression, scapegoating, and ultimately violence. The tradition holds that peace work begins with the purification of collective inner affliction — not by pretending it does not exist, but by creating the ritual and communal conditions in which it can be honestly faced and released."
+        - "From there he turns to Yamato-gokoro — the sincere heart-mind that does not look away from what is painful. In the context of armed conflict, this means that young people who witness violence and injustice are called not to numb themselves or to perform outrage but to hold what they see with the full weight of moral feeling. The tradition distinguishes between reaction — which perpetuates cycles — and sincere witness, which creates the conditions for transformation."
+        - "That matters: what feels like a personal fault — me, broken, confused by violence — is instead accurate response to a system and institutional structure of conflict that has never been met with honest purification. The tradition's insight is that this belief is the oni itself — and that genuine security comes not from defeating the other but from the practice of service that dissolves the boundary between self-interest and collective wellbeing."
+      semantic_family: "teacher-diagnosis"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response"]
+    - id: teacher_perspective_02
+      header: "What Omote Sensei Sees"
+      paragraphs:
+        - "In Omote Sensei's tradition, conflict fear is not only personal. It is collective. The oni that grows when grief and shame are not faced expresses as violence when it is not purified. The tradition does not ask you to stop feeling; it asks you to face what has accumulated — in yourself and in the collective — and to create conditions for release."
+        - "Purification here is not magical erasure. It is the honest discipline of restoring clarity through water, wind, ritual, and breath. When young people are given a practice that faces the collective oni with honesty rather than denial or performance, the capacity to remain functional enough to protect others or tell the truth becomes available."
+        - "In that frame, self-blame softens. The fault is not yours — not a broken self, not a confused witness. The problem is that the institutional and policy system has been carrying un-faced affliction without a practice of purification. Omote Sensei's tradition offers that practice — and the teaching that helping others is what ultimately saves ourselves."
+      semantic_family: "teacher-diagnosis-alt"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response"]
+
+practice:
+  default_id: practice_01
+  options:
+    - id: practice_01
+      display_name: "Purification and Service Practice"
+      duration: "4 minutes"
+      announcement_line: "Omote Sensei teaches a 4-minute Purification and Service Practice for moments when conflict alerts keep turning truthful fear into total shutdown. It is in the sidebar, brief and usable in ordinary life."
+      relief_lines:
+        - "What has accumulated can be faced and released."
+        - "Enough steadiness returns for the next honest move."
+      relief_register: ["clarity", "capacity", "act again"]
+      derived_from_frame: "purification_service"
+      article_types: ["hard_news_spiritual_response"]
+    - id: practice_02
+      display_name: "Purification and Service Practice"
+      duration: "4 minutes"
+      announcement_line: "Omote Sensei teaches a 4-minute Purification and Service Practice for when the alert has landed and the collective oni needs to be faced rather than denied. It is in the sidebar, short enough to use before the next check or after the next update."
+      relief_lines:
+        - "The oni is met with honest seeing, not denial."
+        - "Service to others restores the one serving."
+      relief_register: ["clarity", "release", "act again"]
+      derived_from_frame: "purification_service"
+      article_types: ["hard_news_spiritual_response"]
+
+sdg:
+  primary:
+    id: "SDG 16"
+    title: "Peace, Justice and Strong Institutions"
+    line: "The United Nations has a framework for this through SDG 16 and its peace, justice and strong institutions targets."
+  fallback_un_tie:
+    line: "Pearl News is an independent nonprofit. We are not affiliated with the United Nations."
+
+cta:
+  options:
+    - id: cta_01
+      org: "UNA-USA"
+      line: "If this is your issue, UNA-USA runs a program at the local-to-global level. Door in: join their network or participate in regional youth peacebuilding."
+      semantic_family: "door-in"
+      article_types: ["hard_news_spiritual_response"]
+    - id: cta_02
+      org: "Youth peacebuilding networks"
+      line: "Youth peacebuilding and accountability networks offer entry points at the local and international level. Door in: UNA-USA or a group in your region."
+      semantic_family: "door-in-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+title_system:
+  headline_layer_1:
+    options:
+      - id: headline_layer_1_01
+        line: "Conflict Alerts Are Rewriting Daily Life."
+        semantic_family: "title"
+        article_types: ["hard_news_spiritual_response"]
+  headline_layer_2:
+    options:
+      - id: headline_layer_2_01
+        line: "A Japanese tradition teacher names the fight to stay truthful without collapsing — and the oni that peace work must purify."
+        semantic_family: "subtitle"
+        article_types: ["hard_news_spiritual_response"]
+      - id: headline_layer_2_02
+        line: "Omote Sensei reads conflict pressure as collective and personal affliction — and offers purification and service as the response."
+        semantic_family: "subtitle-alt"
+        article_types: ["hard_news_spiritual_response"]
+
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: "article_id + slot + teacher_id + topic"
+  metadata_filters:
+    article_types: ["hard_news_spiritual_response"]
+    topic_subcases: ["legal-gap", "conflict-pressure"]
+    intensity_range: [2, 4]

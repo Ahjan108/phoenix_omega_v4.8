@@ -1,0 +1,388 @@
+schema_version: 1
+teacher_id: ra
+topic: climate
+active: true
+identity:
+  display_name: Ra
+  attribution_name: Teacher Ra
+  tradition: Advaita Vedanta
+  tradition_short: Advaita Vedanta
+  teacher_setting_options:
+  - satsang
+  - circle
+  teacher_years: decades of teaching
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: freeze_scroll_return
+    label: climate distress cycling into habit without resolution
+    loop: reads the climate update -> body tightens -> closes the app -> reopens because
+      the problem is still there
+    body_markers:
+    - stomach
+    - chest
+    - breath
+    digital_markers:
+    - closes the app
+    - reopens
+topic_fit:
+  fit_level: primary
+  fit_reason: Climate distress fits Ra when young people are run by the pattern that
+    says they should be able to handle this and the freeze-scroll-return loop replaces
+    action. The tradition offers a way to see the conditioning clearly and access
+    the capacity that lets clarity show up again.
+  forbidden_angles:
+  - do not reduce to generic optimism or doomerism
+  - do not frame climate distress as personal weakness
+diagnostic_frames:
+  default_id: climate_conditioning
+  options:
+  - id: climate_conditioning
+    key_term: conditioning
+    key_term_gloss: the inherited patterns of thought, emotion, and reaction that
+      run automatically — what the tradition calls misidentification with the body-mind.
+      The pattern that says you should be able to handle this is not you; it is what
+      runs when awareness is identified with the content instead of resting as the
+      witness
+    diagnosis_line: The body is not malfunctioning; it is accurately running patterns
+      installed long before climate crisis became central to staying alive and clear.
+    self_to_system_reframe: What feels like private paralysis is often the pattern
+      running; you are the one who can see it and choose from clarity instead of habit.
+    what_normal_analysis_misses: How the freeze-scroll-return loop is conditioning,
+      not character — and how the capacity to act again returns when the pattern is
+      seen clearly.
+    youth_specific_tie: Young people carrying climate distress are often running patterns
+      that assume they should already know how to be okay with existential threat
+      — and the tradition offers a way to see that pattern and release it.
+    approved_quote_lines:
+    - you are not the pattern; you are the one who can see it
+    - climate distress is not a sign you are broken; it is accurate response to conditions
+      that require new capacity
+    banned_lines:
+    - everything happens for a reason
+    - it will all work out
+hook_personal:
+  options:
+  - id: hook_personal_01
+    line: You read the climate update. Your stomach tightens. You close the app. Then
+      you open it again because the problem did not change and neither did the tightness.
+    semantic_family: personal-pressure
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+  - id: hook_personal_02
+    line: The hardest part is not only feeling scared. It is feeling scared inside
+      a system that still expects you to perform as if the future is stable — and
+      the pattern that says you should already be fine is running automatically.
+    semantic_family: personal-pressure-alt
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: hook_big_picture_01
+    line: 'Climate distress is also an order problem: the patterns that run when you
+      cannot stop the crisis are not personal defects. They are what runs when awareness
+      is elsewhere and the mind has no frame for choosing clarity under threat.'
+    semantic_family: system-pressure
+    angle: systemic-pressure
+    article_types:
+    - hard_news_spiritual_response
+  - id: hook_big_picture_02
+    line: Youth climate distress is about more than facts. It is about the inherited
+      patterns — the conditioning that says you should be able to handle this, the
+      reflex to cycle through update and denial without breaking the loop.
+    semantic_family: system-pressure-alt
+    angle: systemic-pressure
+    article_types:
+    - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: teacher_intro_01
+    line: Teacher Ra, a Bangalore-born teacher in the Advaita Vedanta tradition —
+      steeped in the Upanishads and the inquiry of Ramana Maharshi — has watched in
+      practice sessions young people carry climate distress as if it were proof of
+      personal weakness. They are not asking only how to feel less afraid. They are
+      asking how to see the pattern that makes the freeze-scroll-return loop possible
+      — so they can access the clarity that lets them act again.
+    semantic_family: identity-seen-shift
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_intro_02
+    line: Teacher Ra, from the Advaita Vedanta tradition — who quotes Nisargadatta
+      as easily as he quotes the Bhagavad Gita — has seen in practice sessions in
+      satsang what happens when climate news lands and the old patterns take over
+      — the conditioning that says you should already be fine, the reflex to cycle
+      through checking and closing without resolution. They are not asking for reassurance.
+      They are asking how to see the pattern clearly enough to return to the capacity
+      that lets the next clear choice show up.
+    semantic_family: identity-seen-shift-alt
+    tone: grave
+    intensity: 4
+    article_types:
+    - hard_news_spiritual_response
+youth_somatic:
+  options:
+  - id: youth_somatic_01
+    line: 'You read the climate update. Your stomach tightens. You close the app.
+      Then you open it again because the crisis is still real and pretending otherwise
+      changes nothing.
+
+      LOOP_SEQUENCE: "read the update. stomach tightened. closed the app. opened again."'
+    loop_type: freeze_scroll_return
+    body_register: stomach
+    digital_behavior: closes the app
+    article_types:
+    - hard_news_spiritual_response
+  - id: youth_somatic_02
+    line: 'You saw the headline in the group chat. Your chest locked. You closed the
+      app. Then you opened it again because the worry did not leave when you looked
+      away.
+
+      LOOP_SEQUENCE: "saw the headline. chest locked. closed the app. opened again."'
+    loop_type: freeze_scroll_return
+    body_register: chest
+    digital_behavior: reopens
+    article_types:
+    - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: teacher_witness_01
+    line: Ra has seen this exact loop — the update arrives, the body tightens, the
+      app goes dark, and attention returns because the unresolved crisis is still
+      waiting.
+    semantic_family: loop-mirror
+    loop_type: freeze_scroll_return
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_witness_02
+    line: He has watched that sequence in young people — the read, the tightening,
+      the close, the return. The pattern is running; the question is whether you can
+      see it clearly enough to choose something other than the cycle.
+    semantic_family: loop-mirror-alt
+    loop_type: freeze_scroll_return
+    article_types:
+    - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: turnaround_01
+    stat_line_1: Youth climate action is shifting from paralysis to system change.
+    stat_line_2: Young people are convening climate circles, mapping the gaps between
+      corporate language and actual change, and organizing campaigns, hosting workshops
+      to treat climate resilience as infrastructure. Capacity is building.
+    semantic_family: institutional-action
+    article_types:
+    - hard_news_spiritual_response
+  - id: turnaround_02
+    stat_line_1: Hundreds of youth-led climate initiatives are moving beyond awareness
+      into local power.
+    stat_line_2: Young organizers are documenting climate impacts in their communities,
+      organizing campaigns through mutual aid networks, and demanding a seat at the
+      table where climate plans are made. The pattern of paralysis is being interrupted
+      by the pattern of showing up.
+    semantic_family: institutional-action-alt
+    article_types:
+    - hard_news_spiritual_response
+bridge:
+  options:
+  - id: bridge_01
+    line: 'Climate trackers measure emissions and policy targets. They do not count
+      the capacity to read the truth, let the tightness move through, and return to
+      clarity — the capacity to act again instead of cycling through update and denial.
+      The young person who will convene the next climate circle needs it. So does
+      the one who read the update, closed the app, and opened it again. Ra''s tradition
+      has been developing that capacity for generations: you are not the one who is
+      drowning in the data — you are the unchanging witness in whom the overwhelm
+      appears. When that is seen, clarity returns and the next honest act becomes
+      possible.'
+    hidden_capacity: see the pattern and choose action from clarity
+    semantic_family: tracker-capacity
+    article_types:
+    - hard_news_spiritual_response
+  - id: bridge_02
+    line: Climate reports count data and scenarios. They do not count the inner capacity
+      that lets a young person rest in what awareness already knows when the mind
+      is insisting that the tightness is proof they are broken. That capacity is what
+      the next honest choice needs. It is what the person who closed the app and opened
+      it again needs too. Ra's tradition holds that you were never the pattern — you
+      are the unchanging awareness in which the pattern appears. You are not trying
+      to become free of climate distress. You are trying to stop pretending you are
+      not already the witness of it.
+    hidden_capacity: rest in what awareness already knows; access the capacity to
+      act
+    semantic_family: tracker-capacity-alt
+    article_types:
+    - hard_news_spiritual_response
+teacher_perspective:
+  options:
+  - id: teacher_perspective_01
+    header: What Ra Sees
+    paragraphs:
+    - 'Ra reads youth climate distress through conditioning: the inherited patterns
+      of thought, emotion, and reaction that run automatically when awareness is elsewhere.
+      The tradition does not pathologize that distress; it names what is running.
+      When you see the pattern clearly — the fear that says you should already be
+      fine, the reflex to cycle through checking without resolution — you are not
+      the pattern. You are the one who can see it. That distance is the beginning
+      of the capacity to choose differently.'
+    - Integrated awakening means the shift is not a peak experience but something
+      that walks with you into the climate work itself. The question is not how to
+      feel optimistic all day. The question is how to pause when the tightness comes,
+      name what is running, and choose one response that comes from clarity rather
+      than habit. The tradition holds that trust is the willingness to let go of what
+      the mind insists on and rest in what awareness already knows — in this case,
+      what you actually know about your own capacity to choose and act.
+    - That reframe is the beginning of relief. The distress stops being proof that
+      something is wrong with you and starts being evidence that a pattern is running.
+      The disorder is not only psychological; it is the gap between climate reality
+      and the capacity to see clearly under those conditions. Ra's tradition offers
+      a practice for that gap — not to make the climate okay, but to free your own
+      capacity so you can show up to what matters within a system and institutional
+      structure that was never designed for what it demands.
+    semantic_family: teacher-diagnosis
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_perspective_02
+    header: What Ra Sees
+    paragraphs:
+    - 'In Ra''s tradition, awakening that is lived and grounded in daily life — not
+      a peak experience but a sustained shift in how you meet reality — is what integration
+      means. Young people carrying climate distress are often trying to fix at the
+      level of content what can only shift at the level of seeing: the pattern that
+      says they should already be fine with existential threat, that the tightness
+      means they are broken, that they have to perform steadiness while the world
+      burns. When you see that pattern clearly, it loses its grip.'
+    - The tradition distinguishes between what the mind insists on and what awareness
+      already knows. The body that tightened, the app that was closed and reopened
+      — that is the pattern running. The one who can notice that is already free of
+      it in that moment. The practice is to return to that noticing, not to fix the
+      pattern by force or bypass it with optimism.
+    - 'In that frame, the distress itself becomes information: accurate response to
+      conditions that require new capacity. Self-blame softens. The problem is not
+      that you are broken. the problem is that the system and institutional structure
+      climate is changing and the patterns installed before that became central are
+      still running. Ra''s tradition gives you a way to see the pattern, name it,
+      and choose one response that comes from clarity — one that actually moves you
+      toward the work that matters to you.'
+    semantic_family: teacher-diagnosis-alt
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+practice:
+  default_id: practice_01
+  options:
+  - id: practice_01
+    display_name: 5-minute Screen Exercise
+    duration: 5 minutes
+    announcement_line: Ra teaches a 5-minute Screen Exercise — using the phone screen
+      itself as the mirror — for the moment when climate distress and the freeze-scroll-return
+      loop are merging. It is in the sidebar, exact and usable.
+    relief_lines:
+    - The pattern stops running the whole show.
+    - Enough clarity returns to act again.
+    relief_register:
+    - capacity
+    - clarity
+    - act again
+    derived_from_frame: climate_conditioning
+    article_types:
+    - hard_news_spiritual_response
+  - id: practice_02
+    display_name: 5-minute Screen Exercise
+    duration: 5 minutes
+    announcement_line: Ra teaches a 5-minute Screen Exercise for after the climate
+      update hits and you need to return to what you actually know before the next
+      conversation or action. The screen becomes the mirror — what is looking is not
+      what is seen. It is in the sidebar, timed for the moment between reading and
+      closing.
+    relief_lines:
+    - The tightness moves through instead of cycling.
+    - Enough steadiness returns to see what matters and choose it.
+    relief_register:
+    - capacity
+    - clarity
+    - choose
+    derived_from_frame: climate_conditioning
+    article_types:
+    - hard_news_spiritual_response
+sdg:
+  primary:
+    id: SDG 13
+    title: Climate Action
+    line: The United Nations has a framework for this through SDG 13 and its climate
+      action targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United
+      Nations.
+cta:
+  options:
+  - id: cta_01
+    org: Climate Reality and 350.org
+    line: 'Climate Reality Project and 350.org both offer youth-facing entry points
+      into climate circles, local action, and power-building. Door in: https://www.climatereality.com
+      and https://350.org'
+    semantic_family: door-in
+    article_types:
+    - hard_news_spiritual_response
+  - id: cta_02
+    org: Youth climate networks
+    line: 'Fridays for Future, Sunrise Movement, and local youth climate councils
+      offer peer-led circles and direct action experience. Check what is organizing
+      in your region or online. Door in: join their network.'
+    semantic_family: door-in-alt
+    article_types:
+    - hard_news_spiritual_response
+title_system:
+  headline_layer_1:
+    options:
+    - id: headline_layer_1_01
+      line: Climate Distress Is Also A Crisis Of What Is Running The Show.
+      semantic_family: title
+      article_types:
+      - hard_news_spiritual_response
+    - id: headline_layer_1_02
+      line: The Freeze-Scroll-Return Loop Is Conditioning, Not Character.
+      semantic_family: title-alt
+      article_types:
+      - hard_news_spiritual_response
+  headline_layer_2:
+    options:
+    - id: headline_layer_2_01
+      line: An Advaita Vedanta teacher refuses the lie that climate distress is a
+        private defect — and names how to see the pattern clearly and act again.
+      semantic_family: subtitle
+      article_types:
+      - hard_news_spiritual_response
+    - id: headline_layer_2_02
+      line: A tradition of self-inquiry and witness-consciousness offers a practice
+        for when the climate news hits and the old patterns take over the whole show.
+      semantic_family: subtitle-alt
+      article_types:
+      - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    topic_subcases:
+    - climate_distress
+    - action_gap
+    intensity_range:
+    - 2
+    - 4

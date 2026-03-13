@@ -1,0 +1,159 @@
+schema_version: 1
+pair_type: interfaith
+teacher_a_id: maat
+teacher_b_id: ahjan
+topic: peace_conflict
+active: true
+
+identity:
+  teacher_a_tradition: "Ancient Egyptian truth tradition teacher"
+  teacher_b_tradition: "Theravada Buddhist teacher"
+  shared_diagnosis: "Young people are experiencing moral injury from institutional betrayal of truth. Their distrust is not cynicism; it is accurate perception."
+
+pair_rationale:
+  structural_overlap: "Both traditions locate the root problem in truth-rupture: institutions ask for trust while misnaming or hiding harm. Young people accurately perceive this betrayal. Both teachers then teach how to stay in contact with truth without surrendering to numbness or despair."
+  distinct_angles:
+    - "Maat sees the truth-naming capacity as primary. She diagnoses the collapse as institutional gaslighting (asking people to trust while concealing reality). She teaches that right relationship means naming what is actually happening, and that this naming is not dramatization—it is alignment with reality."
+    - "Ahjan sees samvega and right effort. He diagnoses the collapse as the body's accurate alarm to danger. He teaches that the problem is not caring too much, but that institutional delay outsources unbearable burden onto individual nervous systems. He restores the capacity to stay with truth through grounded practice."
+  convergence_type: "Both traditions validate the young person's perception (truth is accessible; institutions are failing, not young people). Both restore capacity through practices that honor rather than override what is true."
+
+teacher_a_intro:
+  options:
+    - id: maat_intro_01
+      line: "Ma'at, an ancient Egyptian truth tradition teacher, has watched this pressure land on young people. Students are not only asking what is happening. They are asking how to trust their own perception when institutions keep understating what their bodies already know."
+      semantic_family: "maat-peace_conflict-intro"
+      article_types: ["hard_news_spiritual_response"]
+    - id: maat_intro_02
+      line: "Ma'at, a teacher in the tradition of truth-naming, has seen young people carrying the burden of knowing something is wrong before institutions name it. The damage is not the conflict itself. It is the betrayal of being asked to doubt what they already perceive as true."
+      semantic_family: "maat-peace_conflict-intro-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_a_perspective:
+  options:
+    - id: maat_perspective_01
+      header: "What Ma'at Sees"
+      paragraphs:
+        - "Ma'at would begin with truth. The first distortion happens when a person is asked to treat a structural disorder as a private defect. Young people see conflict. Institutions minimize it. The young person is then told the problem is not the conflict, but the person's overreaction to it."
+        - "Right relationship means naming what is actually happening without shrinking it to fit institutional comfort. That naming is not dramatics; it is alignment with reality. When a young person says 'institutions are failing to protect,' and institutions respond by questioning whether the failure is real, the young person is experiencing a truth-rupture."
+        - "What feels like private instability or moral injury is often accurate response to a system that keeps asking for trust while misnaming harm, delay, or disorder. The practice of truth-speaking restores the young person's confidence in their own perception."
+      semantic_family: "maat-peace_conflict-perspective"
+      reframe_type: "system_betrayal"
+      article_types: ["hard_news_spiritual_response"]
+    - id: maat_perspective_02
+      header: "What Ma'at Sees"
+      paragraphs:
+        - "Ma'at teaches that truth-telling is not neutral; it is an act of resistance when institutions hide harm. Young people who keep reading reports of violence, who screenshot evidence, who stay vigilant—they are not over-engaged. They are accurately tracking what is true."
+        - "The body's response—the bracing, the scanning, the refusal to look away—is not a symptom of weakness. It is the somatic marker of seeing clearly. Moral injury comes not from witnessing harm, but from being asked to disbelieve what you have witnessed."
+        - "Right relationship restores when the young person no longer has to choose between truth and belonging. This is what Ma'at teaches: say what is true, and you will find who can stand there with you."
+      semantic_family: "maat-peace_conflict-perspective-alt"
+      reframe_type: "truth_as_alignment"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_b_intro:
+  options:
+    - id: ahjan_peace_intro_01
+      line: "Ajahn Ahjan, a Theravada Buddhist teacher for 25 years, has seen in practice rooms what conflict pressure does to young people. Students are not asking whether the harm is real. They are asking how to keep witnessing without shutting down, how to stay human enough to act when institutions keep failing to respond."
+      semantic_family: "ahjan-peace_conflict-intro"
+      article_types: ["hard_news_spiritual_response"]
+    - id: ahjan_peace_intro_02
+      line: "Ajahn Ahjan, a Theravada Buddhist teacher, has watched the pressure of repeated violence and institutional betrayal arrive as both samvega—accurate recognition of danger—and as a threat to the young person's capacity to stay engaged. Students ask not whether they should care, but how to care without being consumed by helplessness."
+      semantic_family: "ahjan-peace_conflict-intro-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_b_perspective:
+  options:
+    - id: ahjan_peace_perspective_01
+      header: "What Ahjan Sees"
+      paragraphs:
+        - "Ahjan reads conflict pressure through samvega: the moment when reality becomes too serious for denial, and the body knows it before the mind finds the language. When young people witness violence and institutional failure, they are experiencing truthful destabilization. That urgency is not an error signal. It is accurate contact with danger."
+        - "From there he turns to right effort. The question is not how to feel peaceful or untroubled. The question is how to direct energy and attention where witnessing and accountability are still possible, so that the capacity to act does not get consumed by helpless repetition."
+        - "The problem is not that young people care too much. The problem is that institutions keep outsourcing unbearable responsibility onto individual nervous systems while withholding proportionate response. The practice restores the capacity to see clearly and act again."
+      semantic_family: "ahjan-peace_conflict-perspective"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response"]
+    - id: ahjan_peace_perspective_02
+      header: "What Ahjan Sees"
+      paragraphs:
+        - "Ahjan names what young people carry as samvega—the destabilizing recognition that the world is less stable than they were taught, and that institutions are failing. This clarity is not a defect. It is accurate perception."
+        - "He then teaches right effort not as numbness, but as skilled direction of attention. You do not look away from harm. You look away from helpless loops that consume the energy you need for real action—documentation, witness, support, accountability."
+        - "In that frame, moral injury softens. The problem is not your capacity to feel. The problem is a system that asks you to carry unbearable knowledge without providing proportionate response or witness. The practice restores your steadiness without asking you to unknow what is true."
+      semantic_family: "ahjan-peace_conflict-perspective-alt"
+      reframe_type: "clarity_not_weakness"
+      article_types: ["hard_news_spiritual_response"]
+
+convergence_bridge:
+  options:
+    - id: convergence_peace_01
+      line: "Both Ma'at and Ahjan share a diagnosis of institutional truth-betrayal: young people are not unstable; they are responding accurately to a system that hides harm while asking for trust. Ma'at names this as a rupture of right relationship—when institutions ask you to doubt what you perceive as true. Ahjan names it as institutional delay outsourcing unbearable responsibility. Both then teach that the young person's perception is accurate, and that the path forward is not acceptance or numbness, but practices that restore the capacity to name truth and act on it without collapse."
+      structural_overlap: "Both validate accurate perception of institutional harm; both restore capacity through practices grounded in truth-telling and right effort, not denial"
+      metadata:
+        semantic_family: "truth-validation-capacity"
+        tone: grave
+        article_types: ["interfaith_dialogue_report"]
+
+shared_agreement:
+  options:
+    - id: agreement_peace_01
+      line: "Both traditions agree that the young person carrying conflict pressure and moral injury is not broken, and that the path forward is not numbness (accepting institutional failure) but truth-grounded practice: staying in contact with what is real, naming it clearly, and practicing the capacity to witness and act without being consumed by helplessness. This shared practice is called truth-and-steadiness."
+      shared_practice_name: "truth-and-steadiness"
+
+practice_why_a:
+  options:
+    - id: maat_practice_why_01
+      line: "For Ma'at, truth-and-steadiness means teaching young people that their perception is trustworthy. The practice is Egyptian truth-naming: you speak what is so, without apology or minimization, and you find those who can stand in that truth with you. Moral injury heals not through forgetting, but through being witnessed and believed. The practice restores this—the young person's capacity to say what is true and receive confirmation that the truth is real."
+      semantic_family: "maat-why-practice"
+      article_types: ["hard_news_spiritual_response"]
+    - id: maat_practice_why_02
+      line: "Ma'at teaches truth-and-steadiness as alignment with what is so. You do not shrink conflict to fit institutional comfort. You speak clearly. The practice is ancient: it teaches that right relationship is built on mutual truth-telling, not on doubting your own perception. When young people practice this—saying what they see, standing by that seeing—they recover the steadiness that comes from being believed in their own clarity."
+      semantic_family: "maat-why-practice-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+practice_why_b:
+  options:
+    - id: ahjan_practice_why_01
+      line: "For Ahjan, truth-and-steadiness means honoring samvega—your accurate perception of danger—while teaching right effort: directing attention toward where witnessing and action are possible. The Buddhist practice is precise: you do not try to make the harm less real. You learn to stay with the breath and body rather than loop in helplessness. When the next report comes, you have recovered the steadiness to witness it clearly and decide what your part is."
+      semantic_family: "ahjan-why-practice"
+      article_types: ["hard_news_spiritual_response"]
+    - id: ahjan_practice_why_02
+      line: "Ahjan teaches truth-and-steadiness as right effort under institutional delay. You are not becoming numb. You are directing the energy you have toward real action—supporting displaced peers, documenting truth, building networks of care. The practice restores this sequence without asking you to unknow what is happening. It promises that your nervous system will not consume all the energy you need for accountability and witness."
+      semantic_family: "ahjan-why-practice-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+headline_layer_2:
+  options:
+    - id: headline_peace_interfaith_01
+      line: "A truth-teacher and a Buddhist teacher agree on what moral injury really is—institutional betrayal of truth—and how young people can practice staying in contact with reality without numbing. An interfaith conversation on institutional failure and truth-grounded capacity."
+      semantic_family: "interfaith-dialogue-peace"
+      article_types: ["interfaith_dialogue_report"]
+    - id: headline_peace_interfaith_02
+      line: "Two teachers name the same invisible load: young people are not unstable; they are experiencing accurate response to institutional deception. Here is how both traditions restore the capacity to witness and act without collapse."
+      semantic_family: "interfaith-dialogue-peace-alt"
+      article_types: ["interfaith_dialogue_report"]
+
+sdg:
+  primary:
+    id: "SDG 16"
+    title: "Peace, Justice and Strong Institutions"
+    line: "The United Nations has a framework for this through SDG 16 and its peace, justice, and institutional trust targets."
+  fallback_un_tie:
+    line: "Pearl News is an independent nonprofit. We are not affiliated with the United Nations."
+
+cta:
+  options:
+    - id: peace_interfaith_cta_01
+      orgs: ["UN Women", "Youth justice networks"]
+      line: "If you are ready to direct that steadiness toward action, UN Women and youth justice networks offer entry points into peacebuilding and accountability. Door in: https://www.unwomen.org"
+      semantic_family: "door-in-justice-action"
+      article_types: ["interfaith_dialogue_report"]
+    - id: peace_interfaith_cta_02
+      orgs: ["Amnesty International", "youth coalitions"]
+      line: "For another pathway into conflict response and witness, Amnesty International and local youth coalitions build networks of documented truth and mutual support."
+      semantic_family: "door-in-witness-action"
+      article_types: ["interfaith_dialogue_report"]
+
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: "article_id + slot + teacher_a_id + teacher_b_id + topic"
+  metadata_filters:
+    article_types: ["interfaith_dialogue_report"]
+    intensity_range: [3, 4]

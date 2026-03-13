@@ -1,0 +1,326 @@
+schema_version: 1
+teacher_id: miki
+topic: education
+active: true
+identity:
+  display_name: Miki
+  attribution_name: Miki-san
+  tradition: Light language, ascended-master transmission, and crystal-bowl healing
+  tradition_short: light-language healing
+  teacher_setting_options:
+  - sound session
+  - transmission circle
+  teacher_years: decades of practice
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: portal_field_disorder
+    label: learning inside a fragmented educational field
+    loop: opens the portal -> focus breaks -> switches tabs -> comes back because
+      the task still waits
+    body_markers:
+    - eyes
+    - breath
+    - forehead
+    digital_markers:
+    - opens the portal
+    - switches tabs
+    - comes back
+topic_fit:
+  fit_level: primary
+  fit_reason: Education stress fits Miki when young people are educated in atomised
+    digital environments; the tradition addresses what is lost when transmission is
+    only information and the body is not invited into the room.
+  forbidden_angles:
+  - do not reduce to generic wellness
+  - do not frame the pressure as personal weakness
+hook_personal:
+  options:
+  - id: hook_personal_01
+    line: The problem is not only homework. It is the field the homework arrives inside
+      — and whether your whole self is allowed to be there.
+    semantic_family: personal-pressure
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: hook_big_picture_01
+    line: 'Education stress is often environmental before it is motivational: the
+      day is organized around interruption, pressure, and too little room for attention
+      — or the rest of who you are — to consolidate.'
+    semantic_family: system-pressure
+    angle: systemic-pressure
+    article_types:
+    - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: teacher_intro_01
+    line: Miki-san, a teacher of light-language and sound healing, has watched in
+      practice sessions students be blamed for forms of attention loss that are largely
+      produced by their learning conditions. They are not asking only how to focus
+      harder. They are asking how learning can happen at all when the system addresses
+      only the intellect and the body is left outside the door.
+    semantic_family: identity-seen-shift
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_intro_02
+    line: Miki-san, from the light-language and transmission tradition, has seen in
+      practice sessions what happens when young people know their education is measuring
+      the smallest part of what they know. They are not asking for easier tests. They
+      are asking for a kind of transmission that the body can receive when the mind
+      is exhausted by portals and tabs.
+    semantic_family: identity-seen-shift-alt
+    tone: grave
+    intensity: 4
+    article_types:
+    - hard_news_spiritual_response
+youth_somatic:
+  options:
+  - id: youth_somatic_01
+    line: 'You open the assignment portal. Your focus breaks. You switch tabs. Then
+      you come back because the task still waits for you.
+
+      LOOP_SEQUENCE: "opened the portal. focus broke. switched tabs. came back."'
+    loop_type: portal_field_disorder
+    body_register: eyes
+    digital_behavior: opens the portal
+    article_types:
+    - hard_news_spiritual_response
+  - id: youth_somatic_02
+    line: 'You load the lecture. Your breath goes shallow. You check the group chat.
+      Then you return to the screen because the deadline did not move.
+
+      LOOP_SEQUENCE: "loaded the lecture. breath shallow. checked the chat. returned."'
+    loop_type: portal_field_disorder
+    body_register: breath
+    digital_behavior: switches tabs
+    article_types:
+    - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: teacher_witness_01
+    line: Miki has seen that loop in students — the task opens, the mind scatters,
+      the tab changes, and attention has to reassemble itself inside the same pressure
+      field.
+    semantic_family: loop-mirror
+    loop_type: portal_field_disorder
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_witness_02
+    line: She has watched that sequence — the portal, the break, the switch, the return.
+      The body was never invited into the room; the system assumes learning is only
+      in the head.
+    semantic_family: loop-mirror-alt
+    loop_type: portal_field_disorder
+    article_types:
+    - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: turnaround_01
+    stat_line_1: Hundreds of campuses. Dozens of countries.
+    stat_line_2: Students and youth coalitions are organizing campaigns and hosting
+      learning environments that honor the whole person — not only the intellect —
+      and building peer-led spaces where transmission can happen at the level of presence,
+      not only screen.
+    semantic_family: institutional-action
+    article_types:
+    - hard_news_spiritual_response
+bridge:
+  options:
+  - id: bridge_01
+    line: Education trackers count credentials and completion rates. They do not count
+      the capacity to receive learning when the body is included — the capacity to
+      consolidate attention when the field is fragmented. That capacity is what the
+      next generation needs. Miki's tradition holds that the most profound transmission
+      is not only information; it is what the body receives when the whole person
+      is invited into the room. Sound and presence create that invitation.
+    hidden_capacity: receive learning when the body is included
+    semantic_family: tracker-capacity
+    article_types:
+    - hard_news_spiritual_response
+  - id: bridge_02
+    line: The system measures what the intellect can reproduce. It has no column for
+      what made the next moment of real understanding possible — the capacity to let
+      the body land so the mind can consolidate. The student who finally understood
+      the concept needed it. So does the one who opened the portal, switched tabs,
+      and came back. Miki's tradition has been developing that capacity through practices
+      that address the whole person, not only the mind.
+    hidden_capacity: let the body land so the mind can consolidate
+    semantic_family: tracker-capacity-alt
+    article_types:
+    - hard_news_spiritual_response
+teacher_perspective:
+  options:
+  - id: teacher_perspective_01
+    header: What Miki Sees
+    paragraphs:
+    - 'In Miki''s tradition, the most profound transmission is not only information
+      — it is what the body receives when the whole person is in the room. Education
+      systems that deliver content through portals and screens without inviting the
+      body often produce students who are technically capable but unable to consolidate
+      attention or withstand fragmentation. The tradition asks: what would learning
+      look like if the body were included?'
+    - 'Light language and sound work not through concepts but through resonance. They
+      reach places that words and screens cannot. For young people whose attention
+      has been scattered by the structure of the school day and the digital field,
+      the tradition offers a counterweight: practices that let the body receive and
+      integrate before the next demand arrives.'
+    - That reframe matters. The problem is not that students lack discipline. The
+      problem is that the system has stripped transmission down to information transfer
+      and left the rest of who they are — including the capacity to receive and consolidate
+      — outside the door. What feels like a personal fault — me, broken, wrong — is
+      often accurate response to conditions no individual can fix alone. Miki's tradition
+      gives that capacity a name and a practice.
+    semantic_family: teacher-diagnosis
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_perspective_02
+    header: What Miki Sees
+    paragraphs:
+    - 'Miki reads education stress through the lens of transmission: the body receives
+      before the mind can fully process. When the learning environment is built only
+      for the intellect — portals, tabs, deadlines — the body is left to fragment.
+      The tradition holds that genuine learning requires the whole person; otherwise
+      the system is measuring the smallest part of what a human being can know.'
+    - Healing as remembering applies here too. The capacity to focus, to consolidate,
+      to stay present was not destroyed; it was never invited. Sound and presence
+      create the conditions in which that capacity can return. The tradition does
+      not ask students to try harder. It asks the conditions to change so the body
+      can land.
+    - In that frame, self-blame softens. The disorder is not only in the student,
+      and I am not wrong for struggling. It is in the gap between how learning is
+      delivered and how human beings actually receive. Miki's tradition offers a practice
+      for that gap within a system and institutional structure that was never designed
+      for what it demands.
+    semantic_family: teacher-diagnosis-alt
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+practice:
+  default_id: sound_receiving_01
+  options:
+  - id: sound_receiving_01
+    display_name: 5-minute Sound and Light Receiving
+    duration: 5 minutes
+    announcement_line: Miki teaches a 5-minute Sound and Light Receiving practice
+      for the moment when the portal and the tabs have scattered attention and the
+      body has not been invited to land. It is in the sidebar, timed and step by step.
+    relief_lines:
+    - The body stops carrying the fragmentation alone.
+    - Enough steadiness returns for the next real stretch of focus.
+    relief_register:
+    - focus
+    - return
+    - cognitive steadiness
+    derived_from_frame: relational_rupture
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+  - id: sound_receiving_02
+    display_name: 5-minute Sound and Light Receiving
+    duration: 5 minutes
+    announcement_line: Miki teaches a 5-minute practice for when the learning environment
+      has fragmented your knowing and the mind is exhausted by portals and performance.
+      Sound reaches what words cannot. It is in the sidebar, short enough to use between
+      classes, after scrolling, or before the next task.
+    relief_lines:
+    - The body stops hiding the fragmentation from itself.
+    - A steadier internal pace returns, and with it the capacity to recognize what
+      you already know.
+    relief_register:
+    - focus
+    - return
+    - cognitive steadiness
+    derived_from_frame: relational_rupture
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+sdg:
+  primary:
+    id: SDG 4
+    title: Quality Education
+    line: The United Nations has a framework for this through SDG 4 and its quality
+      education and lifelong learning targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United
+      Nations.
+cta:
+  options:
+  - id: cta_01
+    org: Student-led initiatives
+    line: 'Student mental health and learning-justice groups on many campuses offer
+      peer-led spaces and advocacy. Door in: join a campus network, workshop, or local
+      youth organization entry point.'
+    semantic_family: door-in
+    article_types:
+    - hard_news_spiritual_response
+title_system:
+  headline_layer_1:
+    options:
+    - id: headline_layer_1_01
+      line: Education Stress Is Often Environmental Before It Is Motivational.
+      semantic_family: title
+      article_types:
+      - hard_news_spiritual_response
+  headline_layer_2:
+    options:
+    - id: headline_layer_2_01
+      line: A light-language and sound healer asks what learning looks like when the
+        body is invited into the room.
+      semantic_family: subtitle
+      article_types:
+      - hard_news_spiritual_response
+    - id: headline_layer_2_02
+      line: A healing tradition names what is lost when transmission is only information
+        and the body is left outside.
+      semantic_family: subtitle-alt
+      article_types:
+      - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    topic_subcases:
+    - attention
+    - fragmentation
+    intensity_range:
+    - 2
+    - 4
+diagnostic_frames:
+  default_id: relational_rupture
+  options:
+  - id: relational_rupture
+    key_term: harae
+    key_term_gloss: purification of actions that damage the web between people, land,
+      and spirit
+    diagnosis_line: The body is not malfunctioning; it is registering a rupture in
+      relationship with its own knowing.
+    self_to_system_reframe: What feels like private attention loss is often accurate
+      response to a system designed to fragment the mind before the deeper self can
+      recognize.
+    what_normal_analysis_misses: How the tradition treats education overload as disconnection
+      from what the deeper self already knows, not only as a focus problem.
+    youth_specific_tie: Young people are being educated in systems that overload information
+      while disconnecting them from what they already recognize at the depth of knowing.
+    approved_quote_lines:
+    - the system measures the smallest part of what you know while asking you to disown
+      the rest
+    banned_lines:
+    - you just need to try harder

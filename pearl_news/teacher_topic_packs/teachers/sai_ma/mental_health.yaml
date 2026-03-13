@@ -1,0 +1,154 @@
+schema_version: 1
+teacher_id: sai_ma
+topic: mental_health
+active: true
+
+identity:
+  display_name: "Sai Maa"
+  attribution_name: "Her Holiness Sai Maa"
+  tradition: "Vedic teacher of consciousness and grace"
+  tradition_short: "Vedic teaching"
+  teacher_setting_options:
+    - "retreat"
+    - "teaching circle"
+  teacher_years: "teaching lineage"
+  affiliation_safe_line: "has attended the United Spiritual Leaders Forum"
+  launch_approved: true
+
+persona:
+  id: gen_z_alpha
+  age_band: "13-29"
+  default_register: "phone-native, high-pressure, institution-skeptical"
+  daily_worlds:
+    - school
+    - phone
+    - home
+    - peer support
+    - night routine
+  tie_to_real_world_struggles:
+    - id: overwhelm_loop
+      label: "pressure grows until identity starts fusing with it"
+      loop: "reads pressure signal -> mind races -> pulls back -> checks again because the pressure is still there"
+      body_markers: ["mind racing", "stomach drop", "breath shorten"]
+      digital_markers: ["put down", "pick up again", "check again"]
+
+topic_fit:
+  fit_level: primary
+  fit_reason: "This topic maps to overload, daily functional strain, and the risk of mistaking sustained pressure for personal defect. "
+  forbidden_angles:
+    - "do not preach positivity"
+    - "do not privatize structural overload"
+
+hook_personal:
+  options:
+    - id: hook_personal_01
+      line: "You know the spiral before anyone names it. You also know how much work it takes to carry the day while your inner capacity keeps thinning."
+      semantic_family: "sai_ma-mental_health-hook-personal"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response"]
+
+hook_big_picture:
+  options:
+    - id: hook_big_picture_01
+      line: "Youth mental-health strain is not only a clinical trend. It is the way institutions normalize overload until young people start treating it as a private flaw."
+      semantic_family: "sai_ma-mental_health-hook-big"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_intro:
+  options:
+    - id: teacher_intro_01
+      line: "Her Holiness Sai Maa, a Vedic teacher of consciousness and grace, has seen in practice sessions what this pressure does to young people. Students are not only asking how to feel better. They are asking how to stop letting pressure become the whole story of who they are."
+      semantic_family: "sai_ma-mental_health-intro"
+      article_types: ["hard_news_spiritual_response"]
+
+youth_somatic:
+  options:
+    - id: youth_somatic_01
+      line: "You read the report after midnight. Your body tightens. You set the phone down. Then you pick it up again because the pressure is already in the room.
+LOOP_SEQUENCE: \"read the report. body tightened. set the phone down. picked it up again.\""
+      loop_type: "overwhelm_loop"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_witness:
+  options:
+    - id: teacher_witness_01
+      line: "Sai Maa has seen this exact loop -- the report, the body tightening, the phone set down, and the return because the pressure is still there."
+      semantic_family: "sai_ma-mental_health-witness"
+      article_types: ["hard_news_spiritual_response"]
+
+turnaround:
+  options:
+    - id: turnaround_01
+      stat_line_1: "320 campuses. 18 countries."
+      stat_line_2: "Students are building peer circles, workshops, and campaigns that treat mental health as shared infrastructure rather than private weakness."
+      semantic_family: "sai_ma-mental_health-turnaround"
+      article_types: ["hard_news_spiritual_response"]
+
+bridge:
+  options:
+    - id: bridge_01
+      line: "320 campuses. 18 countries. The tracker measures what young people did. It has no column for what made the next step possible after another delayed or broken response -- the capacity to seek help and return without turning overload into identity. The person who came back needed it. So does the reader in that loop. Sai Maa's teaching has language for protecting that capacity."
+      hidden_capacity: "return to truthful action"
+      semantic_family: "sai_ma-mental_health-bridge"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_perspective:
+  options:
+    - id: teacher_perspective_01
+      header: "What Sai Maa Sees"
+      paragraphs:
+        - "Sai Maa would begin by separating consciousness from the storm moving through it. Pressure is real, but overwhelm should not become identity."
+        - "Her teaching does not ask young people to deny the difficulty. It asks them to recover enough inner clarity that fear or overload does not become the sole narrator of the self."
+        - "What feels like a personal fault — me, broken, wrong — is instead accurate response to a system and institutional structure that keeps normalizing unsustainable strain."
+      semantic_family: "sai_ma-mental_health-perspective"
+      article_types: ["hard_news_spiritual_response"]
+
+practice:
+  default_id: practice_01
+  options:
+    - id: practice_01
+      display_name: "5-minute Overwhelm Reset"
+      duration: "5 minutes"
+      announcement_line: "Sai Maa teaches a 5-minute Overwhelm Reset for moments when mental health pressure starts converting attention into helplessness. It is in the sidebar, timed and practical."
+      relief_lines:
+        - "The spiral loses some of its authority to define the whole self."
+        - "Enough clarity returns for the next honest decision."
+      relief_register: ["capacity", "clarity", "act again"]
+      article_types: ["hard_news_spiritual_response"]
+
+sdg:
+  primary:
+    id: "SDG 3"
+    title: "Good Health and Well-Being"
+    line: "The United Nations has a framework for this through SDG 3 and its mental health targets."
+  fallback_un_tie:
+    line: "Pearl News is an independent nonprofit. We are not affiliated with the United Nations."
+
+cta:
+  options:
+    - id: cta_01
+      org: "Active Minds"
+      line: "Active Minds offers a public entry point for youth mental health organizing. Door in: https://www.activeminds.org"
+      semantic_family: "sai_ma-mental_health-cta"
+      article_types: ["hard_news_spiritual_response"]
+
+title_system:
+  headline_layer_1:
+    options:
+      - id: headline_layer_1_01
+        line: "Youth Mental Overload Keeps Rising."
+        semantic_family: "sai_ma-mental_health-title1"
+        article_types: ["hard_news_spiritual_response"]
+  headline_layer_2:
+    options:
+      - id: headline_layer_2_01
+        line: "A teacher names the pressure before it hardens into identity."
+        semantic_family: "sai_ma-mental_health-title2"
+        article_types: ["hard_news_spiritual_response"]
+
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: "article_id + slot + teacher_id + topic"
+  metadata_filters:
+    article_types: ["hard_news_spiritual_response"]

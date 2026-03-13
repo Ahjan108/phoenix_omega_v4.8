@@ -1,0 +1,77 @@
+template_id: explainer_context
+schema_version: 1
+
+maps:
+  - id: ex_event_background_lens
+    description: Start with the headline and what happened, then build backward through historical context to illuminate why youth matter now—grounding in the past to make the future legible.
+    allowed_for_topics:
+      - climate
+      - mental_health
+      - education
+      - peace_conflict
+      - economy_work
+    sequence:
+      - headline_layer_1
+      - headline_layer_2
+      - what_happened
+      - historical_background
+      - youth_implications
+      - ethical_spiritual_dimension
+      - teacher_perspective
+      - future_outlook
+      - sdg_policy_tie
+    transitions:
+      before_youth_implications: "background_to_youth"
+      before_ethical_spiritual_dimension: "youth_to_lens"
+      before_future_outlook: "lens_to_future"
+      before_sdg_policy_tie: "future_to_sdg"
+    constraints:
+      requires:
+        - what_happened
+        - historical_background
+        - youth_implications
+        - ethical_spiritual_dimension
+        - teacher_perspective
+        - future_outlook
+        - sdg_policy_tie
+      forbids:
+        - ethical_spiritual_dimension_before_youth_implications
+        - teacher_perspective_before_ethical_spiritual_dimension
+        - sdg_policy_tie_before_future_outlook
+
+  - id: ex_event_youth_lens
+    description: Start with the headline and event, move quickly to what it means for young people now, then deepen through teacher's ethical/spiritual analysis before historical grounding—centering lived experience over chronology.
+    allowed_for_topics:
+      - climate
+      - mental_health
+      - education
+      - peace_conflict
+      - economy_work
+    sequence:
+      - headline_layer_1
+      - headline_layer_2
+      - what_happened
+      - youth_implications
+      - historical_background
+      - ethical_spiritual_dimension
+      - teacher_perspective
+      - future_outlook
+      - sdg_policy_tie
+    transitions:
+      before_historical_background: "background_to_youth"
+      before_ethical_spiritual_dimension: "youth_to_lens"
+      before_future_outlook: "lens_to_future"
+      before_sdg_policy_tie: "future_to_sdg"
+    constraints:
+      requires:
+        - what_happened
+        - youth_implications
+        - historical_background
+        - ethical_spiritual_dimension
+        - teacher_perspective
+        - future_outlook
+        - sdg_policy_tie
+      forbids:
+        - ethical_spiritual_dimension_before_youth_implications
+        - teacher_perspective_before_ethical_spiritual_dimension
+        - sdg_policy_tie_before_future_outlook

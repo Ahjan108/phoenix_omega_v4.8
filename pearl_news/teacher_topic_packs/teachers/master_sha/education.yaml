@@ -1,0 +1,246 @@
+schema_version: 1
+teacher_id: master_sha
+topic: education
+active: true
+identity:
+  display_name: Master Sha
+  attribution_name: Dr. and Master Zhi Gang Sha
+  tradition: Tao Source, Soulfulness, love-forgiveness-compassion, and sacred song
+  tradition_short: Tao Source
+  teacher_setting_options:
+  - teaching space
+  - retreat
+  teacher_years: decades
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: portal_blockage_loop
+    label: assignment portal and scattered attention as blockage
+    loop: opens the portal -> focus breaks -> switches tabs -> comes back because
+      the work still has to get done
+    body_markers:
+    - eyes
+    - forehead
+    - breath
+    digital_markers:
+    - opens the portal
+    - switches tabs
+    - comes back
+topic_fit:
+  fit_level: primary
+  fit_reason: Genuine learning begins when the student connects to the source of wisdom
+    rather than merely accumulating its products; love, forgiveness, and compassion
+    are foundational capacities without which all other learning becomes blockage.
+  forbidden_angles:
+  - do not reduce to generic wellness
+  - do not frame the pressure as personal weakness
+hook_personal:
+  options:
+  - id: master_sha_edu_hook_personal_01
+    line: You still want to learn. You also know how much of your attention the system
+      wastes before the work even begins — and how often scatter feels like a verdict
+      on you.
+    metadata:
+      semantic_family: personal-pressure
+      tone: plain
+      intensity: 3
+      article_types:
+      - hard_news_spiritual_response
+  - id: master_sha_edu_hook_personal_02
+    line: You open the portal. Focus breaks. You switch tabs and come back. The work
+      still has to get done, and something keeps blocking the flow between intention
+      and the next honest stretch.
+    metadata:
+      semantic_family: scatter-capacity
+      tone: plain
+      intensity: 3
+      article_types:
+      - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: master_sha_edu_hook_big_01
+    line: Educational stress is not only about workload. It is about what interruption-heavy
+      systems do to attention, confidence, and the ability to stay in contact with
+      learning — and what can restore the connection to source when scatter blocks
+      it.
+    metadata:
+      semantic_family: system-pressure
+      angle: systemic-pressure
+      article_types:
+      - hard_news_spiritual_response
+  - id: master_sha_edu_hook_big_02
+    line: When the system treats attention as an infinite resource, it creates blockage
+      in the flow between the student and what they are meant to learn. The tradition
+      has a practice for clearing it.
+    metadata:
+      semantic_family: institutional-delay
+      angle: frequency-mismatch
+      article_types:
+      - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: master_sha_edu_intro_01
+    line: Dr. and Master Zhi Gang Sha, a Tao Source and Soulfulness teacher for decades,
+      has watched in practice sessions young people arrive at learning already exhausted
+      by the effort required just to stay with the task. They are not asking whether
+      school matters. They are asking how to stop treating scattered attention as
+      a private failure. In the Tao Source framework, that scatter is often blockage
+      — and blockage can be cleared when the soul is invited back into the room.
+    metadata:
+      semantic_family: identity_seen_shift
+      tone: plain
+      intensity: 3
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+youth_somatic:
+  options:
+  - id: master_sha_edu_somatic_01
+    line: 'You open the assignment portal. Your focus breaks. You switch tabs. Then
+      you come back because the work still has to get done.
+
+      LOOP_SEQUENCE: "opened the portal. focus broke. switched tabs. came back."'
+    metadata:
+      loop_type: portal_scatter
+      body_register: eyes
+      digital_behavior: opens the portal
+      article_types:
+      - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: master_sha_edu_witness_01
+    line: Master Sha has seen this sequence in students — the task opens, attention
+      fractures, the tab changes, and then effort has to restart inside the same strained
+      system. In his framework the fracture is not proof of deficiency; it is blockage
+      that responds to golden light and a return to source.
+    metadata:
+      semantic_family: loop-mirror
+      loop_type: portal_scatter
+      article_types:
+      - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: master_sha_edu_turnaround_01
+    stat_line_1: Campuses and districts worldwide.
+    stat_line_2: Students and youth are organizing campaigns and hosting mental health
+      support, peer listening, and learning conditions that do not treat attention
+      as an infinite resource.
+    metadata:
+      semantic_family: institutional-action
+      article_types:
+      - hard_news_spiritual_response
+bridge:
+  options:
+  - id: master_sha_edu_bridge_01
+    line: The tracker measures policy changes and peer programs. It has no column
+      for what made the next hour of real focus possible after another day of scatter
+      — the capacity to connect to the source of wisdom rather than merely to the
+      next tab. The student who stayed with the task needed that capacity. So does
+      the person who opened the portal, switched tabs, and came back. Master Sha's
+      tradition holds that genuine learning begins at that connection, and that love,
+      forgiveness, and compassion are not add-ons but the ground from which clarity
+      flows.
+    hidden_capacity: connect to the source of wisdom so scatter does not become identity
+    metadata:
+      semantic_family: tracker-capacity
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+teacher_perspective:
+  options:
+  - id: master_sha_edu_perspective_01
+    header: What Master Sha Sees
+    paragraphs:
+    - The Tao Source teaching holds that genuine learning begins when the student
+      connects to the source of wisdom rather than merely accumulating its products.
+      Education systems that deliver information without cultivating the student's
+      relationship to the source of that information produce knowledgeable people
+      who lack wisdom — and the difference is visible in how a person responds to
+      conditions that their knowledge did not anticipate.
+    - Love, forgiveness, and compassion are not supplementary values to be added to
+      education as an afterthought; they are foundational capacities without which
+      all other learning becomes blockage. When the system treats attention as an
+      infinite resource, it creates blockage in the flow between the student and what
+      they are meant to learn.
+    - 'The reframe is practical: what feels like a personal fault -- me, broken, wrong
+      for losing focus -- is often the result of conditions that have never been met
+      with adequate compassion for the learner. Clear the blockage first; then the
+      mind can return to the task within a system and institutional structure that
+      was never designed for what it demands.'
+    metadata:
+      semantic_family: tao_blockage_reframe
+      reframe_type: self_to_system
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+practice:
+  default_id: master_sha_edu_practice_01
+  options:
+  - id: master_sha_edu_practice_01
+    display_name: Tao Source Golden Light Practice
+    duration: 5 minutes
+    announcement_line: Master Sha teaches a 5-minute Tao Source Golden Light practice
+      for moments when the portal and the tabs have scattered attention and the work
+      still has to get done. Golden light washes the blockage; the soul reconnects
+      to source. It is in the sidebar, timed and step by step.
+    relief_lines:
+    - The blockage that turns every interruption into identity softens.
+    - Enough clarity returns for the next honest stretch of focus.
+    relief_register:
+    - clarity
+    - focus
+    - return
+    derived_from_frame: tao_blockage_clear
+    metadata:
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+sdg:
+  primary:
+    id: SDG 4
+    title: Quality Education
+    line: The United Nations framework through SDG 4 includes wellbeing and inclusive
+      learning conditions as part of quality education.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United
+      Nations.
+cta:
+  options:
+  - id: master_sha_edu_cta_01
+    org: Active Minds
+    line: 'Active Minds and similar youth-led networks work for mental health and
+      learning conditions on campus. Door in: activeminds.org'
+    metadata:
+      semantic_family: door-in-education
+      article_types:
+      - hard_news_spiritual_response
+title_system:
+  headline_layer_2:
+    options:
+    - id: master_sha_edu_headline_01
+      line: A Tao Source teacher reads education stress as blockage — and names the
+        practice that restores connection to learning.
+      metadata:
+        semantic_family: teacher-attention
+        article_types:
+        - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+    intensity_range:
+    - 2
+    - 4

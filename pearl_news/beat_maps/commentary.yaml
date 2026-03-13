@@ -1,0 +1,79 @@
+template_id: commentary
+schema_version: 1
+
+maps:
+  - id: cm_thesis_then_bridge
+    description: Lead with analytical thesis, move immediately to teacher witness and bridge before introducing event details. Emphasizes the teacher's diagnostic frame over raw facts.
+    allowed_for_topics:
+      - climate
+      - mental_health
+      - peace_conflict
+      - education
+      - economy_work
+    sequence:
+      - headline_layer_1
+      - headline_layer_2
+      - thesis
+      - event_reference
+      - teacher_witness
+      - bridge
+      - teaching_interpretation
+      - civic_recommendation
+      - sdg_reference
+    transitions:
+      before_teacher_witness: "thesis_to_witness"
+      before_bridge: "witness_to_capacity"
+      before_teaching_interpretation: "capacity_to_teaching"
+      before_civic_recommendation: "teaching_to_action"
+      before_sdg_reference: "action_to_sdg"
+    constraints:
+      requires:
+        - thesis
+        - teacher_witness
+        - bridge
+        - teaching_interpretation
+        - civic_recommendation
+        - sdg_reference
+      forbids:
+        - bridge_before_thesis
+        - teaching_before_bridge
+        - civic_before_teaching
+        - sdg_before_civic
+
+  - id: cm_thesis_then_data
+    description: Lead with analytical thesis, then ground in event facts and body data before deepening with teacher witness and bridge. Balances diagnostic frame with material evidence.
+    allowed_for_topics:
+      - climate
+      - peace_conflict
+      - education
+      - economy_work
+    sequence:
+      - headline_layer_1
+      - headline_layer_2
+      - thesis
+      - event_reference
+      - body_data
+      - teacher_witness
+      - teaching_interpretation
+      - civic_recommendation
+      - sdg_reference
+    transitions:
+      before_body_data: "thesis_to_event"
+      before_teacher_witness: "event_to_witness"
+      before_teaching_interpretation: "witness_to_teaching"
+      before_civic_recommendation: "teaching_to_action"
+      before_sdg_reference: "action_to_sdg"
+    constraints:
+      requires:
+        - thesis
+        - event_reference
+        - body_data
+        - teacher_witness
+        - teaching_interpretation
+        - civic_recommendation
+        - sdg_reference
+      forbids:
+        - teacher_witness_before_body_data
+        - teaching_before_witness
+        - civic_before_teaching
+        - sdg_before_civic

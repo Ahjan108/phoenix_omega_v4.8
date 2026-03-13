@@ -1,0 +1,217 @@
+schema_version: 1
+teacher_id: pamela_fellows
+topic: economy_work
+active: true
+
+identity:
+  display_name: Pamela Fellows
+  attribution_name: Pamela Fellows
+  tradition: Heartfulness and Embodiment
+  tradition_short: heartfulness and embodiment
+  teacher_setting_options:
+    - "practice space"
+    - "retreat"
+  teacher_years: "20+"
+  affiliation_safe_line: "teacher of heartfulness and embodied transformation"
+  launch_approved: true
+
+persona:
+  id: gen_z_alpha
+  age_band: "13-29"
+  default_register: "phone-native, high-pressure, institution-skeptical"
+  daily_worlds:
+    - school
+    - phone
+    - group chat
+    - late-night scrolling
+    - part-time work
+  tie_to_real_world_struggles:
+    - id: schedule_hold
+      label: "body holding precarity when the schedule keeps changing"
+      loop: "checks the schedule app -> stomach drops and holds -> refreshes again -> screenshots it before it changes"
+      body_markers: ["stomach", "jaw", "chest", "hold"]
+      digital_markers: ["checks the app", "refreshes", "screenshots"]
+
+topic_fit:
+  fit_level: primary
+  fit_reason: "Work precarity lands in the body; heartfulness and embodiment address what is held when the system refuses stability."
+  forbidden_angles:
+    - "do not reduce this to generic wellness"
+    - "do not frame the pressure as personal weakness"
+
+hook_personal:
+  options:
+    - id: hook_personal_01
+      line: "Every shift change asks you to treat uncertainty like maturity. You keep going, and you know how much your body is holding in the process."
+      semantic_family: "personal-pressure"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response"]
+hook_big_picture:
+  options:
+    - id: hook_big_picture_01
+      line: "Economic stress now lands as self-management under unstable conditions: stay employable, stay flexible, stay calm — and the body holds what the system will not name."
+      semantic_family: "system-pressure"
+      angle: "systemic-pressure"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_intro:
+  options:
+    - id: teacher_intro_01
+      line: "Pamela Fellows, a teacher of heartfulness and embodied transformation for over twenty years, has watched young people carry work instability as if it were a verdict on character. They are not asking only how to work harder. They are asking how to stop the body from holding precarity as if it were a personal failure."
+      semantic_family: "identity-seen-shift"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response"]
+    - id: teacher_intro_02
+      line: "Pamela Fellows teaches from the heartfulness and embodiment tradition. She has seen young workers arrive already carrying economic fear in their bodies — the stomach, the jaw, the chest — and the tradition she teaches offers a practice that includes what is held, not just positive thinking."
+      semantic_family: "identity-seen-shift-alt"
+      tone: grave
+      intensity: 4
+      article_types: ["hard_news_spiritual_response"]
+
+youth_somatic:
+  options:
+    - id: youth_somatic_01
+      line: "You check the schedule app. Your stomach dropped and held. You refreshed it again. Then you screenshot it before the shift changes underneath you.\nLOOP_SEQUENCE: \"checked the app. stomach dropped and held. refreshed again. took the screenshot.\""
+      loop_type: "schedule_hold"
+      body_register: "stomach"
+      digital_behavior: "checks the app"
+      article_types: ["hard_news_spiritual_response"]
+    - id: youth_somatic_02
+      line: "You opened the shift portal. Your jaw tightened. You refreshed. Then you screenshotted it before it could change.\nLOOP_SEQUENCE: \"opened the portal. jaw tightened. refreshed. screenshotted.\""
+      loop_type: "schedule_hold"
+      body_register: "jaw"
+      digital_behavior: "refreshes"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_witness:
+  options:
+    - id: teacher_witness_01
+      line: "Pamela Fellows has seen this exact work loop in students and young workers — the check, the drop, the body holding, the refresh, the screenshot that tries to hold one stable fact for a moment. The heartfulness tradition does not pathologize it; it asks what the body needs to release so that action can flow again."
+      semantic_family: "loop-mirror"
+      loop_type: "schedule_hold"
+      article_types: ["hard_news_spiritual_response"]
+    - id: teacher_witness_02
+      line: "She has watched that sequence — the app opens, the stomach or jaw holds, the refresh, the screenshot. The body has been carrying what the unstable system could not contain. Pamela Fellows' tradition offers a practice to meet what is held with presence."
+      semantic_family: "loop-mirror-alt"
+      loop_type: "schedule_hold"
+      article_types: ["hard_news_spiritual_response"]
+
+turnaround:
+  options:
+    - id: turnaround_01
+      stat_line_1: "1,240 cases. 32 cities."
+      stat_line_2: "Young workers and student-worker coalitions are documenting conditions, filing cases, and changing local workplace rules."
+      semantic_family: "institutional-action"
+      article_types: ["hard_news_spiritual_response"]
+    - id: turnaround_02
+      stat_line_1: "1,240 cases. 32 cities."
+      stat_line_2: "Youth labor organizers are building peer support, legal literacy, and spaces where the body and dignity are part of the conversation about work."
+      semantic_family: "institutional-action-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+bridge:
+  options:
+    - id: bridge_01
+      line: "1,240 cases. 32 cities. The tracker measures what young workers challenged. It has no column for what made the next filing or shift negotiation possible after another unstable week — the capacity to release what the body was holding so that steadiness could return without turning precarity into identity. The person who took the screenshot needed that capacity. Pamela Fellows' tradition has practiced meeting the body with presence so that action can flow from steadier ground."
+      hidden_capacity: "release what the body holds so steadiness can return"
+      semantic_family: "tracker-capacity"
+      article_types: ["hard_news_spiritual_response"]
+    - id: bridge_02
+      line: "The numbers measure cases and reforms. They do not measure what happens in the body when a young person finally has a practice that includes what they are carrying — not grinding through, but meeting the stomach and the jaw with warmth so that the person can act again without collapsing. That capacity is what the next shift negotiation needs. Pamela Fellows' tradition calls it heartfulness: the heart and body included when the system refuses stability."
+      hidden_capacity: "include the body so the person can act again"
+      semantic_family: "tracker-capacity-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_perspective:
+  options:
+    - id: teacher_perspective_01
+      header: "What Pamela Fellows Sees"
+      paragraphs:
+        - "Pamela Fellows would begin by separating instability from identity — but not by bypassing the body. In the heartfulness and embodiment tradition, the body holds what the mind avoids. When the economy keeps changing the rules, the nervous system does not get a memo to stay calm. It holds. The tradition asks: what would change if we stopped treating that holding as a character flaw and started including it?"
+        - "From there she turns to the heart's intelligence. The test of any economic arrangement, in the contemplative tradition she draws on, is what it does to the most vulnerable person at its edge. For young workers: the question is not only what is the average outcome but what happens to the body and the heart when there is no safety net — and what practice can offer when the system will not."
+        - "That makes the reframe precise: what feels like private insufficiency is often the body accurately holding volatility that no worker should have to normalize alone. Pamela Fellows' tradition offers a practice to meet what is held so that the person can act again from steadier ground."
+      semantic_family: "teacher-diagnosis"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response"]
+    - id: teacher_perspective_02
+      header: "What Pamela Fellows Sees"
+      paragraphs:
+        - "In Pamela Fellows' tradition, economic fear is not only cognitive. It lands in the body — the stomach, the jaw, the chest — and the body holds it when the system delivers information at a speed that prevents the slow discernment that reveals structural pattern versus individual incident. The tradition asks: what would you see if you slowed down long enough to include the body in the response?"
+        - "Heartfulness here means living from the heart's intelligence — a deeper knowing that includes the body and the present moment. When young workers are given a practice that meets what is held with presence rather than judgment, the capacity to stay steady without turning precarity into identity becomes available."
+        - "In that frame, self-blame softens. The problem is not that young people are not resilient enough. The problem is that the body has been carrying the load of an unstable economy without a practice of release. Pamela Fellows' tradition offers that practice."
+      semantic_family: "teacher-diagnosis-alt"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response"]
+
+practice:
+  default_id: practice_01
+  options:
+    - id: practice_01
+      display_name: "Heart and Body Check-In"
+      duration: "5 minutes"
+      announcement_line: "Pamela Fellows teaches a 5-minute Heart and Body Check-In for moments when work instability is starting to overwrite clarity. It is in the sidebar, short enough to use before the next shift or after another schedule shock."
+      relief_lines:
+        - "The body stops carrying the whole load alone."
+        - "Enough steadiness returns for the next honest move."
+      relief_register: ["clarity", "capacity", "act again"]
+      derived_from_frame: "heartfulness_embodiment"
+      article_types: ["hard_news_spiritual_response"]
+    - id: practice_02
+      display_name: "Heart and Body Check-In"
+      duration: "5 minutes"
+      announcement_line: "Pamela Fellows teaches a 5-minute Heart and Body Check-In for when the schedule app and the unstable week have left the body holding what the mind could not process. It is in the sidebar, brief and structured."
+      relief_lines:
+        - "The pressure stops naming the whole self."
+        - "The heart and body are included, not bypassed."
+      relief_register: ["clarity", "release", "act again"]
+      derived_from_frame: "heartfulness_embodiment"
+      article_types: ["hard_news_spiritual_response"]
+
+sdg:
+  primary:
+    id: "SDG 8"
+    title: "Decent Work and Economic Growth"
+    line: "The United Nations has a framework for this through SDG 8 and its decent work and economic growth targets."
+  fallback_un_tie:
+    line: "Pearl News is an independent nonprofit. We are not affiliated with the United Nations."
+
+cta:
+  options:
+    - id: cta_01
+      org: "ILO"
+      line: "The ILO and youth labor-rights groups both provide entry points into this work. Door in: https://www.ilo.org/global/topics/youth-employment"
+      semantic_family: "door-in"
+      article_types: ["hard_news_spiritual_response"]
+    - id: cta_02
+      org: "Youth labor-rights groups"
+      line: "If that is not your next step, youth labor coalitions work the same framework at the local and sector level."
+      semantic_family: "door-in-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+title_system:
+  headline_layer_1:
+    options:
+      - id: headline_layer_1_01
+        line: "Work Instability Is Eating More Than Wages."
+        semantic_family: "title"
+        article_types: ["hard_news_spiritual_response"]
+  headline_layer_2:
+    options:
+      - id: headline_layer_2_01
+        line: "A heartfulness teacher separates economic precarity from personal worth — and names what the body is holding."
+        semantic_family: "subtitle"
+        article_types: ["hard_news_spiritual_response"]
+      - id: headline_layer_2_02
+        line: "Pamela Fellows reads work stress as something the body holds — and offers a practice to include it."
+        semantic_family: "subtitle-alt"
+        article_types: ["hard_news_spiritual_response"]
+
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: "article_id + slot + teacher_id + topic"
+  metadata_filters:
+    article_types: ["hard_news_spiritual_response"]
+    topic_subcases: ["schedule-precarity", "wage-instability"]
+    intensity_range: [2, 4]

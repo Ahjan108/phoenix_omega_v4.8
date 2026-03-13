@@ -1,0 +1,73 @@
+# Youth-feature overlay for master_wu + education (Dev 4 gold fixture)
+# Deep-merged onto teachers/master_wu/education.yaml when template_id=youth_feature.
+# Schema: PEARL_NEWS_EXPLAINER_YOUTH_FEATURE_OVERLAY_SPEC (youth-feature section).
+
+schema_version: 1
+template_id: youth_feature
+teacher_id: master_wu
+topic: education
+
+# Youth-feature-specific slot: teacher reflection (long block).
+teacher_reflection:
+  options:
+    - id: yf_master_wu_education_reflection_01
+      header: "What Master Wu sees in the fragmented field"
+      paragraphs:
+        - "Master Wu meets young people who have learned to blame themselves for conditions they did not design. The portal opens, focus breaks, the tab switches. By the time they come back to the work, they have already decided: I am the kind of person who cannot stay. He has watched this in teaching spaces and in the stories students bring. The field around them — constant interruption, platforms that reward switching, schedules that assume infinite attention — is never named as the first cause. The person is."
+        - "What he names is the difference between a mind that loses focus and a field that trains loss of focus. In his tradition, attention and regulation are shaped by conditions. When the surrounding field is fragmented or harsh, the body and mind respond accurately. The mistake is to read that response as moral failure. The young person who returns to the work for the third time in one evening is not proving weakness. They are proving that the capacity to return survives even when the field keeps pulling them away."
+        - "The reframe is not 'try harder.' It is 'the conditions under which you are trying matter. Your capacity to come back is real. The system's job is to create conditions where that capacity can land, not to demand focus from a field that was never designed for it.' That shift does not remove the pressure. It returns some agency to the person inside it."
+      metadata:
+        semantic_family: "reflection-field-and-capacity"
+        tone: "diagnostic-grounded"
+        article_types: ["youth_feature"]
+
+    - id: yf_master_wu_education_reflection_02
+      header: "What Master Wu sees when the ground is unstable"
+      paragraphs:
+        - "In Master Wu's teaching, the land and the conditions around learning are not metaphor. They are literal. When the environment is unstable — shifting deadlines, broken platforms, rooms that were never designed for sustained attention — the body knows before the mind articulates it. Students arrive already tired from the effort of staying oriented inside chaos. They are not asking whether education matters. They are asking how to keep one line of function when the field keeps rupturing."
+        - "What he offers is not productivity advice. It is the recognition that return-to-ground is a practice. The capacity to come back to the work, to feel the feet on the floor, to let one thing land before the next demand arrives — that capacity is what the tradition has always protected. When a student opens the portal again and again, they are already practicing return. They need to hear that the return is the teaching, not the break."
+        - "That shift changes the story. You are not failing at focus. You are surviving conditions that were never designed for human attention. The goal is not to eliminate fragmentation. It is to protect the capacity to return so that learning can still happen when the field allows it."
+      metadata:
+        semantic_family: "reflection-return-to-ground"
+        tone: "witnessing-reframe"
+        article_types: ["youth_feature"]
+
+# Youth-feature-specific slot: solutions (deterministic).
+solutions:
+  options:
+    - id: yf_master_wu_education_solutions_01
+      header: "What actually works"
+      items:
+        - "Learning environments designed for sustained attention: longer blocks before breaks, fewer platform switches in one session, spaces where the phone is not the default. Not to punish but to let the field support focus instead of training scatter."
+        - "Teachers and admins who name the conditions, not only the student. When focus breaks, ask: was it the person or the design? Changing the design changes what the person can do."
+        - "Short return-to-ground practices timed to the study schedule: 5 minutes of feeling the feet, the breath, one clear task before the next wave of demands. Not meditation to escape but grounding so the next move is possible."
+        - "Curriculum and assessment that assume attention is finite. Shorter assignments with integrity. Clear deadlines that do not shift. No design that requires a nervous system to behave like it has no limits."
+      closing_line: "The goal is not to eliminate interruption. It is to create conditions where the capacity to return can actually land, so that learning becomes possible again."
+      metadata:
+        article_types: ["youth_feature"]
+        semantic_family: "solutions-field-and-design"
+
+    - id: yf_master_wu_education_solutions_02
+      header: "What the system could do"
+      items:
+        - "Policy that treats attention as a resource. If the design requires constant switching, do not blame the student for responding to the design. Change the design first."
+        - "Spaces and times where the field is stable: quiet rooms, longer blocks, no notifications during focused work. The body learns what stability feels like when the environment provides it."
+        - "Explicit teaching that return is success. When a student comes back to the work after the third interruption, that is the moment to name: you returned. The tradition Master Wu teaches has language for that. The system can learn it too."
+        - "Honest assessment of what the current field does to young people. If the data says attention is fragmenting, the response is not 'students need to focus more.' It is 'we need to build conditions where focus is possible.'"
+      closing_line: "Master Wu's tradition teaches that the field shapes the person. The system's job is not to fix scattered attention in isolation. It is to improve the field so that attention can function."
+      metadata:
+        article_types: ["youth_feature"]
+        semantic_family: "solutions-systems-and-field"
+
+# Optional youth-feature headline layer 2.
+title_system:
+  headline_layer_2:
+    options:
+      - id: yf_master_wu_education_headline_01
+        line: "A land and cultivation teacher on why the field around learning matters as much as the student."
+        metadata:
+          article_types: ["youth_feature"]
+      - id: yf_master_wu_education_headline_02
+        line: "Master Wu names the capacity to return — and the conditions that keep breaking it."
+        metadata:
+          article_types: ["youth_feature"]

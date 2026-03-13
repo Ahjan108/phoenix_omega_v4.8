@@ -1,0 +1,50 @@
+# UNSAY pair-pack (Wave 2 Dev 7). Pair: Ahjan + Maat. Topic: climate.
+# Spec: PEARL_NEWS_WAVE2_4_DEV_PARALLEL_SPEC (Dev 7), PEARL_NEWS_UNSAY_DIALOGUE_SPEC.
+
+schema_version: 1
+teacher_a_id: ahjan
+teacher_b_id: maat
+topic: climate
+active: true
+
+teacher_a_diagnosis:
+  options:
+    - id: ahjan_diag_climate_01
+      line: "Teacher Ahjan names the body's response as accurate: what looks like malfunction is often samvega - the destabilizing recognition that reality is more fragile than promised. The capacity young people need is not to feel less but to stay functional enough to act again when the system keeps not responding."
+
+teacher_b_diagnosis:
+  options:
+    - id: maat_diag_climate_01
+      line: "Teacher Ma'at names the same moment through the Sufi lens of ghaflah — heedlessness. The body is not wrong to tighten; the wrong is the institutional cloud that keeps the qalb from perceiving clearly. The capacity in question is to polish the heart's mirror until it reflects what it already knows, so action becomes possible again."
+
+convergence_bridge:
+  options:
+    - id: conv_bridge_climate_01
+      line: "The exact overlap: both traditions see the same hidden burden - young people carrying the weight of institutional delay - and the same needed capacity: to stay steady enough to act again, not to be soothed out of caring."
+
+shared_agreement:
+  options:
+    - id: shared_agree_climate_01
+      line: "Both teachers endorse a single shared practice: a short, timed steadiness practice that returns attention from spiral to function. The agreement is structural - same burden, same capacity, same kind of practice - not vague generic care."
+
+practice_announce:
+  options:
+    - id: practice_announce_01
+      display_name: "5-minute Steadying Practice"
+      duration: "5 minutes"
+      line: "A 5-minute Steadying Practice, in the sidebar, step by step. Both Teacher Ahjan and Teacher Ma'at teach it for moments when climate information converts attention into helplessness."
+
+practice_why_a:
+  options:
+    - id: why_ahjan_01
+      line: "Teacher Ahjan: Right effort depends on a steadier internal pace. This practice returns that - so the next update is not proof that action is pointless."
+
+practice_why_b:
+  options:
+    - id: why_maat_01
+      line: "Teacher Ma'at: the qalb is restored when ghaflah lifts and the heart is no longer clouded by institutional distortion. This practice polishes the mirror so you can act from what the heart already knows, not from collapse."
+
+disagreement_boundary:
+  options:
+    - id: boundary_01
+      line: "The traditions differ on metaphysics and path; they do not conflate doctrine. The convergence is only on the named burden and the shared practice."

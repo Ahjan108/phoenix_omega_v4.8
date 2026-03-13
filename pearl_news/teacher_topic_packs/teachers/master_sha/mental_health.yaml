@@ -1,0 +1,197 @@
+schema_version: 1
+teacher_id: master_sha
+topic: mental_health
+active: true
+identity:
+  display_name: Master Sha
+  attribution_name: Dr. and Master Zhi Gang Sha
+  tradition: Tao Source, Soulfulness, love-forgiveness-compassion, and sacred song
+  tradition_short: Tao Source
+  teacher_setting_options:
+  - teaching space
+  - retreat
+  teacher_years: decades
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: midnight_blockage_loop
+    label: spiral as blockage in the flow of wellbeing
+    loop: reads the warning -> mind races -> puts the phone down -> picks it up again because the spiral is already running
+    body_markers:
+    - jaw
+    - stomach
+    - breath
+    digital_markers:
+    - put the phone down
+    - pick it up again
+    - check again
+topic_fit:
+  fit_level: primary
+  fit_reason: Blockages — emotional, energetic, relational — obstruct the natural flow of wellbeing; Tao Source teaches clearing them through greatest love, forgiveness, and compassion directed first toward oneself, not force.
+  forbidden_angles:
+  - do not reduce to generic wellness
+  - do not frame the pressure as personal weakness
+  - must avoid drifting into testimonial miracle/cure lane
+hook_personal:
+  options:
+  - id: master_sha_mh_hook_personal_01
+    line: You know the spiral before anyone names it. You still carry the day forward while feeling less sure your mind can keep doing this pace — as if something is blocking the flow.
+    metadata:
+      semantic_family: personal-pressure
+      tone: plain
+      intensity: 3
+      article_types:
+      - hard_news_spiritual_response
+  - id: master_sha_mh_hook_personal_02
+    line: You keep reading the updates because not looking feels worse. You also know what the spiral is doing to your body — the acceleration, the put-down, the return.
+    metadata:
+      semantic_family: truth-vs-overload
+      tone: grave
+      intensity: 4
+      article_types:
+      - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: master_sha_mh_hook_big_01
+    line: Youth mental overload is not only about symptoms. It is about what constant pressure does to attention, rest, and the ability to stay functional — and what can clear the blockage when the spiral is running.
+    metadata:
+      semantic_family: system-pressure
+      angle: systemic-pressure
+      article_types:
+      - hard_news_spiritual_response
+  - id: master_sha_mh_hook_big_02
+    line: 'Institutions normalize overload until young people start treating it as a private flaw. The tradition has another name for it: blockage that can be met with compassion and cleared.'
+    metadata:
+      semantic_family: institutional-delay
+      angle: self-to-system
+      article_types:
+      - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: master_sha_mh_intro_01
+    line: 'Dr. and Master Zhi Gang Sha, a Tao Source and Soulfulness teacher for decades, has seen in practice sessions young people carry mental overload as both real suffering and something his tradition names precisely: blockage. Students are not asking whether they are broken. They are asking how to stop the spiral from feeling like a verdict on who they are. In the Tao Source framework, blockages can be cleared — not through force, but through the practice of soul-guided attention and greatest compassion for the self.'
+    metadata:
+      semantic_family: identity_seen_shift
+      tone: plain
+      intensity: 3
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+youth_somatic:
+  options:
+  - id: master_sha_mh_somatic_01
+    line: 'You read the update after midnight. Your mind sped up. You put the phone down. Then you picked it up again because the spiral was already running.
+
+      LOOP_SEQUENCE: "read the update. mind sped up. put the phone down. picked it up again."'
+    metadata:
+      loop_type: midnight_spiral
+      body_register: jaw
+      digital_behavior: put the phone down
+      article_types:
+      - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: master_sha_mh_witness_01
+    line: Master Sha has seen this exact loop in students — the warning arrives, the mind accelerates, the phone goes down, and then the same pressure pulls attention back. In his framework that pressure is not character; it is blockage that can be met with golden light and compassion.
+    metadata:
+      semantic_family: loop-mirror
+      loop_type: midnight_spiral
+      article_types:
+      - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: master_sha_mh_turnaround_01
+    stat_line_1: 320 campuses. 18 countries.
+    stat_line_2: Youth organizers are hosting peer circles, organizing campaigns, and forcing schools to treat mental health support as infrastructure, not private weakness.
+    metadata:
+      semantic_family: institutional-action
+      article_types:
+      - hard_news_spiritual_response
+bridge:
+  options:
+  - id: master_sha_mh_bridge_01
+    line: 320 campuses. 18 countries. The tracker measures the workshops and peer circles young people built. It has no column for what made the next honest reach-out possible after another week of overload — the capacity to clear the blockage that turns every thought surge into identity. The student who opened the next circle needed that capacity. So does the person who put the phone down and picked it up again. Master Sha's tradition has practiced washing blockages with golden light and greatest compassion for generations.
+    hidden_capacity: clear the blockage so clarity is not swallowed by the spiral
+    metadata:
+      semantic_family: tracker-capacity
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+teacher_perspective:
+  options:
+  - id: master_sha_mh_perspective_01
+    header: What Master Sha Sees
+    paragraphs:
+    - Blockages — emotional, energetic, relational — are what obstruct the natural flow of wellbeing. The primary blockages for young people are not character defects but accumulated experiences of fear, rejection, and unprocessed loss that have never been met with adequate compassion.
+    - The Tao Source teaching holds that these blockages can be cleared not through force but through the practice of greatest love, greatest forgiveness, and greatest compassion directed first toward oneself. Soulfulness — the practice of soul-guided meditation — teaches that the mind is not the only intelligence; the soul knows what the mind is still arguing with.
+    - 'The reframe is practical: what feels like a personal fault — me, broken, confused — is often blockage produced by a system and institutional structure that has never been met with the right attention. Instead of proving myself wrong, I can see the structure that produced the pressure. The tradition does not promise that the spiral will never return; it offers a practice that restores flow when it does.'
+    metadata:
+      semantic_family: tao_blockage_reframe
+      reframe_type: self_to_system
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+practice:
+  default_id: master_sha_mh_practice_01
+  options:
+  - id: master_sha_mh_practice_01
+    display_name: Tao Source Golden Light Practice
+    duration: 5 minutes
+    announcement_line: Master Sha teaches a 5-minute Tao Source Golden Light practice for moments when the spiral is running and clarity feels blocked. Golden light from Tao Source washes what force cannot move. It is in the sidebar, timed and step by step.
+    relief_lines:
+    - The blockage that converts every thought into identity softens.
+    - Enough flow returns for the next honest reach-out.
+    relief_register:
+    - capacity
+    - clarity
+    - flow
+    derived_from_frame: tao_blockage_clear
+    metadata:
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+sdg:
+  primary:
+    id: SDG 3
+    title: Good Health and Well-Being
+    line: The United Nations framework includes mental health and wellbeing in SDG 3; access to support and the capacity to function are part of the same target.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United Nations.
+cta:
+  options:
+  - id: master_sha_mh_cta_01
+    org: Crisis Text Line
+    line: 'If you or someone you know needs support, Crisis Text Line provides free, 24/7 access. Door in: text HOME to 741741. If local-to-global network connection is your next step, UNA-USA works the same framework.'
+    metadata:
+      semantic_family: door-in-mental-health
+      article_types:
+      - hard_news_spiritual_response
+title_system:
+  headline_layer_2:
+    options:
+    - id: master_sha_mh_headline_01
+      line: A Tao Source teacher names mental overload as blockage — and the practice that restores flow.
+      metadata:
+        semantic_family: teacher-attention
+        article_types:
+        - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+    intensity_range:
+    - 2
+    - 4

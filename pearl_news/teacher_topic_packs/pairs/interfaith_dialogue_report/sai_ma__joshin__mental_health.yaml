@@ -1,0 +1,83 @@
+# Interfaith dialogue report pair-pack (Wave 2 Dev 6). Order: sai_ma (teacher_a), joshin (teacher_b).
+schema_version: 1
+pair_type: interfaith_dialogue_report
+teacher_a_id: sai_ma
+teacher_b_id: joshin
+topic: mental_health
+active: true
+
+identity:
+  teacher_a_tradition: "Consciousness, Divine Feminine, and Grace-Mastery teaching"
+  teacher_b_tradition: "Mainstream Shingon Buddhism (Mikkyo)"
+  shared_diagnosis: "Young people are experiencing overload and spiral not as personal defect but as obstructed flow or misaligned body-speech-mind—both traditions offer embodied practice to restore capacity."
+
+leaders_present:
+  options:
+    - id: leaders_mh_01
+      line: "Her Holiness Sai Maa (consciousness and divine feminine tradition) and Joshin Sensei (Shingon Mikkyo Buddhism) joined a Pearl News dialogue on youth mental overload and the capacity to restore flow and alignment through practice."
+      semantic_family: "intro-pair"
+      article_types: ["interfaith_dialogue_report"]
+    - id: leaders_mh_02
+      line: "Two teachers from distinct traditions—Her Holiness Sai Maa, a consciousness and grace-mastery teacher, and Joshin Sensei, a Shingon Buddhist teacher—were present for a conversation on what mental overload does to young people and how both traditions restore the capacity to function without pathologizing the person."
+      semantic_family: "intro-pair-alt"
+      article_types: ["interfaith_dialogue_report"]
+
+themes_discussed:
+  options:
+    - id: themes_mh_01
+      line: "Where the flow is obstructed (Sai Maa) and where body-speech-mind fall out of alignment (Joshin Sensei); pattern release and grace vs. Sanmitsu and Sokushin Jobutsu; practices that restore capacity without asking the young person to become someone else."
+      semantic_family: "themes-flow-alignment"
+      article_types: ["interfaith_dialogue_report"]
+    - id: themes_mh_02
+      line: "Mental health as dynamic flow and as embodied realization; the locus of inquiry moved from personal failure to what is obstructed or misaligned; mantra, mudra, and consciousness practice as parallel paths."
+      semantic_family: "themes-reframe-practice"
+      article_types: ["interfaith_dialogue_report"]
+
+youth_commitments:
+  options:
+    - id: youth_mh_01
+      line: "Both teachers committed to supporting youth-facing content that names mental overload as response to obstructed flow or misalignment, not as character flaw, and to pointing young people toward practices that restore capacity—consciousness awakening (Sai Maa) and Sanmitsu alignment (Joshin Sensei)—without requiring them to choose one tradition."
+      semantic_family: "youth-commitment-practice"
+      article_types: ["interfaith_dialogue_report"]
+    - id: youth_mh_02
+      line: "The dialogue produced a shared commitment: to frame future mental-health-and-youth content so that the body and the capacity to restore flow or alignment are centered, and so that entry points (peer support, clinical pathways, and practice resources) are clearly available in the vocabulary of both traditions where they converge."
+      semantic_family: "youth-commitment-framing"
+      article_types: ["interfaith_dialogue_report"]
+
+sdg_alignment:
+  options:
+    - id: sdg_mh_01
+      line: "The United Nations framework for this gap is SDG 3 (Good Health and Well-Being), including mental health and well-being targets. Both traditions support young people to hold that framework and to access practices that restore capacity—whether through consciousness and grace (Sai Maa) or through body-speech-mind alignment (Joshin Sensei)—without collapsing under the weight of overload."
+      semantic_family: "sdg3-alignment"
+      article_types: ["interfaith_dialogue_report"]
+    - id: sdg_mh_02
+      line: "SDG 3 assumes actors who can function well enough to participate in society. Sai Maa and Joshin Sensei both teach the capacity that makes that participation possible: pattern release and embodied realization, in their distinct vocabularies."
+      semantic_family: "sdg3-capacity"
+      article_types: ["interfaith_dialogue_report"]
+
+convergence:
+  options:
+    - id: convergence_mh_01
+      line: "Both Sai Maa and Joshin Sensei share a diagnosis of the same invisible burden: young people are not broken; they are experiencing obstructed flow (Sai Maa) or body-speech-mind out of alignment (Joshin Sensei). Sai Maa names the release of old patterns and the return of grace; Joshin Sensei names Sanmitsu—the three mysteries of body, speech, and mind—aligned in practice. Both then teach that the path forward is not self-improvement as moral project but practice that restores the capacity to function from a steadier ground."
+      structural_overlap: "Both reframe overload from personal defect to obstructed flow or misalignment; both restore capacity through embodied practice, not willpower alone."
+      semantic_family: "flow-alignment-reframe"
+      article_types: ["interfaith_dialogue_report"]
+    - id: convergence_mh_02
+      line: "The convergence is precise: neither tradition asks young people to try harder or to fix themselves before they are worthy of peace. Both locate the problem in what is blocked or misaligned—not in the person's core value—and both offer a practice that restores capacity. The doctrines differ in source (consciousness and divine feminine vs. Shingon Buddhism); the structural agreement is that the young person's struggle is not evidence of defect and the path forward is practice that includes the body."
+      structural_overlap: "Struggle is not defect; path forward is embodied practice that restores capacity."
+      semantic_family: "convergence-precision"
+      article_types: ["interfaith_dialogue_report"]
+
+distinction:
+  options:
+    - id: distinction_mh_01
+      line: "Sai Maa roots the teaching in consciousness, grace-mastery, and pattern release; Joshin Sensei roots it in Shingon Mikkyo—Sokushin Jobutsu (buddhahood in this body) and Sanmitsu (body, speech, mind). They do not conflate traditions. The convergence is on the named burden (overload, spiral, obstructed flow or misalignment) and the shared need for a practice that restores capacity—not on metaphysics or path."
+      semantic_family: "distinction-preserved"
+      article_types: ["interfaith_dialogue_report"]
+
+next_steps:
+  options:
+    - id: next_steps_mh_01
+      line: "Pearl News will use this dialogue to shape future interfaith mental health content and to ensure youth-facing entry points (Active Minds, Born This Way Foundation, and practice resources) are clearly linked where both traditions align."
+      semantic_family: "next-steps-content"
+      article_types: ["interfaith_dialogue_report"]

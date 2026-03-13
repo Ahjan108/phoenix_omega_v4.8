@@ -1,0 +1,322 @@
+schema_version: 1
+teacher_id: omote
+topic: education
+active: true
+identity:
+  display_name: Omote Sensei
+  attribution_name: Omote Sensei
+  tradition: Japanese Sacred Way-of-Life and Purification Teaching
+  tradition_short: Japanese sacred way-of-life
+  teacher_setting_options:
+  - practice space
+  - ritual space
+  teacher_years: lineage-bearing
+  affiliation_safe_line: Japanese traditional wisdom teacher
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: school_oni
+    label: oni taking root where difficulty is never honestly faced
+    loop: opens the portal -> body tenses -> switches away -> comes back because the
+      work still exists
+    body_markers:
+    - forehead
+    - shoulders
+    - jaw
+    digital_markers:
+    - opens the portal
+    - switches away
+    - comes back
+topic_fit:
+  fit_level: primary
+  fit_reason: Education pressure fits Omote when schools strip character formation
+    and honest encounter with difficulty, producing the conditions where the oni takes
+    root.
+  forbidden_angles:
+  - do not reduce this to generic wellness
+  - do not frame the pressure as personal weakness
+hook_personal:
+  options:
+  - id: hook_personal_01
+    line: You are told school is preparing you for life. Some days it feels like it
+      is training you to distrust your own attention — and never to face what is actually
+      difficult.
+    semantic_family: personal-pressure
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: hook_big_picture_01
+    line: 'Education strain is also a character problem: schools name depth and care
+      while replacing character formation with measurable competencies — and the oni
+      takes root where young people are never taught to face difficulty honestly.'
+    semantic_family: system-pressure
+    angle: systemic-pressure
+    article_types:
+    - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: teacher_intro_01
+    line: Omote Sensei, a teacher of the Japanese sacred way-of-life and purification,
+      has watched in practice sessions students carry school pressure as if scattered
+      attention were a moral flaw. They are not asking whether education matters.
+      They are asking what it means to learn inside systems that have stripped Yamato-gokoro
+      — the sincere heart-mind — from the curriculum and replaced it with performance.
+    semantic_family: identity-seen-shift
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_intro_02
+    line: Omote Sensei teaches from the Japanese tradition. He has seen in practice
+      sessions students arrive already exhausted by systems that protect them from
+      failure and discomfort — and the tradition holds that education must include
+      the practice of honest encounter with what is difficult, or the oni will take
+      root when hardship finally arrives.
+    semantic_family: identity-seen-shift-alt
+    tone: grave
+    intensity: 4
+    article_types:
+    - hard_news_spiritual_response
+youth_somatic:
+  options:
+  - id: youth_somatic_01
+    line: 'You open the assignment portal. Your body tensed. You switched away. Then
+      you came back because the work still exists whether or not the system helps
+      you hold it.
+
+      LOOP_SEQUENCE: "opened the portal. body tensed. switched away. came back."'
+    loop_type: school_oni
+    body_register: forehead
+    digital_behavior: opens the portal
+    article_types:
+    - hard_news_spiritual_response
+  - id: youth_somatic_02
+    line: 'You saw the deadline in the app. Your shoulders and jaw tightened. You
+      switched tabs. Then you returned because the work still has to get done.
+
+      LOOP_SEQUENCE: "saw the deadline. shoulders and jaw tightened. switched tabs.
+      returned."'
+    loop_type: school_oni
+    body_register: shoulders
+    digital_behavior: switches away
+    article_types:
+    - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: teacher_witness_01
+    line: Omote Sensei has seen that exact sequence — the task appears, the body braces,
+      attention leaves, and effort has to return inside a system that keeps misnaming
+      the problem. The Japanese tradition does not blame the student; it names the
+      system that stripped character formation and honest difficulty from the curriculum.
+    semantic_family: loop-mirror
+    loop_type: school_oni
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_witness_02
+    line: He has watched students carry this loop — the portal opens, the body tenses,
+      the tab changes, and then the same pressure pulls them back. The tradition holds
+      that the oni takes root most easily where young people are never taught to face
+      difficulty honestly.
+    semantic_family: loop-mirror-alt
+    loop_type: school_oni
+    article_types:
+    - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: turnaround_01
+    stat_line_1: 410 workshops. 27 cities.
+    stat_line_2: Young people are organizing workshops, hosting campaigns, and students
+      and youth educators are already building study supports, healthier schedules,
+      and attention-friendly learning spaces.
+    semantic_family: institutional-action
+    article_types:
+    - hard_news_spiritual_response
+  - id: turnaround_02
+    stat_line_1: 410 workshops. 27 cities.
+    stat_line_2: Young people are organizing and hosting peer circles, training listeners,
+      and forcing schools to treat character and honest difficulty as part of the
+      learning equation.
+    semantic_family: institutional-action-alt
+    article_types:
+    - hard_news_spiritual_response
+bridge:
+  options:
+  - id: bridge_01
+    line: 410 workshops. 27 cities. The tracker measures reforms and study supports.
+      It has no column for what made the next honest return to learning possible after
+      another day of fragmentation — the capacity to face what is difficult without
+      calling the system's disorder your failure. The student who came back to the
+      portal needed that capacity. Omote Sensei's tradition has practiced cultivating
+      Yamato-gokoro and honest encounter with difficulty for generations.
+    hidden_capacity: face what is difficult without making it identity
+    semantic_family: tracker-capacity
+    article_types:
+    - hard_news_spiritual_response
+  - id: bridge_02
+    line: 'The numbers measure programs and reforms. They do not measure what happens
+      when a young person finally has a practice that includes honest facing — not
+      performance of competence but the sincere heart-mind that acts from moral feeling
+      rather than calculation. That capacity is what the next honest study session
+      needs. Omote Sensei''s tradition calls it Yamato-gokoro: integrity toward oneself,
+      one''s community, and the work itself.'
+    hidden_capacity: act from sincere heart-mind rather than performance
+    semantic_family: tracker-capacity-alt
+    article_types:
+    - hard_news_spiritual_response
+teacher_perspective:
+  options:
+  - id: teacher_perspective_01
+    header: What Omote Sensei Sees
+    paragraphs:
+    - Omote Sensei would not start by calling the student distracted. He would start
+      by naming the system. In the Japanese sacred tradition, education was never
+      separated from the formation of character — the cultivation of Yamato-gokoro,
+      the sincere heart-mind that acts from moral feeling rather than calculation.
+      Modern education systems that have stripped character formation from the curriculum
+      and replaced it with measurable competencies have produced technically capable
+      people who do not know how to live with integrity — and the tradition regards
+      this as a failure not of students but of the system that shaped them.
+    - From there he turns to the oni. The oni — inner affliction — takes root most
+      easily where young people are never taught to face difficulty honestly. Education
+      systems that protect students from failure, discomfort, and moral complexity
+      do not produce resilient adults; they produce adults whose first encounter with
+      genuine hardship activates the oni because no practice of facing it was ever
+      cultivated.
+    - 'That is the reframe: what feels like a personal fault — me, broken, wrong —
+      is often a truthful reading of a disordered learning environment — and the tradition
+      holds that education must include the practice of honest encounter with what
+      is difficult within a system and institutional structure that was never designed
+      for what it demands.'
+    semantic_family: teacher-diagnosis
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_perspective_02
+    header: What Omote Sensei Sees
+    paragraphs:
+    - 'In Omote Sensei''s tradition, scattered attention is not only a cognitive issue.
+      It is a character issue — the absence of Yamato-gokoro, the sincere presence
+      that can only be cultivated through practice. When the system names depth and
+      care while organizing daily life around fragmentation and performance, the tradition
+      asks: where is the practice of facing what is difficult?'
+    - 'Sacred geography teaches that where you learn matters as much as what you learn.
+      For young people educated entirely through screens, the tradition identifies
+      a specific loss: the absence of place-based knowledge, the kind of understanding
+      that can only arise from sustained physical presence in a landscape that has
+      its own memory and its own demands on attention.'
+    - 'In that frame, self-blame softens. The problem is not that students are lazy
+      or that I am wrong for struggling. The problem is that the system has stripped
+      the conditions for sincere learning and then blamed the student for the result.
+      Omote Sensei''s tradition offers a standard: integrity toward oneself, one''s
+      community, and the work itself.'
+    semantic_family: teacher-diagnosis-alt
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+practice:
+  default_id: practice_01
+  options:
+  - id: practice_01
+    display_name: Purification and Service Practice
+    duration: 4 minutes
+    announcement_line: Omote Sensei teaches a 4-minute Purification and Service Practice
+      for moments when school pressure is making the mind perform against itself.
+      It is in the sidebar, brief and structured.
+    relief_lines:
+    - What has accumulated can be faced and released.
+    - Enough steadiness returns for the next honest move.
+    relief_register:
+    - clarity
+    - capacity
+    - act again
+    derived_from_frame: purification_service
+    article_types:
+    - hard_news_spiritual_response
+  - id: practice_02
+    display_name: Purification and Service Practice
+    duration: 4 minutes
+    announcement_line: Omote Sensei teaches a 4-minute Purification and Service Practice
+      for when the assignment portal and the fragmented day have left the inner life
+      in need of purification. It is in the sidebar, short enough to use before class
+      or between tasks.
+    relief_lines:
+    - The oni of performance is met with honest seeing.
+    - The sincere heart-mind returns for the next move.
+    relief_register:
+    - clarity
+    - release
+    - act again
+    derived_from_frame: purification_service
+    article_types:
+    - hard_news_spiritual_response
+sdg:
+  primary:
+    id: SDG 4
+    title: Quality Education
+    line: The United Nations has a framework for this through SDG 4 and its quality
+      education targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United
+      Nations.
+cta:
+  options:
+  - id: cta_01
+    org: UNESCO
+    line: 'UNESCO''s Global Education Coalition and student advocacy groups both offer
+      practical entry points here. Door in: https://www.unesco.org/en/education/globaleducationcoalition'
+    semantic_family: door-in
+    article_types:
+    - hard_news_spiritual_response
+  - id: cta_02
+    org: Student advocacy groups
+    line: 'If that is not your next step, student-led education justice groups work
+      the same framework at the local and national level. Door in: join their network.'
+    semantic_family: door-in-alt
+    article_types:
+    - hard_news_spiritual_response
+title_system:
+  headline_layer_1:
+    options:
+    - id: headline_layer_1_01
+      line: Schools Are Naming Learning While Breaking Its Conditions.
+      semantic_family: title
+      article_types:
+      - hard_news_spiritual_response
+  headline_layer_2:
+    options:
+    - id: headline_layer_2_01
+      line: A Japanese tradition teacher reads scattered attention as a sign of institutional
+        misalignment — and names Yamato-gokoro.
+      semantic_family: subtitle
+      article_types:
+      - hard_news_spiritual_response
+    - id: headline_layer_2_02
+      line: Omote Sensei names what education pressure does when character formation
+        is stripped — and offers a practice to face difficulty honestly.
+      semantic_family: subtitle-alt
+      article_types:
+      - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    topic_subcases:
+    - attention-fragmentation
+    - classroom-pressure
+    intensity_range:
+    - 2
+    - 4

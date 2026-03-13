@@ -1,0 +1,277 @@
+schema_version: 1
+teacher_id: ra
+topic: education
+active: true
+identity:
+  display_name: Ra
+  attribution_name: Teacher Ra
+  tradition: Advaita Vedanta
+  tradition_short: Advaita Vedanta
+  teacher_setting_options:
+  - satsang
+  - circle
+  teacher_years: decades of teaching
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: performance_worth_cycle
+    label: education pressure converting performance into proof of value
+    loop: gets grade or test result -> stomach drops -> performs compliance -> checks ranking again
+    body_markers:
+    - stomach
+    - shoulders
+    - breath
+    digital_markers:
+    - checks ranking
+    - refreshes score
+topic_fit:
+  fit_level: primary
+  fit_reason: Education pressure fits Ra when young people are run by the pattern that performance equals worth and that pattern makes them lose access to what they actually know. The tradition offers a way to see the conditioning and return to the clarity that lets learning show up again.
+  forbidden_angles:
+  - do not reduce to generic motivation
+  - do not frame academic struggle as personal weakness
+diagnostic_frames:
+  default_id: performance_conditioning
+  options:
+  - id: performance_conditioning
+    key_term: conditioning
+    key_term_gloss: the inherited pattern that says your worth is measured by your grade, your score, your ranking — what the tradition calls misidentification with the body-mind. When that pattern runs, you lose access to what you actually know because awareness is identified with the content of the thought rather than resting as the witness
+    diagnosis_line: The body is not malfunctioning; it is accurately running patterns installed long before the stakes of grading became attached to identity.
+    self_to_system_reframe: What feels like private inadequacy is often the pattern running; you are the one who can see it and choose from what you actually know instead of what the pattern insists.
+    what_normal_analysis_misses: How the performance-worth cycle is conditioning, not character — and how cognitive steadiness and focus return when the pattern is seen clearly.
+    youth_specific_tie: Young people under education pressure are often running patterns that convert every evaluation into proof of fundamental worth, and the tradition offers a way to see that pattern and release it.
+    approved_quote_lines:
+    - you are not the pattern; you are the one who can see it
+    - your grade is not a measure of what you actually know
+    banned_lines:
+    - everything happens for a reason
+    - just believe in yourself
+hook_personal:
+  options:
+  - id: hook_personal_01
+    line: You get the test result. Your stomach drops. You perform what compliance looks like. Then you check the ranking again because the number did not change and neither did the drop.
+    semantic_family: personal-pressure
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+  - id: hook_personal_02
+    line: The hardest part is not only failing or struggling. It is struggling inside a system that still says your grade proves your worth — and the pattern that converts performance into proof of value is running automatically.
+    semantic_family: personal-pressure-alt
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: hook_big_picture_01
+    line: 'Education pressure is also an order problem: the patterns that run when grades become identity markers are not personal defects. They are what runs when the system has made the stakes too high and awareness has nowhere to land except on the number.'
+    semantic_family: system-pressure
+    angle: systemic-pressure
+    article_types:
+    - hard_news_spiritual_response
+  - id: hook_big_picture_02
+    line: Youth education distress is about more than grades. It is about the inherited patterns — the conditioning that says performance equals worth, the reflex to check the ranking again without breaking the cycle of proof-seeking.
+    semantic_family: system-pressure-alt
+    angle: systemic-pressure
+    article_types:
+    - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: teacher_intro_01
+    line: Teacher Ra, a Bangalore-born teacher in the Advaita Vedanta tradition — steeped in the Upanishads and the inquiry of Ramana Maharshi — has watched in practice sessions young people lose access to what they actually know because the pattern that says their grade proves their worth is running. They are not asking only how to get a better score. They are asking how to see the pattern clearly enough to return to the focus and steadiness that lets learning show up again.
+    semantic_family: identity-seen-shift
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_intro_02
+    line: Teacher Ra, from the Advaita Vedanta tradition — who quotes Nisargadatta as easily as he quotes the Bhagavad Gita — has seen in practice sessions in satsang what happens when the grade lands and the old patterns take over — the conditioning that says your score is your worth, the reflex to check and re-check the ranking without returning to what you actually know. They are not asking for encouragement. They are asking how to see the pattern clearly enough to choose a response that comes from what you know rather than what the pattern insists.
+    semantic_family: identity-seen-shift-alt
+    tone: grave
+    intensity: 4
+    article_types:
+    - hard_news_spiritual_response
+youth_somatic:
+  options:
+  - id: youth_somatic_01
+    line: 'You get the test score. Your stomach drops. You perform compliance. Then you check the ranking again because the number did not change and what you know did not return when you looked away.
+
+      LOOP_SEQUENCE: "got the score. stomach dropped. performed compliance. checked ranking again."'
+    loop_type: performance_worth_cycle
+    body_register: stomach
+    digital_behavior: checks ranking
+    article_types:
+    - hard_news_spiritual_response
+  - id: youth_somatic_02
+    line: 'You saw the grade posted. Your shoulders locked. You closed the app. Then you opened it again because the feeling did not change and the pattern had not released.
+
+      LOOP_SEQUENCE: "saw the grade. shoulders locked. closed the app. opened again."'
+    loop_type: performance_worth_cycle
+    body_register: shoulders
+    digital_behavior: refreshes score
+    article_types:
+    - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: teacher_witness_01
+    line: Ra has seen this exact loop — the result arrives, the stomach drops, compliance is performed, and attention returns because the unresolved pattern is still running.
+    semantic_family: loop-mirror
+    loop_type: performance_worth_cycle
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_witness_02
+    line: He has watched that sequence in young people — the grade, the drop, the performance, the return. The pattern is running; the question is whether you can see it clearly enough to choose something other than the cycle.
+    semantic_family: loop-mirror-alt
+    loop_type: performance_worth_cycle
+    article_types:
+    - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: turnaround_01
+    stat_line_1: Youth-led educational movements are reframing learning and assessment.
+    stat_line_2: Young people are building alternative assessment frameworks, peer-learning circles, and documenting harm, organizing workshops, and hosting the gap between what grades measure and what actual learning requires. The pattern of performance-as-proof is being interrupted by the pattern of showing up to learn.
+    semantic_family: institutional-action
+    article_types:
+    - hard_news_spiritual_response
+  - id: turnaround_02
+    stat_line_1: Students are organizing for assessment reform and learning autonomy.
+    stat_line_2: Young people are organizing workshops, hosting campaigns, and youth advocates are asking who designed the test, what it actually measures, and building spaces where learning is not attached to ranking. The pattern of checking the score is being replaced by the pattern of returning to what actually matters to learn.
+    semantic_family: institutional-action-alt
+    article_types:
+    - hard_news_spiritual_response
+bridge:
+  options:
+  - id: bridge_01
+    line: 'Education trackers measure grades and graduation rates. They do not count the capacity to take the feedback, let the drop move through, and return to what you actually know — the capacity to stay focused and learn again instead of cycling through checking and proof-seeking. The young person who will convene the next learning circle needs it. So does the one who checked the ranking again because the pattern would not release. Ra''s tradition has been developing that capacity for generations: you are not the grade — you are the unchanging witness in whom the grade appears. When that is seen, the pattern loosens and the capacity to learn returns.'
+    hidden_capacity: see the pattern and return to what you actually know
+    semantic_family: tracker-capacity
+    article_types:
+    - hard_news_spiritual_response
+  - id: bridge_02
+    line: Assessment systems count scores and rankings. They do not count the inner capacity that lets a young person rest in what they actually know when the grade is trying to convince them that knowledge is the number. That capacity is what the next honest choice needs. It is what the person who checked the ranking again needs too. Ra's tradition holds that you were never the pattern — you are the unchanging awareness in which the pattern appears. You are not trying to become a good student. You are trying to stop pretending you are not already the one who knows.
+    hidden_capacity: rest in what you actually know; access the capacity to focus and learn
+    semantic_family: tracker-capacity-alt
+    article_types:
+    - hard_news_spiritual_response
+teacher_perspective:
+  options:
+  - id: teacher_perspective_01
+    header: What Ra Sees
+    paragraphs:
+    - 'Ra reads youth education distress through conditioning: the inherited patterns of thought, emotion, and reaction that run automatically when awareness is elsewhere. The tradition does not pathologize that distress; it names what is running. When you see the pattern clearly — the fear that says your grade proves your worth, the reflex to check the ranking again without returning to focus — you are not the pattern. You are the one who can see it. That distance is the beginning of the capacity to learn differently.'
+    - Integrated awakening means the shift is not a peak experience but something that walks with you into the classroom and the study. The question is not how to feel motivated all day. The question is how to pause when the drop comes, name what is running, and choose one response that comes from clarity rather than habit. The tradition holds that trust is the willingness to let go of what the mind insists on and rest in what awareness already knows — in this case, what you actually know about the material, the question, the problem in front of you.
+    - That reframe is the beginning of relief. The struggle stops being proof that something is wrong with you and starts being evidence that a pattern is running. The disorder is not only psychological; it is the gap between a system that has attached grades to worth and the capacity to see clearly under those conditions. Ra's tradition offers a practice for that gap — not to make the system okay, but to free your own capacity so you can stay focused and learn.
+    semantic_family: teacher-diagnosis
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_perspective_02
+    header: What Ra Sees
+    paragraphs:
+    - 'In Ra''s tradition, awakening that is lived and grounded in daily life — not a peak experience but a sustained shift in how you meet reality — is what integration means. Young people under education pressure are often trying to fix at the level of content what can only shift at the level of seeing: the pattern that says their grade is proof of worth, that the drop means they are defective, that they have to perform steadiness in the face of evaluation. When you see that pattern clearly, it loses its grip.'
+    - The tradition distinguishes between what the mind insists on and what awareness already knows. The body that dropped, the ranking that was checked again — that is the pattern running. The one who can notice that is already free of it in that moment. The practice is to return to that noticing, not to fix the pattern by force or bypass it with false confidence.
+    - 'In that frame, the distress itself becomes information: accurate response to a system that has made stakes too high. Self-blame softens. The problem is not that you are broken. The problem is that the grade has been made to mean more than it does about you. Ra''s tradition gives you a way to see the pattern, name it, and choose one response that comes from what you actually know — one that lets you stay in the learning instead of in the proof.'
+    semantic_family: teacher-diagnosis-alt
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+practice:
+  default_id: practice_01
+  options:
+  - id: practice_01
+    display_name: 5-minute "Not Mine" Drop
+    duration: 5 minutes
+    announcement_line: Ra teaches a 5-minute "Not Mine" Drop for the moment when the grade hits and the performance-worth cycle is starting to take over — each thought of inadequacy is met with "not mine" until awareness returns to what you actually know. It is in the sidebar, exact and usable.
+    relief_lines:
+    - The pattern stops running the whole show.
+    - Enough clarity returns to focus and learn again.
+    relief_register:
+    - focus
+    - return
+    - cognitive steadiness
+    derived_from_frame: performance_conditioning
+    article_types:
+    - hard_news_spiritual_response
+  - id: practice_02
+    display_name: 5-minute "Not Mine" Drop
+    duration: 5 minutes
+    announcement_line: Ra teaches a 5-minute "Not Mine" Drop for after the score or feedback arrives and you need to return to what you actually know before the next study session or classroom moment. Each thought that says the grade is you gets met with "not mine" — and awareness returns. It is in the sidebar, timed for the moment between learning and checking.
+    relief_lines:
+    - The drop moves through instead of cycling.
+    - Enough steadiness returns to see the material clearly and choose to engage.
+    relief_register:
+    - focus
+    - return
+    - engagement
+    derived_from_frame: performance_conditioning
+    article_types:
+    - hard_news_spiritual_response
+sdg:
+  primary:
+    id: SDG 4
+    title: Quality Education
+    line: The United Nations has a framework for this through SDG 4 and its quality education targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United Nations.
+cta:
+  options:
+  - id: cta_01
+    org: Youth education advocacy networks
+    line: 'Organizations like Student Disability Rights Network and National Association of Student Financial Aid Administrators offer youth-facing entry points into education equity work and peer learning circles. Door in: https://www.studentdisabilityrightsnetwork.org'
+    semantic_family: door-in
+    article_types:
+    - hard_news_spiritual_response
+  - id: cta_02
+    org: Peer learning and study spaces
+    line: 'Youth-led study circles, learning collectives, and peer tutoring networks offer alternatives to solo, grade-focused study. Check local youth education justice organizations or start a circle with peers. Door in: join their network.'
+    semantic_family: door-in-alt
+    article_types:
+    - hard_news_spiritual_response
+title_system:
+  headline_layer_1:
+    options:
+    - id: headline_layer_1_01
+      line: Education Pressure Is Also A Crisis Of What Is Running The Show.
+      semantic_family: title
+      article_types:
+      - hard_news_spiritual_response
+    - id: headline_layer_1_02
+      line: The Performance-Worth Cycle Is Conditioning, Not Character.
+      semantic_family: title-alt
+      article_types:
+      - hard_news_spiritual_response
+  headline_layer_2:
+    options:
+    - id: headline_layer_2_01
+      line: An Advaita Vedanta teacher refuses the lie that grades prove worth — and names how to see the pattern clearly and learn again.
+      semantic_family: subtitle
+      article_types:
+      - hard_news_spiritual_response
+    - id: headline_layer_2_02
+      line: A tradition of self-inquiry and witness-consciousness offers a practice for when the score hits and the old patterns take over the whole show.
+      semantic_family: subtitle-alt
+      article_types:
+      - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    topic_subcases:
+    - performance_pressure
+    - assessment_gap
+    intensity_range:
+    - 2
+    - 4
