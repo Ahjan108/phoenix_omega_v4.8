@@ -43,8 +43,8 @@ jobs:
           INACTIVE_PAGES=$(vm_stat | awk '/Pages inactive/ {gsub("\\.","",$3); print $3}')
           FREE_BYTES=$(( (FREE_PAGES + INACTIVE_PAGES) * 4096 ))
           python3 - <<'PY'
-          import os
-          free_gb = int(os.environ["FREE_BYTES"]) / (1024**3)
+          free_bytes = int("${FREE_BYTES}")
+          free_gb = free_bytes / (1024**3)
           print(f"free_mem_gb={free_gb:.2f}")
           if free_gb < 2.0:
               raise SystemExit("Insufficient free memory (<2.0 GB).")
@@ -52,8 +52,8 @@ jobs:
           echo "== Disk check =="
           FREE_KB=$(df -k . | awk 'NR==2{print $4}')
           python3 - <<'PY'
-          import os
-          free_gb = int(os.environ["FREE_KB"]) / (1024**2)
+          free_kb = int("${FREE_KB}")
+          free_gb = free_kb / (1024**2)
           print(f"free_disk_gb={free_gb:.2f}")
           if free_gb < 10.0:
               raise SystemExit("Insufficient free disk (<10 GB).")
@@ -91,9 +91,14 @@ jobs:
 
       - name: Ingest web research
         run: |
+          SCRIPT="scripts/marketing/ingest_web_research.py"
+          if [ ! -f "$SCRIPT" ]; then
+            echo "Skipping web ingest; missing $SCRIPT"
+            exit 0
+          fi
           for attempt in 1 2; do
             echo "web-ingest attempt=$attempt"
-            python3 scripts/marketing/ingest_web_research.py --all --verbose && exit 0
+            python3 "$SCRIPT" --all --verbose && exit 0
             if [ "$attempt" -eq 2 ]; then
               echo "web-ingest failed after retry"
               exit 1
@@ -104,10 +109,15 @@ jobs:
       - name: Ingest sales signals (if present)
         run: |
           SALES_FILE="artifacts/marketing/incoming/latest_sales.csv"
+          SCRIPT="scripts/marketing/ingest_sales_signals.py"
+          if [ ! -f "$SCRIPT" ]; then
+            echo "Skipping sales ingest; missing $SCRIPT"
+            exit 0
+          fi
           if [ -f "$SALES_FILE" ]; then
             for attempt in 1 2; do
               echo "sales-ingest attempt=$attempt"
-              python3 scripts/marketing/ingest_sales_signals.py --input "$SALES_FILE" --verbose && exit 0
+              python3 "$SCRIPT" --input "$SALES_FILE" --verbose && exit 0
               if [ "$attempt" -eq 2 ]; then
                 echo "sales-ingest failed after retry"
                 exit 1

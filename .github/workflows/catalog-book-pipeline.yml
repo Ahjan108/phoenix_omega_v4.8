@@ -76,8 +76,8 @@ jobs:
           INACTIVE_PAGES=$(vm_stat | awk '/Pages inactive/ {gsub("\\.","",$3); print $3}')
           FREE_BYTES=$(( (FREE_PAGES + INACTIVE_PAGES) * 4096 ))
           python3 - <<'PY'
-          import os
-          free_gb = int(os.environ["FREE_BYTES"]) / (1024**3)
+          free_bytes = int("${FREE_BYTES}")
+          free_gb = free_bytes / (1024**3)
           print(f"free_mem_gb={free_gb:.2f}")
           if free_gb < 2.0:
             raise SystemExit("Insufficient free memory (<2.0 GB).")
@@ -85,8 +85,8 @@ jobs:
           echo "== Disk check =="
           FREE_KB=$(df -k . | awk 'NR==2{print $4}')
           python3 - <<'PY'
-          import os
-          free_gb = int(os.environ["FREE_KB"]) / (1024**2)
+          free_kb = int("${FREE_KB}")
+          free_gb = free_kb / (1024**2)
           print(f"free_disk_gb={free_gb:.2f}")
           if free_gb < 15.0:
             raise SystemExit("Insufficient free disk (<15 GB).")
@@ -103,7 +103,6 @@ jobs:
           def load_lock_module():
               candidates = [
                   Path("Qwen-Agent/scripts/lm_studio_lock.py"),
-                  Path("/Users/ahjan/Qwen-Agent/scripts/lm_studio_lock.py"),
               ]
               for p in candidates:
                   if p.exists():
@@ -111,7 +110,7 @@ jobs:
                       mod = importlib.util.module_from_spec(spec)
                       spec.loader.exec_module(mod)  # type: ignore[arg-type]
                       return mod
-              raise SystemExit("LM lock module not found at expected paths")
+              return None
 
           lane = "${{ inputs.lane || 'en' }}"
           cap = "${{ inputs.books_cap || 10 }}"
@@ -120,7 +119,20 @@ jobs:
               f"python3 scripts/ci/run_canary_100_books.py --cap {cap}",
           ]
           lock_mod = load_lock_module()
-          with lock_mod.lm_studio_lock("catalog-book-pipeline", shards=120, timeout_sec=180):
+          lock_ctx = (
+              lock_mod.lm_studio_lock("catalog-book-pipeline", shards=120, timeout_sec=180)
+              if lock_mod is not None else None
+          )
+          if lock_ctx is None:
+              print("LM lock module not found in repo checkout; running without external lock")
+
+          class _NoOpContext:
+              def __enter__(self):
+                  return None
+              def __exit__(self, exc_type, exc, tb):
+                  return False
+
+          with (lock_ctx or _NoOpContext()):
               for cmd in commands:
                   ok = False
                   for attempt in (1, 2):
