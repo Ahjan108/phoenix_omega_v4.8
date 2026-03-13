@@ -1,0 +1,90 @@
+# Youth-feature overlay for joshin + education (gold fixture)
+# Deep-merged onto teachers/joshin/education.yaml when template_id=youth_feature.
+# Schema: Youth Feature Overlay Spec (youth-feature section).
+
+schema_version: 1
+teacher_id: joshin
+topic: education
+
+# Youth-feature-specific slot: teacher reflection (long block).
+# The teacher's reflection on a youth story/trend — more personal and narrative than teacher_perspective,
+# responds to the youth experience directly.
+teacher_reflection:
+  options:
+    - id: yf_joshin_education_reflection_01
+      header: "What Joshin sees in the classroom scatter"
+      paragraphs:
+        - "Joshin watches young people arrive already convinced that interrupted focus is their failure. They have been inside the scatter long enough to believe the scatter is them. He sees students who can hold a complex thought for five minutes if the portal does not open, but by the second week of the semester, they have stopped asking whether the break was the system or the self. The question has already been settled inside them: I am the kind of person who cannot stay."
+        - "What Joshin names is the difference between a mind that loses focus and a young person who has been trained to lose focus. The first is a moment. The second is identity. In Shingon, Sanmitsu — body, speech, mind aligned — is the natural state before the system teaches scatter. When he sees a student come back to the work for the third time in one evening, he sees someone practicing alignment whether or not the word reaches them. That practice, that return, is the teaching."
+        - "The reframe is not 'you can focus harder.' It is 'the moment you come back to the work, your body and mind are already saying what they need: one gesture, one thing, long enough for something to land.' That moment is not proof of weakness. It is proof of capacity that the system was never designed to see."
+      metadata:
+        semantic_family: "reflection-identity-to-capacity"
+        tone: "diagnostic-grounded"
+        article_types: ["youth_feature"]
+
+    - id: yf_joshin_education_reflection_02
+      header: "What Joshin sees in the interruption loop"
+      paragraphs:
+        - "In Joshin's practice room and in the stories of his students, the pattern is the same: the assignment opens, the focus breaks, the device calls. By the time the work is done, the young person has practiced the loop so many times that it becomes how they think about themselves. Not 'today was fragmented' but 'I am scattered.' The body learned to break. The mind learned to expect the break before it happens."
+        - "Joshin Sensei comes from a tradition that knows exactly how to work with a body and mind that have been trained into patterns. Sanmitsu is the name for training them back into alignment. It is not about productivity. It is about the capacity to stay with one thing long enough for the wisdom in your body to rise. When a student returns to the portal for the third time, they are already doing Sanmitsu. They do not need to learn focus. They need to recognize that the return is focus."
+        - "That shift changes everything. The pressure does not lift, but the story about the pressure changes. You are not failing at focus. You are practicing the capacity to return. That capacity is what the next assignment, the next semester, the next degree needs. It is what you have been building all along."
+      metadata:
+        semantic_family: "reflection-pattern-to-practice"
+        tone: "witnessing-reframe"
+        article_types: ["youth_feature"]
+
+# Youth-feature-specific slot: solutions (deterministic).
+# Concrete solutions the teacher's frame points toward — not generic "meditate more."
+solutions:
+  options:
+    - id: yf_joshin_education_solutions_01
+      header: "What actually works"
+      items:
+        - "Study spaces designed with focus in mind: no portal access during study blocks, longer work windows before designed breaks, phone in another room — not to punish but to let Sanmitsu (body, speech, mind aligned) become possible."
+        - "Teachers trained to name the return, not the break. When a student comes back to the work, that is the teaching moment. 'You came back' instead of 'you lost focus.' The body learns a different story."
+        - "Short practices timed to the study schedule: 5 minutes of Sanmitsu alignment before a study block so the body knows what focus feels like. Not meditation to calm down, but alignment to show up."
+        - "School curricula that account for how attention actually works instead of designing for an abstraction that no nervous system can maintain. Shorter assignments with integrity. Longer breaks. No constant switching between platforms and registers."
+      closing_line: "The goal is not to eliminate interruption. It is to teach the body what it means to come back, so that focus becomes a practice instead of a failure."
+      metadata:
+        article_types: ["youth_feature"]
+        semantic_family: "solutions-alignment-and-design"
+
+    - id: yf_joshin_education_solutions_02
+      header: "What the system could do"
+      items:
+        - "Permission to say 'I have to close this tab and come back.' Not as weakness but as recognition of how Sanmitsu works. Alignment is more important than coverage."
+        - "Teachers trained in body-inclusive pedagogy: asking students 'where does the scatter show up in your body?' so that focus becomes a somatic practice, not a moral failure."
+        - "Peer study groups where the return is witnessed and named, not hidden. The student who came back three times is not less disciplined; they are stronger because they kept showing up to the work."
+        - "Honest assessment timelines. If the design of the system requires constant switching and interruption, do not blame the nervous system for responding to its environment. Change the environment first, then measure focus."
+      closing_line: "Joshin Sensei's tradition teaches that the body knows how to align. The system's job is not to fix scattered attention. It is to design conditions where alignment is possible."
+      metadata:
+        article_types: ["youth_feature"]
+        semantic_family: "solutions-systems-design"
+
+# Optional youth-feature headline layer 2.
+title_system:
+  headline_layer_2:
+    options:
+      - id: yf_joshin_education_headline_01
+        line: "Joshin Sensei, a Shingon teacher, on why the return to the work is the real teaching."
+        metadata:
+          article_types: ["youth_feature"]
+
+      - id: yf_joshin_education_headline_02
+        line: "Joshin Sensei names what scattered attention is not: the whole story about who you are."
+        metadata:
+          article_types: ["youth_feature"]
+
+# Optional practice override for youth feature (if needed to modify announcement or delivery).
+practice:
+  options:
+    - id: yf_joshin_education_practice_override
+      display_name: "5-minute Sanmitsu Focus Return"
+      duration: "5 minutes"
+      announcement_line: "Joshin Sensei teaches a 5-minute Sanmitsu Focus Return for the moment when the portal has scattered your attention and the work is still waiting. Use it before the next study block or after another tab switch. In the sidebar."
+      relief_lines:
+        - "One gesture. One thing. Long enough for it to land."
+        - "The pressure stops being your identity."
+      relief_register: ["clarity", "capacity", "return"]
+      derived_from_frame: "sanmitsu_alignment"
+      article_types: ["youth_feature"]

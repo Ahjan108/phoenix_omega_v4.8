@@ -1,0 +1,106 @@
+template_id: youth_feature
+schema_version: 1
+
+maps:
+  - id: yf_scene_data_reflection
+    description: Lead with youth narrative, connect to research/data, then to teacher's reflection on the trend, bridge to concrete solutions, and frame within SDG.
+    allowed_for_topics:
+      - climate
+      - mental_health
+      - education
+      - economy_work
+    sequence:
+      - headline_layer_1
+      - headline_layer_2
+      - youth_narrative
+      - teacher_intro
+      - data_research
+      - teacher_reflection
+      - practice_bridge
+      - solutions
+      - sdg_framework
+    transitions:
+      before_data_research: "narrative_to_data"
+      before_teacher_reflection: "data_to_reflection"
+      before_practice_bridge: "reflection_to_solutions"
+      before_sdg_framework: "solutions_to_sdg"
+    constraints:
+      requires:
+        - youth_narrative
+        - teacher_reflection
+        - data_research
+        - solutions
+        - sdg_framework
+      forbids:
+        - solutions_before_teacher_reflection
+        - sdg_before_solutions
+        - data_before_narrative
+
+  - id: yf_scene_reflection_data
+    description: Lead with youth narrative, move directly to teacher's reflection on the story, then connect to research/data that supports the reflection, bridge to solutions, and SDG framework.
+    allowed_for_topics:
+      - climate
+      - mental_health
+      - education
+      - economy_work
+    sequence:
+      - headline_layer_1
+      - headline_layer_2
+      - youth_narrative
+      - teacher_intro
+      - teacher_reflection
+      - data_research
+      - practice_bridge
+      - solutions
+      - sdg_framework
+    transitions:
+      before_teacher_reflection: "narrative_to_reflection"
+      before_data_research: "reflection_to_data"
+      before_practice_bridge: "data_to_solutions"
+      before_sdg_framework: "solutions_to_sdg"
+    constraints:
+      requires:
+        - youth_narrative
+        - teacher_reflection
+        - data_research
+        - solutions
+        - sdg_framework
+      forbids:
+        - data_before_reflection
+        - solutions_before_data
+        - sdg_before_solutions
+
+  - id: yf_scene_data_bridge
+    description: Lead with youth narrative and data research, then teacher reflection on what the data means, bridge to concrete solutions, and SDG framework.
+    allowed_for_topics:
+      - climate
+      - mental_health
+      - education
+      - economy_work
+    sequence:
+      - headline_layer_1
+      - headline_layer_2
+      - youth_narrative
+      - teacher_intro
+      - data_research
+      - practice_bridge
+      - teacher_reflection
+      - solutions
+      - sdg_framework
+    transitions:
+      before_data_research: "narrative_to_data"
+      before_practice_bridge: "data_to_bridge"
+      before_teacher_reflection: "bridge_to_reflection"
+      before_solutions: "reflection_to_solutions"
+      before_sdg_framework: "solutions_to_sdg"
+    constraints:
+      requires:
+        - youth_narrative
+        - teacher_reflection
+        - data_research
+        - solutions
+        - sdg_framework
+      forbids:
+        - teacher_reflection_before_data
+        - solutions_before_reflection
+        - sdg_before_solutions

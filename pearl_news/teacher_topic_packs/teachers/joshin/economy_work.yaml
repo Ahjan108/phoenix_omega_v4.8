@@ -1,0 +1,304 @@
+schema_version: 1
+teacher_id: joshin
+topic: economy_work
+active: true
+identity:
+  display_name: Joshin Sensei
+  attribution_name: Joshin Sensei
+  tradition: Mainstream Shingon Buddhism (Mikkyo)
+  tradition_short: Shingon Mikkyo
+  teacher_setting_options:
+  - practice hall
+  - temple
+  teacher_years: decades of teaching
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: schedule_refresh
+    label: refreshing the schedule app for basic stability
+    loop: checks the schedule app -> stomach drops -> refreshes again -> screenshots
+      it before it changes
+    body_markers:
+    - stomach
+    - jaw
+    - breath
+    digital_markers:
+    - checks the app
+    - refreshes
+    - screenshots
+topic_fit:
+  fit_level: primary
+  fit_reason: Work precarity maps to Shingon's Rigu no Jobutsu — inherent worth is
+    not created or destroyed by shifting conditions — and to staying steady enough
+    to act under instability.
+  forbidden_angles:
+  - do not reduce this to generic wellness
+  - do not frame the pressure as personal weakness
+hook_personal:
+  options:
+  - id: hook_personal_01
+    line: Every shift change asks you to treat uncertainty like maturity. You keep
+      going, and you know how much hidden effort that takes.
+    semantic_family: personal-pressure
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: hook_big_picture_01
+    line: 'Economic stress now lands as self-management under unstable conditions:
+      stay employable, stay flexible, stay calm, and act like the system is rewarding
+      effort fairly.'
+    semantic_family: system-pressure
+    angle: systemic-pressure
+    article_types:
+    - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: teacher_intro_01
+    line: Joshin Sensei, a Shingon teacher in the Mikkyo lineage, has watched in practice
+      sessions young people carry work instability as if it were a verdict on character.
+      They are not asking only how to work harder. They are asking how to stop turning
+      volatility into self-blame — and how to keep body, speech, and mind aligned
+      enough to act when the schedule keeps changing.
+    semantic_family: identity-seen-shift
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_intro_02
+    line: Joshin Sensei, a Shingon Buddhist teacher, has seen in the practice hall
+      what precarious work does to young people. Students and workers are not asking
+      whether effort matters. They are asking how to stay steady enough to make the
+      next move when the system keeps refusing to hold still.
+    semantic_family: identity-seen-shift-alt
+    tone: grave
+    intensity: 4
+    article_types:
+    - hard_news_spiritual_response
+youth_somatic:
+  options:
+  - id: youth_somatic_01
+    line: 'You check the schedule app. Your stomach drops. You refresh it again. Then
+      you screenshot it before the shift changes underneath you.
+
+      LOOP_SEQUENCE: "checked the app. stomach dropped. refreshed again. took the
+      screenshot."'
+    loop_type: schedule_refresh
+    body_register: stomach
+    digital_behavior: checks the app
+    article_types:
+    - hard_news_spiritual_response
+  - id: youth_somatic_02
+    line: 'You open the roster. Your jaw tightens. You refresh. Then you screenshot
+      it because reality keeps moving.
+
+      LOOP_SEQUENCE: "opened the roster. jaw tightened. refreshed. took the screenshot."'
+    loop_type: schedule_refresh
+    body_register: jaw
+    digital_behavior: refreshes
+    article_types:
+    - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: teacher_witness_01
+    line: Joshin Sensei has seen this exact work loop in students and young workers
+      — the check, the drop, the refresh, the screenshot that tries to hold one stable
+      fact for a moment.
+    semantic_family: loop-mirror
+    loop_type: schedule_refresh
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_witness_02
+    line: He has watched that sequence in the practice hall — the app opens, the body
+      reacts, the finger refreshes, the screenshot pins down what the system will
+      not.
+    semantic_family: loop-mirror-alt
+    loop_type: schedule_refresh
+    article_types:
+    - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: turnaround_01
+    stat_line_1: 1,240 cases. 32 cities.
+    stat_line_2: Young workers and student-worker coalitions are documenting conditions,
+      filing cases, and changing local workplace rules.
+    semantic_family: institutional-action
+    article_types:
+    - hard_news_spiritual_response
+  - id: turnaround_02
+    stat_line_1: 1,240 cases. 32 cities.
+    stat_line_2: Youth are organizing and hosting workshops for stable schedules,
+      fair pay, and conditions that do not treat volatility as a test of character.
+    semantic_family: institutional-action-alt
+    article_types:
+    - hard_news_spiritual_response
+bridge:
+  options:
+  - id: bridge_01
+    line: '1,240 cases. 32 cities. The tracker measures what young workers challenged.
+      It has no column for what made the next filing or shift negotiation possible
+      after another unstable week — the capacity to stay steady enough to act without
+      turning precarity into identity. The person who took the screenshot needed that.
+      Joshin Sensei''s Shingon tradition has a name for what remains when conditions
+      shift: Rigu no Jobutsu, inherent awakened worth. The practice is to protect
+      it in this body, under pressure.'
+    hidden_capacity: stay steady enough to act without precarity as identity
+    semantic_family: tracker-capacity
+    article_types:
+    - hard_news_spiritual_response
+  - id: bridge_02
+    line: Labor trackers count cases and policy wins. They do not count the inner
+      alignment that lets a young person show up for the next shift or the next meeting
+      without handing their whole sense of worth over to the schedule. That alignment
+      — body, speech, and mind in one gesture — is what the next filing needs. It
+      is what the worker who refreshed the app needs too. Joshin Sensei's tradition
+      has been practising it for over a millennium.
+    hidden_capacity: show up without handing worth over to the schedule
+    semantic_family: tracker-capacity-alt
+    article_types:
+    - hard_news_spiritual_response
+teacher_perspective:
+  options:
+  - id: teacher_perspective_01
+    header: What Joshin Sensei Sees
+    paragraphs:
+    - Joshin would begin by separating instability from identity. In Shingon, Rigu
+      no Jobutsu means that awakened nature is already present. It is not created
+      by stable employment or destroyed by a bad schedule. Suffering grows when changing
+      conditions are internalized as proof of personal failure.
+    - Sanmitsu here is not grind language. It is the discipline of bringing body,
+      speech, and mind into one gesture when the world keeps shifting — so the next
+      move is possible without the whole self collapsing into the volatility.
+    - 'That makes the reframe precise: what feels like a personal fault -- me, broken,
+      wrong -- is often accurate response to an economy built on instability. The
+      problem is that a system and institutional structure keep generating what the
+      individual then carries alone. The practice is to make this body the site of
+      steadiness, not the site of blame.'
+    semantic_family: teacher-diagnosis
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_perspective_02
+    header: What Joshin Sensei Sees
+    paragraphs:
+    - Joshin Sensei reads work precarity through Sokushin Jobutsu — Buddhahood in
+      this very body. The worker who cannot find stability is not defective. This
+      body, in this moment, can be the place where dignity and action meet, regardless
+      of what the schedule does next.
+    - From there he turns to Sanmitsu. The question is not how to never feel the drop
+      when the app updates. The question is how to align body, speech, and mind so
+      the next move is still yours — file the case, show up for the shift, or simply
+      breathe without turning the volatility into identity.
+    - In that frame, self-blame softens. The problem is not that young people lack
+      resilience or that I am wrong for feeling unstable. The problem is that the
+      economy functions as a system that keeps outsourcing instability onto individual
+      nervous systems. Shingon gives a method to hold the line in this body anyway.
+    semantic_family: teacher-diagnosis-alt
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+practice:
+  default_id: practice_01
+  options:
+  - id: practice_01
+    display_name: 5-minute Sanmitsu Steadying
+    duration: 5 minutes
+    announcement_line: Joshin Sensei teaches a 5-minute Sanmitsu Steadying for moments
+      when work instability is starting to overwrite clarity. It is in the sidebar,
+      short enough to use before the next shift or after another schedule shock.
+    relief_lines:
+    - The pressure stops naming the whole self.
+    - Enough steadiness returns for the next honest move.
+    relief_register:
+    - clarity
+    - capacity
+    - act again
+    derived_from_frame: primary
+    article_types:
+    - hard_news_spiritual_response
+  - id: practice_02
+    display_name: Sanmitsu Alignment
+    duration: 5 minutes
+    announcement_line: Joshin Sensei teaches a 5-minute Sanmitsu Alignment for when
+      the schedule has just changed again and the body is still catching up. It is
+      in the sidebar, timed and step by step.
+    relief_lines:
+    - Body, speech, and mind return to one gesture.
+    - The next move becomes possible without collapse.
+    relief_register:
+    - clarity
+    - capacity
+    - act again
+    derived_from_frame: primary
+    article_types:
+    - hard_news_spiritual_response
+sdg:
+  primary:
+    id: SDG 8
+    title: Decent Work and Economic Growth
+    line: The United Nations has a framework for this through SDG 8 and its decent
+      work and economic growth targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United
+      Nations.
+cta:
+  options:
+  - id: cta_01
+    org: ILO
+    line: 'The ILO and youth labor-rights groups both provide entry points into this
+      work. Door in: https://www.ilo.org/global/topics/youth-employment'
+    semantic_family: door-in
+    article_types:
+    - hard_news_spiritual_response
+  - id: cta_02
+    org: UNA-USA
+    line: 'UNA-USA works the same framework at the local-to-global level for decent
+      work and SDG 8. Door in: join their network.'
+    semantic_family: door-in-una
+    article_types:
+    - hard_news_spiritual_response
+title_system:
+  headline_layer_1:
+    options:
+    - id: headline_layer_1_01
+      line: Work Instability Is Eating More Than Wages.
+      semantic_family: title
+      article_types:
+      - hard_news_spiritual_response
+  headline_layer_2:
+    options:
+    - id: headline_layer_2_01
+      line: Joshin Sensei separates economic precarity from inherent worth.
+      semantic_family: subtitle
+      article_types:
+      - hard_news_spiritual_response
+    - id: headline_layer_2_02
+      line: Joshin Sensei names what body, speech, and mind can do when the schedule
+        keeps changing.
+      semantic_family: subtitle-alt
+      article_types:
+      - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    topic_subcases:
+    - schedule-precarity
+    - wage-instability
+    intensity_range:
+    - 2
+    - 4

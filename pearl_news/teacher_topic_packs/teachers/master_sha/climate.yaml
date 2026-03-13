@@ -1,0 +1,208 @@
+schema_version: 1
+teacher_id: master_sha
+topic: climate
+active: true
+identity:
+  display_name: Master Sha
+  attribution_name: Dr. and Master Zhi Gang Sha
+  tradition: Tao Source, Soulfulness, love-forgiveness-compassion, and sacred song
+  tradition_short: Tao Source
+  teacher_setting_options:
+  - teaching space
+  - retreat
+  teacher_years: decades
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: climate_blockage_loop
+    label: climate news converting into inner blockage
+    loop: reads the threshold -> chest tightens -> closes app -> reopens because not looking does not clear the blockage
+    body_markers:
+    - chest
+    - throat
+    - tighten
+    digital_markers:
+    - close
+    - reopen
+    - scroll
+    - check again
+topic_fit:
+  fit_level: primary
+  fit_reason: Climate destruction is blockage in the flow between humanity and Earth; Tao Source teaches seeing and clearing blockages with love-forgiveness-compassion, not repetition of the patterns that created them.
+  forbidden_angles:
+  - do not reduce to generic resilience
+  - do not frame distress as personal weakness
+  - must avoid drifting into testimonial miracle/cure lane
+hook_personal:
+  options:
+  - id: master_sha_climate_hook_personal_01
+    line: You care about the planet. You still feel less able to stay with the next number long enough to act — as if something is blocking the flow between knowing and doing.
+    metadata:
+      semantic_family: care-vs-capacity
+      tone: plain
+      intensity: 3
+      article_types:
+      - hard_news_spiritual_response
+  - id: master_sha_climate_hook_personal_02
+    line: You keep reading climate updates because looking away feels dishonest. You also know what each new number is doing to your body — the tightening, the close, the return.
+    metadata:
+      semantic_family: truth-vs-overload
+      tone: grave
+      intensity: 4
+      article_types:
+      - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: master_sha_climate_hook_big_01
+    line: A generation can be highly informed, morally serious, and still lose the capacity to act when every update arrives as proof that institutions waited too long — and the tradition has a name for what blocks the flow.
+    metadata:
+      semantic_family: institutional-delay
+      angle: future-loss
+      article_types:
+      - hard_news_spiritual_response
+  - id: master_sha_climate_hook_big_02
+    line: 'The pressure is no longer only ecological. It is attentional and energetic: how do young people stay in contact with reality without the fear turning into a blockage that paralyses the next move?'
+    metadata:
+      semantic_family: attention-blockage
+      angle: attention-collapse
+      article_types:
+      - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: master_sha_climate_intro_01
+    line: Dr. and Master Zhi Gang Sha, a Tao Source and Soulfulness teacher for decades, has watched in practice sessions young people carry climate news as both moral seriousness and something that blocks the flow of action. Students are not asking whether the planet is in trouble. They are asking how to stay in contact with the truth without the fear turning into a blockage that paralyses the next move.
+    metadata:
+      semantic_family: identity_seen_shift
+      tone: plain
+      intensity: 3
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+youth_somatic:
+  options:
+  - id: master_sha_climate_somatic_01
+    line: 'You read the update in a group chat. Your chest tightened. You closed the app. Then you opened it again because not looking did not make the number less true.
+
+      LOOP_SEQUENCE: "read the update. chest tightened. closed the app. opened it again."'
+    metadata:
+      loop_type: read-tighten-close-return
+      body_register: tightening
+      digital_behavior: close-return
+      article_types:
+      - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: master_sha_climate_witness_01
+    line: Master Sha has seen this exact loop in students — the reading, the tightening, the closing, the return. In his framework it is not malfunction; it is the system accurately registering a blockage in the flow between what young people know and what they can still do.
+    metadata:
+      semantic_family: loop-mirror
+      loop_type: read-tighten-close-return
+      article_types:
+      - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: master_sha_climate_turnaround_01
+    stat_line_1: 2,666 cases. 51 jurisdictions.
+    stat_line_2: Students and youth coalitions are training peers, building campaigns, and forcing officials to answer the gap between public targets and lived reality.
+    metadata:
+      semantic_family: institutional-action
+      article_types:
+      - hard_news_spiritual_response
+bridge:
+  options:
+  - id: master_sha_climate_bridge_01
+    line: '2,666 cases. 51 jurisdictions. The tracker measures what young people did. It has no column for what made the next filing possible after the last delay — the capacity to direct love and compassion toward the specific place where they live, so blockage does not swallow the will to act. The organizer who filed the next case needed that capacity. So does the person who read the update, closed the app, and opened it again. Master Sha''s tradition has a name for clearing that blockage: greatest love, greatest forgiveness, greatest compassion, applied first to the self, then to the Earth.'
+    hidden_capacity: direct love and compassion so blockage does not swallow the will to act
+    metadata:
+      semantic_family: tracker-capacity
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+teacher_perspective:
+  options:
+  - id: master_sha_climate_perspective_01
+    header: What Master Sha Sees
+    paragraphs:
+    - The Tao Source teaching holds that all of creation is connected through a single source, and what humanity does to the Earth it does to itself — not as metaphor but as energetic reality. Climate destruction is a blockage in the flow between humanity and the planet.
+    - Like all blockages, it can be addressed only when it is first clearly seen and then met with the practice of transformation rather than the repetition of the patterns that created it. Greatest love, greatest forgiveness, greatest compassion — applied to the Earth itself — is not sentimentality; it is a practice framework.
+    - 'Young people who feel paralysed by the scale of climate damage can begin with the practice of directing love and compassion toward the specific place where they live: the soil, the water, the air of their immediate environment. What feels like a personal fault — me, broken, wrong — is often accurate response to system and institutional conditions no individual can fix alone. The tradition holds that this practice changes not only the practitioner but the field.'
+    metadata:
+      semantic_family: tao_blockage_reframe
+      reframe_type: self_to_system
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+practice:
+  default_id: master_sha_climate_practice_01
+  options:
+  - id: master_sha_climate_practice_01
+    display_name: Tao Source Golden Light Practice
+    duration: 5 minutes
+    announcement_line: Master Sha teaches a 5-minute Tao Source Golden Light practice for moments when climate information converts into blockage. Invite golden light from Tao Source to wash through the body; direct love and compassion toward the Earth. It is in the sidebar, timed and step by step.
+    relief_lines:
+    - The blockage that paralyses the next move softens.
+    - Enough flow returns to act again from a clear connection to source.
+    relief_register:
+    - capacity
+    - flow
+    - act again
+    derived_from_frame: tao_blockage_clear
+    metadata:
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+sdg:
+  primary:
+    id: SDG 13
+    title: Climate Action
+    line: The United Nations has a framework for exactly this gap through SDG 13 and its climate education and resilience targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United Nations.
+cta:
+  options:
+  - id: master_sha_climate_cta_01
+    org: YOUNGO
+    line: 'The Climate Reality Project and YOUNGO both run youth-facing entry points into this work. Door in: https://youngoclimate.org'
+    metadata:
+      semantic_family: door-in-climate
+      article_types:
+      - hard_news_spiritual_response
+  - id: master_sha_climate_cta_02
+    org: UNA-USA
+    line: 'If that is not your next step, UNA-USA works the same framework at the local-to-global level. Door in: join their network.'
+    metadata:
+      semantic_family: door-in-una
+      article_types:
+      - hard_news_spiritual_response
+title_system:
+  headline_layer_2:
+    options:
+    - id: master_sha_climate_headline_01
+      line: A Tao Source teacher reads climate paralysis as blockage — and names the practice that clears it.
+      metadata:
+        semantic_family: teacher-attention
+        article_types:
+        - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+    topic_subcases:
+    - threshold_news
+    - institutional_delay
+    intensity_range:
+    - 2
+    - 4

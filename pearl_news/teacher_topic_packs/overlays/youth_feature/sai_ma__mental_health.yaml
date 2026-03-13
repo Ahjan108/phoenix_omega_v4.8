@@ -1,0 +1,87 @@
+# Youth-feature overlay for sai_ma + mental_health (Dev 4 gold fixture)
+# Deep-merged onto teachers/sai_ma/mental_health.yaml when template_id=youth_feature.
+# Schema: PEARL_NEWS_EXPLAINER_YOUTH_FEATURE_OVERLAY_SPEC (youth-feature section).
+
+schema_version: 1
+template_id: youth_feature
+teacher_id: sai_ma
+topic: mental_health
+
+# Youth-feature-specific slot: teacher reflection (long block).
+teacher_reflection:
+  options:
+    - id: yf_sai_ma_mental_health_reflection_01
+      header: "What Sai Maa sees in the spiral"
+      paragraphs:
+        - "Her Holiness Sai Maa meets young people who have stopped asking whether the pressure is real and started asking whether they are broken. The mind races, the phone goes down, the phone comes back. By the time the spiral passes, they have already named themselves: I am the kind of person who cannot hold it together. She has watched this in teaching circles and in the stories that land after midnight. What she names is not anxiety disorder or a failure of coping. What she names is the confusion between consciousness and the storm moving through it."
+        - "In her tradition, consciousness is larger than whatever is moving through it. The intensity is real. The overwhelm is real. But it is not the final name of the self. When a young person says 'the spiral is who I am,' that is the moment the teaching meets them. The spiral is real. It is not the whole story. The capacity to see the spiral — to witness it without becoming it — is what the tradition has always protected. That capacity does not remove the pressure. It returns some space between the pressure and the person."
+        - "The reframe is the beginning of everything: you are not the storm. You are in contact with the storm. When that distinction lands, the spiral loses some of its authority to define the whole self. The goal is not to eliminate the pressure. It is to stop letting the pressure write the only story about who you are."
+      metadata:
+        semantic_family: "reflection-consciousness-vs-storm"
+        tone: "diagnostic-grounded"
+        article_types: ["youth_feature"]
+
+    - id: yf_sai_ma_mental_health_reflection_02
+      header: "What Sai Maa sees when overload becomes identity"
+      paragraphs:
+        - "After another week of deadlines, group chats, and news that will not stop, the young person has absorbed the message: I am overwhelmed. I am the one who cannot keep up. Her Holiness Sai Maa has sat with that moment. She has also seen what happens when someone is given a different frame. Overwhelm is not identity. It is a state that has been allowed to colonize the story of the self because the systems around that person never gave them space to separate the two."
+        - "Her teaching does not aim at suppression. It aims at enough steadiness that the mind can stop treating every surge as identity and start reading it as overload under pressure. When the spiral starts to own the room, the first move is not to think your way out. It is to recognize: this is a storm. I am the one witnessing the storm. That recognition does not remove the storm. It creates a small space where the person can breathe again."
+        - "That shift changes everything. What feels like something wrong with me is often accurate response to systems and speeds that no nervous system should have to normalize. The practice is not to become calm. It is to recover enough clarity that the next decision is still yours — to reach out, to rest, to act — instead of the spiral's."
+      metadata:
+        semantic_family: "reflection-overwhelm-vs-identity"
+        tone: "witnessing-reframe"
+        article_types: ["youth_feature"]
+
+# Youth-feature-specific slot: solutions (deterministic).
+solutions:
+  options:
+    - id: yf_sai_ma_mental_health_solutions_01
+      header: "What actually helps"
+      items:
+        - "Peer-led circles and listener training so the first response is not institutional. Speaking the spiral out loud, in a space that does not pathologize it, changes how it lands. One person witnessing the story changes the story."
+        - "Short, timed practices that work at midnight or before class — not as fixes but as ways to create space between the storm and the self. Enough clarity returns for the next honest move. Not elimination of the pressure but recovery of the capacity to choose."
+        - "School and campus policy that treats mental health support as infrastructure, not private weakness. Counselors who are not overwhelmed. Circles that can run every week. Permission to slow down when the system is tightest instead of pushing harder."
+        - "Explicit teaching that consciousness is larger than the storm. The student whose mind is racing is not broken; they are in contact with overload. Naming it differently changes what can happen next."
+      closing_line: "The goal is not to eliminate the spiral. It is to keep it from owning the whole story — so that the person can move again."
+      metadata:
+        article_types: ["youth_feature"]
+        semantic_family: "solutions-witness-and-clarity"
+
+    - id: yf_sai_ma_mental_health_solutions_02
+      header: "What schools and communities can do"
+      items:
+        - "Training adults to ask 'what is moving through you?' instead of 'what is wrong with you?' The storm is real. The person is not the storm. That distinction is what Sai Maa's tradition offers."
+        - "Spaces and times for young people to be together without performance. Not wellness theater but real permission to not be okay — and to still be seen, still included, still capable of the next move."
+        - "Access to practices that build the witness — the part of the self that can see the spiral without becoming it. Not as mental health intervention only but as basic literacy: how to recognize overload, how to separate it from identity."
+        - "Policy that treats support access as basic infrastructure. When the system normalizes unsustainable strain, the response is not 'young people need to cope better.' It is 'we need to create conditions where coping is possible.'"
+      closing_line: "Sai Maa's tradition teaches that consciousness is larger than the storm. The system's job is to create conditions where that truth can land — not to ask young people to carry the storm alone."
+      metadata:
+        article_types: ["youth_feature"]
+        semantic_family: "solutions-infrastructure-and-witness"
+
+# Optional youth-feature headline layer 2.
+title_system:
+  headline_layer_2:
+    options:
+      - id: yf_sai_ma_mental_health_headline_01
+        line: "Her Holiness Sai Maa on the difference between the spiral and the self."
+        metadata:
+          article_types: ["youth_feature"]
+      - id: yf_sai_ma_mental_health_headline_02
+        line: "Her Holiness Sai Maa names what the midnight spiral is really asking for."
+        metadata:
+          article_types: ["youth_feature"]
+
+# Optional practice override for youth feature.
+practice:
+  options:
+    - id: yf_sai_ma_mental_health_practice_override
+      display_name: "5-minute Overwhelm Reset"
+      duration: "5 minutes"
+      announcement_line: "Her Holiness Sai Maa teaches a 5-minute Overwhelm Reset for the moment when the spiral has been running and identity is starting to fuse with it. Use it at midnight, after the group chat, or before the next obligation. In the sidebar."
+      relief_lines:
+        - "The spiral loses some of its authority to define the whole self."
+        - "Enough clarity returns for the next honest decision."
+      relief_register: ["clarity", "capacity", "act again"]
+      derived_from_frame: "consciousness_vs_storm"
+      article_types: ["youth_feature"]

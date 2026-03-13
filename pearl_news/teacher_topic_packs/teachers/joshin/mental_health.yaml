@@ -1,0 +1,300 @@
+schema_version: 1
+teacher_id: joshin
+topic: mental_health
+active: true
+identity:
+  display_name: Joshin Sensei
+  attribution_name: Joshin Sensei
+  tradition: Mainstream Shingon Buddhism (Mikkyo)
+  tradition_short: Shingon Mikkyo
+  teacher_setting_options:
+  - practice hall
+  - temple
+  teacher_years: decades of teaching
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: overwhelm_identity
+    label: overwhelm taking over identity
+    loop: reads the warning -> mind races -> puts the phone down -> picks it up because
+      the spiral is already running
+    body_markers:
+    - mind racing
+    - breath
+    - stomach
+    digital_markers:
+    - puts the phone down
+    - picks it up
+topic_fit:
+  fit_level: primary
+  fit_reason: Mental-health strain maps to Shingon's distinction between the storm
+    and the inherent clarity that can hold it — Rigu no Jobutsu.
+  forbidden_angles:
+  - do not reduce this to generic wellness
+  - do not frame the pressure as personal weakness
+hook_personal:
+  options:
+  - id: hook_personal_01
+    line: The hardest moment is when the spiral starts sounding like your real voice.
+      That is where identity gets stolen.
+    semantic_family: personal-pressure
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: hook_big_picture_01
+    line: Youth mental overload is not only about symptom counts. It is about how
+      speed, fragmentation, and pressure begin to colonize identity from the inside.
+    semantic_family: system-pressure
+    angle: systemic-pressure
+    article_types:
+    - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: teacher_intro_01
+    line: Joshin Sensei, a Shingon teacher in the Mikkyo lineage, has watched in practice
+      sessions young people confuse overwhelm with who they are because the system
+      never gives them enough space to separate the two. Students are not asking how
+      to fake calm. They are asking how to stop living as if the storm is the self.
+    semantic_family: identity-seen-shift
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_intro_02
+    line: Joshin Sensei, a Shingon Buddhist teacher, has seen in the practice hall
+      what mental overload does when it starts to name the whole person. Young people
+      are not asking whether the pressure is real. They are asking how to find the
+      part of themselves that was never the storm — body, speech, and mind in one
+      gesture.
+    semantic_family: identity-seen-shift-alt
+    tone: grave
+    intensity: 4
+    article_types:
+    - hard_news_spiritual_response
+youth_somatic:
+  options:
+  - id: youth_somatic_01
+    line: 'You read the update after midnight. Your mind races. You put the phone
+      down. Then you pick it up again because the spiral is already running.
+
+      LOOP_SEQUENCE: "read the update. mind raced. put the phone down. picked it up
+      again."'
+    loop_type: overwhelm_identity
+    body_register: mind racing
+    digital_behavior: puts the phone down
+    article_types:
+    - hard_news_spiritual_response
+  - id: youth_somatic_02
+    line: 'You saw the headline in a group chat. Your breath got shallow. You closed
+      the app. Then you opened it again because not looking did not stop the loop.
+
+      LOOP_SEQUENCE: "saw the headline. breath got shallow. closed the app. opened
+      it again."'
+    loop_type: overwhelm_identity
+    body_register: breath
+    digital_behavior: close-return
+    article_types:
+    - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: teacher_witness_01
+    line: Joshin Sensei has watched this exact loop in young people — the warning
+      lands, thought speeds up, the phone goes down, and then the same pressure pulls
+      the hand back again.
+    semantic_family: loop-mirror
+    loop_type: overwhelm_identity
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_witness_02
+    line: He has seen that sequence in students this year — the read, the race, the
+      put-down, the return. The body and the device keep repeating what the mind cannot
+      yet separate from identity.
+    semantic_family: loop-mirror-alt
+    loop_type: overwhelm_identity
+    article_types:
+    - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: turnaround_01
+    stat_line_1: 320 campuses. 18 countries.
+    stat_line_2: Youth organizers are hosting peer circles, organizing listener training,
+      and forcing schools to treat mental health support as infrastructure, not private
+      weakness.
+    semantic_family: institutional-action
+    article_types:
+    - hard_news_spiritual_response
+  - id: turnaround_02
+    stat_line_1: 320 campuses. 18 countries.
+    stat_line_2: Young people are building peer support, organizing campaigns and
+      hosting better access, and documenting what actually works when the spiral starts
+      to own the room.
+    semantic_family: institutional-action-alt
+    article_types:
+    - hard_news_spiritual_response
+bridge:
+  options:
+  - id: bridge_01
+    line: '320 campuses. 18 countries. The tracker measures peer circles and campaigns.
+      It has no column for what made the next honest reach possible after another
+      week of overload — the clarity that lets the storm be real without letting it
+      become identity. The person who put the phone down and picked it up again needed
+      that. Joshin Sensei''s Shingon tradition has a name for it: the inherent awakened
+      nature that the storm cannot finally erase.'
+    hidden_capacity: clarity that the storm is not the self
+    semantic_family: tracker-capacity
+    article_types:
+    - hard_news_spiritual_response
+  - id: bridge_02
+    line: Mental health trackers count programs and wait times. They do not count
+      the inner alignment that lets a young person separate overwhelm from who they
+      are — body, speech, and mind returning to one gesture. That alignment is what
+      the next peer supporter needs. It is what the reader who reopened the app needs
+      too. Joshin Sensei's tradition has been practising it for over a millennium.
+    hidden_capacity: separate overwhelm from identity
+    semantic_family: tracker-capacity-alt
+    article_types:
+    - hard_news_spiritual_response
+teacher_perspective:
+  options:
+  - id: teacher_perspective_01
+    header: What Joshin Sensei Sees
+    paragraphs:
+    - 'Joshin begins with a distinction: in Shingon, consciousness is larger than
+      the storm moving through it. Rigu no Jobutsu means the inherent awakened worth
+      is already present. The intensity is real. It is not the final name of the self.'
+    - That is why his teaching does not aim at suppression. It aims at enough alignment
+      — body, speech, mind — that the mind can stop treating every surge as identity
+      and start reading it as overload under pressure.
+    - The reframe matters. What feels like something wrong with me is often accurate
+      response to systems and speeds that no nervous system should have to normalize.
+      The practice is to return to the gesture that was never broken.
+    semantic_family: teacher-diagnosis
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_perspective_02
+    header: What Joshin Sensei Sees
+    paragraphs:
+    - 'Joshin Sensei reads mental overload through Sanmitsu: when the mind races,
+      the body and speech go with it. The first move is not to think your way out.
+      It is to bring the three mysteries back into one — mudra, mantra, visualization
+      — so the storm has a container.'
+    - 'Sokushin Jobutsu applies here: this body, in this moment, can be the site of
+      clarity. The spiral is not proof that you are broken. It is proof that the system
+      is overloading the very capacity that practice is designed to protect.'
+    - In that frame, self-blame softens. The problem is not that young people are
+      too sensitive or that I am wrong for feeling overloaded. The problem is that
+      a system and institutional structure keep asking them to hold more than one
+      nervous system should. Shingon gives a method to hold the line in this body
+      anyway.
+    semantic_family: teacher-diagnosis-alt
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+practice:
+  default_id: practice_01
+  options:
+  - id: practice_01
+    display_name: 5-minute Sanmitsu Overwhelm Reset
+    duration: 5 minutes
+    announcement_line: Joshin Sensei teaches a 5-minute Sanmitsu Overwhelm Reset for
+      the moment when racing thought is starting to own the room. It is in the sidebar,
+      timed and direct.
+    relief_lines:
+    - The pressure stops naming the whole self.
+    - Enough steadiness returns for the next honest move.
+    relief_register:
+    - clarity
+    - capacity
+    - act again
+    derived_from_frame: primary
+    article_types:
+    - hard_news_spiritual_response
+  - id: practice_02
+    display_name: Sanmitsu Alignment
+    duration: 5 minutes
+    announcement_line: Joshin Sensei teaches a 5-minute Sanmitsu Alignment for when
+      the spiral is already running. It is in the sidebar, short enough to use after
+      midnight or before the next obligation.
+    relief_lines:
+    - Body, speech, and mind return to one gesture.
+    - The storm remains real; it no longer owns identity.
+    relief_register:
+    - clarity
+    - capacity
+    - act again
+    derived_from_frame: primary
+    article_types:
+    - hard_news_spiritual_response
+sdg:
+  primary:
+    id: SDG 3
+    title: Good Health and Well-Being
+    line: The United Nations has a framework for this through SDG 3 and its good health
+      and well-being targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United
+      Nations.
+cta:
+  options:
+  - id: cta_01
+    org: Active Minds
+    line: 'Active Minds and Born This Way Foundation both offer youth-facing entry
+      points here. Door in: https://www.activeminds.org'
+    semantic_family: door-in
+    article_types:
+    - hard_news_spiritual_response
+  - id: cta_02
+    org: Born This Way Foundation
+    line: 'If that is not your next step, Born This Way Foundation works the same
+      space with a focus on kindness and mental wellness. Door in: join their network.'
+    semantic_family: door-in-alt
+    article_types:
+    - hard_news_spiritual_response
+title_system:
+  headline_layer_1:
+    options:
+    - id: headline_layer_1_01
+      line: Youth Overload Turns Dangerous When It Sounds Like The Self.
+      semantic_family: title
+      article_types:
+      - hard_news_spiritual_response
+  headline_layer_2:
+    options:
+    - id: headline_layer_2_01
+      line: Joshin Sensei names the split between the storm and the clarity that can
+        hold it.
+      semantic_family: subtitle
+      article_types:
+      - hard_news_spiritual_response
+    - id: headline_layer_2_02
+      line: Joshin Sensei reads mental overload through body, speech, and mind — and
+        what this body can do about it.
+      semantic_family: subtitle-alt
+      article_types:
+      - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    topic_subcases:
+    - overwhelm
+    - support-gap
+    intensity_range:
+    - 2
+    - 4

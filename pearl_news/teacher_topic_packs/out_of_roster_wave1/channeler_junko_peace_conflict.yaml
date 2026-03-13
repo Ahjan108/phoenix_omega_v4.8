@@ -1,0 +1,149 @@
+# Out of roster (teacher_news_roster.yaml): channeler_junko news_topics do not include peace_conflict. Preserved for future wave.
+schema_version: 1
+teacher_id: channeler_junko
+topic: peace_conflict
+active: true
+
+identity:
+  display_name: Channeler Junko
+  attribution_name: Channeler Junko
+  tradition: Contemporary Japanese channeling and light-language spirituality
+  tradition_short: Japanese channeling
+  teacher_setting_options:
+    - receiving space
+    - transmission
+  teacher_years: decades
+  affiliation_safe_line: teaches within the Japanese channeling tradition
+  launch_approved: true
+
+persona:
+  id: gen_z_alpha
+  age_band: "13-29"
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+    - school
+    - phone
+    - group chat
+    - late-night scrolling
+    - part-time work
+  tie_to_real_world_struggles:
+    - id: conflict_receive_loop
+      label: conflict alert and the need to receive when the field is fragmented
+      loop: reads the conflict alert -> body tightens -> stops for a second -> checks again because the danger is real
+      body_markers: ["chest", "jaw", "breath"]
+      digital_markers: ["reads the alert", "freezes", "checks again"]
+
+topic_fit:
+  fit_level: primary
+  fit_reason: "Japan's relationship with natural disaster has always included a spiritual dimension: living with uncertainty as a discipline. For young people navigating conflict, the tradition offers receiving as a practice when the field is fragmented and the intellect has no answer."
+  forbidden_angles:
+    - "do not reduce to generic wellness"
+    - "do not frame the pressure as personal weakness"
+
+teacher_intro:
+  options:
+    - id: junko_peace_intro_01
+      line: "Channeler Junko, a teacher of Japanese channeling and light-language spirituality, has seen young people carry conflict pressure as both fear and responsibility. In her framework Japan's relationship with natural disaster has always included a spiritual dimension: the recognition that human settlement exists within forces larger than human control, and that the appropriate response is not only analysis but the practice of receiving when the intellect is exhausted."
+      metadata:
+        semantic_family: identity_seen_shift
+        tone: plain
+        intensity: 3
+        article_types: ["hard_news_spiritual_response", "commentary"]
+
+youth_somatic:
+  options:
+    - id: junko_peace_somatic_01
+      line: "You read the conflict alert. Your chest tightens. You stop for a second. Then you check again because the danger is real."
+      metadata:
+        loop_type: conflict_alert_loop
+        body_register: chest
+        digital_behavior: reads the alert
+        article_types: ["hard_news_spiritual_response"]
+
+teacher_witness:
+  options:
+    - id: junko_peace_witness_01
+      line: "Junko has seen this exact loop in those who come to receive. In her framework that contraction is not cowardice; it is the soul registering a fragmented field and asking for a different kind of response than the mind can produce."
+      metadata:
+        semantic_family: loop-mirror
+        loop_type: conflict_alert_loop
+        article_types: ["hard_news_spiritual_response"]
+
+turnaround:
+  options:
+    - id: junko_peace_turnaround_01
+      stat_line_1: "Youth peacebuilders and dialogue networks."
+      stat_line_2: "Young people are leading dialogue, restorative practices, and campaigns that treat conflict as something that can be met with clarity and collective healing."
+      metadata:
+        semantic_family: institutional-action
+        article_types: ["hard_news_spiritual_response"]
+
+bridge:
+  options:
+    - id: junko_peace_bridge_01
+      line: "The tracker measures ceasefires and treaties. It has no column for what made the next act of peacebuilding possible - the capacity to receive guidance when the field is fragmented and the mind has no answer. Junko's tradition holds that light language and transmission carry direct messages that reach the soul before the mind; in conflict that is not escape, it is the practice of alignment from which a response that does not reproduce violence can emerge."
+      hidden_capacity: "receive when the field is fragmented so response does not reproduce violence"
+      metadata:
+        semantic_family: tracker-capacity
+        article_types: ["hard_news_spiritual_response", "commentary"]
+
+teacher_perspective:
+  options:
+    - id: junko_peace_perspective_01
+      header: "What Junko Sees"
+      paragraphs:
+        - "For young people navigating a future of intensified conflict and uncertainty, the tradition offers a resource that purely technical analysis does not: the practice of living with uncertainty as a spiritual discipline rather than merely a risk-management problem. Japan's relationship with natural disaster has always included this dimension: human settlement exists within forces that are larger than human control."
+        - "Light language and transmission work not through conceptual meaning but through vibrational resonance. In conflict that is not escape; it is the practice of alignment from which a response that does not reproduce violence can emerge. The soul remembers what the mind is still arguing with."
+        - "What feels like private freeze is often accurate soul-level registration of a fragmented field. Receiving practice does not fix the conflict; it restores the channel so that the next response can come from clarity rather than from reproduction of harm."
+      metadata:
+        semantic_family: soul_remembrance_reframe
+        reframe_type: self_to_system
+        article_types: ["hard_news_spiritual_response", "commentary"]
+
+practice:
+  default_id: junko_peace_practice_01
+  options:
+    - id: junko_peace_practice_01
+      display_name: "Receiving Practice"
+      duration: "5 minutes"
+      announcement_line: "Channeler Junko teaches a 5-minute Receiving practice for moments when conflict news has fragmented the field and the mind has no answer. It is in the sidebar, timed and step by step."
+      relief_lines:
+        - "The mind stops converting danger into freeze or reactive rage."
+        - "What the soul already knows can surface when the channel is open - and from there a response that does not reproduce harm becomes possible."
+      relief_register: ["receive", "clarity", "response"]
+      derived_from_frame: receiving_guidance
+      metadata:
+        article_types: ["hard_news_spiritual_response", "commentary"]
+
+sdg:
+  primary:
+    id: "SDG 16"
+    title: "Peace, Justice and Strong Institutions"
+    line: "The United Nations framework through SDG 16 includes peaceful societies, access to justice, and institutions that do not reproduce violence."
+  fallback_un_tie:
+    line: "Pearl News is an independent nonprofit. We are not affiliated with the United Nations."
+
+cta:
+  options:
+    - id: junko_peace_cta_01
+      org: "Youth peacebuilding"
+      line: "Youth-led peacebuilding and dialogue organizations offer entry points for those who want to respond to conflict with clarity and collective healing."
+      metadata:
+        semantic_family: door-in-peace
+        article_types: ["hard_news_spiritual_response"]
+
+title_system:
+  headline_layer_2:
+    options:
+      - id: junko_peace_headline_01
+        line: "A Japanese channeler names what conflict does to the field - and the practice that opens the channel when the mind has no answer."
+        metadata:
+          semantic_family: teacher-attention
+          article_types: ["hard_news_spiritual_response"]
+
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: "article_id + slot + teacher_id + topic"
+  metadata_filters:
+    article_types: ["hard_news_spiritual_response", "commentary"]
+    intensity_range: [2, 4]

@@ -1,0 +1,217 @@
+schema_version: 1
+teacher_id: omote
+topic: climate
+active: true
+
+identity:
+  display_name: Omote
+  attribution_name: Omote
+  tradition: Japanese Sacred Way-of-Life and Purification Teaching
+  tradition_short: Japanese sacred way-of-life
+  teacher_setting_options:
+    - "practice space"
+    - "ritual space"
+  teacher_years: "lineage-bearing"
+  affiliation_safe_line: "Japanese traditional wisdom teacher"
+  launch_approved: true
+
+persona:
+  id: gen_z_alpha
+  age_band: "13-29"
+  default_register: "phone-native, high-pressure, institution-skeptical"
+  daily_worlds:
+    - school
+    - phone
+    - group chat
+    - late-night scrolling
+    - part-time work
+  tie_to_real_world_struggles:
+    - id: climate_accumulation
+      label: "accumulated residue from constant climate news"
+      loop: "reads the update -> something accumulates -> closes app -> reopens because truth remains"
+      body_markers: ["chest", "throat", "heaviness"]
+      digital_markers: ["close", "reopen", "scroll", "check again"]
+
+topic_fit:
+  fit_level: primary
+  fit_reason: "Climate distress accumulates as residue; the Japanese tradition offers purification and honest facing rather than denial or collapse."
+  forbidden_angles:
+    - "do not reduce to generic resilience"
+    - "do not frame distress as personal weakness"
+
+hook_personal:
+  options:
+    - id: hook_personal_01
+      line: "You care more about the planet than ever. You also feel something accumulating every time the next number drops — and nobody is teaching you how to clear it."
+      semantic_family: "care-vs-accumulation"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response"]
+hook_big_picture:
+  options:
+    - id: hook_big_picture_01
+      line: "Climate information is not only factual. It accumulates in young people as unprocessed residue — and the system has no ritual for what to do when the weight of that accumulation becomes unbearable."
+      semantic_family: "accumulation"
+      angle: "purification"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_intro:
+  options:
+    - id: teacher_intro_01
+      line: "Omote, a teacher of the Japanese sacred way-of-life and purification, has watched young people carry climate fear as accumulated weight. They are not asking whether the crisis is real. They are asking how to clear what has accumulated so that they can act again without carrying the full residue of every update."
+      semantic_family: "identity_seen_shift"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response", "commentary"]
+    - id: teacher_intro_02
+      line: "Omote teaches from the Japanese tradition of purification and Yamato-gokoro — the sincere heart-mind. He has seen what constant climate updates do when they land faster than the capacity to cleanse: the oni of helplessness and despair takes root. The tradition offers a practice of honest facing and release."
+      semantic_family: "identity_seen_shift_alt"
+      tone: grave
+      intensity: 4
+      article_types: ["hard_news_spiritual_response", "commentary"]
+
+youth_somatic:
+  options:
+    - id: climate_accumulation_01
+      line: "You read the update in a group chat. Something heavy landed and stayed. You closed the app. Then you opened it again because not looking did not make the number less true.\nLOOP_SEQUENCE: \"read the update. something heavy stayed. closed the app. opened it again.\""
+      loop_type: "read-accumulate-close-return"
+      body_register: "heaviness"
+      digital_behavior: "close-return"
+      article_types: ["hard_news_spiritual_response"]
+    - id: climate_accumulation_02
+      line: "You saw the new threshold before class. Your throat and chest felt full. You put your phone face down. Then you picked it up again because the future does not wait for you to feel ready.\nLOOP_SEQUENCE: \"saw the threshold. throat and chest full. put the phone down. picked it up again.\""
+      loop_type: "read-accumulate-close-return"
+      body_register: "fullness"
+      digital_behavior: "put-down-return"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_witness:
+  options:
+    - id: witness_01
+      line: "Omote has seen this exact loop in young people — the reading, the accumulation, the closing, the return. The Japanese tradition does not pathologize it; it names it as residue that needs purification, not denial."
+      semantic_family: "loop-mirror"
+      loop_type: "read-accumulate-close-return"
+      article_types: ["hard_news_spiritual_response"]
+    - id: witness_02
+      line: "He has watched that sequence — the number arrives, something accumulates, the app closes, and then the mind goes back because reality is still there. The tradition holds that living accumulates residue; the practice is to clear it with honesty and care."
+      semantic_family: "loop-mirror-alt"
+      loop_type: "read-accumulate-close-return"
+      article_types: ["hard_news_spiritual_response"]
+
+turnaround:
+  options:
+    - id: youth_action_climate_01
+      stat_line_1: "2,666 cases. 51 jurisdictions."
+      stat_line_2: "Students and youth coalitions are training peers, building campaigns, and forcing officials to answer the gap between public targets and lived reality."
+      semantic_family: "institutional-action"
+      article_types: ["hard_news_spiritual_response"]
+    - id: youth_action_climate_02
+      stat_line_1: "2,666 cases. 51 jurisdictions."
+      stat_line_2: "Young organizers are still filing cases, hosting workshops, and documenting local losses even when national governments keep moving slower than the heat."
+      semantic_family: "institutional-action-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+bridge:
+  options:
+    - id: bridge_01
+      line: "2,666 cases. 51 jurisdictions. The tracker measures what young people did. It has no column for what made the next filing possible after the last delay — the capacity to clear what had accumulated so that action could flow again. The organizer who filed the next case needed that capacity. So does the person who read the update, closed the app, and opened it again. Omote's tradition has been developing purification and service for generations."
+      hidden_capacity: "clear what has accumulated so action can flow again"
+      semantic_family: "tracker-capacity"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+    - id: bridge_02
+      line: "Climate trackers count cases, targets, and thresholds. They do not count the inner capacity that lets a young person face what has accumulated — grief, helplessness, despair — and release it through honest practice rather than denial or collapse. That capacity is what the next organizer needs. It is what the reader who reopened the app needs too. Omote's tradition calls it purification: not magical erasure, but the honest discipline of restoring clarity."
+      hidden_capacity: "face and release what has accumulated"
+      semantic_family: "tracker-capacity-alt"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+
+teacher_perspective:
+  options:
+    - id: perspective_01
+      header: "What Omote Sees"
+      paragraphs:
+        - "In the Japanese sacred tradition, purification is not punishment for being affected. It is the recognition that living accumulates residue — emotional, relational, spiritual — and that regular cleansing is as necessary for the inner life as it is for the body. Young people who carry the accumulated weight of climate updates, institutional delay, and unprocessed fear need not a diagnosis but a practice of release that the tradition has always provided through ritual, water, breath, and intentional stillness."
+        - "Omote teaches that the oni — the inner affliction that takes root when grief or despair is not faced — is not an enemy to be destroyed but a condition to be purified. When climate distress is met with honest seeing and release rather than denial or performance, the capacity to act again becomes available."
+        - "The shift matters here: what feels like private collapse is often accurate response to systemic delay, and the residue of that response can be cleared. The tradition does not ask you to stop feeling; it asks you to face what has accumulated and release it so that the next action can come from clarity."
+      semantic_family: "purification-oni"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+    - id: perspective_02
+      header: "What Omote Sees"
+      paragraphs:
+        - "Omote reads climate distress through the lens of Yamato-gokoro — the sincere heart-mind that does not look away from what is painful. When every update arrives as proof that institutions waited too long, the tradition does not ask for numbness or performance of calm. It asks for honest facing: what has accumulated, and what practice can clear it?"
+        - "From there he turns to helping others. The tradition's core teaching is that service is what ultimately saves ourselves. The young person who clears their own residue is better able to act for others; the one who acts for others often finds that the act of service itself becomes a form of purification."
+        - "In that frame, self-blame softens. The problem is not that young people care too much. The problem is that the system has left them to carry accumulation without a practice of release. Omote's tradition offers that practice."
+      semantic_family: "purification-oni-alt"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+
+practice:
+  default_id: practice_01
+  options:
+    - id: practice_01
+      display_name: "Purification and Service Practice"
+      duration: "4 minutes"
+      announcement_line: "Omote teaches a 4-minute Purification and Service Practice for moments when climate information keeps converting into accumulated weight. It is in the sidebar, timed and step by step."
+      relief_lines:
+        - "What has accumulated can be faced and released."
+        - "Clarity returns, and with it the capacity to act again."
+      relief_register: ["capacity", "clarity", "act again"]
+      derived_from_frame: "purification_service"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+    - id: practice_02
+      display_name: "Purification and Service Practice"
+      duration: "4 minutes"
+      announcement_line: "Omote teaches a 4-minute Purification and Service Practice for when climate numbers turn into helplessness or despair. It is in the sidebar, short enough to use before class, after scrolling, or before the next meeting."
+      relief_lines:
+        - "The oni of despair is met with honest seeing, not denial."
+        - "Enough clarity returns for the next real action."
+      relief_register: ["capacity", "release", "act again"]
+      derived_from_frame: "purification_service"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+
+sdg:
+  primary:
+    id: "SDG 13"
+    title: "Climate Action"
+    line: "The United Nations has a framework for exactly this gap through SDG 13 and its climate education and resilience targets."
+  fallback_un_tie:
+    line: "Pearl News is an independent nonprofit. We are not affiliated with the United Nations."
+
+cta:
+  options:
+    - id: youngo_01
+      org: "YOUNGO"
+      line: "The Climate Reality Project and YOUNGO both run youth-facing entry points into this work. Door in: https://youngoclimate.org"
+      semantic_family: "door-in-climate"
+      article_types: ["hard_news_spiritual_response"]
+    - id: una_usa_01
+      org: "UNA-USA"
+      line: "If that is not your next step, UNA-USA works the same framework at the local-to-global level."
+      semantic_family: "door-in-una"
+      article_types: ["hard_news_spiritual_response"]
+
+title_system:
+  headline_layer_1:
+    options:
+      - id: threshold_warning_01
+        line: "1.55°C Is No Longer a Warning."
+        semantic_family: "threshold-finality"
+        article_types: ["hard_news_spiritual_response"]
+  headline_layer_2:
+    options:
+      - id: omote_purification_01
+        line: "A Japanese tradition teacher names what climate stress accumulates — and offers a practice to clear it."
+        semantic_family: "teacher-purification"
+        article_types: ["hard_news_spiritual_response"]
+      - id: omote_oni_01
+        line: "Omote reads climate despair as something to purify, not to carry alone."
+        semantic_family: "teacher-oni"
+        article_types: ["hard_news_spiritual_response"]
+
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: "article_id + slot + teacher_id + topic"
+  metadata_filters:
+    article_types: ["hard_news_spiritual_response", "commentary"]
+    topic_subcases: ["threshold_news", "institutional_delay"]
+    intensity_range: [2, 4]

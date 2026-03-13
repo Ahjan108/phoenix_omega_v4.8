@@ -1,0 +1,277 @@
+schema_version: 1
+teacher_id: ra
+topic: economy_work
+active: true
+identity:
+  display_name: Ra
+  attribution_name: Teacher Ra
+  tradition: Advaita Vedanta
+  tradition_short: Advaita Vedanta
+  teacher_setting_options:
+  - satsang
+  - circle
+  teacher_years: decades of teaching
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: vigilance_blame_cycle
+    label: economic precarity converting into self-surveillance and self-blame
+    loop: checks shift app -> stomach drops -> screenshots before it changes -> reads the rules again
+    body_markers:
+    - stomach
+    - chest
+    - jaw
+    digital_markers:
+    - checks shift app
+    - screenshots
+topic_fit:
+  fit_level: primary
+  fit_reason: Economic precarity fits Ra when young people are run by the pattern that says if you are struggling financially, something is wrong with you personally — and gig economy forces constant vigilance that the pattern converts into self-blame. The tradition offers a way to see the conditioning and access the capacity to see the system clearly.
+  forbidden_angles:
+  - do not reduce to generic financial advice
+  - do not frame economic struggle as personal weakness
+diagnostic_frames:
+  default_id: precarity_conditioning
+  options:
+  - id: precarity_conditioning
+    key_term: conditioning
+    key_term_gloss: the inherited pattern that says if you are struggling financially, something is wrong with you personally — what the tradition calls misidentification with the body-mind. The vigilance required by precarity converts that pattern into constant self-surveillance because awareness is identified with the role of worker rather than resting as the witness
+    diagnosis_line: The body is not malfunctioning; it is accurately running patterns installed long before economic systems created the conditions of volatility and surveillance.
+    self_to_system_reframe: What feels like private shame is often the pattern running; you are the one who can see it and choose from dignity instead of self-surveillance.
+    what_normal_analysis_misses: How the vigilance-blame cycle is conditioning, not character — and how dignity and clarity about the system return when the pattern is seen clearly.
+    youth_specific_tie: Young people navigating economic precarity are often running patterns that convert system-level volatility into personal blame, and the tradition offers a way to see that pattern and release it.
+    approved_quote_lines:
+    - you are not the pattern; you are the one who can see it
+    - economic precarity is not proof that something is wrong with you
+    banned_lines:
+    - everything happens for a reason
+    - just work harder
+hook_personal:
+  options:
+  - id: hook_personal_01
+    line: You check the shift app. Your stomach drops. You screenshot before it changes. Then you read the rules again because the shift did not come back and the tightness will not leave.
+    semantic_family: personal-pressure
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+  - id: hook_personal_02
+    line: The hardest part is not only the financial instability. It is the instability inside a system that still blames you for it — and the pattern that says if you are struggling, something is wrong with you personally is running automatically.
+    semantic_family: personal-pressure-alt
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: hook_big_picture_01
+    line: 'Economic precarity is also an order problem: the patterns that run when the gig economy forces constant vigilance are not personal defects. They are what runs when the system has made volatility the expected condition and surveillance the condition of survival.'
+    semantic_family: system-pressure
+    angle: systemic-pressure
+    article_types:
+    - hard_news_spiritual_response
+  - id: hook_big_picture_02
+    line: Youth economic distress is about more than money. It is about the inherited patterns — the conditioning that converts precarity into personal blame, the reflex to check and re-check the app without returning to what you actually deserve.
+    semantic_family: system-pressure-alt
+    angle: systemic-pressure
+    article_types:
+    - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: teacher_intro_01
+    line: Teacher Ra, a Bangalore-born teacher in the Advaita Vedanta tradition — steeped in the Upanishads and the inquiry of Ramana Maharshi — has watched in practice sessions young people carry economic precarity as if it were proof of personal failure. They are not asking only how to earn more money. They are asking how to see the pattern that converts the gig economy's volatility into self-blame — so they can access the clarity and dignity that lets them see the system clearly.
+    semantic_family: identity-seen-shift
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_intro_02
+    line: Teacher Ra, from the Advaita Vedanta tradition — who quotes Nisargadatta as easily as he quotes the Bhagavad Gita — has seen in practice sessions in satsang what happens when the shift cancels or the work dries up and the old patterns take over — the conditioning that says if you are struggling, you are failing, the reflex to check and screenshot and self-surveil without returning to what you actually deserve. They are not asking for reassurance. They are asking how to see the pattern clearly enough to choose a response that comes from dignity rather than shame.
+    semantic_family: identity-seen-shift-alt
+    tone: grave
+    intensity: 4
+    article_types:
+    - hard_news_spiritual_response
+youth_somatic:
+  options:
+  - id: youth_somatic_01
+    line: 'You check the shift app. Your stomach drops. You screenshot before it changes. Then you read the rules again because the shift vanished and the feeling that something is wrong with you did not.
+
+      LOOP_SEQUENCE: "checked the app. stomach dropped. took screenshot. read the rules again."'
+    loop_type: vigilance_blame_cycle
+    body_register: stomach
+    digital_behavior: screenshots
+    article_types:
+    - hard_news_spiritual_response
+  - id: youth_somatic_02
+    line: 'You saw the gig work cancelled. Your chest locked. You checked the app again. Then you checked again because the tightness was telling you it was your fault and you needed to fix it.
+
+      LOOP_SEQUENCE: "saw the cancellation. chest locked. checked the app. checked again."'
+    loop_type: vigilance_blame_cycle
+    body_register: chest
+    digital_behavior: checks the app
+    article_types:
+    - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: teacher_witness_01
+    line: Ra has seen this exact loop — the app shows volatility, the stomach drops, the screenshot happens, and the rules are read again because the unresolved shame is still running.
+    semantic_family: loop-mirror
+    loop_type: vigilance_blame_cycle
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_witness_02
+    line: He has watched that sequence in young people — the check, the drop, the screenshot, the return. The pattern is running; the question is whether you can see it clearly enough to choose something other than the cycle of self-surveillance.
+    semantic_family: loop-mirror-alt
+    loop_type: vigilance_blame_cycle
+    article_types:
+    - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: turnaround_01
+    stat_line_1: Youth worker organizing is building collective power and system literacy.
+    stat_line_2: Young workers are forming gig worker collectives, documenting algorithmic discrimination, and organizing campaigns and hosting transparency about how apps control work. The pattern of individual shame is being interrupted by the pattern of collective power and clear seeing.
+    semantic_family: institutional-action
+    article_types:
+    - hard_news_spiritual_response
+  - id: turnaround_02
+    stat_line_1: Youth are organizing economic justice and worker dignity movements.
+    stat_line_2: Young people are organizing workshops, hosting campaigns, and young people are convening wage-justice circles, mapping precarity across industries, and asking who benefits from the volatility system. The pattern of self-surveillance is being replaced by the pattern of seeing the system clearly and acting collectively.
+    semantic_family: institutional-action-alt
+    article_types:
+    - hard_news_spiritual_response
+bridge:
+  options:
+  - id: bridge_01
+    line: 'Economic trackers measure growth and employment rates. They do not count the capacity to read the shift change, let the drop move through, and return to what you actually deserve — the capacity to see the system clearly and act with others instead of cycling through checking and self-blame. The young worker who will convene the next collective needs it. So does the one who checked the app again because the pattern would not release. Ra''s tradition has been developing that capacity for generations: you are not the gig worker who is failing — you are the unchanging witness in whom the precarity appears. When that is seen, shame loosens and the capacity to act from dignity returns.'
+    hidden_capacity: see the pattern and the system; choose from dignity
+    semantic_family: tracker-capacity
+    article_types:
+    - hard_news_spiritual_response
+  - id: bridge_02
+    line: Labor reports count jobs and wages. They do not count the inner capacity that lets a young worker rest in what they actually deserve when the app is trying to convince them that volatility is their fault. That capacity is what the next honest choice needs. It is what the person who took the screenshot and read the rules again needs too. Ra's tradition holds that you were never the pattern — you are the unchanging awareness in which the pattern appears. You are not trying to become worthy. You are trying to stop pretending you are not already the witness of a system that was designed to make you forget that.
+    hidden_capacity: rest in what you actually deserve; access the capacity to see systems and choose
+    semantic_family: tracker-capacity-alt
+    article_types:
+    - hard_news_spiritual_response
+teacher_perspective:
+  options:
+  - id: teacher_perspective_01
+    header: What Ra Sees
+    paragraphs:
+    - 'Ra reads youth economic precarity through conditioning: the inherited patterns of thought, emotion, and reaction that run automatically when awareness is elsewhere. The tradition does not pathologize that precarity or the shame it generates; it names what is running. When you see the pattern clearly — the fear that says if you are struggling, something is wrong with you, the reflex to surveil the app without returning to what you deserve — you are not the pattern. You are the one who can see it. That distance is the beginning of the capacity to see the system and choose from dignity.'
+    - Integrated awakening means the shift is not a peak experience but something that walks with you into the work itself and the organizing. The question is not how to feel stable all day. The question is how to pause when the volatility hits, name what is running, and choose one response that comes from clarity rather than habit. The tradition holds that trust is the willingness to let go of what the mind insists on and rest in what awareness already knows — in this case, what you actually know about your worth and what fair work requires.
+    - That reframe is the beginning of relief. The precarity stops being proof that something is wrong with you and starts being evidence that a pattern is running — the pattern that converts system-level volatility into personal blame. The disorder is not only psychological; it is the gap between an economic system designed for surveillance and precarity and the capacity to see clearly under those conditions. Ra's tradition offers a practice for that gap — not to make the system okay, but to free your own capacity so you can see it clearly and act from dignity.
+    semantic_family: teacher-diagnosis
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_perspective_02
+    header: What Ra Sees
+    paragraphs:
+    - 'In Ra''s tradition, awakening that is lived and grounded in daily life — not a peak experience but a sustained shift in how you meet reality — is what integration means. Young people navigating economic precarity are often trying to fix at the level of content what can only shift at the level of seeing: the pattern that says if you are struggling, you are broken, that the volatility is your fault, that you have to perform gratitude in the face of unfair conditions. When you see that pattern clearly, it loses its grip.'
+    - The tradition distinguishes between what the mind insists on and what awareness already knows. The body that dropped, the app that was checked again and again, the screenshots — that is the pattern running. The one who can notice that is already free of it in that moment. The practice is to return to that noticing, not to fix the pattern by force or bypass it with false optimism about individual hustle.
+    - 'In that frame, the distress itself becomes information: accurate response to a system that has made precarity and surveillance the condition of work. Self-blame softens. The problem is not that you are broken. The problem is that the gig economy has been designed to externalize risk to workers and convert that risk into shame. Ra''s tradition gives you a way to see the pattern, name it, and choose one response that comes from what you actually know — one that lets you see the system clearly and act with others from dignity.'
+    semantic_family: teacher-diagnosis-alt
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+practice:
+  default_id: practice_01
+  options:
+  - id: practice_01
+    display_name: '"Who''s Noticing?" Pause'
+    duration: 5 minutes
+    announcement_line: Ra teaches a 5-minute "Who's Noticing?" pause for the moment when the shift cancels or the work dries up and the vigilance-blame cycle is taking over — one question that returns awareness to the one who is aware. It is in the sidebar, exact and usable.
+    relief_lines:
+    - The pattern stops running the whole show.
+    - Enough clarity returns to see from dignity again.
+    relief_register:
+    - dignity
+    - self-surveillance
+    - volatility
+    derived_from_frame: precarity_conditioning
+    article_types:
+    - hard_news_spiritual_response
+  - id: practice_02
+    display_name: '"Who''s Noticing?" Pause'
+    duration: 5 minutes
+    announcement_line: Ra teaches a 5-minute "Who's Noticing?" pause for after the shift cancellation or precarity news hits and you need to return to what you actually deserve before the next app check or conversation. One question — who is noticing the shame? — and the spiral pauses. It is in the sidebar, timed for the moment between the trigger and the spiral.
+    relief_lines:
+    - The self-surveillance loop pauses.
+    - Enough steadiness returns to see the system clearly and choose from what you deserve.
+    relief_register:
+    - dignity
+    - clarity
+    - system-sight
+    derived_from_frame: precarity_conditioning
+    article_types:
+    - hard_news_spiritual_response
+sdg:
+  primary:
+    id: SDG 8
+    title: Decent Work and Economic Growth
+    line: The United Nations has a framework for this through SDG 8 and its decent work and economic growth targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United Nations.
+cta:
+  options:
+  - id: cta_01
+    org: Young Workers United and Gig Workers Rising
+    line: 'Youth-led worker organizations offer entry points into collective organizing, wage justice, and gig worker solidarity. Door in: https://youngworkersunited.org and https://gigworkersrising.org'
+    semantic_family: door-in
+    article_types:
+    - hard_news_spiritual_response
+  - id: cta_02
+    org: Economic justice and worker dignity networks
+    line: 'Youth-facing organizations like the Economic Policy Institute and local worker centers offer circles, skill-building, and collective power work. Check what is organizing in your region or online. Door in: join their network.'
+    semantic_family: door-in-alt
+    article_types:
+    - hard_news_spiritual_response
+title_system:
+  headline_layer_1:
+    options:
+    - id: headline_layer_1_01
+      line: Economic Precarity Is Also A Crisis Of What Is Running The Show.
+      semantic_family: title
+      article_types:
+      - hard_news_spiritual_response
+    - id: headline_layer_1_02
+      line: The Vigilance-Blame Cycle Is Conditioning, Not Character.
+      semantic_family: title-alt
+      article_types:
+      - hard_news_spiritual_response
+  headline_layer_2:
+    options:
+    - id: headline_layer_2_01
+      line: An Advaita Vedanta teacher refuses the lie that precarity is a personal defect — and names how to see the pattern clearly and act from dignity.
+      semantic_family: subtitle
+      article_types:
+      - hard_news_spiritual_response
+    - id: headline_layer_2_02
+      line: A tradition of self-inquiry and witness-consciousness offers a practice for when the gig economy and the old patterns take over the whole show.
+      semantic_family: subtitle-alt
+      article_types:
+      - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    topic_subcases:
+    - economic_precarity
+    - system_transparency
+    intensity_range:
+    - 2
+    - 4

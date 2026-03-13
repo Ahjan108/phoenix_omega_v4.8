@@ -1,0 +1,227 @@
+schema_version: 1
+teacher_id: ra
+topic: peace_conflict
+active: true
+
+identity:
+  display_name: Ra
+  attribution_name: "Teacher Ra"
+  tradition: "Advaita Vedanta"
+  tradition_short: "Advaita Vedanta"
+  teacher_setting_options:
+    - "satsang"
+    - "circle"
+  teacher_years: "decades of teaching"
+  affiliation_safe_line: "has attended the United Spiritual Leaders Forum"
+  launch_approved: true
+
+persona:
+  id: gen_z_alpha
+  age_band: "13-29"
+  default_register: "phone-native, high-pressure, institution-skeptical"
+  daily_worlds:
+    - school
+    - phone
+    - group chat
+    - late-night scrolling
+    - part-time work
+  tie_to_real_world_struggles:
+    - id: fear_occupation
+      label: "conflict fear trying to occupy the whole inner field"
+      loop: "reads the alert -> body braces -> puts the phone down -> checks again because danger is real"
+      body_markers: ["body braces", "breath", "chest"]
+      digital_markers: ["puts the phone down", "checks again"]
+
+topic_fit:
+  fit_level: primary
+  fit_reason: "Conflict pressure fits Ra through awakening under fear, conditioning that runs on threat, and the need for dialogue that treats disagreement as information rather than suppression."
+  forbidden_angles:
+    - "do not reduce to generic wellness"
+    - "do not frame the pressure as personal weakness"
+
+diagnostic_frames:
+  default_id: ubuntu_conditioning
+  options:
+    - id: ubuntu_conditioning
+      key_term: "ubuntu"
+      key_term_gloss: "I am because we are — the boundaries of the self extend into community"
+      diagnosis_line: "The body is not malfunctioning; it is accurately registering that conflict destroys the self extended into others."
+      self_to_system_reframe: "What feels like private terror is often accurate response to the destruction of the communal field."
+      what_normal_analysis_misses: "How peace is not altruism but a form of self-preservation when the self includes the other."
+      youth_specific_tie: "Young people navigating ethnic and national conflict need a frame where peace is not optional generosity but the condition for their own wholeness."
+      approved_quote_lines:
+        - "armed conflict is not only destruction of others; it is destruction of the self extended into community"
+      banned_lines:
+        - "everything happens for a reason"
+
+hook_personal:
+  options:
+    - id: hook_personal_01
+      line: "Conflict enters daily life through one notification and then asks to occupy the whole inner field. The question is whether it gets to stay there."
+      semantic_family: "personal-pressure"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response"]
+hook_big_picture:
+  options:
+    - id: hook_big_picture_01
+      line: "Peace and conflict pressure are not only geopolitical. They are a fight over whether fear takes over consciousness or passes through it without becoming the whole identity."
+      semantic_family: "system-pressure"
+      angle: "systemic-pressure"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_intro:
+  options:
+    - id: teacher_intro_01
+      line: "Teacher Ra, a Bangalore-born teacher in the Advaita Vedanta tradition, has seen in practice sessions what conflict pressure does to young people. They are not asking whether fear is real. They are asking how to keep it from becoming the entire shape of the self — and how to respond from clarity instead of conditioning."
+      semantic_family: "identity-seen-shift"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response"]
+    - id: teacher_intro_02
+      line: "Teacher Ra, from the Advaita Vedanta tradition, has seen in retreat sessions what happens when conflict news lands and the old patterns take over — the conditioning that runs on threat, the need to be right, the collapse into us-versus-them. They are not asking for comfort. They are asking how to see the pattern clearly enough to choose a different response."
+      semantic_family: "identity-seen-shift-alt"
+      tone: grave
+      intensity: 4
+      article_types: ["hard_news_spiritual_response"]
+
+youth_somatic:
+  options:
+    - id: youth_somatic_01
+      line: "You read the conflict alert. Your body braces. You put the phone down. Then you check again because danger is real and not looking changes nothing.\nLOOP_SEQUENCE: \"read the alert. body braced. put the phone down. checked again.\""
+      loop_type: "fear_occupation"
+      body_register: "body braces"
+      digital_behavior: "puts the phone down"
+      article_types: ["hard_news_spiritual_response"]
+    - id: youth_somatic_02
+      line: "You saw the headline. Your chest tightened. You closed the app. Then you opened it again because the threat was still there and your mind would not leave it alone.\nLOOP_SEQUENCE: \"saw the headline. chest tightened. closed the app. opened again.\""
+      loop_type: "fear_occupation"
+      body_register: "chest"
+      digital_behavior: "checks again"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_witness:
+  options:
+    - id: teacher_witness_01
+      line: "Ra has seen that loop in young people — the alert lands, the body braces, the phone goes down, and attention returns because the threat is still present."
+      semantic_family: "loop-mirror"
+      loop_type: "fear_occupation"
+      article_types: ["hard_news_spiritual_response"]
+    - id: teacher_witness_02
+      line: "He has watched that sequence — the read, the brace, the put-down, the return. The conditioning that runs on threat is real; the question is whether it gets to run the whole show."
+      semantic_family: "loop-mirror-alt"
+      loop_type: "fear_occupation"
+      article_types: ["hard_news_spiritual_response"]
+
+turnaround:
+  options:
+    - id: turnaround_01
+      stat_line_1: "Youth-led dialogue and documentation efforts are growing."
+      stat_line_2: "Young people are organizing dialogue circles, documenting human rights violations so the record exists for accountability, and hosting workshops that refuse to let conflict occupy the whole inner field."
+      semantic_family: "institutional-action"
+      article_types: ["hard_news_spiritual_response"]
+    - id: turnaround_02
+      stat_line_1: "Across regions, youth are demanding a seat at the table."
+      stat_line_2: "Students and youth coalitions are organizing campaigns, documenting cases, and hosting entry points where disagreement is treated as information about unmet need, not as a problem to be suppressed."
+      semantic_family: "institutional-action-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+bridge:
+  options:
+    - id: bridge_01
+      line: "Conflict trackers count casualties and ceasefires. They do not count the capacity to hold what is happening in view without being consumed by reactive despair or reactive rage — the capacity to respond from clarity rather than conditioning. The young person who will convene the next dialogue needs it. So does the one who read the alert, put the phone down, and opened it again. Ra's tradition has been developing that capacity for generations: you are not the one who is afraid — you are the unchanging witness in whom the fear appears. When that is seen, the clarity walks with you into the next conversation."
+      hidden_capacity: "hold suffering in view without being consumed; respond from clarity"
+      semantic_family: "tracker-capacity"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+    - id: bridge_02
+      line: "The news measures escalation and response. It has no column for what made the next act of peace possible — the willingness to let go of what the mind insists on and rest in what awareness already knows. In the African spiritual tradition Ra draws on, ancestors function as moral witnesses: those who came before are in relationship with the choices made now. For young people in post-conflict societies, that creates a framework for accountability that is neither revenge nor erasure. Ra's teaching holds that you were never the pattern — you are the unchanging awareness in which the fear appears. You are not trying to become peaceful. You are trying to stop pretending you are not already the witness of what is happening — and from that seeing, choose a response that does not reproduce the pattern."
+      hidden_capacity: "see conditioning clearly and choose a response that does not reproduce violence"
+      semantic_family: "tracker-capacity-alt"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+
+teacher_perspective:
+  options:
+    - id: ubuntu_awakening_01
+      header: "What Ra Sees"
+      paragraphs:
+        - "Ra reads conflict through ubuntu: I am because we are. The boundaries of the self are not fixed at the skin; they extend into the community. Armed conflict is therefore not only destruction of others; it is destruction of the self extended into community. For youth navigating ethnic and national conflict, this reframes peace not as altruism but as a form of self-preservation. The tradition asks: when the self includes the other, what does survival actually require?"
+        - "From there he turns to conditioning. The mind runs on inherited patterns — fear, us-versus-them, the need to be right. When conflict news lands, those patterns take over unless they are seen clearly. Awakening is not a peak experience; it is the sustained capacity to see the pattern and choose a response that does not reproduce it. That is what self-inquiry means in the context of peace and conflict."
+        - "The shift that matters: what feels like a personal fault — me, broken, confused by helpless rage — is instead accurate response to a system and institutional structure that keeps producing the destruction of the communal field. The mind stops calling itself broken when it sees that the real disorder is in the conditions that make violence likely — and that those conditions can be changed."
+      semantic_family: "ubuntu-awakening"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+    - id: ubuntu_awakening_02
+      header: "What Ra Sees"
+      paragraphs:
+        - "In Ra's tradition, palaver — extended communal dialogue as a conflict-resolution technology — treats disagreement not as a problem to be suppressed but as information about unmet need. Many youth-facing conflicts escalate because the palaver process has no institutional home. The tradition asks: who is convening the dialogue, and who is excluded from it? That question is not secondary to peace; it is the condition for it."
+        - "The African spiritual tradition holds that ancestors function as moral witnesses. Those who came before and whose sacrifices created the present are in relationship with the choices made now. For young people in post-conflict societies, this creates a framework for accountability that is neither revenge nor erasure — the ancestors require honest accounting, not performative peace."
+        - "Integrated awakening applies here: the fault is not yours — not a broken self, not a confused witness. When you see the conditioning that runs on threat clearly, it loses its grip. The real disorder is the system and institutional structure that perpetuates division. You can rest in what awareness already knows — that the other is not only other, that the boundary between self and community is not fixed — and from that rest, choose a response that builds rather than destroys."
+      semantic_family: "ubuntu-awakening-alt"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+
+practice:
+  default_id: integrated_awakening_01
+  options:
+    - id: integrated_awakening_01
+      display_name: "5-minute Object-Witness Sitting"
+      duration: "5 minutes"
+      announcement_line: "Ra teaches a 5-minute Object-Witness Sitting for moments when conflict news has taken over the inner field and the old patterns are running the show — sitting with what arises as object while resting as the witness. It is in the sidebar, timed and step by step."
+      relief_lines:
+        - "The mind stops treating every alert as proof that the whole self is under threat."
+        - "Enough clarity returns to see the pattern and choose a response that does not reproduce it."
+      relief_register: ["clarity", "capacity", "choice"]
+      derived_from_frame: "ubuntu_conditioning"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+    - id: integrated_awakening_02
+      display_name: "5-minute Object-Witness Sitting"
+      duration: "5 minutes"
+      announcement_line: "Ra teaches a 5-minute Object-Witness Sitting for the moment when fear has occupied consciousness and you need to return to what awareness already knows. What arises is the object; you are the witness. It is in the sidebar, short enough to use after the alert, before the next conversation, or before sleep."
+      relief_lines:
+        - "The body stops bracing as if the threat were the only reality."
+        - "Enough spaciousness returns for the next clear move."
+      relief_register: ["clarity", "spaciousness", "act again"]
+      derived_from_frame: "ubuntu_conditioning"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+
+sdg:
+  primary:
+    id: "SDG 16"
+    title: "Peace, Justice and Strong Institutions"
+    line: "The United Nations has a framework for this through SDG 16 and its peace, justice, and strong institutions targets."
+  fallback_un_tie:
+    line: "Pearl News is an independent nonprofit. We are not affiliated with the United Nations."
+
+cta:
+  options:
+    - id: cta_01
+      org: "Peace-building and dialogue initiatives"
+      line: "Youth-led peace-building organizations offer entry points into dialogue and documentation work. Door in: join a local-to-global network like UNA-USA or participate in regional youth peace programs."
+      semantic_family: "door-in"
+      article_types: ["hard_news_spiritual_response"]
+
+title_system:
+  headline_layer_1:
+    options:
+      - id: headline_layer_1_01
+        line: "Conflict Asks To Occupy The Whole Inner Field. The Question Is Whether It Gets To Stay."
+        semantic_family: "title"
+        article_types: ["hard_news_spiritual_response"]
+  headline_layer_2:
+    options:
+      - id: headline_layer_2_01
+        line: "An Advaita Vedanta teacher reads conflict through ubuntu — and offers a practice for responding from clarity, not conditioning."
+        semantic_family: "subtitle"
+        article_types: ["hard_news_spiritual_response"]
+      - id: headline_layer_2_02
+        line: "A tradition of palaver and ancestral witness names what peace requires: who is convening the dialogue, and who is excluded."
+        semantic_family: "subtitle-alt"
+        article_types: ["hard_news_spiritual_response"]
+
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: "article_id + slot + teacher_id + topic"
+  metadata_filters:
+    article_types: ["hard_news_spiritual_response", "commentary"]
+    topic_subcases: ["fear_occupation", "dialogue_gap"]
+    intensity_range: [2, 4]

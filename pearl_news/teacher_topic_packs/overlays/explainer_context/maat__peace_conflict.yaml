@@ -1,0 +1,61 @@
+# Explainer overlay for maat + peace_conflict (Dev 5 gold)
+# Deep-merged onto teachers/maat/peace_conflict.yaml when template_id=explainer_context.
+# Schema: EXPLAINER_YOUTH_FEATURE_OVERLAY_SPEC (explainer section).
+
+schema_version: 1
+template_id: explainer_context
+teacher_id: maat
+topic: peace_conflict
+
+# Explainer-specific slot: ethical/spiritual dimension (long block).
+# Explains what Ma'at tradition contributes to understanding peace and conflict—no sermonizing.
+ethical_spiritual_dimension:
+  options:
+    - id: ex_maat_peace_truth_accounting_01
+      header: "What the data leaves out about peace"
+      paragraphs:
+        - "Conflict data tells you about casualties, ceasefires, and displacement. It does not tell you what sustainable peace actually requires. In the South Indian Sufi tradition Ma'at teaches from, peace is not the absence of conflict. It is the presence of accurate accounting and qalb (spiritual heart) healing. Injustice that is named and addressed through dhikr (remembrance of truth) restores the qalb; injustice that is suppressed accumulates as ghaflah (heedlessness). The ethical dimension here is that institutions often offer 'reconciliation' or 'moving on' without the prior step the tradition insists on: truth-telling through the qalb before reconciliation."
+        - "The spiritual dimension is that the tradition has a precise practice for this. The Mirror Polish (clearing ghaflah through witness and remembrance) and Sama Listening (heart-centered deep listening to what was silenced)—these point to the function of documentation and witness in conflict resolution. Youth-led documentation of human rights violations follows this logic: the record and the witnessing must exist for qalb healing to occur. Silence and forgetting are enemies of peace in this tradition, not pathways to it. An explainer about peace and conflict should make that distinction clear: what is being asked of young people when they are told to 'heal' or 'build peace' without a record of what actually occurred?"
+        - "For young people reading an explainer about conflict, the takeaway is not vague spirituality. It is that the tradition Ma'at carries names a standard: peace requires truth, witnessed and held by the qalb. If the systems around you are asking for peace without truth, they are not offering the same thing the tradition means by right order."
+      metadata:
+        semantic_family: "maat-truth-before-reconciliation"
+        reframe_type: "structural-truth"
+        article_types: ["explainer_context"]
+
+    - id: ex_maat_peace_feather_justice_01
+      header: "The measure that trackers do not use"
+      paragraphs:
+        - "The qalb (spiritual heart) in the South Indian Sufi tradition is like a mirror or feather—sensitive, precise, and capable of weighing truth with exactness. That image suggests that justice is delicate and requires precision, not force. For young people who experience justice systems as blunt instruments that produce further harm, this offers an alternative standard: what would peace-building look like if it were calibrated like the qalb—precise, light (free from ghaflah), and accountable to what actually happened?"
+        - "The ethical problem in many conflict narratives is that the powerful get to define what counts as 'peace'—often meaning the end of visible violence and the quieting of dissent. The tradition Ma'at carries does not accept that definition. Right relationship means the record of harm exists; the qalb witnesses it. The spiritual dimension is that this is not only a moral preference—it is how the tradition understands the cosmos to function. Disorder (ghaflah) that is not honestly addressed does not disappear; it accumulates in the qalb and blocks the path of dhikr."
+        - "An explainer about peace and conflict from this tradition should help readers understand: when someone says 'we need to move on,' the question is whether the moving on includes or bypasses the record. Ma'at's standard is clear. Youth who insist on documentation, on naming what happened, who practice Mirror Polish (clearing heedlessness), are not obstructing peace. They are doing what the tradition would recognise as necessary for it."
+      metadata:
+        semantic_family: "maat-feather-precision"
+        reframe_type: "justice-as-precision"
+        article_types: ["explainer_context"]
+
+# Optional explainer-specific headline layer 2.
+title_system:
+  headline_layer_2:
+    options:
+      - id: ex_headline_peace_conflict_01
+        line: "A South Indian Sufi tradition explains what peace actually requires—and what gets called peace when truth is missing."
+        metadata:
+          article_types: ["explainer_context"]
+      - id: ex_headline_peace_conflict_02
+        line: "Ma'at teaches that peace is not silence. It is accurate accounting and qalb (heart) healing. A South Indian Sufi teacher names what young peacebuilders are already doing."
+        metadata:
+          article_types: ["explainer_context"]
+
+# youth_implications when strict control is desired (deterministic).
+youth_implications:
+  options:
+    - id: ex_youth_impl_peace_01
+      line: "For Gen Z and younger living in conflict-aware or post-conflict worlds, the explainer is not only background. It is permission to trust your insistence that the record matters—that peace without truth is not the same as right order, and that documentation and honest witness are not obstacles to peace but requirements for it."
+      metadata:
+        article_types: ["explainer_context"]
+        semantic_family: "youth-record-matters"
+    - id: ex_youth_impl_peace_02
+      line: "The explainer shows that when institutions ask young people to 'heal' or 'move on' without addressing what happened, they are not offering the same standard the Ma'at tradition names. Your qalb (heart) that knows the gap—between what is said and what you know—is reading the situation accurately."
+      metadata:
+        article_types: ["explainer_context"]
+        semantic_family: "youth-body-truth"

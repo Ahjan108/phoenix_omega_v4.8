@@ -1,0 +1,324 @@
+schema_version: 1
+teacher_id: pamela_fellows
+topic: education
+active: true
+identity:
+  display_name: Pamela
+  attribution_name: Pamela Fellows
+  tradition: Vajrayana + Somatic + Life Coaching
+  tradition_short: Vajrayana-trained
+  teacher_setting_options:
+  - practice space
+  - sangha circle
+  teacher_years: 20+
+  affiliation_safe_line: Vajrayana-initiated teacher with somatic training and Buddhist
+    life coaching
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: portal_hold
+    label: body holding school pressure when attention scatters
+    loop: opens the portal -> body tenses -> switches away -> comes back because the
+      work still exists
+    body_markers:
+    - forehead
+    - shoulders
+    - jaw
+    - hold
+    digital_markers:
+    - opens the portal
+    - switches away
+    - comes back
+topic_fit:
+  fit_level: primary
+  fit_reason: Education pressure lands in the body; Vajrayana transmutation and somatic
+    awareness address what is held when the system fragments attention.
+  forbidden_angles:
+  - do not reduce this to generic wellness
+  - do not frame the pressure as personal weakness
+hook_personal:
+  options:
+  - id: hook_personal_01
+    line: You are told school is preparing you for life. Some days it feels like it
+      is training you to distrust your own attention — and your body is holding the
+      cost.
+    semantic_family: personal-pressure
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: hook_big_picture_01
+    line: Education strain is not only cognitive. It lands in young bodies as held
+      tension when the system names depth and care while organizing daily life around
+      fragmentation and pressure.
+    semantic_family: system-pressure
+    angle: systemic-pressure
+    article_types:
+    - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: teacher_intro_01
+    line: 'Pamela Fellows — Vajrayana-initiated, yoga-certified, trained in somatic
+      therapy under Peter Levine and Pat Ogden — has watched in practice sessions
+      students carry school pressure as if scattered attention were a moral flaw.
+      They are not asking whether education matters. They are asking what the body
+      is holding when the system keeps violating the conditions learning needs. Her
+      tradition reads this through the Four Noble Truths: name the suffering, name
+      the pattern driving it, confirm it can shift, practice the path.'
+    semantic_family: identity-seen-shift
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_intro_02
+    line: Pamela Fellows teaches from a Vajrayana and somatic ground — holding empowerments,
+      ngondro completion, and the body-reading of Levine and Porges. She has seen
+      in practice sessions students arrive already exhausted by the effort required
+      just to stay with the task — and the body holding what the mind could not yet
+      name. Her tradition does not separate body from mind; it transmutes what is
+      held.
+    semantic_family: identity-seen-shift-alt
+    tone: grave
+    intensity: 4
+    article_types:
+    - hard_news_spiritual_response
+youth_somatic:
+  options:
+  - id: youth_somatic_01
+    line: 'You open the assignment portal. Your body tightened. You switched away.
+      Then you came back because the work still exists whether or not the system helps
+      you hold it.
+
+      LOOP_SEQUENCE: "opened the portal. body tightened. switched away. came back."'
+    loop_type: portal_hold
+    body_register: forehead
+    digital_behavior: opens the portal
+    article_types:
+    - hard_news_spiritual_response
+  - id: youth_somatic_02
+    line: 'You saw the deadline in the app. Your shoulders and jaw held. You switched
+      tabs. Then you returned because the work still has to get done.
+
+      LOOP_SEQUENCE: "saw the deadline. shoulders and jaw held. switched tabs. returned."'
+    loop_type: portal_hold
+    body_register: shoulders
+    digital_behavior: switches away
+    article_types:
+    - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: teacher_witness_01
+    line: Pamela has seen that exact sequence — the task appears, the body braces,
+      attention leaves, and effort has to return inside a system that keeps misnaming
+      the problem. Her Vajrayana and somatic training does not blame the body; it
+      asks what the body is holding and how to transmute it so that learning can happen.
+    semantic_family: loop-mirror
+    loop_type: portal_hold
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_witness_02
+    line: She has watched students carry this loop — the portal opens, the body holds
+      tension, the tab changes, and then the same pressure pulls them back. The body
+      has been holding what the fragmented system could not contain.
+    semantic_family: loop-mirror-alt
+    loop_type: portal_hold
+    article_types:
+    - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: turnaround_01
+    stat_line_1: 410 workshops. 27 cities.
+    stat_line_2: Young people are organizing workshops, hosting campaigns, and students
+      and youth educators are already building study supports, healthier schedules,
+      and attention-friendly learning spaces.
+    semantic_family: institutional-action
+    article_types:
+    - hard_news_spiritual_response
+  - id: turnaround_02
+    stat_line_1: 410 workshops. 27 cities.
+    stat_line_2: Young people are organizing and hosting peer circles, training listeners,
+      and forcing schools to treat the whole person — body and mind — as part of the
+      learning equation.
+    semantic_family: institutional-action-alt
+    article_types:
+    - hard_news_spiritual_response
+bridge:
+  options:
+  - id: bridge_01
+    line: '410 workshops. 27 cities. The tracker measures reforms and study supports.
+      It has no column for what made the next honest return to learning possible after
+      another day of fragmentation — the capacity to release what the body was holding
+      so that attention could return without calling the system''s disorder your failure.
+      The student who came back to the portal needed that capacity. Pamela''s Vajrayana
+      training names this: the neurotic energy — the frustrated anger, the scattered
+      craving, the dull ignorance — is not an obstacle. Met with somatic presence
+      and the Four Noble Truths as diagnostic, it transmutes into mirror-like wisdom,
+      discriminating awareness, or the wisdom of equanimity. The body that braced
+      at the portal is holding energy that becomes clarity when met, not fought.'
+    hidden_capacity: release what the body holds so attention can return
+    semantic_family: tracker-capacity
+    article_types:
+    - hard_news_spiritual_response
+  - id: bridge_02
+    line: 'The numbers measure programs and reforms. They do not measure what happens
+      in the body when a young person finally has a practice that includes what they
+      are carrying — not fixing focus from the outside, but meeting the body where
+      it is so the mind can return to the work. That capacity is what the next honest
+      study session needs. Pamela''s tradition has a name for this: the tantric principle
+      that nothing needs to be rejected. The scattered energy, met with presence,
+      is itself the path back to attention.'
+    hidden_capacity: include the body so the mind can return to the work
+    semantic_family: tracker-capacity-alt
+    article_types:
+    - hard_news_spiritual_response
+teacher_perspective:
+  options:
+  - id: teacher_perspective_01
+    header: What Pamela Sees
+    paragraphs:
+    - Pamela would not start by calling the student distracted. She would start by
+      noticing that the body is holding what the fragmented system has not been able
+      to contain. In her Vajrayana and somatic tradition, the body holds what the
+      mind avoids — and that held energy is not a defect but raw material. When the
+      system names depth and care while producing fragmentation all day long, the
+      body carries the cost.
+    - From there she turns to the heart's intelligence. The question is not how to
+      dominate attention. It is how to include the body in the response, so that what
+      feels like a problem with the student can be seen as a truthful reading of a
+      disordered learning environment — and the body can release what it has been
+      holding.
+    - 'That is the reframe: what feels like a personal fault — me, broken, wrong —
+      is often the body accurately holding conditions that no learning environment
+      should normalize. The problem is that the system and institutional structure
+      keeps generating what the individual then carries alone. The practice is not
+      to empty the body of feeling but to meet what is there so that the person can
+      return to the work from steadier ground.'
+    semantic_family: teacher-diagnosis
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_perspective_02
+    header: What Pamela Sees
+    paragraphs:
+    - In Pamela's tradition, scattered attention is not only a cognitive issue. It
+      lands in the body — the forehead, the shoulders, the jaw — and the body holds
+      it when the system cannot provide the conditions for sustained focus. The tradition
+      does not ask you to try harder; it asks you to include the body in the equation.
+    - Heartfulness here means living from the heart's intelligence — a deeper knowing
+      that includes the body and the present moment. When young people are given a
+      practice that meets what is held with presence rather than judgment, the capacity
+      to return to the work without making interruption your identity becomes available.
+    - In that frame, self-blame softens. The problem is not that students are lazy
+      or unfocused or that I am wrong for feeling overloaded. The problem is that
+      the body has been carrying the load of a fragmented system without a practice
+      of release. Pamela's tradition offers that practice.
+    semantic_family: teacher-diagnosis-alt
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+practice:
+  default_id: practice_01
+  options:
+  - id: practice_01
+    display_name: Poison-to-Wisdom Flip
+    duration: 5 minutes
+    announcement_line: Pamela teaches a 5-minute Poison-to-Wisdom Flip for moments
+      when school pressure is making the mind perform against itself. It is in the
+      sidebar, brief and structured.
+    relief_lines:
+    - The body stops carrying the whole load alone.
+    - Enough steadiness returns for the next honest move.
+    relief_register:
+    - clarity
+    - capacity
+    - act again
+    derived_from_frame: vajrayana_somatic
+    article_types:
+    - hard_news_spiritual_response
+  - id: practice_02
+    display_name: Poison-to-Wisdom Flip
+    duration: 5 minutes
+    announcement_line: Pamela teaches a 5-minute Poison-to-Wisdom Flip for when the
+      assignment portal and the fragmented day have left the body holding what the
+      mind could not process. It is in the sidebar, short enough to use before class
+      or between tasks.
+    relief_lines:
+    - The pressure stops naming the whole self.
+    - The heart and body are included, not bypassed.
+    relief_register:
+    - clarity
+    - release
+    - act again
+    derived_from_frame: vajrayana_somatic
+    article_types:
+    - hard_news_spiritual_response
+sdg:
+  primary:
+    id: SDG 4
+    title: Quality Education
+    line: The United Nations has a framework for this through SDG 4 and its quality
+      education targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United
+      Nations.
+cta:
+  options:
+  - id: cta_01
+    org: UNESCO
+    line: 'UNESCO''s Global Education Coalition and student advocacy groups both offer
+      practical entry points here. Door in: https://www.unesco.org/en/education/globaleducationcoalition'
+    semantic_family: door-in
+    article_types:
+    - hard_news_spiritual_response
+  - id: cta_02
+    org: Student advocacy groups
+    line: 'If that is not your next step, student-led education justice groups work
+      the same framework at the local and national level. Door in: join their network.'
+    semantic_family: door-in-alt
+    article_types:
+    - hard_news_spiritual_response
+title_system:
+  headline_layer_1:
+    options:
+    - id: headline_layer_1_01
+      line: Schools Are Naming Learning While Breaking Its Conditions.
+      semantic_family: title
+      article_types:
+      - hard_news_spiritual_response
+  headline_layer_2:
+    options:
+    - id: headline_layer_2_01
+      line: A Vajrayana-trained teacher reads scattered attention as a sign that the
+        body is holding what the system cannot contain.
+      semantic_family: subtitle
+      article_types:
+      - hard_news_spiritual_response
+    - id: headline_layer_2_02
+      line: Pamela reads education pressure through somatic and Vajrayana ground —
+        the poison is the path back to attention.
+      semantic_family: subtitle-alt
+      article_types:
+      - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    topic_subcases:
+    - attention-fragmentation
+    - classroom-pressure
+    intensity_range:
+    - 2
+    - 4

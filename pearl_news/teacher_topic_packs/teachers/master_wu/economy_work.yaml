@@ -1,0 +1,185 @@
+schema_version: 1
+teacher_id: master_wu
+topic: economy_work
+active: true
+identity:
+  display_name: Master Wu
+  attribution_name: Master Wu
+  tradition: Land and cultivation teacher
+  tradition_short: Land cultivation
+  teacher_setting_options:
+  - teaching space
+  - practice field
+  teacher_years: teaching lineage
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - street
+  - phone
+  - work
+  - home
+  tie_to_real_world_struggles:
+  - id: fragmentation_loop
+    label: keeps trying to focus inside a badly designed field
+    loop: opens the task -> focus breaks -> switches away -> comes back because the
+      work remains
+    body_markers:
+    - scatter
+    - thin focus
+    - tired eyes
+    digital_markers:
+    - switch tabs
+    - refresh
+    - check again
+topic_fit:
+  fit_level: primary
+  fit_reason: 'This topic maps to instability, repeated self-management under moving
+    thresholds, and the hidden cost of precarious work. '
+  forbidden_angles:
+  - do not glamorize hustle
+  - do not frame instability as a personal lesson
+hook_personal:
+  options:
+  - id: hook_personal_01
+    line: Work keeps asking for more flexibility while giving less stability, and
+      your body knows the cost before the schedule ever admits it.
+    semantic_family: master_wu-economy_work-hook-personal
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: hook_big_picture_01
+    line: 'Economic stress now arrives as identity pressure: stay employable, stay
+      available, and keep acting as if instability were a test of character.'
+    semantic_family: master_wu-economy_work-hook-big
+    article_types:
+    - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: teacher_intro_01
+    line: Master Wu, a land and cultivation teacher, has watched in practice sessions
+      this pressure land on young people. Students are not only asking how to try
+      harder. They are asking how to stay steady inside environments that keep training
+      fragmentation.
+    semantic_family: master_wu-economy_work-intro
+    article_types:
+    - hard_news_spiritual_response
+youth_somatic:
+  options:
+  - id: youth_somatic_01
+    line: 'You check the schedule app. Your stomach drops. You refresh again. Then
+      you screenshot it because the shift might disappear before you can trust what
+      you saw. LOOP_SEQUENCE: "checked the app. stomach dropped. refreshed again.
+      took the screenshot."'
+    loop_type: fragmentation_loop
+    article_types:
+    - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: teacher_witness_01
+    line: Master Wu has seen this exact loop -- the app check, the drop in the body,
+      the refresh, and the screenshot that tries to hold the moment still.
+    semantic_family: master_wu-economy_work-witness
+    article_types:
+    - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: turnaround_01
+    stat_line_1: 1,240 cases. 32 cities.
+    stat_line_2: Young workers are documenting conditions, filing wage-theft cases,
+      and organizing campaigns that force unstable labor rules into the public record.
+    semantic_family: master_wu-economy_work-turnaround
+    article_types:
+    - hard_news_spiritual_response
+bridge:
+  options:
+  - id: bridge_01
+    line: 1,240 cases. 32 cities. The tracker measures what young people did. It has
+      no column for what made the next step possible after another delayed or broken
+      response -- the capacity to stay functional enough to act again when the economy
+      keeps converting uncertainty into private stress. The person who came back needed
+      it. So does the reader in that loop. Master Wu's teaching has language for protecting
+      that capacity.
+    hidden_capacity: return to truthful action
+    semantic_family: master_wu-economy_work-bridge
+    article_types:
+    - hard_news_spiritual_response
+teacher_perspective:
+  options:
+  - id: teacher_perspective_01
+    header: What Master Wu Sees
+    paragraphs:
+    - Master Wu would begin with the field. Attention, regulation, and effort are
+      shaped by conditions as much as by will.
+    - When the surrounding field is fragmented, unstable, or harsh, the first mistake
+      is to translate that disorder into a judgment on the person.
+    - What feels like a personal fault — me, broken, wrong — is often accurate response
+      to badly designed or degraded conditions around you within a system and institutional
+      structure that was never designed for what it demands.
+    semantic_family: master_wu-economy_work-perspective
+    article_types:
+    - hard_news_spiritual_response
+practice:
+  default_id: practice_01
+  options:
+  - id: practice_01
+    display_name: 5-minute Return-to-Ground Practice
+    duration: 5 minutes
+    announcement_line: Master Wu teaches a 5-minute Return-to-Ground Practice for
+      moments when economy work pressure starts converting attention into helplessness.
+      It is in the sidebar, timed and practical.
+    relief_lines:
+    - The body stops treating every demand as total disorganization.
+    - Enough regulation returns for the next honest action.
+    relief_register:
+    - capacity
+    - clarity
+    - act again
+    article_types:
+    - hard_news_spiritual_response
+sdg:
+  primary:
+    id: SDG 8
+    title: Decent Work and Economic Growth
+    line: The United Nations has a framework for this through SDG 8 and its decent-work
+      targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United
+      Nations.
+cta:
+  options:
+  - id: cta_01
+    org: ILO
+    line: 'The ILO and youth worker coalitions offer a public entry point here. Door
+      in: https://www.ilo.org/global/topics/youth-employment'
+    semantic_family: master_wu-economy_work-cta
+    article_types:
+    - hard_news_spiritual_response
+title_system:
+  headline_layer_1:
+    options:
+    - id: headline_layer_1_01
+      line: Young Workers Are Carrying More Instability Than Wages Show.
+      semantic_family: master_wu-economy_work-title1
+      article_types:
+      - hard_news_spiritual_response
+  headline_layer_2:
+    options:
+    - id: headline_layer_2_01
+      line: A teacher names the hidden fight to stay functional under precarity.
+      semantic_family: master_wu-economy_work-title2
+      article_types:
+      - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response

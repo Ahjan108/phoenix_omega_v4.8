@@ -1,0 +1,233 @@
+schema_version: 1
+teacher_id: channeler_junko
+topic: climate
+active: true
+
+identity:
+  display_name: Junko
+  attribution_name: Channeler Junko
+  tradition: Contemporary Japanese channeling and light-language spirituality
+  tradition_short: Japanese channeling
+  teacher_setting_options:
+    - receiving space
+    - transmission
+  teacher_years: decades
+  affiliation_safe_line: teaches within the Japanese channeling tradition
+  launch_approved: true
+
+persona:
+  id: gen_z_alpha
+  age_band: "13-29"
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+    - school
+    - phone
+    - group chat
+    - late-night scrolling
+    - part-time work
+  tie_to_real_world_struggles:
+    - id: soul_climate_rupture
+      label: soul's response to ecological rupture that conscious mind cannot process
+      loop: reads the climate threshold -> body tightens, closes app -> reopens because the deeper self is already holding the truth
+      body_markers: ["chest", "belly", "breath"]
+      digital_markers: ["close app", "reopen"]
+
+topic_fit:
+  fit_level: primary
+  fit_reason: "Climate distress is the soul's response to ecological rupture that the conscious mind cannot process. The body's reaction to climate data is the deeper self recognizing what the intellect cannot yet hold. Junko's tradition works directly with that knowing."
+  forbidden_angles:
+    - "do not reduce to eco-anxiety management"
+    - "do not frame the body's response as personal weakness"
+
+hook_personal:
+  options:
+    - id: hook_personal_01
+      line: "You read the new climate threshold and felt something beneath your thinking shift. Your conscious mind wanted to problem-solve. Something deeper was already grieving what was already gone."
+      semantic_family: "soul-intellect-split"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response"]
+    - id: hook_personal_02
+      line: "You saw the forecast and your whole body tightened before your mind could catch up. The deeper part of you already knew what the numbers meant. The part that thinks is still trying to keep up."
+      semantic_family: "soul-knowing-first"
+      tone: grave
+      intensity: 4
+      article_types: ["hard_news_spiritual_response"]
+
+hook_big_picture:
+  options:
+    - id: hook_big_picture_01
+      line: "Young people sense climate rupture at a level deeper than their conscious understanding. Their bodies are responding to ecological signals that the intellect has not yet processed. This is not anxiety. This is the soul holding what the thinking mind cannot yet carry."
+      semantic_family: "soul-ecological-witness"
+      angle: "soul-first-knowing"
+      article_types: ["hard_news_spiritual_response"]
+    - id: hook_big_picture_02
+      line: "The friction between what institutions keep saying about climate and what the deeper self already knows creates a pressure that closes down the body. Young people are not overreacting. They are under-resourced in how to receive what their soul is already trying to tell them."
+      semantic_family: "soul-resource-gap"
+      angle: "reception-capacity"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_intro:
+  options:
+    - id: teacher_intro_01
+      line: "Channeler Junko, a teacher of Japanese channeling and light-language spirituality, has watched in retreat sessions what climate distress does to young people — both real suffering and something her tradition names precisely: the soul's response to ecological rupture that the conscious mind has not yet processed. In Junko's framework, the deeper self carries ecological knowing the intellect cannot access. Light language reaches the parts of a person where this knowing is already held."
+      semantic_family: "identity_seen_shift"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response", "commentary"]
+    - id: teacher_intro_02
+      line: "Channeler Junko, a practitioner in the Japanese channeling tradition, has seen in practice sessions what climate data triggers in young people — something beyond fear. The soul recognizes the rupture before the thinking mind can process it. Her tradition does not ask them to calm down. It asks them to receive what the deeper self already knows, and let that knowing guide what becomes possible."
+      semantic_family: "identity_seen_shift_alt"
+      tone: grave
+      intensity: 4
+      article_types: ["hard_news_spiritual_response", "commentary"]
+
+youth_somatic:
+  options:
+    - id: climate_soul_phone_01
+      line: "You read the new threshold in your feed. Your body tightened before your mind caught up to the number. You closed the app. Then you came back because the part of you that already knew was still running.\nLOOP_SEQUENCE: \"read the threshold. body tightened. closed the app. came back.\""
+      loop_type: "read-tighten-close-return"
+      body_register: "tightening"
+      digital_behavior: "close-return"
+      article_types: ["hard_news_spiritual_response"]
+    - id: climate_soul_phone_02
+      line: "You saw the forecast before bed and felt something shift in your chest before the information even fully landed. You put the phone down. Then the knowing that was already moving underneath kept pulling you back.\nLOOP_SEQUENCE: \"saw the forecast. chest shifted. put the phone down. came back.\""
+      loop_type: "read-tighten-close-return"
+      body_register: "shifting"
+      digital_behavior: "put-down-return"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_witness:
+  options:
+    - id: junko_climate_witness_01
+      line: "Junko has seen this exact loop in those who come to receive. The body contracts, the mind tries to manage, the screen goes dark, and then the soul's knowing pulls awareness back because the ecological truth is already held beneath the thinking."
+      semantic_family: "loop-mirror"
+      loop_type: "read-tighten-close-return"
+      article_types: ["hard_news_spiritual_response"]
+    - id: junko_climate_witness_02
+      line: "She has watched young people move through this sequence: the climate news arrives, the deeper self responds first, the conscious mind tries to shut down, and then receptivity returns because the soul is still holding what it knows."
+      semantic_family: "loop-mirror-alt"
+      loop_type: "read-tighten-close-return"
+      article_types: ["hard_news_spiritual_response"]
+
+turnaround:
+  options:
+    - id: youth_action_climate_01
+      stat_line_1: "2,666 climate cases. 51 jurisdictions."
+      stat_line_2: "Young organizers are filing cases, hosting workshops, and training their peers to hold the ecological knowing that adults denied — even when courts and governments move too slowly."
+      semantic_family: "institutional-action"
+      article_types: ["hard_news_spiritual_response"]
+    - id: youth_action_climate_02
+      stat_line_1: "2,666 climate cases. 51 jurisdictions."
+      stat_line_2: "Youth are hosting land healing ceremonies, organizing community resilience networks, and documenting local losses from the place where the soul already understands what the future requires."
+      semantic_family: "institutional-action-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+bridge:
+  options:
+    - id: junko_climate_bridge_01
+      line: "2,666 climate cases. 51 jurisdictions. The tracker measures what young people built. It has no column for what made the next filing possible after the last institutional delay — the capacity to stay receptive to what the soul already knows even when the conscious mind is overwhelmed. That receptivity is what lets a climate organizer file the next case from alignment instead of desperation. It is what the person who read the threshold and closed the app needs too. Junko's tradition calls it receiving practice, and it reaches the part of a person where ecological knowing is already held."
+      hidden_capacity: "stay receptive to soul knowing when intellect is overwhelmed"
+      semantic_family: "tracker-capacity"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+    - id: junko_climate_bridge_02
+      line: "Climate trackers count cases, targets, and megawatts. They do not count the capacity to receive what the deeper self already knows about ecological rupture — the knowing that exists beneath analysis and can guide action even when the conscious mind is running in circles. That receptivity is what the next young organizer needs. It is what the reader who reopened the feed needs too. Junko's tradition works directly with this intelligence: light language and transmission that reach the parts of a person where the soul is still listening."
+      hidden_capacity: "receive soul knowing as guidance for action"
+      semantic_family: "tracker-capacity-alt"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+
+teacher_perspective:
+  options:
+    - id: junko_climate_perspective_01
+      header: "What Junko Sees"
+      paragraphs:
+        - "The soul carries memory the conscious mind has lost access to. Much of what young people experience as climate anxiety is not psychological disorder. It is the friction between surface reassurance and what the deeper self already knows. The reframe is simple: your body is not broken. Your soul is holding what needs to be held."
+        - "Light language works through vibrational resonance rather than conceptual meaning. For young people whose intellect has been talked at without relief, the tradition offers direct contact with the part of them where ecological knowing already lives. Opening that channel changes everything about how the next decision is made."
+        - "Planetary transition means heightened sensitivity in young people is not pathology but recalibration. What feels like a fault in me — broken, confused, wrong — is instead the soul accurately responding to a system and institutional structure that refuses to match its words with action. The answer is reception — learning to listen to what the deeper self is already saying."
+      semantic_family: "soul_climate_reframe"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+    - id: junko_climate_perspective_02
+      header: "What Junko Sees"
+      paragraphs:
+        - "Junko reads climate tightness through the lens of soul memory. What young people are holding in their bodies is not personal inadequacy. It is the soul's accurate response to ecological rupture that the institutions around them refuse to acknowledge."
+        - "The tradition teaches that the body knows first. When climate data lands, the body has already received the information at a level deeper than thinking. The question is not how to calm that response. The question is how to become fluent in what it is saying."
+        - "This reframe dissolves shame. What feels like a personal fault — myself broken, confused by the weight — is instead an accurate response to a system and policy structure that keeps treating the soul's knowing as noise instead of intelligence. Junko teaches a practice of receiving that turns that intelligence into capacity for what comes next."
+      semantic_family: "soul_climate_reframe_alt"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+
+practice:
+  default_id: junko_climate_practice_01
+  options:
+    - id: junko_climate_practice_01
+      display_name: "Receiving Practice"
+      duration: "5 minutes"
+      announcement_line: "Channeler Junko teaches a 5-minute Receiving practice for moments when climate updates close down the body and the soul's knowing runs underneath. It is in the sidebar, timed and step by step."
+      relief_lines:
+        - "The mind stops treating the body's response as proof of breakdown."
+        - "What the soul already knows can surface when the channel opens, and from there capacity returns."
+      relief_register: ["receptivity", "capacity", "act again"]
+      derived_from_frame: "soul_climate_knowing"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+    - id: junko_climate_practice_02
+      display_name: "Receiving Practice"
+      duration: "5 minutes"
+      announcement_line: "Channeler Junko teaches a 5-minute Receiving practice for when climate information has your body locked and you need to access what the deeper part of you already understands. It is in the sidebar, short enough to use before the next action or after the spiral tightens."
+      relief_lines:
+        - "The soul's knowing stops being trapped beneath surface anxiety."
+        - "Alignment with what the deeper self already holds makes the next step visible."
+      relief_register: ["receptivity", "capacity", "act again"]
+      derived_from_frame: "soul_climate_knowing"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+
+sdg:
+  primary:
+    id: "SDG 13"
+    title: "Climate Action"
+    line: "The United Nations has a framework for climate action and resilience targets in SDG 13, which includes education and building youth capacity."
+  fallback_un_tie:
+    line: "Pearl News is an independent nonprofit. We are not affiliated with the United Nations."
+
+cta:
+  options:
+    - id: climate_reality_01
+      org: "The Climate Reality Project"
+      line: "The Climate Reality Project and YOUNGO both offer youth training and entry points into climate action. Door in: https://climaterealityproject.org"
+      semantic_family: "door-in-climate"
+      article_types: ["hard_news_spiritual_response"]
+    - id: sunrise_movement_01
+      org: "Sunrise Movement"
+      line: "If grassroots youth organizing is your next step, the Sunrise Movement runs a program for young people building climate power. Door in: join their network."
+      semantic_family: "door-in-organizing"
+      article_types: ["hard_news_spiritual_response"]
+
+title_system:
+  headline_layer_1:
+    options:
+      - id: threshold_finality_01
+        line: "1.5 Degrees Is Not a Forecast Anymore."
+        semantic_family: "threshold-finality"
+        article_types: ["hard_news_spiritual_response"]
+      - id: soul_knowing_01
+        line: "Your Body Already Knows What Your Mind Is Still Processing."
+        semantic_family: "soul-first"
+        article_types: ["hard_news_spiritual_response"]
+  headline_layer_2:
+    options:
+      - id: junko_climate_headline_01
+        line: "A Japanese channeler names climate distress as soul knowing — and the practice that receives what your deeper self already holds."
+        semantic_family: "teacher-soul-knowing"
+        article_types: ["hard_news_spiritual_response"]
+      - id: junko_climate_headline_02
+        line: "A channeler reads young people's climate response not as anxiety, but as the soul's accurate knowing — and teaches how to listen."
+        semantic_family: "teacher-reception"
+        article_types: ["hard_news_spiritual_response"]
+
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: "article_id + slot + teacher_id + topic"
+  metadata_filters:
+    article_types: ["hard_news_spiritual_response", "commentary"]
+    topic_subcases: ["threshold_news", "institutional_inaction"]
+    intensity_range: [2, 4]

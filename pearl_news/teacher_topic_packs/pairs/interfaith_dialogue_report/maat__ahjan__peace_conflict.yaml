@@ -1,0 +1,83 @@
+# Interfaith dialogue report pair-pack (Wave 2 Dev 6). Order: maat (teacher_a), ahjan (teacher_b).
+schema_version: 1
+pair_type: interfaith_dialogue_report
+teacher_a_id: maat
+teacher_b_id: ahjan
+topic: peace_conflict
+active: true
+
+identity:
+  teacher_a_tradition: "South Indian Sufi"
+  teacher_b_tradition: "Theravada Buddhist teacher"
+  shared_diagnosis: "Young people are experiencing moral injury from institutional betrayal of truth. Their distrust is not cynicism; it is accurate perception."
+
+leaders_present:
+  options:
+    - id: leaders_peace_01
+      line: "Teacher Ma'at (South Indian Sufi tradition) and Teacher Ahjan (Theravada Buddhism) joined a Pearl News dialogue on conflict pressure, moral injury, and youth capacity to witness without collapsing."
+      semantic_family: "intro-pair"
+      article_types: ["interfaith_dialogue_report"]
+    - id: leaders_peace_02
+      line: "Two teachers from distinct traditions—Teacher Ma'at, a South Indian Sufi teacher rooted in the dargah traditions of Tamil Nadu, and Teacher Ahjan, a Buddhist teacher of 25 years—were present for a conversation on institutional betrayal of truth and how both traditions restore the capacity to stay in contact with reality without numbing."
+      semantic_family: "intro-pair-alt"
+      article_types: ["interfaith_dialogue_report"]
+
+themes_discussed:
+  options:
+    - id: themes_peace_01
+      line: "Moral injury and institutional truth-betrayal; the young person's perception as accurate, not unstable; practices that restore the capacity to name truth and act on it without collapse."
+      semantic_family: "themes-truth-capacity"
+      article_types: ["interfaith_dialogue_report"]
+    - id: themes_peace_02
+      line: "Truth-rupture when institutions ask for trust while misnaming harm; heart-clearing through the qalb (Teacher Ma'at) and right effort (Teacher Ahjan) as parallel paths; witness and accountability without helplessness."
+      semantic_family: "themes-rupture-practice"
+      article_types: ["interfaith_dialogue_report"]
+
+youth_commitments:
+  options:
+    - id: youth_peace_01
+      line: "Both teachers committed to supporting youth-facing content that names moral injury as accurate response to institutional betrayal, not as personal instability, and to pointing young people toward practices that restore steadiness so they can witness and act without being consumed by helplessness."
+      semantic_family: "youth-commitment-witness"
+      article_types: ["interfaith_dialogue_report"]
+    - id: youth_peace_02
+      line: "The dialogue produced a shared commitment: to frame conflict and institutional failure so that young people's perception is validated, and so that entry points (truth-speaking, right effort, documentation, peacebuilding networks) are clearly available without requiring them to choose one tradition."
+      semantic_family: "youth-commitment-framing"
+      article_types: ["interfaith_dialogue_report"]
+
+sdg_alignment:
+  options:
+    - id: sdg_peace_01
+      line: "The United Nations framework for this gap is SDG 16 (Peace, Justice and Strong Institutions). Both traditions support young people to hold that framework and to act from truth-grounded capacity—naming harm, documenting it, and building accountability—without collapsing under the weight of institutional delay."
+      semantic_family: "sdg16-alignment"
+      article_types: ["interfaith_dialogue_report"]
+    - id: sdg_peace_02
+      line: "SDG 16 assumes actors who can witness and respond without denial or numbness. Ma'at and Ahjan both teach the capacity that makes that witness possible: truth-naming and right effort, in their distinct vocabularies."
+      semantic_family: "sdg16-capacity"
+      article_types: ["interfaith_dialogue_report"]
+
+convergence:
+  options:
+    - id: convergence_peace_01
+      line: "Both Ma'at and Ahjan share a diagnosis of institutional truth-betrayal: young people are not unstable; they are responding accurately to a system that hides harm while asking for trust. Ma'at names this through the Sufi concept of ghaflah — heedlessness — when institutions cloud the qalb until you doubt what you already perceive as true. Ahjan names it as institutional delay outsourcing unbearable responsibility. Both then teach that the young person's perception is accurate, and that the path forward is not acceptance or numbness, but practices that restore the capacity to name truth and act on it without collapse."
+      structural_overlap: "Both validate accurate perception of institutional harm; both restore capacity through practices grounded in truth-telling and right effort, not denial."
+      semantic_family: "truth-validation-capacity"
+      article_types: ["interfaith_dialogue_report"]
+    - id: convergence_peace_02
+      line: "The convergence is precise: neither tradition asks young people to calm down as if fear were the mistake. Both locate the problem in institutional failure to name and respond to harm. Ma'at teaches heart-clearing and sama listening; Ahjan teaches samvega and right effort. The doctrines differ in source and vocabulary; the structural agreement is that moral injury is accurate response and the path forward is practice that restores the capacity to witness and act."
+      structural_overlap: "Moral injury as accurate response; path forward is truth-grounded practice, not numbness."
+      semantic_family: "convergence-precision"
+      article_types: ["interfaith_dialogue_report"]
+
+distinction:
+  options:
+    - id: distinction_peace_01
+      line: "Ma'at roots the teaching in South Indian Sufi heart-clearing and the qalb as organ of perception; Ahjan roots it in Buddhist samvega and right effort. They do not conflate traditions. The convergence is on the named burden (institutional betrayal of truth, accurate perception) and the shared need for a practice that restores capacity to witness and act—not on metaphysics or path."
+      semantic_family: "distinction-preserved"
+      article_types: ["interfaith_dialogue_report"]
+
+next_steps:
+  options:
+    - id: next_steps_peace_01
+      line: "Pearl News will use this dialogue to shape future interfaith peace and conflict content and to ensure youth-facing entry points (UN Women, youth justice networks, witness and documentation resources) are clearly linked where both traditions align."
+      semantic_family: "next-steps-content"
+      article_types: ["interfaith_dialogue_report"]

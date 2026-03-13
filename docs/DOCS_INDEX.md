@@ -2,11 +2,11 @@
 
 **Purpose:** Canonical index for documentation authority and navigation.  
 **Missing-file policy:** Only existing files are linked; planned or missing files are listed as backlog items (plain text or `path` with ⚠️ *file not present*).  
-**Last updated:** 2026-03-06
+**Last updated:** 2026-03-08
 
-**For developers: start here.** This index is your map. Use the **task table** below for "where to go" by task. **GitHub (PRs, merges, two repos, runners):** go to [GitHub Operations Framework](#github-operations-framework) and [docs/GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md) — repo map, workflow matrix, canonical ownership, PR flow, merge to main, Qwen-Agent push/runner, recovery. **Tests / CI:** [Test suite (document all)](#test-suite-document-all). **Domain work:** use the task table and the "(document all)" subsections per domain.
+**For developers: start here.** This index is your map. Use the **task table** below for "where to go" by task. **GitHub (PRs, merges, two repos, runners):** go to [GitHub Operations Framework](#github-operations-framework) and [docs/GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md) — repo map, workflow matrix, canonical ownership, PR flow, merge to main, Qwen-Agent push/runner, recovery. **No-failure standard:** [docs/GITHUB_NO_FAILURE_FRAMEWORK.md](./GITHUB_NO_FAILURE_FRAMEWORK.md). **Tests / CI:** [Test suite (document all)](#test-suite-document-all). **Domain work:** use the task table and the "(document all)" subsections per domain.
 
-**Recent implementation (d1–d6 + payouts):** Freebies (d1) — `--no-update-freebie-index` in run_pipeline/systems_test. Change observation & impact (d2) — [config/governance/system_registry.yaml](../config/governance/system_registry.yaml), [scripts/observability/detect_changes.py](../scripts/observability/detect_changes.py), [scripts/observability/impact_from_changes.py](../scripts/observability/impact_from_changes.py), [.github/workflows/change-impact.yml](../.github/workflows/change-impact.yml). EI V2 (d3) — [phoenix_v4/quality/ei_v2/learner.py](../phoenix_v4/quality/ei_v2/learner.py), [phoenix_v4/quality/ei_v2/dimension_gates.py](../phoenix_v4/quality/ei_v2/dimension_gates.py), [phoenix_v4/quality/ei_v2/hybrid_selector.py](../phoenix_v4/quality/ei_v2/hybrid_selector.py), [scripts/ci/run_ei_v2_catalog_calibration.py](../scripts/ci/run_ei_v2_catalog_calibration.py), [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py). Translation (d4) — [config/localization/quality_contracts/](../config/localization/quality_contracts/) (README, glossary, release_thresholds, golden_translation_regression), script stubs: [translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py), [validate_translations.py](../scripts/validate_translations.py), [merge_translation_shards.py](../scripts/merge_translation_shards.py), [check_golden_translation.py](../scripts/check_golden_translation.py), [native_prompts_eval_learn.py](../scripts/native_prompts_eval_learn.py), [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml), [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml). Simulation/quality (d5) — [scripts/ci/run_simulation_100k.py](../scripts/ci/run_simulation_100k.py), [config/source_of_truth/chapter_order_modes.yaml](../config/source_of_truth/chapter_order_modes.yaml), [scripts/ci/tier0_trend.py](../scripts/ci/tier0_trend.py), [config/quality/canary_config.yaml](../config/quality/canary_config.yaml). Payouts — [config/payouts/](../config/payouts/) (churches, payees, credentials.example, fill_template.csv). Video (d6) — no code changes (run_render duration already correct). **Cohesive bestseller tester:** robust, intelligent testing for 10k Pearl Prime + 10k teacher-mode + EI v2 — [llm_cohesive_bestseller_tester.py](../scripts/ci/llm_cohesive_bestseller_tester.py), [llm_bestseller_error_report.py](../scripts/ci/llm_bestseller_error_report.py); health score, severity, dimension analysis, baseline, LLM; see [Rigorous system test & simulation (document all)](#rigorous-system-test--simulation-document-all) and [scripts/ci/README.md](../scripts/ci/README.md) § AI/LLM cohesive bestseller tester. **Pearl Prime structural upgrade (2026-03-06):** Seven-change book quality overhaul — four new chapter slots (PIVOT, TAKEAWAY, THREAD, PERMISSION) added to [specs/PHOENIX_V4_5_WRITER_SPEC.md](../specs/PHOENIX_V4_5_WRITER_SPEC.md) §4.3a/4.7/4.7a/4.8; 20-chapter arc second half redesigned with 11 new deepening intents replacing the repeated first-half cycle; chapter thesis field added to arc schema; 12 bestseller narrative structures documented and mapped to slot assignments in [docs/BESTSELLER_STRUCTURES.md](./BESTSELLER_STRUCTURES.md); canonical thesis sentences for all 20 intents × 7 engines in [docs/CHAPTER_THESIS_BANK.md](./CHAPTER_THESIS_BANK.md). **Pearl News writer spec (2026-03-06):** Full writing craft layer for article authoring — [docs/PEARL_NEWS_WRITER_SPEC.md](./PEARL_NEWS_WRITER_SPEC.md); expansion prompt upgraded in [pearl_news/prompts/expansion_system.txt](../pearl_news/prompts/expansion_system.txt). **Qwen-Only Audiobook Pipeline (2026-03-06):** Fully-automated Qwen comparator loop producing localized audiobook scripts; no Claude at runtime; no human in repair loop; 5 hard + 4 scored gates; asyncio parallel (24 concurrent API calls); manual review queue in PhoenixControl — [docs/AUDIOBOOK_PIPELINE_SPEC.md](./AUDIOBOOK_PIPELINE_SPEC.md), [docs/GO_LIVE_FINAL_CHECKLIST.md](./GO_LIVE_FINAL_CHECKLIST.md), [scripts/audiobook_script/run_comparator_loop.py](../scripts/audiobook_script/run_comparator_loop.py). All listed assets are in the [Document all — complete inventory](#document-all--complete-inventory) with ✓ where present.
+**Recent implementation (d1–d6 + payouts):** Freebies (d1) — `--no-update-freebie-index` in run_pipeline/systems_test. Change observation & impact (d2) — [config/governance/system_registry.yaml](../config/governance/system_registry.yaml), [scripts/observability/detect_changes.py](../scripts/observability/detect_changes.py), [scripts/observability/impact_from_changes.py](../scripts/observability/impact_from_changes.py), [.github/workflows/change-impact.yml](../.github/workflows/change-impact.yml). EI V2 (d3) — [phoenix_v4/quality/ei_v2/learner.py](../phoenix_v4/quality/ei_v2/learner.py), [phoenix_v4/quality/ei_v2/dimension_gates.py](../phoenix_v4/quality/ei_v2/dimension_gates.py), [phoenix_v4/quality/ei_v2/hybrid_selector.py](../phoenix_v4/quality/ei_v2/hybrid_selector.py), [scripts/ci/run_ei_v2_catalog_calibration.py](../scripts/ci/run_ei_v2_catalog_calibration.py), [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py). Translation (d4) — [config/localization/quality_contracts/](../config/localization/quality_contracts/) (README, glossary, release_thresholds, golden_translation_regression), script stubs: [translate_atoms_all_locales_cloud.py](../scripts/translate_atoms_all_locales_cloud.py), [validate_translations.py](../scripts/validate_translations.py), [merge_translation_shards.py](../scripts/merge_translation_shards.py), [check_golden_translation.py](../scripts/check_golden_translation.py), [native_prompts_eval_learn.py](../scripts/native_prompts_eval_learn.py), [.github/workflows/translate-atoms-qwen-matrix.yml](../.github/workflows/translate-atoms-qwen-matrix.yml), [.github/workflows/locale-gate.yml](../.github/workflows/locale-gate.yml). Simulation/quality (d5) — [scripts/ci/run_simulation_100k.py](../scripts/ci/run_simulation_100k.py), [config/source_of_truth/chapter_order_modes.yaml](../config/source_of_truth/chapter_order_modes.yaml), [scripts/ci/tier0_trend.py](../scripts/ci/tier0_trend.py), [config/quality/canary_config.yaml](../config/quality/canary_config.yaml). Payouts — [config/payouts/](../config/payouts/) (churches, payees, credentials.example, fill_template.csv). Video (d6) — no code changes (run_render duration already correct). **Cohesive bestseller tester:** robust, intelligent testing for 10k Pearl Prime + 10k teacher-mode + EI v2 — [llm_cohesive_bestseller_tester.py](../scripts/ci/llm_cohesive_bestseller_tester.py), [llm_bestseller_error_report.py](../scripts/ci/llm_bestseller_error_report.py); health score, severity, dimension analysis, baseline, LLM; see [Rigorous system test & simulation (document all)](#rigorous-system-test--simulation-document-all) and [scripts/ci/README.md](../scripts/ci/README.md) § AI/LLM cohesive bestseller tester. **Pearl Prime structural upgrade (2026-03-06):** Seven-change book quality overhaul — four new chapter slots (PIVOT, TAKEAWAY, THREAD, PERMISSION) added to [specs/PHOENIX_V4_5_WRITER_SPEC.md](../specs/PHOENIX_V4_5_WRITER_SPEC.md) §4.3a/4.7/4.7a/4.8; 20-chapter arc second half redesigned with 11 new deepening intents replacing the repeated first-half cycle; chapter thesis field added to arc schema; 12 bestseller narrative structures documented and mapped to slot assignments in [docs/BESTSELLER_STRUCTURES.md](./BESTSELLER_STRUCTURES.md); canonical thesis sentences for all 20 intents × 7 engines in [docs/CHAPTER_THESIS_BANK.md](./CHAPTER_THESIS_BANK.md). **Pearl News writer spec (2026-03-06):** Full writing craft layer for article authoring — [docs/PEARL_NEWS_WRITER_SPEC.md](./PEARL_NEWS_WRITER_SPEC.md); expansion prompt upgraded in [pearl_news/prompts/expansion_system.txt](../pearl_news/prompts/expansion_system.txt). **Qwen-Only Audiobook Pipeline (2026-03-06):** Fully-automated Qwen comparator loop producing localized audiobook scripts; no Claude at runtime; no human in repair loop; 5 hard + 4 scored gates; asyncio parallel (24 concurrent API calls); manual review queue in PhoenixControl — [docs/AUDIOBOOK_PIPELINE_SPEC.md](./AUDIOBOOK_PIPELINE_SPEC.md), [docs/GO_LIVE_FINAL_CHECKLIST.md](./GO_LIVE_FINAL_CHECKLIST.md), [scripts/audiobook_script/run_comparator_loop.py](../scripts/audiobook_script/run_comparator_loop.py). All listed assets are in the [Document all — complete inventory](#document-all--complete-inventory) with ✓ where present. **Automation cadence + backlog references (2026-03-07):** Present workflows in this repo are [marketing-briefs-and-proposals.yml](../.github/workflows/marketing-briefs-and-proposals.yml) (daily 8am UTC) and [catalog-book-pipeline.yml](../.github/workflows/catalog-book-pipeline.yml) (weekly Mon 6am UTC); `ei-v2-learning.yml`, Phoenix Recommender, LM Studio lock, and Qwen-Agent localization scripts remain backlog or external references and are intentionally plain-text only here.
 
 ---
 
@@ -28,7 +28,10 @@
 | **Go/no-go decision** | [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md) §6 Hard NOs. |
 | **Freebie funnel & launch** | [Freebie funnel, Proof Loop & launch (document all)](#freebie-funnel-proof-loop--launch-document-all) — landing, form, Proof-Loop emails, GHL push, writer spec, GO_NO_GO, three things from Nihala. |
 | **UI / operator coverage (full)** | No single spec covers all UI. For 100% coverage of everything that needs UI to manage, use the **full doc bundle**: [Control plane & operator UI — full doc bundle](#control-plane--operator-ui--full-doc-bundle) below. |
+| **Run automation cadence** | [Automation cadence (document all)](#automation-cadence-document-all) — 3 workstreams (EI V2 daily learning, marketing daily briefs, catalog-book weekly); concurrency groups; phased rollout; LM Studio lock. |
+| **Use Phoenix Recommender** | [Phoenix Recommender (document all)](#phoenix-recommender-document-all) — Catalog-facing recommendation: `python -m phoenix_recommender --top 50 --dry-run`; scoring weights, constraints, hard gates in config/recommender/. |
 | **Do GitHub operations (both repos)** | [GitHub Operations Framework](#github-operations-framework) — repo map, workflow matrix, canonical ownership, system functions (PR flow, merge to main, Qwen-Agent push, runner start/clean, recovery). |
+| **Prevent workflow hangs/failures** | [docs/GITHUB_NO_FAILURE_FRAMEWORK.md](./GITHUB_NO_FAILURE_FRAMEWORK.md) — No-failure rules: heavy-job sharding, preflight + warmup, no-thinking LM calls, runner watchdog/cleanup, UTC windows, push guard, evidence standard. |
 
 ---
 
@@ -70,6 +73,70 @@ Native Swift/SwiftUI macOS app implementing the plan "Phoenix Omega — Native m
 
 ---
 
+## Marketing closed-loop growth engine (document all)
+
+Multi-agent marketing + EI V2 closed-loop system: research ingestion → signal store → persona/topic briefs → prompt patch proposals → promotion gate → production. Four always-on loops: Research, Market, Assembly, Learning.
+
+| Item | Location |
+|------|----------|
+| **Unified signal schema** | `config/marketing/research_signal_schema.yaml` — Backlog config reference; file not present in this repo checkout |
+| **Signal JSON Schema** | `schemas/marketing/research_signal_v1.schema.json` — Backlog schema reference; file not present |
+| **Ingest limits** | `config/marketing/ingest_limits.yaml` — Backlog config reference; file not present |
+| **Promotion gate config** | `config/marketing/promotion_gate.yaml` — Backlog config reference; file not present |
+| **Scout: web research ingest** | `scripts/marketing/ingest_web_research.py` — Backlog script reference; workflow currently skips when absent |
+| **Market: sales signal ingest** | `scripts/marketing/ingest_sales_signals.py` — Backlog script reference; workflow currently skips when absent |
+| **Assembly: brief builder** | `scripts/marketing/build_persona_topic_briefs.py` — Backlog script reference; workflow currently skips when absent |
+| **Experiment: patch proposer** | `scripts/marketing/propose_prompt_patches.py` — Backlog script reference; workflow currently skips when absent |
+| **Evaluator+Publisher: promotion gate** | `scripts/marketing/promotion_gate.py` — Backlog script reference; file not present |
+| **EI V2 feature hook** | `phoenix_v4/quality/ei_v2/research_sales_features.py` — Backlog module reference; file not present |
+| **Continuous workflow (hourly ingest)** | [.github/workflows/marketing_continuous.yml](../.github/workflows/marketing_continuous.yml) — Hourly ingest; Phase 1 = ingest only, promotion disabled; self-hosted hardening: concurrency (`marketing-continuous`), runner preflight, retry-once loops |
+| **Daily briefs + proposals workflow** | [.github/workflows/marketing-briefs-and-proposals.yml](../.github/workflows/marketing-briefs-and-proposals.yml) — Daily 8am UTC; builds persona/topic briefs, proposes prompt patches (artifact-only); concurrency: cancel-in-progress; self-hosted hardening: preflight + in-step LM lock + retry-once |
+| **Existing: consumer language** | [config/marketing/consumer_language_by_topic.yaml](../config/marketing/consumer_language_by_topic.yaml) |
+| **Existing: invisible scripts** | [config/marketing/invisible_scripts_by_persona_topic.yaml](../config/marketing/invisible_scripts_by_persona_topic.yaml) |
+| **Existing: EI V2 marketing lexicons** | [phoenix_v4/quality/ei_v2/marketing_lexicons.py](../phoenix_v4/quality/ei_v2/marketing_lexicons.py) |
+| **Existing: EI V2 research lexicons** | [phoenix_v4/quality/ei_v2/research_lexicons.py](../phoenix_v4/quality/ei_v2/research_lexicons.py) |
+| **Existing: EI V2 config** | [config/quality/ei_v2_config.yaml](../config/quality/ei_v2_config.yaml) — research_kb + marketing_sources blocks |
+
+**Governance:** All proposals artifact-only until promotion_gate.py evaluates. Apply allowlist: config/marketing/, prompts/marketing/, pearl_news/prompts/. Apply blocklist: config/quality/, schemas/, scripts/, .github/. Emergency stop: one switch in ingest_limits.yaml. Rollback tokens stored per promotion.
+
+---
+
+## Automation cadence (document all)
+
+Three automation workstreams wired with explicit cadence, concurrency groups, and phased rollout. See [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md) for the full workflow matrix and concurrency table.
+
+| Item | Location |
+|------|----------|
+| **EI V2 daily learning** | `ei-v2-learning.yml` — Backlog workflow reference; file not present in this repo |
+| **Marketing daily briefs + proposals** | [.github/workflows/marketing-briefs-and-proposals.yml](../.github/workflows/marketing-briefs-and-proposals.yml) — Daily 8am UTC; builds persona/topic briefs, proposes prompt patches (artifact-only); self-hosted runner; concurrency: `marketing-briefs-proposals` (cancel-in-progress); preflight + in-step LM lock + retry-once |
+| **Catalog book pipeline (weekly)** | [.github/workflows/catalog-book-pipeline.yml](../.github/workflows/catalog-book-pipeline.yml) — Monday 6am UTC; generates weekly schedule, runs capped pipeline, optional EI V2 learn after build; self-hosted runner; concurrency: `catalog-book-pipeline` (no cancel); LM preflight + in-step LM lock + retry-once; 120-min timeout |
+| **LM Studio job lock** | `Qwen-Agent/scripts/lm_studio_lock.py` — External helper/backlog reference; not present in this repo |
+
+**Phased rollout:** Week 1 = EI V2 daily (validate 2-3 green runs). Week 2 = Marketing daily briefs. Week 3 = Catalog-book pipeline. Do not enable all three in one week.
+
+---
+
+## Phoenix Recommender (document all)
+
+Catalog-facing recommendation engine that decides which books Phoenix should create next. Rules-based Phase 1: generates candidates from canonical taxonomy, scores by demand/coverage-gap/performance/risk, ranks with constraints + explore/exploit, outputs ranked recommendations to `artifacts/recommendations/` (ranked.json, summary.md) for use by the plan queue or manual selection.
+
+| Item | Location |
+|------|----------|
+| **Package** | `phoenix_recommender/` — Backlog package reference; not present in this repo |
+| **Candidate generator** | `phoenix_recommender/candidate_generator.py` — Backlog module reference; file not present |
+| **Feature builder** | `phoenix_recommender/feature_builder.py` — Backlog module reference; file not present |
+| **Scoring model** | `phoenix_recommender/scoring_model.py` — Backlog module reference; file not present |
+| **Ranker** | `phoenix_recommender/ranker.py` — Backlog module reference; file not present |
+| **Report generator** | `phoenix_recommender/recommendation_report.py` — Backlog module reference; file not present |
+| **CLI** | `phoenix_recommender/cli.py` — Backlog module reference; file not present |
+| **Scoring weights** | `config/recommender/scoring_weights.yaml` — Backlog config reference; file not present |
+| **Constraints** | `config/recommender/constraints.yaml` — Backlog config reference; file not present |
+| **Hard gates** | `config/recommender/hard_gates.yaml` — Backlog config reference; file not present |
+
+**Roadmap:** Phase 1 (current) = rules-based scoring + hard gates. Phase 2 = explore/exploit with confidence bands + auto-learning. Phase 3 = learned ranking model (LightGBM) when performance data accumulates.
+
+---
+
 ## Canonical authority
 
 - **System owner vision (north star):** [SYSTEM_OWNER_VISION.md](../SYSTEM_OWNER_VISION.md) — What the system owner wants: technical, therapeutic, reader/listener experience, marketing and business. The whole story of success.
@@ -91,6 +158,7 @@ Native Swift/SwiftUI macOS app implementing the plan "Phoenix Omega — Native m
 - [docs/FULL_REPO_TEST_SUITE_PLAN.md](./FULL_REPO_TEST_SUITE_PLAN.md) — Full test suite plan, gap analysis, pipeline matrix
 - [docs/BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md) — Required status checks for main
 - [docs/GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md) — **GitHub operations (both repos):** repo map, workflow matrix, canonical ownership, system functions (PR flow, merge to main, Qwen-Agent push, runner start/clean, recovery). Start here for any GitHub work.
+- [docs/GITHUB_NO_FAILURE_FRAMEWORK.md](./GITHUB_NO_FAILURE_FRAMEWORK.md) — **No-failure GitHub standard:** self-hosted reliability requirements (job sharding, preflight/warmup, no-thinking policy, heavy windows, one-heavy-queue policy, watchdog/cleanup, push guard, evidence).
 - [docs/DISASTER_RECOVERY_DRILL_CHECKLIST.md](./DISASTER_RECOVERY_DRILL_CHECKLIST.md) — DR drill steps, evidence template
 - `docs/CONTROL_PLANE_GO_NO_GO.md` — Control Plane macOS app: pass/fail checks per tab; production-ready when all pass and evidenced
 - `docs/CONTROL_PLANE_RUNBOOK.md` — Runbook proving each tab runs real repo commands and reads real artifacts
@@ -322,7 +390,7 @@ Pearl News is 100% at **code/tests** when classifier, selector, quality gates, a
 
 ### CI / workflows
 
-**Pearl News workflows are not in this repo.** They live in **Ahjan108/Qwen-Agent**: `pearl_news_scheduled.yml` (schedule + dispatch, no expand by default) and `pearl_news_manual_expand.yml` (dispatch, with LLM expand). Setup and self-hosted runner: [PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md). Full workflow matrix and secrets: [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md).
+**Pearl News workflows in this repo:** [.github/workflows/pearl-news-assemble.yml](../.github/workflows/pearl-news-assemble.yml), [.github/workflows/pearl-news-fill-qwen.yml](../.github/workflows/pearl-news-fill-qwen.yml), and [.github/workflows/pearl-news-full-qa.yml](../.github/workflows/pearl-news-full-qa.yml). Qwen-Agent localization/runbook references remain external operational notes and are intentionally plain text only here. Full workflow matrix and secrets: [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md). LM Studio lock is an external helper/backlog dependency and is not linked from this repo.
 
 ---
 
@@ -343,8 +411,9 @@ Single entry point for GitHub operations across **Ahjan108/phoenix_omega_v4.8** 
 | Item | Location |
 |------|----------|
 | **Framework doc** | [docs/GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md) — Repo identity, workflow matrix (phoenix_omega_v4.8 + Qwen-Agent), canonical ownership, secrets and runners, branch protection, system functions (procedures and commands), before-you-push checklists, recovery pointers. |
+| **No-failure standard** | [docs/GITHUB_NO_FAILURE_FRAMEWORK.md](./GITHUB_NO_FAILURE_FRAMEWORK.md) — Reliability baseline for zero-hang operations: heavy job classes/windows, sharding, preflight + warmup, no-thinking calls, one-heavy-queue policy, runner watchdog/cleanup, push guard, evidence. |
 | **Branch protection** | [docs/BRANCH_PROTECTION_REQUIREMENTS.md](./BRANCH_PROTECTION_REQUIREMENTS.md) — Required checks for main (Core tests, Release gates, EI V2 gates, Change impact). |
-| **Pearl News in Qwen-Agent** | Pearl News workflows live only in **Ahjan108/Qwen-Agent** (scheduled + manual expand). phoenix_omega has no Pearl News workflow files. Setup and runner: [PEARL_NEWS_OPTION_B_RUNBOOK.md](./PEARL_NEWS_OPTION_B_RUNBOOK.md). Workflow matrix and secrets: [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md). |
+| **Pearl News workflows** | Pearl News workflows in this repo are [.github/workflows/pearl-news-assemble.yml](../.github/workflows/pearl-news-assemble.yml), [.github/workflows/pearl-news-fill-qwen.yml](../.github/workflows/pearl-news-fill-qwen.yml), and [.github/workflows/pearl-news-full-qa.yml](../.github/workflows/pearl-news-full-qa.yml). Qwen-Agent references are external operational notes only. |
 
 ---
 
@@ -496,6 +565,7 @@ Church brands (e.g. NorCal Dharma) are identity/distribution only: no teacher, n
 ### Church docs
 
 - [docs/church_docs/README.md](./church_docs/README.md) — Church–brand linkage: brand_id → church record mapping, display name source, Cooperative Church Compliance YAML Schema reference, ops smoke
+- `docs/CHURCH_PAYOUT_AND_BANK_GOVERNANCE.md` — Church payout and bank governance backlog reference; file not present in this repo
 - **docs/norcal_dharma.yaml** — Church #1 canonical record (Cooperative Church Compliance YAML Schema). ⚠️ *file not present*; when added, link here.
 - [docs/adr/ADR-002-distribution-only-church-brand.md](./adr/ADR-002-distribution-only-church-brand.md) — Distribution-only church brand policy
 
@@ -521,6 +591,33 @@ Church brands (e.g. NorCal Dharma) are identity/distribution only: no teacher, n
 ### CI / workflow
 
 - [.github/workflows/brand-guards.yml](../.github/workflows/brand-guards.yml) — **Brand guards:** on push/PR to main when brand registry, locale extension, or catalog_planning brand_teacher_* change. Runs: check_norcal_dharma_brand_guards.py, check_church_yaml_no_sensitive_tokens.py (on brand config files), pytest test_norcal_dharma_brand_smoke.py
+
+### Document all — Church & payout
+
+Single list of every **doc**, **config**, **script**, **test**, and **workflow** for church brands, payout governance, and partner payout methods. See also [Phoenix Churches Payout System (document all)](#phoenix-churches-payout-system-document-all) for config stubs, CHECKLIST, and payout package.
+
+| Item | Location | Purpose |
+|------|----------|---------|
+| **Church–brand linkage** | [docs/church_docs/README.md](./church_docs/README.md) | brand_id → church record mapping, display name, Cooperative Church Compliance; payout and bank governance pointer |
+| **Church payout and bank governance** | `docs/CHURCH_PAYOUT_AND_BANK_GOVERNANCE.md` | Backlog reference; file not present in this repo |
+| **Partner payout methods** | `docs/PAYOUT_PARTNER_METHODS.md` | Backlog reference; file not present in this repo |
+| **Distribution-only church brand (ADR)** | [docs/adr/ADR-002-distribution-only-church-brand.md](./adr/ADR-002-distribution-only-church-brand.md) | Policy: no teacher, no matrix, display name from church YAML |
+| **Church #1 canonical record** | `docs/norcal_dharma.yaml` | Cooperative Church Compliance YAML. ⚠️ *file not present* |
+| **Brand registry (norcal_dharma)** | [config/brand_registry.yaml](../config/brand_registry.yaml) | norcal_dharma entry; no teacher |
+| **Locale extension (norcal_dharma)** | [config/localization/brand_registry_locale_extension.yaml](../config/localization/brand_registry_locale_extension.yaml) | en-US, territory US |
+| **Brand–teacher assignments** | [config/catalog_planning/brand_teacher_assignments.yaml](../config/catalog_planning/brand_teacher_assignments.yaml) | norcal_dharma → default_teacher only |
+| **Church registry** | [config/payouts/churches.yaml](../config/payouts/churches.yaml) | 24 churches; bluevine_account_last4, payee_id; populate per CHECKLIST |
+| **Payee registry** | [config/payouts/payees.yaml](../config/payouts/payees.yaml) | Schema v1.1; domestic + international (payout_method, vault_ref, fallback_methods, etc.) |
+| **Payout checklist** | [config/payouts/CHECKLIST.md](../config/payouts/CHECKLIST.md) | Plaid, bank connections, Bluevine last4, payee info; international partner payees (vault_ref, 2-person approval); aligns with CHURCH_PAYOUT_AND_BANK_GOVERNANCE |
+| **Payout credentials template** | [config/payouts/credentials.yaml.example](../config/payouts/credentials.yaml.example) | plaid, access_tokens; copy to credentials.yaml |
+| **Payout fill template** | [config/payouts/fill_template.csv](../config/payouts/fill_template.csv) | CSV for batch-filling church + payee info |
+| **Payout spec stub** | `specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md` | Backlog reference; file not present in this repo |
+| **NorCal Dharma brand guards** | [scripts/ci/check_norcal_dharma_brand_guards.py](../scripts/ci/check_norcal_dharma_brand_guards.py) | norcal_dharma not in matrix; assignments → default_teacher |
+| **Church YAML secret scan** | [scripts/ci/check_church_yaml_no_sensitive_tokens.py](../scripts/ci/check_church_yaml_no_sensitive_tokens.py) | No ssn, account_number in church/brand config |
+| **Church brand resolution smoke** | [scripts/ops/smoke_church_brand_resolution.py](../scripts/ops/smoke_church_brand_resolution.py) | brand_id → church.short_name |
+| **Church loader** | [phoenix_v4/ops/church_loader.py](../phoenix_v4/ops/church_loader.py) | load_church(brand_id), get_church_display_name(brand_id) |
+| **NorCal Dharma smoke test** | [tests/test_norcal_dharma_brand_smoke.py](../tests/test_norcal_dharma_brand_smoke.py) | Wave allocation, default_teacher, no Teacher Mode for norcal_dharma |
+| **Brand guards workflow** | [.github/workflows/brand-guards.yml](../.github/workflows/brand-guards.yml) | CI on brand registry, locale, brand_teacher_* changes |
 
 ---
 
@@ -579,8 +676,8 @@ Fully automated pipeline producing publication-ready localized audiobook scripts
 | **LM Studio API** | `http://127.0.0.1:1234/v1` (OpenAI-compatible) — Dashscope dropped; local Qwen model; no API key required |
 | **Draft prompts (4 types)** | `prompts/audiobook/draft_pearl_prime_v2.txt`, `draft_pearl_news_v2.txt`, `draft_phoenix_v4_v2.txt`, `draft_teacher_mode_v2.txt` — content_type routing via comparator_config.yaml |
 | **Judge prompt** | `prompts/audiobook/judge_audiobook_v2.txt` — unified judge; all 9 gates; JSON schema examples |
-| **Golden regression set** | `config/audiobook_script/golden_regression_set/` — 4 samples (zh-TW pearl_prime, zh-HK pearl_news, zh-SG teacher_mode, zh-CN phoenix_v4) |
-| **Regression runner** | [scripts/audiobook_script/run_regression.py](../scripts/audiobook_script/run_regression.py) — runs golden set against live LM Studio; `--dry-run` to check setup |
+| **Golden regression set** | `config/audiobook_script/golden_regression_set/` — 24 samples (6 locales × 4 content types: zh-TW, zh-HK, zh-SG, zh-CN, ja-JP, ko-KR × pearl_prime, pearl_news, teacher_mode, phoenix_v4); source_char_limit 1800 to fit qwen3-14b 8k context |
+| **Regression runner** | [scripts/audiobook_script/run_regression.py](../scripts/audiobook_script/run_regression.py) — runs golden set against live LM Studio; `--dry-run` to check setup; LM Studio lock integration (smoke=light, full=heavy); `--locale` filter |
 | **PhoenixControl Manual Review tab** | `PhoenixControl/Views/ManualReviewView.swift` — reads queue, red/orange badge, re-run button, packet viewer |
 | **Operator runbook** | [docs/audiobook_operator_runbook.md](./audiobook_operator_runbook.md) — per-gate triage guide; queue triage; re-run instructions |
 | **Rollback script** | [scripts/release/audiobook_rollback.sh](../scripts/release/audiobook_rollback.sh) — archives batch artifacts, cleans queue, logs rollback |
@@ -1324,17 +1421,18 @@ Landing page (6 sections), form capture, 4–5 email Proof-Loop sequence (Brevo 
 
 ## Phoenix Churches Payout System (document all)
 
-Biweekly payouts for 24 churches; Plaid sync, Bluevine, 90/10 split, human-in-the-loop execution. **Config stubs present** (churches.yaml, payees.yaml, credentials.yaml.example, fill_template.csv); populate per CHECKLIST.md. ⚠️ Spec (PHOENIX_CHURCHES_PAYOUT_SPEC.md) and payout package (cli, plaid_sync, etc.) not yet in repo.
+**VWM** pays **90%** to churches (keeps 10%); bank accounts are **per-brand, for Google Play receipt**, treasurer-controlled, **low activity** (2–3 moves/year from some accounts). Church payout governance and partner payout methods remain backlog/plain-text references in this repo. Domestic: Plaid sync, Bluevine, 24 churches; config stubs (churches.yaml, payees.yaml, credentials.yaml.example, fill_template.csv); populate per CHECKLIST.md. International partners: Wise (USD or direct), crypto (policy-gated for CN/JP/TW), or HK clearing; payees.yaml v1.1. Spec stub present; payout package (cli, plaid_sync, etc.) not yet in repo.
 
 ### Spec & checklist
 
-- `specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md` ⚠️ *file not present* — Tech spec: architecture, data model, workflow, compensating controls
-- [config/payouts/CHECKLIST.md](../config/payouts/CHECKLIST.md) — What you must give: Plaid credentials, 24 bank connections, Bluevine last4, payee info
+- `specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md` — Tech spec stub backlog reference; file not present in this repo
+- [config/payouts/CHECKLIST.md](../config/payouts/CHECKLIST.md) — What you must give: Plaid credentials, 24 bank connections, Bluevine last4, payee info; international partner payees (method, vault_ref, 2-person approval) per docs/PAYOUT_PARTNER_METHODS.md
+- `docs/PAYOUT_PARTNER_METHODS.md` — Partner payout methods backlog reference; file not present in this repo
 
 ### Config
 
 - [config/payouts/churches.yaml](../config/payouts/churches.yaml) — Church registry stub (24 churches; bluevine_account_last4, payee_id, rules; populate per CHECKLIST.md)
-- [config/payouts/payees.yaml](../config/payouts/payees.yaml) — Payee registry stub (24 payees; display_name, bank_last4)
+- [config/payouts/payees.yaml](../config/payouts/payees.yaml) — Payee registry (schema v1.1): display_name, bank_last4; optional for international: payout_method, status, effective_from/effective_to, vault_ref, fallback_methods, external_payout_id, last_paid_at
 - [config/payouts/credentials.yaml.example](../config/payouts/credentials.yaml.example) — Credentials template (plaid, access_tokens; copy to credentials.yaml)
 - [config/payouts/fill_template.csv](../config/payouts/fill_template.csv) — CSV template for batch-filling church + payee info
 
@@ -1620,12 +1718,12 @@ All docs that declare authority must reference the three canonical anchors: `SYS
 | [Marketing & deep research](#marketing--deep-research-document-all) | § Marketing | Deep research prompts, invisible script, marketing brief; **generational research** (prompts, scripts, config, artifacts, research_feeds_ingest) |
 | [Autonomous improvement & ML system](#autonomous-improvement--ml-system-document-all) | § Autonomous & ML | Observability, operations board, agent PRs, auto-merge, weekly pipeline, KPI triggers, ML editorial, ML loop (24/7 + daily + weekly) |
 | [Change observation and impact](#change-observation-and-impact-document-all) | § Change observation | System registry, change detection, impact analysis, synergy (LLM), Agent change feed, artifacts |
-| [Church & payout](#church--payout-distribution-only-brands) | § Church | Church docs, brand config, scripts, tests, CI |
+| [Church & payout](#church--payout-distribution-only-brands) | § Church | Church docs, CHURCH_PAYOUT_AND_BANK_GOVERNANCE, PAYOUT_PARTNER_METHODS, brand config, payout config (churches, payees, CHECKLIST), scripts, tests, CI; see [Document all — Church & payout](#document-all--church--payout) |
 | [Teacher Mode & production readiness](#teacher-mode--production-readiness-document-all) | § Teacher Mode | Teacher gates, doctrine, config, tests, artifacts, workflows |
 | [Mechanism alias system](#mechanism-alias-system-document-all) | § Mechanism alias | Schema, alias files, renderer integration |
 | [Delivery pipeline](#delivery-pipeline-document-all) | § Delivery pipeline | Renderer, CLI, delivery contract, word-count gate, artifacts |
 | [Enlightened Intelligence V1 & V2](#enlightened-intelligence-ei--v1--v2-document-all) | § EI | V1 modules, V2 modules (6 AI techniques), parallel adapter, eval harness, config, tests, artifacts |
-| [Phoenix Churches Payout System](#phoenix-churches-payout-system-document-all) | § Payout | Spec, config, package (most files ⚠️ missing) |
+| [Phoenix Churches Payout System](#phoenix-churches-payout-system-document-all) | § Payout | VWM 90/10, spec stub, CHECKLIST, PAYOUT_PARTNER_METHODS, churches/payees/credentials config; package ⚠️ missing. See also [Document all — Church & payout](#document-all--church--payout) for governance and scripts. |
 
 ### Governance
 
@@ -1673,9 +1771,12 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [governance/registry_integrity_checker_v1.md](./governance/registry_integrity_checker_v1.md) | Governance | ✓ |
 | [GITHUB_SUPPORT_SYSTEM_SPEC.md](./GITHUB_SUPPORT_SYSTEM_SPEC.md) | Governance | ✓ |
 | [GITHUB_OPERATIONS_FRAMEWORK.md](./GITHUB_OPERATIONS_FRAMEWORK.md) | Governance / GitHub (both repos) | ✓ |
+| [GITHUB_NO_FAILURE_FRAMEWORK.md](./GITHUB_NO_FAILURE_FRAMEWORK.md) | Governance / GitHub reliability (no-failure standard) | ✓ |
 | [RELEASE_VELOCITY_AND_SCHEDULE.md](./RELEASE_VELOCITY_AND_SCHEDULE.md) | Brand & release | ✓ |
 | [PLATFORM_HARDENING_PHASES_3-8_OUTLINE.md](./PLATFORM_HARDENING_PHASES_3-8_OUTLINE.md) | Brand & release | ✓ |
 | [church_docs/README.md](./church_docs/README.md) | Church & payout | ✓ |
+| `PAYOUT_PARTNER_METHODS.md` | Church & payout (international partner methods) | ⚠️ missing |
+| `CHURCH_PAYOUT_AND_BANK_GOVERNANCE.md` | Church & payout (VWM 90/10, bank governance) | ⚠️ missing |
 | `docs/norcal_dharma.yaml` | Church & payout | ⚠️ missing |
 | [adr/ADR-002-distribution-only-church-brand.md](./adr/ADR-002-distribution-only-church-brand.md) | Church & payout, ADRs | ✓ |
 | [BOOK_001_ASSEMBLY_CONTRACT.md](./BOOK_001_ASSEMBLY_CONTRACT.md) | Book & authoring | ✓ |
@@ -1765,7 +1866,7 @@ Single list of every **doc**, **spec**, **config**, and **script** referenced in
 | [specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md](../specs/PHOENIX_ARC_FIRST_CANONICAL_SPEC.md) | Canonical authority | ✓ |
 | [specs/PHOENIX_V4_5_WRITER_SPEC.md](../specs/PHOENIX_V4_5_WRITER_SPEC.md) | Canonical authority | ✓ |
 | [specs/README.md](../specs/README.md) | Core system docs | ✓ |
-| `specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md` | Phoenix Churches Payout | ⚠️ missing |
+| `specs/PHOENIX_CHURCHES_PAYOUT_SPEC.md` | Phoenix Churches Payout | ⚠️ missing — backlog spec reference |
 | [specs/V4_5_PRODUCTION_READINESS_CHECKLIST.md](../specs/V4_5_PRODUCTION_READINESS_CHECKLIST.md) | Simulation | ✓ |
 | [specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md](../specs/PHOENIX_DEEP_RESEARCH_INTEGRATION_SPEC.md) | Marketing & deep research | ✓ |
 
@@ -1897,6 +1998,12 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [config/source_of_truth/chapter_order_modes.yaml](../config/source_of_truth/chapter_order_modes.yaml) | Simulation | ✓ — Chapter order modes for simulation; aligned with section_reorder_modes |
 | [config/freebies/funnel_proof_loop.yaml](../config/freebies/funnel_proof_loop.yaml) | Freebie funnel | ✓ — topic, first_exercise, story_id, book_slug per hub |
 | [config/freebies/freebie_to_book_map.yaml](../config/freebies/freebie_to_book_map.yaml) | Freebie funnel | ✓ — exercise/topic → book_title, book_url, more_books; slugs for /books/<slug> |
+| `config/recommender/scoring_weights.yaml` | Phoenix Recommender | ⚠️ missing — backlog config reference |
+| `config/recommender/constraints.yaml` | Phoenix Recommender | ⚠️ missing — backlog config reference |
+| `config/recommender/hard_gates.yaml` | Phoenix Recommender | ⚠️ missing — backlog config reference |
+| `config/recommender/topic_mapping.yaml` | Phoenix Recommender | ⚠️ missing — backlog config reference |
+| `ei-v2-learning.yml` | Automation cadence | ⚠️ missing — backlog workflow reference |
+| [.github/workflows/catalog-book-pipeline.yml](../.github/workflows/catalog-book-pipeline.yml) | Automation cadence | ✓ — Weekly Mon 6am UTC; generate schedule, run pipeline, optional EI learn; self-hosted; concurrency: `catalog-book-pipeline` (no cancel) |
 
 ### Scripts & code
 
@@ -1944,6 +2051,14 @@ All `.md` files under `specs/` confirmed present on disk. Additional `.txt` and 
 | [phoenix_v4/quality/ei_v2/dimension_gates.py](../phoenix_v4/quality/ei_v2/dimension_gates.py) | Enlightened Intelligence V2 (gates) | ✓ — gate_uniqueness, gate_engagement, gate_somatic_precision; GateResult, ChapterGateReport |
 | [scripts/ci/run_ei_v2_catalog_calibration.py](../scripts/ci/run_ei_v2_catalog_calibration.py) | Enlightened Intelligence (calibration) | ✓ — Stub: writes minimal calibration report; extend for catalog scan |
 | [tests/test_ei_v2_hybrid.py](../tests/test_ei_v2_hybrid.py) | Enlightened Intelligence V2 (tests) | ✓ — 17 tests: learner, dimension gates, hybrid selector, config, integration |
+| `phoenix_recommender/__init__.py` | Phoenix Recommender | ⚠️ missing — backlog module reference |
+| `phoenix_recommender/__main__.py` | Phoenix Recommender | ⚠️ missing — backlog module reference |
+| `phoenix_recommender/candidate_generator.py` | Phoenix Recommender | ⚠️ missing — backlog module reference |
+| `phoenix_recommender/feature_builder.py` | Phoenix Recommender | ⚠️ missing — backlog module reference |
+| `phoenix_recommender/scoring_model.py` | Phoenix Recommender | ⚠️ missing — backlog module reference |
+| `phoenix_recommender/ranker.py` | Phoenix Recommender | ⚠️ missing — backlog module reference |
+| `phoenix_recommender/recommendation_report.py` | Phoenix Recommender | ⚠️ missing — backlog module reference |
+| `phoenix_recommender/cli.py` | Phoenix Recommender | ⚠️ missing — backlog module reference |
 | [phoenix_title_engine.py](../phoenix_title_engine.py) | Marketing & deep research | ✓ |
 | [phoenix_title_engine_v3.py](../phoenix_title_engine_v3.py) | Marketing & deep research | ✓ |
 | [phoenix_title_engine_v4.py](../phoenix_title_engine_v4.py) | Marketing & deep research | ✓ |

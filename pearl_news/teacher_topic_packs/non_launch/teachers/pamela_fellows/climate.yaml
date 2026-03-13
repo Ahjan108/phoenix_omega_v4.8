@@ -1,0 +1,217 @@
+schema_version: 1
+teacher_id: pamela_fellows
+topic: climate
+active: true
+
+identity:
+  display_name: Pamela Fellows
+  attribution_name: Pamela Fellows
+  tradition: Heartfulness and Embodiment
+  tradition_short: heartfulness and embodiment
+  teacher_setting_options:
+    - "practice space"
+    - "retreat"
+  teacher_years: "20+"
+  affiliation_safe_line: "teacher of heartfulness and embodied transformation"
+  launch_approved: true
+
+persona:
+  id: gen_z_alpha
+  age_band: "13-29"
+  default_register: "phone-native, high-pressure, institution-skeptical"
+  daily_worlds:
+    - school
+    - phone
+    - group chat
+    - late-night scrolling
+    - part-time work
+  tie_to_real_world_struggles:
+    - id: climate_body_hold
+      label: "body holding climate fear when the mind can't process"
+      loop: "reads the update -> chest or stomach holds -> closes app -> reopens because not knowing feels worse"
+      body_markers: ["chest", "stomach", "throat", "hold"]
+      digital_markers: ["close", "reopen", "scroll", "check again"]
+
+topic_fit:
+  fit_level: primary
+  fit_reason: "Climate overwhelm lands in the body; heartfulness and embodiment address what the body holds when the mind shuts down."
+  forbidden_angles:
+    - "do not reduce to generic resilience"
+    - "do not frame distress as personal weakness"
+
+hook_personal:
+  options:
+    - id: hook_personal_01
+      line: "You care about the planet. You also feel your body holding something every time the next number drops — and nobody is measuring that."
+      semantic_family: "care-vs-body"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response"]
+hook_big_picture:
+  options:
+    - id: hook_big_picture_01
+      line: "Climate information is not only factual. It lands in young bodies as held tension, and the system has no language for what happens when the body carries what the mind cannot yet process."
+      semantic_family: "body-as-holder"
+      angle: "embodiment"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_intro:
+  options:
+    - id: teacher_intro_01
+      line: "Pamela Fellows, a teacher of heartfulness and embodied transformation for over twenty years, has watched young people arrive in practice spaces already carrying climate fear in their bodies. They are not asking whether the crisis is real. They are asking how to stop the chest from holding what the mind has not found words for."
+      semantic_family: "identity_seen_shift"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response", "commentary"]
+    - id: teacher_intro_02
+      line: "Pamela Fellows teaches from the heartfulness and embodiment tradition. She has seen what constant climate updates do when they land faster than the nervous system can integrate — the body holds, the mind numbs or spirals, and young people are left without a practice that includes both."
+      semantic_family: "identity_seen_shift_alt"
+      tone: grave
+      intensity: 4
+      article_types: ["hard_news_spiritual_response", "commentary"]
+
+youth_somatic:
+  options:
+    - id: climate_body_hold_01
+      line: "You read the update in a group chat. Your chest tightened and stayed tight. You closed the app. Then you opened it again because not looking did not make the number less true.\nLOOP_SEQUENCE: \"read the update. chest stayed tight. closed the app. opened it again.\""
+      loop_type: "read-hold-close-return"
+      body_register: "tightening"
+      digital_behavior: "close-return"
+      article_types: ["hard_news_spiritual_response"]
+    - id: climate_body_hold_02
+      line: "You saw the new threshold before class. Your stomach dropped and held. You put your phone face down. Then you picked it up again because the future does not wait for you to feel ready.\nLOOP_SEQUENCE: \"saw the threshold. stomach held. put the phone down. picked it up again.\""
+      loop_type: "read-hold-close-return"
+      body_register: "holding"
+      digital_behavior: "put-down-return"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_witness:
+  options:
+    - id: witness_01
+      line: "Pamela Fellows has seen this exact loop in students — the reading, the body holding, the closing, the return. The heartfulness tradition does not pathologize it; it asks what the body needs to release so the person can act again."
+      semantic_family: "loop-mirror"
+      loop_type: "read-hold-close-return"
+      article_types: ["hard_news_spiritual_response"]
+    - id: witness_02
+      line: "She has watched that sequence in young people — the number arrives, the chest or stomach holds, the app closes, and then the mind goes back because reality is still there. The body has been carrying what the mind could not yet process."
+      semantic_family: "loop-mirror-alt"
+      loop_type: "read-hold-close-return"
+      article_types: ["hard_news_spiritual_response"]
+
+turnaround:
+  options:
+    - id: youth_action_climate_01
+      stat_line_1: "2,666 cases. 51 jurisdictions."
+      stat_line_2: "Students and youth coalitions are training peers, building campaigns, and forcing officials to answer the gap between public targets and lived reality."
+      semantic_family: "institutional-action"
+      article_types: ["hard_news_spiritual_response"]
+    - id: youth_action_climate_02
+      stat_line_1: "2,666 cases. 51 jurisdictions."
+      stat_line_2: "Young organizers are still filing cases, hosting workshops, and documenting local losses even when national governments keep moving slower than the heat."
+      semantic_family: "institutional-action-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+bridge:
+  options:
+    - id: bridge_01
+      line: "2,666 cases. 51 jurisdictions. The tracker measures what young people did. It has no column for what made the next filing possible after the last delay — the capacity to release what the body was holding so that action could flow again. The organizer who filed the next case needed that capacity. So does the person who read the update, closed the app, and opened it again. Pamela Fellows' tradition has been developing it through heart and body for decades."
+      hidden_capacity: "release what the body holds so action can flow again"
+      semantic_family: "tracker-capacity"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+    - id: bridge_02
+      line: "Climate trackers count cases, targets, and thresholds. They do not count the inner capacity that lets a young person include the body in the equation — to feel what is held, meet it with presence, and return to the world with clarity instead of collapse. That capacity is what the next organizer needs. It is what the reader who reopened the app needs too. Pamela Fellows' tradition calls it heartfulness: the heart and body included, not bypassed."
+      hidden_capacity: "include the body so clarity can return"
+      semantic_family: "tracker-capacity-alt"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+
+teacher_perspective:
+  options:
+    - id: perspective_01
+      header: "What Pamela Fellows Sees"
+      paragraphs:
+        - "In the heartfulness and embodiment tradition, the body is not a problem to fix when climate news lands. It is the place where the truth lands first. What young people often call anxiety or overwhelm is partly the body accurately holding what the mind has not yet integrated. The tradition does not ask you to stop feeling; it asks you to include the body in the response."
+        - "Pamela Fellows teaches that inner blockage — the deeper pattern underneath surface panic — can be met with safety and presence. When the body is allowed to be seen and felt rather than managed, something can release. That release is what makes the next real action possible."
+        - "The shift matters here: what feels like private collapse is often the body doing its job — holding reality until the person is ready to move. The practice is not to empty the body of feeling but to meet what is there so that the person can act again from a steadier ground."
+      semantic_family: "heartfulness-embodiment"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+    - id: perspective_02
+      header: "What Pamela Fellows Sees"
+      paragraphs:
+        - "Pamela Fellows reads climate distress through the lens of embodiment: the body holds what the mind avoids. When every update arrives as proof that institutions waited too long, the nervous system does not get a memo to stay calm. It holds. The tradition asks: what would change if we stopped treating that holding as a malfunction and started including it?"
+        - "From there she turns to heartfulness — living from the heart's intelligence, not sentiment. The heart knows what the mind has not caught up to. When young people are given a practice that includes the body and the heart, the capacity to stay in contact with reality without shutting down becomes available."
+        - "In that frame, self-blame softens. The problem is not that young people care too much or feel too much. The problem is that the body has been carrying the load without a practice of release. Pamela Fellows' tradition offers that practice."
+      semantic_family: "heartfulness-embodiment-alt"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+
+practice:
+  default_id: practice_01
+  options:
+    - id: practice_01
+      display_name: "Heart and Body Check-In"
+      duration: "5 minutes"
+      announcement_line: "Pamela Fellows teaches a 5-minute Heart and Body Check-In for moments when climate information keeps converting into held tension. It is in the sidebar, timed and step by step."
+      relief_lines:
+        - "The body stops carrying the whole load alone."
+        - "Enough release returns for the next real action."
+      relief_register: ["capacity", "release", "act again"]
+      derived_from_frame: "heartfulness_embodiment"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+    - id: practice_02
+      display_name: "Heart and Body Check-In"
+      duration: "5 minutes"
+      announcement_line: "Pamela Fellows teaches a 5-minute Heart and Body Check-In for when climate numbers turn into shutdown or numbness. It is in the sidebar, short enough to use before class, after scrolling, or before the next meeting."
+      relief_lines:
+        - "The heart and body are included, not bypassed."
+        - "A steadier presence returns for whatever comes next."
+      relief_register: ["capacity", "clarity", "act again"]
+      derived_from_frame: "heartfulness_embodiment"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+
+sdg:
+  primary:
+    id: "SDG 13"
+    title: "Climate Action"
+    line: "The United Nations has a framework for exactly this gap through SDG 13 and its climate education and resilience targets."
+  fallback_un_tie:
+    line: "Pearl News is an independent nonprofit. We are not affiliated with the United Nations."
+
+cta:
+  options:
+    - id: youngo_01
+      org: "YOUNGO"
+      line: "The Climate Reality Project and YOUNGO both run youth-facing entry points into this work. Door in: https://youngoclimate.org"
+      semantic_family: "door-in-climate"
+      article_types: ["hard_news_spiritual_response"]
+    - id: una_usa_01
+      org: "UNA-USA"
+      line: "If that is not your next step, UNA-USA works the same framework at the local-to-global level."
+      semantic_family: "door-in-una"
+      article_types: ["hard_news_spiritual_response"]
+
+title_system:
+  headline_layer_1:
+    options:
+      - id: threshold_warning_01
+        line: "1.55°C Is No Longer a Warning."
+        semantic_family: "threshold-finality"
+        article_types: ["hard_news_spiritual_response"]
+  headline_layer_2:
+    options:
+      - id: heartfulness_body_01
+        line: "A heartfulness teacher names what climate stress is doing to young bodies — and what the body needs to release."
+        semantic_family: "teacher-embodiment"
+        article_types: ["hard_news_spiritual_response"]
+      - id: heartfulness_hold_01
+        line: "Pamela Fellows reads climate overwhelm as something the body holds — and offers a practice to include it."
+        semantic_family: "teacher-hold"
+        article_types: ["hard_news_spiritual_response"]
+
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: "article_id + slot + teacher_id + topic"
+  metadata_filters:
+    article_types: ["hard_news_spiritual_response", "commentary"]
+    topic_subcases: ["threshold_news", "institutional_delay"]
+    intensity_range: [2, 4]

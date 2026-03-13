@@ -1,0 +1,114 @@
+# Commentary overlay fixture: Ahjan + climate (Dev 9)
+# Gold instance: Full diagnostic frame for climate commentary.
+# Merged with teachers/ahjan/climate.yaml when template_id == "commentary".
+# Not live until hard news deterministic path is proven.
+
+schema_version: 1
+teacher_id: ahjan
+topic: climate
+
+thesis:
+  default_id: thesis_samvega_delay_01
+  options:
+    - id: thesis_samvega_delay_01
+      line: "Institutional delay converts into individual overload. What Buddhism calls samvega — the body's truthful recognition that reality is more fragile than we were taught — becomes unsustainable when each new climate report arrives as proof that adults had decades to act differently. Young people are not malfunctioning. They are experiencing accurate pressure under a system that offloads unbearable timelines onto nervous systems that cannot absorb them."
+      metadata:
+        semantic_family: "samvega_institutional_delay"
+        tone: grave
+        intensity: 4
+        article_types: ["commentary"]
+        reframe_type: "self_to_system"
+
+    - id: thesis_samvega_delay_02
+      line: "Climate distress is not a personal weakness. It is samvega: the moment when the body recognizes reality more clearly than the institutions meant to protect it. The distress becomes exhaustion only when young people absorb the gap between official reassurance and material fact — a gap that institutions created, not individual minds. Right effort means channeling attention where contact with truth is still possible, not blaming the nervous system for perceiving accurately."
+      metadata:
+        semantic_family: "samvega_accurate_perception"
+        tone: plain
+        intensity: 3
+        article_types: ["commentary"]
+        reframe_type: "self_to_system"
+
+teaching_interpretation:
+  default_id: teaching_samvega_right_effort_01
+  options:
+    - id: teaching_samvega_right_effort_01
+      header: "What Ahjan Names"
+      paragraphs:
+        - "Samvega is the Buddhist term for the moment when you can no longer pretend the world is safe. It is not anxiety or catastrophizing. It is accurate perception of fragility meeting body-level understanding that institutional systems have chosen delay over action."
+        - "Right effort is not resilience rhetoric. It is the discipline of directing energy where truthful contact is still possible. When a young person stops reading climate updates and their nervous system quiets, they are not broken. They are demonstrating right effort: withdrawing attention from a loop of helpless repetition toward spaces where action is still available."
+        - "The reframing matters for survival: the problem is not that young people are too sensitive to climate truth. The problem is that systems keep outsourcing unbearable institutional failure onto individual capacity to keep functioning. That offloading is the disorder, not the response to it."
+      metadata:
+        semantic_family: "samvega_right_effort_institutional"
+        tone: grave
+        intensity: 4
+        article_types: ["commentary"]
+        reframe_type: "self_to_system"
+
+    - id: teaching_samvega_right_effort_02
+      header: "What Ahjan Sees"
+      paragraphs:
+        - "In practice rooms, Ahjan watches young people navigate samvega: the destabilizing recognition that the climate system is deteriorating faster than any official body is willing to name. That recognition is not personal anxiety. It is accurate contact with danger."
+        - "From there, right effort becomes practical. The question shifts from 'how do I feel hopeful about this' to 'where can I direct attention so that I stay functional enough to act.' This is not surrendering to despair. It is the precision of a mind that knows the difference between helpful attention and attention consumed by helpless waiting."
+        - "Ahjan would name this directly: if you feel like you are malfunctioning because each new climate number keeps collapsing your capacity, the malfunction is not yours. It belongs to a system that asks young people to absorb urgency without providing proportionate institutional response. The practice is learning to direct your steadiness where it can still matter."
+      metadata:
+        semantic_family: "samvega_precision_action"
+        tone: plain
+        intensity: 3
+        article_types: ["commentary"]
+        reframe_type: "self_to_system"
+
+civic_recommendation:
+  default_id: civic_climate_institutional_pressure_01
+  options:
+    - id: civic_climate_institutional_pressure_01
+      line: "Document the gap: file a climate case in your jurisdiction. The 2,666 cases that young organizers have filed in 51 jurisdictions teach one thing: naming the institutional failure officially — through legal or regulatory channels — converts invisible delay into a public record that other young people can act on. When you file, you are not only seeking remedy. You are breaking the isolation that makes overload feel like personal weakness."
+      metadata:
+        semantic_family: "climate_institutional_documentation"
+        tone: grave
+        intensity: 4
+        article_types: ["commentary"]
+
+    - id: civic_climate_institutional_pressure_02
+      line: "Build steady peer witness: start or join a youth climate coalition in your region. The steadiest antidote to the isolation of climate distress is not individual resilience work. It is collective naming. When young people gather to document what is actually happening in their area — local threshold crossings, delayed adaptation, institutional stalling — the burden of perception shifts from the individual nervous system to the group. That collective witness is what makes the next individual action possible."
+      metadata:
+        semantic_family: "climate_collective_witness"
+        tone: plain
+        intensity: 3
+        article_types: ["commentary"]
+
+teacher_intro:
+  options:
+    - id: commentary_intro_01
+      line: "Teacher Ahjan, a Theravada Buddhist teacher for 25 years, reads climate distress through the lens of samvega and right effort. He has watched institutional delay convert directly into nervous system overload in young people. His teaching offers precision here: what feels like individual collapse is often accurate response to a system that asks for constant awareness while refusing proportionate institutional action."
+      metadata:
+        semantic_family: "ahjan_commentary_intro_institutional"
+        tone: grave
+        intensity: 4
+        article_types: ["commentary"]
+
+bridge:
+  options:
+    - id: commentary_bridge_samvega_01
+      line: "What climate trackers measure — cases filed, jurisdictions responding, targets reset — captures only the institutional pressure. They do not count the inner capacity that lets a young person stay in contact with the truth long enough to act again. Ahjan's tradition has been developing that capacity for 2,500 years. Samvega teaches accurate perception. Right effort teaches where to direct the energy once you can no longer unsee what is real."
+      metadata:
+        hidden_capacity: "stay in contact with truth without being consumed by institutional failure"
+        semantic_family: "ahjan_commentary_bridge_capacity"
+        tone: grave
+        intensity: 4
+        article_types: ["commentary"]
+
+headline_layer_2:
+  options:
+    - id: commentary_headline_samvega_01
+      line: "Why climate distress is not a personal defect — it is samvega, and institutional delay is the disorder."
+      metadata:
+        semantic_family: "ahjan_commentary_headline_samvega"
+        tone: grave
+        article_types: ["commentary"]
+
+    - id: commentary_headline_samvega_02
+      line: "A Buddhist teacher reads climate overload through institutional failure, not individual weakness."
+      metadata:
+        semantic_family: "ahjan_commentary_headline_reframe"
+        tone: plain
+        article_types: ["commentary"]

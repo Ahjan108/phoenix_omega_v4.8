@@ -1,0 +1,322 @@
+schema_version: 1
+teacher_id: pamela_fellows
+topic: peace_conflict
+active: true
+identity:
+  display_name: Pamela
+  attribution_name: Pamela Fellows
+  tradition: Vajrayana + Somatic + Life Coaching
+  tradition_short: Vajrayana-trained
+  teacher_setting_options:
+  - practice space
+  - sangha circle
+  teacher_years: 20+
+  affiliation_safe_line: Vajrayana-initiated teacher with somatic training and Buddhist
+    life coaching
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: conflict_hold
+    label: body holding conflict fear when the alert lands
+    loop: reads the conflict alert -> body tightens and holds -> stops for a second
+      -> checks again because the danger is real
+    body_markers:
+    - chest
+    - jaw
+    - breath
+    - hold
+    digital_markers:
+    - reads the alert
+    - freezes
+    - checks again
+topic_fit:
+  fit_level: primary
+  fit_reason: Conflict pressure lands in the body; Vajrayana transmutation and somatic
+    awareness address what is held when public disorder enters private life.
+  forbidden_angles:
+  - do not reduce this to generic wellness
+  - do not frame the pressure as personal weakness
+hook_personal:
+  options:
+  - id: hook_personal_01
+    line: You can feel public violence entering private life through one notification.
+      The body holds it before language can.
+    semantic_family: personal-pressure
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: hook_big_picture_01
+    line: Conflict news is not only geopolitical. It becomes a daily fight over whether
+      attention, sleep, and moral seriousness can stay intact while public disorder
+      keeps leaking into the body.
+    semantic_family: system-pressure
+    angle: systemic-pressure
+    article_types:
+    - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: teacher_intro_01
+    line: Pamela Fellows — Vajrayana-initiated, yoga-certified, trained in somatic
+      therapy under Peter Levine and Pat Ogden — has watched in practice sessions
+      young people hold public violence inside private nervous systems. They are not
+      asking whether the conflict is real. They are asking how to keep the body from
+      locking down under it. Her tradition says the energy of fear, met with practice
+      rather than suppression, transmutes into wisdom.
+    semantic_family: identity-seen-shift
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_intro_02
+    line: Pamela Fellows teaches from a Vajrayana and somatic ground — holding empowerments,
+      ngondro completion, and the body-reading of Levine and Porges. She has watched
+      in practice sessions students carry conflict news as if the body were a container
+      for everything the mind could not process. Her tradition does not armor the
+      body or bypass the fear; it meets what is held and transmutes it.
+    semantic_family: identity-seen-shift-alt
+    tone: grave
+    intensity: 4
+    article_types:
+    - hard_news_spiritual_response
+youth_somatic:
+  options:
+  - id: youth_somatic_01
+    line: 'You read the conflict alert. Your chest tightened and held. You stopped
+      for a second. Then you check again because the danger is real and not looking
+      changes nothing.
+
+      LOOP_SEQUENCE: "read the alert. chest tightened and held. stopped for a second.
+      checked again."'
+    loop_type: conflict_hold
+    body_register: chest
+    digital_behavior: reads the alert
+    article_types:
+    - hard_news_spiritual_response
+  - id: youth_somatic_02
+    line: 'You saw the update in a group chat. Your jaw and breath locked. You put
+      the phone down. Then you picked it up again because reality is still there.
+
+      LOOP_SEQUENCE: "saw the update. jaw and breath locked. put the phone down. picked
+      it up again."'
+    loop_type: conflict_hold
+    body_register: jaw
+    digital_behavior: checks again
+    article_types:
+    - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: teacher_witness_01
+    line: Pamela has seen this exact loop in young people — the alert lands, the body
+      contracts and holds, time stops for a second, and attention returns because
+      reality is still there. Her Vajrayana and somatic training does not pathologize
+      the body; it asks what the body is holding and how to transmute it so that the
+      person can protect others, tell the truth, or act again.
+    semantic_family: loop-mirror
+    loop_type: conflict_hold
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_witness_02
+    line: She has watched that sequence — the notification arrives, the chest or jaw
+      holds, the device goes down, and then the mind goes back. The body has been
+      carrying what the mind could not yet integrate. Pamela's tradition offers a
+      practice to meet what is held with presence.
+    semantic_family: loop-mirror-alt
+    loop_type: conflict_hold
+    article_types:
+    - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: turnaround_01
+    stat_line_1: 676 million women and girls. 50 kilometers from active conflict.
+    stat_line_2: Young people are documenting harm, organizing legal-literacy workshops,
+      and organizing peace and accountability work even when systems fracture.
+    semantic_family: institutional-action
+    article_types:
+    - hard_news_spiritual_response
+  - id: turnaround_02
+    stat_line_1: 676 million women and girls. 50 kilometers from active conflict.
+    stat_line_2: Youth peacebuilders are hosting peer circles, trained witnesses,
+      organizing workshops, and forcing institutions to treat the body and the heart
+      as part of the response to conflict.
+    semantic_family: institutional-action-alt
+    article_types:
+    - hard_news_spiritual_response
+bridge:
+  options:
+  - id: bridge_01
+    line: 'The tracker measures the circles and campaigns young people built. It has
+      no column for what made the next act of peace possible after another round of
+      violence — the capacity to release what the body was holding so that clarity
+      could return without calling the response a weakness. The young person who showed
+      up to the next dialogue needed that capacity. So does the one who put the phone
+      down and picked it up again. Pamela''s Vajrayana training names this exactly:
+      the five neurotic poisons — aggression, craving, ignorance, jealousy, pride
+      — are not obstacles to be removed. They are the raw material of the five buddha
+      wisdoms. The body that braced at the conflict alert is holding energy that,
+      met with somatic presence instead of suppression, transmutes into the clarity
+      that peace requires.'
+    hidden_capacity: release what the body holds so the person can act again
+    semantic_family: tracker-capacity
+    article_types:
+    - hard_news_spiritual_response
+  - id: bridge_02
+    line: 'The numbers measure outreach and dialogue sessions. They do not measure
+      what happens in the body when a young person finally has a practice that includes
+      what they are carrying — not armoring against the fear, but meeting the body
+      where it is so that something can shift. That shift is what the next dialogue
+      needs. It is what the person in the loop needs. Pamela''s tradition has a name
+      for this: the tantric principle that nothing needs to be rejected. The fear,
+      met with practice, is itself the path back to presence.'
+    hidden_capacity: include the body so the person can stay in contact with danger
+    semantic_family: tracker-capacity-alt
+    article_types:
+    - hard_news_spiritual_response
+teacher_perspective:
+  options:
+  - id: teacher_perspective_01
+    header: What Pamela Sees
+    paragraphs:
+    - Pamela would not tell young people to calm down as if fear were the mistake.
+      Fear can be accurate contact with danger. The body holds what the mind cannot
+      yet process. The real question is whether that holding becomes a practice of
+      release — so that the person can respond truthfully — or a collapse that hands
+      the whole nervous system over to repetition and panic.
+    - 'From there she turns to the tantric principle: the poison is the medicine.
+      The body''s intelligence includes what the mind avoids. When young people are
+      given a practice that meets what is held with somatic presence rather than judgment,
+      the capacity to stay functional without denying reality becomes available.'
+    - That matters because what feels like a personal fault — me, broken, wrong —
+      is often the body accurately holding the impact of living near public disorder
+      that institutions have not contained within a system and institutional structure.
+      Pamela's tradition offers a practice to meet what is held so that the person
+      can act again from steadier ground.
+    semantic_family: teacher-diagnosis
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_perspective_02
+    header: What Pamela Sees
+    paragraphs:
+    - In Pamela's tradition, conflict fear is not only cognitive. It lands in the
+      body — the chest, the jaw, the breath — and the body holds it when the alert
+      lands faster than the mind can integrate. The tradition does not ask you to
+      stop feeling; it asks you to include the body in the response.
+    - Heartfulness here means living from the heart's intelligence — a deeper knowing
+      that includes the body and the present moment. When young people are given a
+      practice that meets what is held with warmth rather than denial, the capacity
+      to remain functional enough to protect others or tell the truth becomes available.
+    - In that frame, self-blame softens. The problem is not that young people are
+      too sensitive or that I am wrong for feeling shattered. The problem is that
+      the system and institutional structure have left the body carrying public disorder
+      without a practice of release. Pamela's tradition offers that practice.
+    semantic_family: teacher-diagnosis-alt
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+practice:
+  default_id: practice_01
+  options:
+  - id: practice_01
+    display_name: Sacred Witness Sit
+    duration: 5 minutes
+    announcement_line: Pamela teaches a 5-minute Sacred Witness Sit for moments when
+      conflict alerts keep turning truthful fear into total shutdown. It is in the
+      sidebar, brief and usable in ordinary life.
+    relief_lines:
+    - The body stops carrying the whole load alone.
+    - Enough steadiness returns for the next honest move.
+    relief_register:
+    - clarity
+    - capacity
+    - act again
+    derived_from_frame: vajrayana_somatic
+    article_types:
+    - hard_news_spiritual_response
+  - id: practice_02
+    display_name: Sacred Witness Sit
+    duration: 5 minutes
+    announcement_line: Pamela teaches a 5-minute Sacred Witness Sit for when the alert
+      has landed and the body is holding what the mind could not yet process. It is
+      in the sidebar, short enough to use before the next check or after the next
+      update.
+    relief_lines:
+    - The pressure stops naming the whole self.
+    - The heart and body are included, not bypassed.
+    relief_register:
+    - clarity
+    - release
+    - act again
+    derived_from_frame: vajrayana_somatic
+    article_types:
+    - hard_news_spiritual_response
+sdg:
+  primary:
+    id: SDG 16
+    title: Peace, Justice and Strong Institutions
+    line: The United Nations has a framework for this through SDG 16 and its peace,
+      justice and strong institutions targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United
+      Nations.
+cta:
+  options:
+  - id: cta_01
+    org: UNA-USA
+    line: 'If this is your issue, start locally with UNA-USA or a youth peacebuilding
+      network working the same framework. Door in: join their network.'
+    semantic_family: door-in
+    article_types:
+    - hard_news_spiritual_response
+  - id: cta_02
+    org: Youth peacebuilding networks
+    line: 'Youth peacebuilding and accountability networks offer entry points at the
+      local and international level. Door in: UNA-USA or a group in your region.'
+    semantic_family: door-in-alt
+    article_types:
+    - hard_news_spiritual_response
+title_system:
+  headline_layer_1:
+    options:
+    - id: headline_layer_1_01
+      line: Conflict Alerts Are Rewriting Daily Life.
+      semantic_family: title
+      article_types:
+      - hard_news_spiritual_response
+  headline_layer_2:
+    options:
+    - id: headline_layer_2_01
+      line: A Vajrayana-trained teacher refuses to let conflict fear become the whole
+        identity — and names what the body is holding.
+      semantic_family: subtitle
+      article_types:
+      - hard_news_spiritual_response
+    - id: headline_layer_2_02
+      line: Pamela reads conflict pressure through somatic and Vajrayana ground —
+        the fear is the raw material of peace.
+      semantic_family: subtitle-alt
+      article_types:
+      - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    topic_subcases:
+    - legal-gap
+    - conflict-pressure
+    intensity_range:
+    - 2
+    - 4

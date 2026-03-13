@@ -1,0 +1,39 @@
+version: 2
+article_id: fixture_interfaith_dialogue_report
+status: completed
+template_id: interfaith_dialogue_report
+topic: peace_conflict
+teacher_id: maat_ra
+teacher_name: Maat and Ra
+source_url: https://example.org/pearl-news-fixtures/interfaith-dialogue
+source_title: Interfaith leaders convene on youth peace engagement
+source_published_at: "2026-03-12T12:00:00+00:00"
+deterministic_context:
+  pack_path: pearl_news/teacher_topic_packs/pairs/interfaith_dialogue_report/maat__ra__peace_conflict.yaml
+  beat_map_id: null
+  ordered_sections:
+    - slot: headline_layer_1
+      source: prompted
+      content: ""
+    - slot: event_summary
+      source: prompted
+      content: ""
+required_slots:
+  headline_layer_1: >-
+    Interfaith Leaders Unite on Youth Peace Engagement
+  event_summary: >-
+    Representatives from multiple faith traditions gathered this week to discuss 
+    shared approaches to supporting young people navigating conflict-related stress. 
+    The dialogue emphasized practical cooperation over theological debate, with 
+    participants identifying common ground in contemplative practices that help 
+    young people regulate emotional responses to global instability.
+optional_slots: {}
+writer_notes:
+  constraints:
+    - Use source facts already attached to this contract.
+    - Do not rewrite deterministic teacher-voice slots.
+    - Only fill the listed required slots.
+provenance:
+  filled_by: fixture_generator
+  filled_at: "2026-03-12T14:00:00+00:00"
+  provider: file

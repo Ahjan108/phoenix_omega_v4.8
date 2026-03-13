@@ -1,0 +1,39 @@
+# Explainer overlay for ahjan + climate (Dev 10 fixture)
+# Deep-merged onto teachers/ahjan/climate.yaml when template_id=explainer_context.
+# Schema: EXPLAINER_YOUTH_FEATURE_OVERLAY_SPEC (explainer section).
+
+schema_version: 1
+template_id: explainer_context
+teacher_id: ahjan
+topic: climate
+
+# Explainer-specific slot: ethical/spiritual dimension (long block).
+ethical_spiritual_dimension:
+  options:
+    - id: ex_samvega_capacity_01
+      header: "The dimension that trackers leave out"
+      paragraphs:
+        - "Climate data tells you what crossed a threshold. It does not tell you how a young person stays in contact with that truth without losing the capacity to act. Buddhist practice has a name for the pressure that comes when reality outstrips reassurance: samvega. It is not a malfunction. It is accurate perception."
+        - "The ethical dimension here is that institutions have asked a generation to carry the weight of delayed response. The spiritual dimension is that the Theravada Buddhist tradition Ahjan teaches has spent 2,500 years developing the capacity to stay functional under exactly that kind of pressure -- so that action remains possible after the next update."
+      metadata:
+        semantic_family: "samvega-capacity"
+        reframe_type: "self_to_system"
+        article_types: ["explainer_context"]
+
+# Optional explainer-specific headline layer 2.
+title_system:
+  headline_layer_2:
+    options:
+      - id: ex_headline_climate_01
+        line: "A Buddhist teacher names what climate data does not measure: the capacity to stay functional enough to act again."
+        metadata:
+          article_types: ["explainer_context"]
+
+# youth_implications when strict control is desired (deterministic).
+youth_implications:
+  options:
+    - id: ex_youth_impl_climate_01
+      line: "For Gen Z and younger, the explainer is not only background. It is the gap between the number on the screen and the body in the chair -- the capacity to stay with the truth long enough to choose the next move."
+      metadata:
+        article_types: ["explainer_context"]
+        semantic_family: "youth-capacity-gap"

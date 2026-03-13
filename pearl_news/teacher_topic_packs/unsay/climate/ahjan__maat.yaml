@@ -1,0 +1,57 @@
+# UNSAY pair-pack fixture (Dev 11, non-live).
+# Pair: Ahjan (Theravada) + Maat (Kemetic). Topic: climate.
+# Spec: PEARL_NEWS_DETERMINISTIC_TEACHER_TOPIC_PACK_SPEC 4.4, 9.6; PEARL_NEWS_UNSAY_DIALOGUE_SPEC.
+
+schema_version: 1
+teacher_a_id: ahjan
+teacher_b_id: maat
+topic: climate
+active: true
+
+teacher_a_diagnosis:
+  options:
+    - id: ahjan_diag_climate_01
+      line: "Ahjan names the body's response as accurate: what looks like malfunction is often samvega - the destabilizing recognition that reality is more fragile than promised. The capacity young people need is not to feel less but to stay functional enough to act again when the system keeps not responding."
+      metadata:
+        key_terms: ["samvega", "right effort"]
+        semantic_family: "samvega-functional"
+
+teacher_b_diagnosis:
+  options:
+    - id: maat_diag_climate_01
+      line: "Maat names the same moment from within Maat - order and balance in the face of systemic delay. The body is not wrong to tighten; the wrong is the gap between what institutions say and what they do. The capacity in question is to hold that clarity without collapsing, so action remains possible."
+      metadata:
+        key_terms: ["Maat", "order", "balance"]
+        semantic_family: "maat-order-clarity"
+
+convergence_bridge:
+  options:
+    - id: conv_bridge_climate_01
+      line: "The exact overlap: both traditions see the same hidden burden - young people carrying the weight of institutional delay - and the same needed capacity: to stay steady enough to act again, not to be soothed out of caring."
+
+shared_agreement:
+  options:
+    - id: shared_agree_climate_01
+      line: "Both teachers endorse a single shared practice: a short, timed steadiness practice that returns attention from spiral to function. The agreement is structural - same burden, same capacity, same kind of practice - not vague generic care."
+
+practice_announce:
+  options:
+    - id: practice_announce_01
+      display_name: "5-minute Steadying Practice"
+      duration: "5 minutes"
+      line: "A 5-minute Steadying Practice, in the sidebar, step by step. Both Ahjan and Maat teach it for moments when climate information converts attention into helplessness."
+
+practice_why_a:
+  options:
+    - id: why_ahjan_01
+      line: "Ahjan: Right effort depends on a steadier internal pace. This practice returns that - so the next update is not proof that action is pointless."
+
+practice_why_b:
+  options:
+    - id: why_maat_01
+      line: "Maat: Maat is restored when the body is no longer at war with the truth. This practice restores that alignment so you can act from clarity, not collapse."
+
+disagreement_boundary:
+  options:
+    - id: boundary_01
+      line: "The traditions differ on metaphysics and path; they do not conflate doctrine. The convergence is only on the named burden and the shared practice."

@@ -1,0 +1,281 @@
+schema_version: 1
+teacher_id: miki
+topic: mental_health
+active: true
+identity:
+  display_name: Miki
+  attribution_name: Miki-san
+  tradition: Light language, ascended-master transmission, and crystal-bowl healing
+  tradition_short: light-language healing
+  teacher_setting_options:
+  - sound session
+  - transmission circle
+  teacher_years: decades of practice
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: spiral_vs_truth
+    label: having to appear fine while support systems fail
+    loop: reads the warning -> throat tightens -> shuts the phone -> checks again
+      because the pressure is still there
+    body_markers:
+    - throat
+    - shoulders
+    - breath
+    digital_markers:
+    - shuts the phone
+    - checks again
+topic_fit:
+  fit_level: primary
+  fit_reason: Mental-health overload fits Miki when young people have been talked
+    at by systems and algorithms without relief; the tradition offers what words cannot
+    reach.
+  forbidden_angles:
+  - do not reduce to generic wellness
+  - do not frame the pressure as personal weakness
+hook_personal:
+  options:
+  - id: hook_personal_01
+    line: The hardest part is not only feeling bad. It is feeling bad inside a system
+      that still expects you to perform steadiness.
+    semantic_family: personal-pressure
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: hook_big_picture_01
+    line: 'Youth mental-health strain is also an order problem: support systems keep
+      naming care while failing to create conditions where ordinary life is actually
+      protectable.'
+    semantic_family: system-pressure
+    angle: systemic-pressure
+    article_types:
+    - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: teacher_intro_01
+    line: Miki-san, a teacher of light-language and sound healing, has watched in
+      practice sessions young people carry overload as if it were a personal defect.
+      They are not asking only how to feel better. They are asking what the body can
+      receive when the mind has been talked at by therapists, algorithms, and self-help
+      content without relief.
+    semantic_family: identity-seen-shift
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_intro_02
+    line: Miki-san, from the light-language and crystal-bowl healing tradition, has
+      seen in practice sessions what happens when distress is held in the body and
+      the intellect is exhausted. Students are not asking for more advice. They are
+      asking for a different mode of contact — one that bypasses the overloaded mind
+      and speaks to where the distress actually lives.
+    semantic_family: identity-seen-shift-alt
+    tone: grave
+    intensity: 4
+    article_types:
+    - hard_news_spiritual_response
+youth_somatic:
+  options:
+  - id: youth_somatic_01
+    line: 'You read the latest warning. Your throat tightens. You shut the phone.
+      Then you check again because the pressure is still there and pretending otherwise
+      changes nothing.
+
+      LOOP_SEQUENCE: "read the warning. throat tightened. shut the phone. checked
+      again."'
+    loop_type: spiral_vs_truth
+    body_register: throat
+    digital_behavior: shuts the phone
+    article_types:
+    - hard_news_spiritual_response
+  - id: youth_somatic_02
+    line: 'You saw the headline in a group chat. Your shoulders locked. You closed
+      the app. Then you opened it again because the worry did not leave when you looked
+      away.
+
+      LOOP_SEQUENCE: "saw the headline. shoulders locked. closed the app. opened again."'
+    loop_type: spiral_vs_truth
+    body_register: shoulders
+    digital_behavior: closed the app
+    article_types:
+    - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: teacher_witness_01
+    line: Miki has seen this exact loop — the warning arrives, the throat closes,
+      the phone goes dark, and attention returns because the unresolved truth is still
+      waiting.
+    semantic_family: loop-mirror
+    loop_type: spiral_vs_truth
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_witness_02
+    line: She has watched that sequence in young people — the read, the tightening,
+      the shut, the return. The body holds what the mind cannot yet process.
+    semantic_family: loop-mirror-alt
+    loop_type: spiral_vs_truth
+    article_types:
+    - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: turnaround_01
+    stat_line_1: 320 campuses. 18 countries.
+    stat_line_2: Youth organizers are hosting peer circles, organizing listener training,
+      and forcing schools to treat mental health support as infrastructure, not private
+      weakness.
+    semantic_family: institutional-action
+    article_types:
+    - hard_news_spiritual_response
+bridge:
+  options:
+  - id: bridge_01
+    line: '320 campuses. 18 countries. The tracker measures circles, campaigns, and
+      peer support. It has no column for what made the next act of honesty possible
+      after another week of overload — the capacity to receive what is true in the
+      body instead of repeating the public lie that you should already be fine. Miki''s
+      tradition works with that capacity through sound and presence: the body receives
+      before the mind can interpret.'
+    hidden_capacity: receive what is true in the body without being consumed
+    semantic_family: tracker-capacity
+    article_types:
+    - hard_news_spiritual_response
+  - id: bridge_02
+    line: Mental-health trackers count programs and wait times. They do not count
+      the inner capacity that lets a young person stay in contact with their own experience
+      when the system has failed to hold it. That capacity is what the next honest
+      conversation needs. It is what the person who shut the phone and opened it again
+      needs too. Miki's tradition holds that healing is remembering — the original
+      capacity was always there; it is covered. Sound and light can help uncover it.
+    hidden_capacity: stay in contact with own experience under pressure
+    semantic_family: tracker-capacity-alt
+    article_types:
+    - hard_news_spiritual_response
+teacher_perspective:
+  options:
+  - id: teacher_perspective_01
+    header: What Miki Sees
+    paragraphs:
+    - 'In Miki''s tradition, light language and transmission work not through conceptual
+      meaning but through vibrational resonance. They reach the parts of a person
+      that words cannot access. For young people who have been talked at by therapists,
+      algorithms, and self-help content without relief, the tradition offers a different
+      mode of contact: one that bypasses the exhausted intellect and speaks directly
+      to the energetic body where distress is actually held.'
+    - Healing as remembering means the original self is not gone — it is covered.
+      The pressure and overload are not proof of defect; they are what accumulates
+      when the body has had to hold what no one could receive. The tradition does
+      not ask the mind to figure it out. It offers sound and presence so the body
+      can soften enough to remember what it already knows.
+    - That reframe is the beginning of relief. The pressure stops being proof that
+      something is wrong with you and starts being evidence that the system has been
+      asking you to perform steadiness without giving you the conditions to actually
+      restore it.
+    semantic_family: teacher-diagnosis
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+  - id: teacher_perspective_02
+    header: What Miki Sees
+    paragraphs:
+    - 'Miki reads youth mental-health overload through the lens of transmission: the
+      body receives before the mind can interpret. When the mind is saturated by advice,
+      diagnosis, and digital noise, the tradition does not add more content. It offers
+      a different channel — sound, vibration, presence — that the body can use without
+      having to understand.'
+    - The tradition distinguishes between what can be fixed by information and what
+      can only be met by being received. Young people who have 'failed at mindfulness'
+      or therapy often did not fail; they were given the tool without the relational
+      container in which the body can actually drop its guard. Sound and light language
+      create that container.
+    - In that frame, self-blame softens. The problem is not that you are broken. the
+      problem is that the system and institutional structure body has been holding
+      more than it was designed to hold alone. The practice is not to try harder;
+      it is to let the body receive what it could not receive before.
+    semantic_family: teacher-diagnosis-alt
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+practice:
+  default_id: practice_01
+  options:
+  - id: practice_01
+    display_name: 5-minute Sound and Light Receiving
+    duration: 5 minutes
+    announcement_line: Miki teaches a 5-minute Sound and Light Receiving practice
+      for the moment when overload and self-silencing are starting to merge. It is
+      in the sidebar, exact and usable.
+    relief_lines:
+    - The body stops carrying the whole weight alone.
+    - Enough receptivity returns for the next honest move.
+    relief_register:
+    - clarity
+    - capacity
+    - act again
+    derived_from_frame: primary
+    article_types:
+    - hard_news_spiritual_response
+sdg:
+  primary:
+    id: SDG 3
+    title: Good Health and Well-Being
+    line: The United Nations has a framework for this through SDG 3 and its good health
+      and well-being targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United
+      Nations.
+cta:
+  options:
+  - id: cta_01
+    org: Active Minds
+    line: 'Active Minds and Born This Way Foundation both offer youth-facing entry
+      points here. Door in: https://www.activeminds.org'
+    semantic_family: door-in
+    article_types:
+    - hard_news_spiritual_response
+title_system:
+  headline_layer_1:
+    options:
+    - id: headline_layer_1_01
+      line: The Youth Mental Health Crisis Is Also A Crisis Of What The Body Can Receive.
+      semantic_family: title
+      article_types:
+      - hard_news_spiritual_response
+  headline_layer_2:
+    options:
+    - id: headline_layer_2_01
+      line: A light-language and sound healer refuses the lie that overload is a private
+        defect.
+      semantic_family: subtitle
+      article_types:
+      - hard_news_spiritual_response
+    - id: headline_layer_2_02
+      line: A healing tradition names what happens when the body holds what words
+        cannot reach.
+      semantic_family: subtitle-alt
+      article_types:
+      - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    topic_subcases:
+    - overwhelm
+    - support-gap
+    intensity_range:
+    - 2
+    - 4

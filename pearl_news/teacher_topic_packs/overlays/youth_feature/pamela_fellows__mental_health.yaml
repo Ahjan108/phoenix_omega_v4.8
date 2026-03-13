@@ -1,0 +1,90 @@
+# Youth-feature overlay for pamela_fellows + mental_health (gold fixture)
+# Deep-merged onto teachers/pamela_fellows/mental_health.yaml when template_id=youth_feature.
+# Schema: Youth Feature Overlay Spec (youth-feature section).
+
+schema_version: 1
+teacher_id: pamela_fellows
+topic: mental_health
+
+# Youth-feature-specific slot: teacher reflection (long block).
+# The teacher's reflection on a youth story/trend — more personal and narrative than teacher_perspective,
+# responds to the youth experience directly.
+teacher_reflection:
+  options:
+    - id: yf_pamela_mental_health_reflection_01
+      header: "What Pamela sees in the body's holding"
+      paragraphs:
+        - "Pamela Fellows meets young people who have stopped asking the mind what is happening and started asking the body instead. The jaw says yes before the mind has caught up. The stomach is already holding what the mouth has not named. She has watched this in the circles and in one-on-one moments: the spiral starts on the screen, but it lands in the chest, the stomach, the clenched hands. By the time the warning passes, the body is still holding the signal. The notification is gone. The body remains."
+        - "What she names is not anxiety disorder or a failure of coping. What she names is accurate somatic response. The body sees the world and holds what it sees because the mind has not been given time or permission to process it. The body becomes the storage unit for everything the news cycle, the group chat, the unspoken household tension keeps loading. The young person feels like something is wrong with them. What is actually true is that the body is working perfectly — it is protecting the system by holding what the mind cannot carry."
+        - "The reframe is the beginning of everything: your body is not broken. Your body is accurate. It is holding what needs to be held. The practice is not to shut that down. The practice is to meet what is being held with the somatic presence and tantric awareness the tradition teaches. When the body is included in the conversation about overload, something stops being a private failure and becomes a signal worth listening to."
+      metadata:
+        semantic_family: "reflection-body-as-wisdom"
+        tone: "witnessing-release"
+        article_types: ["youth_feature"]
+
+    - id: yf_pamela_mental_health_reflection_02
+      header: "What Pamela sees in the midnight return"
+      paragraphs:
+        - "After midnight, when the mind finally slows down, the body still has work to do. The jaw releases. The chest softens. The stomach lets go of what it has been holding since the morning's first notification. Pamela Fellows has sat with young people in that moment — when the body finally has a chance to process. She has also seen them reach for the phone again because not processing also feels better than processing. Anything is better than feeling what the day has loaded into the nervous system."
+        - "What she recognizes is a young person who has been trained by every system around them to keep moving, keep checking, keep managing. The body was never asked to process anything. It was just asked to hold it. And now when the holding starts to release, there is an impulse to re-tighten, re-check, re-load because the feeling of release is unfamiliar and almost frightening."
+        - "The practice Pamela Fellows offers is not to eliminate the feeling. It is to include it. When the body starts to release what it has been holding, the Vajrayana and somatic tradition she teaches says: meet it with presence, not judgment. Let the jaw unclench without pulling it back tight. Let the chest soften without making that softness mean you are weak. The spiral does not end. But the body's story about the spiral can change. 'I am holding this' becomes 'I am meeting this.' That shift, drawing on the five buddha wisdoms and somatic healing, is what allows the next breath, the next honest moment, the next day."
+      metadata:
+        semantic_family: "reflection-release-and-presence"
+        tone: "gentle-reframe"
+        article_types: ["youth_feature"]
+
+# Youth-feature-specific slot: solutions (deterministic).
+# Concrete solutions the teacher's frame points toward — not generic "meditate more."
+solutions:
+  options:
+    - id: yf_pamela_mental_health_solutions_01
+      header: "What actually helps"
+      items:
+        - "Peer circles with trained listeners who understand that speaking the spiral out loud changes it. Not to fix it, but to move it from the body's storage unit to a shared, witnessed space. One person witnessing the story changes the story."
+        - "Short somatic and body-based practices timed for when the body is most tense: before the evening news, after the group chat, at midnight when the spiral is running. Drawing on tantric transmutation and somatic healing principles (Levine, Ogden, Porges), practices that meet what the body is holding with presence, not judgment."
+        - "School and campus spaces that slow down. Not every message needs an instant response. Not every notification needs to be checked. Not every alarm in the group chat needs to land in the student's body. Time and permission to process and release."
+        - "Explicit teaching that the body's response is data, not defect. The student whose stomach tightens at news is not anxious; they are somatically aware. The person whose jaw holds the tension is not broken; they are accurately registering the world. Naming it differently changes what can happen next."
+      closing_line: "The goal is not to eliminate the pressure. It is to give the body a somatic and tantric practice of release so that clarity can return and the person can move again."
+      metadata:
+        article_types: ["youth_feature"]
+        semantic_family: "solutions-witness-and-release"
+
+    - id: yf_pamela_mental_health_solutions_02
+      header: "What schools and communities can do"
+      items:
+        - "Training adults to ask 'what is your body holding?' instead of 'what are you anxious about?' The body knows before the mind catches up. Listening to the body changes the conversation."
+        - "Spaces and times for young people to be together without screens. Not as punishment for screen time, but as permission for the nervous system to reset and for what the body has been holding to finally surface and release."
+        - "Access to somatic and tantric practices, not as mental health intervention but as basic nervous system literacy. Drawing on Vajrayana principles and somatic healing (Levine, Ogden, Porges): how to notice what the body is holding, how to recognize the five buddha wisdoms within difficulty, how to meet it with presence instead of judgment."
+        - "Policy that treats support access as basic infrastructure: counselors who are not overwhelmed, circles that can run every week, and permission for students to slow down during high-intensity periods instead of pushing harder when the system is tightest."
+      closing_line: "Pamela Fellows' Vajrayana and somatic tradition teaches that the body knows how to release when it is met with presence and aware understanding. The system's job is to create that presence, not to push past the body's signals."
+      metadata:
+        article_types: ["youth_feature"]
+        semantic_family: "solutions-infrastructure-and-slowing"
+
+# Optional youth-feature headline layer 2.
+title_system:
+  headline_layer_2:
+    options:
+      - id: yf_pamela_mental_health_headline_01
+        line: "A Vajrayana and somatic teacher on what the body is really holding when the spiral starts."
+        metadata:
+          article_types: ["youth_feature"]
+
+      - id: yf_pamela_mental_health_headline_02
+        line: "Pamela Fellows names the body's response as data, not diagnosis."
+        metadata:
+          article_types: ["youth_feature"]
+
+# Optional practice override for youth feature (if needed to modify announcement or delivery).
+practice:
+  options:
+    - id: yf_pamela_mental_health_practice_override
+      display_name: "Body-First Check-In"
+      duration: "5 minutes"
+      announcement_line: "Pamela Fellows teaches a 5-minute Body-First Check-In for the moment when the spiral has been running and the body is still holding. Use it at midnight, after the group chat, or whenever the body needs to meet what it has been carrying. Drawing on Vajrayana principles and somatic wisdom (Levine, Ogden, Porges). In the sidebar."
+      relief_lines:
+        - "The body is met with awareness, not judgment."
+        - "Enough release returns so clarity can follow."
+      relief_register: ["presence", "release", "move"]
+      derived_from_frame: "somatic_tantric_embodiment"
+      article_types: ["youth_feature"]

@@ -1,0 +1,37 @@
+version: 2
+article_id: fixture_commentary
+status: pending
+template_id: commentary
+topic: climate
+teacher_id: ahjan
+teacher_name: Ahjan
+source_url: https://example.org/pearl-news-fixtures/climate-youth-function
+source_title: UN report shows 2026 heat pressure is reshaping youth daily function
+source_published_at: "2026-03-12T12:00:00+00:00"
+deterministic_context:
+  pack_path: pearl_news/teacher_topic_packs/teachers/ahjan/climate.yaml
+  beat_map_id: commentary_v1
+  ordered_sections:
+    - slot: headline_layer_1
+      source: prompted
+      content: ""
+    - slot: news_peg
+      source: prompted
+      content: ""
+    - slot: body_data
+      source: prompted
+      content: ""
+required_slots:
+  headline_layer_1: ""
+  news_peg: ""
+  body_data: ""
+optional_slots: {}
+writer_notes:
+  constraints:
+    - Use source facts already attached to this contract.
+    - Do not rewrite deterministic teacher-voice slots.
+    - Only fill the listed required slots.
+provenance:
+  filled_by: ""
+  filled_at: ""
+  provider: file

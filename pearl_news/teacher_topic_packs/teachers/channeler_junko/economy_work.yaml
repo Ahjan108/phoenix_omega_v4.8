@@ -1,0 +1,248 @@
+schema_version: 1
+teacher_id: channeler_junko
+topic: economy_work
+active: true
+identity:
+  display_name: Junko
+  attribution_name: Channeler Junko
+  tradition: Contemporary Japanese channeling and light-language spirituality
+  tradition_short: Japanese channeling
+  teacher_setting_options:
+  - receiving space
+  - transmission
+  teacher_years: decades
+  affiliation_safe_line: teaches within the Japanese channeling tradition
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: soul_purpose_friction_loop
+    label: worth reduced to productivity; soul-level purpose vs system-level success
+    loop: checks the schedule app -> stomach drops -> refreshes again -> screenshots
+      it before it changes
+    body_markers:
+    - stomach
+    - jaw
+    - breath
+    digital_markers:
+    - checks the app
+    - refreshes
+    - screenshots
+topic_fit:
+  fit_level: primary
+  fit_reason: The soul did not incarnate to optimize a career path; it came to learn,
+    to serve, and to awaken. The anxiety about economic precarity is partly the friction
+    between a soul-level understanding of purpose and a system-level definition of
+    success that has nothing to do with purpose.
+  forbidden_angles:
+  - do not reduce to generic wellness
+  - do not frame the pressure as personal weakness
+hook_personal:
+  options:
+  - id: junko_econ_hook_personal_01
+    line: Every shift change asks you to treat uncertainty like maturity. You keep
+      going, and you know how much hidden effort that takes — and part of you knows
+      the friction is between what the soul came to do and what the schedule app is
+      demanding.
+    metadata:
+      semantic_family: personal-pressure
+      tone: plain
+      intensity: 3
+      article_types:
+      - hard_news_spiritual_response
+  - id: junko_econ_hook_personal_02
+    line: You check the schedule app. Your stomach drops. You refresh and screenshot.
+      Your worth is not determined by your output, but the system keeps reducing human
+      value to productivity metrics.
+    metadata:
+      semantic_family: truth-vs-overload
+      tone: grave
+      intensity: 4
+      article_types:
+      - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: junko_econ_hook_big_01
+    line: 'Economic stress now lands as self-management under unstable conditions:
+      stay employable, stay flexible, stay calm. The anxiety young people feel about
+      precarity is partly the friction between a soul-level understanding of purpose
+      and a system-level definition of success that has nothing to do with purpose.'
+    metadata:
+      semantic_family: system-pressure
+      angle: systemic-pressure
+      article_types:
+      - hard_news_spiritual_response
+  - id: junko_econ_hook_big_02
+    line: Planetary transition includes the collapse of economic structures built
+      on extraction and scarcity. Young workers experiencing instability are living
+      through the dissolution of an old paradigm — and the tradition does not promise
+      the new one will arrive painlessly, but it insists that clinging to the old
+      one will produce more suffering, not less.
+    metadata:
+      semantic_family: institutional-delay
+      angle: soul-remembrance
+      article_types:
+      - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: junko_econ_intro_01
+    line: Channeler Junko, a teacher of Japanese channeling and light-language spirituality,
+      has watched in practice sessions young people carry work instability as if it
+      were a verdict on worth. In her framework the anxiety about economic precarity
+      is partly the soul recognizing that the system's definition of success has nothing
+      to do with purpose.
+    metadata:
+      semantic_family: identity_seen_shift
+      tone: plain
+      intensity: 3
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+youth_somatic:
+  options:
+  - id: junko_econ_somatic_01
+    line: You check the schedule app. Your stomach drops. You refresh it again. Then
+      you screenshot it before the shift changes underneath you.
+    metadata:
+      loop_type: schedule_refresh
+      body_register: stomach
+      digital_behavior: checks the app
+      article_types:
+      - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: junko_econ_witness_01
+    line: Junko has seen this exact work loop in those who come to receive. In her
+      framework that need for stability is not weakness; it is the soul asking what
+      work would look like if it were oriented toward awakening and contribution rather
+      than status and security.
+    metadata:
+      semantic_family: loop-mirror
+      loop_type: schedule_refresh
+      article_types:
+      - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: junko_econ_turnaround_01
+    stat_line_1: Youth-led campaigns and coalitions.
+    stat_line_2: Young workers are organizing and hosting workshops for fair schedules,
+      transparency, and conditions that do not treat volatility as a test of character.
+    metadata:
+      semantic_family: institutional-action
+      article_types:
+      - hard_news_spiritual_response
+bridge:
+  options:
+  - id: junko_econ_bridge_01
+    line: The tracker measures policy wins and collective action. It has no column
+      for what made the next day of work possible - the capacity to receive guidance
+      when the soul is exhausted by a system that reduces human value to productivity
+      metrics. Junko's tradition holds that planetary transition includes the collapse
+      of economic structures built on extraction and scarcity. Receiving practice
+      does not fix the economy; it restores the channel so purpose is not swallowed
+      by the next notification.
+    hidden_capacity: receive guidance so purpose is not swallowed by productivity
+      metrics
+    metadata:
+      semantic_family: tracker-capacity
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+teacher_perspective:
+  options:
+  - id: junko_econ_perspective_01
+    header: What Junko Sees
+    paragraphs:
+    - 'The soul did not incarnate to optimize a career path; it came to learn, to
+      serve, and to awaken. For young people trapped in economic systems that reduce
+      human value to productivity metrics, the tradition offers a radical reframe:
+      your worth is not determined by your output, and the anxiety you feel about
+      economic precarity is partly the friction between a soul-level understanding
+      of purpose and a system-level definition of success that has nothing to do with
+      purpose.'
+    - Planetary transition includes the collapse of economic structures that were
+      built on extraction and scarcity rather than on flow and abundance. Young workers
+      experiencing instability are living through the dissolution of an old economic
+      paradigm. The tradition does not promise that the new one will arrive painlessly,
+      but it insists that clinging to the structures of the old one will produce more
+      suffering, not less.
+    - What feels like a personal fault — me, broken, wrong — is often accurate soul-level
+      response to a system that has never asked what work would look like if it were
+      oriented toward awakening and contribution. Receiving practice restores the
+      channel when the intellect has been exhausted by the schedule app.
+    metadata:
+      semantic_family: soul_remembrance_reframe
+      reframe_type: self_to_system
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+practice:
+  default_id: junko_econ_practice_01
+  options:
+  - id: junko_econ_practice_01
+    display_name: Receiving Practice
+    duration: 5 minutes
+    announcement_line: Channeler Junko teaches a 5-minute Receiving practice for moments
+      when the schedule app has tied worth to the next notification and the soul is
+      asking for a different kind of answer. It is in the sidebar, timed and step
+      by step.
+    relief_lines:
+    - The mind stops converting every shift change into a verdict on worth.
+    - What the soul already knows about purpose can surface when the channel is open.
+    relief_register:
+    - receive
+    - purpose
+    - soul remembrance
+    derived_from_frame: receiving_guidance
+    metadata:
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+sdg:
+  primary:
+    id: SDG 8
+    title: Decent Work and Economic Growth
+    line: The United Nations framework through SDG 8 includes decent work, fair employment,
+      and the protection of workers' wellbeing.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United
+      Nations.
+cta:
+  options:
+  - id: junko_econ_cta_01
+    org: Young Workers
+    line: 'Youth-led labor and fair-work organizations offer entry points for collective
+      action on schedules and dignity at work. Door in: join their network through
+      local chapters and campaigns.'
+    metadata:
+      semantic_family: door-in-economy
+      article_types:
+      - hard_news_spiritual_response
+title_system:
+  headline_layer_2:
+    options:
+    - id: junko_econ_headline_01
+      line: A Japanese channeler reads work precarity as soul-purpose friction - and
+        the practice that opens the channel.
+      metadata:
+        semantic_family: teacher-attention
+        article_types:
+        - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+    intensity_range:
+    - 2
+    - 4

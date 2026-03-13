@@ -1,0 +1,43 @@
+# Youth-feature overlay for ahjan + mental_health (Dev 10 fixture)
+# Deep-merged onto teachers/ahjan/mental_health.yaml when template_id=youth_feature.
+# Schema: EXPLAINER_YOUTH_FEATURE_OVERLAY_SPEC (youth-feature section).
+
+schema_version: 1
+template_id: youth_feature
+teacher_id: ahjan
+topic: mental_health
+
+# Youth-feature-specific slot: teacher reflection (long block).
+teacher_reflection:
+  options:
+    - id: yf_reflection_mental_01
+      header: "What Ahjan sees in the spiral"
+      paragraphs:
+        - "Young people are not asking whether the pressure is real. They are asking how to keep it from becoming the only story they tell about themselves. Ahjan has watched that question land in practice rooms and late-night DMs: the mind speeds up, the phone goes down, the phone comes back. The tradition he teaches does not start by pathologizing that. It starts by naming it -- and then by protecting the capacity to choose the next move."
+        - "The shift is from 'something is wrong with me' to 'I am in contact with conditions that no human system should ask one person to carry alone.' That reframe does not remove the pressure. It returns some agency to the person inside it."
+      metadata:
+        semantic_family: "reflection-spiral-agency"
+        article_types: ["youth_feature"]
+
+# Youth-feature-specific slot: solutions (deterministic).
+solutions:
+  options:
+    - id: yf_solutions_mental_01
+      header: "What actually helps"
+      items:
+        - "Peer-led circles and listener training, so the first response is not institutional."
+        - "Short, timed practices that work at midnight or before class -- not as fixes but as ways to keep clarity from being swallowed."
+        - "School and campus policy that treats mental health support as infrastructure, not private weakness."
+      closing_line: "The goal is not to eliminate the spiral. It is to keep it from owning the whole story."
+      metadata:
+        article_types: ["youth_feature"]
+        semantic_family: "solutions-peer-and-practice"
+
+# Optional youth-feature headline layer 2.
+title_system:
+  headline_layer_2:
+    options:
+      - id: yf_headline_mental_01
+        line: "A Buddhist teacher, Ahjan, on what the midnight spiral is really asking for."
+        metadata:
+          article_types: ["youth_feature"]

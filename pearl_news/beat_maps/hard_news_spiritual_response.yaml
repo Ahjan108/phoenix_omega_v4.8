@@ -1,0 +1,127 @@
+template_id: hard_news_spiritual_response
+schema_version: 1
+
+maps:
+  - id: hn_human_shock_first
+    description: Lead with the youth loop before formal data.
+    allowed_for_topics:
+      - climate
+      - mental_health
+      - education
+    sequence:
+      - headline_layer_1
+      - headline_layer_2
+      - hook_personal
+      - hook_big_picture
+      - youth_somatic
+      - news_peg
+      - teacher_intro
+      - teacher_witness
+      - body_data
+      - turnaround
+      - bridge
+      - teacher_perspective
+      - practice_announce
+      - sdg_un_tie
+      - forward_look
+    transitions:
+      before_body_data: "loop_to_scale"
+      before_turnaround: "scale_to_action"
+      before_bridge: "action_to_hidden_capacity"
+      before_practice_announce: "teaching_to_practice"
+      before_sdg_un_tie: "practice_to_sdg"
+      before_forward_look: "sdg_to_cta"
+    constraints:
+      requires:
+        - youth_somatic
+        - teacher_witness
+        - turnaround
+        - bridge
+        - teacher_perspective
+        - practice_announce
+      forbids:
+        - bridge_before_turnaround
+        - practice_before_teacher_perspective
+        - sdg_before_practice
+  - id: hn_fact_pressure_first
+    description: Lead with the formal news peg and scale before the mirrored loop.
+    allowed_for_topics:
+      - climate
+      - education
+      - economy_work
+    sequence:
+      - headline_layer_1
+      - headline_layer_2
+      - hook_big_picture
+      - news_peg
+      - body_data
+      - hook_personal
+      - youth_somatic
+      - teacher_intro
+      - teacher_witness
+      - turnaround
+      - bridge
+      - teacher_perspective
+      - practice_announce
+      - sdg_un_tie
+      - forward_look
+    transitions:
+      before_body_data: "loop_to_scale"
+      before_turnaround: "scale_to_action"
+      before_bridge: "action_to_hidden_capacity"
+      before_practice_announce: "teaching_to_practice"
+      before_sdg_un_tie: "practice_to_sdg"
+      before_forward_look: "sdg_to_cta"
+    constraints:
+      requires:
+        - youth_somatic
+        - teacher_witness
+        - turnaround
+        - bridge
+        - teacher_perspective
+        - practice_announce
+      forbids:
+        - bridge_before_turnaround
+        - practice_before_teacher_perspective
+        - sdg_before_practice
+  - id: hn_witness_forward
+    description: Bring the teacher witness close to the youth loop before returning to fact compression.
+    allowed_for_topics:
+      - climate
+      - mental_health
+      - peace_conflict
+    sequence:
+      - headline_layer_1
+      - headline_layer_2
+      - hook_personal
+      - youth_somatic
+      - teacher_intro
+      - teacher_witness
+      - hook_big_picture
+      - news_peg
+      - body_data
+      - turnaround
+      - bridge
+      - teacher_perspective
+      - practice_announce
+      - sdg_un_tie
+      - forward_look
+    transitions:
+      before_body_data: "loop_to_scale"
+      before_turnaround: "scale_to_action"
+      before_bridge: "action_to_hidden_capacity"
+      before_practice_announce: "teaching_to_practice"
+      before_sdg_un_tie: "practice_to_sdg"
+      before_forward_look: "sdg_to_cta"
+    constraints:
+      requires:
+        - youth_somatic
+        - teacher_witness
+        - turnaround
+        - bridge
+        - teacher_perspective
+        - practice_announce
+      forbids:
+        - bridge_before_turnaround
+        - practice_before_teacher_perspective
+        - sdg_before_practice

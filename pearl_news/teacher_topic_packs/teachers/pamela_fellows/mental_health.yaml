@@ -1,0 +1,217 @@
+schema_version: 1
+teacher_id: pamela_fellows
+topic: mental_health
+active: true
+
+identity:
+  display_name: Pamela
+  attribution_name: Pamela Fellows
+  tradition: "Vajrayana + Somatic + Life Coaching"
+  tradition_short: "Vajrayana-trained"
+  teacher_setting_options:
+    - "practice space"
+    - "sangha circle"
+  teacher_years: "20+"
+  affiliation_safe_line: "Vajrayana-initiated teacher with somatic training and Buddhist life coaching"
+  launch_approved: true
+
+persona:
+  id: gen_z_alpha
+  age_band: "13-29"
+  default_register: "phone-native, high-pressure, institution-skeptical"
+  daily_worlds:
+    - school
+    - phone
+    - group chat
+    - late-night scrolling
+    - part-time work
+  tie_to_real_world_struggles:
+    - id: midnight_hold
+      label: "body holding what the mind can't process at night"
+      loop: "reads the warning -> body holds tension -> puts the phone down -> picks it up again because the spiral is already running"
+      body_markers: ["jaw", "stomach", "chest", "hold"]
+      digital_markers: ["put the phone down", "pick it up again", "check again"]
+
+topic_fit:
+  fit_level: primary
+  fit_reason: "Youth mental overload lands in the body; Vajrayana transmutation and somatic awareness address what is held when the mind cannot integrate."
+  forbidden_angles:
+    - "do not reduce this to generic wellness"
+    - "do not frame the pressure as personal weakness"
+
+hook_personal:
+  options:
+    - id: hook_personal_01
+      line: "You know the spiral before anyone names it. You still carry the day forward while feeling less sure your body can keep holding what the mind has not released."
+      semantic_family: "personal-pressure"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response"]
+hook_big_picture:
+  options:
+    - id: hook_big_picture_01
+      line: "Youth mental overload is not only about symptoms. It is about what constant pressure does to the body — what gets held when attention, rest, and the ability to feel are all under siege."
+      semantic_family: "system-pressure"
+      angle: "systemic-pressure"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_intro:
+  options:
+    - id: teacher_intro_01
+      line: "Pamela Fellows — Vajrayana-initiated, yoga-certified, trained in somatic therapy under Peter Levine and Pat Ogden — has seen in practice sessions what this pressure does to young people who still look functional from the outside. They are not asking how to feel inspired. They are asking how to stop the body from holding what the mind has not found a way to release. Her tradition says the poison is the medicine: the neurotic energy driving the spiral is the same energy that becomes wisdom when met with presence."
+      semantic_family: "identity-seen-shift"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response"]
+    - id: teacher_intro_02
+      line: "Pamela Fellows teaches from a Vajrayana and somatic ground — holding empowerments, ngondro completion, and the body-reading of Levine and Porges. She has watched in retreat sessions how students carry mental overload as if the body were a storage unit for everything the mind could not process. Her tradition does not bypass the body or the difficult emotion; it transmutes them."
+      semantic_family: "identity-seen-shift-alt"
+      tone: grave
+      intensity: 4
+      article_types: ["hard_news_spiritual_response"]
+
+youth_somatic:
+  options:
+    - id: youth_somatic_01
+      line: "You read the update after midnight. Your jaw tightened and your stomach held. You put the phone down. Then you picked it up again because the spiral was already running.\nLOOP_SEQUENCE: \"read the update. jaw tightened, stomach held. put the phone down. picked it up again.\""
+      loop_type: "midnight_hold"
+      body_register: "jaw"
+      digital_behavior: "put the phone down"
+      article_types: ["hard_news_spiritual_response"]
+    - id: youth_somatic_02
+      line: "You saw the warning in a group chat. Your chest felt like it was holding something. You closed the app. Then you opened it again because not looking did not make the feeling go away.\nLOOP_SEQUENCE: \"saw the warning. chest held. closed the app. opened it again.\""
+      loop_type: "midnight_hold"
+      body_register: "chest"
+      digital_behavior: "close-return"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_witness:
+  options:
+    - id: teacher_witness_01
+      line: "Pamela has seen this exact loop in students — the warning arrives, the body holds, the phone goes down, and then the same pressure pulls attention back. Her Vajrayana and somatic training does not pathologize the body; it asks what the body is carrying and how to transmute it."
+      semantic_family: "loop-mirror"
+      loop_type: "midnight_hold"
+      article_types: ["hard_news_spiritual_response"]
+    - id: teacher_witness_02
+      line: "She has watched that sequence in young people — the update lands, the jaw or stomach tightens, the device is put down, and then the mind returns because the spiral does not stop when the screen goes dark. The body has been holding what the mind could not yet process."
+      semantic_family: "loop-mirror-alt"
+      loop_type: "midnight_hold"
+      article_types: ["hard_news_spiritual_response"]
+
+turnaround:
+  options:
+    - id: turnaround_01
+      stat_line_1: "320 campuses. 18 countries."
+      stat_line_2: "Youth organizers are hosting peer circles, organizing campaigns, and forcing schools to treat mental health support as infrastructure, not private weakness."
+      semantic_family: "institutional-action"
+      article_types: ["hard_news_spiritual_response"]
+    - id: turnaround_02
+      stat_line_1: "320 campuses. 18 countries."
+      stat_line_2: "Students and youth educators are organizing workshops, hosting peer support circles, and campaigning for spaces where the body is included in the conversation about overload."
+      semantic_family: "institutional-action-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+bridge:
+  options:
+    - id: bridge_01
+      line: "320 campuses. 18 countries. The tracker measures the workshops and peer circles young people built. It has no column for what made the next honest reach-out possible after another week of overload — the capacity to release what the body was holding so that clarity could return. The student who opened the next circle needed that capacity. So does the person who put the phone down and picked it up again. Pamela's Vajrayana training names this exactly: the five neurotic poisons — aggression, craving, ignorance, jealousy, pride — are not obstacles to be removed. They are the raw material of the five buddha wisdoms. The body that tightened at midnight is holding energy that, met with practice instead of panic, transmutes into clarity."
+      hidden_capacity: "release what the body holds so clarity can return"
+      semantic_family: "tracker-capacity"
+      article_types: ["hard_news_spiritual_response"]
+    - id: bridge_02
+      line: "The numbers measure programs and outreach. They do not measure what happens in the body when a young person finally has a practice that includes what they are carrying — not fixing it from the outside, but meeting the body where it is so that something can shift. That shift is what the next peer circle needs. It is what the person in the spiral needs. Pamela's tradition has a name for this: the tantric principle that nothing needs to be rejected. The poison is the path. The spiral, met with somatic presence and the Four Noble Truths as diagnostic, becomes workable."
+      hidden_capacity: "include the body so something can shift"
+      semantic_family: "tracker-capacity-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_perspective:
+  options:
+    - id: teacher_perspective_01
+      header: "What Pamela Sees"
+      paragraphs:
+        - "Pamela would not start by calling the mind defective. She would start by noticing that the body is holding what the mind has not been able to process. In her Vajrayana and somatic tradition, inner blockage — the deeper pattern underneath surface overwhelm — is not an obstacle to remove but energy to transmute. When the body is allowed to be seen and felt, something can release."
+        - "From there she turns to the heart's intelligence. The question is not how to dominate every thought. It is how to include the body and the heart in the response, so the spiral does not become the sole narrator of the self. The body holds what the mind avoids; the heart knows what the mind has not caught up to."
+        - "That shift matters: what feels like a personal fault — me, broken, wrong — is often the body accurately holding overload that no institutional or policy system should normalize. The practice is not to empty the body of feeling but to meet what is there so that the person can move again from steadier ground."
+      semantic_family: "teacher-diagnosis"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response"]
+    - id: teacher_perspective_02
+      header: "What Pamela Sees"
+      paragraphs:
+        - "In Pamela's tradition, suffering is not only in the mind. It lands in the body — the jaw, the stomach, the chest — and the body holds it when the mind cannot integrate. The tradition does not ask you to stop feeling; it asks you to include the body in the response."
+        - "Heartfulness here means living from the heart's intelligence — not sentiment, but a deeper knowing that includes the body and the present moment. When young people are given a practice that meets what is held with warmth rather than judgment, the capacity to stay functional without collapsing becomes available."
+        - "In that frame, self-blame softens. The fault is not mine — not a confused body, not a broken self. The problem is that the system and institutional structure keeps placing the load on the body without a practice of release. Pamela's tradition offers that practice."
+      semantic_family: "teacher-diagnosis-alt"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response"]
+
+practice:
+  default_id: practice_01
+  options:
+    - id: practice_01
+      display_name: "Body-First Check-In"
+      duration: "5 minutes"
+      announcement_line: "Pamela teaches a 5-minute Body-First Check-In for the moment when mental overload is starting to own the room. It is in the sidebar, brief enough for late night, before class, or after a spiral."
+      relief_lines:
+        - "The body stops carrying the whole load alone."
+        - "Enough release returns for the next honest move."
+      relief_register: ["clarity", "capacity", "act again"]
+      derived_from_frame: "vajrayana_somatic"
+      article_types: ["hard_news_spiritual_response"]
+    - id: practice_02
+      display_name: "Body-First Check-In"
+      duration: "5 minutes"
+      announcement_line: "Pamela teaches a 5-minute Body-First Check-In for when the spiral is running and the body is holding what the mind cannot yet name. It is in the sidebar, short enough to use when you need to include the body in the equation."
+      relief_lines:
+        - "The pressure stops naming the whole self."
+        - "The heart and body are included, not bypassed."
+      relief_register: ["clarity", "release", "act again"]
+      derived_from_frame: "vajrayana_somatic"
+      article_types: ["hard_news_spiritual_response"]
+
+sdg:
+  primary:
+    id: "SDG 3"
+    title: "Good Health and Well-Being"
+    line: "The United Nations has a framework for this through SDG 3 and its good health and well-being targets."
+  fallback_un_tie:
+    line: "Pearl News is an independent nonprofit. We are not affiliated with the United Nations."
+
+cta:
+  options:
+    - id: cta_01
+      org: "Active Minds"
+      line: "Active Minds and Born This Way Foundation both offer youth-facing entry points here. Door in: https://www.activeminds.org"
+      semantic_family: "door-in"
+      article_types: ["hard_news_spiritual_response"]
+    - id: cta_02
+      org: "Born This Way Foundation"
+      line: "If that is not your next step, Born This Way Foundation runs a program at the intersection of mental health and youth voice. Door in: https://bornthisway.foundation"
+      semantic_family: "door-in-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+title_system:
+  headline_layer_1:
+    options:
+      - id: headline_layer_1_01
+        line: "When The Spiral Starts Feeling Like A Personality."
+        semantic_family: "title"
+        article_types: ["hard_news_spiritual_response"]
+  headline_layer_2:
+    options:
+      - id: headline_layer_2_01
+        line: "A Vajrayana-trained teacher refuses to let youth overload become identity — and names what the body is holding."
+        semantic_family: "subtitle"
+        article_types: ["hard_news_spiritual_response"]
+      - id: headline_layer_2_02
+        line: "Pamela reads mental health pressure through somatic and Vajrayana ground — the poison is the medicine."
+        semantic_family: "subtitle-alt"
+        article_types: ["hard_news_spiritual_response"]
+
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: "article_id + slot + teacher_id + topic"
+  metadata_filters:
+    article_types: ["hard_news_spiritual_response"]
+    topic_subcases: ["overwhelm", "support-gap"]
+    intensity_range: [2, 4]

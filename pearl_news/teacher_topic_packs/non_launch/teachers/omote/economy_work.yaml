@@ -1,0 +1,217 @@
+schema_version: 1
+teacher_id: omote
+topic: economy_work
+active: true
+
+identity:
+  display_name: Omote
+  attribution_name: Omote
+  tradition: Japanese Sacred Way-of-Life and Purification Teaching
+  tradition_short: Japanese sacred way-of-life
+  teacher_setting_options:
+    - "practice space"
+    - "ritual space"
+  teacher_years: "lineage-bearing"
+  affiliation_safe_line: "Japanese traditional wisdom teacher"
+  launch_approved: true
+
+persona:
+  id: gen_z_alpha
+  age_band: "13-29"
+  default_register: "phone-native, high-pressure, institution-skeptical"
+  daily_worlds:
+    - school
+    - phone
+    - group chat
+    - late-night scrolling
+    - part-time work
+  tie_to_real_world_struggles:
+    - id: work_oni
+      label: "oni of shame and precarity when stability is refused"
+      loop: "checks the schedule app -> stomach drops -> refreshes again -> screenshots it before it changes"
+      body_markers: ["stomach", "jaw", "breath"]
+      digital_markers: ["checks the app", "refreshes", "screenshots"]
+
+topic_fit:
+  fit_level: primary
+  fit_reason: "Work precarity accumulates as residue and activates the oni; the tradition's teaching that helping others saves ourselves applies to economic life."
+  forbidden_angles:
+    - "do not reduce this to generic wellness"
+    - "do not frame the pressure as personal weakness"
+
+hook_personal:
+  options:
+    - id: hook_personal_01
+      line: "Every shift change asks you to treat uncertainty like maturity. You keep going, and you know how much shame and precarity have accumulated in the process."
+      semantic_family: "personal-pressure"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response"]
+hook_big_picture:
+  options:
+    - id: hook_big_picture_01
+      line: "Economic stress now lands as self-management under unstable conditions: stay employable, stay flexible, stay calm — and the oni of shame and despair takes root when the system refuses stability."
+      semantic_family: "system-pressure"
+      angle: "systemic-pressure"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_intro:
+  options:
+    - id: teacher_intro_01
+      line: "Omote, a teacher of the Japanese sacred way-of-life and purification, has watched young people carry work instability as if it were a verdict on character. They are not asking only how to work harder. They are asking how to face the oni of shame and precarity — and how to clear what has accumulated so that action can flow again."
+      semantic_family: "identity-seen-shift"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response"]
+    - id: teacher_intro_02
+      line: "Omote teaches from the Japanese tradition. He has seen young workers arrive already carrying economic fear as inner affliction — and the tradition holds that helping others is what ultimately saves ourselves. The practice of service dissolves the boundary between self-interest and collective wellbeing."
+      semantic_family: "identity-seen-shift-alt"
+      tone: grave
+      intensity: 4
+      article_types: ["hard_news_spiritual_response"]
+
+youth_somatic:
+  options:
+    - id: youth_somatic_01
+      line: "You check the schedule app. Your stomach dropped. You refreshed it again. Then you screenshot it before the shift changes underneath you.\nLOOP_SEQUENCE: \"checked the app. stomach dropped. refreshed again. took the screenshot.\""
+      loop_type: "work_oni"
+      body_register: "stomach"
+      digital_behavior: "checks the app"
+      article_types: ["hard_news_spiritual_response"]
+    - id: youth_somatic_02
+      line: "You opened the shift portal. Your jaw tightened. You refreshed. Then you screenshotted it before it could change.\nLOOP_SEQUENCE: \"opened the portal. jaw tightened. refreshed. screenshotted.\""
+      loop_type: "work_oni"
+      body_register: "jaw"
+      digital_behavior: "refreshes"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_witness:
+  options:
+    - id: teacher_witness_01
+      line: "Omote has seen this exact work loop in young workers — the check, the drop, the refresh, the screenshot that tries to hold one stable fact for a moment. The Japanese tradition does not pathologize it; it names the oni that grows when economic precarity is internalized as personal failure, and offers purification and service as the response."
+      semantic_family: "loop-mirror"
+      loop_type: "work_oni"
+      article_types: ["hard_news_spiritual_response"]
+    - id: teacher_witness_02
+      line: "He has watched that sequence — the app opens, the stomach or jaw holds, the refresh, the screenshot. The tradition holds that the oni of shame takes root when the system refuses to name the disorder. Purification is the practice of facing it honestly; service is the practice that restores both the one served and the one serving."
+      semantic_family: "loop-mirror-alt"
+      loop_type: "work_oni"
+      article_types: ["hard_news_spiritual_response"]
+
+turnaround:
+  options:
+    - id: turnaround_01
+      stat_line_1: "1,240 cases. 32 cities."
+      stat_line_2: "Young workers and student-worker coalitions are documenting conditions, filing cases, and changing local workplace rules."
+      semantic_family: "institutional-action"
+      article_types: ["hard_news_spiritual_response"]
+    - id: turnaround_02
+      stat_line_1: "1,240 cases. 32 cities."
+      stat_line_2: "Youth labor organizers are building peer support, legal literacy, and spaces where helping others and collective wellbeing are part of the conversation about work."
+      semantic_family: "institutional-action-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+bridge:
+  options:
+    - id: bridge_01
+      line: "1,240 cases. 32 cities. The tracker measures what young workers challenged. It has no column for what made the next filing or shift negotiation possible after another unstable week — the capacity to clear what had accumulated so that steadiness could return without turning precarity into identity. The person who took the screenshot needed that capacity. Omote's tradition has practiced purification and the principle that helping others saves ourselves for generations."
+      hidden_capacity: "clear what has accumulated so steadiness can return"
+      semantic_family: "tracker-capacity"
+      article_types: ["hard_news_spiritual_response"]
+    - id: bridge_02
+      line: "The numbers measure cases and reforms. They do not measure what happens when a young person finally has a practice that faces the oni of shame — not as a character flaw but as residue to be purified — and that includes service to others as what ultimately restores the self. That capacity is what the next shift negotiation needs. Omote's tradition calls it the way of life: purification, honest facing, and helping others."
+      hidden_capacity: "purify and serve so the self can act again"
+      semantic_family: "tracker-capacity-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_perspective:
+  options:
+    - id: teacher_perspective_01
+      header: "What Omote Sees"
+      paragraphs:
+        - "Omote would begin by separating instability from identity — but not by bypassing what has accumulated. In the Japanese tradition, the oni — inner affliction — takes root when economic precarity is internalized as personal failure. The tradition does not ask you to try harder; it asks you to face what has accumulated and purify it, and to remember that helping others is what ultimately saves ourselves."
+        - "From there he turns to Yamato-gokoro — the sincere heart-mind. When the economy keeps changing the rules, the tradition holds that genuine security comes not from defeating others or hoarding stability but from the practice of service that dissolves the boundary between self-interest and collective wellbeing."
+        - "That makes the reframe precise: what feels like private insufficiency is often the oni of shame accurately reflecting an economy built on instability. Omote's tradition offers purification to clear the residue and service to restore both the one served and the one serving."
+      semantic_family: "teacher-diagnosis"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response"]
+    - id: teacher_perspective_02
+      header: "What Omote Sees"
+      paragraphs:
+        - "In Omote's tradition, economic fear is not only cognitive. It accumulates as residue — shame, despair, the sense of being disposable — and the oni grows when that residue is never faced. The tradition holds that purification is not magical erasure but the honest discipline of restoring clarity through water, breath, ritual, and intentional stillness."
+        - "The principle of helping others as what ultimately saves ourselves is the tradition's core teaching. Conflict with the system — or with the self — persists when each party believes that its own survival requires the diminishment of the other. The tradition's insight is that this belief is the oni itself, and that genuine security comes from the practice of service."
+        - "In that frame, self-blame softens. The problem is not that young people are not resilient enough. The problem is that the body and the heart have been carrying the residue of an unstable economy without a practice of purification and service. Omote's tradition offers that practice."
+      semantic_family: "teacher-diagnosis-alt"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response"]
+
+practice:
+  default_id: practice_01
+  options:
+    - id: practice_01
+      display_name: "Purification and Service Practice"
+      duration: "4 minutes"
+      announcement_line: "Omote teaches a 4-minute Purification and Service Practice for moments when work instability is starting to overwrite clarity. It is in the sidebar, short enough to use before the next shift or after another schedule shock."
+      relief_lines:
+        - "What has accumulated can be faced and released."
+        - "Enough steadiness returns for the next honest move."
+      relief_register: ["clarity", "capacity", "act again"]
+      derived_from_frame: "purification_service"
+      article_types: ["hard_news_spiritual_response"]
+    - id: practice_02
+      display_name: "Purification and Service Practice"
+      duration: "4 minutes"
+      announcement_line: "Omote teaches a 4-minute Purification and Service Practice for when the schedule app and the unstable week have left the inner life in need of purification. It is in the sidebar, brief and structured."
+      relief_lines:
+        - "The oni of shame is met with honest seeing."
+        - "Service to others restores the one serving."
+      relief_register: ["clarity", "release", "act again"]
+      derived_from_frame: "purification_service"
+      article_types: ["hard_news_spiritual_response"]
+
+sdg:
+  primary:
+    id: "SDG 8"
+    title: "Decent Work and Economic Growth"
+    line: "The United Nations has a framework for this through SDG 8 and its decent work and economic growth targets."
+  fallback_un_tie:
+    line: "Pearl News is an independent nonprofit. We are not affiliated with the United Nations."
+
+cta:
+  options:
+    - id: cta_01
+      org: "ILO"
+      line: "The ILO and youth labor-rights groups both provide entry points into this work. Door in: https://www.ilo.org/global/topics/youth-employment"
+      semantic_family: "door-in"
+      article_types: ["hard_news_spiritual_response"]
+    - id: cta_02
+      org: "Youth labor-rights groups"
+      line: "If that is not your next step, youth labor coalitions work the same framework at the local and sector level."
+      semantic_family: "door-in-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+title_system:
+  headline_layer_1:
+    options:
+      - id: headline_layer_1_01
+        line: "Work Instability Is Eating More Than Wages."
+        semantic_family: "title"
+        article_types: ["hard_news_spiritual_response"]
+  headline_layer_2:
+    options:
+      - id: headline_layer_2_01
+        line: "A Japanese tradition teacher separates economic precarity from personal worth — and names the oni that can be purified."
+        semantic_family: "subtitle"
+        article_types: ["hard_news_spiritual_response"]
+      - id: headline_layer_2_02
+        line: "Omote reads work stress as inner affliction and offers purification and service as the response."
+        semantic_family: "subtitle-alt"
+        article_types: ["hard_news_spiritual_response"]
+
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: "article_id + slot + teacher_id + topic"
+  metadata_filters:
+    article_types: ["hard_news_spiritual_response"]
+    topic_subcases: ["schedule-precarity", "wage-instability"]
+    intensity_range: [2, 4]

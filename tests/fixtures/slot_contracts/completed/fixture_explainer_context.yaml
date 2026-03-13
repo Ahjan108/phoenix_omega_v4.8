@@ -1,0 +1,53 @@
+version: 2
+article_id: fixture_explainer_context
+status: completed
+template_id: explainer_context
+topic: peace_conflict
+teacher_id: maat
+teacher_name: Maat
+source_url: https://example.org/pearl-news-fixtures/peace-conflict-dialogue
+source_title: UN peacekeeping report highlights youth engagement in conflict zones
+source_published_at: "2026-03-12T12:00:00+00:00"
+deterministic_context:
+  pack_path: pearl_news/teacher_topic_packs/teachers/maat/peace_conflict.yaml
+  beat_map_id: explainer_v1
+  ordered_sections:
+    - slot: headline_layer_1
+      source: prompted
+      content: ""
+    - slot: hook_personal
+      source: deterministic
+      content: A wiser response begins when you stop assuming your overwhelm is proof of personal weakness.
+    - slot: news_peg
+      source: prompted
+      content: ""
+    - slot: youth_somatic
+      source: deterministic
+      content: You read the update, your chest tightens, and attention fragments before you can name why.
+    - slot: body_data
+      source: prompted
+      content: ""
+    - slot: forward_look
+      source: deterministic
+      content: SDG 16 gives a public framework, and the next step is to enter a local program, briefing, or network that turns concern into participation.
+required_slots:
+  headline_layer_1: >-
+    Understanding Conflict Fatigue: What Recent UN Data Reveals
+  news_peg: >-
+    A new UN peacekeeping assessment documents how prolonged exposure to conflict 
+    news affects young people's sense of agency and emotional regulation.
+  body_data: >-
+    The assessment draws on interviews with over 2,000 young people across 
+    conflict-affected regions, documenting patterns of news avoidance, emotional 
+    numbing, and episodic hypervigilance. Researchers found that access to 
+    structured reflection practices correlated with measurably better outcomes.
+optional_slots: {}
+writer_notes:
+  constraints:
+    - Use source facts already attached to this contract.
+    - Do not rewrite deterministic teacher-voice slots.
+    - Only fill the listed required slots.
+provenance:
+  filled_by: fixture_generator
+  filled_at: "2026-03-12T14:00:00+00:00"
+  provider: file

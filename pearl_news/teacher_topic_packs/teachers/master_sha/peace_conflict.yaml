@@ -1,0 +1,242 @@
+schema_version: 1
+teacher_id: master_sha
+topic: peace_conflict
+active: true
+identity:
+  display_name: Master Sha
+  attribution_name: Dr. and Master Zhi Gang Sha
+  tradition: Tao Source, Soulfulness, love-forgiveness-compassion, and sacred song
+  tradition_short: Tao Source
+  teacher_setting_options:
+  - teaching space
+  - retreat
+  teacher_years: decades
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: conflict_blockage_loop
+    label: conflict alert as blockage and freeze
+    loop: reads the conflict alert -> body tightens -> stops for a second -> checks
+      again because the danger is real
+    body_markers:
+    - chest
+    - jaw
+    - breath
+    digital_markers:
+    - reads the alert
+    - freezes
+    - checks again
+topic_fit:
+  fit_level: primary
+  fit_reason: The root of conflict is blockage in individuals, communities, and the
+    energetic field; peace is achieved by clearing blockages through greatest forgiveness
+    and love.
+  forbidden_angles:
+  - do not reduce to generic wellness
+  - do not frame the pressure as personal weakness
+hook_personal:
+  options:
+  - id: master_sha_peace_hook_personal_01
+    line: You can feel public violence entering private life through one notification.
+      The body knows it before language does — and the fear can turn into a blockage
+      that reproduces harm.
+    metadata:
+      semantic_family: personal-pressure
+      tone: plain
+      intensity: 3
+      article_types:
+      - hard_news_spiritual_response
+  - id: master_sha_peace_hook_personal_02
+    line: You keep reading because not looking feels dishonest. You also know what
+      repeated conflict news is doing to your body — the tightening, the stop, the
+      check again.
+    metadata:
+      semantic_family: truth-vs-overload
+      tone: grave
+      intensity: 4
+      article_types:
+      - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: master_sha_peace_hook_big_01
+    line: Conflict pressure is no longer only geopolitical. It arrives as moral injury
+      and as blockage in the field between groups — and the tradition holds that clearing
+      blockage is how response stops reproducing violence.
+    metadata:
+      semantic_family: system-pressure
+      angle: systemic-pressure
+      article_types:
+      - hard_news_spiritual_response
+  - id: master_sha_peace_hook_big_02
+    line: When fear, resentment, and unprocessed trauma accumulate without being cleared,
+      they express as hostility and eventually violence. Peace is not achieved by
+      suppressing blockages but by clearing them.
+    metadata:
+      semantic_family: institutional-delay
+      angle: blockage-reframe
+      article_types:
+      - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: master_sha_peace_intro_01
+    line: Dr. and Master Zhi Gang Sha, a Tao Source and Soulfulness teacher for decades,
+      has seen in practice sessions young people carry conflict pressure as both fear
+      and responsibility. They are not asking whether the world is dangerous. They
+      are asking how to stay in contact with danger without the fear turning into
+      a blockage that reproduces violence.
+    metadata:
+      semantic_family: identity_seen_shift
+      tone: plain
+      intensity: 3
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+youth_somatic:
+  options:
+  - id: master_sha_peace_somatic_01
+    line: 'You read the conflict alert. Your chest tightens. You stop for a second.
+      Then you check again because the danger is real.
+
+      LOOP_SEQUENCE: read the alert. chest tightened. stopped. checked again.'
+    metadata:
+      loop_type: conflict_alert_loop
+      body_register: chest
+      digital_behavior: reads the alert
+      article_types:
+      - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: master_sha_peace_witness_01
+    line: Master Sha has seen this exact loop in young people. The alert lands, the
+      body contracts, time stops for a second, and attention returns because reality
+      is still there.
+    metadata:
+      semantic_family: loop-mirror
+      loop_type: conflict_alert_loop
+      article_types:
+      - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: master_sha_peace_turnaround_01
+    stat_line_1: 148 youth peace networks. 22 regions.
+    stat_line_2: Young people are leading dialogue, organizing restorative practices,
+      and running campaigns that treat conflict as something that can be met with
+      clarity and collective healing.
+    metadata:
+      semantic_family: institutional-action
+      article_types:
+      - hard_news_spiritual_response
+bridge:
+  options:
+  - id: master_sha_peace_bridge_01
+    line: The tracker measures ceasefires and treaties. It has no column for what
+      made the next act of peacebuilding possible - the capacity to clear the blockage
+      of fear and resentment so that response does not reproduce the pattern. Master
+      Sha's tradition holds that sacred song and communal vocalization restore a shared
+      vibrational field that violence fragments.
+    hidden_capacity: clear blockage so response does not reproduce violence
+    metadata:
+      semantic_family: tracker-capacity
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+teacher_perspective:
+  options:
+  - id: master_sha_peace_perspective_01
+    header: What Master Sha Sees
+    paragraphs:
+    - The root of conflict is blockage in individuals, in communities, in the energetic
+      field between groups. When fear, resentment, and unprocessed historical trauma
+      accumulate without being cleared, they express as hostility and eventually violence.
+      The Tao Source teaching holds that peace is not achieved by suppressing these
+      blockages but by clearing them through greatest forgiveness.
+    - Greatest love is not an emotion but a practice. Applied to conflict it means
+      approaching the enemy with the recognition that they too are obstructed, and
+      that their violence is an expression of blockage rather than of their true nature.
+      This teaching does not ask young people to excuse harm; it asks them to see
+      its origin clearly enough to respond in ways that do not reproduce it.
+    - Sacred song has been used across cultures as a practice of collective healing
+      after conflict. Communal vocalization restores a shared vibrational field that
+      violence fragments. What feels like a personal fault — me, broken, wrong — is
+      often accurate response to conditions no individual can fix alone. Young people
+      who sing together after violence are doing something the tradition regards as
+      essential within a system and institutional structure that was never designed
+      for what it demands.
+    metadata:
+      semantic_family: tao_blockage_reframe
+      reframe_type: self_to_system
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+practice:
+  default_id: master_sha_peace_practice_01
+  options:
+  - id: master_sha_peace_practice_01
+    display_name: Tao Source Golden Light Practice
+    duration: 5 minutes
+    announcement_line: Master Sha teaches a 5-minute Tao Source Golden Light practice
+      for moments when conflict news has turned into blockage and the body has tightened
+      around fear. It is in the sidebar, timed and step by step.
+    relief_lines:
+    - The blockage that converts danger into freeze or rage softens.
+    - Enough clarity returns to respond from connection rather than from reproduction
+      of harm.
+    relief_register:
+    - clarity
+    - flow
+    - response
+    derived_from_frame: tao_blockage_clear
+    metadata:
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+sdg:
+  primary:
+    id: SDG 16
+    title: Peace, Justice and Strong Institutions
+    line: The United Nations framework through SDG 16 includes peaceful societies,
+      access to justice, and institutions that do not reproduce violence.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United
+      Nations.
+cta:
+  options:
+  - id: master_sha_peace_cta_01
+    org: Youth peacebuilding
+    line: 'Youth-led peacebuilding and dialogue organizations offer entry points for
+      those who want to respond to conflict with clarity and collective healing. Door
+      in: join a youth peacebuilding network or workshop.'
+    metadata:
+      semantic_family: door-in-peace
+      article_types:
+      - hard_news_spiritual_response
+title_system:
+  headline_layer_2:
+    options:
+    - id: master_sha_peace_headline_01
+      line: A Tao Source teacher reads conflict as blockage and names the practice
+        that clears it without reproducing harm.
+      metadata:
+        semantic_family: teacher-attention
+        article_types:
+        - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+    intensity_range:
+    - 2
+    - 4

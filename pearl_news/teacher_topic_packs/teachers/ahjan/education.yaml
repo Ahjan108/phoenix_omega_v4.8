@@ -1,0 +1,160 @@
+schema_version: 1
+teacher_id: ahjan
+topic: education
+active: true
+identity:
+  display_name: Ajahn Ahjan
+  attribution_name: Teacher Ahjan
+  tradition: Theravada Buddhist teacher
+  tradition_short: Theravada Buddhism
+  teacher_setting_options:
+  - practice room
+  - retreat
+  teacher_years: '25'
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: pressure_loop
+    label: keeps trying to stay in contact with reality without losing function
+    loop: reads the update -> body tightens -> pulls away -> returns because truth remains
+    body_markers:
+    - chest
+    - throat
+    - tighten
+    digital_markers:
+    - close
+    - reopen
+    - scroll
+    - check again
+topic_fit:
+  fit_level: primary
+  fit_reason: 'This topic maps to fragmented attention, strained effort, and the conflict between what learning needs and what many systems now produce. '
+  forbidden_angles:
+  - do not blame students for fragmentation
+  - do not reduce focus to productivity hacks
+hook_personal:
+  options:
+  - id: hook_personal_01
+    line: You still want to learn. You also know how quickly the current system turns attention into scatter and effort into exhaustion.
+    semantic_family: ahjan-education-hook-personal
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: hook_big_picture_01
+    line: Education strain is not only about workload. It is about whether schools still create the conditions under which attention and learning can function.
+    semantic_family: ahjan-education-hook-big
+    article_types:
+    - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: teacher_intro_01
+    line: Teacher Ahjan, a Theravada Buddhist teacher, has watched in practice sessions this pressure land on young people. Students are not asking how to stay inspired anymore. They are asking how to stay functional while the pressure keeps arriving on schedule.
+    semantic_family: ahjan-education-intro
+    article_types:
+    - hard_news_spiritual_response
+youth_somatic:
+  options:
+  - id: youth_somatic_01
+    line: 'You open the assignment portal. Focus breaks. You switch away. Then you come back because the work is still there. LOOP_SEQUENCE: "opened the portal. focus broke. switched away. came back."'
+    loop_type: pressure_loop
+    article_types:
+    - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: teacher_witness_01
+    line: Ajahn Ahjan has seen this exact loop -- the portal opening, the break in focus, the switch away, and the return because the work still remains.
+    semantic_family: ahjan-education-witness
+    article_types:
+    - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: turnaround_01
+    stat_line_1: 410 workshops. 27 cities.
+    stat_line_2: Students and educators are building study supports, healthier schedules, and classroom reforms that protect attention instead of merely organizing campaigns and hosting it.
+    semantic_family: ahjan-education-turnaround
+    article_types:
+    - hard_news_spiritual_response
+bridge:
+  options:
+  - id: bridge_01
+    line: 410 workshops. 27 cities. The tracker measures what young people did. It has no column for what made the next step possible after another delayed or broken response -- the capacity to return to the work without turning fragmentation into identity. The person who came back needed it. So does the reader in that loop. Ajahn Ahjan's teaching has language for protecting that capacity.
+    hidden_capacity: return to truthful action
+    semantic_family: ahjan-education-bridge
+    article_types:
+    - hard_news_spiritual_response
+teacher_perspective:
+  options:
+  - id: teacher_perspective_01
+    header: What Ajahn Ahjan Sees
+    paragraphs:
+    - Ajahn Ahjan would begin with accurate contact. The body is not malfunctioning when it reacts to real pressure; it is often perceiving a mismatch between official reassurance and lived reality.
+    - He pairs that recognition with right effort. Right effort is not productivity language. It is the discipline of directing energy where truthful contact and usable action are still possible.
+    - 'The reframe matters: what feels like a personal fault — me, broken, wrong — is often accurate response to a system that keeps externalizing delay, strain, and contradiction onto the person.'
+    semantic_family: ahjan-education-perspective
+    article_types:
+    - hard_news_spiritual_response
+practice:
+  default_id: practice_01
+  options:
+  - id: practice_01
+    display_name: 5-minute Steadying Practice
+    duration: 5 minutes
+    announcement_line: Ajahn Ahjan teaches a 5-minute Steadying Practice for moments when education pressure starts converting attention into helplessness. It is in the sidebar, timed and practical.
+    relief_lines:
+    - The mind stops treating the next update as proof that action is pointless.
+    - A steadier internal pace returns, and with it the capacity to act again.
+    relief_register:
+    - capacity
+    - clarity
+    - act again
+    article_types:
+    - hard_news_spiritual_response
+sdg:
+  primary:
+    id: SDG 4
+    title: Quality Education
+    line: The United Nations has a framework for this through SDG 4 and its quality education targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United Nations.
+cta:
+  options:
+  - id: cta_01
+    org: UNESCO
+    line: 'UNESCO''s Global Education Coalition offers a public entry point here. Door in: https://www.unesco.org/en/education/globaleducationcoalition'
+    semantic_family: ahjan-education-cta
+    article_types:
+    - hard_news_spiritual_response
+title_system:
+  headline_layer_1:
+    options:
+    - id: headline_layer_1_01
+      line: Students Are Losing Focus Faster Than Systems Can Adapt.
+      semantic_family: ahjan-education-title1
+      article_types:
+      - hard_news_spiritual_response
+  headline_layer_2:
+    options:
+    - id: headline_layer_2_01
+      line: A teacher names the fight to keep learning possible under fragmented conditions.
+      semantic_family: ahjan-education-title2
+      article_types:
+      - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response

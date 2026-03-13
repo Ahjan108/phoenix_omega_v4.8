@@ -1,0 +1,149 @@
+# Out of roster (teacher_news_roster.yaml): master_sha news_topics do not include economy_work. Preserved for future wave.
+schema_version: 1
+teacher_id: master_sha
+topic: economy_work
+active: true
+
+identity:
+  display_name: Master Sha
+  attribution_name: Master Sha
+  tradition: Tao Source, Soulfulness, love-forgiveness-compassion, and sacred song
+  tradition_short: Tao Source
+  teacher_setting_options:
+    - teaching space
+    - retreat
+  teacher_years: decades
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+
+persona:
+  id: gen_z_alpha
+  age_band: "13-29"
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+    - school
+    - phone
+    - group chat
+    - late-night scrolling
+    - part-time work
+  tie_to_real_world_struggles:
+    - id: schedule_blockage_loop
+      label: schedule volatility as blockage to dignity and flow
+      loop: checks the schedule app -> stomach drops -> refreshes again -> screenshots it before it changes
+      body_markers: ["stomach", "jaw", "breath"]
+      digital_markers: ["checks the app", "refreshes", "screenshots"]
+
+topic_fit:
+  fit_level: primary
+  fit_reason: "Work precarity creates blockage when worth is tied to output; Tao Source teaches that blockages of fear, rejection, and unprocessed loss can be cleared so dignity and flow are not determined by the next shift change."
+  forbidden_angles:
+    - "do not reduce to generic wellness"
+    - "do not frame the pressure as personal weakness"
+
+teacher_intro:
+  options:
+    - id: master_sha_econ_intro_01
+      line: "Master Sha, a Tao Source and Soulfulness teacher for decades, has watched young people carry work instability as if it were a verdict on character. They are not asking only how to work harder. They are asking how to stop turning volatility into a blockage that blocks the flow of self-worth. In the Tao Source framework, that blockage can be met with greatest compassion for the self — and cleared so dignity is not determined by the schedule app."
+      metadata:
+        semantic_family: identity_seen_shift
+        tone: plain
+        intensity: 3
+        article_types: ["hard_news_spiritual_response", "commentary"]
+
+youth_somatic:
+  options:
+    - id: master_sha_econ_somatic_01
+      line: "You check the schedule app. Your stomach drops. You refresh it again. Then you screenshot it before the shift changes underneath you.\nLOOP_SEQUENCE: \"checked the app. stomach dropped. refreshed again. took the screenshot.\""
+      metadata:
+        loop_type: schedule_refresh
+        body_register: stomach
+        digital_behavior: checks the app
+        article_types: ["hard_news_spiritual_response"]
+
+teacher_witness:
+  options:
+    - id: master_sha_econ_witness_01
+      line: "Master Sha has seen this exact work loop in students and young workers — the check, the drop, the refresh, the screenshot that tries to hold one stable fact for a moment. In his framework that need for stability is not weakness; it is the soul asking for flow in a system that keeps creating blockage."
+      metadata:
+        semantic_family: loop-mirror
+        loop_type: schedule_refresh
+        article_types: ["hard_news_spiritual_response"]
+
+turnaround:
+  options:
+    - id: master_sha_econ_turnaround_01
+      stat_line_1: "Youth-led campaigns and coalitions."
+      stat_line_2: "Young workers are organizing for fair schedules, transparency, and conditions that do not treat volatility as a test of character."
+      metadata:
+        semantic_family: institutional-action
+        article_types: ["hard_news_spiritual_response"]
+
+bridge:
+  options:
+    - id: master_sha_econ_bridge_01
+      line: "The tracker measures policy wins and collective action. It has no column for what made the next day of work possible after another schedule change — the capacity to clear the blockage that converts every shift notification into a verdict on worth. The organizer who showed up needed that capacity. So does the person who checked the app, refreshed, and took the screenshot. Master Sha's tradition holds that greatest love and greatest forgiveness directed toward the self are not luxuries; they are what restore flow when the economy keeps blocking it."
+      hidden_capacity: "clear the blockage so dignity is not determined by the schedule"
+      metadata:
+        semantic_family: tracker-capacity
+        article_types: ["hard_news_spiritual_response", "commentary"]
+
+teacher_perspective:
+  options:
+    - id: master_sha_econ_perspective_01
+      header: "What Master Sha Sees"
+      paragraphs:
+        - "When worth is tied to output and the next shift is never certain, blockage accumulates — fear, rejection, unprocessed loss. The Tao Source teaching holds that these blockages obstruct the natural flow of wellbeing and that they can be cleared not through force but through the practice of greatest love, greatest forgiveness, and greatest compassion directed first toward oneself."
+        - "That is not a denial of material hardship. It is a refusal to let the system's volatility become a verdict on the soul. Young people who carry work instability as self-blame are carrying blockage that the tradition has a practice for: golden light, soul-guided attention, and the recognition that dignity is not earned by the schedule app."
+        - "The reframe is practical: what feels like private failure is often accurate response to conditions that have never been met with adequate compassion. Clear the blockage; then the capacity to act from worth rather than from fear returns."
+      metadata:
+        semantic_family: tao_blockage_reframe
+        reframe_type: self_to_system
+        article_types: ["hard_news_spiritual_response", "commentary"]
+
+practice:
+  default_id: master_sha_econ_practice_01
+  options:
+    - id: master_sha_econ_practice_01
+      display_name: "Tao Source Golden Light Practice"
+      duration: "5 minutes"
+      announcement_line: "Master Sha teaches a 5-minute Tao Source Golden Light practice for moments when the schedule app has turned volatility into blockage and self-worth feels tied to the next notification. Golden light washes what force cannot move. It is in the sidebar, timed and step by step."
+      relief_lines:
+        - "The blockage that converts every shift change into a verdict on character softens."
+        - "Enough flow returns to act from dignity rather than from fear."
+      relief_register: ["dignity", "flow", "act again"]
+      derived_from_frame: tao_blockage_clear
+      metadata:
+        article_types: ["hard_news_spiritual_response", "commentary"]
+
+sdg:
+  primary:
+    id: "SDG 8"
+    title: "Decent Work and Economic Growth"
+    line: "The United Nations framework through SDG 8 includes decent work, fair employment, and the protection of workers' wellbeing."
+  fallback_un_tie:
+    line: "Pearl News is an independent nonprofit. We are not affiliated with the United Nations."
+
+cta:
+  options:
+    - id: master_sha_econ_cta_01
+      org: "Young Workers"
+      line: "Youth-led labor and fair-work organizations offer entry points for collective action on schedules and dignity at work. Search for local chapters and campaigns."
+      metadata:
+        semantic_family: door-in-economy
+        article_types: ["hard_news_spiritual_response"]
+
+title_system:
+  headline_layer_2:
+    options:
+      - id: master_sha_econ_headline_01
+        line: "A Tao Source teacher reads work precarity as blockage — and names the practice that restores dignity."
+        metadata:
+          semantic_family: teacher-attention
+          article_types: ["hard_news_spiritual_response"]
+
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: "article_id + slot + teacher_id + topic"
+  metadata_filters:
+    article_types: ["hard_news_spiritual_response", "commentary"]
+    intensity_range: [2, 4]

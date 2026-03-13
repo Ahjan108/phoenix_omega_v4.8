@@ -1,0 +1,206 @@
+schema_version: 1
+pair_type: unsay
+teacher_a_id: miki
+teacher_b_id: ra
+topic: mental_health
+active: true
+
+# UNSAY-specific: why this pair works for UNSAY (stricter than interfaith)
+pair_rationale:
+  structural_overlap: "Both diagnose a moment where overload converts attention into shutdown — but Miki frames it as relational rupture with the living world, and Ra frames it as conditioning running automatically. Both teachers see a hidden capacity: the ability to receive what is true without the body closing down."
+  distinct_angles:
+    - "Miki sees digital/climate overload as a break in relationship with what sustains life; the body correctly senses relational rupture and needs sound and presence to stay receptive."
+    - "Ra sees overload as patterns installed by the system and the past running on automatic; clarity comes when you can see the pattern and choose a response from awareness rather than habit."
+  convergence_type: "Both teachers diagnose the same somatic loop (read-tighten-close-return) as accurate response to a real break, not personal defect. Both point toward a practice that restores the capacity to stay present with difficult truth."
+  shared_practice_justification: "Receptive presence is native to both traditions. Miki originates it through sound and light; Ra originates it through seeing the pattern and resting in awareness. A grounding practice that integrates both — breath, body noticing, and returning to presence — authentically satisfies both teachers without distorting either."
+
+# Hook + youth experience (shared across both teachers)
+hook_personal:
+  options:
+    - id: hook_personal_01
+      line: "The hardest part is not feeling overwhelmed. It is being asked to stay calm when the system keeps breaking faster than you can adjust — and the pattern that says you should already be fine is running in the background."
+      semantic_family: "personal-pressure-combined"
+      tone: plain
+      intensity: 3
+    - id: hook_personal_02
+      line: "You carry two messages at once: the real danger is arriving faster than institutions can respond, and you are supposed to handle it without your nervous system showing it. The body and the patterns know the contradiction is real."
+      semantic_family: "system-contradiction"
+      tone: grave
+      intensity: 4
+
+youth_somatic:
+  options:
+    - id: youth_somatic_01
+      line: "You read the update after midnight. Your chest and throat both tighten. You put the phone down because the information and the feeling are too much at once. Then you pick it up again because not knowing does not make the truth less real.\nLOOP_SEQUENCE: \"read the update. chest and throat tightened. put the phone down. picked it up again.\""
+      loop_type: "read-tighten-close-return"
+      body_register: "throat and chest"
+      digital_behavior: "close-return"
+    - id: youth_somatic_02
+      line: "You saw the number in a group chat. Your shoulders locked. You closed the app. Then you opened it again because the danger is still there and the pattern that says you should already be fine is still running.\nLOOP_SEQUENCE: \"saw the number. shoulders locked. closed the app. opened it again.\""
+      loop_type: "read-tighten-close-return"
+      body_register: "shoulders"
+      digital_behavior: "close-return"
+
+# Teacher A slots (Miki)
+teacher_a_intro:
+  options:
+    - id: miki_intro_01
+      line: "Miki, a teacher of light-language and sound healing, has watched young people arrive in circles already carrying digital overload and the body's accurate response to relational rupture with the living world. They are not asking whether the crisis is real. They are asking how to stay receptive enough to feel what is true without the body shutting down."
+      semantic_family: "identity-seen-shift"
+      tone: plain
+      intensity: 3
+    - id: miki_intro_02
+      line: "Miki teaches from the tradition of sound, light, and presence. She has seen what happens when young people carry climate and system-failure news — the body registers rupture before the mind finds words. Students are not asking for reassurance. They are asking how to receive the truth in a way that leaves the capacity to respond still available."
+      semantic_family: "identity-seen-shift-alt"
+      tone: grave
+      intensity: 4
+
+teacher_a_perspective:
+  options:
+    - id: a_perspective_01
+      header: "What Miki Sees"
+      paragraphs:
+        - "Miki reads youth overload through relational rupture — the break in the web between people and the living world. This is not only personal overwhelm; it is accurate body response to a real break. The young person who tightens when reading the update is not defective. They are registering what the tradition calls harae: the need for purification of actions that damage the web of relationships. The body knows this before words do."
+        - "The shift that matters: what feels like private inadequacy is accurate response to collective rupture. The tradition teaches that the problem is not that young people are too sensitive. The problem is that the boundary between human life and the living world — what needs to be honored — is being torn faster than any generation before has had to witness."
+        - "Sound and presence can help uncover what the overload is covering: the capacity to stay receptive to truth was always there. It does not need to be built. It needs to be uncovered. Enough steadiness returns, and with it the capacity to respond again."
+      semantic_family: "relational-rupture"
+      reframe_type: "self_to_system"
+    - id: a_perspective_02
+      header: "What Miki Sees"
+      paragraphs:
+        - "In the sound and light tradition, the body is not malfunctioning when it tightens. It is doing what it was designed to do: register connection and rupture. What Miki has seen in transmission circles is young people carrying an accurate perception of damage to the living world — but without tools to hold that perception without being consumed by it."
+        - "The principle is kannagara no michi: living in accordance with the natural order. For this generation, that order is visibly breaking. The body stops calling itself broken when it recognizes: I am accurately perceiving a real rupture. The system is the problem. The body is the truth-teller."
+        - "When the mind is overloaded, sound reaches what words cannot. Light language and presence say: your receptivity is not the problem; overload is. Let the body find rest. The capacity to act returns in increments, moment by moment."
+      semantic_family: "relational-rupture-alt"
+      reframe_type: "self_to_system"
+
+# Teacher B slots (Ra) — MUST respond to the news, NOT to Miki
+teacher_b_intro:
+  options:
+    - id: ra_intro_01
+      line: "Ra, a teacher of awakening and integrated satsang, has watched young people run patterns installed by a system that keeps breaking faster than they can adjust. They are not asking only how to feel better. They are asking how to see the pattern that is running — the conditioning that says they should already be fine — so they can respond from clarity instead of habit."
+      semantic_family: "identity-seen-shift"
+      tone: plain
+      intensity: 3
+    - id: ra_intro_02
+      line: "Ra teaches from the awakening tradition. He has seen that young people carrying overload are often running patterns — inherited, systemic, habitual — and they have no way to see those patterns clearly enough to choose. They are not broken; the pattern is running. The question becomes: can you see it?"
+      semantic_family: "identity-seen-shift-alt"
+      tone: grave
+      intensity: 4
+
+teacher_b_perspective:
+  options:
+    - id: b_perspective_01
+      header: "What Ra Sees"
+      paragraphs:
+        - "Ra reads the same overload through conditioning: the inherited patterns of thought, emotion, and reaction that run automatically when awareness is elsewhere. When young people read the update and the body tightens, that is not proof of personal defect. It is proof that a pattern is running — fear, self-blame, the need to be right, the idea that they should already be fine. These patterns were installed long before the current crisis."
+        - "The tradition does not pathologize the pattern; it names it. When you see the pattern clearly — the fear that says I must control everything, the self-blame that says this is my problem, the doubt that says I will never be okay — you are not the pattern. You are the one who can see it. That distance is the beginning of release."
+        - "Integrated awakening means clarity walks with you into ordinary life. The question is not how to feel inspired or numb. The question is how to pause, notice what pattern is running, and choose one response that comes from what awareness already knows rather than from the fear-loop. That is what the person who put the phone down and picked it up again needs: the capacity to see the pattern and choose differently."
+      semantic_family: "conditioning-awakening"
+      reframe_type: "self_to_system"
+    - id: b_perspective_02
+      header: "What Ra Sees"
+      paragraphs:
+        - "In the awakening tradition, what young people call overload is often the gap between what the system demands and the capacity to see clearly under those demands. The conditioning that runs automatically — the belief that you should already be fine, that the pressure is your failure, that there is something wrong with you — is what needs to be seen. Not fixed. Seen."
+        - "The tradition distinguishes between what the mind insists on (I am broken, I should handle this, I am defective) and what awareness already knows (I am responding to real conditions, the pattern is running, I have the capacity to choose). Young people carrying overload are often identified with the pattern instead of identified with the awareness that can see it."
+        - "When that shift happens, self-blame softens. The problem is not that you are broken. The problem is that a pattern is running and you have been trained not to see it. Ra's tradition offers a practice for that gap: the capacity to notice what is running, name it clearly, and choose one response that comes from clarity rather than habit."
+      semantic_family: "conditioning-awakening-alt"
+      reframe_type: "self_to_system"
+
+# Convergence — CENTER of the article
+convergence_bridge:
+  options:
+    - id: convergence_01
+      line: "Both teachers are naming the same moment: the point where information and condition overwhelm the person into shutdown. But they see it differently. Miki names it as relational rupture — the body accurately sensing a break in the web between people and the living world. Ra names it as conditioning running on automatic — inherited patterns activated when awareness is elsewhere. Yet both point to the same hidden capacity: the ability to stay present with what is true without the body closing down or the pattern taking over completely."
+      structural_overlap: "Both diagnose the moment of shutdown not as personal failure but as accurate response to real condition (relational break or pattern activation). Both see that the capacity to receive difficult truth is intact; it is covered by overload. Both offer a practice that uncovers presence as a way to stay functional enough to act."
+    - id: convergence_02
+      line: "Miki and Ra are diagnosing the same somatic loop from different ends of the same insight: the body is not broken, it is doing exactly what it was designed to do. For Miki, it is registering rupture in the living world. For Ra, it is running the conditioning that the system installed. Both teachers see that the problem is systemic, not personal — and both see that the solution is to help young people stay present enough with what is true that they do not have to numb, perform, or shut down. Both point toward a practice of receptive presence."
+      structural_overlap: "The shared diagnosis: the body's tightening, the phone's closing, the return — all of it is accurate response to real condition, not personal defect. The shared capacity: staying present with what is true without being consumed by it."
+
+shared_agreement:
+  options:
+    - id: agreement_01
+      line: "Both Miki and Ra agree: the overload is real, the shutdown is accurate response, but the capacity to stay receptive and aware is still available. They differ in what they call the source of the overload — relational rupture or activated conditioning — but they converge on what matters: young people need a practice that keeps them present with difficult truth long enough to respond. The practice they both endorse is grounded presence: breath, body awareness, and returning to the knowing that is already here when the noise settles."
+      shared_practice_name: "Grounded Presence and Return"
+    - id: agreement_02
+      line: "Miki and Ra name the same breakthrough: what feels like shutdown is actually the body and mind doing exactly what they were designed to do — register rupture or run patterns installed under pressure. But both teachers point toward one shared capacity that young people need right now: the ability to pause, feel the ground, and return to presence — to breath, body, and the awareness that can choose. That is what both traditions call grounded presence. It is not about calming down or positive thinking. It is about staying alive to what is true."
+      shared_practice_name: "Grounded Presence and Return"
+
+practice_announce:
+  options:
+    - id: practice_01
+      display_name: "Grounded Presence and Return"
+      duration: "5 minutes"
+      announcement_line: "Both Miki and Ra teach a 5-minute Grounded Presence and Return practice for the moment when overload is converting awareness into shutdown. It is in the sidebar, timed and exact."
+      relief_lines:
+        - "The body stops treating every update as proof of collapse."
+        - "Enough presence returns for the next honest move."
+      relief_register: ["presence", "capacity", "ground", "act again"]
+    - id: practice_02
+      display_name: "Grounded Presence and Return"
+      duration: "5 minutes"
+      announcement_line: "Both teachers offer a 5-minute Grounded Presence practice for when the pattern is running or the rupture is too much. Breath and ground. It is in the sidebar, short enough to use after midnight, before the next notification, or in the hour when the spiral is already turning."
+      relief_lines:
+        - "The pattern loosens and presence returns."
+        - "The body finds ground; the mind finds the one who can choose."
+      relief_register: ["ground", "clarity", "capacity", "respond"]
+
+practice_why_a:
+  options:
+    - id: practice_why_a_01
+      line: "For Miki: sound and light teach the body that presence is possible even when rupture is real. Grounded presence — feeling the feet, the breath, the earth's support — is the traditional practice of return: from isolation back to connection, from shutdown back to receptivity. The ground is always there. The capacity to feel it is what overload covers. This practice uncovers it."
+    - id: practice_why_a_02
+      line: "In Miki's tradition, the body is the path home. When the body tightens because the relational rupture is real, the answer is not to deny the rupture but to remember that the capacity to hold truth and still be alive is a capacity of the body itself. Grounding — feeling the feet, the breath, the solid ground beneath — restores what sound and light transmission open: the capacity to be present with what is true without being consumed by it."
+
+practice_why_b:
+  options:
+    - id: practice_why_b_01
+      line: "For Ra: grounded presence interrupts the pattern that is running by returning awareness to what is already happening — the breath, the feet, the body in this moment. When the pattern says I must control this or I am broken, the practice asks: can you feel your feet? Can you breathe? Can you notice the one who is aware of the pattern? That noticing is already freedom. The pattern does not dissolve by force; it dissolves when awareness no longer identifies with it."
+    - id: practice_why_b_02
+      line: "In Ra's tradition, awakening is not a peak experience but the capacity to return to presence when the pattern has taken over. Grounded presence — breath, body, the awareness that can choose — is the practice of integrated awakening. When you feel the ground and the breath, you are no longer identified with the pattern. You are the one who can see the pattern and choose. That is the practice."
+
+# Disagreement boundary (UNSAY-specific)
+disagreement_boundary:
+  options:
+    - id: disagreement_01
+      line: "Miki and Ra do not agree on what is ultimately happening: is the overload a symptom of relational rupture with the living world, or is it conditioning installed by systemic pressure? This is a real difference. Miki points to a healing of relationship with nature and presence. Ra points to clarity about conditioned patterns. But both teachers agree on what young people need right now: a practice of presence that keeps them alive enough to act. The deeper question — what is being ruptured and what patterns must be seen — remains for each tradition to answer separately."
+    - id: disagreement_02
+      line: "The teachers diverge on origin: Miki roots the distress in relational rupture with the natural order; Ra roots it in conditioning activated by systemic pressure. They do not resolve this difference in the article. But both hold that the body's response is accurate, and both offer a practice that restores the capacity to stay present with what is true. The disagreement about cause does not prevent convergence about what is needed now."
+
+# Standard
+headline_layer_2:
+  options:
+    - id: headline_layer_2_01
+      line: "A sound healer and an awakening teacher name two sources of the same overload — and converge on a practice to stay present."
+      semantic_family: "two-teacher-convergence"
+    - id: headline_layer_2_02
+      line: "Miki and Ra see different sources of youth overload but agree on one practice: grounded presence when the mind is flooded."
+      semantic_family: "two-teacher-practice"
+
+forward_look:
+  options:
+    - id: forward_look_01
+      line: "What this convergence means structurally is clear: young people do not need to choose between diagnosing relational rupture and seeing conditioning. They need a practice that works regardless of which diagnosis fits — a way to stay present with the truth the body knows. That is what grounded presence offers. Both traditions teach it. SDG 3 (Good Health and Well-Being) and SDG 13 (Climate Action) both depend on young people who can hold difficult truth long enough to respond. The practice that keeps them present and functional is not decorative. It is infrastructure."
+      semantic_family: "convergence-structure"
+    - id: forward_look_02
+      line: "The practical truth: young people carrying the weight of relational rupture or conditioned overload need the same thing right now — the capacity to stay present and grounded when the mind is overwhelmed. That both traditions teach a practice to develop this capacity is not a coincidence; it is a recognition of what is structurally needed. SDG 3 and SDG 13 both require young people who can stay functional, truthful, and alive. Grounded presence is not a luxury. It is what allows the next response to come."
+      semantic_family: "convergence-necessity"
+
+sdg:
+  - id: "SDG 3"
+    title: "Good Health and Well-Being"
+    line: "The United Nations has a framework for this through SDG 3 and its good health and well-being targets."
+  - id: "SDG 13"
+    title: "Climate Action"
+    line: "The same framework includes SDG 13 for climate action and education, recognizing that both require young people who can stay present with difficult truth."
+
+cta:
+  options:
+    - id: cta_01
+      org: "Active Minds"
+      line: "Active Minds and Born This Way Foundation both offer youth-facing entry points. Door in: https://www.activeminds.org"
+      semantic_family: "door-in-mental-health"
+    - id: cta_02
+      org: "Youth climate and wellness networks"
+      line: "If climate action is your focus, YOUNGO and Climate Reality Project connect youth. If mental health support is your focus, Active Minds and Born This Way Foundation offer community and training."
+      semantic_family: "door-in-combined"

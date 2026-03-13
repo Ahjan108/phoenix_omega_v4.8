@@ -1,0 +1,80 @@
+# Explainer overlay for master_wu + education
+# Deep-merged onto teachers/master_wu/education.yaml when template_id=explainer_context.
+# Schema version follows PEARL_NEWS_DETERMINISTIC_TEACHER_TOPIC_PACK_SPEC.
+
+schema_version: 1
+template_id: explainer_context
+teacher_id: master_wu
+topic: education
+
+# Explainer-specific slot: ethical/spiritual dimension (long block).
+# The ethical dimension: what institutions fail to address. The spiritual dimension: what cultivation traditions know.
+ethical_spiritual_dimension:
+  options:
+    - id: ex_edu_field_integrity_01
+      header: "What the metrics miss about learning"
+      paragraphs:
+        - "Test scores and completion rates measure output. They do not measure the condition of the field itself—whether the environment is stable or fragmented, whether attention can function or is being constantly broken. Master Wu teaches that learning is not a property of the student. It is a relationship between a young person and a field. When that field is badly designed, dishonest, or overloaded, fragmentation is the accurate response."
+        - "The ethical problem is that schools have built systems that fragment attention by design—then diagnose the resulting scatter as a student defect. The spiritual problem is older: every contemplative tradition knows that attention requires conditions. A mind inside a fragmented field will fragment. Master Wu's teaching names this not as failure but as evidence the field itself needs to change."
+        - "For young people reading an explainer about education strain, the question is not 'How do I focus better?' but 'What would have to change for focusing to be possible here?' That shift—from personal responsibility to structural literacy—is what the explainer can offer."
+      metadata:
+        semantic_family: "master_wu-edu-field-condition"
+        reframe_type: "self_to_system"
+        article_types: ["explainer_context"]
+
+    - id: ex_edu_return_capacity_01
+      header: "The capacity institutions do not teach"
+      paragraphs:
+        - "School systems measure whether students complete tasks. They do not measure the capacity to return to difficult work after the system has disappointed them multiple times. Master Wu has spent years teaching people to recover from fragmentation—not by trying harder, but by understanding that fragmentation is not a personal flaw when the field is fragmented."
+        - "This capacity—to stay in contact with learning as something worth doing, even after institutions have broken promises, offered false reassurance, or designed systems that fragment young people deliberately—is what contemplative traditions call steadiness. It is not taught in most schools. It is not measured. But it is what young people need most when reading about why their attention keeps breaking."
+        - "The explainer about education should not only explain what is happening. It should preserve the possibility that the young person reading it can decide to stay engaged with learning itself, rather than accepting that if the system breaks attention, something is broken in them."
+      metadata:
+        semantic_family: "master_wu-edu-return-capacity"
+        reframe_type: "capacity-restoration"
+        article_types: ["explainer_context"]
+
+# Explainer-specific headline layer 2.
+title_system:
+  headline_layer_2:
+    options:
+      - id: ex_headline_education_01
+        line: "A cultivation teacher explains why attention breaks—and what young people need to know to stay engaged with learning."
+        metadata:
+          article_types: ["explainer_context"]
+
+      - id: ex_headline_education_02
+        line: "When schools fragment young people's attention, the problem is not the student. Master Wu names what needs to change."
+        metadata:
+          article_types: ["explainer_context"]
+
+# youth_implications when strict control is desired (deterministic).
+youth_implications:
+  options:
+    - id: ex_youth_impl_education_01
+      line: "For Gen Z and younger, the explainer about education is not only background data. It is permission to stop blaming yourself for fragmenting when your environment is designed to break focus."
+      metadata:
+        article_types: ["explainer_context"]
+        semantic_family: "youth-field-literacy"
+
+    - id: ex_youth_impl_education_02
+      line: "The explainer can show that when focus breaks inside a badly designed field, that is not personal weakness. It is accurate information. The question becomes: what needs to change so learning is possible again?"
+      metadata:
+        article_types: ["explainer_context"]
+        semantic_family: "youth-structural-literacy"
+
+# sdg_policy_tie options specific to explainer context.
+sdg_policy_tie:
+  options:
+    - id: ex_edu_sdg_quality_01
+      line: "SDG 4 (Quality Education) includes targets for safe, inclusive learning environments and healthy school conditions. The policy mechanism here is structural: systems that protect attention instead of fragmenting it deliberately. Young people reading this explainer should know that this is not wishful thinking—it is a measurable policy goal the UN has named."
+      metadata:
+        article_types: ["explainer_context"]
+        semantic_family: "sdg4-learning-conditions"
+        policy_mechanism: "safe-inclusive-environments"
+
+    - id: ex_edu_sdg_wellbeing_01
+      line: "SDG 3 (Good Health and Well-Being) and SDG 4 together address the conditions young people need to learn and develop. The explainer should make clear that protecting attention is not a luxury—it is foundational to both health and education. Schools designed to fragment young people are not meeting the UN's minimum standards for what learning requires."
+      metadata:
+        article_types: ["explainer_context"]
+        semantic_family: "sdg3-4-convergence"
+        policy_mechanism: "health-education-integration"

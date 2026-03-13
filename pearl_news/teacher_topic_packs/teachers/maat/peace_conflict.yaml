@@ -1,0 +1,154 @@
+schema_version: 1
+teacher_id: maat
+topic: peace_conflict
+active: true
+
+identity:
+  display_name: "Ma'at"
+  attribution_name: "Teacher Ma'at"
+  tradition: "South Indian Sufi"
+  tradition_short: "South Indian Sufi"
+  teacher_setting_options:
+    - "sohbet"
+    - "dargah circle"
+  teacher_years: "Qadiriyya lineage"
+  affiliation_safe_line: "has attended the United Spiritual Leaders Forum"
+  launch_approved: true
+
+persona:
+  id: gen_z_alpha
+  age_band: "13-29"
+  default_register: "phone-native, high-pressure, institution-skeptical"
+  daily_worlds:
+    - school
+    - home
+    - group chat
+    - commute
+    - public systems
+  tie_to_real_world_struggles:
+    - id: truth_pressure
+      label: "knows something is wrong before the system names it"
+      loop: "sees the gap -> body braces -> goes quiet -> keeps scanning for what is true"
+      body_markers: ["shoulders", "jaw", "brace"]
+      digital_markers: ["scan", "re-read", "screenshot"]
+
+topic_fit:
+  fit_level: primary
+  fit_reason: "This topic maps to moral injury, institutional mistrust, and the strain of repeated conflict on young bodies and minds. "
+  forbidden_angles:
+    - "do not preach numbness as wisdom"
+    - "do not confuse silence with peace"
+
+hook_personal:
+  options:
+    - id: hook_personal_01
+      line: "You keep reading because not looking feels dishonest. You also know what repeated violence is doing to your body and your trust."
+      semantic_family: "maat-peace_conflict-hook-personal"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response"]
+
+hook_big_picture:
+  options:
+    - id: hook_big_picture_01
+      line: "Conflict pressure is no longer only geopolitical. It arrives as moral injury and as the collapse of trust in institutions that keep failing to protect."
+      semantic_family: "maat-peace_conflict-hook-big"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_intro:
+  options:
+    - id: teacher_intro_01
+      line: "Teacher Ma'at, a South Indian Sufi teacher rooted in the dargah traditions of Tamil Nadu, has seen in practice sessions what conflict pressure does to young people. They are not only asking what is happening. They are asking how to trust their own perception when the qalb — the spiritual heart — already knows what institutions keep understating."
+      semantic_family: "maat-peace_conflict-intro"
+      article_types: ["hard_news_spiritual_response"]
+
+youth_somatic:
+  options:
+    - id: youth_somatic_01
+      line: "You read the latest report. Your chest tightens. You look away. Then you come back because conscience is still there.
+LOOP_SEQUENCE: \"read the report. chest tightened. looked away. came back.\""
+      loop_type: "truth_pressure"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_witness:
+  options:
+    - id: teacher_witness_01
+      line: "Ma'at has seen this exact loop -- the report, the body tightening, the turning away, and the return because conscience is still present."
+      semantic_family: "maat-peace_conflict-witness"
+      article_types: ["hard_news_spiritual_response"]
+
+turnaround:
+  options:
+    - id: turnaround_01
+      stat_line_1: "143 youth coalitions. 28 countries."
+      stat_line_2: "Young peacebuilders are documenting harm, organizing coalitions, and hosting workshops even while institutions stall."
+      semantic_family: "maat-peace_conflict-turnaround"
+      article_types: ["hard_news_spiritual_response"]
+
+bridge:
+  options:
+    - id: bridge_01
+      line: "143 youth coalitions. 28 countries. The tracker measures what young people did. It has no column for what made the next step possible after another round of violence and institutional failure — the capacity to stay human enough to act again without surrendering to numbness or rage. The person who came back needed it. So does the reader in that loop. Ma'at's tradition has language for exactly this: sama — devotional listening — bypasses the intellect and speaks directly to the qalb. The heart that still breaks at violence is the heart that still works. The practice is not to armor it. It is to let sound open what grief has closed, so the next clear act becomes possible."
+      hidden_capacity: "return to truthful action"
+      semantic_family: "maat-peace_conflict-bridge"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_perspective:
+  options:
+    - id: teacher_perspective_01
+      header: "What Ma'at Sees"
+      paragraphs:
+        - "Ma'at would begin with truth. The first distortion happens when a person is asked to treat a structural disorder as a private defect."
+        - "Right relationship means naming what is actually happening without shrinking it to fit institutional comfort. That naming is not dramatics; it is alignment with reality."
+        - "What feels like a personal fault — me, broken, confused — is instead accurate response to a system and institutional structure that keeps asking for trust while misnaming harm, delay, or disorder."
+      semantic_family: "maat-peace_conflict-perspective"
+      article_types: ["hard_news_spiritual_response"]
+
+practice:
+  default_id: practice_01
+  options:
+    - id: practice_01
+      display_name: "15-minute Sama Listening"
+      duration: "15 minutes"
+      announcement_line: "Ma'at teaches a 15-minute Sama Listening practice — a single piece of devotional music, listened to with the chest, not the ears. Notice where in the body the music lands. Notice what opens. Notice what resists. Sama is not about enjoying music — it is about using sound to bypass the intellect and speak directly to the qalb. It is in the sidebar, timed and practical."
+      relief_lines:
+        - "The mind stops bargaining with what it already knows."
+        - "Enough steadiness returns to name reality without apologizing for seeing it clearly."
+      relief_register: ["capacity", "clarity", "act again"]
+      article_types: ["hard_news_spiritual_response"]
+
+sdg:
+  primary:
+    id: "SDG 16"
+    title: "Peace, Justice and Strong Institutions"
+    line: "The United Nations has a framework for this through SDG 16 and its peace, justice, and institutional trust targets."
+  fallback_un_tie:
+    line: "Pearl News is an independent nonprofit. We are not affiliated with the United Nations."
+
+cta:
+  options:
+    - id: cta_01
+      org: "UN Women"
+      line: "The UN and youth justice networks offer a public entry point into this work. Door in: https://www.unwomen.org"
+      semantic_family: "maat-peace_conflict-cta"
+      article_types: ["hard_news_spiritual_response"]
+
+title_system:
+  headline_layer_1:
+    options:
+      - id: headline_layer_1_01
+        line: "Young People Are Carrying Conflict as Moral Injury."
+        semantic_family: "maat-peace_conflict-title1"
+        article_types: ["hard_news_spiritual_response"]
+  headline_layer_2:
+    options:
+      - id: headline_layer_2_01
+        line: "A South Indian Sufi teacher names the fight to stay human under repeated violence — and says the heart that still breaks is the heart that still works."
+        semantic_family: "maat-peace_conflict-title2"
+        article_types: ["hard_news_spiritual_response"]
+
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: "article_id + slot + teacher_id + topic"
+  metadata_filters:
+    article_types: ["hard_news_spiritual_response"]

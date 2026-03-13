@@ -1,0 +1,239 @@
+schema_version: 1
+teacher_id: channeler_junko
+topic: mental_health
+active: true
+identity:
+  display_name: Junko
+  attribution_name: Channeler Junko
+  tradition: Contemporary Japanese channeling and light-language spirituality
+  tradition_short: Japanese channeling
+  teacher_setting_options:
+  - receiving space
+  - transmission
+  teacher_years: decades
+  affiliation_safe_line: teaches within the Japanese channeling tradition
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: soul_friction_loop
+    label: friction between what they are told they should want and what the soul
+      already knows
+    loop: reads the warning -> mind races -> puts the phone down -> picks it up again
+      because the spiral is already running
+    body_markers:
+    - jaw
+    - stomach
+    - breath
+    digital_markers:
+    - put the phone down
+    - pick it up again
+topic_fit:
+  fit_level: primary
+  fit_reason: The soul carries memory the conscious mind has lost access to; much
+    of what young people experience as anxiety or depression is the friction between
+    surface expectations and what their deeper nature already knows.
+  forbidden_angles:
+  - do not reduce to generic wellness
+  - do not frame the pressure as personal weakness
+hook_personal:
+  options:
+  - id: junko_mh_hook_personal_01
+    line: You know the spiral before anyone names it. You still carry the day forward
+      while feeling less sure your mind can keep doing this pace — and part of you
+      knows the friction is between what you are told you should want and what your
+      soul already knows.
+    metadata:
+      semantic_family: personal-pressure
+      tone: plain
+      intensity: 3
+      article_types:
+      - hard_news_spiritual_response
+  - id: junko_mh_hook_personal_02
+    line: You keep reading the updates because not looking feels worse. You also know
+      that therapists, algorithms, and self-help have talked at you without relief
+      — and that something else might need to be received, not produced.
+    metadata:
+      semantic_family: truth-vs-overload
+      tone: grave
+      intensity: 4
+      article_types:
+      - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: junko_mh_hook_big_01
+    line: Youth mental overload is not only about symptoms. It is about what constant
+      pressure does to attention, rest, and the ability to stay human — and about
+      the friction between surface expectations and what the soul already knows.
+    metadata:
+      semantic_family: system-pressure
+      angle: systemic-pressure
+      article_types:
+      - hard_news_spiritual_response
+  - id: junko_mh_hook_big_02
+    line: Heightened sensitivity in young people is not pathology but recalibration.
+      The tradition does not dismiss their suffering; it reframes it as the cost of
+      being awake during a period when the old structures of meaning are dissolving
+      and the new ones have not yet arrived.
+    metadata:
+      semantic_family: institutional-delay
+      angle: soul-remembrance
+      article_types:
+      - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: junko_mh_intro_01
+    line: 'Channeler Junko, a teacher of Japanese channeling and light-language spirituality,
+      has watched in practice sessions young people carry mental overload as both
+      real suffering and something her tradition names precisely: the friction between
+      what they are told they should want and what their soul already knows. In Junko''s
+      framework, the soul carries memory the mind has lost access to - and light language
+      reaches the parts that words cannot.'
+    metadata:
+      semantic_family: identity_seen_shift
+      tone: plain
+      intensity: 3
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+youth_somatic:
+  options:
+  - id: junko_mh_somatic_01
+    line: You read the update after midnight. Your mind sped up. You put the phone
+      down. Then you picked it up again because the spiral was already running.
+    metadata:
+      loop_type: midnight_spiral
+      body_register: jaw
+      digital_behavior: put the phone down
+      article_types:
+      - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: junko_mh_witness_01
+    line: Junko has seen this exact loop in those who come to receive. In her framework
+      that pressure is not character; it is the soul asking to be heard when the intellect
+      is exhausted.
+    metadata:
+      semantic_family: loop-mirror
+      loop_type: midnight_spiral
+      article_types:
+      - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: junko_mh_turnaround_01
+    stat_line_1: 320 campuses. 18 countries.
+    stat_line_2: Youth organizers are hosting peer circles, organizing listener training,
+      and forcing schools to treat mental health support as infrastructure, not private
+      weakness.
+    metadata:
+      semantic_family: institutional-action
+      article_types:
+      - hard_news_spiritual_response
+bridge:
+  options:
+  - id: junko_mh_bridge_01
+    line: '320 campuses. 18 countries. The tracker measures the workshops and peer
+      circles young people built. It has no column for what made the next honest reach-out
+      possible - the capacity to receive guidance when the mind has been talked at
+      by therapists, algorithms, and self-help content without relief. Junko''s tradition
+      offers a different mode of contact: one that bypasses the exhausted intellect
+      and speaks directly to the energetic body where distress is actually held.'
+    hidden_capacity: receive when the intellect is exhausted
+    metadata:
+      semantic_family: tracker-capacity
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+teacher_perspective:
+  options:
+  - id: junko_mh_perspective_01
+    header: What Junko Sees
+    paragraphs:
+    - The soul carries memory that the conscious mind has lost access to, and much
+      of what young people experience as anxiety or depression is the friction between
+      what they are told they should want and what their deeper nature already knows.
+      Healing begins when that larger self is acknowledged rather than medicated into
+      silence.
+    - Light language works not through conceptual meaning but through vibrational
+      resonance - it reaches the parts of a person that words cannot access. For young
+      people who have been talked at without relief, the tradition offers a different
+      mode of contact that bypasses the exhausted intellect.
+    - Planetary transition means that heightened sensitivity in young people is not
+      pathology but recalibration. The reframe does not remove the pain, but it removes
+      the additional burden of believing the pain means something is wrong with you
+      within a system and institutional structure that was never designed for what
+      it demands.
+    metadata:
+      semantic_family: soul_remembrance_reframe
+      reframe_type: self_to_system
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+practice:
+  default_id: junko_mh_practice_01
+  options:
+  - id: junko_mh_practice_01
+    display_name: Receiving Practice
+    duration: 5 minutes
+    announcement_line: Channeler Junko teaches a 5-minute Receiving practice for moments
+      when the spiral is running and the mind has been trying too hard to figure it
+      out on its own. It is in the sidebar, timed and step by step.
+    relief_lines:
+    - The mind stops treating every thought surge as proof of brokenness.
+    - What the soul already knows can surface when the channel is open.
+    relief_register:
+    - receive
+    - clarity
+    - soul remembrance
+    derived_from_frame: receiving_guidance
+    metadata:
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+sdg:
+  primary:
+    id: SDG 3
+    title: Good Health and Well-Being
+    line: The United Nations framework includes mental health and wellbeing in SDG
+      3.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United
+      Nations.
+cta:
+  options:
+  - id: junko_mh_cta_01
+    org: Crisis Text Line
+    line: 'If you or someone you know is in crisis, Crisis Text Line provides free,
+      24/7 support. Text HOME to 741741. Door in: join their network.'
+    metadata:
+      semantic_family: door-in-mental-health
+      article_types:
+      - hard_news_spiritual_response
+title_system:
+  headline_layer_2:
+    options:
+    - id: junko_mh_headline_01
+      line: A Japanese channeler names mental overload as soul friction - and the
+        practice that opens the channel.
+      metadata:
+        semantic_family: teacher-attention
+        article_types:
+        - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+    intensity_range:
+    - 2
+    - 4

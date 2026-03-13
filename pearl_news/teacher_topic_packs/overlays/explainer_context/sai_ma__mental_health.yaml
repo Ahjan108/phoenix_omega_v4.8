@@ -1,0 +1,80 @@
+# Explainer overlay for sai_ma + mental_health
+# Deep-merged onto teachers/sai_ma/mental_health.yaml when template_id=explainer_context.
+# Schema version follows PEARL_NEWS_DETERMINISTIC_TEACHER_TOPIC_PACK_SPEC.
+
+schema_version: 1
+template_id: explainer_context
+teacher_id: sai_ma
+topic: mental_health
+
+# Explainer-specific slot: ethical/spiritual dimension (long block).
+# The ethical dimension: what institutions fail to address. The spiritual dimension: what wisdom traditions know.
+ethical_spiritual_dimension:
+  options:
+    - id: ex_mental_health_consciousness_01
+      header: "The gap between pressure and identity"
+      paragraphs:
+        - "Mental health data shows rising prevalence of anxiety, depression, and overwhelm in young people. What it does not show is the invisible moment where pressure starts to become identity—where carrying an overwhelming load starts to feel like being a broken person instead of experiencing an overwhelming system."
+        - "Her Holiness Sai Maa teaches the distinction between consciousness and the storm moving through it. The ethical problem is that institutions normalize systems that create relentless pressure, then diagnose the resulting struggle as individual pathology. The spiritual problem is that when pressure goes on long enough, young people forget there is a witnessing awareness separate from the pressure itself."
+        - "For young people reading an explainer about mental health trends, the distinction matters: overload is real. Systems creating that overload are real. But the overwhelm does not have to become the whole story of who you are. That possibility—that consciousness can witness pressure without fusing into it—is what the explainer can illuminate."
+      metadata:
+        semantic_family: "sai_ma-consciousness-pressure"
+        reframe_type: "identity-recovery"
+        article_types: ["explainer_context"]
+
+    - id: ex_mental_health_clarity_capacity_01
+      header: "The clarity that structural overload obscures"
+      paragraphs:
+        - "Her Holiness Sai Maa's teaching focuses on recovering inner clarity—the capacity to know what is true about your own being, separate from the storm of external pressure. This is not positive thinking. It is rigorous self-knowledge under difficult conditions."
+        - "The ethical dimension is that structural overload is designed. Institutions that normalize overwork, that ask young people to do impossible amounts with impossible deadlines while monitoring their mental state, are asking them to carry what is actually an institutional failure. The spiritual dimension is that clarity and resilience are not personality traits—they are capacities that can be recovered and developed, even inside sustained pressure."
+        - "An explainer about youth mental health should help readers understand: the overwhelm is not coming from a defect inside you. And the clarity you need to stay functional—to know what is true, to choose what matters, to act without losing yourself—is recoverable. That is what Her Holiness Sai Maa's wisdom tradition has spent centuries teaching."
+      metadata:
+        semantic_family: "sai_ma-clarity-under-pressure"
+        reframe_type: "capacity-recovery"
+        article_types: ["explainer_context"]
+
+# Explainer-specific headline layer 2.
+title_system:
+  headline_layer_2:
+    options:
+      - id: ex_headline_mental_health_01
+        line: "A wisdom traditions teacher names what mental health data shows—and what young people need to recover when pressure starts becoming identity."
+        metadata:
+          article_types: ["explainer_context"]
+
+      - id: ex_headline_mental_health_02
+        line: "When systems overwhelm young people, the answer is not better coping. Sai Maa teaches how to recover clarity when pressure is relentless."
+        metadata:
+          article_types: ["explainer_context"]
+
+# youth_implications when strict control is desired (deterministic).
+youth_implications:
+  options:
+    - id: ex_youth_impl_mental_health_01
+      line: "For Gen Z and younger carrying overwhelming loads, the explainer is not only statistics about strain. It is the realization that the overwhelm does not define who you are—and that clarity is recoverable even while the pressure remains real."
+      metadata:
+        article_types: ["explainer_context"]
+        semantic_family: "youth-identity-recovery"
+
+    - id: ex_youth_impl_mental_health_02
+      line: "The explainer shows that rising mental health strain in young people is not a sign of weakness or failure. It is evidence that the systems making demands are asking for more than humans can sustainably carry. The next question is what clarity looks like inside that reality—not denial of it."
+      metadata:
+        article_types: ["explainer_context"]
+        semantic_family: "youth-structural-clarity"
+
+# sdg_policy_tie options specific to explainer context.
+sdg_policy_tie:
+  options:
+    - id: ex_mental_health_sdg_wellbeing_01
+      line: "SDG 3 (Good Health and Well-Being) includes targets for mental health services and support for psychological well-being. The policy mechanism is structural: institutions designed to support, not fragment, young people's capacity for wellbeing. The explainer should name that recovery of clarity is not an individual project—it is a systemic requirement."
+      metadata:
+        article_types: ["explainer_context"]
+        semantic_family: "sdg3-mental-health-support"
+        policy_mechanism: "mental-health-services"
+
+    - id: ex_mental_health_sdg_education_01
+      line: "SDG 4 (Quality Education) and SDG 3 converge on the question of how young people can develop and learn under conditions that do not traumatize them. The explainer can show that protecting mental health and supporting learning are not separate—they are the same requirement. Systems that relentlessly overwhelm young people fail both SDGs."
+      metadata:
+        article_types: ["explainer_context"]
+        semantic_family: "sdg3-4-mental-learning"
+        policy_mechanism: "health-education-integration"

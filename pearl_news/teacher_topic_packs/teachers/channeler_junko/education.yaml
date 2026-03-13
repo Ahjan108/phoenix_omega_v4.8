@@ -1,0 +1,194 @@
+schema_version: 1
+teacher_id: channeler_junko
+topic: education
+active: true
+identity:
+  display_name: Junko
+  attribution_name: Channeler Junko
+  tradition: Contemporary Japanese channeling and light-language spirituality
+  tradition_short: Japanese channeling
+  teacher_setting_options:
+  - receiving space
+  - transmission
+  teacher_years: decades
+  affiliation_safe_line: teaches within the Japanese channeling tradition
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: frequency_mismatch_loop
+    label: classrooms built for industrial-era compliance, learners with greater energetic awareness
+    loop: opens the portal -> focus breaks -> switches tabs -> comes back because the work still has to get done
+    body_markers:
+    - eyes
+    - forehead
+    - breath
+    digital_markers:
+    - opens the portal
+    - switches tabs
+    - comes back
+topic_fit:
+  fit_level: primary
+  fit_reason: Education systems that measure only what the intellect can reproduce are measuring the smallest part of what a human knows. Each person carries soul memory; genuine education is awakening access to that deeper intelligence.
+  forbidden_angles:
+  - do not reduce to generic wellness
+  - do not frame the pressure as personal weakness
+hook_personal:
+  options:
+  - id: junko_edu_hook_personal_01
+    line: You still want to learn. You also know how much of your attention the system wastes before the work even begins — and that the students in front of them are not the same kind of learner the system was built for.
+    metadata:
+      semantic_family: personal-pressure
+      tone: plain
+      intensity: 3
+      article_types:
+      - hard_news_spiritual_response
+  - id: junko_edu_hook_personal_02
+    line: You open the portal. Focus breaks. You switch tabs and come back. The work still has to get done, and part of you knows that the soul carries memory the surface mind has lost access to.
+    metadata:
+      semantic_family: scatter-capacity
+      tone: plain
+      intensity: 3
+      article_types:
+      - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: junko_edu_hook_big_01
+    line: The current crisis in youth education is not primarily a crisis of content or method; it is a crisis of frequency. Classrooms designed for industrial-era compliance operate at a vibrational level that is incompatible with the heightened sensitivity of young people arriving with greater energetic awareness than previous generations.
+    metadata:
+      semantic_family: system-pressure
+      angle: frequency-mismatch
+      article_types:
+      - hard_news_spiritual_response
+  - id: junko_edu_hook_big_02
+    line: Education systems that measure only what the intellect can reproduce are measuring the smallest part of what a human knows. Genuine education is awakening access to that deeper intelligence, not merely adding information to the surface mind.
+    metadata:
+      semantic_family: institutional-delay
+      angle: soul-remembrance
+      article_types:
+      - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: junko_edu_intro_01
+    line: Channeler Junko, a teacher of Japanese channeling and light-language spirituality, has watched in practice sessions young people arrive at learning already exhausted by systems that measure only what the intellect can reproduce. In her framework the current crisis in youth education is not primarily a crisis of content or method; it is a crisis of frequency - the students in front of us are not the same kind of learner the system was built for.
+    metadata:
+      semantic_family: identity_seen_shift
+      tone: plain
+      intensity: 3
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+youth_somatic:
+  options:
+  - id: junko_edu_somatic_01
+    line: You open the assignment portal. Your focus breaks. You switch tabs. Then you come back because the work still has to get done.
+    metadata:
+      loop_type: portal_scatter
+      body_register: eyes
+      digital_behavior: opens the portal
+      article_types:
+      - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: junko_edu_witness_01
+    line: Junko has seen this sequence in those who come to receive. In her framework that fracture is not proof of deficiency; it is the soul asking for a different kind of contact than the portal was designed to offer.
+    metadata:
+      semantic_family: loop-mirror
+      loop_type: portal_scatter
+      article_types:
+      - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: junko_edu_turnaround_01
+    stat_line_1: Campuses and districts worldwide.
+    stat_line_2: Students and youth are organizing campaigns and hosting mental health support, peer listening, and learning conditions that do not treat attention as an infinite resource.
+    metadata:
+      semantic_family: institutional-action
+      article_types:
+      - hard_news_spiritual_response
+bridge:
+  options:
+  - id: junko_edu_bridge_01
+    line: The tracker measures policy changes and peer programs. It has no column for what made the next hour of real focus possible - the capacity to receive from the soul level when the surface mind is scattered. Junko's tradition holds that each person carries soul memory and that genuine education is awakening access to that deeper intelligence, not merely adding information to the surface mind.
+    hidden_capacity: receive from soul level when the surface mind is scattered
+    metadata:
+      semantic_family: tracker-capacity
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+teacher_perspective:
+  options:
+  - id: junko_edu_perspective_01
+    header: What Junko Sees
+    paragraphs:
+    - Education systems that measure only what the intellect can reproduce on an examination are measuring the smallest part of what a human being knows. The tradition holds that each person carries soul memory and that genuine education is the process of awakening access to that deeper intelligence.
+    - The current crisis in youth education is not primarily a crisis of content or method; it is a crisis of frequency. Classrooms designed for industrial-era compliance operate at a vibrational level that is incompatible with the heightened sensitivity of young people. The tradition does not ask schools to teach channeling; it asks them to notice that the students in front of them are not the same kind of learner that the system was built for.
+    - What feels like a personal fault — me, broken, wrong — when trying to focus is often accurate response to a frequency mismatch. Receiving practice restores the channel when the system has exhausted the intellect.
+    metadata:
+      semantic_family: soul_remembrance_reframe
+      reframe_type: self_to_system
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+practice:
+  default_id: junko_edu_practice_01
+  options:
+  - id: junko_edu_practice_01
+    display_name: Receiving Practice
+    duration: 5 minutes
+    announcement_line: Channeler Junko teaches a 5-minute Receiving practice for moments when the portal and the tabs have scattered attention and the work still has to get done. The soul already knows more than the surface mind can hold. It is in the sidebar, timed and step by step.
+    relief_lines:
+    - The mind stops treating every interruption as proof of failure.
+    - What the soul already knows can surface when the channel is open.
+    relief_register:
+    - receive
+    - clarity
+    - soul remembrance
+    derived_from_frame: receiving_guidance
+    metadata:
+      article_types:
+      - hard_news_spiritual_response
+      - commentary
+sdg:
+  primary:
+    id: SDG 4
+    title: Quality Education
+    line: The United Nations framework through SDG 4 includes wellbeing and inclusive learning conditions as part of quality education.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United Nations.
+cta:
+  options:
+  - id: junko_edu_cta_01
+    org: Active Minds
+    line: 'Active Minds and similar youth-led networks work for mental health and learning conditions on campus. Door in: activeminds.org'
+    metadata:
+      semantic_family: door-in-education
+      article_types:
+      - hard_news_spiritual_response
+title_system:
+  headline_layer_2:
+    options:
+    - id: junko_edu_headline_01
+      line: A Japanese channeler reads education stress as a crisis of frequency - and the practice that opens the channel.
+      metadata:
+        semantic_family: teacher-attention
+        article_types:
+        - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+    intensity_range:
+    - 2
+    - 4

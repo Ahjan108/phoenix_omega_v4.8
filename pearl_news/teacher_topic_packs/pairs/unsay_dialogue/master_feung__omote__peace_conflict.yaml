@@ -1,0 +1,58 @@
+# UNSAY pair-pack (Wave 2 Dev 7). Pair: Master Fan + Omote Sensei. Topic: peace_conflict.
+# Spec: PEARL_NEWS_WAVE2_4_DEV_PARALLEL_SPEC (Dev 7), PEARL_NEWS_UNSAY_DIALOGUE_SPEC.
+
+schema_version: 1
+teacher_a_id: master_feung
+teacher_b_id: omote
+topic: peace_conflict
+active: true
+
+teacher_a_diagnosis:
+  options:
+    - id: master_feung_diag_pc_01
+      line: "Master Fan begins with naturalness - the state that remains when striving and speed fall away. Conflict news arrives faster than the nervous system can process; the mind takes over, the spiral owns the room, and young people confuse the storm with who they are. The body has its own steadiness. The problem is that speed and fragmentation have colonized how the mind responds."
+    - id: master_feung_diag_pc_02
+      line: "In Taoist cultivation, the body is not the problem when it tightens or races in response to conflict news. The body is accurate. The problem is that speed and fragmentation have colonized identity - and young people have lost contact with the part of themselves that was never the storm. Naturalness returns in increments: one breath, one line drawn."
+
+teacher_b_diagnosis:
+  options:
+    - id: omote_diag_pc_01
+      line: "Omote Sensei names the oni - not only personal affliction but collective. When a community or nation fails to face its grief, shame, or responsibility honestly, the oni grows at the collective level and expresses itself as aggression, scapegoating, and ultimately violence. Young people who witness conflict are carrying the collective weight of what has not been faced. Yamato-gokoro - sincere heart-mind - requires not looking away from what is painful."
+    - id: omote_diag_pc_02
+      line: "In Omote Sensei's tradition, conflict pressure is both personal and collective. The oni that grows when grief and shame are not faced expresses as violence when it is not purified. Purification is not magical erasure; it is the honest discipline of restoring clarity through breath, ritual, and service. Genuine security comes not from defeating the other but from service that dissolves the boundary between self-interest and collective wellbeing."
+
+convergence_bridge:
+  options:
+    - id: conv_pc_01
+      line: "Both teachers are naming the same moment: the point where conflict news arrives and the person can no longer distinguish the storm from their own identity. Master Fan names it as speed and fragmentation colonizing the self from inside. Omote Sensei names it as the collective oni that grows when grief and responsibility are not faced honestly. Yet both point to the same hidden capacity: the ability to face what has arrived without being consumed - to let the body or sincere heart-mind respond rather than be run by the reactive pattern or the un-faced weight."
+
+shared_agreement:
+  options:
+    - id: shared_pc_01
+      line: "Both Master Fan and Omote Sensei agree: the conflict is real, the body's response is accurate, but the capacity to stay present and honest without being consumed is still available. They converge on what matters: young people need a practice that keeps them present with difficult truth long enough to respond without the spiral or the weight owning them. The practice they both endorse is embodied presence with honest facing: breath, body awareness, movement, and the sincere witness that can hold what is true."
+
+practice_announce:
+  options:
+    - id: practice_pc_01
+      display_name: "Embodied Presence and Honest Facing"
+      duration: "5 minutes"
+      line: "Both Master Fan and Omote Sensei teach a 5-minute Embodied Presence and Honest Facing practice for the moment when conflict pressure is starting to own identity or when what has accumulated needs to be faced. It is in the sidebar, timed and exact."
+
+practice_why_a:
+  options:
+    - id: why_master_feung_01
+      line: "For Master Fan: embodied presence - breath, movement, feeling the feet and the ground - interrupts the speed that has colonized identity. When the mind is racing because the system is moving too fast, the practice asks: can you feel your feet? Can your breath slow? That is cultivation: returning to naturalness so the body can lead again and the mind can stop treating the spiral as identity."
+    - id: why_master_feung_02
+      line: "In Master Fan's tradition, the body has its own steadiness and wisdom. When you can feel the earth beneath your feet, when your breath can slow, when your heart-response can come before analysis, you are no longer identified with the racing mind. The mountain does not try to be stable; it simply is."
+
+practice_why_b:
+  options:
+    - id: why_omote_01
+      line: "For Omote Sensei: embodied presence with honest facing is the practice of purification - creating the conditions in which what has accumulated can be seen and released. When you feel your feet and your breath, when you are present with the collective weight without denial or performance, you are practicing sincere heart-mind (Yamato-gokoro). Service to others restores the one serving."
+    - id: why_omote_02
+      line: "In Omote Sensei's tradition, facing what has accumulated with honesty is what allows it to be released. Embodied presence is not avoidance; it is the foundation for sincere witness. When you can stay present with what you see - the collective oni, the un-faced grief - you are serving by remaining present and honest. Service and purification are one practice."
+
+disagreement_boundary:
+  options:
+    - id: boundary_pc_01
+      line: "Master Fan and Omote Sensei do not agree on what is ultimately happening: is the conflict pressure primarily speed and fragmentation colonizing individual identity, or primarily collective affliction that must be faced and purified? Master Fan points to natural steadiness and the body's own wisdom. Omote Sensei points to collective responsibility and service. But both agree on what young people need right now: a practice of embodied presence that keeps them alive and honest enough to act. The deeper question - individual cultivation or collective purification - remains for each tradition to answer."

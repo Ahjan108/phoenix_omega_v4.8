@@ -1,0 +1,320 @@
+schema_version: 1
+teacher_id: master_feung
+topic: climate
+active: true
+identity:
+  display_name: Master Fan
+  attribution_name: Master Fan Jo
+  tradition: Taoist cultivation through art and embodied practice
+  tradition_short: Taoist cultivation
+  teacher_setting_options:
+  - studio
+  - Zhongnan retreat
+  teacher_years: decades of teaching
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - group chat
+  - late-night scrolling
+  - part-time work
+  tie_to_real_world_struggles:
+  - id: climate_tighten_return
+    label: climate update then body tightens and return
+    loop: reads the number -> body tightens -> closes app -> reopens because truth
+      remains
+    body_markers:
+    - chest
+    - throat
+    - shoulders
+    digital_markers:
+    - close
+    - reopen
+    - scroll
+    - check again
+topic_fit:
+  fit_level: primary
+  fit_reason: Climate distress maps to Taoist naturalness and cultivation — the body
+    that tightens is not wrong; it can return to ease and action through breath, movement,
+    and heart response.
+  forbidden_angles:
+  - do not reduce to generic resilience
+  - do not frame distress as personal weakness
+hook_personal:
+  options:
+  - id: hook_personal_01
+    line: You care more about the planet than ever. You still feel less able to stay
+      with the next number long enough to decide what to do.
+    semantic_family: care-vs-capacity
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: hook_big_picture_01
+    line: A generation can be highly informed, morally serious, and still lose daily
+      functional capacity when every update arrives as proof that institutions waited
+      too long.
+    semantic_family: institutional-delay
+    angle: future-loss
+    article_types:
+    - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: teacher_intro_01
+    line: Master Fan Jo, a Taoist teacher of cultivation through art, movement, and
+      the Guqin, has seen in practice sessions in the studio what climate news does
+      to young people. Master Fan has watched students ask not for calm, but for the
+      capacity to stop the body from locking under pressure so the next move is still
+      possible.
+    semantic_family: identity_seen_shift
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+  - id: teacher_intro_02
+    line: Master Fan Jo, grounded in Taoist naturalness and Tai Chi, has watched in
+      practice sessions climate fear arrive first as moral seriousness and then as
+      the body forcing. Master Fan has observed young people asking not whether the
+      crisis is real, but how to return to what the body knows before the mind spirals
+      — breath, ground, one honest line.
+    semantic_family: identity_seen_shift_alt
+    tone: grave
+    intensity: 4
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+youth_somatic:
+  options:
+  - id: climate_threshold_phone_01
+    line: 'You read the update in a group chat. Your chest tightened. You closed the
+      app. Then you opened it again because not looking did not make the number less
+      true.
+
+      LOOP_SEQUENCE: read the update. chest tightened. closed the app. opened it again.'
+    loop_type: read-tighten-close-return
+    body_register: tightening
+    digital_behavior: close-return
+    article_types:
+    - hard_news_spiritual_response
+  - id: climate_threshold_phone_02
+    line: 'You saw the new threshold before class. Your throat tightened. You put
+      your phone face down. Then you picked it up again because the future does not
+      wait for you to feel ready.
+
+      LOOP_SEQUENCE: saw the threshold. throat tightened. put the phone down. picked
+      it up again.'
+    loop_type: read-tighten-close-return
+    body_register: tightening
+    digital_behavior: put-down-return
+    article_types:
+    - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: mirrored_loop_01
+    line: Master Fan has seen this exact loop in students this year — the reading,
+      the tightening, the closing, the return.
+    semantic_family: loop-mirror
+    loop_type: read-tighten-close-return
+    article_types:
+    - hard_news_spiritual_response
+  - id: mirrored_loop_02
+    line: Master Fan has watched that sequence repeat in young people — the number
+      arrives, the body contracts, the phone goes down, and then the mind goes back
+      because reality is still there.
+    semantic_family: loop-mirror-alt
+    loop_type: read-tighten-close-return
+    article_types:
+    - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: youth_action_climate_01
+    stat_line_1: 2,666 cases. 51 jurisdictions.
+    stat_line_2: Students and youth coalitions are training peers, building campaigns,
+      and forcing officials to answer the gap between public targets and lived reality.
+    semantic_family: institutional-action
+    article_types:
+    - hard_news_spiritual_response
+  - id: youth_action_climate_02
+    stat_line_1: 2,666 cases. 51 jurisdictions.
+    stat_line_2: Young organizers are still filing cases, hosting workshops, and documenting
+      local losses even when national governments keep moving slower than the heat.
+    semantic_family: institutional-action-alt
+    article_types:
+    - hard_news_spiritual_response
+bridge:
+  options:
+  - id: tracker_capacity_01
+    line: '2,666 cases. 51 jurisdictions. The tracker measures what young people did.
+      It has no column for what made the next filing possible after the last delay
+      — the capacity to stay functional enough to act again when the system keeps
+      not responding. The organizer who filed the next case needed it. So does the
+      person who read the update, closed the app, and opened it again. Master Fan''s
+      tradition has been developing it for millennia: naturalness that returns when
+      the body stops forcing.'
+    hidden_capacity: stay functional enough to act again
+    semantic_family: tracker-capacity
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+  - id: tracker_capacity_02
+    line: Climate trackers count cases, targets, and thresholds. They do not count
+      the inner capacity that lets a young person stay in contact with the truth long
+      enough to act again after another institutional delay. That capacity — what
+      remains when striving falls away and the body can move from the heart — is what
+      the next organizer needs. It is what the reader who reopened the app needs too.
+      Master Fan's cultivation practice is designed to protect it.
+    hidden_capacity: stay in contact with truth without losing function
+    semantic_family: tracker-capacity-alt
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+teacher_perspective:
+  options:
+  - id: naturalness_cultivation_01
+    header: What Master Fan Sees
+    paragraphs:
+    - Master Fan begins with naturalness — the state that remains when striving falls
+      away. The body that tightens under climate news is not malfunctioning. It is
+      accurately perceiving the mismatch between reassurance and reality. The tradition
+      does not ask you to force calm. It asks you to release ten per cent of the tension,
+      then let the breath and the ground do the rest.
+    - 'Master Fan pairs that with cultivation: the practice of refining the self through
+      art, movement, breath, and attention. When climate information keeps converting
+      into helplessness, the move is not to think your way out. It is to let the body
+      lead — one breath, one line drawn, one shift of weight. That is how action becomes
+      possible again.'
+    - 'The shift matters here: what feels like a personal fault — me, broken, wrong
+      — is often accurate response to a system and institutional structure shaped
+      by institutional delay. The body stops calling itself broken when it senses
+      from the heart first — heart response is faster and more honest than analysis.
+      Trust what arrives.'
+    semantic_family: naturalness-cultivation
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+  - id: naturalness_cultivation_02
+    header: What Master Fan Sees
+    paragraphs:
+    - Master Fan reads climate panic through heart response — sensing from the heart
+      before the mind categorises. The urgency you feel is not an error signal. It
+      is the deepest kind of intelligence, responding to danger.
+    - From there Master Fan turns to naturalness. The question is not how to feel
+      calm all day. The question is how to let the body find its own stillness so
+      that the next move is not forced but aligned. The mountain does not try to be
+      stable. Let the body learn from that.
+    - In that frame, self-blame softens. The problem is not that young people care
+      too much or that I am wrong for feeling strained. The problem is that a system
+      and institutional structure keep outsourcing unbearable delay onto individual
+      nervous systems. Cultivation through art and breath returns you to what was
+      always there — naturalness — so you can act again.
+    semantic_family: naturalness-cultivation-alt
+    reframe_type: self_to_system
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+practice:
+  default_id: mountain_stillness_01
+  options:
+  - id: mountain_stillness_01
+    display_name: Mountain Stillness and Brush
+    duration: 5 minutes
+    announcement_line: Master Fan teaches a 5-minute Mountain Stillness and Brush
+      practice for moments when climate information keeps converting attention into
+      helplessness. It is in the sidebar, timed and step by step.
+    relief_lines:
+    - The mind stops treating every update as proof that action is pointless.
+    - A steadier internal pace returns, and with it the capacity to act again.
+    relief_register:
+    - capacity
+    - clarity
+    - act again
+    derived_from_frame: naturalness
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+  - id: mountain_stillness_02
+    display_name: Mountain Stillness and Brush
+    duration: 5 minutes
+    announcement_line: Master Fan teaches a 5-minute Mountain Stillness and Brush
+      for the moment when climate numbers turn into shutdown. It is in the sidebar,
+      short enough to use before class, after scrolling, or before the next meeting.
+    relief_lines:
+    - The body stops converting every update into total collapse.
+    - Enough naturalness returns for the next real action.
+    relief_register:
+    - capacity
+    - clarity
+    - act again
+    derived_from_frame: naturalness
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+sdg:
+  primary:
+    id: SDG 13
+    title: Climate Action
+    line: The United Nations has a framework for exactly this gap through SDG 13 and
+      its climate education and resilience targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United
+      Nations.
+cta:
+  options:
+  - id: youngo_01
+    org: YOUNGO
+    line: 'The Climate Reality Project and YOUNGO both run youth-facing entry points
+      into this work. Door in: https://youngoclimate.org'
+    semantic_family: door-in-climate
+    article_types:
+    - hard_news_spiritual_response
+  - id: una_usa_01
+    org: UNA-USA
+    line: 'If that is not your next step, UNA-USA works the same framework at the
+      local-to-global level. Door in: join their network.'
+    semantic_family: door-in-una
+    article_types:
+    - hard_news_spiritual_response
+title_system:
+  headline_layer_1:
+    options:
+    - id: threshold_warning_01
+      line: 1.55C Is No Longer a Warning.
+      semantic_family: threshold-finality
+      article_types:
+      - hard_news_spiritual_response
+  headline_layer_2:
+    options:
+    - id: taoist_attention_01
+      line: A Taoist teacher names what climate stress is doing to Gen Z attention
+        — and what the body can do about it.
+      semantic_family: teacher-attention
+      article_types:
+      - hard_news_spiritual_response
+    - id: taoist_naturalness_01
+      line: A Taoist teacher reads climate distress through naturalness and cultivation,
+        not proof of weakness.
+      semantic_family: teacher-function
+      article_types:
+      - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response
+    - commentary
+    topic_subcases:
+    - threshold_news
+    - institutional_delay
+    intensity_range:
+    - 2
+    - 4

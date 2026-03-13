@@ -1,0 +1,187 @@
+schema_version: 1
+teacher_id: sai_ma
+topic: climate
+active: true
+identity:
+  display_name: Sai Maa
+  attribution_name: Her Holiness Sai Maa
+  tradition: Vedic teacher of consciousness and grace
+  tradition_short: Vedic teaching
+  teacher_setting_options:
+  - retreat
+  - teaching circle
+  teacher_years: teaching lineage
+  affiliation_safe_line: has attended the United Spiritual Leaders Forum
+  launch_approved: true
+persona:
+  id: gen_z_alpha
+  age_band: 13-29
+  default_register: phone-native, high-pressure, institution-skeptical
+  daily_worlds:
+  - school
+  - phone
+  - home
+  - peer support
+  - night routine
+  tie_to_real_world_struggles:
+  - id: overwhelm_loop
+    label: pressure grows until identity starts fusing with it
+    loop: reads pressure signal -> mind races -> pulls back -> checks again because
+      the pressure is still there
+    body_markers:
+    - mind racing
+    - stomach drop
+    - breath shorten
+    digital_markers:
+    - put down
+    - pick up again
+    - check again
+topic_fit:
+  fit_level: primary
+  fit_reason: 'This topic maps to pressure under institutional delay and the struggle
+    to keep functioning while reality keeps worsening. '
+  forbidden_angles:
+  - do not reduce the issue to generic resilience
+  - do not frame distress as personal weakness
+hook_personal:
+  options:
+  - id: hook_personal_01
+    line: You care about the planet and still feel less able to stay with the next
+      number long enough to decide what to do.
+    semantic_family: sai_ma-climate-hook-personal
+    tone: plain
+    intensity: 3
+    article_types:
+    - hard_news_spiritual_response
+hook_big_picture:
+  options:
+  - id: hook_big_picture_01
+    line: 'Climate pressure is no longer only environmental. It is attentional, emotional,
+      and civic: how do young people stay in contact with reality without losing function
+      under it?'
+    semantic_family: sai_ma-climate-hook-big
+    article_types:
+    - hard_news_spiritual_response
+teacher_intro:
+  options:
+  - id: teacher_intro_01
+    line: Her Holiness Sai Maa, a Vedic teacher of consciousness and grace, has watched
+      in practice sessions this pressure land on young people. Students are not only
+      asking how to feel better. They are asking how to stop letting pressure become
+      the whole story of who they are.
+    semantic_family: sai_ma-climate-intro
+    article_types:
+    - hard_news_spiritual_response
+youth_somatic:
+  options:
+  - id: youth_somatic_01
+    line: 'You read the climate update. Your body tightens. You look away. Then you
+      come back because the number is still true. LOOP_SEQUENCE: "read the update.
+      body tightened. looked away. came back."'
+    loop_type: overwhelm_loop
+    article_types:
+    - hard_news_spiritual_response
+teacher_witness:
+  options:
+  - id: teacher_witness_01
+    line: Sai Maa has seen this exact loop -- the update, the body tightening, the
+      turning away, and the return because reality is still there.
+    semantic_family: sai_ma-climate-witness
+    article_types:
+    - hard_news_spiritual_response
+turnaround:
+  options:
+  - id: turnaround_01
+    stat_line_1: 2,666 cases. 51 jurisdictions.
+    stat_line_2: Young climate organizers are filing cases, hosting workshops, and
+      forcing institutions to answer the gap between public promises and lived reality.
+    semantic_family: sai_ma-climate-turnaround
+    article_types:
+    - hard_news_spiritual_response
+bridge:
+  options:
+  - id: bridge_01
+    line: 2,666 cases. 51 jurisdictions. The tracker measures what young people did.
+      It has no column for what made the next step possible after another delayed
+      or broken response -- the capacity to stay in contact with truth long enough
+      to act again when the system keeps not responding. The person who came back
+      needed it. So does the reader in that loop. Sai Maa's teaching has language
+      for protecting that capacity.
+    hidden_capacity: return to truthful action
+    semantic_family: sai_ma-climate-bridge
+    article_types:
+    - hard_news_spiritual_response
+teacher_perspective:
+  options:
+  - id: teacher_perspective_01
+    header: What Sai Maa Sees
+    paragraphs:
+    - Sai Maa would begin by separating consciousness from the storm moving through
+      it. Pressure is real, but overwhelm should not become identity.
+    - Her teaching does not ask young people to deny the difficulty. It asks them
+      to recover enough inner clarity that fear or overload does not become the sole
+      narrator of the self.
+    - What feels like a personal fault -- me, broken, wrong -- is often accurate response
+      to a system and institutional structure that keep normalizing unsustainable
+      strain.
+    semantic_family: sai_ma-climate-perspective
+    article_types:
+    - hard_news_spiritual_response
+practice:
+  default_id: practice_01
+  options:
+  - id: practice_01
+    display_name: 5-minute Overwhelm Reset
+    duration: 5 minutes
+    announcement_line: Sai Maa teaches a 5-minute Overwhelm Reset for moments when
+      climate pressure starts converting attention into helplessness. It is in the
+      sidebar, timed and practical.
+    relief_lines:
+    - The spiral loses some of its authority to define the whole self.
+    - Enough clarity returns for the next honest decision.
+    relief_register:
+    - capacity
+    - clarity
+    - act again
+    article_types:
+    - hard_news_spiritual_response
+sdg:
+  primary:
+    id: SDG 13
+    title: Climate Action
+    line: The United Nations has a framework for exactly this gap through SDG 13 and
+      its climate education and resilience targets.
+  fallback_un_tie:
+    line: Pearl News is an independent nonprofit. We are not affiliated with the United
+      Nations.
+cta:
+  options:
+  - id: cta_01
+    org: YOUNGO
+    line: 'YOUNGO and youth climate communities offer a public entry point here. Door
+      in: https://youngoclimate.org'
+    semantic_family: sai_ma-climate-cta
+    article_types:
+    - hard_news_spiritual_response
+title_system:
+  headline_layer_1:
+    options:
+    - id: headline_layer_1_01
+      line: The Climate Threshold Is No Longer Abstract.
+      semantic_family: sai_ma-climate-title1
+      article_types:
+      - hard_news_spiritual_response
+  headline_layer_2:
+    options:
+    - id: headline_layer_2_01
+      line: A teacher names what climate pressure is doing to Gen Z and Gen Alpha
+        attention.
+      semantic_family: sai_ma-climate-title2
+      article_types:
+      - hard_news_spiritual_response
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: article_id + slot + teacher_id + topic
+  metadata_filters:
+    article_types:
+    - hard_news_spiritual_response

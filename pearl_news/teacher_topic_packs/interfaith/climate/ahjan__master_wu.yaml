@@ -1,0 +1,161 @@
+schema_version: 1
+pair_type: interfaith
+teacher_a_id: ahjan
+teacher_b_id: master_wu
+topic: climate
+active: true
+
+identity:
+  teacher_a_tradition: "Theravada Buddhist teacher"
+  teacher_b_tradition: "Land and cultivation teacher"
+  shared_diagnosis: "Young people are experiencing accurate perception of institutional delay, not personal weakness"
+
+pair_rationale:
+  structural_overlap: "Both traditions locate the root problem in misdiagnosis: distress is reframed from 'personal inadequacy' to 'accurate response to badly designed conditions (institutional or environmental)'"
+  distinct_angles:
+    - "Ahjan sees samvega: the destabilizing but truthful recognition that conditions are fragile. He diagnoses the collapse as system-scale delay, then teaches right effort—where to direct energy when full response is impossible."
+    - "Master Wu sees field conditions: when the surrounding field is fragmented or harsh, regulation itself becomes fragmented. He diagnoses the collapse as structural environment, then teaches that accurate response to bad conditions is not weakness."
+  convergence_type: "Both traditions teach reframing (system not self) + restore capacity through practice. Both name the practice as grounded in reality—not escapism or false calm."
+
+teacher_a_intro:
+  options:
+    - id: ahjan_intro_01
+      line: "Ajahn Ahjan, a Theravada Buddhist teacher for 25 years, has seen in practice rooms what this does to young people. Students are not asking how to stay inspired anymore. They are asking how to stay functional while the future they were promised keeps disappearing on schedule."
+      semantic_family: "identity_seen_shift"
+      tone: plain
+      intensity: 3
+      article_types: ["hard_news_spiritual_response", "commentary"]
+    - id: ahjan_intro_02
+      line: "Ajahn Ahjan, a Theravada Buddhist teacher for 25 years, has watched climate fear arrive first as moral seriousness and then as loss of function. Students are not asking whether the crisis is real. They are asking how to keep attention from collapsing under constant proof that adults waited too long."
+      semantic_family: "identity_seen_shift_alt"
+      tone: grave
+      intensity: 4
+      article_types: ["hard_news_spiritual_response", "commentary"]
+
+teacher_a_perspective:
+  options:
+    - id: ahjan_perspective_01
+      header: "What Ahjan Sees"
+      paragraphs:
+        - "Buddhist practice has a precise name for this kind of pressure: samvega, the destabilizing recognition that the world is more fragile than you were taught to believe. What makes climate distress so exhausting is not that the body is malfunctioning. It is that the body is perceiving the mismatch between official reassurance and material reality accurately."
+        - "Ahjan pairs that with right effort. This is not productivity language. It is the discipline of using energy where contact with truth is still possible. A mind that can no longer stay with the next report is not proving personal weakness. It is responding to a system that asks for constant awareness while refusing proportionate response."
+        - "The shift matters here: what feels like private inadequacy is often accurate response to institutional delay. The mind stops calling itself broken when it sees that the real disorder is outside it."
+      semantic_family: "samvega-right-effort"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+    - id: ahjan_perspective_02
+      header: "What Ahjan Sees"
+      paragraphs:
+        - "Ahjan reads climate panic through samvega: the moment when reality becomes too serious for denial, and the body knows it before the mind finds the language. That urgency is not an error signal. It is truthful contact with danger."
+        - "From there he turns to right effort. The question is not how to feel inspired all day. The question is how to direct energy where contact with truth is still possible, so attention is not consumed by helpless repetition."
+        - "In that frame, self-blame softens. The problem is not that young people care too much. The problem is that institutions keep outsourcing unbearable delay onto individual nervous systems."
+      semantic_family: "samvega-right-effort-alt"
+      reframe_type: "self_to_system"
+      article_types: ["hard_news_spiritual_response", "commentary"]
+
+teacher_b_intro:
+  options:
+    - id: master_wu_intro_01
+      line: "Master Wu, a land and cultivation teacher, has watched this pressure land on young people. Students are not only asking how to try harder. They are asking how to stay steady inside environments that keep training fragmentation."
+      semantic_family: "master_wu-climate-intro"
+      article_types: ["hard_news_spiritual_response"]
+    - id: master_wu_intro_02
+      line: "Master Wu, a land and cultivation teacher, has seen young people internalizing disorder from badly designed systems as if it were personal failure. They ask not how to be stronger, but how to stay coherent when surrounding conditions keep pulling them apart."
+      semantic_family: "master_wu-climate-intro-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+teacher_b_perspective:
+  options:
+    - id: master_wu_perspective_01
+      header: "What Master Wu Sees"
+      paragraphs:
+        - "Master Wu would begin with the field. Attention, regulation, and effort are shaped by conditions as much as by will. When the surrounding field is fragmented, unstable, or harsh, the first mistake is to translate that disorder into a judgment on the person."
+        - "Climate pressure is exactly this: a fragmented field. Young people are asked to stay focused on a reality that official channels keep understating. They are asked to hold steady while institutions move too slowly. The field itself is teaching fragmentation."
+        - "What feels like private weakness is often accurate response to badly designed or degraded conditions around you. The capacity to stay functional is not about willpower. It is about recognizing which field you are actually in."
+      semantic_family: "master_wu-climate-perspective"
+      article_types: ["hard_news_spiritual_response"]
+    - id: master_wu_perspective_02
+      header: "What Master Wu Sees"
+      paragraphs:
+        - "Master Wu sees the field first. Regulation is not individual. It comes from what surrounds you. When conditions are chaotic—when institutional responses lag behind reality—the nervous system accurately mirrors that chaos."
+        - "This is not weakness. This is precision. The young person who cannot stay focused on climate news is not failing. They are reading the signal correctly: the field itself is broken."
+        - "The teaching is different from 'try harder.' It is: see the actual field. Practice grounding not by ignoring what is fragmented, but by finding what remains steady underneath it."
+      semantic_family: "master_wu-climate-perspective-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+convergence_bridge:
+  options:
+    - id: convergence_01
+      line: "Both Ahjan and Master Wu share a diagnosis of the same invisible labor: young people are not suffering from personal defect; they are experiencing accurate response to a world where institutions have delayed beyond the point of proportionate action. Ahjan names this samvega—truthful destabilization. Master Wu names this field condition—a fragmented outer space producing fragmented inner regulation. Both teachers then teach the same shift: stop internalizing the disorder as personal failure, and practice recovering capacity to act within reality as it actually is."
+      structural_overlap: "Both reframe distress from self-blame to system-response; both restore capacity through grounded practice, not denial"
+      metadata:
+        semantic_family: "system-response-reframe"
+        tone: plain
+        article_types: ["interfaith_dialogue_report"]
+
+shared_agreement:
+  options:
+    - id: agreement_01
+      line: "Both traditions agree that the young person carrying climate distress is not broken, and that the path forward is not resilience (accepting the unacceptable) but clarity-and-capacity: seeing what is actually happening, and practicing how to stay functional enough to act within that truth. This shared practice is called grounded response."
+      shared_practice_name: "grounded response"
+
+practice_why_a:
+  options:
+    - id: ahjan_practice_why_01
+      line: "For Ahjan, grounded response honors samvega—you do not try to make the reality less real. Instead, you learn right effort: you place attention where contact with truth is still possible. The practice is Buddhist: it teaches the mind to stay with the breath and body rather than loop endlessly in helplessness. When the update comes again, you have recovered the capacity to meet it without collapsing."
+      semantic_family: "ahjan-why-practice"
+      article_types: ["hard_news_spiritual_response"]
+    - id: ahjan_practice_why_02
+      line: "Ahjan teaches grounded response as right effort. The Buddhist discipline is precise: you are not becoming numb. You are directing energy toward what you can actually do—reading the next report clearly, deciding what action is possible, taking it. The practice restores this sequence. It does not promise that institutions will move faster. It promises that your nervous system will not consume all the energy needed for that action."
+      semantic_family: "ahjan-why-practice-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+practice_why_b:
+  options:
+    - id: master_wu_practice_why_01
+      line: "For Master Wu, grounded response means finding what is steady in the field. Climate systems are fragmented; institutions are delayed; the world is genuinely unstable. But underneath that, the earth itself is present. The practice is to root your attention and body there—not as escape, but as the only stable ground from which accurate response is possible. When you lose that ground, the next step forward disappears too."
+      semantic_family: "master_wu-why-practice"
+      article_types: ["hard_news_spiritual_response"]
+    - id: master_wu_practice_why_02
+      line: "Master Wu teaches grounded response as field-literacy. You learn to distinguish what is broken in the system from what remains reliable in the ground beneath you. Climate news will keep arriving. But if you practice staying rooted—present to earth, water, breath—you recover the steadiness you need to face the next true thing without scattering. This is not denial. It is using what is solid to move what needs to move."
+      semantic_family: "master_wu-why-practice-alt"
+      article_types: ["hard_news_spiritual_response"]
+
+headline_layer_2:
+  options:
+    - id: headline_climate_interfaith_01
+      line: "Two teachers name the same invisible load: young people are not failing under climate pressure; they are responding accurately to institutional delay. Here is how both traditions restore the capacity to stay in contact with truth."
+      semantic_family: "interfaith-dialogue-intro"
+      article_types: ["interfaith_dialogue_report"]
+    - id: headline_climate_interfaith_02
+      line: "A Buddhist teacher and a cultivation teacher agree on what climate distress really is—and how to practice staying functional without numbing. An interfaith conversation on institutional delay and grounded capacity."
+      semantic_family: "interfaith-dialogue-intro-alt"
+      article_types: ["interfaith_dialogue_report"]
+
+sdg:
+  primary:
+    id: "SDG 13"
+    title: "Climate Action"
+    line: "The United Nations has a framework for exactly this gap through SDG 13 and its climate education and resilience targets."
+  fallback_un_tie:
+    line: "Pearl News is an independent nonprofit. We are not affiliated with the United Nations."
+
+cta:
+  options:
+    - id: interfaith_cta_01
+      orgs: ["YOUNGO", "The Climate Reality Project"]
+      line: "If you are ready to direct that capacity toward action, YOUNGO and The Climate Reality Project offer entry points. Door in: https://youngoclimate.org"
+      semantic_family: "door-in-climate-action"
+      article_types: ["interfaith_dialogue_report"]
+    - id: interfaith_cta_02
+      orgs: ["UNA-USA"]
+      line: "For another pathway into climate work at the local-to-global scale, UNA-USA builds the same framework from the ground up."
+      semantic_family: "door-in-una"
+      article_types: ["interfaith_dialogue_report"]
+
+variation_policy:
+  avoid_same_semantic_family_within_article: true
+  deterministic_rotation_key: "article_id + slot + teacher_a_id + teacher_b_id + topic"
+  metadata_filters:
+    article_types: ["interfaith_dialogue_report"]
+    intensity_range: [2, 4]
